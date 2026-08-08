@@ -105,3 +105,24 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# macOS metadata
+.DS_Store
+._*
+
+# Local IDE state
+.idea/
+
+# Local environment and credentials (the repository is public)
+.env
+.env.*
+!.env.example
+.netrc
+.npmrc
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*.keystore
+**/[Ss]ecrets/**

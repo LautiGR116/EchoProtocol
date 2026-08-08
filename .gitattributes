@@ -21,6 +21,7 @@
 *.hlsl                  text linguist-language=hlsl
 *.raytrace              text linguist-language=hlsl
 *.shader                text
+*.md                    text eol=lf
 
 # Unity JSON files
 *.asmdef                unity-json
@@ -70,102 +71,46 @@
 Assets/Plugins/**           linguist-generated
 Packages/packages-lock.json linguist-generated
 
-# Unity LFS
+# Intentional Unity LFS policy
+#
+# These formats are normally large, binary, or both. Common delivery images such
+# as PNG/JPEG are deliberately kept in regular Git unless a specific large file
+# is added to LFS by path after review.
 *.cubemap               lfs
 *.unitypackage          lfs
 
-# 3D models
-*.3dm                   lfs
-*.3ds                   lfs
+# Binary/source 3D models
 *.blend                 lfs
-*.blend1                lfs
 *.c4d                   lfs
-*.collada               lfs
-*.dae                   lfs
-*.dxf                   lfs
 *.FBX                   lfs
 *.fbx                   lfs
-*.jas                   lfs
-*.lws                   lfs
-*.lxo                   lfs
 *.ma                    lfs
-*.max                   lfs
 *.mb                    lfs
-*.obj                   lfs
-*.ply                   lfs
-*.skp                   lfs
-*.stl                   lfs
-*.ztl                   lfs
 
 # Audio
 *.aif                   lfs
 *.aiff                  lfs
-*.it                    lfs
-*.mod                   lfs
 *.mp3                   lfs
 *.ogg                   lfs
-*.s3m                   lfs
 *.wav                   lfs
-*.xm                    lfs
 
 # Video
-*.asf                   lfs
-*.avi                   lfs
-*.flv                   lfs
 *.mov                   lfs
 *.mp4                   lfs
-*.mpeg                  lfs
-*.mpg                   lfs
-*.ogv                   lfs
-*.wmv                   lfs
+*.webm                  lfs
 
-# Images
-*.bmp                   lfs
+# High-fidelity source images
 *.exr                   lfs
-*.gif                   lfs
 *.hdr                   lfs
-*.iff                   lfs
-*.jpeg                  lfs
-*.jpg                   lfs
-*.pict                  lfs
-*.png                   lfs
 *.psd                   lfs
 *.tga                   lfs
 *.tif                   lfs
 *.tiff                  lfs
-*.webp                  lfs
 
-# Compressed Archive
-*.7z                    lfs
-*.bz2                   lfs
-*.gz                    lfs
-*.rar                   lfs
-*.tar                   lfs
-*.zip                   lfs
-
-# Compiled Dynamic Library
+# Native/managed binary plugins
 *.dll                   lfs
-*.pdb                   lfs
+*.dylib                 lfs
 *.so                    lfs
-
-# Fonts
-*.otf                   lfs
-*.ttf                   lfs
-
-# Executable/Installer
-*.apk                   lfs
-*.exe                   lfs
-
-# Documents
-*.pdf                   lfs
-
-# ETC
-*.a                     lfs
-*.reason                lfs
-*.rns                   lfs
-
-# Spine export file for Unity
-*.skel.bytes            lfs
 
 # Exceptions for .asset files such as lightning pre-baking
 LightingData.asset     binary
