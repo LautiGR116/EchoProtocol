@@ -39,7 +39,8 @@ wrong.
 - Collision and grounded movement through a CharacterController.
 - Center-camera interaction within a three-metre range using `E`.
 - An earlier toggle switch remains as an inactive interaction proof.
-- Timestamped player movement recording at 20 samples per second.
+- Timestamped player movement recording at 20 samples per second, armed until
+  first movement with a predictable one-second lead-in.
 - `R` ends an attempt, restores the known baseline, and starts the next attempt.
 - One translucent greybox Echo replays the latest attempt and disappears at its
   recorded end.

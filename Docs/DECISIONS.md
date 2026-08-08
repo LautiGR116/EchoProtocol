@@ -130,3 +130,16 @@ that the second puzzle actually requires.
 
 **Tradeoff:** A later sequential puzzle may justify another small composition,
 but arbitrary boolean authoring remains unavailable.
+
+## 2026-08-08 — Arm recording until first movement
+
+**Decision:** Do not accumulate arbitrary idle time at spawn. Arm each attempt
+until the Player moves horizontally by `0.02` metres, then begin the recording
+with a fixed one-second lead-in. Preserve every pause after movement begins.
+
+**Why:** Echo playback reaches meaningful actions predictably without erasing
+deliberate pressure-plate dwell or requiring the player to reset immediately.
+
+**Tradeoff:** Pressing `R` before any movement produces no new Echo. The start
+gate currently observes body translation rather than input intent or semantic
+interactions.

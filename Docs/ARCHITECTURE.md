@@ -40,7 +40,10 @@ player input lifecycle remains owned by the player setup.
 
 - `EchoRecorder` lives on `Player`. It captures the player's world position and
   body rotation in `LateUpdate` at a `0.05` second interval, after locomotion has
-  run. Each attempt is bounded to 60 seconds.
+  run. A fresh attempt is armed but does not accumulate arbitrary idle time at
+  spawn. Horizontal movement beyond `0.02` metres starts a fixed one-second
+  lead-in and the 60-second bounded timeline. Pauses after that point remain
+  part of the recording, including pressure-plate dwell.
 - `EchoFrame` stores one timestamped pose. `EchoRecording` copies completed
   frames into an immutable snapshot and samples by timestamp with position and
   quaternion interpolation.
@@ -58,7 +61,7 @@ press of `R`, or reaching the recording limit, performs this ordered lifecycle:
 4. Reset player position, yaw, camera pitch, and vertical velocity at
    `Player Spawn`.
 5. Instantiate and initialize the new Echo from the completed snapshot.
-6. Begin a fresh recording at the spawn.
+6. Arm a fresh recording at the spawn; its timeline starts on first movement.
 
 The current scene explicitly resets its pressure plate, sliding door, and exit
 goal. The earlier `PrototypeToggleSwitch` remains available as an isolated

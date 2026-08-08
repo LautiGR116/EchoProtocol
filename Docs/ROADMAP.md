@@ -16,6 +16,8 @@ approval of challenge, fairness, readability, and predictability.
 - The approved M4 scene variant and loop wiring remain intact but inactive.
 - Truth table, canonical recording solution, Echo disappearance, full reset, and
   five consecutive loops pass runtime verification.
+- Initial spawn idle is trimmed to a fixed one-second lead-in while meaningful
+  pauses later in the route remain exact.
 
 ## Completed
 

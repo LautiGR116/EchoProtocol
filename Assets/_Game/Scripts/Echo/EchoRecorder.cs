@@ -9,8 +9,14 @@ namespace EchoProtocol.Echo
         [SerializeField, Min(0.01f)] private float sampleInterval = 0.05f;
         [SerializeField, Min(1f)] private float maxRecordingDuration = 60f;
 
+        [Header("Start Gate")]
+        [SerializeField, Min(0f)] private float startMovementThreshold = 0.02f;
+        [SerializeField, Min(0f)] private float startPreRollDuration = 1f;
+
         private readonly List<EchoFrame> frames = new List<EchoFrame>();
         private float recordingStartTime;
+        private Vector3 armedPosition;
+        private Quaternion armedRotation;
         private float lastObservedTime;
         private Vector3 lastObservedPosition;
         private Quaternion lastObservedRotation;
@@ -20,13 +26,21 @@ namespace EchoProtocol.Echo
 
         public bool IsRecording { get; private set; }
 
+        public bool HasRecordingStarted { get; private set; }
+
+        public bool IsArmed => IsRecording && !HasRecordingStarted;
+
         public int CapturedFrameCount => frames.Count;
 
         public float SampleInterval => sampleInterval;
 
         public float MaxRecordingDuration => maxRecordingDuration;
 
-        public float ElapsedTime => IsRecording
+        public float StartMovementThreshold => startMovementThreshold;
+
+        public float StartPreRollDuration => startPreRollDuration;
+
+        public float ElapsedTime => IsRecording && HasRecordingStarted
             ? Mathf.Min(Time.time - recordingStartTime, maxRecordingDuration)
             : 0f;
 
@@ -38,10 +52,28 @@ namespace EchoProtocol.Echo
             }
 
             float observedTime = Time.time - recordingStartTime;
-            float sampleThroughTime = Mathf.Min(observedTime, maxRecordingDuration);
-            float observationDuration = observedTime - lastObservedTime;
             Vector3 observedPosition = transform.position;
             Quaternion observedRotation = transform.rotation;
+
+            if (!HasRecordingStarted)
+            {
+                Vector2 horizontalMovement = new Vector2(
+                    observedPosition.x - armedPosition.x,
+                    observedPosition.z - armedPosition.z);
+
+                if (horizontalMovement.sqrMagnitude
+                    < startMovementThreshold * startMovementThreshold)
+                {
+                    return;
+                }
+
+                StartFromMovement(observedPosition, observedRotation);
+                return;
+            }
+
+            observedTime = Time.time - recordingStartTime;
+            float sampleThroughTime = Mathf.Min(observedTime, maxRecordingDuration);
+            float observationDuration = observedTime - lastObservedTime;
 
             while (nextSampleIndex * sampleInterval <= sampleThroughTime)
             {
@@ -89,19 +121,21 @@ namespace EchoProtocol.Echo
             }
 
             frames.Clear();
-            recordingStartTime = Time.time;
+            recordingStartTime = 0f;
+            armedPosition = transform.position;
+            armedRotation = transform.rotation;
             lastObservedTime = 0f;
-            lastObservedPosition = transform.position;
-            lastObservedRotation = transform.rotation;
-            nextSampleIndex = 1;
+            lastObservedPosition = armedPosition;
+            lastObservedRotation = armedRotation;
+            nextSampleIndex = 0;
             ReachedDurationLimit = false;
             IsRecording = true;
-            CaptureFrame(0f, lastObservedPosition, lastObservedRotation);
+            HasRecordingStarted = false;
         }
 
         public EchoRecording FinishRecording()
         {
-            if (!IsRecording)
+            if (!IsRecording || !HasRecordingStarted)
             {
                 return null;
             }
@@ -117,14 +151,65 @@ namespace EchoProtocol.Echo
             }
 
             IsRecording = false;
+            HasRecordingStarted = false;
             return new EchoRecording(frames);
         }
 
         public void CancelRecording()
         {
             IsRecording = false;
+            HasRecordingStarted = false;
             ReachedDurationLimit = false;
             frames.Clear();
+        }
+
+        private void StartFromMovement(
+            Vector3 observedPosition,
+            Quaternion observedRotation)
+        {
+            float preRollDuration = Mathf.Min(
+                startPreRollDuration,
+                Mathf.Max(0f, maxRecordingDuration - sampleInterval));
+
+            recordingStartTime = Time.time - preRollDuration;
+            frames.Clear();
+
+            if (preRollDuration <= Mathf.Epsilon)
+            {
+                CaptureFrame(0f, observedPosition, observedRotation);
+            }
+            else
+            {
+                CaptureFrame(0f, armedPosition, armedRotation);
+                int preRollSampleIndex = 1;
+
+                while (preRollSampleIndex * sampleInterval < preRollDuration)
+                {
+                    CaptureFrame(
+                        preRollSampleIndex * sampleInterval,
+                        armedPosition,
+                        armedRotation);
+                    preRollSampleIndex++;
+                }
+
+                CaptureFrame(
+                    preRollDuration,
+                    observedPosition,
+                    observedRotation);
+            }
+
+            nextSampleIndex = Mathf.FloorToInt(
+                preRollDuration / sampleInterval) + 1;
+            while (nextSampleIndex * sampleInterval
+                <= preRollDuration + Mathf.Epsilon)
+            {
+                nextSampleIndex++;
+            }
+
+            lastObservedTime = preRollDuration;
+            lastObservedPosition = observedPosition;
+            lastObservedRotation = observedRotation;
+            HasRecordingStarted = true;
         }
 
         private void CaptureFrame(float timestamp)
@@ -152,8 +237,16 @@ namespace EchoProtocol.Echo
 
         private void OnValidate()
         {
-            sampleInterval = Mathf.Max(0.01f, sampleInterval);
             maxRecordingDuration = Mathf.Max(1f, maxRecordingDuration);
+            sampleInterval = Mathf.Clamp(
+                sampleInterval,
+                0.01f,
+                maxRecordingDuration);
+            startMovementThreshold = Mathf.Max(0f, startMovementThreshold);
+            startPreRollDuration = Mathf.Clamp(
+                startPreRollDuration,
+                0f,
+                Mathf.Max(0f, maxRecordingDuration - sampleInterval));
         }
     }
 }

@@ -2879,6 +2879,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EchoProtocol.Echo.EchoRecorder
   sampleInterval: 0.05
   maxRecordingDuration: 60
+  startMovementThreshold: 0.02
+  startPreRollDuration: 1
 --- !u!114 &1202483061
 MonoBehaviour:
   m_ObjectHideFlags: 0

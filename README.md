@@ -32,6 +32,9 @@ Hub. The development scene is
 - Capture cursor again: left click in the Game view
 
 An attempt also resets automatically after 60 seconds in the current prototype.
+The recorder remains armed while the Player is idle at spawn. The first real
+movement starts the timeline with a fixed one-second lead-in; every later pause,
+including holding a pressure plate, is reproduced at full length.
 
 ## Current milestone
 
