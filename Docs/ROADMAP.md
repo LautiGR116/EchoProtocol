@@ -1,23 +1,33 @@
 # Roadmap
 
+The dated 16-week schedule in GDD v0.1 is provisional and predates the actual
+repository progress. Its dependency order remains useful; repository evidence
+and human checkpoints determine current status.
+
 ## Current milestone
 
-M5.1 — Dual-plate timing. Implemented and objectively verified; awaiting human
-approval of challenge, fairness, readability, and predictability.
+M6.3 — First restrained audio discrepancy. M6.2's trustworthy door-audio rule is
+implemented, objectively verified, and human-approved. The exact M6.3 cue and
+trigger remain to be designed before implementation.
 
 ## Implemented in the current milestone
 
-- A concrete `A && B` condition requires an Echo and Player to cooperate across
-  two physically separate pressure plates.
-- Independent status lamps expose each plate state while the door remains bound
-  to the deterministic AND rule.
-- The M5.1 door has an instance-only travel/speed override and a threshold plate
-  sized to provide a fair physical crossing window.
-- The approved M4 scene variant and loop wiring remain intact but inactive.
-- Truth table, canonical recording solution, Echo disappearance, full reset, and
-  five consecutive loops pass runtime verification.
-- Initial spawn idle is trimmed to a fixed one-second lead-in while meaningful
-  pauses later in the route remain exact.
+- `MX_Main` contains only `Master`, `Ambience`, and `WorldSFX` at their default
+  levels. The approved M6.1 hum is routed to `Ambience` without changing its
+  volume, fade, or persistence.
+- The active M5.2 door owns one 3D `AudioSource` at its fixed doorway and one
+  `SlidingDoorAudio` component routed to `WorldSFX`.
+- Two deterministic mono clips are generated once at runtime: a seamless motor
+  loop and a short endpoint cue. There is no imported asset, random pitch,
+  variation, or new horror event.
+- The motor follows physical panel displacement rather than repeated open
+  requests. A direction reversal keeps one continuous voice; only a real endpoint
+  produces one endpoint cue.
+- Door audio is an explicit loop reset target. A successful RECALL during motion
+  stops it immediately without a false endpoint sound or residual loop.
+- Runtime verification covered physical opening, reversal, midpoint RECALL, clip
+  bounds, and five successful loops. The final state retained two AudioSources,
+  one door-audio component, one Echo, and the original runtime clip instance.
 
 ## Completed
 
@@ -42,15 +52,74 @@ approval of challenge, fairness, readability, and predictability.
   complete temporal room, and known-baseline reset.
 - M4: end-to-end playback and five consecutive resets verified; human clarity,
   timing, and feel checkpoint approved.
+- M5.1: deterministic dual-plate simultaneity, independent status lamps, and
+  fair threshold crossing objectively verified and human-approved.
+- M5.2: deterministic sequential relay, ordered status feedback, anti-solo
+  geometry, and Echo cooperation objectively verified and human-approved.
+- M5: reliable normal puzzle language human-approved through simultaneity and
+  sequential planning.
+- M6.1: deterministic chair reveal persists outside the loop without changing
+  any recorded frame, puzzle rule, path, or timing.
+- M6.1b: procedural clinical hum, reveal-only fade, and sustained silence
+  objectively verified; the hum and its disappearance are human-approved.
+- M6.2: deterministic physical door audio, mixer separation, reversal, midpoint
+  reset, and repeated-loop behavior objectively verified. The causal baseline is
+  human-approved; its synthetic motor timbre remains a production placeholder.
 
 ## Next
 
-- M5.1: human difficulty/fairness approval for the dual-plate timing room.
-- M5.2: one predictable sequential-action puzzle after M5.1 is tuned.
-- M5: establish enough reliable normal language before anomalies.
-- M6: first restrained horror anomalies.
+- M6.3: design and test one restrained audio discrepancy that relies on the
+  newly trusted soundscape without falsifying mechanical or Echo state.
+- Production audio pass: replace the approved door placeholder with authored or
+  licensed material, friction, and creak while preserving its causal timing.
+- M7: planned content and narrative pass across the five-chapter structure,
+  including the small hub, art progression, audio, minimal UI, and autosave.
+- M8: polish, QA, Windows/macOS builds, and presentation.
+
+M6.3-M8 are product direction, not implemented systems or locked calendar dates.
+Scope may be reduced before quality or the central arc is compromised.
+
+## Product gates and risks
+
+- Reset inconsistency would break both puzzles and trust; preserve explicit
+  baselines and consecutive-loop verification.
+- An environmental discrepancy that reads as broken playback would undermine
+  trust; require human attribution to the room rather than the Echo.
+- Puzzle difficulty targets planning and coordination around 3/5, with tunable
+  margins and diegetic assistance rather than frame-tight execution.
+- Narrative ambiguity should invite reconstruction without making causality
+  illegible; narrative playtests are required later.
+- Art, audio, voice, and licensed assets can consume solo production capacity;
+  prefer modular reuse, few lines, and source/license review.
+- Performance targets remain TBD until the vertical slice is profiled on target
+  hardware.
+
+## Open design decisions
+
+- Protagonist name: TBD; anonymity remains valid unless naming improves voice or
+  narrative clarity.
+- Guiding voice identity: TBD; it must connect to the traumas without artificial
+  exposition.
+- Exact events and responsibility in both accidents: TBD; only their high-level
+  sibling/child relationship is approved.
+- Facility name and literal reality: TBD; keep it institutional and ambiguous
+  unless definition strengthens the story.
+- Product RECALL parameters: TBD beyond the validated prototype baseline of one
+  latest Echo, a 60-second cap, and recording armed until first movement.
+- Sprint: EN PRUEBA and excluded from the opening.
+- Performance target: TBD after profiling on target Windows/macOS hardware.
+- Final moodboard references and production assets: TBD pending coherence,
+  source, license, and development-cost review.
 
 ## Deferred / cut for now
 
-- Sprint, crouch, jump, stamina, inventory, combat, final art, horror director,
-  generic anomaly framework, and additional scenes.
+- Current milestone exclusions: sprint, crouch, jump, stamina, object pickup,
+  player arms, pause/settings UI, semantic Echo interactions, multiple Echoes,
+  autosave, final production art/audio, narrative content, production scenes,
+  and additional horror anomalies.
+- NO MVP: Echo manipulation of movable physics objects, combat, weapons,
+  systemic enemies, multiplayer/networking/backend, open world, crafting, RPG
+  systems, achievements, complex inventory, multiple save slots, and additional
+  nonessential ports/localization.
+- Avoid a generic horror director, anomaly framework, or puzzle signal graph
+  until a concrete approved feature requires one.

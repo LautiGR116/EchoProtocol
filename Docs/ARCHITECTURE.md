@@ -63,8 +63,12 @@ press of `R`, or reaching the recording limit, performs this ordered lifecycle:
 5. Instantiate and initialize the new Echo from the completed snapshot.
 6. Arm a fresh recording at the spawn; its timeline starts on first movement.
 
-The current scene explicitly resets its pressure plate, sliding door, and exit
-goal. The earlier `PrototypeToggleSwitch` remains available as an isolated
+After all six steps succeed, `LoopController` emits `LoopCompleted`. Failed
+RECALL attempts without a started recording emit nothing.
+
+The current scene explicitly resets two pressure plates, their sequential
+condition, the sliding door, its audio state, and the exit goal. The earlier
+`PrototypeToggleSwitch` remains available as an isolated
 interaction proof but its scene group is inactive and it is not part of the
 current puzzle baseline. The loop keeps only the latest recording and one Echo.
 It does not reload the scene or take ownership of the shared `PlayerInput`
@@ -94,7 +98,8 @@ deferred until a concrete puzzle requires them.
   plate references this one door directly and requests it open only while at
   least one valid actor remains.
 - `PrototypePuzzleGoal` is a latching trigger behind the door. It accepts only
-  the Player, ignores Echoes, and returns to incomplete on loop reset.
+  the Player, ignores Echoes, returns to incomplete on loop reset, and emits one
+  rising-edge `Completed` event when the Player first enters.
 
 This is intentionally a concrete one-plate/one-door contract, not a generic
 signal graph. More expressive puzzle wiring is deferred until another room
@@ -113,17 +118,83 @@ The M5.1 plates deliberately leave that reference empty, making the AND
 condition the sole logical owner of their door. This is not a general boolean
 graph, UnityEvent network, or timer framework.
 
+## Sequential plate condition
+
+M5.2 adds one `SequentialPlateDoorCondition` with three explicit phases:
+`AwaitingFirst`, `AwaitingSecond`, and `HoldingOpen`. A rising press on plate A
+arms the second phase and its lamp. Only a later rising press on B completes the
+sequence; B pressed before A, held while A activates, or pressed in the same
+physics step is ignored until it is released and pressed again.
+
+There is no sequence timeout. Once valid, the condition requests its door open
+only while B remains occupied. Releasing B, disabling its actor, or resetting the
+loop returns to `AwaitingFirst`, clears both indicators, and closes the door. The
+two plates have no direct door reference, leaving the condition as the only
+logical owner. A low scene blocker lengthens the B-to-door route so the Player
+cannot replace Echo cooperation with a closing-door race.
+
+## First environmental discrepancy
+
+M6.1 adds one `EnvironmentalDiscrepancyController` with explicit references to
+the active loop, Player-only goal, and one initially inactive chair root. The
+goal's rising event arms the controller; the next successful `LoopCompleted`
+event reveals the chair synchronously after reset and Echo initialization.
+
+The controller is active while its visual child is hidden. It does not implement
+`ILoopResettable` and is not listed among puzzle reset targets, so the revealed
+state persists through later RECALLs until the scene or Play Mode session reloads.
+The chair is built from render-only primitives with no collider, Rigidbody,
+`LoopActor`, interaction, light, or puzzle reference. It cannot change
+pathing, timing, occupancy, goal eligibility, or recorded Echo frames.
+
+`ClinicalRoomTone` shares the always-active controller GameObject and owns one 2D
+`AudioSource`. At runtime it generates one deterministic four-second mono clip
+from fixed sine components at the active output sample rate, then loops it at
+volume `0.14`. It listens only to the discrepancy's rising `Revealed` event,
+fades linearly to zero over `0.8` seconds, stops the source, and remains silent
+through later RECALLs. A Play Mode or scene restart destroys the runtime clip and
+restores the initial hum. It does not touch the listener, mixer settings, global
+volume, time scale, puzzle reset list, or Echo lifecycle.
+
+## Normal audio routing
+
+M6.2 adds `Assets/_Game/Audio/MX_Main.mixer` with one default snapshot and three
+groups: `Master`, `Ambience`, and `WorldSFX`. All groups remain at their default
+level with no effects beyond Unity's attenuation stage and no exposed
+parameters. The M6.1 room tone routes to `Ambience`; its component still owns the
+same source-level volume and fade without mutating mixer or listener state.
+
+The active M5.2 door root owns one 3D `AudioSource` routed to `WorldSFX` and one
+`SlidingDoorAudio`. It references the fixed door root, its kinematic moving body,
+and that source explicitly. At runtime it creates one seamless half-second mono
+motor loop and one short mono endpoint cue from deterministic sine components at
+the active output sample rate.
+
+`SlidingDoorAudio` runs after the door controller and compares consecutive
+Rigidbody positions. It starts the motor only after physical displacement,
+keeps the same voice through a direction reversal, and plays one endpoint cue
+only after real movement reaches fully open or closed. Repeated `SetOpen` calls
+cannot restart it. As an explicit `ILoopResettable` target placed after the door,
+it stops immediately after a reset snap and suppresses a false endpoint cue.
+It owns no randomization, imported clip, gameplay decision, global manager, or
+Echo data.
+
 ## Development scene
 
 `Assets/_Game/Scenes/Development/EchoPrototype.unity` is an isolated primitive
-greybox used for mechanical validation. It retains the approved M4 room and loop
-as inactive variants. The active M5.1 variant adds a second threshold plate and
-two condition lamps around the same partition, door, and Player-only goal. Only
-one puzzle/loop pair is active at a time. The earlier movement and switch proofs
-also remain in inactive scene groups. Template URP settings remain under
-`Assets/Settings`.
+greybox used for mechanical validation. It retains the approved M4 and M5.1
+rooms and loops as inactive variants. The active M5.2 variant places two plates
+on the recording side of a low blocker, keeps two ordered status lamps over one
+door, and retains the Player-only goal behind the partition. The active M6.1
+discrepancy layer adds its hidden chair near the spawn-side left wall. Only one
+puzzle and loop pair is active at a time. M6.2 routes its room tone and active
+door through the scene-local mixer; inactive M4 and M5.1 doors have no audio
+component. The earlier movement and switch proofs also remain in inactive scene
+groups. Template URP settings remain under `Assets/Settings`.
 
 ## Not implemented
 
 There is no semantic interaction replay, multi-Echo puzzle, generic puzzle-signal
-framework, anomaly system, save system, or global game manager.
+framework, generic anomaly director, second anomaly, save system, global game
+manager, footstep system, RECALL signature, plate audio, music, voice, reverb,
+occlusion, or adaptive audio system.

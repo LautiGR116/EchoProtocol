@@ -2,8 +2,20 @@
 
 ## Current stage
 
-Act I — Curiosity. The current greybox contains a reliable cooperation puzzle
-but no authored horror. Mechanical clarity and trust come first.
+M6.3 planning — first restrained audio discrepancy. M6.1's clinical hum and its
+disappearance are human-approved, while the earlier visual-only chair remains
+insufficient by itself to create discomfort. M6.2's causal door-audio baseline
+is also human-approved; its synthetic timbre remains placeholder content. No
+M6.3 anomaly is implemented yet. This remains a greybox proof, not a production
+chapter.
+
+## Approved narrative rule
+
+Echoes remember what happened correctly; the protagonist's memory and perception
+do not. Future discrepancies can represent omitted cycles, repressed actions,
+distorted perception, or the logic of the nightmare, but must not become random
+recording corruption. Echoes remain representations of the protagonist rather
+than monsters.
 
 ## Rules taught to the player
 
@@ -18,11 +30,61 @@ The reliable greybox Echo behavior is implemented and human-approved:
 The plate-and-door room, including its clarity and timing, is human-approved and
 now counts as the first established piece of normal puzzle language.
 
-M5.1 increases normal cognitive load with a deterministic two-plate timing rule.
-Its difficulty and fairness must be human-approved before any uncomfortable
-environmental layer is evaluated on top of it.
+M5.1's deterministic two-plate timing rule and M5.2's `A → B` relay are now
+human-approved. Both remain free of horror and hidden timing. M6.1 preserves
+those rules while testing whether a single unexplained object can create doubt
+without making the Echo feel unreliable.
 
-## Expectations to establish later
+The Player-only goal arms the discrepancy. The next successful RECALL reveals a
+matte institutional chair against the left wall, outside the direct spawn view.
+Invalid RECALLs do nothing. The chair has no collider or puzzle role, persists
+through later RECALLs, and returns to hidden only when the Play Mode session or
+scene restarts.
+
+A low, non-spatial clinical hum establishes the room's normal sound. The chair
+reveal fades that hum to silence over roughly `0.8` seconds. There is no stinger,
+localized cue, random timing, or later restart within the same session. The hum
+and transition are human-approved; that approval does not claim that this cue
+alone produces the intended full level of discomfort.
+
+M6.2 routes the hum separately from one deterministic 3D door motor. The motor
+plays only while the panel physically moves and remains available after the hum
+has disappeared. It is human-approved normal language, not an anomaly or scare;
+its later creak and material treatment must preserve the same causal contract.
+
+## Planned five-chapter escalation
+
+This structure is approved as product direction but is not implemented:
+
+1. `Protocol` establishes safe, deterministic Echo rules.
+2. `Familiarity` introduces small environmental discrepancies and domestic
+   details without confirming danger.
+3. `Recollection` lets personal spaces and difficult-to-explain remembered
+   actions invade the experiments.
+4. `Denial` makes the protagonist's interpretation increasingly incompatible
+   with what Echoes correctly preserve.
+5. `Acceptance` converges the connected traumas and ends in confrontation,
+   terror, sadness, and limited uncertainty.
+
+For roughly 70-80 percent of the planned experience, no physical danger should
+be confirmed. Anticipation, silence, false positives, changes outside direct
+attention, and setup without guaranteed payoff take priority over pursuit,
+gore, or frequent jumpscares.
+
+## Planned sensory language
+
+- Clinical white, grey, cold blue, glass, and metal gradually admit domestic
+  materials and warmth before facility and memory become inseparable.
+- Echo horror comes from behavior and remembered context, not monstrous visual
+  deformation.
+- Room tone, fluorescent hum, machinery, footsteps, breathing, doors, distant
+  sounds, and spatial ambiguity carry tension. Loudness does not substitute for
+  construction.
+- Recurring narrative motifs may include a children's story, drawing, melody,
+  object, phrase, room, reflections, glass, and partial human figures. Exact
+  selections remain unimplemented.
+
+## Trust contract to preserve
 
 - An Echo exactly reproduces a completed recording.
 - Reset returns an experiment to a known baseline.
@@ -32,15 +94,24 @@ environmental layer is evaluated on top of it.
 ## Used anomalies and motifs
 
 - Echo anomalies: none.
-- Environmental anomalies: none.
+- Environmental anomalies: one M6.1 chair appears after goal completion and the
+  following successful RECALL.
 - Information anomalies: none.
-- Audio motifs: none.
+- Audio motifs: the M6.1 room tone disappears when the chair is revealed.
+- Normal audio rules: the M6.2 door motor follows only physical movement from the
+  doorway and stops on RECALL.
 - Scares that should not be repeated: none.
 
-Future ideas remain hypotheses until normal Echo puzzles establish trust. No
-anomalies are implemented. Do not acknowledge impossible events with explicit
-corruption/error messaging.
+No other anomalies are implemented. Do not acknowledge the chair with explicit
+corruption/error messaging or explain whether it was previously overlooked.
 
 Future fear may distract, obscure peripheral attention, or create uncertainty,
 but it must not change input, `Time.timeScale`, Echo speed, plate truth, door
 timing, or goal eligibility for an otherwise identical normal attempt.
+
+## Narrative closure and open questions
+
+Final C is confirmed: the protagonist confronts the memory, the nightmare ends,
+and the screen cuts to black without showing whether they wake. The protagonist's
+name, the exact identity of the guiding voice, concrete details of both
+accidents, and the literal reality or name of the facility remain TBD.

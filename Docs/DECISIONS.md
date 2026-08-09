@@ -68,7 +68,8 @@ them only when a real puzzle proves the requirement.
 next reset, and make normal playback disappear at its recorded end.
 
 **Why:** One Echo is sufficient for the first temporal puzzle, prevents runtime
-accumulation, and establishes the reliable rule that future anomalies may break.
+accumulation, and establishes the reliable rule against which future apparent
+discrepancies can be judged.
 
 **Tradeoff:** Multi-Echo puzzles are unavailable until explicitly designed and
 approved.
@@ -143,3 +144,100 @@ deliberate pressure-plate dwell or requiring the player to reset immediately.
 **Tradeoff:** Pressing `R` before any movement produces no new Echo. The start
 gate currently observes body translation rather than input intent or semantic
 interactions.
+
+## 2026-08-08 — GDD governs product direction, not implementation status
+
+**Decision:** Preserve GDD v0.1 under `Docs/Design/` as the primary source for
+product vision, narrative, experience, art, audio, UI, scope, and future
+direction. Keep repository code, architecture, and playtests authoritative for
+what exists and what has been validated.
+
+**Why:** The GDD was written as preproduction direction and its provisional
+schedule now trails the working prototype.
+
+**Tradeoff:** Documentation must label future content explicitly instead of
+copying GDD features into the implemented architecture.
+
+## 2026-08-08 — Echoes remember; the protagonist does not
+
+**Decision:** Treat correct Echo memory and unreliable protagonist memory as a
+central narrative rule. Apparent future anomalies may express omitted cycles,
+repressed action, altered perception, or dream logic, but not random corruption
+of otherwise identical playback.
+
+**Why:** The horror depends on investigating memory through the same dependable
+system the Player learned to use.
+
+**Tradeoff:** Every discrepancy needs narrative causality and cannot be added as
+an interchangeable glitch or arbitrary rules violation.
+
+## 2026-08-08 — Confirm Final C
+
+**Decision:** End with the protagonist confronting the memory, the nightmare
+ending, and a cut to black without showing whether they wake.
+
+**Why:** It resolves the emotional and causal arc while retaining one restrained
+uncertainty instead of invalidating the story with another reveal.
+
+**Tradeoff:** The ending cannot rely on a shown awakening or a final twist that
+reframes the confrontation as irrelevant.
+
+## 2026-08-09 — Concrete sequential A-to-B condition
+
+**Decision:** Implement M5.2 with one scene-specific condition that remembers a
+rising A press, accepts only a later rising B press, and holds one door open only
+while B remains occupied. Use status lamps and visible geometry to force Echo
+cooperation without a timeout or actor-specific rule.
+
+**Why:** It teaches ordered temporal planning with the same physical plate and
+door language already validated in M4 and M5.1.
+
+**Tradeoff:** The state machine and anti-solo blocker are deliberately concrete;
+they do not provide arbitrary sequences, timers, or a reusable signal graph.
+
+## 2026-08-09 — First discrepancy changes the room, not the Echo
+
+**Decision:** After the Player completes the M5.2 goal, reveal one colliderless
+institutional chair on the next successful RECALL. Drive the transition through
+direct rising-edge goal and loop-completion events, then preserve the chair until
+the scene or Play Mode session reloads.
+
+**Why:** A peripheral object can make the protagonist question whether it was
+always present while every recorded frame, puzzle rule, and reset remains
+trustworthy. It begins the useful Echo → uneasy Echo arc at minimal cost without
+inventing corrupted playback or a generic horror director.
+
+**Tradeoff:** The initial visual-only M6.1 had no audio, lighting change,
+explanation, randomization, or mechanical consequence. It was noticed in human
+testing but did not create discomfort, motivating the focused audio iteration.
+
+## 2026-08-09 — Silence supports the first discrepancy
+
+**Decision:** Establish one quiet, procedural 2D clinical hum and fade it to
+sustained silence when the chair's `Revealed` event fires. Generate the loop at
+runtime, use no external asset, and add no stinger, localization, randomness, or
+audio manager.
+
+**Why:** The visual-only chair proved readable but not uncomfortable. Removing a
+previously stable room tone can direct attention through absence while keeping
+the environmental change restrained and every Echo rule unchanged.
+
+**Tradeoff:** A synthetic greybox hum is only an emotional prototype, not final
+sound design. Its fade is now human-approved, but the broader discomfort and
+production mix still require later evidence.
+
+## 2026-08-09 — Teach truthful spatial audio before another discrepancy
+
+**Decision:** Begin M6.2 with one mixer split (`Ambience` / `WorldSFX`) and one
+deterministic 3D motor on the active sliding door. Drive it from physical panel
+displacement, keep one voice through reversal, play one endpoint cue only after
+real travel, and silence it explicitly on loop reset.
+
+**Why:** Horror audio can exploit a learned soundscape only after normal causes,
+locations, and timing are trustworthy. One concrete door rule is cheap to test
+and cannot be confused with a general sound system or Echo corruption.
+
+**Tradeoff:** Plates, RECALL, footsteps, music, stronger ambience, and new audio
+anomalies remain deferred. Human testing approved the causal greybox rule but
+judged its procedural motor synthetic; final material, friction, and creak remain
+part of the later production sound-design pass.

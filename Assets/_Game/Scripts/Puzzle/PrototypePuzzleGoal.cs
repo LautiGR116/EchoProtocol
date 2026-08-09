@@ -11,6 +11,8 @@ namespace EchoProtocol.Puzzle
 
         private BoxCollider triggerVolume;
 
+        public event System.Action Completed;
+
         public bool IsComplete { get; private set; }
 
         private void Awake()
@@ -48,11 +50,17 @@ namespace EchoProtocol.Puzzle
 
         private void SetComplete(bool isComplete)
         {
+            bool didComplete = isComplete && !IsComplete;
             IsComplete = isComplete;
 
             if (completionIndicator != null)
             {
                 completionIndicator.SetActive(isComplete);
+            }
+
+            if (didComplete)
+            {
+                Completed?.Invoke();
             }
         }
     }

@@ -9,7 +9,13 @@ The greybox first-person movement and center-camera interaction checkpoints are
 human-approved. Mouse sensitivity remains `0.15`. The first temporal recording,
 reset, and Echo playback checkpoint is also human-approved. The first
 pressure-plate/door puzzle and its timing are now human-approved. M5, normal
-puzzle language, is the next milestone. Horror anomalies have not started.
+puzzle language, is complete: M5.1 and M5.2 are human-approved. M6.1 now adds one
+objectively verified audiovisual discrepancy without changing Echo playback or
+puzzle rules. The visual-only pass was noticed but did not create discomfort;
+the clinical hum and its disappearance are now human-approved. M6.2 adds the
+first objectively verified piece of trustworthy spatial audio. Its causal
+door-audio baseline is human-approved; the procedural motor was explicitly
+judged synthetic and remains a placeholder for the later sound-design pass.
 
 ## Development setup
 
@@ -36,30 +42,39 @@ The recorder remains armed while the Player is idle at spawn. The first real
 movement starts the timeline with a fixed one-second lead-in; every later pause,
 including holding a pressure plate, is reproduced at full length.
 
-## Current milestone
+## Current checkpoint
 
-M5.1 now reuses the approved Echo, plate, door, and reset rules in a two-plate
-timing challenge. Its logic and reset behavior pass objective verification; the
-human difficulty/fairness checkpoint is pending before any horror interference
-is added.
+M6.2 established one normal audio rule before adding another anomaly: the active
+sliding door emits a deterministic 3D motor only while its panel physically
+moves, followed by one restrained endpoint cue. The clinical hum is routed
+separately, so its M6.1 fade cannot silence mechanical truth. No plate, RECALL,
+footstep, Echo, music, or new horror cue was added in this slice.
 
-### M5.1 playtest route
+This behavior is human-approved as a causal greybox baseline. Its synthetic
+timbre is not final door sound. M6.3 is next: one restrained audio discrepancy
+that depends on the trusted soundscape without changing Echo or puzzle truth.
 
-1. Observe that either orange plate alone lights one status lamp but leaves the
-   door closed.
-2. Record an attempt that reaches the left plate and remains there for roughly
-   four to five seconds, then press `R`.
-3. In the next attempt, wait on the wide centre plate while the cyan Echo reaches
-   the left plate.
-4. When both lamps are active, let the door open fully and cross to the green
-   goal before the condition ends.
+### M6.2 playtest route
+
+1. Start a fresh Play Mode session. Confirm the clinical hum is present and the
+   closed door is silent.
+2. Solve the approved `A → B` sequence. The motor should come from the doorway,
+   last exactly as long as the panel moves, and end without a click or startle.
+3. Release B while the panel is moving. Its direction may reverse, but the motor
+   must remain continuous rather than restart or stack.
+4. Trigger RECALL while the panel is moving. The door should snap to baseline and
+   the motor stop without a false endpoint hit or residual loop.
+5. Reveal the M6.1 chair and repeat the door movement in the resulting silence.
+   The mechanism must remain equally clear and must not suggest an Echo failure.
 
 ## Documentation
 
+- [Product GDD v0.1](Docs/Design/Echo%20Protocol%20-%20Game%20Design%20Document%20v0.1.pdf)
 - [Game design](Docs/GAME_DESIGN.md)
 - [Architecture](Docs/ARCHITECTURE.md)
 - [Roadmap](Docs/ROADMAP.md)
 - [Horror design](Docs/HORROR_DESIGN.md)
+- [Audio design](Docs/AUDIO_DESIGN.md)
 - [Decisions](Docs/DECISIONS.md)
 - [Playtest log](Docs/PLAYTEST_LOG.md)
 

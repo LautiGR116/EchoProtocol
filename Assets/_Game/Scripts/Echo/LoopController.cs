@@ -26,6 +26,8 @@ namespace EchoProtocol.Echo
         private InputAction resetLoopAction;
         private ILoopResettable[] loopResetTargets;
 
+        public event System.Action LoopCompleted;
+
         public int CurrentAttemptNumber { get; private set; } = 1;
 
         public int CompletedLoopCount { get; private set; }
@@ -103,6 +105,7 @@ namespace EchoProtocol.Echo
             CompletedLoopCount++;
             CurrentAttemptNumber++;
             recorder.BeginRecording();
+            LoopCompleted?.Invoke();
             return true;
         }
 
