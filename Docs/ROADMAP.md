@@ -6,28 +6,25 @@ and human checkpoints determine current status.
 
 ## Current milestone
 
-M6.3 — First restrained audio discrepancy. M6.2's trustworthy door-audio rule is
-implemented, objectively verified, and human-approved. The exact M6.3 cue and
-trigger remain to be designed before implementation.
+M6.3 — First restrained localized audio discrepancy. Implemented and objectively
+verified; a guided human pass confirmed first-play/no-repeat behavior but produced
+no terror or discomfort. Unprimed attribution and emotional evidence remain open.
 
 ## Implemented in the current milestone
 
-- `MX_Main` contains only `Master`, `Ambience`, and `WorldSFX` at their default
-  levels. The approved M6.1 hum is routed to `Ambience` without changing its
-  volume, fade, or persistence.
-- The active M5.2 door owns one 3D `AudioSource` at its fixed doorway and one
-  `SlidingDoorAudio` component routed to `WorldSFX`.
-- Two deterministic mono clips are generated once at runtime: a seamless motor
-  loop and a short endpoint cue. There is no imported asset, random pitch,
-  variation, or new horror event.
-- The motor follows physical panel displacement rather than repeated open
-  requests. A direction reversal keeps one continuous voice; only a real endpoint
-  produces one endpoint cue.
-- Door audio is an explicit loop reset target. A successful RECALL during motion
-  stops it immediately without a false endpoint sound or residual loop.
-- Runtime verification covered physical opening, reversal, midpoint RECALL, clip
-  bounds, and five successful loops. The final state retained two AudioSources,
-  one door-audio component, one Echo, and the original runtime clip instance.
+- The hidden M6.1 chair owns one initially inactive `ChairSettlingCue` and 3D
+  `AudioSource` routed to `WorldSFX`; no separate anomaly object or manager was
+  added.
+- The first Player proximity within `1.3 m` plays one low procedural cue. The
+  source never activates before the chair reveal and never rearms after playing.
+- The cue has no collider, Rigidbody, random timing, visual movement, reset-list
+  entry, puzzle output, or Echo dependency.
+- Runtime verification covered the real chair reveal, Player proximity,
+  repeat proximity, an invalid RECALL, five later successful RECALLs, clip bounds,
+  and the final known baseline with one Echo and zero plate occupants.
+- The proximity radius remains outside the full Plate A trigger bounds even when
+  accounting for the Player controller radius. A RECALL during the short cue lets
+  that persistent world-space sound finish without restarting it.
 
 ## Completed
 
@@ -68,15 +65,19 @@ trigger remain to be designed before implementation.
 
 ## Next
 
-- M6.3: design and test one restrained audio discrepancy that relies on the
-  newly trusted soundscape without falsifying mechanical or Echo state.
+- M6.3: run the human proximity-cue checkpoint without announcing its timing.
+  Reject it if it reads as a door bug, corrupted Echo, random cheap scare, or
+  physical discomfort.
+- If a second unprimed pass remains emotionally flat, change the timing or
+  replace the procedural timbre before increasing volume or layering another
+  anomaly.
 - Production audio pass: replace the approved door placeholder with authored or
   licensed material, friction, and creak while preserving its causal timing.
 - M7: planned content and narrative pass across the five-chapter structure,
   including the small hub, art progression, audio, minimal UI, and autosave.
 - M8: polish, QA, Windows/macOS builds, and presentation.
 
-M6.3-M8 are product direction, not implemented systems or locked calendar dates.
+M7-M8 are product direction, not implemented systems or locked calendar dates.
 Scope may be reduced before quality or the central arc is compromised.
 
 ## Product gates and risks

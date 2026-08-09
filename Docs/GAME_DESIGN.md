@@ -92,6 +92,9 @@ brief breathing room, and a new reason to question the protagonist's memory.
 - M6.2 adds a minimal `Ambience` / `WorldSFX` mixer split and one deterministic
   3D motor on the active sliding door. The cue follows physical movement,
   remains continuous through reversal, and stops cleanly on RECALL.
+- M6.3 gives the revealed chair one fixed 3D source. First Player proximity plays
+  one low procedural settling cue; it cannot trigger before reveal, repeat after
+  RECALL, move the chair, or change any puzzle and Echo state.
 
 Movement, camera, interaction, recording, RECALL/reset, Echo playback, and the
 first one-plate puzzle are human-approved. M5.1's dual-plate simultaneity puzzle
@@ -100,6 +103,9 @@ and its hum/disappearance behavior is human-approved; the visual-only chair did
 not create discomfort by itself. M6.2's causal mechanism-audio baseline is also
 objectively verified and human-approved. Its procedural motor timbre was judged
 synthetic and remains placeholder content for the production sound-design pass.
+M6.3 is objectively verified, and a guided human pass confirmed first-play and
+no-repeat behavior. It produced no terror or discomfort, so spontaneous
+attribution and emotional effectiveness remain unapproved.
 
 The current prototype retains one latest movement-and-yaw Echo. It does not yet
 record semantic interactions, support multiple simultaneous Echoes, show player

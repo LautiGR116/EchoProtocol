@@ -12,6 +12,11 @@ memory. Loudness cannot substitute for construction.
   and gives the active sliding door one deterministic 3D motor and endpoint cue.
   Its causal timing is approved; its procedural timbre was judged synthetic and
   remains a placeholder for later material, friction, and creak design.
+- **Implemented and objectively verified:** M6.3 adds one low, localized chair
+  settling cue after reveal and first Player proximity. It is deterministic,
+  one-shot, and mechanically inert. A guided human pass confirmed playback once
+  with no second playback, but produced no terror or discomfort; unprimed
+  attribution and emotional approval remain pending.
 - **Planned:** footsteps, a RECALL signature, breathing, domestic memory sounds,
   music, voice, stronger discrepancies, and loud peaks.
 
@@ -92,8 +97,10 @@ profiling justify it.
 
 ## Next checkpoint
 
-M6.3 should add one restrained environmental audio discrepancy whose effect is
-legible only because M6.1 and M6.2 established a stable ambience and truthful
-mechanism layer. It must not imitate a door state, falsify an Echo timestamp, or
-depend on a random loud peak. Its exact sound and trigger remain unapproved until
-the smallest concrete proposal is reviewed and tested.
+Play from a fresh session without announcing the cue timing. After revealing the
+chair, approach it deliberately, then leave, return, and complete two more
+RECALLs. Ask what produced the sound, where it came from, whether it felt
+intentional or broken, and whether the door or Echo seemed to change. It should
+create restrained unease without a loud peak, physical discomfort, or any repeat.
+The first guided pass confirmed its one-shot delivery but not unease. Do not treat
+that result as permission to increase loudness or stack another cue.

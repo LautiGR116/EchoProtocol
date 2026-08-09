@@ -2,12 +2,11 @@
 
 ## Current stage
 
-M6.3 planning — first restrained audio discrepancy. M6.1's clinical hum and its
-disappearance are human-approved, while the earlier visual-only chair remains
-insufficient by itself to create discomfort. M6.2's causal door-audio baseline
-is also human-approved; its synthetic timbre remains placeholder content. No
-M6.3 anomaly is implemented yet. This remains a greybox proof, not a production
-chapter.
+M6.3 — first restrained localized audio discrepancy. Implemented and objectively
+verified. A guided pass confirmed its one-shot behavior but produced no terror or
+discomfort; unprimed attribution and emotional testing remain open. M6.1's hum
+transition and M6.2's causal door-audio baseline remain human-approved. This
+remains a greybox proof, not a production chapter.
 
 ## Approved narrative rule
 
@@ -52,6 +51,12 @@ plays only while the panel physically moves and remains available after the hum
 has disappeared. It is human-approved normal language, not an anomaly or scare;
 its later creak and material treatment must preserve the same causal contract.
 
+M6.3 places one fixed 3D source on the hidden chair. After reveal, the first
+Player proximity within `1.3 m` produces one low settling cue. It never plays on
+the normal puzzle route, never repeats during that session, and has no visible or
+mechanical effect. The intended doubt is whether an inert object just responded
+to proximity, not whether the door or Echo lied.
+
 ## Planned five-chapter escalation
 
 This structure is approved as product direction but is not implemented:
@@ -95,15 +100,18 @@ gore, or frequent jumpscares.
 
 - Echo anomalies: none.
 - Environmental anomalies: one M6.1 chair appears after goal completion and the
-  following successful RECALL.
+  following successful RECALL; M6.3 lets that same inert chair emit one localized
+  settling cue on first Player proximity.
 - Information anomalies: none.
-- Audio motifs: the M6.1 room tone disappears when the chair is revealed.
+- Audio motifs: the M6.1 room tone disappears when the chair is revealed; the
+  M6.3 chair cue plays once per session.
 - Normal audio rules: the M6.2 door motor follows only physical movement from the
   doorway and stops on RECALL.
-- Scares that should not be repeated: none.
+- Scares that should not be repeated: the M6.3 chair settling cue.
 
-No other anomalies are implemented. Do not acknowledge the chair with explicit
-corruption/error messaging or explain whether it was previously overlooked.
+No other anomalies are implemented. Do not acknowledge the chair or its cue with
+explicit corruption/error messaging or explain whether it was previously
+overlooked.
 
 Future fear may distract, obscure peripheral attention, or create uncertainty,
 but it must not change input, `Time.timeScale`, Echo speed, plate truth, door

@@ -179,6 +179,22 @@ it stops immediately after a reset snap and suppresses a false endpoint cue.
 It owns no randomization, imported clip, gameplay decision, global manager, or
 Echo data.
 
+## First localized audio discrepancy
+
+M6.3 adds one `ChairSettlingCue` on an `AudioSource` child of the initially
+hidden M6.1 chair. Because the chair root owns the source, the component cannot
+run before the existing reveal. Once active, it compares only the Player's
+planar position against a `1.3 m` radius and plays one deterministic `0.9`-second
+mono cue on the first Player proximity.
+
+The source is fixed `0.65 m` above the chair, routes to `WorldSFX`, and uses full
+3D blend with linear attenuation from `1.25` to `8 m`. The component generates
+and owns one runtime clip, exposes its one-shot state for verification, and
+never rearms. It is not an `ILoopResettable`, has no collider or Rigidbody, and
+does not subscribe to RECALL, modify the chair, or touch puzzle and Echo state.
+If RECALL occurs during playback, the persistent world-space cue finishes from
+the chair without restarting.
+
 ## Development scene
 
 `Assets/_Game/Scenes/Development/EchoPrototype.unity` is an isolated primitive
@@ -188,13 +204,14 @@ on the recording side of a low blocker, keeps two ordered status lamps over one
 door, and retains the Player-only goal behind the partition. The active M6.1
 discrepancy layer adds its hidden chair near the spawn-side left wall. Only one
 puzzle and loop pair is active at a time. M6.2 routes its room tone and active
-door through the scene-local mixer; inactive M4 and M5.1 doors have no audio
-component. The earlier movement and switch proofs also remain in inactive scene
-groups. Template URP settings remain under `Assets/Settings`.
+door through the scene-local mixer; M6.3 adds the inactive chair-owned source.
+Inactive M4 and M5.1 doors have no audio component. The earlier movement and
+switch proofs also remain in inactive scene groups. Template URP settings remain
+under `Assets/Settings`.
 
 ## Not implemented
 
 There is no semantic interaction replay, multi-Echo puzzle, generic puzzle-signal
-framework, generic anomaly director, second anomaly, save system, global game
-manager, footstep system, RECALL signature, plate audio, music, voice, reverb,
-occlusion, or adaptive audio system.
+framework, generic anomaly director, additional visual discrepancy, save system,
+global game manager, footstep system, RECALL signature, plate audio, music,
+voice, reverb, occlusion, or adaptive audio system.

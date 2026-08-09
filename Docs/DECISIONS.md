@@ -241,3 +241,24 @@ and cannot be confused with a general sound system or Echo corruption.
 anomalies remain deferred. Human testing approved the causal greybox rule but
 judged its procedural motor synthetic; final material, friction, and creak remain
 part of the later production sound-design pass.
+
+## 2026-08-09 — Tie the first localized discrepancy to deliberate proximity
+
+**Decision:** Give the revealed M6.1 chair one fixed 3D source and play a low
+procedural settling cue once on the first Player proximity within
+`1.3 m`. Keep the source under the hidden chair, outside loop reset, with no
+randomness, visible movement, or mechanical consequence.
+
+**Why:** A source attached to an inert object can create a small spatial doubt
+without reusing the door, inventing an invisible Echo, or making routine RECALL
+itself a scare trigger. Proximity lets the Player initiate the moment through
+curiosity rather than scripted camera control.
+
+**Tradeoff:** The cue is a greybox timbre and may be missed by a Player who never
+examines the chair. Its emotional effect and attribution require human evidence;
+failure should be addressed through timing, range, or timbre, not higher volume
+or additional simultaneous anomalies.
+
+The first guided human pass confirmed the one-shot behavior but produced no
+terror or discomfort. This validates delivery only; it does not close the
+emotional or unprimed-attribution question.

@@ -16,6 +16,9 @@ the clinical hum and its disappearance are now human-approved. M6.2 adds the
 first objectively verified piece of trustworthy spatial audio. Its causal
 door-audio baseline is human-approved; the procedural motor was explicitly
 judged synthetic and remains a placeholder for the later sound-design pass.
+M6.3 now adds one objectively verified, proximity-triggered chair sound and
+has passed a guided human one-shot check. That pass produced no terror or
+discomfort, so spontaneous attribution and emotional effectiveness remain open.
 
 ## Development setup
 
@@ -44,28 +47,26 @@ including holding a pressure plate, is reproduced at full length.
 
 ## Current checkpoint
 
-M6.2 established one normal audio rule before adding another anomaly: the active
-sliding door emits a deterministic 3D motor only while its panel physically
-moves, followed by one restrained endpoint cue. The clinical hum is routed
-separately, so its M6.1 fade cannot silence mechanical truth. No plate, RECALL,
-footstep, Echo, music, or new horror cue was added in this slice.
+M6.3 gives the revealed M6.1 chair one quiet, localized settling cue. The cue is
+inactive with the hidden chair, plays once when the Player deliberately comes
+within `1.3 m`, and never rearms through RECALL. It has no collider, visual
+movement, random timing, puzzle effect, or Echo dependency.
 
-This behavior is human-approved as a causal greybox baseline. Its synthetic
-timbre is not final door sound. M6.3 is next: one restrained audio discrepancy
-that depends on the trusted soundscape without changing Echo or puzzle truth.
+### M6.3 playtest route
 
-### M6.2 playtest route
+1. Start a fresh Play Mode session, solve the approved `A → B` sequence, cross
+   the green goal, and press `R` to reveal the chair and remove the hum.
+2. Walk toward the chair against the left wall. A single low settling sound
+   should occur only at close Player proximity, not during the puzzle route.
+3. Move away and approach again, then complete two more RECALLs. The cue must not
+   repeat.
+4. Confirm the door still sounds and behaves exactly as before, and that Echo
+   playback remains unchanged.
 
-1. Start a fresh Play Mode session. Confirm the clinical hum is present and the
-   closed door is silent.
-2. Solve the approved `A → B` sequence. The motor should come from the doorway,
-   last exactly as long as the panel moves, and end without a click or startle.
-3. Release B while the panel is moving. Its direction may reverse, but the motor
-   must remain continuous rather than restart or stack.
-4. Trigger RECALL while the panel is moving. The door should snap to baseline and
-   the motor stop without a false endpoint hit or residual loop.
-5. Reveal the M6.1 chair and repeat the door movement in the resulting silence.
-   The mechanism must remain equally clear and must not suggest an Echo failure.
+The checkpoint asks whether the cue felt environmental and intentional, where
+it came from, whether it created unease, and whether it suggested a broken door
+or corrupted Echo. A guided pass confirmed first-play/no-repeat behavior but did
+not create terror; an unprimed emotional and attribution pass remains required.
 
 ## Documentation
 
