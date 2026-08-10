@@ -20,6 +20,14 @@ room whose learned layers can later be subtracted or contradicted. This validate
 neither the full chapter nor its domestic-memory layer. It remains a greybox
 soundscape proof, not a production chapter, and adds no gameplay or Echo rule.
 
+AV1 now provides the visual-place prerequisite for that proof with an
+objectively verified closed clinical room, stable local light hierarchy, and one
+muted domestic material contradiction on the existing chair. It does not add
+another anomaly, flicker, fog, grading, texture narrative, or production art.
+The developer approved its visual readability and mood as a prototype place;
+terror is not required from this foundation alone. AD3 integration is now the
+current gate.
+
 ## Approved narrative rule
 
 Echoes remember what happened correctly; the protagonist's memory and perception
@@ -47,7 +55,8 @@ those rules while testing whether a single unexplained object can create doubt
 without making the Echo feel unreliable.
 
 The Player-only goal arms the discrepancy. The next successful RECALL reveals a
-matte institutional chair against the left wall, outside the direct spawn view.
+muted wood-and-metal institutional chair against the left wall, outside the
+direct spawn view.
 Invalid RECALLs do nothing. The chair has no collider or puzzle role, persists
 through later RECALLs, and returns to hidden only when the Play Mode session or
 scene restarts.

@@ -322,3 +322,20 @@ subtraction, and reset behavior even though none inspired a strong preference.
 **Tradeoff:** AD2 can reach an integrated human checkpoint now, but facility,
 plate, and RECALL timbres remain expected replacement targets. Later replacements
 must preserve the verified buses, timing, ownership, reset, and Echo-trust rules.
+
+## 2026-08-10 — Establish the place before judging the scare
+
+**Decision:** Add one scene-local AV1 presentation layer to the existing
+prototype: textureless clinical materials, a closed render-only ceiling, dark
+trim, three stable local fixtures, reduced directional fill, and muted
+wood/metal on the already implemented chair. Preserve all gameplay geometry,
+colliders, Echo presentation, audio ownership, and anomaly timing.
+
+**Why:** The approved prototype audio and chair discrepancy were being judged in
+an open, uniformly grey, externally lit room. A small coherent place is required
+before timing or sound can carry meaningful unease.
+
+**Tradeoff:** AV1 improves spatial credibility but is not production art and is
+not expected to create terror by itself. Textures, props, fog, post-processing,
+flicker, asset packs, and another anomaly remain deferred until the human visual
+checkpoint identifies a concrete need.

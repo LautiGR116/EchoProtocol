@@ -6,23 +6,20 @@ and human checkpoints determine current status.
 
 ## Current milestone
 
-`AD3` preparation — AD2's normal facility soundscape is imported, objectively
-verified, and human-approved for continued prototyping. Every imported timbre,
-including domestic door movement A and endpoint B, remains replaceable. Define
-the smallest audiovisual environmentalization pass that gives this soundscape a
-credible place before judging the chair discrepancy emotionally.
+`AD3` assembly — AV1's smallest clinical visual foundation is objectively
+verified and human-approved for continued prototyping. Assemble the integrated
+5–8 minute `Familiarity` route from the validated room and audio layers without
+changing M5.2 geometry, collision, timings, Echo behavior, audio ownership,
+scene variants, or reset contracts.
 
 ## Defined in the current milestone
 
-- Define a small visual mood foundation for the existing room: clinical material
-  language, authored light hierarchy, restrained color/exposure, and readable
-  domestic contradiction around the chair.
-- Preserve M5.2 geometry, collision, timings, puzzle readability, Echo contrast,
-  scene variants, mixer buses, and every verified reset contract.
-- Use greybox-compatible authored materials and lighting before evaluating asset
-  packs, Blender integration, full production art, fog, or post-processing stacks.
-- Compare the same AD2 route before/after the visual pass. Do not add another
-  anomaly or stronger audio merely to compensate for an unclear environment.
+- Preserve the repeatable facility body and truthful functional feedback long
+  enough for the Player to learn the normal soundscape.
+- Subtract the facility-air layer at the existing reveal, test one chair timing
+  variant, and leave recovery space.
+- Keep the approach and departure chair variants mutually exclusive.
+- Add no new gameplay, voice, music, strong peak, or second anomaly in this pass.
 
 ## Completed
 
@@ -77,12 +74,14 @@ credible place before judging the chair discrepancy emotionally.
   door reversal, plate edge/reset behavior, and five consecutive RECALLs passed
   objective verification. Integrated human listening approved continued
   prototyping while explicitly leaving all production timbres open.
+- AV1 implementation: textureless clinical materials, a render-only ceiling and
+  trim, three stable local fixtures, and a restrained directional fill added to
+  the active prototype. Static diff audit, reference captures, Console checks,
+  Echo presentation/state preservation, and five consecutive RECALLs passed.
+  The developer then approved the visual foundation for continued prototyping.
 
-## After AD2
+## After AD3
 
-- `AD3`: assemble the 5–8 minute `Familiarity` audio foundation with perceptual
-  subtraction, one chair timing variant, and recovery. Do not add a strong peak
-  yet.
 - `AD4`: run objective reset/Echo regression and an unannounced human
   attribution/emotional checkpoint.
 - `AD5`: adjust timbre, timing, density, and mix before approving another

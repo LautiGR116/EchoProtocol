@@ -211,10 +211,34 @@ does not subscribe to RECALL, modify the chair, or touch puzzle and Echo state.
 If RECALL occurs during playback, the persistent world-space cue finishes from
 the chair without restarting.
 
+## AV1 visual foundation
+
+AV1 adds a scene-local, render-only presentation layer under
+`Environment/AV1 Visual Foundation`. It contains one closed ceiling, four
+baseboards, and three primitive clinical light fixtures. The root has no
+Collider, Rigidbody, gameplay MonoBehaviour, reset target, animation, or audio
+ownership. Its only MonoBehaviours are URP's additional-light data on the three
+spot lights.
+
+Eight textureless URP/Lit materials under
+`Assets/_Game/Art/Materials/AV1/` separate clinical walls, linoleum, ceiling,
+trim, fixtures, the active M5.2 partition, and the chair's muted wood/metal.
+Existing puzzle-semantic orange, green, mechanism, and Echo materials remain
+visually unchanged. Unity 6.3 reserialized the Echo material's internal
+transparent-pass metadata when saving, while preserving its URP/Unlit shader,
+cyan color, `0.35` alpha, render queue, and gameplay contract. The chair keeps
+the same hidden root, transform, reveal event, and colliderless contract.
+
+Three stable spot lights provide local pools without shadows. The existing
+Directional Light remains the single soft-shadow owner at reduced intensity.
+AV1 adds no Volume, fog, post-processing, texture, light bake, probe, pipeline
+change, or runtime lighting behavior.
+
 ## Development scene
 
-`Assets/_Game/Scenes/Development/EchoPrototype.unity` is an isolated primitive
-greybox used for mechanical validation. It retains the approved M4 and M5.1
+`Assets/_Game/Scenes/Development/EchoPrototype.unity` remains a primitive
+mechanical prototype with the AV1 clinical presentation layer. It retains the
+approved M4 and M5.1
 rooms and loops as inactive variants. The active M5.2 variant places two plates
 on the recording side of a low blocker, keeps two ordered status lamps over one
 door, and retains the Player-only goal behind the partition. The active M6.1
@@ -232,4 +256,5 @@ under `Assets/Settings`.
 There is no semantic interaction replay, multi-Echo puzzle, generic puzzle-signal
 framework, generic anomaly director, additional visual discrepancy, save system,
 global game manager, footstep system, production RECALL signature, music,
-voice, reverb, occlusion, or adaptive audio system.
+voice, reverb, occlusion, adaptive audio system, production art set, texture
+pass, fog, color grading, or post-processing stack.

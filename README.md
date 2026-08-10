@@ -16,11 +16,15 @@ the clinical hum and its disappearance are now human-approved. M6.2 adds the
 first objectively verified 3D door-audio source. Its causal timing is
 human-approved, while spatial localization was not tested separately. AD2 has
 now replaced its synthetic motor with a user-selected domestic sliding-door
-recording and matching endpoint; the integrated mix still needs a human Unity
-checkpoint. M6.3 now adds one objectively verified,
+recording and matching endpoint; the integrated route is human-approved for
+continued prototyping while every timbre remains replaceable. M6.3 now adds one
+objectively verified,
 proximity-triggered chair sound and has passed a guided human one-shot check.
 That pass produced no terror or discomfort, so spontaneous attribution,
-localization, and emotional effectiveness remain open.
+localization, and emotional effectiveness remain open. AV1 now gives the same
+mechanical room an objectively verified clinical visual foundation without
+changing puzzle geometry, Echo behavior, or audio. Its human visual checkpoint
+is approved at prototype level.
 
 ## Development setup
 
@@ -71,6 +75,13 @@ material sound; approach versus departure-after-inspection will then be tested
 as mutually exclusive timing variants once the normal soundscape exists. The cue
 will not be duplicated or made louder to create impact cheaply.
 
+AV1 adds a closed ceiling, clinical wall/floor separation, restrained fixtures,
+dark trim, and a muted domestic material contrast on the chair. It is still
+prototype presentation: there are no textures, fog, post-processing, production
+props, or new horror event. Five consecutive RECALLs and the known puzzle
+baseline passed after the visual change, and the developer approved the visual
+foundation for continued prototyping.
+
 The planned order is:
 
 1. **AD1 complete:** shortlist and legally review a small reference palette;
@@ -78,8 +89,12 @@ The planned order is:
    bed, domestic door, plate edges, and successful-RECALL cue;
 3. **AD2 complete at prototype level:** integrated listening approved continued
    development while leaving every timbre open;
-4. **AD3 next:** assemble the chair timing into the 5–8 minute audiovisual route;
-5. run an unannounced attribution and emotional checkpoint before adding another
+4. **AV1 objectively verified:** establish the room's clinical material and
+   lighting foundation without changing gameplay;
+5. **AV1 complete at prototype level:** human visual checkpoint approved;
+6. **Current — AD3:** assemble the chair timing into the 5–8 minute audiovisual
+   route;
+7. run an unannounced attribution and emotional checkpoint before adding another
    anomaly, voice, music, or a strong peak.
 
 ## Documentation

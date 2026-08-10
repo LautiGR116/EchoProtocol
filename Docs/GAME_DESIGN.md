@@ -83,18 +83,23 @@ brief breathing room, and a new reason to question the protagonist's memory.
   step, and opens its door only while B remains occupied. A visible blocker
   prevents a Player-only race from substituting for Echo cooperation.
 - M6.1 adds one concrete environmental discrepancy: after the Player completes
-  the goal, the next successful RECALL reveals a colliderless institutional
-  chair outside direct view. It persists for that Play Mode session while all
+  the goal, the next successful RECALL reveals a colliderless chair outside
+  direct view. It persists for that Play Mode session while all
   Echo data and puzzle rules remain unchanged.
-- A procedural global room tone establishes the normal ambience, then fades to
-  sustained silence only when the M6.1 chair is revealed. It has no stinger,
-  randomization, spatial cue, or gameplay effect.
+- A layered prototype facility ambience establishes the normal room. Its
+  facility-air layer fades to sustained silence only when the M6.1 chair is
+  revealed, while fluorescent and distant-machinery detail remains. It has no
+  stinger, randomization, or gameplay effect.
 - M6.2 adds a minimal `Ambience` / `WorldSFX` mixer split and one deterministic
   3D motor on the active sliding door. The cue follows physical movement,
   remains continuous through reversal, and stops cleanly on RECALL.
 - M6.3 gives the revealed chair one fixed 3D source. First Player proximity plays
   one low procedural settling cue; it cannot trigger before reveal, repeat after
   RECALL, move the chair, or change any puzzle and Echo state.
+- AV1 gives the active room a closed ceiling, textureless clinical material
+  separation, stable local fixtures, dark trim, and muted domestic chair
+  materials. It changes no gameplay geometry, Echo appearance, audio rule, or
+  anomaly timing.
 
 Movement, camera, interaction, recording, RECALL/reset, Echo playback, and the
 first one-plate puzzle are human-approved. M5.1's dual-plate simultaneity puzzle
@@ -107,7 +112,9 @@ endpoint B pair. The integrated route is human-approved for continued
 prototyping, but every imported timbre remains replaceable.
 M6.3 is objectively verified, and a guided human pass confirmed first-play and
 no-repeat behavior. It produced no terror or discomfort, so spontaneous
-attribution and emotional effectiveness remain unapproved.
+attribution and emotional effectiveness remain unapproved. AV1 is objectively
+verified through static scene audit, first-person captures, and five consecutive
+RECALLs, and its human visual checkpoint is approved for continued prototyping.
 
 The current prototype retains one latest movement-and-yaw Echo. It does not yet
 record semantic interactions, support multiple simultaneous Echoes, show player
