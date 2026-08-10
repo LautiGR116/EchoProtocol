@@ -262,3 +262,63 @@ or additional simultaneous anomalies.
 The first guided human pass confirmed the one-shot behavior but produced no
 terror or discomfort. This validates delivery only; it does not close the
 emotional or unprimed-attribution question.
+
+## 2026-08-09 — Build the soundscape before adding another anomaly
+
+**Decision:** Pause isolated horror cues and design one integrated 5–8 minute
+`Familiarity` audio foundation in the current M5.2/M6 room. First establish a
+credible facility body and truthful functional feedback; then subtract one
+learned layer, test one chair cue timing, and leave recovery space. This does not
+validate the complete chapter or its future domestic-memory layer. Add no new
+gameplay, music, voice, or strong peak in the first pass.
+
+**Why:** The hum, door, and chair prototypes validate routing, causal timing, and
+one-shot delivery, but the guided chair pass produced no terror or discomfort.
+Fear needs a learned normal soundscape, deliberate contrast, and coherent pacing;
+more volume or more disconnected events would not supply that context.
+
+**Tradeoff:** New anomalies and narrative content pause while a small palette is
+sourced and mixed. The current chair approach cue remains functional but its
+departure-after-close-inspection alternative is **EN PRUEBA**. Production assets
+require provenance and license review, and emotional approval still requires a
+non-primed checkpoint rather than technical verification alone.
+
+## 2026-08-09 — Use a CC0-first candidate palette for the public repository
+
+**Decision:** Shortlist eight CC0 recordings or effects for nine first-proof
+audio roles and track them in `AUDIO_ASSET_LEDGER.md`. Treat every file as a
+candidate until its canonical page and license are rechecked, the full recording
+is auditioned and hashed, its provenance is credible, and its derivative is
+reviewed. Do not import a stock, Student-plan, or generated asset merely because
+access is free. Keep Unity AI optional for an abstract experiment only after
+explicit consent and terms/quota review; defer Blender and Blender MCP until a
+concrete 3D task exists.
+
+**Why:** The repository publishes raw assets, so an end-product license can be
+insufficient even when a sound is free to use in a game. Predominantly recorded
+material is the lowest-cost path away from the synthetic door and room
+placeholders, while a small ledger makes attribution, replacement, and public
+redistribution auditable.
+
+**Tradeoff:** AD1 locks roles and candidates, not final timbre. Any source can be
+rejected during AD2, the pressure-plate release may need a separate recording,
+and the RECALL identity remains TBD. Conservative sourcing costs more review
+time but avoids building the soundscape on ambiguous files or unnecessary tools.
+
+## 2026-08-09 — Lock the domestic door direction, not the whole AD2 palette
+
+**Decision:** Use movement option A and endpoint option B from the same CC0
+domestic sliding-door recording. Import the other accepted AD2 derivatives only
+as replaceable prototype material. Their legal and technical acceptance does not
+make them the final sonic identity of the game.
+
+**Why:** The domestic material inside an institutional mechanism creates the
+specific ordinary-but-misplaced quality the user preferred, while one recording
+keeps motion and endpoint coherent. Continuing to collect alternatives before
+hearing the complete Unity route would add selection cost without improving the
+decision. The other candidates are sufficient to test density, causality,
+subtraction, and reset behavior even though none inspired a strong preference.
+
+**Tradeoff:** AD2 can reach an integrated human checkpoint now, but facility,
+plate, and RECALL timbres remain expected replacement targets. Later replacements
+must preserve the verified buses, timing, ownership, reset, and Echo-trust rules.

@@ -6,25 +6,23 @@ and human checkpoints determine current status.
 
 ## Current milestone
 
-M6.3 — First restrained localized audio discrepancy. Implemented and objectively
-verified; a guided human pass confirmed first-play/no-repeat behavior but produced
-no terror or discomfort. Unprimed attribution and emotional evidence remain open.
+`AD3` preparation — AD2's normal facility soundscape is imported, objectively
+verified, and human-approved for continued prototyping. Every imported timbre,
+including domestic door movement A and endpoint B, remains replaceable. Define
+the smallest audiovisual environmentalization pass that gives this soundscape a
+credible place before judging the chair discrepancy emotionally.
 
-## Implemented in the current milestone
+## Defined in the current milestone
 
-- The hidden M6.1 chair owns one initially inactive `ChairSettlingCue` and 3D
-  `AudioSource` routed to `WorldSFX`; no separate anomaly object or manager was
-  added.
-- The first Player proximity within `1.3 m` plays one low procedural cue. The
-  source never activates before the chair reveal and never rearms after playing.
-- The cue has no collider, Rigidbody, random timing, visual movement, reset-list
-  entry, puzzle output, or Echo dependency.
-- Runtime verification covered the real chair reveal, Player proximity,
-  repeat proximity, an invalid RECALL, five later successful RECALLs, clip bounds,
-  and the final known baseline with one Echo and zero plate occupants.
-- The proximity radius remains outside the full Plate A trigger bounds even when
-  accounting for the Player controller radius. A RECALL during the short cue lets
-  that persistent world-space sound finish without restarting it.
+- Define a small visual mood foundation for the existing room: clinical material
+  language, authored light hierarchy, restrained color/exposure, and readable
+  domestic contradiction around the chair.
+- Preserve M5.2 geometry, collision, timings, puzzle readability, Echo contrast,
+  scene variants, mixer buses, and every verified reset contract.
+- Use greybox-compatible authored materials and lighting before evaluating asset
+  packs, Blender integration, full production art, fog, or post-processing stacks.
+- Compare the same AD2 route before/after the visual pass. Do not add another
+  anomaly or stronger audio merely to compensate for an unclear environment.
 
 ## Completed
 
@@ -57,22 +55,39 @@ no terror or discomfort. Unprimed attribution and emotional evidence remain open
   sequential planning.
 - M6.1: deterministic chair reveal persists outside the loop without changing
   any recorded frame, puzzle rule, path, or timing.
-- M6.1b: procedural clinical hum, reveal-only fade, and sustained silence
-  objectively verified; the hum and its disappearance are human-approved.
+- M6.1b: procedural clinical hum and reveal-only fade to a stopped source
+  objectively verified; the hum and its disappearance are human-approved. AD3
+  will separately test perceptual quiet with residual facility detail, so
+  total-room silence is not carried forward as approved.
 - M6.2: deterministic physical door audio, mixer separation, reversal, midpoint
   reset, and repeated-loop behavior objectively verified. The causal baseline is
   human-approved; its synthetic motor timbre remains a production placeholder.
+- M6.3: deterministic chair-owned proximity cue objectively verified through
+  reveal, first playback, no repeat, invalid RECALL, and five later loops. Its
+  guided human delivery check passed, but emotional effectiveness remains open.
+- AD0: coherent soundscape direction, pacing, trust contract, scope, safety,
+  accessibility, and human/objective gates approved as the next production path.
+- AD1: eight CC0 source candidates, nine target roles, acceptance ledger,
+  delivery specification, public-repository policy, and toolchain assessment
+  documented without downloading or importing audio.
+- AD2 implementation: six CC0 originals reviewed and hashed, eight standardized
+  derivatives imported, sanitized license evidence retained, facility-air and
+  door procedurals replaced, two persistent beds added, and truthful plate and
+  successful-RECALL cues wired. Importer configuration, explicit references,
+  door reversal, plate edge/reset behavior, and five consecutive RECALLs passed
+  objective verification. Integrated human listening approved continued
+  prototyping while explicitly leaving all production timbres open.
 
-## Next
+## After AD2
 
-- M6.3: run the human proximity-cue checkpoint without announcing its timing.
-  Reject it if it reads as a door bug, corrupted Echo, random cheap scare, or
-  physical discomfort.
-- If a second unprimed pass remains emotionally flat, change the timing or
-  replace the procedural timbre before increasing volume or layering another
-  anomaly.
-- Production audio pass: replace the approved door placeholder with authored or
-  licensed material, friction, and creak while preserving its causal timing.
+- `AD3`: assemble the 5–8 minute `Familiarity` audio foundation with perceptual
+  subtraction, one chair timing variant, and recovery. Do not add a strong peak
+  yet.
+- `AD4`: run objective reset/Echo regression and an unannounced human
+  attribution/emotional checkpoint.
+- `AD5`: adjust timbre, timing, density, and mix before approving another
+  anomaly. A single authored peak becomes a later controlled variant only after
+  the quiet proof works.
 - M7: planned content and narrative pass across the five-chapter structure,
   including the small hub, art progression, audio, minimal UI, and autosave.
 - M8: polish, QA, Windows/macOS builds, and presentation.
@@ -116,8 +131,8 @@ Scope may be reduced before quality or the central arc is compromised.
 
 - Current milestone exclusions: sprint, crouch, jump, stamina, object pickup,
   player arms, pause/settings UI, semantic Echo interactions, multiple Echoes,
-  autosave, final production art/audio, narrative content, production scenes,
-  and additional horror anomalies.
+  autosave, full-game production art/audio, voice, music, narrative content,
+  production scenes, and additional horror anomalies.
 - NO MVP: Echo manipulation of movable physics objects, combat, weapons,
   systemic enemies, multiplayer/networking/backend, open world, crafting, RPG
   systems, achievements, complex inventory, multiple save slots, and additional

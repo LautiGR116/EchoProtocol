@@ -102,7 +102,9 @@ and M5.2's sequential relay are also human-approved. M6.1 is objectively verifie
 and its hum/disappearance behavior is human-approved; the visual-only chair did
 not create discomfort by itself. M6.2's causal mechanism-audio baseline is also
 objectively verified and human-approved. Its procedural motor timbre was judged
-synthetic and remains placeholder content for the production sound-design pass.
+synthetic; AD2 now replaces it with the user-selected domestic movement A and
+endpoint B pair. The integrated route is human-approved for continued
+prototyping, but every imported timbre remains replaceable.
 M6.3 is objectively verified, and a guided human pass confirmed first-play and
 no-repeat behavior. It produced no terror or discomfort, so spontaneous
 attribution and emotional effectiveness remain unapproved.

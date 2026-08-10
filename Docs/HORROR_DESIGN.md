@@ -2,11 +2,23 @@
 
 ## Current stage
 
-M6.3 — first restrained localized audio discrepancy. Implemented and objectively
-verified. A guided pass confirmed its one-shot behavior but produced no terror or
-discomfort; unprimed attribution and emotional testing remain open. M6.1's hum
-transition and M6.2's causal door-audio baseline remain human-approved. This
-remains a greybox proof, not a production chapter.
+M6.3 delivery is implemented and objectively verified. A guided pass confirmed
+its one-shot behavior but produced no terror or discomfort; unprimed attribution
+and emotional testing remain open. M6.1's hum transition and M6.2's causal
+door-audio baseline remain human-approved.
+
+AD2 has now imported and objectively verified the normal facility prototype:
+three ambient layers, a user-selected domestic door A/B pair, truthful plate
+edges, and successful-RECALL feedback. The human listening checkpoint approved
+continued prototyping without locking
+any timbre. The imported palette
+does not count as production horror audio.
+
+Further isolated anomalies are paused while the project builds one coherent
+5–8 minute `Familiarity` audio foundation. The first goal is a believable normal
+room whose learned layers can later be subtracted or contradicted. This validates
+neither the full chapter nor its domestic-memory layer. It remains a greybox
+soundscape proof, not a production chapter, and adds no gameplay or Echo rule.
 
 ## Approved narrative rule
 
@@ -56,6 +68,11 @@ Player proximity within `1.3 m` produces one low settling cue. It never plays on
 the normal puzzle route, never repeats during that session, and has no visible or
 mechanical effect. The intended doubt is whether an inert object just responded
 to proximity, not whether the door or Echo lied.
+
+The current proximity timing remains implemented. A departure-after-close-
+inspection version is **EN PRUEBA** for the integrated audio proof because it may
+place the sound behind the Player's attention more effectively. The variants
+must replace one another rather than stack, and neither is emotionally approved.
 
 ## Planned five-chapter escalation
 

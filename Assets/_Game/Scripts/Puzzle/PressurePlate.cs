@@ -29,6 +29,8 @@ namespace EchoProtocol.Puzzle
 
         public int OccupyingActorCount => actorOccupancyCounts.Count;
 
+        public event System.Action<bool> PressedChanged;
+
         private void Awake()
         {
             triggerVolume = GetComponent<BoxCollider>();
@@ -192,7 +194,8 @@ namespace EchoProtocol.Puzzle
 
         private void SetPressed(bool shouldBePressed, bool forceVisualRefresh)
         {
-            if (!forceVisualRefresh && IsPressed == shouldBePressed)
+            bool stateChanged = IsPressed != shouldBePressed;
+            if (!forceVisualRefresh && !stateChanged)
             {
                 return;
             }
@@ -214,6 +217,11 @@ namespace EchoProtocol.Puzzle
             if (controlledDoor != null)
             {
                 controlledDoor.SetOpen(shouldBePressed);
+            }
+
+            if (stateChanged && !forceVisualRefresh)
+            {
+                PressedChanged?.Invoke(IsPressed);
             }
         }
     }

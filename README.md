@@ -13,12 +13,14 @@ puzzle language, is complete: M5.1 and M5.2 are human-approved. M6.1 now adds on
 objectively verified audiovisual discrepancy without changing Echo playback or
 puzzle rules. The visual-only pass was noticed but did not create discomfort;
 the clinical hum and its disappearance are now human-approved. M6.2 adds the
-first objectively verified piece of trustworthy spatial audio. Its causal
-door-audio baseline is human-approved; the procedural motor was explicitly
-judged synthetic and remains a placeholder for the later sound-design pass.
-M6.3 now adds one objectively verified, proximity-triggered chair sound and
-has passed a guided human one-shot check. That pass produced no terror or
-discomfort, so spontaneous attribution and emotional effectiveness remain open.
+first objectively verified 3D door-audio source. Its causal timing is
+human-approved, while spatial localization was not tested separately. AD2 has
+now replaced its synthetic motor with a user-selected domestic sliding-door
+recording and matching endpoint; the integrated mix still needs a human Unity
+checkpoint. M6.3 now adds one objectively verified,
+proximity-triggered chair sound and has passed a guided human one-shot check.
+That pass produced no terror or discomfort, so spontaneous attribution,
+localization, and emotional effectiveness remain open.
 
 ## Development setup
 
@@ -47,26 +49,38 @@ including holding a pressure plate, is reproduced at full length.
 
 ## Current checkpoint
 
-M6.3 gives the revealed M6.1 chair one quiet, localized settling cue. The cue is
-inactive with the hidden chair, plays once when the Player deliberately comes
-within `1.3 m`, and never rearms through RECALL. It has no collider, visual
-movement, random timing, puzzle effect, or Echo dependency.
+The current audio path builds toward an integrated 5–8 minute `Familiarity`
+foundation proof in the existing room. It first establishes a believable,
+repeatable facility body and credible authored causal feedback, then tests one
+learned layer disappearing and one restrained chair discrepancy. It does not
+validate the complete chapter or its future domestic-memory layer. No new
+gameplay or Echo rule is part of this pass.
 
-### M6.3 playtest route
+AD2 has downloaded and reviewed six CC0 recordings outside the project, retained
+sanitized license evidence and hashes, and imported eight edited prototype clips.
+It replaces the facility-air and door procedurals, adds fluorescent and distant
+machinery beds, gives both plates truthful edge cues, and adds successful-RECALL
+feedback. Objective wiring/reset checks pass. Only the domestic door A/B pair is
+a strong initial direction; the integrated route is now human-approved for
+continued prototyping. Every imported clip, including the door pair, remains
+explicitly replaceable and no production timbre is locked.
 
-1. Start a fresh Play Mode session, solve the approved `A → B` sequence, cross
-   the green goal, and press `R` to reveal the chair and remove the hum.
-2. Walk toward the chair against the left wall. A single low settling sound
-   should occur only at close Player proximity, not during the puzzle route.
-3. Move away and approach again, then complete two more RECALLs. The cue must not
-   repeat.
-4. Confirm the door still sounds and behaves exactly as before, and that Echo
-   playback remains unchanged.
+M6.3 remains objectively verified but emotionally open. Additional isolated
+anomalies are paused. Its procedural timbre will be replaced by a credible
+material sound; approach versus departure-after-inspection will then be tested
+as mutually exclusive timing variants once the normal soundscape exists. The cue
+will not be duplicated or made louder to create impact cheaply.
 
-The checkpoint asks whether the cue felt environmental and intentional, where
-it came from, whether it created unease, and whether it suggested a broken door
-or corrupted Echo. A guided pass confirmed first-play/no-repeat behavior but did
-not create terror; an unprimed emotional and attribution pass remains required.
+The planned order is:
+
+1. **AD1 complete:** shortlist and legally review a small reference palette;
+2. **AD2 implemented and objectively verified:** integrate the modest facility
+   bed, domestic door, plate edges, and successful-RECALL cue;
+3. **AD2 complete at prototype level:** integrated listening approved continued
+   development while leaving every timbre open;
+4. **AD3 next:** assemble the chair timing into the 5–8 minute audiovisual route;
+5. run an unannounced attribution and emotional checkpoint before adding another
+   anomaly, voice, music, or a strong peak.
 
 ## Documentation
 
@@ -76,6 +90,7 @@ not create terror; an unprimed emotional and attribution pass remains required.
 - [Roadmap](Docs/ROADMAP.md)
 - [Horror design](Docs/HORROR_DESIGN.md)
 - [Audio design](Docs/AUDIO_DESIGN.md)
+- [Audio asset ledger](Docs/AUDIO_ASSET_LEDGER.md)
 - [Decisions](Docs/DECISIONS.md)
 - [Playtest log](Docs/PLAYTEST_LOG.md)
 

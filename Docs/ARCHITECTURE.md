@@ -148,12 +148,12 @@ The chair is built from render-only primitives with no collider, Rigidbody,
 pathing, timing, occupancy, goal eligibility, or recorded Echo frames.
 
 `ClinicalRoomTone` shares the always-active controller GameObject and owns one 2D
-`AudioSource`. At runtime it generates one deterministic four-second mono clip
-from fixed sine components at the active output sample rate, then loops it at
-volume `0.14`. It listens only to the discrepancy's rising `Revealed` event,
+`AudioSource`. AD2 replaces its runtime-generated placeholder with the serialized
+stereo `AMB_FacilityAir_LP` asset and loops it at volume `0.14`. It listens only
+to the discrepancy's rising `Revealed` event,
 fades linearly to zero over `0.8` seconds, stops the source, and remains silent
-through later RECALLs. A Play Mode or scene restart destroys the runtime clip and
-restores the initial hum. It does not touch the listener, mixer settings, global
+through later RECALLs. A Play Mode or scene restart restores the initial bed. It
+never destroys the imported asset and does not touch listener, mixer, global
 volume, time scale, puzzle reset list, or Echo lifecycle.
 
 ## Normal audio routing
@@ -166,9 +166,9 @@ same source-level volume and fade without mutating mixer or listener state.
 
 The active M5.2 door root owns one 3D `AudioSource` routed to `WorldSFX` and one
 `SlidingDoorAudio`. It references the fixed door root, its kinematic moving body,
-and that source explicitly. At runtime it creates one seamless half-second mono
-motor loop and one short mono endpoint cue from deterministic sine components at
-the active output sample rate.
+the user-selected domestic `SFX_DoorMovement_LP`, and the matching
+`SFX_DoorEndpoint` asset explicitly. It no longer creates or destroys runtime
+door clips.
 
 `SlidingDoorAudio` runs after the door controller and compares consecutive
 Rigidbody positions. It starts the motor only after physical displacement,
@@ -176,8 +176,24 @@ keeps the same voice through a direction reversal, and plays one endpoint cue
 only after real movement reaches fully open or closed. Repeated `SetOpen` calls
 cannot restart it. As an explicit `ILoopResettable` target placed after the door,
 it stops immediately after a reset snap and suppresses a false endpoint cue.
-It owns no randomization, imported clip, gameplay decision, global manager, or
-Echo data.
+It owns no randomization, gameplay decision, global manager, or Echo data.
+
+AD2 adds three truthful functional sources without a global audio manager:
+
+- each active M5.2 plate owns a `PressurePlateAudio` and one 3D `WorldSFX`
+  source. `PressurePlate.PressedChanged` emits only on a real occupancy edge;
+  forced visual reset emits nothing. Each audio component follows its plate in
+  reset order and stops silently;
+- `RecallCompletionAudio` owns one 2D `WorldSFX` source and subscribes only to
+  successful `LoopController.LoopCompleted`; invalid RECALL remains silent;
+- `Facility Ambience AD2` owns a 2D fluorescent loop and a fixed 3D distant
+  machinery loop routed to `Ambience`. Both persist across RECALL while the
+  subtractable facility-air layer keeps its existing reveal fade.
+
+The three ambience masters use `Compressed In Memory` / Vorbis quality `70`.
+Door, plate, and RECALL clips use `Decompress On Load` / PCM. All are preloaded,
+preserve `48 kHz`, and have background loading, ambisonics, and forced mono
+disabled. Three-dimensional masters are already mono.
 
 ## First localized audio discrepancy
 
@@ -204,7 +220,9 @@ on the recording side of a low blocker, keeps two ordered status lamps over one
 door, and retains the Player-only goal behind the partition. The active M6.1
 discrepancy layer adds its hidden chair near the spawn-side left wall. Only one
 puzzle and loop pair is active at a time. M6.2 routes its room tone and active
-door through the scene-local mixer; M6.3 adds the inactive chair-owned source.
+door through the scene-local mixer; AD2 adds persistent fluorescent/machinery
+beds, plate edges, and successful-RECALL feedback; M6.3 retains the inactive
+chair-owned procedural source.
 Inactive M4 and M5.1 doors have no audio component. The earlier movement and
 switch proofs also remain in inactive scene groups. Template URP settings remain
 under `Assets/Settings`.
@@ -213,5 +231,5 @@ under `Assets/Settings`.
 
 There is no semantic interaction replay, multi-Echo puzzle, generic puzzle-signal
 framework, generic anomaly director, additional visual discrepancy, save system,
-global game manager, footstep system, RECALL signature, plate audio, music,
+global game manager, footstep system, production RECALL signature, music,
 voice, reverb, occlusion, or adaptive audio system.
