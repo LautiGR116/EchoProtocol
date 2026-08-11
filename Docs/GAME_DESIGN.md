@@ -1,7 +1,7 @@
 # Game design
 
 This document synchronizes the approved product direction in
-[`Design/Echo Protocol - Game Design Document v0.1.pdf`](Design/Echo%20Protocol%20-%20Game%20Design%20Document%20v0.1.pdf)
+[`Design/Echo Protocol - Game Design Document v0.2.pdf`](Design/Echo%20Protocol%20-%20Game%20Design%20Document%20v0.2.pdf)
 with the current repository. `ARCHITECTURE.md` and playtest evidence remain
 authoritative for implemented and validated behavior.
 
@@ -19,6 +19,13 @@ correctly; the protagonist does not. Apparent anomalies must arise from omitted
 cycles, repressed actions, altered perception, or dream logic, never arbitrary
 playback corruption.
 
+Correct memory means fidelity to data the system actually captured, not magical
+omniscience. The current prototype records only movement and body yaw. Future
+channels must be implemented explicitly before the Echo can reproduce them. A
+later omitted cycle may reveal a truthful event outside the protagonist's
+conscious account, but it cannot rewrite a completed recording the Player
+already inspected.
+
 ## Audience and experience
 
 The planned audience is older teens and adults interested in psychological
@@ -33,11 +40,19 @@ macOS.
 1. Trust before fear: a rule must become dependable before it can create doubt.
 2. The mechanic is the horror: RECALL and Echoes remain the central source of
    both mastery and fear.
-3. Psychological horror before shock: anticipation, silence, contradiction, and
-   implication matter more than gore or frequent jumpscares.
-4. Sound is a core system for space, timing, presence, and anomaly.
-5. Small scope, high polish: a short coherent game takes priority over broad
+3. Player-facing horror: a moment must affect the real Player's perception and
+   behavior; narrative meaning or a changed prop alone is not enough.
+4. Sound is the primary weapon for space, timing, presence, memory, and doubt.
+   Authored strong events are valid when earned, varied, and safe; shock does
+   not replace construction.
+5. Puzzles create vulnerability: they make the Player wait, listen, look away,
+   revisit known space, depend on an unseen Echo, or choose RECALL under dread.
+6. Small scope, high polish: a short coherent game takes priority over broad
    unfinished content.
+
+Audio is primary, not exclusive. Spatial composition, lighting, architecture,
+material progression, reflections, partial figures, narrative evidence, and the
+new meaning of an unchanged Echo must reinforce the same authored fear beat.
 
 The intended emotional arc is curiosity, unease, doubt, paranoia, terror or
 sadness, and acceptance. Each loop should increase knowledge while reducing
@@ -50,6 +65,12 @@ coordination rather than opaque rules or frame-tight execution. A correct plan
 must have a visible, repeatable margin for success, and timing-critical values
 remain configurable for playtesting.
 
+Puzzle situations are not the sole source of runtime and must not become a chain
+of interchangeable two-minute plate rooms. Each production puzzle needs a clear
+place in the horror escalation and a concrete vulnerability it creates. The
+exact room and puzzle roster remains TBD until the complete 30–45 minute fear
+map is designed.
+
 Terror may later consume attention, create discomfort, and make the player doubt
 their observation. It must not secretly change input, playback speed, pressure
 plate truth, door timing, or the result of an otherwise identical attempt. The
@@ -57,9 +78,11 @@ player may feel uncertain; the normal system must first remain trustworthy.
 
 ## Core loop
 
-Explore, understand, plan, act, activate RECALL, cooperate with the resulting
-Echo, solve the experiment, and advance. Progress alternates puzzle resolution,
-brief breathing room, and a new reason to question the protagonist's memory.
+Explore, listen, understand, plan, expose yourself to a space, act, activate
+RECALL, cooperate with the resulting Echo, verify what changed, and advance.
+Progress combines puzzle resolution, traversal, authored audiovisual events,
+narrative reconstruction, and recovery rather than measuring duration by puzzle
+count alone.
 
 ## Implemented and validated
 
@@ -112,7 +135,9 @@ endpoint B pair. The integrated route is human-approved for continued
 prototyping, but every imported timbre remains replaceable.
 M6.3 is objectively verified, and a guided human pass confirmed first-play and
 no-repeat behavior. It produced no terror or discomfort, so spontaneous
-attribution and emotional effectiveness remain unapproved. AV1 is objectively
+attribution and emotional effectiveness remain unapproved. The chair remains a
+secondary environmental proof or motif anchor, not evidence of a successful
+headline scare. AV1 is objectively
 verified through static scene audit, first-person captures, and five consecutive
 RECALLs, and its human visual checkpoint is approved for continued prototyping.
 
@@ -136,6 +161,13 @@ The game is planned as five chapters:
 5. `Acceptance` - terror and sadness; both connected traumas converge and the
    protagonist confronts the memory.
 
+The approved horror-first progression is normality and trust, spatial doubt,
+domestic intrusion, sustained presence and remembered contradiction, then
+emotional reconstruction. Exact chapter durations, room count, puzzle roster,
+event count, and placement remain TBD. Several authored strong moments may occur
+across the full game, but they must grow from recurring motifs and recovery
+rather than random scheduling or unsafe loudness.
+
 The high-level narrative links a childhood accident involving a younger sibling
 and a later related accident involving the protagonist's child. Exact events,
 responsibility, and avoidability remain TBD. Final C is confirmed: the
@@ -150,9 +182,16 @@ without showing whether they wake.
   matter more than AAA photorealism.
 - Echoes should eventually read as complete human silhouettes with restrained
   transparency and temporal artifacts, never progressive monster deformation.
-- Audio should prioritize room tone, machinery, fluorescent hum, footsteps,
-  breathing, doors, distant presence, spatial readability, and carefully earned
-  peaks. Music and loud stingers remain limited.
+- Audio should draw from four recurring families: facility/structure,
+  presence/body, domestic memory, and time/repetition. Motifs gain authored
+  variants in distance, side, elevation, duration, acoustic dryness, intensity,
+  and completeness. World-locked sources remain spatially truthful; rare
+  head-locked/internal moments may break that expectation without carrying
+  essential information.
+- Headphones are recommended at a comfortable volume, never a high one. Planned
+  UX includes left/right calibration, `Headphones` and `Speakers` presentations,
+  separate ambience/effects/voice controls, and `Reduced Dynamics`; none is
+  implemented yet.
 - Product UI is planned to be minimal and preferably diegetic: clear RECALL and
   interaction feedback, English spoken audio with configurable Spanish/English
   subtitles, pause/settings, and no health bar, minimap, quest tracker, or
@@ -164,8 +203,10 @@ without showing whether they wake.
 
 - One small facility/hub with limited backtracking and a coherent visual
   identity.
-- Five to eight meaningful experiments built by recombining Echoes, buttons,
-  plates, doors, sensors, platforms, terminals, and timing.
+- A small roster of meaningful experiments whose exact count remains TBD. Each
+  must recombine Echo rules while serving a distinct vulnerability and horror
+  beat; buttons, plates, doors, sensors, platforms, terminals, and timing are a
+  vocabulary, not a quota.
 - One Echo for the vertical slice; up to two or three is an approved product
   direction but remains unimplemented and requires a concrete validated puzzle.
 - Progressive psychological horror, concise narrative, spatial audio, minimal

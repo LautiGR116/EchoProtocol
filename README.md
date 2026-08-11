@@ -21,10 +21,11 @@ continued prototyping while every timbre remains replaceable. M6.3 now adds one
 objectively verified,
 proximity-triggered chair sound and has passed a guided human one-shot check.
 That pass produced no terror or discomfort, so spontaneous attribution,
-localization, and emotional effectiveness remain open. AV1 now gives the same
-mechanical room an objectively verified clinical visual foundation without
-changing puzzle geometry, Echo behavior, or audio. Its human visual checkpoint
-is approved at prototype level.
+localization, and emotional effectiveness remain open. The chair is therefore a
+secondary environmental proof, not the project's headline scare. AV1 gives the
+same mechanical room an objectively verified clinical visual foundation without
+changing puzzle geometry, Echo behavior, or audio. Its human visual checkpoint is
+approved at prototype level.
 
 ## Development setup
 
@@ -53,12 +54,20 @@ including holding a pressure plate, is reproduced at full length.
 
 ## Current checkpoint
 
-The current audio path builds toward an integrated 5–8 minute `Familiarity`
-foundation proof in the existing room. It first establishes a believable,
-repeatable facility body and credible authored causal feedback, then tests one
-learned layer disappearing and one restrained chair discrepancy. It does not
-validate the complete chapter or its future domestic-memory layer. No new
-gameplay or Echo rule is part of this pass.
+The old plan to stretch the current two-minute puzzle into a 5–8 minute route
+around the chair is superseded. The project is now horror-first: sound is the
+primary perceptual weapon, puzzles create exposure and divided attention, and
+the 30–45 minute experience will be shaped as an escalation rather than padded
+with disconnected plate rooms. Echo playback remains exact throughout.
+
+The next concrete milestone is `SD1`, a planned five-minute directional-horror
+study in the existing space with no new puzzle. It will test a stable facility
+baseline, a dry domestic knock behind the Player, travelling footsteps,
+world-locked breathing, one intelligible head-locked whisper — `Can you hear
+me?`, subtitled `¿Me escuchás?` — one subtle visual consequence, and recovery.
+These are approved design targets, not implemented features. Success requires
+evidence that the Player turns, checks a door or corner, or doubts whether a
+sound came from the game; delivery alone is not enough.
 
 AD2 has downloaded and reviewed six CC0 recordings outside the project, retained
 sanitized license evidence and hashes, and imported eight edited prototype clips.
@@ -69,11 +78,10 @@ a strong initial direction; the integrated route is now human-approved for
 continued prototyping. Every imported clip, including the door pair, remains
 explicitly replaceable and no production timbre is locked.
 
-M6.3 remains objectively verified but emotionally open. Additional isolated
-anomalies are paused. Its procedural timbre will be replaced by a credible
-material sound; approach versus departure-after-inspection will then be tested
-as mutually exclusive timing variants once the normal soundscape exists. The cue
-will not be duplicated or made louder to create impact cheaply.
+M6.3 remains objectively verified but emotionally open. Its chair and cue may
+remain as a secondary motif or technical reference, but they no longer define
+the next horror milestone. The cue will not be duplicated or made louder to
+create impact cheaply.
 
 AV1 adds a closed ceiling, clinical wall/floor separation, restrained fixtures,
 dark trim, and a muted domestic material contrast on the chair. It is still
@@ -92,14 +100,18 @@ The planned order is:
 4. **AV1 objectively verified:** establish the room's clinical material and
    lighting foundation without changing gameplay;
 5. **AV1 complete at prototype level:** human visual checkpoint approved;
-6. **Current — AD3:** assemble the chair timing into the 5–8 minute audiovisual
-   route;
-7. run an unannounced attribution and emotional checkpoint before adding another
-   anomaly, voice, music, or a strong peak.
+6. **Current — SD1:** build the five-minute directional-horror study without a
+   new puzzle or any Echo corruption;
+7. validate headphones, speakers, and reduced dynamics at comfortable levels,
+   then run an unannounced perceptual and emotional checkpoint;
+8. map the complete 30–45 minute horror escalation and the vulnerability purpose
+   of each future puzzle before producing more rooms.
 
 ## Documentation
 
-- [Product GDD v0.1](Docs/Design/Echo%20Protocol%20-%20Game%20Design%20Document%20v0.1.pdf)
+- [Product GDD v0.2](Docs/Design/Echo%20Protocol%20-%20Game%20Design%20Document%20v0.2.pdf)
+- [Editable GDD v0.2](Docs/Design/Echo%20Protocol%20-%20Game%20Design%20Document%20v0.2.docx)
+- [Archived GDD v0.1](Docs/Design/Echo%20Protocol%20-%20Game%20Design%20Document%20v0.1.pdf)
 - [Game design](Docs/GAME_DESIGN.md)
 - [Architecture](Docs/ARCHITECTURE.md)
 - [Roadmap](Docs/ROADMAP.md)

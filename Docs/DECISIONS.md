@@ -158,6 +158,10 @@ schedule now trails the working prototype.
 **Tradeoff:** Documentation must label future content explicitly instead of
 copying GDD features into the implemented architecture.
 
+**Status update — 2026-08-11:** v0.1 remains archived unchanged. GDD v0.2 is now
+the current product document and synchronizes this rule with prototype and
+playtest evidence.
+
 ## 2026-08-08 — Echoes remember; the protagonist does not
 
 **Decision:** Treat correct Echo memory and unreliable protagonist memory as a
@@ -339,3 +343,77 @@ before timing or sound can carry meaningful unease.
 not expected to create terror by itself. Textures, props, fog, post-processing,
 flicker, asset packs, and another anomaly remain deferred until the human visual
 checkpoint identifies a concrete need.
+
+## 2026-08-11 — Make horror player-facing and sound-led
+
+**Decision:** Treat audio, music, spatial placement, recurrence, variation, and
+recovery as the primary horror language. Design moments to affect the real
+Player's perception of their surroundings, not merely to give an ordinary prop
+narrative significance. The implemented chair remains a secondary environmental
+proof or motif anchor; it is no longer the headline scare or the centre of the
+next milestone.
+
+Use four recurring families — facility/structure, presence/body, domestic
+memory, and time/repetition — with authored variants in direction, distance,
+elevation, duration, acoustic character, intensity, and completeness. Several
+strong events may occur during the 30–45 minute game, but they are composed set
+pieces rather than random triggers. Echo playback and functional sound remain
+truthful.
+
+**Why:** The chair reveal and one-shot were detectable but produced no terror or
+discomfort. A normal Player reads an unexplained chair as a chair. Directional
+domestic sounds, moving presence, repeated motifs, uncertain source checks, and
+partial consequences can pressure attention directly while preserving the
+central rule that Echoes remember correctly.
+
+**Tradeoff:** This requires more composition, device-specific listening, varied
+source material, and human perceptual evidence than a single prop reveal. Exact
+motifs, event count, clips, triggers, consequences, binaural/HRTF technology,
+voice, and music remain TBD.
+
+## 2026-08-11 — Use puzzles to manufacture vulnerability, not runtime
+
+**Decision:** Design the complete horror escalation before producing more puzzle
+rooms. A production puzzle must make the Player wait, listen, turn away, revisit
+known space, lose sight of the Echo, or commit to RECALL under perceptual
+pressure. Do not reach 30–45 minutes by chaining short plate variants.
+
+**Why:** The current puzzle can be solved in roughly two minutes, but multiplying
+that structure would create mechanical padding rather than a horror experience.
+Traversal, investigation, audiovisual events, narrative reconstruction, puzzles,
+and recovery all contribute to duration.
+
+**Tradeoff:** The exact puzzle count, room map, chapter timing, and future
+mechanics remain TBD until each has a distinct horror function. The approved M4,
+M5.1, and M5.2 prototypes remain valid mechanical language even if their plate
+geometry does not ship.
+
+## 2026-08-11 — Validate directional fear in SD1 at safe levels
+
+**Decision:** Supersede the unimplemented chair-centred `AD3` route with `SD1`,
+an approximately five-minute study in the existing room: stable facility
+baseline, dry domestic knock behind-right, travelling footsteps, world-locked
+breathing, one rare intelligible head-locked whisper, one subtle visual
+consequence, and recovery. Add no new puzzle and do not change Echo data or
+rules. The Echo's fidelity to every channel it actually records is confirmed as
+absolute; it is not allowed to fabricate or alter captured data.
+
+Recommend headphones at a comfortable volume with the message that details do
+not require high volume. Plan speaker and mono fallbacks, left/right calibration,
+separate ambience/effects/voice control, and `Reduced Dynamics`. Create force
+through direction, proximity, attack, spectrum, contrast, movement, and
+subtraction rather than unsafe loudness.
+
+**Why:** The next uncertainty is whether authored spatial audio can make the
+Player turn, check a real door or corner, remove one earcup, or doubt the source
+while the game remains mechanically trustworthy. That must be proven before a
+longer route or another puzzle is justified.
+
+**Tradeoff:** World-locked versus head-locked rendering, exact sounds, emitters,
+levels, visual consequence, and accessibility implementation remain TBD. The
+whisper is defined as `Can you hear me?`, spoken in English with Spanish
+subtitle `¿Me escuchás?`; its identity, performer, treatment, ear, and trigger
+remain open. The consequence is confirmed as subtle, but its exact visual form
+remains open. A guided delivery pass is insufficient; perceptual and emotional
+claims require an unannounced human checkpoint and separate headphones,
+speakers, mono, and reduced-dynamics evidence.

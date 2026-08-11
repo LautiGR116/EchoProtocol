@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Echo Protocol mark</title>
+  <desc id="desc">Three nested doorway frames surround a minimal human figure, representing exact temporal recordings and remembered space.</desc>
+  <g fill="none" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M104 412V100H408V412" stroke="#78B9BD" stroke-width="24"/>
+    <path d="M156 412V152H356V412" stroke="#65716E" stroke-width="18"/>
+    <path d="M206 412V204H306V412" stroke="#A8784F" stroke-width="14"/>
+  </g>
+  <circle cx="256" cy="282" r="18" fill="#DDE4DF"/>
+  <path d="M236 320Q256 306 276 320L286 380H226Z" fill="#DDE4DF"/>
+</svg>

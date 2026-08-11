@@ -2,150 +2,201 @@
 
 ## Current stage
 
-M6.3 delivery is implemented and objectively verified. A guided pass confirmed
-its one-shot behavior but produced no terror or discomfort; unprimed attribution
-and emotional testing remain open. M6.1's hum transition and M6.2's causal
-door-audio baseline remain human-approved.
+The mechanical trust foundation is complete through M5.2. M6.1–M6.3, AD2, and
+AV1 prove that the project can reveal a persistent object, subtract ambience,
+play truthful spatial mechanism audio, deliver a one-shot cue, and present a
+closed clinical room without changing Echo playback or puzzle rules.
 
-AD2 has now imported and objectively verified the normal facility prototype:
-three ambient layers, a user-selected domestic door A/B pair, truthful plate
-edges, and successful-RECALL feedback. The human listening checkpoint approved
-continued prototyping without locking
-any timbre. The imported palette
-does not count as production horror audio.
+Human evidence is narrower. The hum transition, causal door audio, integrated
+AD2 palette, and AV1 place are approved for continued prototyping. The chair was
+noticed and its one-shot delivery worked, but neither created terror or
+discomfort. The chair therefore remains a secondary environmental detail or
+motif anchor, not a headline scare and not evidence that the horror direction
+works.
 
-Further isolated anomalies are paused while the project builds one coherent
-5–8 minute `Familiarity` audio foundation. The first goal is a believable normal
-room whose learned layers can later be subtracted or contradicted. This validates
-neither the full chapter nor its domestic-memory layer. It remains a greybox
-soundscape proof, not a production chapter, and adds no gameplay or Echo rule.
+The previous `AD3` plan to stretch that room into a 5–8 minute chair-centred
+route is superseded before implementation. The current planned milestone is
+`SD1`: a short directional-horror study that tests whether sound can make the
+real Player turn, investigate, and doubt the boundary between the game space and
+their physical surroundings. No new puzzle or Echo rule belongs to this study.
 
-AV1 now provides the visual-place prerequisite for that proof with an
-objectively verified closed clinical room, stable local light hierarchy, and one
-muted domestic material contradiction on the existing chair. It does not add
-another anomaly, flicker, fog, grading, texture narrative, or production art.
-The developer approved its visual readability and mood as a prototype place;
-terror is not required from this foundation alone. AD3 integration is now the
-current gate.
+## Approved horror thesis
 
-## Approved narrative rule
+Echoes remember what happened correctly; the protagonist does not. Apparent
+unreliability belongs to memory, perception, omitted cycles, or nightmare logic,
+never arbitrary playback corruption.
 
-Echoes remember what happened correctly; the protagonist's memory and perception
-do not. Future discrepancies can represent omitted cycles, repressed actions,
-distorted perception, or the logic of the nightmare, but must not become random
-recording corruption. Echoes remain representations of the protagonist rather
-than monsters.
+The rule is now confirmed as absolute for recorded data: an Echo never fabricates
+or alters a captured frame or supported action. It is not omniscient; the current
+prototype captures movement and body yaw only. New semantic or audiovisual
+channels require explicit implementation and tests. A later omitted cycle may be
+authored as something the protagonist lived but did not retain, provided the
+recording itself remains ground truth rather than a changed copy of a known run.
 
-## Rules taught to the player
+Horror must happen perceptually to the Player, not only symbolically to the
+protagonist. An ordinary chair with narrative significance is still just a chair
+unless its setup, timing, sensory treatment, and consequence change how the
+Player behaves or interprets the space.
 
-The reliable greybox Echo behavior is implemented and human-approved:
+The target is not constant noise or a catalogue of random jumpscares. The game
+builds a reliable world, teaches recurring motifs, varies them deliberately,
+forces uncertain checks, sometimes leaves evidence, and uses several authored
+strong events across the full 30–45 minutes. Direction, proximity, movement,
+attack, spectral contrast, subtraction, and recovery create force; unsafe
+loudness does not.
 
-- A completed attempt replays its recorded route.
-- Reset restores the player and current experiment to a known baseline.
-- Normal playback is deterministic, harmless, and disappears at its recorded end.
-- Player and Echo can obey the same physical pressure-plate rule.
-- A recorded Echo can hold a mechanism while the Player completes the room.
+Sound is the main weapon, not the only one. Level composition, lighting,
+materials, reflections, partial human evidence, changed routes, and narrative
+context provide checks and consequences. The Echo can remain visually and
+mechanically identical while a later environment makes its exact path newly
+disturbing.
 
-The plate-and-door room, including its clarity and timing, is human-approved and
-now counts as the first established piece of normal puzzle language.
+## Trust contract
 
-M5.1's deterministic two-plate timing rule and M5.2's `A → B` relay are now
-human-approved. Both remain free of horror and hidden timing. M6.1 preserves
-those rules while testing whether a single unexplained object can create doubt
-without making the Echo feel unreliable.
+- An Echo exactly reproduces a completed recording and ends predictably.
+- Reset returns the active experiment to a known baseline.
+- Input, playback speed, plate truth, door timing, and goal eligibility do not
+  change secretly for an otherwise identical attempt.
+- Functional sound remains causally truthful. Horror audio cannot impersonate a
+  working mechanism in a way that invalidates a learned puzzle rule.
+- Essential puzzle and narrative information must remain available without
+  hearing alone.
 
-The Player-only goal arms the discrepancy. The next successful RECALL reveals a
-muted wood-and-metal institutional chair against the left wall, outside the
-direct spawn view.
-Invalid RECALLs do nothing. The chair has no collider or puzzle role, persists
-through later RECALLs, and returns to hidden only when the Play Mode session or
-scene restarts.
+The perceived arc is `useful Echo → apparently unreliable Echo → feared Echo`.
+The implementation remains deterministic while the Player gains reasons to
+distrust the protagonist's account of what was recorded.
 
-A low, non-spatial clinical hum establishes the room's normal sound. The chair
-reveal fades that hum to silence over roughly `0.8` seconds. There is no stinger,
-localized cue, random timing, or later restart within the same session. The hum
-and transition are human-approved; that approval does not claim that this cue
-alone produces the intended full level of discomfort.
+## Player-facing fear resources
 
-M6.2 routes the hum separately from one deterministic 3D door motor. The motor
-plays only while the panel physically moves and remains available after the hum
-has disappeared. It is human-approved normal language, not an anomaly or scare;
-its later creak and material treatment must preserve the same causal contract.
+### Spatial doubt
 
-M6.3 places one fixed 3D source on the hidden chair. After reveal, the first
-Player proximity within `1.3 m` produces one low settling cue. It never plays on
-the normal puzzle route, never repeats during that session, and has no visible or
-mechanical effect. The intended doubt is whether an inert object just responded
-to proximity, not whether the door or Echo lied.
+Most physical sounds are `world-locked`: they occupy an authored place and move
+correctly between the ears when the Player turns. This makes the virtual room
+learnable and lets a dry domestic knock, footsteps behind the Player, or breath
+near a shoulder feel spatially credible.
 
-The current proximity timing remains implemented. A departure-after-close-
-inspection version is **EN PRUEBA** for the integrated audio proof because it may
-place the sound behind the Player's attention more effectively. The variants
-must replace one another rather than stack, and neither is emotionally approved.
+Rare `head-locked/internal` events may remain close to one ear when the view
+turns. They are reserved for intimate perception, never normal world physics and
+never essential information. The exact binaural/HRTF implementation is TBD and
+must be tested rather than assumed.
+
+The desired trans-screen effect is that the Player briefly checks a real door or
+corner, turns toward the room behind them, removes one earcup to verify the
+source, or cannot immediately decide whether a sound came from the game. These
+are possible human observations, not instructions to raise volume.
+
+### Recurring motif families
+
+| Family | Examples | Horror function |
+| --- | --- | --- |
+| Facility / structure | metal impacts, ducts, machinery, pressure, glass, mechanism strain | Establish a coherent building, then imply activity outside the reachable route |
+| Presence / body | extra footsteps, breathing, fabric, fingers, weight behind a door, brief running | Suggest proximity without confirming an enemy |
+| Domestic memory | household door, chair scrape, dishes, water, child melody, toy, accident fragments | Let home invade the institution without immediate exposition |
+| Time / repetition | the Player's steps later, a prior action in another room, sound following an Echo path and continuing | Connect correct recording to omitted or misremembered experience |
+
+Each motif may receive authored variants in distance, side, elevation, duration,
+dryness or reverberation, restraint or violence, and partial or complete form.
+Variation follows scene state and dramatic intent; it is not a random scare
+director. Truthful door, plate, and RECALL feedback keeps its verified causal
+identity.
+
+### Check and consequence
+
+A useful pattern is:
+
+`hear → locate → check → find nothing → continue → receive partial evidence`
+
+Not every check pays off. Some produce nothing; others later reveal a mark,
+object, route change, remembered fragment, or contradictory but mechanically
+truthful trace. If checks never matter, the Player learns to ignore audio. If
+every sound yields an object, the pattern becomes a vending machine. The
+consequence schedule must be authored and remains TBD.
+
+### Puzzles as vulnerability
+
+Puzzles should expose the Player instead of pausing the horror. A situation may
+require watching a terminal with the room behind them, waiting while a sound
+approaches, leaving the Echo out of sight, crossing a known corridor again,
+holding position to listen, or pressing RECALL despite anticipating what will
+return. Difficulty still comes from understanding and planning, not hidden rules
+or frame-tight execution.
+
+No production puzzle is added merely to fill minutes. Its mechanic, spatial
+exposure, sensory beat, and recovery role must be defined together.
 
 ## Planned five-chapter escalation
 
-This structure is approved as product direction but is not implemented:
+This direction is approved but not implemented. Exact durations, rooms, puzzles,
+and event counts remain TBD.
 
-1. `Protocol` establishes safe, deterministic Echo rules.
-2. `Familiarity` introduces small environmental discrepancies and domestic
-   details without confirming danger.
-3. `Recollection` lets personal spaces and difficult-to-explain remembered
-   actions invade the experiments.
-4. `Denial` makes the protagonist's interpretation increasingly incompatible
-   with what Echoes correctly preserve.
-5. `Acceptance` converges the connected traumas and ends in confrontation,
-   terror, sadness, and limited uncertainty.
+1. `Protocol` builds safety: clinical causality, useful RECALL, and the first
+   uneasy impact without breaking trust.
+2. `Familiarity` creates spatial doubt: learned spaces produce directional
+   checks, small consequences, and domestic sounds that do not belong.
+3. `Recollection` lets home and presence invade more directly while the Echo
+   continues to reproduce the truth.
+4. `Denial` sustains pressure through omitted-cycle evidence, stronger recurring
+   variants, and authored set pieces that contradict the protagonist's account.
+5. `Acceptance` merges facility and memory, reconstructs the traumas, and ends
+   with Final C: confrontation, the nightmare ending, and a cut to black without
+   showing whether the protagonist wakes.
 
-For roughly 70-80 percent of the planned experience, no physical danger should
-be confirmed. Anticipation, silence, false positives, changes outside direct
-attention, and setup without guaranteed payoff take priority over pursuit,
-gore, or frequent jumpscares.
+For roughly 70–80 percent of the experience, physical danger need not be
+confirmed. This does not require low intensity: directional pursuit without an
+enemy, domestic intrusion, strong impacts, and sustained presence can create
+pressure while combat and generic chase horror remain absent.
 
-## Planned sensory language
+## Current planned study: SD1
 
-- Clinical white, grey, cold blue, glass, and metal gradually admit domestic
-  materials and warmth before facility and memory become inseparable.
-- Echo horror comes from behavior and remembered context, not monstrous visual
-  deformation.
-- Room tone, fluorescent hum, machinery, footsteps, breathing, doors, distant
-  sounds, and spatial ambiguity carry tension. Loudness does not substitute for
-  construction.
-- Recurring narrative motifs may include a children's story, drawing, melody,
-  object, phrase, room, reflections, glass, and partial human figures. Exact
-  selections remain unimplemented.
+`SD1` is approximately five minutes in the existing space and adds no puzzle:
 
-## Trust contract to preserve
+1. establish the stable facility baseline;
+2. place one dry domestic knock behind-right, distinct from the game door;
+3. move authored footsteps from left to right and behind the Player;
+4. place world-locked breathing whose location remains correct when turning;
+5. use one rare, intelligible head-locked whisper near a single ear;
+6. give one cue a subtle, delayed visual consequence;
+7. leave recovery instead of stacking another event.
 
-- An Echo exactly reproduces a completed recording.
-- Reset returns an experiment to a known baseline.
-- Echoes are deterministic, harmless, and end predictably.
-- Playback status is trustworthy.
+The sequence and content are approved as a study brief, not implemented
+features. The whisper is `Can you hear me?`, spoken in English and subtitled
+`¿Me escuchás?` in Spanish. Its identity, performer, treatment, intended ear,
+clip, and trigger remain TBD. The consequence must be subtle and mechanically
+inert; its exact form, emitters, spatial technology, mix levels, and timings
+remain TBD. The current chair may be present but is not the study's climax.
 
-## Used anomalies and motifs
+Objective checks must preserve Echo data, reset, puzzle truth, and causal audio;
+differentiate world-locked from head-locked behavior; avoid duplicate triggers;
+retain headroom; and exercise headphones, speakers, mono, and a reduced-dynamics
+presentation.
+
+The human checkpoint is unannounced beyond a general psychological-horror and
+sudden-audio warning. Record spontaneous turns, checks of doors or corners,
+source doubt, emotional tension, mechanical trust, and physical comfort. A
+guided delivery pass cannot validate surprise or trans-screen fear.
+
+## Safety and accessibility
+
+- Recommended copy: `Designed for headphones. Set a comfortable volume; details
+  do not require high volume.`
+- Plan `Headphones` and `Speakers` presentations, left/right calibration,
+  separate ambience/effects/voice controls, and `Reduced Dynamics`.
+- Never instruct the Player to use high volume. A scare that works only by
+  raising level fails.
+- Stop testing for pain, tinnitus, blocked-ear sensation, dizziness, panic, or
+  other physical distress. Emotional discomfort is intended; harm is not.
+- Spatialized audio must have non-audio support for essential information.
+
+## Implemented discrepancies and open questions
 
 - Echo anomalies: none.
-- Environmental anomalies: one M6.1 chair appears after goal completion and the
-  following successful RECALL; M6.3 lets that same inert chair emit one localized
-  settling cue on first Player proximity.
-- Information anomalies: none.
-- Audio motifs: the M6.1 room tone disappears when the chair is revealed; the
-  M6.3 chair cue plays once per session.
-- Normal audio rules: the M6.2 door motor follows only physical movement from the
-  doorway and stops on RECALL.
-- Scares that should not be repeated: the M6.3 chair settling cue.
+- Environmental proof: the M6.1 chair reveal persists for the session.
+- Audio proofs: facility-air subtraction, truthful door/plate/RECALL cues, and
+  the one-shot M6.3 chair proximity sound.
+- Emotionally approved headline scares: none.
 
-No other anomalies are implemented. Do not acknowledge the chair or its cue with
-explicit corruption/error messaging or explain whether it was previously
-overlooked.
-
-Future fear may distract, obscure peripheral attention, or create uncertainty,
-but it must not change input, `Time.timeScale`, Echo speed, plate truth, door
-timing, or goal eligibility for an otherwise identical normal attempt.
-
-## Narrative closure and open questions
-
-Final C is confirmed: the protagonist confronts the memory, the nightmare ends,
-and the screen cuts to black without showing whether they wake. The protagonist's
-name, the exact identity of the guiding voice, concrete details of both
-accidents, and the literal reality or name of the facility remain TBD.
+The protagonist's name, guiding voice, exact accident details, facility reality,
+production motif palette, score language, voice content, spatializer choice,
+final event roster, puzzle roster, chapter durations, and exact strong-event
+placements remain TBD. The chair's approach/departure timing is no longer a
+current milestone; retain or replace it only if a later motif needs it.

@@ -1,7 +1,7 @@
 # Audio asset ledger
 
-This ledger is the source-of-truth for external audio considered for the first
-integrated `Familiarity` proof. The repository is public. A link or a free
+This ledger is the source-of-truth for external audio considered and imported
+through AD2. The repository is public. A link or a free
 download is not permission to redistribute its raw file in Git.
 
 The repository currently has no root project `LICENSE`. This ledger records
@@ -22,7 +22,7 @@ for the project as a whole.
 - The industrial ambience, designed pressure plate, literal cassette rewind,
   clipped switch, and alternate automatic-door/metal-clunk candidates were
   rejected or superseded during audition. Rejection history is retained below.
-- `SFX_ChairSettle` remains deferred to AD3 and is not imported by AD2.
+- `SFX_ChairSettle` remains deferred beyond AD2 and is not assumed for SD1.
 - A tenth room-tail clip remains intentionally unsourced.
 
 Freesound explains the licenses used on its platform in its
@@ -47,7 +47,7 @@ be verified again at download time.
 | `AUD-MEC-002`<br>`Assets/_Game/Audio/Clips/Mechanisms/SFX_DoorEndpoint.wav` | Same [Sliding Door Open](https://freesound.org/people/Rolly-SFX/sounds/626165/) source | Same original and license | Downmixed source region `2.74–3.42 s`; `5 ms` in / `40 ms` out; `48 kHz/24-bit` | **Accepted — user-selected option B.** Replaces the metallic-clunk candidate and preserves one coherent domestic object. |
 | `AUD-MEC-003/004`<br>`Assets/_Game/Audio/Clips/Mechanisms/SFX_PlatePress.wav`<br>`.../SFX_PlateRelease.wav` | [Lamp Switch On and Off](https://freesound.org/people/se2001/sounds/503135/) — se2001 | WAV, stereo, `44.1 kHz/16-bit`, `5.235 s`; domestic switch; CC0 | Genuine on/off edges downmixed and trimmed to `0.48/0.52 s`; fades `5/20 ms`; `48 kHz/24-bit` | **Accepted replacement for prototype.** Same cues for Player and Echo. Designed pressure-plate candidate lacked a credible release; another switch source clipped. Final identity remains open. |
 | `AUD-SYS-001`<br>`Assets/_Game/Audio/Clips/System/SFX_RecallSuccess.wav` | [Stick Whoosh 11 Reverse](https://freesound.org/people/Sadiquecat/sounds/802453/) — Sadiquecat | WAV, mono, `192 kHz/24-bit`, `0.572 s`; recorded stick gesture, already reversed/edited by its creator; CC0 | Trimmed to `0.543 s`, resampled to `48 kHz/24-bit`, fades `10/25 ms` | **Accepted replacement for prototype.** Avoids literal cassette fiction. Final RECALL signature remains open. |
-| `AUD-DIS-001`<br>`Assets/_Game/Audio/Clips/Discrepancy/SFX_ChairSettle.wav` | [chairsqueak.wav](https://freesound.org/people/Alexsani/sounds/117289/) — Alexsani | WAV, stereo, `44.1 kHz/16-bit`, `0.893 s`; metal chair squeak after pressure was removed; CC0 | AD3 only | **Deferred.** Downloaded and hashed for later review, but not accepted or imported by AD2. |
+| `AUD-DIS-001`<br>`Assets/_Game/Audio/Clips/Discrepancy/SFX_ChairSettle.wav` | [chairsqueak.wav](https://freesound.org/people/Alexsani/sounds/117289/) — Alexsani | WAV, stereo, `44.1 kHz/16-bit`, `0.893 s`; metal chair squeak after pressure was removed; CC0 | Deferred; not assumed for SD1 | **Deferred.** Downloaded and hashed for later review, but not accepted or imported by AD2. |
 
 `CC0` is the candidate license, not the acceptance decision. Each source can
 still fail provenance, timbre, narrative, technical, or safety review.
@@ -157,7 +157,7 @@ This is a conservative production policy, not legal advice.
 
 ## Delivery specification
 
-AD2 will produce standardized production masters as WAV PCM, `48 kHz`, signed
+AD2 produced standardized prototype masters as WAV PCM, `48 kHz`, signed
 `24-bit` integer. Resampling a `44.1 kHz/16-bit` original does not restore lost
 detail; this standard only gives the authored derivatives one predictable
 delivery format. The project currently uses the system output sample rate and is

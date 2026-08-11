@@ -1,25 +1,32 @@
 # Roadmap
 
-The dated 16-week schedule in GDD v0.1 is provisional and predates the actual
-repository progress. Its dependency order remains useful; repository evidence
-and human checkpoints determine current status.
+GDD v0.2 replaces the provisional 16-week schedule from v0.1 with actual
+repository progress. Its evidence gates and human checkpoints determine current
+status.
 
 ## Current milestone
 
-`AD3` assembly — AV1's smallest clinical visual foundation is objectively
-verified and human-approved for continued prototyping. Assemble the integrated
-5–8 minute `Familiarity` route from the validated room and audio layers without
-changing M5.2 geometry, collision, timings, Echo behavior, audio ownership,
-scene variants, or reset contracts.
+`SD1` directional-horror study — use the validated AV1 room and AD2 causal audio
+to test player-facing spatial fear before building another puzzle. The planned
+study lasts roughly five minutes, adds no Echo rule, and must preserve M5.2
+geometry, collision, timing, reset, and functional-audio contracts.
 
 ## Defined in the current milestone
 
-- Preserve the repeatable facility body and truthful functional feedback long
-  enough for the Player to learn the normal soundscape.
-- Subtract the facility-air layer at the existing reveal, test one chair timing
-  variant, and leave recovery space.
-- Keep the approach and departure chair variants mutually exclusive.
-- Add no new gameplay, voice, music, strong peak, or second anomaly in this pass.
+- Establish a stable facility baseline, then author a dry domestic knock
+  behind-right, travelling footsteps, world-locked breathing, and one rare
+  intelligible head-locked whisper: `Can you hear me?`, spoken in English with
+  Spanish subtitle `¿Me escuchás?`.
+- Give one cue a subtle delayed visual consequence and leave recovery instead of
+  stacking another event.
+- Keep the existing chair as secondary evidence or a motif anchor, not the
+  climax. Its approach/departure alternative is no longer the milestone gate.
+- Use explicit authored triggers and preserve exact Echo playback. Add no new
+  puzzle, random director, generic anomaly framework, or mechanical deception.
+- Verify headphones, speakers, mono, comfortable listening levels, headroom,
+  and a reduced-dynamics presentation before making compatibility claims.
+- Run an unannounced human checkpoint focused on spontaneous turns, checks of a
+  door or corner, source doubt, tension, mechanical trust, and physical comfort.
 
 ## Completed
 
@@ -53,9 +60,9 @@ scene variants, or reset contracts.
 - M6.1: deterministic chair reveal persists outside the loop without changing
   any recorded frame, puzzle rule, path, or timing.
 - M6.1b: procedural clinical hum and reveal-only fade to a stopped source
-  objectively verified; the hum and its disappearance are human-approved. AD3
-  will separately test perceptual quiet with residual facility detail, so
-  total-room silence is not carried forward as approved.
+  objectively verified; the hum and its disappearance are human-approved.
+  Residual facility detail now remains through AD2, so total-room silence is not
+  carried forward as approved.
 - M6.2: deterministic physical door audio, mixer separation, reversal, midpoint
   reset, and repeated-loop behavior objectively verified. The causal baseline is
   human-approved; its synthetic motor timbre remains a production placeholder.
@@ -80,14 +87,21 @@ scene variants, or reset contracts.
   Echo presentation/state preservation, and five consecutive RECALLs passed.
   The developer then approved the visual foundation for continued prototyping.
 
-## After AD3
+## After SD1
 
-- `AD4`: run objective reset/Echo regression and an unannounced human
-  attribution/emotional checkpoint.
-- `AD5`: adjust timbre, timing, density, and mix before approving another
-  anomaly. A single authored peak becomes a later controlled variant only after
-  the quiet proof works.
-- M7: planned content and narrative pass across the five-chapter structure,
+- Iterate only the failing dimensions of SD1: source, direction, timing, motif,
+  consequence, mix, or fallback. Do not solve weak fear with unsafe volume or a
+  pile of simultaneous anomalies.
+- Define the complete 30–45 minute horror map: chapter pressure, recurring motif
+  variants, authored strong events, consequences, recovery, traversal, and the
+  vulnerability purpose of every future puzzle.
+- Build an 8–10 minute vertical slice from that map with one non-plate puzzle,
+  return through a familiar space, directional fear, consequence, and recovery.
+  Exact layout and mechanic remain TBD until the map is approved.
+- Later audio integration replaces prototype timbres and expands only motif
+  families that have perceptual evidence. The former chair-centred `AD3` route
+  is superseded before implementation.
+- M7: content and narrative production across the five-chapter structure,
   including the small hub, art progression, audio, minimal UI, and autosave.
 - M8: polish, QA, Windows/macOS builds, and presentation.
 
@@ -100,8 +114,15 @@ Scope may be reduced before quality or the central arc is compromised.
   baselines and consecutive-loop verification.
 - An environmental discrepancy that reads as broken playback would undermine
   trust; require human attribution to the room rather than the Echo.
+- A symbolically meaningful object that causes no perceptual response is not a
+  successful headline scare; separate delivery evidence from fear evidence.
+- Directional horror can fail through device mix, unsafe dynamics, or poor
+  fallback. Recommend headphones at a comfortable volume and test speakers,
+  mono, and reduced dynamics separately.
 - Puzzle difficulty targets planning and coordination around 3/5, with tunable
   margins and diegetic assistance rather than frame-tight execution.
+- Puzzle count must not pad the target runtime. Each production puzzle needs a
+  defined vulnerability, horror beat, and recovery role.
 - Narrative ambiguity should invite reconstruction without making causality
   illegible; narrative playtests are required later.
 - Art, audio, voice, and licensed assets can consume solo production capacity;
@@ -125,13 +146,21 @@ Scope may be reduced before quality or the central arc is compromised.
 - Performance target: TBD after profiling on target Windows/macOS hardware.
 - Final moodboard references and production assets: TBD pending coherence,
   source, license, and development-cost review.
+- SD1 event clips, whisper casting/treatment, triggers, positions, subtle visual
+  consequence, and exact world/head-locked rendering: TBD. The line is defined
+  as `Can you hear me?`, with Spanish subtitle `¿Me escuchás?`.
+- Full-game room count, puzzle roster, motif variations, strong-event count and
+  placement, and chapter pacing: TBD.
+- Headphones/speakers presentation, left/right calibration, and
+  `Reduced Dynamics` behavior: approved requirements, implementation TBD.
 
 ## Deferred / cut for now
 
-- Current milestone exclusions: sprint, crouch, jump, stamina, object pickup,
-  player arms, pause/settings UI, semantic Echo interactions, multiple Echoes,
-  autosave, full-game production art/audio, voice, music, narrative content,
-  production scenes, and additional horror anomalies.
+- Current milestone exclusions: new puzzle mechanics, sprint, crouch, jump,
+  stamina, object pickup, player arms, production settings UI, semantic Echo
+  interactions, multiple Echoes, autosave, full-game production art/audio,
+  score, narrative chapter production, and production scenes. SD1 may prototype
+  only its specified knock, footsteps, breathing, whisper, and visual consequence.
 - NO MVP: Echo manipulation of movable physics objects, combat, weapons,
   systemic enemies, multiplayer/networking/backend, open world, crafting, RPG
   systems, achievements, complex inventory, multiple save slots, and additional
