@@ -109,6 +109,36 @@ class PublicationGuards(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             deploy.validate_output(self.root / "web")
 
+    def test_snapshot_pins_commit_hydrates_lfs_and_captures_private_inputs(self):
+        repo = self.root / "repository"
+        (repo / "Assets").mkdir(parents=True)
+        deploy.git(repo, "init", "-q")
+        deploy.git(repo, "config", "user.email", "test@example.invalid")
+        deploy.git(repo, "config", "user.name", "Publication test")
+        (repo / "Assets/code.cs").write_text("committed")
+        audio = b"local LFS audio fixture"
+        oid = deploy.hashlib.sha256(audio).hexdigest()
+        (repo / "Assets/clip.wav").write_text(
+            f"version https://git-lfs.github.com/spec/v1\noid sha256:{oid}\nsize {len(audio)}\n")
+        deploy.git(repo, "add", "Assets")
+        deploy.git(repo, "commit", "-qm", "fixture")
+        sha = deploy.git(repo, "rev-parse", "HEAD")
+        lfs = repo / ".git/lfs/objects" / oid[:2] / oid[2:4] / oid
+        lfs.parent.mkdir(parents=True)
+        lfs.write_bytes(audio)
+        (repo / "Assets/code.cs").write_text("dirty edit must not ship")
+        (repo / "Assets/private.asset").write_text("saved private asset")
+        with patch.object(deploy, "ROOTS", ("Assets",)), patch.object(deploy, "PRIVATE", ("Assets/private.asset",)):
+            first = deploy.snapshot({"repo": str(repo)}, sha)
+            self.assertEqual((first / "source/Assets/code.cs").read_text(), "committed")
+            self.assertEqual((first / "source/Assets/clip.wav").read_bytes(), audio)
+            self.assertEqual((first / "source/Assets/private.asset").read_text(), "saved private asset")
+            self.assertEqual(deploy.snapshot({"repo": str(repo)}, sha), first)
+            (repo / "Assets/private.asset").write_text("next saved scene")
+            second = deploy.snapshot({"repo": str(repo)}, sha)
+            self.assertNotEqual(first, second)
+            self.assertEqual((first / "source/Assets/private.asset").read_text(), "saved private asset")
+
 
 if __name__ == "__main__":
     unittest.main()

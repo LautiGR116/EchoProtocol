@@ -55,6 +55,13 @@ pruned. No automatic removal of the user's ordinary Builds folder occurs.
 Run `install` again after changing the publisher script to update its local copy.
 Focused publication-guard checks: `python3 -m unittest discover -s Scripts -p test_web_deploy.py`.
 
+Setup verification on 2026-10-19: 11 focused guard checks passed, including a
+real temporary Git snapshot with dirty tracked files, local LFS hydration and
+private-asset snapshot independence. The repository's actual push ran the
+preserved LFS hook and queued the correct commit. One isolated WebGL build
+succeeded (0 errors, 354 existing shader warnings, 103.4 s build phase; roughly
+two minutes including Editor startup). No game route was replayed for this setup.
+
 ## Rebuild and publish
 
 Use Unity 6000.3.21f1 with Web Build Support. Switch the active target to WebGL,

@@ -26,7 +26,6 @@ PRIVATE = (
     "Assets/_Game/Art/Embodiment/RenderpeoplePrivate",
     "Assets/_Game/Art/Embodiment/RenderpeoplePrivate.meta",
     "Assets/_Game/Prefabs/Embodiment", "Assets/_Game/Prefabs/Embodiment.meta",
-    "Assets/_Game/Prefabs/Impact", "Assets/_Game/Prefabs/Impact.meta",
     "Assets/_Game/Scenes/Production/EchoProtocol_Incursion.unity",
     "Assets/_Game/Scenes/Production/EchoProtocol_Incursion.unity.meta",
 )
@@ -155,6 +154,13 @@ def snapshot(config, sha):
         if private_stamp(repo) != before_private:
             raise RuntimeError("Private assets changed during capture; save the Editor and enqueue again")
         digest = digest_tree(source)
+        for existing in jobs.iterdir():
+            previous = read(existing / "job.json")
+            if previous.get("sha") == sha and previous.get("digest") == digest and previous.get("state") not in (
+                    "failed", "push_not_confirmed", "superseded"):
+                shutil.rmtree(staging)
+                log(f"Web release {sha[:12]} already captured")
+                return existing
         job = {"sha": sha, "digest": digest, "created": time.time(), "state": "queued", "attempts": 0}
         write(staging / "job.json", job)
         destination = jobs / (str(time.time_ns()) + "-" + sha[:12])
