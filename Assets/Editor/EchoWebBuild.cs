@@ -110,6 +110,14 @@ public static class EchoWebBuild
         BuildTo(output);
     }
 
+    // The local publisher calls this only in its isolated project copy.
+    // Configure also restores machine-local Wasm optimization after cache resets.
+    public static void BuildAutomated()
+    {
+        Configure();
+        Build();
+    }
+
     public static void BuildTo(string output)
     {
         if (EditorUserBuildSettings.activeBuildTarget != BuildTarget.WebGL)

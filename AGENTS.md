@@ -35,6 +35,9 @@
   requests otherwise, do not build, package, sign, or launch standalone versions
   of the game. Older build-delivery instructions in Docs are historical and do
   not override this rule. Deliver saved scripts/assets/scenes for Editor play.
+- The user authorized the local web publisher on pushes to `origin/main` from
+  this Mac. Its isolated WebGL build and butler upload are an explicit exception;
+  see `Docs/WEB_RELEASE.md`. Do not add routine playthroughs to that publication.
 - Keep verification small and tied to the change: check compilation/Console,
   inspect the affected configuration, and use the shortest relevant Editor check
   when behavior or presentation needs it. Reuse existing evidence and checkpoints.

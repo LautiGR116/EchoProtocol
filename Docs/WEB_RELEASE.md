@@ -5,6 +5,56 @@ published 2026-10-19: https://lautigr116.itch.io/echo-protocol.
 The ordinary development workflow remains Editor-only; publishing builds is an
 explicit exception requested for this release.
 
+## Automatic updates from this Mac
+
+The user authorized a local publisher on pushes to `origin/main`, with no paid
+services. `Scripts/web_deploy.py install` installs a repository-local pre-push
+wrapper (preserving the existing Git LFS hook) and a macOS LaunchAgent. Other
+branches do not publish. The hook captures the exact pushed Git commit plus the
+saved private scene/prefab/model allowlist; unsaved Editor changes and dirty
+tracked files are not part of that release. Private sources remain on this Mac.
+
+The worker confirms the commit is actually on GitHub before building. It uses a
+separate cached Unity project at `~/Library/Application Support/EchoProtocol/WebDeploy/project`,
+at reduced scheduling priority. It does not drive or close the user's Editor.
+Only build success and the required web files are checked; there are no automatic
+playthroughs or campaign tests. Identical build inputs skip compilation. If a
+newer push arrives during a build, the older output is not submitted.
+
+butler publishes to `lautigr116/echo-protocol:web`, preserving the public page URL.
+Its first channel upload must be selected as **played in the browser** in itch's
+editor once; subsequent uploads replace that channel. A failed build is retained
+for diagnosis and is not retried automatically. Upload interruptions retry up to
+three times, reusing the completed build. The prior published build remains live
+until itch accepts/processes the replacement. Already-open games need reloading.
+
+Requirements: this Mac awake, user logged in, network, Unity 6000.3.21f1 with Web
+support and valid local license, Python 3.12+, Unity CLI, and official butler.
+The existing local butler login is used; no API key belongs in Git or a public
+log. Runtime configuration, credentials and caches are outside the repository.
+After sleep/network loss the queued job resumes when this user session is active.
+Only pushes through this checkout's Git hook enqueue releases; pushes from other
+computers/GitHub need `enqueue` here. Save the private scene before pushing.
+
+From the repository:
+
+```sh
+python3 Scripts/web_deploy.py status     # latest job and published commit
+python3 Scripts/web_deploy.py pause      # defer publication; an active build can finish
+python3 Scripts/web_deploy.py resume
+python3 Scripts/web_deploy.py retry      # explicitly retry the latest failed job
+python3 Scripts/web_deploy.py enqueue    # publish current HEAD plus saved private assets
+python3 Scripts/web_deploy.py uninstall  # restore original pre-push hook; retain local data
+```
+
+`enqueue` still requires HEAD to match remote main. A new push is captured before
+network completion; if it is not confirmed within 30 minutes, enqueue again.
+The worker wakes on queue changes or once per minute and exits immediately when
+idle. Two completed/failed snapshots are retained; older task-owned snapshots are
+pruned. No automatic removal of the user's ordinary Builds folder occurs.
+Run `install` again after changing the publisher script to update its local copy.
+Focused publication-guard checks: `python3 -m unittest discover -s Scripts -p test_web_deploy.py`.
+
 ## Rebuild and publish
 
 Use Unity 6000.3.21f1 with Web Build Support. Switch the active target to WebGL,
