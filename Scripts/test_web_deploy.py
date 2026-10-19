@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from types import SimpleNamespace
 from unittest.mock import patch
 
 import web_deploy as deploy
@@ -108,6 +109,63 @@ class PublicationGuards(unittest.TestCase):
     def test_output_needs_successful_report(self):
         with self.assertRaises(RuntimeError):
             deploy.validate_output(self.root / "web")
+
+    @patch.object(deploy, "run")
+    @patch.object(deploy, "build", return_value=Path("/unused/output"))
+    @patch.object(deploy, "remote_head", return_value="a" * 40)
+    def test_successful_upload_is_not_yet_published(self, remote, build, run):
+        deploy.worker(self.config)
+        self.assertEqual(self.phase(), "processing")
+        self.assertFalse((self.root / "published.json").exists())
+        self.assertEqual(deploy.read(self.root / "uploaded.json")["digest"], "inputs-a")
+
+    def processing_receipt(self):
+        deploy.status(self.job, "processing")
+        deploy.write(self.root / "uploaded.json", {**self.data, "job": self.job.name})
+
+    @patch.object(deploy, "build")
+    @patch.object(deploy, "run", return_value=SimpleNamespace(stdout='{"type":"result","value":{"channels":[]}}'))
+    def test_missing_channel_waits_without_rebuilding_or_reuploading(self, run, build):
+        self.processing_receipt()
+        deploy.worker(self.config)
+        self.assertEqual(self.phase(), "processing")
+        build.assert_not_called()
+        self.assertIn("status", run.call_args.args[0])
+
+    @patch.object(deploy, "run")
+    def test_only_matching_completed_head_confirms_publication(self, run):
+        self.processing_receipt()
+        channel = {"name": "web", "uploadId": 42, "head": {
+            "id": 123, "state": "completed", "userVersion": "older-version"}}
+        def response():
+            return SimpleNamespace(stdout=json.dumps({"type": "result", "value": {"channels": [channel]}}))
+        run.return_value = response()
+        self.assertTrue(deploy.confirm_upload(self.config))
+        self.assertFalse((self.root / "published.json").exists())
+        channel["head"]["userVersion"] = deploy.release_version(self.data)
+        run.return_value = response()
+        self.assertFalse(deploy.confirm_upload(self.config))
+        self.assertEqual(self.phase(), "published")
+        self.assertEqual(deploy.read(self.root / "published.json")["build_id"], 123)
+
+    @patch.object(deploy, "run")
+    def test_processing_failure_preserves_previous_release(self, run):
+        self.processing_receipt()
+        deploy.write(self.root / "published.json", {"digest": "previous"})
+        run.return_value = SimpleNamespace(stdout=json.dumps({"type": "result", "value": {"channels": [
+            {"name": "web", "pending": {"state": "failed", "userVersion": deploy.release_version(self.data)}}]}}))
+        self.assertFalse(deploy.confirm_upload(self.config))
+        self.assertEqual(self.phase(), "server_failed")
+        self.assertEqual(deploy.read(self.root / "published.json")["digest"], "previous")
+
+    @patch.object(deploy, "confirm_upload", return_value=True)
+    @patch.object(deploy, "build")
+    @patch.object(deploy, "remote_head", return_value="a" * 40)
+    def test_new_push_waits_for_inflight_upload_even_when_reverting(self, remote, build, confirm):
+        deploy.write(self.root / "published.json", {"digest": "inputs-a"})
+        deploy.worker(self.config)
+        self.assertEqual(self.phase(), "waiting_for_itch")
+        build.assert_not_called()
 
     def test_snapshot_pins_commit_hydrates_lfs_and_captures_private_inputs(self):
         repo = self.root / "repository"

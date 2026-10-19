@@ -27,6 +27,10 @@ editor once; subsequent uploads replace that channel. A failed build is retained
 for diagnosis and is not retried automatically. Upload interruptions retry up to
 three times, reusing the completed build. The prior published build remains live
 until itch accepts/processes the replacement. Already-open games need reloading.
+`processing` means the upload succeeded but itch has not confirmed the matching
+completed build. The worker checks this without rebuilding/reuploading, and only
+then records `published`. Further releases wait while itch processes the current
+upload; server processing failure is recorded separately as `server_failed`.
 
 Requirements: this Mac awake, user logged in, network, Unity 6000.3.21f1 with Web
 support and valid local license, Python 3.12+, Unity CLI, and official butler.
@@ -55,12 +59,15 @@ pruned. No automatic removal of the user's ordinary Builds folder occurs.
 Run `install` again after changing the publisher script to update its local copy.
 Focused publication-guard checks: `python3 -m unittest discover -s Scripts -p test_web_deploy.py`.
 
-Setup verification on 2026-10-19: 11 focused guard checks passed, including a
+Setup verification on 2026-10-19: 16 focused guard checks passed, including a
 real temporary Git snapshot with dirty tracked files, local LFS hydration and
 private-asset snapshot independence. The repository's actual push ran the
 preserved LFS hook and queued the correct commit. One isolated WebGL build
 succeeded (0 errors, 354 existing shader warnings, 103.4 s build phase; roughly
 two minutes including Editor startup). No game route was replayed for this setup.
+The first butler transfer completed at 17:52 ART; itch had not exposed its channel
+at 17:58 ART. The local worker retains that output and waits for server confirmation.
+The manual r3 browser upload stays active until the new channel can be selected.
 
 ## Rebuild and publish
 

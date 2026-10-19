@@ -234,10 +234,49 @@ def prune():
     terminal = []
     for job in (STATE / "jobs").iterdir():
         if (job / "job.json").exists() and read(job / "job.json").get("state") in (
-                "published", "unchanged", "superseded", "failed", "push_not_confirmed"):
+                "published", "unchanged", "superseded", "failed", "server_failed", "push_not_confirmed"):
             terminal.append(job)
     for job in sorted(terminal, reverse=True)[2:]:
         shutil.rmtree(job)
+
+
+def release_version(data):
+    return data["sha"][:12] + "-" + data["digest"][:8]
+
+
+def confirm_upload(config):
+    """A successful transfer is not proof that itch processed the new build."""
+    receipt = read(STATE / "uploaded.json")
+    if not receipt:
+        return False
+    job = STATE / "jobs" / receipt["job"]
+    if read(job / "job.json").get("state") != "processing":
+        return False
+    try:
+        result = run([config["butler"], "-i", str(IDENTITY), "--json", "status", TARGET],
+                     capture_output=True, text=True, timeout=60)
+        for line in result.stdout.splitlines():
+            event = json.loads(line)
+            if event.get("type") != "result":
+                continue
+            for channel in event.get("value", {}).get("channels", []):
+                if channel.get("name") != TARGET.split(":")[1]:
+                    continue
+                for key in ("head", "pending"):
+                    remote = channel.get(key) or {}
+                    if remote.get("userVersion") != release_version(receipt):
+                        continue
+                    if key == "head" and remote.get("state") == "completed":
+                        write(STATE / "published.json", {**receipt, "published": time.time(),
+                              "build_id": remote["id"], "upload_id": channel.get("uploadId")})
+                        status(job, "published")
+                        return False
+                    if remote.get("state") in ("failed", "cancelled", "canceled"):
+                        status(job, "server_failed", error="itch.io could not process the uploaded build")
+                        return False
+    except (subprocess.SubprocessError, OSError, ValueError):
+        pass  # Offline/server delay: retain the upload, never rebuild or reupload it.
+    return True
 
 
 def worker(config):
@@ -248,10 +287,11 @@ def worker(config):
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
             return
+        processing = confirm_upload(config)
         pending = [(j, read(j / "job.json")) for j in (STATE / "jobs").iterdir()
                    if (j / "job.json").exists()]
         pending = [(j, d) for j, d in pending if d["state"] not in (
-            "published", "unchanged", "superseded", "failed", "push_not_confirmed")]
+            "published", "processing", "unchanged", "superseded", "failed", "server_failed", "push_not_confirmed")]
         if not pending:
             return
         try:
@@ -269,6 +309,10 @@ def worker(config):
         for older in matches[1:]:
             status(older, "superseded")
         data = read(job / "job.json")
+        if processing:
+            if data["state"] != "waiting_for_itch":
+                status(job, "waiting_for_itch")
+            return
         if read(STATE / "published.json").get("digest") == data["digest"]:
             status(job, "unchanged")
             prune()
@@ -289,12 +333,12 @@ def worker(config):
                 return
             status(job, "uploading")
             with (job / "butler.log").open("a") as upload_log:
-                run([config["butler"], "-i", str(IDENTITY), "push", str(output), TARGET,
-                     "--userversion", data["sha"][:12] + "-" + data["digest"][:8]],
+                run([config["butler"], "-i", str(IDENTITY), "--json", "push", str(output), TARGET,
+                     "--userversion", release_version(data)],
                     stdout=upload_log, stderr=subprocess.STDOUT, timeout=900)
-            write(STATE / "published.json", {"sha": data["sha"], "digest": data["digest"],
-                                              "published": time.time(), "job": job.name})
-            status(job, "published")
+            write(STATE / "uploaded.json", {"sha": data["sha"], "digest": data["digest"],
+                                             "uploaded": time.time(), "job": job.name})
+            status(job, "processing")
         except Exception as error:
             phase = read(job / "job.json")["state"]
             attempts = data.get("attempts", 0) + 1
@@ -381,7 +425,8 @@ def main():
         snapshot(config, git(config["repo"], "rev-parse", "HEAD"))
     elif args.command == "status":
         print(json.dumps({"paused": (STATE / "paused").exists(),
-            "latest": read(STATE / "status.json"), "published": read(STATE / "published.json")}, indent=2))
+            "latest": read(STATE / "status.json"), "uploaded": read(STATE / "uploaded.json"),
+            "published": read(STATE / "published.json")}, indent=2))
     elif args.command == "pause":
         (STATE / "paused").touch()
         log("Paused: queued releases wait; a running build can finish")
@@ -389,6 +434,8 @@ def main():
         (STATE / "paused").unlink(missing_ok=True)
         if args.command == "retry":
             job = STATE / "jobs" / read(STATE / "status.json")["job"]
+            if read(job / "job.json")["state"] not in ("failed", "server_failed", "upload_retry", "push_not_confirmed"):
+                raise RuntimeError("Only failed releases need retry; pending uploads are checked automatically")
             status(job, "queued", attempts=0, retry_after=0)
         run(["launchctl", "kickstart", f"gui/{os.getuid()}/{LABEL}"])
     elif args.command == "uninstall":
