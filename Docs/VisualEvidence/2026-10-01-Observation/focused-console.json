@@ -1,0 +1,24 @@
+{
+  "scope": "Full Console read after focused Player-only bypass PASS17; probe itself captured no gameplay errors. Compilation/dispatch diagnostics are separate.",
+  "total": 11,
+  "returned": 11,
+  "counts": {
+    "Log": 8,
+    "Warning": 2,
+    "Error": 1
+  },
+  "diagnostics": [
+    {
+      "type": "Warning",
+      "message": "Ran out of Graphics Ring Buffer space. Consider using the -gfx-ring-buffer-size command line option to increase the size."
+    },
+    {
+      "type": "Error",
+      "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms"
+    },
+    {
+      "type": "Warning",
+      "message": "Account API did not become accessible within 30 seconds. This may be due to network issues or editor focus."
+    }
+  ]
+}

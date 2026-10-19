@@ -1,0 +1,16 @@
+{
+    "label": "campaign-07-pressure-isolation",
+    "state": "Pressure|house:False/False/Hall|pressure:True/False|P3:0.00",
+    "position": {
+        "x": 4.346146106719971,
+        "y": 1.6299999952316285,
+        "z": -35.37031555175781
+    },
+    "rotation": {
+        "x": -0.041810136288404468,
+        "y": -0.796507716178894,
+        "z": 0.05544551461935043,
+        "w": -0.6006274223327637
+    },
+    "fov": 60.0
+}

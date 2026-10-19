@@ -1,0 +1,16 @@
+{
+    "label": "campaign-SE3-codo",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00",
+    "position": {
+        "x": -2.697251319885254,
+        "y": 1.6299998760223389,
+        "z": 27.033266067504884
+    },
+    "rotation": {
+        "x": 2.3979466446746134e-31,
+        "y": -1.0,
+        "z": 2.011543637924288e-24,
+        "w": 1.1920927533992654e-7
+    },
+    "fov": 60.0
+}

@@ -1,0 +1,198 @@
+{
+    "status": "PASS",
+    "error": "",
+    "scope": "Read-only observer of normal-control campaign: fixed environmental sources, passive motor subtraction, pause, shared adult geometry, no Echo audio/animation. No listening or human fear claim.",
+    "fixedSourceFrames": 13772,
+    "pausedFrames": 518,
+    "samples": [
+        {
+            "frame": "campaign-orientation-P1-entry",
+            "passageMotor": 1.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-orientation-P1-A-arrival",
+            "passageMotor": 1.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-orientation-P1-A-preview",
+            "passageMotor": 1.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-P1-visible",
+            "passageMotor": 1.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-P1-reader-A-playback",
+            "passageMotor": 1.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-01-P1",
+            "passageMotor": 1.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-SE2-approach-openings",
+            "passageMotor": 1.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-SE2-cold-approach",
+            "passageMotor": 1.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-SE2-concealed-entry",
+            "passageMotor": 0.8820075392723084,
+            "finalMotor": 1.0,
+            "institutionGain": 0.8395302295684815,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-pause-SE2_south_refuge",
+            "passageMotor": 0.6477481126785278,
+            "finalMotor": 1.0,
+            "institutionGain": 0.5209375023841858,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-SE2-domestic-entry",
+            "passageMotor": 0.0,
+            "finalMotor": 1.0,
+            "institutionGain": 0.2199999988079071,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-SE2-inside-room",
+            "passageMotor": 0.0,
+            "finalMotor": 1.0,
+            "institutionGain": 0.2199999988079071,
+            "contacts": 1,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-03-SE2",
+            "passageMotor": 0.0,
+            "finalMotor": 1.0,
+            "institutionGain": 0.2199999988079071,
+            "contacts": 1,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-orientation-6B-arrival",
+            "passageMotor": 0.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 1,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-notes-6B-origin",
+            "passageMotor": 0.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 1,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-orientation-6B-side-route",
+            "passageMotor": 0.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 1,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-orientation-6B-pause-ready",
+            "passageMotor": 0.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 1,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-orientation-6B-recall-door",
+            "passageMotor": 0.0,
+            "finalMotor": 0.3983032703399658,
+            "institutionGain": 0.47050684690475466,
+            "contacts": 1,
+            "finalQuiet": true,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-21-Echo-at-6B",
+            "passageMotor": 0.0,
+            "finalMotor": 0.0,
+            "institutionGain": 0.07999999821186066,
+            "contacts": 1,
+            "finalQuiet": true,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-22-witnessed",
+            "passageMotor": 0.0,
+            "finalMotor": 0.0,
+            "institutionGain": 0.07999999821186066,
+            "contacts": 1,
+            "finalQuiet": true,
+            "witnessed": true
+        },
+        {
+            "frame": "campaign-pause-final_witness_from_inside",
+            "passageMotor": 0.0,
+            "finalMotor": 0.0,
+            "institutionGain": 0.07999999821186066,
+            "contacts": 1,
+            "finalQuiet": true,
+            "witnessed": true
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+PASS final startup without probes: R3/arrival closed, residual hidden, original checkpoint revision 0, R1 closed, P3 inactive, P1/P2/SE1 enabled.

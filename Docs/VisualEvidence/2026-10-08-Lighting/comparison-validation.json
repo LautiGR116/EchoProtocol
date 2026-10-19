@@ -1,0 +1,526 @@
+{
+  "status": "PASS",
+  "exactCameraCampaignPairs": 74,
+  "exactSavedStateViews": 112,
+  "checks": [
+    {
+      "label": "campaign-00-title",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-01-P1",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-01-document-game",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/False/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/False/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-02-SE1",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-02-phone-before",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/False/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/False/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-03-SE2",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-03-phone-reserve",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-04-R1",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00"
+    },
+    {
+      "label": "campaign-04-hall-without-reserve",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Carried|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Carried|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-05-R3-unlocked",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-05-kitchen-powered",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Kitchen|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Kitchen|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-06-Hub-return",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-06-bedroom-powered",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Bedroom|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Bedroom|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-07-key-taken",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Bedroom|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Bedroom|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-07-machine-aisle",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Pressure|house:False/False/Hall|pressure:True/False|P3:0.00",
+      "candidateState": "Pressure|house:False/False/Hall|pressure:True/False|P3:0.00"
+    },
+    {
+      "label": "campaign-07-pressure-drained",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Pressure|house:False/False/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "Pressure|house:False/False/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-07-pressure-isolation",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Pressure|house:False/False/Hall|pressure:True/False|P3:0.00",
+      "candidateState": "Pressure|house:False/False/Hall|pressure:True/False|P3:0.00"
+    },
+    {
+      "label": "campaign-07-pressure-ready",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Pressure|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Pressure|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-08-house-entry",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/False/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/False/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-08-presence-held-in-view",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Carried|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Carried|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-09-hall-light-returned",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-10-mechanical-door-open",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-11-outside-house",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-20-final-origin",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Archive|house:False/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "Archive|house:False/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-21-Echo-at-6B",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00",
+      "candidateState": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00"
+    },
+    {
+      "label": "campaign-22-witnessed",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00",
+      "candidateState": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00"
+    },
+    {
+      "label": "campaign-23-original-preserved",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00",
+      "candidateState": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00"
+    },
+    {
+      "label": "campaign-24-ending",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00",
+      "candidateState": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00"
+    },
+    {
+      "label": "campaign-Contraprueba-close-return",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-Contraprueba-first-presence",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00"
+    },
+    {
+      "label": "campaign-Contraprueba-quiet-return",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-Contraprueba-separation",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00"
+    },
+    {
+      "label": "campaign-Courtyard-house-window-forward",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-Courtyard-rainwater-approach",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-Courtyard-real-house-state",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-Courtyard-south-turn",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-Courtyard-west-approach",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-P1-reader-A-playback",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-P1-visible",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-SE2-approach-openings",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-SE2-cold-approach",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-SE2-concealed-entry",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-SE2-domestic-entry",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-SE2-inside-room",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-SE3-codo",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00"
+    },
+    {
+      "label": "campaign-SE3-entry",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00"
+    },
+    {
+      "label": "campaign-arrival-interior-forward",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-arrival-open-forward",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-notes-6B-origin",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Archive|house:False/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "Archive|house:False/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-notes-Hub",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-notes-P2",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-notes-P3",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00"
+    },
+    {
+      "label": "campaign-notes-initial",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-notes-passage",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-orientation-6B-arrival",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-orientation-6B-pause-ready",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Archive|house:False/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "Archive|house:False/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-orientation-6B-recall-door",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00",
+      "candidateState": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00"
+    },
+    {
+      "label": "campaign-orientation-6B-side-route",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Archive|house:False/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "Archive|house:False/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-orientation-Hub-enabled-passage",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Descent|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Descent|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-orientation-Hub-terminal",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-orientation-Hub-turn",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-orientation-P1-A-arrival",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-orientation-P1-A-preview",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-orientation-P1-entry",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-pause-SE1_empty_lane",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-pause-SE2_south_refuge",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-pause-final_witness_from_inside",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00",
+      "candidateState": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00"
+    },
+    {
+      "label": "campaign-pause-phone_and_reserve",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+      "candidateState": "House|house:True/True/Hall|pressure:True/True|P3:0.00"
+    },
+    {
+      "label": "campaign-reader-P2-aligned",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent"
+    },
+    {
+      "label": "campaign-records-approach",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-records-exit-approach",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-records-interior",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-return-archive",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00"
+    },
+    {
+      "label": "campaign-return-reception",
+      "cameraExact": true,
+      "discreteStateExact": true,
+      "baselineState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+      "candidateState": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00"
+    }
+  ],
+  "scope": "Exact position/rotation/FOV borrowed baseline; identical discrete environment state. P3 machine level captured explicitly; actor motion/phase not claimed identical."
+}

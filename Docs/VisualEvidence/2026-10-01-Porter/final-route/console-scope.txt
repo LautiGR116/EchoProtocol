@@ -1,0 +1,1 @@
+Console had one Editor Unity.AI WebSocket connection failure (after 10 attempts), four warnings (memoryless render / graphics ring buffer / Account API) and the final-route PASS log. No gameplay exception was observed. This test reports an explicit prior-house fixture and one pose fixture; it is not a new whole-campaign run.

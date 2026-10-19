@@ -1,0 +1,1 @@
+FAIL parlor_document: parlor_document: center-camera ray reaches House interaction / Document

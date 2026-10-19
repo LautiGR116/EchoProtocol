@@ -1,0 +1,22 @@
+One explicit initial chapter/lighting/pose fixture; synthetic physical input thereafter. No whole campaign, human perception/listening or performance claim.
+PASS authored Shutdown successor selected
+PASS physical label runtime atlas owners retain the selected lit ink shader
+PASS rotor remains still at the actual fresh title
+PASS sole initial fixture restores completed first-act lighting
+PASS actual rotor is already running before physical service entry
+PASS real physical entry activates isolation and its chapter
+PASS new oblique control can be gripped through the actual interaction ray
+PASS short real E does not latch and the handle returns
+PASS one real sustained E owns one detent and purge
+PASS real Escape pauses the actual motor during coast-down
+PASS real menu pause freezes both the rotor and its owning motor envelope
+PASS real Escape resumes after the declared rotor pause
+PASS drained rotor retains its actual stop angle
+PASS the actual motor/pressure owners settle to stopped without synthetic state writes
+PASS the work circuit is dark after the detent
+PASS actual drainage requests opening of the physical exit
+PASS exit finishes its original physical travel before crossing
+PASS the new physical aisle and original open exit are traversable
+PASS no pose reset after the sole initial fixture
+PASS no runtime error was logged during the route
+PASS

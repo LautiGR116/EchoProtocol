@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "buildId": "build_817b4d38a43f",
+  "result": "Succeeded",
+  "platform": "StandaloneOSX",
+  "outputPath": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Reconstruction-20261002/EchoProtocol.app",
+  "totalSizeBytes": 212190273,
+  "buildTimeMs": 15527,
+  "buildStartedAt": "2026-10-03T01:54:19.6699880Z",
+  "buildEndedAt": "2026-10-03T01:54:35.1972640Z",
+  "totalWarnings": 1,
+  "totalErrors": 0
+}

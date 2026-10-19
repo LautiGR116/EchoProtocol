@@ -1,0 +1,42 @@
+PASS initial fixture restores completed first-act lighting
+PASS real camera ray reaches R1 station
+PASS real E commits R1 and starts an empty take
+PASS both recording stations occupy the east lane
+PASS both actual readers require west-facing body yaw
+PASS both mechanisms begin closed and silent
+PASS wrong-facing Player at A does not preview the door
+PASS A Player preview opens only temporarily, without authorization
+PASS B is a real Player preview within the same recorded path
+PASS real R creates exactly one take
+PASS R resets both gates before real Echo qualification
+PASS A uses live recorded Echo
+PASS A body sample lies inside authored camera view
+PASS A 1.15m sample has no opaque obstruction
+PASS A body sample lies inside authored camera view
+PASS A 1.65m sample has no opaque obstruction
+PASS actual Echo A latches cooperation route
+PASS core uses live recorded Echo
+PASS core body sample lies inside authored camera view
+PASS core 1.15m sample is occluded by physical architecture
+PASS core body sample lies inside authored camera view
+PASS core 1.65m sample is occluded by physical architecture
+PASS B uses live recorded Echo
+PASS B body sample lies inside authored camera view
+PASS B 1.15m sample has no opaque obstruction
+PASS B body sample lies inside authored camera view
+PASS B 1.65m sample has no opaque obstruction
+PASS real B holds its door before Player crosses R3
+PASS both real leaves drove movement and endpoint sources
+PASS real Escape opens pause
+PASS pause freezes the actual separated Echo
+PASS real Escape resumes
+PASS take retains its frame count
+PASS every original position/yaw/timestamp remains immutable
+PASS second real R clears authorization and resets both leaves
+PASS RECALL reset does not fake physical motor travel or endpoint cues
+PASS take retains its frame count
+PASS every original position/yaw/timestamp remains immutable
+PASS only the two requested RECALLs reset Player pose after initial fixture
+PASS mechanism sources stay fixed to physical headers
+PASS no gameplay errors during focused input route
+PASS

@@ -1,0 +1,65 @@
+Scope: cold and warm initial pose/checkpoint fixtures, actual W/hold/R in each, authored completed-lighting restore for warm, then paused camera pose fixtures (total 12). No fabricated recording. Camera.Render excludes OnGUI. Visual/occlusion evidence only; not human approval.
+PASS explicit initial fixture starts a genuine empty recorder
+PASS actual W/hold/R produces the live immutable take
+PASS color and self-depth use the same rigid mesh and world transform
+PASS self depth precedes color in the transparent queue
+PASS depth proxy creates no gameplay collider, light or sound
+PASS depth proxy casts no physical shadow
+PASS both surfaces share the original near-fade distances
+PASS fully faded surfaces match disabled surfaces within 1 RGB step per channel
+PASS camera fixtures never replace the actual take
+PASS immutable frame 0
+PASS immutable frame 1
+PASS immutable frame 2
+PASS immutable frame 3
+PASS immutable frame 4
+PASS immutable frame 5
+PASS immutable frame 6
+PASS immutable frame 7
+PASS immutable frame 8
+PASS immutable frame 9
+PASS immutable frame 10
+PASS immutable frame 11
+PASS immutable frame 12
+PASS immutable frame 13
+PASS immutable frame 14
+PASS immutable frame 15
+PASS immutable frame 16
+PASS immutable frame 17
+PASS immutable frame 18
+PASS immutable frame 19
+PASS immutable frame 20
+PASS immutable frame 21
+PASS immutable frame 22
+PASS immutable frame 23
+PASS immutable frame 24
+PASS immutable frame 25
+PASS immutable frame 26
+PASS immutable frame 27
+PASS immutable frame 28
+PASS immutable frame 29
+PASS immutable frame 30
+PASS immutable frame 31
+PASS immutable frame 32
+PASS immutable frame 33
+PASS immutable frame 34
+PASS immutable frame 35
+PASS immutable frame 36
+PASS immutable frame 37
+PASS immutable frame 38
+PASS immutable frame 39
+PASS immutable frame 40
+PASS immutable frame 41
+PASS immutable frame 42
+PASS immutable frame 43
+PASS immutable frame 44
+PASS immutable frame 45
+PASS immutable frame 46
+PASS immutable frame 47
+PASS immutable frame 48
+PASS immutable frame 49
+PASS warm fixture clears the old take through the public checkpoint API
+PASS warm view uses another actual input-generated take
+PASS explicit warm geometry fixture opens the existing P2 gate
+PASS warm visual fixture retains the genuine take
+PASS

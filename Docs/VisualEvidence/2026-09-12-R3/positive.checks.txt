@@ -1,0 +1,96 @@
+PASS fresh R3 and Hub reverse gate solid and closed
+PASS fresh baseline sealed, P3 inactive and anchor rejects Player
+PASS P2 Player preview preserved
+PASS real R completed once
+PASS real Echo holds P2
+PASS R1 remains sealed before SE3
+PASS real SE2 visible reading complete
+PASS genuine SE3 return opens R1
+PASS actual Player can activate anchor after valid return
+PASS existing E ray activates physical station
+PASS anchor activation neither teleports nor performs RECALL
+PASS anchor discards old Echo and history and immediately rearms empty recorder
+PASS repeat E cannot recommit
+PASS without Echo Gate A physically blocks
+PASS real R completed once
+PASS B Player preview acquired
+PASS real R completed once
+PASS R clears both P3 gates and authorization
+PASS R1 checkpoint persists
+PASS SE2 SE3 R1 and anchor persist
+PASS Echo begins with actual R1 recording pose
+PASS B without A rejects final gate
+PASS R3 remains physically closed in no_a
+PASS real R completed once
+PASS A Player preview does not latch
+PASS real R completed once
+PASS R clears both P3 gates and authorization
+PASS R1 checkpoint persists
+PASS SE2 SE3 R1 and anchor persist
+PASS Echo begins with actual R1 recording pose
+PASS A without genuine B cannot authorize final crossing
+PASS R3 remains physically closed in no_b
+PASS real R completed once
+PASS A Player preview does not latch
+PASS real R completed once
+PASS R clears both P3 gates and authorization
+PASS R1 checkpoint persists
+PASS SE2 SE3 R1 and anchor persist
+PASS Echo begins with actual R1 recording pose
+PASS A without genuine B cannot authorize final crossing
+PASS R3 remains physically closed in wrong_b
+PASS real R completed once
+PASS A Player preview does not latch
+PASS B Player preview acquired
+PASS real R completed once
+PASS R clears both P3 gates and authorization
+PASS R1 checkpoint persists
+PASS SE2 SE3 R1 and anchor persist
+PASS Echo begins with actual R1 recording pose
+PASS short recording ends without authorizing R3
+PASS R3 remains physically closed in short
+PASS real R completed once
+PASS A Player preview does not latch
+PASS B Player preview acquired
+PASS real R completed once
+PASS R clears both P3 gates and authorization
+PASS R1 checkpoint persists
+PASS SE2 SE3 R1 and anchor persist
+PASS Echo begins with actual R1 recording pose
+PASS genuine Echo A authorizes route
+PASS genuine B hold after A
+PASS A plus B alone never opens R3 before Player crossing
+PASS Echo collider rejected even while genuine A/B are qualified
+PASS Player has not crossed final plane
+PASS real Player final crossing unlocks R3 once
+PASS early retreat leaves Hub side closed
+PASS arrival opens Hub only after solid rear closes
+PASS immediate reverse attempt never opens route beyond rear
+PASS Hub side closes behind Player
+PASS single sealed static residual persists
+PASS real Player cannot enter R3 from original Hub
+PASS real R completed once
+PASS R retains R3 once
+PASS R retains SE2 SE3 R1 anchor
+PASS R never grants P3 authorization
+PASS R still returns to R1
+PASS real R completed once
+PASS R retains R3 once
+PASS R retains SE2 SE3 R1 anchor
+PASS R never grants P3 authorization
+PASS R still returns to R1
+PASS real R completed once
+PASS R retains R3 once
+PASS R retains SE2 SE3 R1 anchor
+PASS R never grants P3 authorization
+PASS R still returns to R1
+PASS real R completed once
+PASS R retains R3 once
+PASS R retains SE2 SE3 R1 anchor
+PASS R never grants P3 authorization
+PASS R still returns to R1
+PASS real R completed once
+PASS R retains R3 once
+PASS R retains SE2 SE3 R1 anchor
+PASS R never grants P3 authorization
+PASS R still returns to R1

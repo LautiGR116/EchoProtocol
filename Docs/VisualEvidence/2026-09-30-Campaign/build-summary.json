@@ -1,0 +1,17 @@
+{
+  "buildId": "build_8317d27c09c9",
+  "result": "Succeeded",
+  "platform": "StandaloneOSX",
+  "totalSizeBytes": 159385729,
+  "buildTimeMs": 37956,
+  "buildStartedAt": "2026-10-01T02:23:57.2357660Z",
+  "buildEndedAt": "2026-10-01T02:24:35.1924070Z",
+  "totalWarnings": 346,
+  "totalErrors": 0,
+  "architectures": [
+    "x86_64",
+    "arm64"
+  ],
+  "codesign_verify": "PASS (local signature, not notarized)",
+  "native_log_errors": 0
+}

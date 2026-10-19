@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "editor": {
+    "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Contraprueba.unity",
+    "dirty": false,
+    "playing": false,
+    "compiling": false
+  },
+  "consoleGameplayErrors": 0,
+  "consoleInfrastructureErrors": 2,
+  "scope": "Two retained Pipeline HTTP command-discovery transport errors, not gameplay or compilation errors. Full messages preserved separately; Console is not claimed empty."
+}

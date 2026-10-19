@@ -1,9 +1,118 @@
 # Audio design
 
+## Resonance / candidata sonora, 2026-10-08 — implementada y objetivamente verificada; escucha EN PRUEBA
+
+Escena derivada de Lighting. Ocho emisores y trece masters mono nuevos; mezcla
+existente conservada, con el limitador, volumen, dinámica reducida y mono de
+`SessionAudio`. No se añade sonido al registro ni al cuerpo del Echo.
+
+| Momento | Causa y consecuencia sonora |
+|---|---|
+| Aprendizaje / SE1 | Contactos de metal real en lectores; relés breves siguen las tres luces; puerta conserva sonido doméstico grabado. |
+| SE2 | Fricción al atravesar el acceso trasero; breve motivo musical interno al descubrir el cambio. Ventilación se resta por su dueño existente. |
+| P3 | Contactos mecánicos en A/B; tres tensiones del metal al transferir, con retraso de 1.35 s para dejar leer la confirmación. |
+| Retorno por archivos | Un arrastre se aproxima detrás de la pared al cruzar la zona después de completar P3. No son pasos del Echo. |
+| Planta | Aire local mientras funciona. Drenaje → contracción del caño → un único grito adulto distante; recuperación sin bucle vocal. |
+| Casa | Al atender, línea en el auricular real: espera breve y llanto. Colgar desvanece la línea; volver a levantarla no repite la actuación. |
+| 6B | El mismo motivo interno vuelve tras RECALL; devolver la llave lo resuelve con una versión más baja y lenta. La salida conserva su fundido final. |
+
+Los seis emisores físicos tienen posición, distancia y filtrado suave ante
+paredes reales; la cabeza modifica discretamente el espectro posterior. Esto
+no es HRTF. Los dos emisores de música son no diegéticos, centrados y sin voces.
+La reverberación corta y los decaimientos están editados en los masters para
+mantener una paleta estable y limitar el coste. No hay planificador aleatorio.
+
+Las secuencias escuchan estados existentes: no alteran puzzle, iluminación o
+registro. RECALL despeja el motivo y cancela un evento pendiente de P3; no rearma
+los encuentros ya consumidos. Las cargas fijan los acontecimientos pasados como
+estado inicial. La pausa congela tanto tiempos dramáticos como fuentes.
+
+Material, licencia, recortes y modificaciones: `ArtSource/Audio/Resonance/`.
+CC0 nuevo de qubodup, AntumDeluge, Brian MacIntosh, SPAudiobooks y Archeos;
+el aire deriva del HECKFRICKER ya acreditado. Las voces se obtuvieron como
+previews públicos HQ MP3: no son masters originales sin pérdida. Ninguna voz
+se clonó o generó. Detalles de verificación y escucha pendiente en
+[RESONANCE_CANDIDATE.md](RESONANCE_CANDIDATE.md).
+
+Las descripciones anteriores de la línea telefónica silenciosa corresponden
+a Lighting y sus antecedentes. Actuación, credibilidad y miedo en Resonance
+permanecen **EN PRUEBA** hasta una escucha humana.
+
+
 This document translates the product direction in
 [`Design/Echo Protocol - Game Design Document v0.2.pdf`](Design/Echo%20Protocol%20-%20Game%20Design%20Document%20v0.2.pdf)
 into a testable sonic language. Repository behavior and playtest evidence remain
 authoritative for what is implemented and validated.
+
+## Contraprueba — implemented 2026-10-08
+
+P3 uses the existing credited ventilation, relay and door palette. Its sources
+belong to the fixed apparatus: A moves the blind, B transfers the circuit and
+fades ventilation from source gain 0.13 to zero over 2.8 seconds while the visible
+rotor stops. Returning to A exposes quieter room tone and the moving blind;
+completion plays the fixed relay contact. No sound is attached to the Echo and
+no unrecorded footstep, voice or action is reproduced. RECALL restores machinery,
+light and blind; pause freezes their progression.
+
+The actual listener is captured during the chapter in stereo and in the existing
+mono/reduced-dynamics path. Signal measurements are reported in the candidate
+evidence; they establish neither perceived loudness nor human localization.
+Use headphones only at a comfortable volume; speakers and reduced dynamics remain
+available. No new voice, service or sound asset was generated or purchased.
+[Delivery and listening limits](CONTRAPRUEBA_CANDIDATE.md).
+
+## EncounterArt — implemented 2026-10-02
+
+SE2 and6B add fixed current-world ventilation with visible rotors. The authored
+motor envelope reaches zero in1.7s after hidden SE2 presentation and1.1s after
+actual final RECALL; source pitch is fixed, not simulated deceleration. Their
+local institutional beds fall to22% and8%, respectively, and recover outside.
+A single wood strain belongs to the rear doorway frame on genuine SE2 entry;
+it is never an Echo step. Existing CC0 fridge/wood masters are reused unchanged,
+with provenance in `ArtSource/Audio/EncounterArt/manifest.json`.
+
+Sources are fully spatial, with no Doppler; comfortable-volume intent, existing
+mono/reduced dynamics/master/limiter preserved. Signal, wiring, pause and route
+checks pass. No listening, mix/localization, comfort or fear approval is claimed.
+[Selected evidence](ENCOUNTER_ART_CANDIDATE.md).
+
+## Expanded campaign — 2026-09-30
+
+Thirteen original synthesized masters add pressure machinery, relay contacts,
+telephone/circuit tones, wall contacts, close movement, archive resolution and
+three Player contact variants on each of two surfaces. Their deterministic source
+and per-file checks are in the asset ledger and campaign evidence. No voice was
+created or imported. This is implementation, not human timbre approval.
+
+Pressure subtracts machine level as valves complete. The house uses a localized
+ring and circuit cue, explicit written order for the speaker path, and a close
+movement cue after the visible hall encounter. Gallery authorization sounds at
+the physical shutter, not at the Echo body. Player steps belong to current
+movement; Echo playback remains silent and contains only position/body rotation.
+The existing linked-channel limiter, reduced-dynamics option and mono path remain.
+
+## Brief-edition checkpoint listening paths — 2026-09-30
+
+The production scene adds listener-level peak attenuation, a reduced-impact
+option and an optional mono mix for speakers, plus a default 70% master volume.
+Neither path boosts quiet signals. Normal linked-channel threshold is 0.65;
+reduced mode uses 0.18, with a 120 ms release. Actual sample-processor checks
+pass stereo bounds, mono agreement and no upward gain. These tests do not
+establish device loudness, timbre or listening comfort.
+
+The new exit reuses the project-owned frame-relay cue and accepted door clips;
+no new recording or generated voice is imported. Sound follows physical door
+movement and three extinguishing fixtures behind the Player. Acceptance fades
+the two assigned facility beds toward 8% over five seconds. The final door
+composition reuses the original domestic source model. Human effect is EN PRUEBA.
+
+## H1.1 production direction — 2026-09-12
+
+Use existing Unity, Blender and local audio editing for the approved 20–25 minute
+first delivery. Tripo is deferred to a separately authorized pilot; Higgsfield
+is not incorporated. H1.1 preserves all audio, mix and timings for observation;
+no asset generation or new service is included. Prototype mix, comfort, device
+paths and emotional effectiveness retain their existing EN PRUEBA boundaries.
 
 ## Current evidence
 
@@ -18,13 +127,47 @@ authoritative for what is implemented and validated.
   discomfort and did not validate spontaneous localization.
 - **Human-approved visual context:** AV1 provides a closed clinical prototype
   space without changing the audio or gameplay contract.
+- **VS1-VT1 objectively verified, human listening pending:** all three P1 optical
+  readers now use provisional 3D acquire/release cues, and both active service
+  gates use movement/endpoint cues. They route through `WorldSFX`, reset with the
+  loop, and pass deterministic edge/cycle tests. The reader cues reuse the
+  pressure-plate edge assets as replaceable functional placeholders; no new
+  production timbre is approved by this wiring pass.
+- **VS1-SE1 lane contraction objectively verified, human review pending:** one
+  world-locked domestic knock and three far-to-near fixture failures are gated
+  after P1 and the end of the Echo. The event requires an empty-lane check, plays
+  one project-authored mono frame/relay strain at the real fixtures at
+  `z=4/9/14`, ducks the facility beds to `0.38`, restores them over `1.5 s`, and
+  leaves the lane dark plus the threshold revealed. The door attribution is
+  human-approved at prototype level. The first-checkpoint pass now follows the
+  total blackout with a `5.2 s` inward door opening. Its hinge emitter reuses the
+  accepted domestic movement loop at descending `0.72 → 0.58` pitch as a
+  provisional friction/creak treatment. Crossing the threshold now closes the
+  leaf after `1.1 s` and plays one deterministic `0.38 s` mono procedural impact
+  from the hinge through `WorldSFX`. Its clip peak is limited to `0.58` and source
+  gain to `0.58`; force comes from silence, proximity, and attack rather than
+  unsafe loudness. The replacement construction, creak/portazo timbre, emotional
+  effect, device mix, reduced-dynamics behavior, and comfort are not yet approved.
+- **SD1 partial implementation:** the dry knock, concrete footsteps, and authored
+  phase gates pass objective checks. A treated breathing candidate was rejected
+  because it read as erotic rather than threatening; its asset and assignment
+  were removed. After two reviews found the retained cues too quiet, both
+  provisional source volumes are now `1.0` and their full-volume distances are
+  `6.0/7.25 m` for knock/footsteps; the revised mix is still `EN PRUEBA`.
+  `MX_Main` now adds a provisional global `+8 dB` after the overall presentation
+  still read too quietly; all active sources route through it, preserving their
+  relative contrast. This gain and its summed-output headroom need human and
+  device verification.
+  Replacement breathing, the dependent delayed light consequence, the whisper,
+  integrated spatial/mix evidence, accessibility modes, and the human fear
+  checkpoint remain pending.
 - **Approved direction, not implemented:** audio becomes the primary horror
   weapon through recurring families, authored variants, spatial doubt, domestic
   intrusion, strong events, and recovery.
 
 The chair is now a secondary proof or motif anchor. The previous `AD3` plan to
-stretch it into a 5–8 minute route is superseded. The next milestone is `SD1`, a
-focused directional-horror study.
+stretch it into a 5–8 minute route is superseded. SD1 is frozen as a partial
+technical sandbox; the active milestone is the human review of VS1-SE1.
 
 ## Creative thesis
 
@@ -39,7 +182,7 @@ Audio is the architecture of memory and the main instrument of fear:
 5. Alternate preparation, impact, uncertain checks, consequences, and recovery.
 
 This is not constant noise, a random scare scheduler, or permission to corrupt
-the Echo. Several strong events can occur across 30–45 minutes, but they must be
+the Echo. Several strong events can occur within the 20–25 minute delivery, but they must be
 earned, meaningfully different, and safe.
 
 ## Mechanical trust contract
@@ -143,7 +286,7 @@ Use the authored sequence:
 Exact motifs, chapter timing, event density, voice identity, and score language
 remain TBD.
 
-## Current planned study: SD1
+## Current study: SD1
 
 `SD1` is an approximately five-minute study in the existing AV1 room. It adds no
 new puzzle and changes no Echo rule:
@@ -156,14 +299,17 @@ new puzzle and changes no Echo rule:
 6. one subtle delayed visual consequence associated with a cue;
 7. recovery with truthful mechanisms still available.
 
-The brief is approved direction, not implementation. The whisper line is
+The knock, travelling footsteps, and authored phase gates are implemented and
+objectively verified. Their perceptual and emotional effect is not approved.
+The first treated breathing candidate was rejected for an erotic reading and
+cannot fire; its world-space placeholder remains unassigned. The dependent light
+consequence therefore also remains pending. The whisper line is
 `Can you hear me?`, spoken in English and subtitled `¿Me escuchás?` in Spanish.
-Its performer, identity, treatment, clip, trigger, intended ear, and exact timing
-remain TBD. The visual consequence must be subtle and mechanically inert. Exact
-positions, consequence, render technology, and levels also remain TBD. New
-assets require the same source, license, hash, full-audition, and
-public-repository review used by AD2. `AUDIO_ASSET_LEDGER.md` contains no
-accepted SD1 source yet.
+Its performer, identity, treatment, and clip remain TBD; the current reserved
+host is a 2D right-biased source near the camera, subject to direct audition.
+New assets require the same source, license, hash, full-audition, and
+public-repository review used by AD2. `AUDIO_ASSET_LEDGER.md` records the three
+accepted prototype SD1 sources and their replaceable status.
 
 ## Mix, safety, and accessibility
 
@@ -244,7 +390,7 @@ for each claim.
 2. `AV1` — clinical visual place objectively verified and human-approved for
    continued prototyping.
 3. `SD1` — current planned directional-horror study and perceptual checkpoint.
-4. Horror map — define the 30–45 minute escalation and each future puzzle's
+4. Horror map — define the 20–25 minute escalation and each future puzzle's
    vulnerability before producing more rooms.
 5. Later audio integration — replace prototype timbres, expand approved motif
    families, and design chapter set pieces only from validated SD1 evidence.
@@ -265,3 +411,86 @@ without controlling the roadmap.
 - Number, placement, preparation, and aftermath of strong events.
 - Exact `Reduced Dynamics` behavior and calibration UX.
 - Full-game room, puzzle, and recovery map.
+
+## Offhook telephone — implemented candidate, 2026-10-01
+
+The optional house call uses a real rotary ring and matching pickup/soft-hangup
+contacts from two CC0 cookies+policy recordings. They are public HQ MP3 previews,
+not original lossless masters; `ArtSource/Audio/Telephone/` retains source-page
+license evidence, hashes and exact edits. Three mono 48 kHz derivatives have
+peaks .26/.24/.23 and source gains .30/.38/.38. These figures establish headroom
+only, not perceived comfort. No global mix gain changes were made.
+
+Ringing stays at the telephone body every eight seconds until first answer.
+Contacts follow the moving handset with zero Doppler; the generic relay click is
+unassigned in Offhook to prevent doubling. Descolgar removes mains through the
+existing house state. The line itself is silent. Colgar changes only the receiver;
+it cannot restore light or cause another ring. No artificial line noise, voice,
+head-locked emitter or Echo audio is added. Session pause freezes audio normally.
+Timbre, attribution, spatial comfort and emotional timing remain EN PRUEBA.
+
+## Records fixture hum — implemented candidate, 2026-10-01
+
+The traversable records room reuses AUD-AMB-002 as two fixed3D luminaire sources,
+Ambience/.06/linear.5–4.5m. Existing main-room beds and preferences remain intact.
+Only the currently powered archive fixtures own this sound; no event or Echo audio
+is inferred. Selected isolated input checks verify source configuration/anchors and
+Player contact cessation at rest. Audible localization, mixture balance, comfort
+and the effect of leaving the room remain unlistened and **EN PRUEBA**.
+
+## Rooms — implementación del límite entre habitaciones
+
+En la escena Rooms, teléfono y frigorífico tienen low-pass explícito de22kHz
+libre/1,6kHz obstruido, suavizado logarítmico0,20s y pausa de sesión. Sólo se consulta
+la arquitectura real; no cambia volumen ni reproducción. PASS37 comprueba estados,
+transición/pausa y corte del dueño al atender. Es aproximación al camino directo,
+sin difracción/reverberación. Corte y timbre requieren escucha a volumen cómodo;
+no hay aprobación humana ni un nuevo archivo de audio. Ver evidencia Rooms.
+
+## Coverage — sonido causal del encuentro, 2026-10-09
+
+La bomba accionada usa el master existente `Finish/PressureBed.wav` en su
+posición física. Su envolvente sube en0,18s y baja en0,30s; la descarga sigue
+la presión y termina con ella, aunque el archivo de aire sea más largo.
+Se retiran los lechos de maquinaria anteriores sólo durante este encuentro.
+Los contactos manuales salen de cada mando y los mecanismos de las rejas
+suenan desde sus marcos reales. Todos pasan por WorldSFX y SessionAudio.
+
+La amenaza presente conserva el grito adulto CC0 `Shaft_DistantCry`, contactos
+de pasos registrados y un golpe cercano. La apertura causa grito, embestida,
+atracción hacia la bomba cuando se pierde la vista y recuperación silenciosa
+tras escapar. El contacto final puede terminar su cola breve durante el menú
+de fallo; el resto del mundo se pausa. Ninguno de esos sonidos sale del Echo.
+Sólo el mando sostenido/soltado es un canal nuevo explícitamente grabado.
+
+No hay generación vocal, compra ni nuevo proveedor. Se reutilizan masters y
+trazabilidad de Finish/Resonance; mono y dinámica reducida siguen disponibles.
+Captura objetiva, límites digitales y juicio humano se distinguen en
+`COVERAGE_CANDIDATE.md`. Credibilidad del grito, cercanía, comodidad, contraste
+y miedo siguen EN PRUEBA; no se exige subir el volumen.
+
+## Impact — presencia del encuentro, 2026-10-11
+
+La candidata Impact reemplaza sólo la puesta de la amenaza presente: contacto
+previo durante el mando, grito adulto cercano a altura original, golpe de marco,
+tres pasos alternados, fricción móvil y pulso interno no verbal. La voz/pasos
+siguen al cuerpo; paredes reducen brillo/nivel sin anular orientación. No son
+canales reproducidos por el Echo ni eventos aleatorios. Bomba .32/purga .18;
+WorldSFX y Master +10 dB permanecen. La salida limita picos normales a .5,
+conserva mono y el límite .18 de dinámica reducida. No altera volumen guardado.
+PCM real a volumen 1: irrupción −20,34 dBFS RMS frente a −32,23 anteriores;
+retirada −22,72 frente a −32,71, con pico −6,02 y cero samples a escala completa.
+Los promedios usan etapas de distinta duración; no son una aprobación por oído.
+Comodidad, contraste, localización espontánea y miedo siguen EN PRUEBA.
+[Cadena, fuentes, comparación y prueba](IMPACT_CANDIDATE.md).
+
+## Incursion — attack phrasing and intention (2026-10-11)
+
+Four short CC0 derivatives reuse the existing adult Archeos and Brian MacIntosh
+sources: recognition strain, two-effort dry attack, pursuit effort and capture
+contact. No generation/pitch shift. Jaw articulation reads the playing present
+clip envelope; planted feet drive contacts. The charge starts with a floor support;
+listening to the live pump stops pursuit efforts and subtracts most pulse/grain.
+Master, user gain, .5 normal/.18 reduced ceilings and mono remain as in Impact.
+Performance, fear and comfort remain EN PRUEBA humana. INCURSION_CANDIDATE.md
+records the actual capture and final checks; signal checks are not casting approval.

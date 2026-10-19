@@ -1,0 +1,16 @@
+{
+    "label": "campaign-notes-P2",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+    "position": {
+        "x": -2.700484275817871,
+        "y": 1.6299998760223389,
+        "z": 22.978862762451173
+    },
+    "rotation": {
+        "x": 0.06675583869218826,
+        "y": 0.6829532384872437,
+        "z": -0.06291209906339646,
+        "w": 0.7246796488761902
+    },
+    "fov": 60.0
+}

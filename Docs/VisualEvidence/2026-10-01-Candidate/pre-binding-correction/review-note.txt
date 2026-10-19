@@ -1,0 +1,1 @@
+Superseded: optional passage notes were bound to the inactive legacy SE2 component. Gameplay probe sampled the correct active physical event. The notes screenshot/content exposed the incorrect hint. No final-candidate acceptance from this run. Fix serialized binding and add identity checks before repeating.

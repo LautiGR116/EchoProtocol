@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "zip": "Builds/EchoProtocol-Contraprueba-20261008.zip",
+  "zipBytes": 87998442,
+  "zipSha256": "a2b70ae417d38379be64046c4fc33dd93a505ed5b498b888e463884f02c499f9",
+  "zipCRC": "all entries read and verified",
+  "architectures": [
+    "x86_64",
+    "arm64"
+  ],
+  "signature": "codesign --verify --deep --strict passed; local ad hoc, not notarized",
+  "preservedReconstructionZipSha256": "7e499c5b58f93c3733bfa9d4b8ed018f350f28ba91a10cafe5c00e2e0d133b45",
+  "releaseQATypeExclusion": "release-probe-exclusion.json",
+  "releaseSmokeExitCode": 0
+}

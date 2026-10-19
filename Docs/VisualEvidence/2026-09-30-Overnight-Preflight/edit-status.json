@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "command": "command editor_status",
+  "data": {
+    "command": "editor_status",
+    "parameters": {},
+    "result": {
+      "status": "ready",
+      "compiling": false,
+      "domainReloadInProgress": false,
+      "playMode": "stopped",
+      "lastHeartbeat": "2026-09-30T18:43:52.779935Z",
+      "projectPath": "/Users/lautigr116/EchoProtocol",
+      "unityVersion": "6000.3.21f1"
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/lautigr116/EchoProtocol"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

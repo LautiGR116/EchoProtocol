@@ -1,0 +1,82 @@
+[
+  {
+    "output": "Assets/_Game/Audio/Clips/Finish/FootVinyl0.wav",
+    "source": "Assets/_Game/Audio/Clips/SD1/SFX_SD1_Footsteps.wav",
+    "edit": "isolated recorded contact 0.635",
+    "duration": 0.34,
+    "peak": 0.21999999981178275,
+    "sha256": "d3203d6e384c9d08828bf95953073fe2edbde3a31881138bc3cbedfa8b5c88c0"
+  },
+  {
+    "output": "Assets/_Game/Audio/Clips/Finish/FootWood0.wav",
+    "source": "Assets/_Game/Audio/Clips/SD1/SFX_SD1_Footsteps.wav",
+    "edit": "same real contact, mild high-frequency damping for timber",
+    "duration": 0.34,
+    "peak": 0.21999999981056562,
+    "sha256": "b55d880caa0ecc5ae7ff95f1a0b5e278b91763062e2bfc64ad911ba5eeed9226"
+  },
+  {
+    "output": "Assets/_Game/Audio/Clips/Finish/FootVinyl1.wav",
+    "source": "Assets/_Game/Audio/Clips/SD1/SFX_SD1_Footsteps.wav",
+    "edit": "isolated recorded contact 1.735",
+    "duration": 0.34,
+    "peak": 0.21999999991240485,
+    "sha256": "083a055ba06d7c9dc1bea1e8d2d6ffdc56672f1c51c7daf1e1b71b8f110239a3"
+  },
+  {
+    "output": "Assets/_Game/Audio/Clips/Finish/FootWood1.wav",
+    "source": "Assets/_Game/Audio/Clips/SD1/SFX_SD1_Footsteps.wav",
+    "edit": "same real contact, mild high-frequency damping for timber",
+    "duration": 0.34,
+    "peak": 0.2199999999118616,
+    "sha256": "45c0f49423b890e27b6345c7adf2f2cb36755d0f6d562749e9525c5cdb3be64d"
+  },
+  {
+    "output": "Assets/_Game/Audio/Clips/Finish/FootVinyl2.wav",
+    "source": "Assets/_Game/Audio/Clips/SD1/SFX_SD1_Footsteps.wav",
+    "edit": "isolated recorded contact 2.285",
+    "duration": 0.34,
+    "peak": 0.21999999989104352,
+    "sha256": "b7fc618dd9dadb51f5915125beb5d221f555cadc34841a3e5fcbc8d47cf6175e"
+  },
+  {
+    "output": "Assets/_Game/Audio/Clips/Finish/FootWood2.wav",
+    "source": "Assets/_Game/Audio/Clips/SD1/SFX_SD1_Footsteps.wav",
+    "edit": "same real contact, mild high-frequency damping for timber",
+    "duration": 0.34,
+    "peak": 0.21999999988772245,
+    "sha256": "59b47a07133b9724c9150e33fdee177b03cf97ba5098ce5e81e34e93ec41f582"
+  },
+  {
+    "output": "Assets/_Game/Audio/Clips/Finish/WallContact.wav",
+    "source": "Assets/_Game/Audio/Clips/SD1/SFX_SD1_DomesticKnock.wav",
+    "edit": "complete downmixed knock, conservative peak",
+    "duration": 5.933729166666667,
+    "peak": 0.2599999999267267,
+    "sha256": "94f07f8488fd06dcabdfa083c07ad8c834b3b26844e68e83598b28fd1208175a"
+  },
+  {
+    "output": "Assets/_Game/Audio/Clips/Finish/Relay.wav",
+    "source": "Assets/_Game/Audio/Clips/Mechanisms/SFX_DoorEndpoint.wav",
+    "edit": "short real mechanism endpoint",
+    "duration": 0.6,
+    "peak": 0.2699999999400074,
+    "sha256": "2f18b88d44312113c101164234dfb156e5274231de3ed67c8fc0a699fac63fdc"
+  },
+  {
+    "output": "Assets/_Game/Audio/Clips/Finish/CloseMovement.wav",
+    "source": "Assets/_Game/Audio/Clips/Mechanisms/SFX_DoorMovement_LP.wav",
+    "edit": "real friction excerpt, no voice",
+    "duration": 1.6,
+    "peak": 0.17999999995498056,
+    "sha256": "b892d71669962f515fcabd1795bd79004b5a3cda6c044cb3583b3681957ac427"
+  },
+  {
+    "output": "Assets/_Game/Audio/Clips/Finish/PressureBed.wav",
+    "source": "Assets/_Game/Audio/Clips/Ambience/AMB_DistantMachinery_LP.wav",
+    "edit": "existing recorded machinery, loop preserved with short endpoint fades",
+    "duration": 13.8,
+    "peak": 0.20999999995799468,
+    "sha256": "53aceea8f36431c31797f1b9a53d32eda9fbf03e06f2006ecd75c460b094212b"
+  }
+]

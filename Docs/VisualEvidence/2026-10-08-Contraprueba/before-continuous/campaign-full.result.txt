@@ -1,0 +1,4 @@
+FAIL SE1_consequence: System.InvalidOperationException: SE1_consequence: SE1 follows the actual empty-lane check
+  at ThresholdCampaignProbe.Check (System.Boolean condition, System.String message) [0x00068] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:1377 
+  at ThresholdCampaignProbe+<FirstAct>d__142.MoveNext () [0x002b3] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:452 
+  at ThresholdCampaignProbe+<Guarded>d__135.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:115 

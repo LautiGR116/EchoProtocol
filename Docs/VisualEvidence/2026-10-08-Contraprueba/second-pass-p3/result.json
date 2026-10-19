@@ -1,0 +1,25 @@
+{
+  "status": "FAIL",
+  "error": "System.Exception: Physical route blocked (-12.07, 0.03, 41.58) -> -9.2,41.6\n  at ContrapruebaProbe+<Go>d__50.MoveNext () [0x00077] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ContrapruebaProbe.cs:74 \n  at ContrapruebaProbe+<Guarded>d__39.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ContrapruebaProbe.cs:20 ",
+  "phase": "blind technical passage",
+  "mode": "p3",
+  "fixtureCount": 1,
+  "scope": "Input System actual WASD/mouse/E/R/H. One declared initial R1 prior-state/pose fixture, no direct gameplay callbacks thereafter. New three-stage circuit, negative receipt, held-control cancellation, pause, immutable root and body-pose frames, late exit into R3. Captures use actual Player camera. Not human comprehension, comfort, listening or fear evidence.",
+  "takeCount": 2,
+  "checks": [
+    "fresh real title",
+    "Enter starts controls",
+    "initial fixture restores prior lighting",
+    "real focus reaches R1 Central observation station",
+    "real E activates chapter origin and return circuit",
+    "real focus reaches P3 receiver A",
+    "empty receive never creates an opening",
+    "one real R creates one take",
+    "Player preview is not recorded presence",
+    "one real R creates one take",
+    "R resets all three stages",
+    "new recording contains articulated pose samples",
+    "real focus reaches P3 receiver A",
+    "A opens only the service route"
+  ]
+}

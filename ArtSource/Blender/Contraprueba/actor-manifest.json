@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-08",
+  "derivedFrom": "Reconstruction build_recorded_adult.py + pinned MakeHuman CC0 graphical source",
+  "vertices": 72337,
+  "triangles": 143592,
+  "bones": [
+    "Hips",
+    "Spine",
+    "Neck",
+    "Head",
+    "Arm.L",
+    "Forearm.L",
+    "Hand.L",
+    "Thigh.L",
+    "Shin.L",
+    "Foot.L",
+    "Arm.R",
+    "Forearm.R",
+    "Hand.R",
+    "Thigh.R",
+    "Shin.R",
+    "Foot.R"
+  ],
+  "authored": "Rest-pose mature adult, broadened receding hairline, quiet skin/cloth vertex color; source-topology weights retained through subdivision, four normalized influences; authored detail weights assigned by anatomical owner",
+  "animation": "No clips. Runtime locomotion phase, local velocity, breathing phase and head pitch must be recorded before this rig replays them. No eye tracking, voice or interactions.",
+  "sha256": "b96515ef677cec0f0e0ef57424ba11d089e95d10ac9ba990938e9a3d6a48e213"
+}

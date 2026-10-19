@@ -1,0 +1,21 @@
+{
+  "scope": "Blender FBX reimport, named separate surfaces, UVs/materials, dimensions, source/floor/wall anchors and inward liner normals. Not Unity shading, emission/circuit wiring, collision, Game-view or human approval.",
+  "all_pass": true,
+  "bytes": 390828,
+  "sha256": "c4ae7405e6522c47b620e92bf4773251deb01f386469c917b6ca8fb89876b3c2",
+  "triangles": 14272,
+  "mesh_count": 6,
+  "missing_meshes": [],
+  "finite_vertices": true,
+  "finite_uvs": true,
+  "missing_materials": [],
+  "bounds_error_m": 2.086162567138672e-07,
+  "max_anchor_error_m": 2.3639789503704378e-07,
+  "checks": {
+    "floor_error_m": 1.1909988018032891e-07,
+    "cord_floor_error_m": 1.1909988018032891e-07,
+    "light_anchor_inside_bulb_bounds": true,
+    "inner_min_radial_alignment": 0.9732617735862732,
+    "outer_min_radial_alignment": 0.9732618629932404
+  }
+}

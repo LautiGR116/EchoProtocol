@@ -1,0 +1,15 @@
+# Continuous route: optional physical isolation
+
+Staging only. `ThresholdCampaignProbe.cs.txt` is the complete candidate for the existing test; `ThresholdCampaignProbe.patch` is its reviewable delta. The base SHA is recorded separately. No file under Assets was edited, no Unity refresh/compile/Play run occurred here.
+
+Requires the staged PressureIsolation / PressureIsolationAudio classes and CampaignDirector.IsolationControl. It detects the explicit optional Director reference. With no reference, the original Pressure method is byte-identical after removing the single optional branch. The original Input System helpers and physical routes for all other chapters remain.
+
+The new branch walks from Descent `(0,-26)` through the authored arrival volume near `(0,-29.2)` and along x=4.5 to A at z=-36.5. It aims at the serialized gripPoint through PlayerInteractor and uses actual E key states: short tap/release, partial hold, Escape with E held, paused state check, resume still holding, release, fresh sustained hold. It then walks past B at z=-44 and through the exit to HouseOrigin. No state fixture, direct interaction callback, pose placement, saved restoration or fabricated recording is added. Existing save suppression is retained.
+
+Checks: R at entry does not move or recall; exact P3 take/Echo/checkpoint remain until the real final origin; two needle transforms reach their serialized zero angle; authored lights turn off; exit opens after autonomous drainage; one commit/drain/latch/purge occurs; motor and purge decay to zero; the four local sources stop and retain their static authored transforms; listener gain and actual Player/footsteps remain enabled. Pause validates frozen state and no new triggers, not AudioSource.isPlaying (Unity listener pause semantics are different). Whole-route recall count is four for isolation, five legacy. Final `pressure` is `IsDrained` for the optional branch. `pressureRearmChecked` stays false in this branch because no pressure recording origin exists.
+
+Additional `campaign-full.isolation.csv` records runtime pressure/motor/handle state, counters and source playback alongside the unchanged route CSV. It is measurement output only. The usual saved immutable frame copies are read-only audit evidence, never restored into gameplay.
+
+Authoring requirements: entry volume actually intersects the physical walk; two distinct needle refs; all listed workLights begin enabled/active with positive intensity; four distinct active 3D sources with ignoreListenerPause=false. Control/latch sources belong to a fixed panel parent, not the rotating lever. Geometry must expose the grip to the actual camera ray from x=4.5. A missing/blocked ref fails rather than using an API shortcut.
+
+Static checks performed: original Pressure path byte identity, balanced braces, known staged getter/field contract, and absence of state/interaction callbacks. Compilation and continuous Play Mode route remain root's next step. No listening, first-play comprehension, visual approval or fear result is claimed. Continue/checkpoint restoration is intentionally outside this route and requires a separate labelled check.

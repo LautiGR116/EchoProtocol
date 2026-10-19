@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "nativeGameErrors": 0,
+  "sourceInputsChecked": 135,
+  "sourceChangesAfterBuild": [],
+  "nativeProcess": "Normal title-to-ending QA Player ended PASS; separate delivery excludes QA.",
+  "editor": "Final compilation/current Console checked; historical failed encounter retained in its own result.",
+  "deliveryBuildErrors": 0,
+  "deliveryBuildWarnings": 1,
+  "qaBuildErrors": 0,
+  "qaBuildWarnings": 347,
+  "qaWarningScope": "Existing Unity Inference Engine/Burst test-only warnings; not delivery gameplay failures.",
+  "editorConsole": "383 captured entries read; 28 Pipeline transport errors classified, no unclassified error. Editor stopped, not compiling/updating; GameView original size restored.",
+  "gallery": "All local media/navigation targets exist; inline JavaScript syntax checked. No browser rendering approval is claimed."
+}

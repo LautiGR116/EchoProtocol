@@ -1,0 +1,2543 @@
+{
+  "scope": "Static read of Arrival scene. Prefab internals omitted; author resolves complete roots through Editor API. Not physics or perceptual verification.",
+  "source": "Assets/_Game/Scenes/Production/EchoProtocol_Arrival.unity",
+  "objects": [
+    {
+      "id": 46916527,
+      "gameObject": 46916526,
+      "name": "Domestic hall partition",
+      "path": "Residence / habitable reconstruction/Domestic hall partition",
+      "active": true,
+      "position": [
+        -1.0,
+        1.36,
+        -56.504997
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.18,
+        2.72,
+        2.4099998
+      ],
+      "components": [
+        {
+          "id": 46916527,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 46916528,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 46916529,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 46916530,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 46916531,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 93845382,
+      "gameObject": 93845381,
+      "name": "Exterior wall",
+      "path": "Residence / habitable reconstruction/Exterior wall",
+      "active": true,
+      "position": [
+        -5.4,
+        1.36,
+        -54.1
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.22,
+        2.72,
+        2.3999991
+      ],
+      "components": [
+        {
+          "id": 93845382,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 93845383,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 93845384,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 93845385,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 93845386,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 111985261,
+      "gameObject": 111985260,
+      "name": "Exterior wall",
+      "path": "Residence / habitable reconstruction/Exterior wall",
+      "active": true,
+      "position": [
+        -5.4,
+        1.36,
+        -50.05
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.22,
+        2.72,
+        2.1
+      ],
+      "components": [
+        {
+          "id": 111985261,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 111985262,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 111985263,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 111985264,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 111985265,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 190036515,
+      "gameObject": 190036514,
+      "name": "6B review door / hinge",
+      "path": "Threshold / del otro lado/6B review door / hinge",
+      "active": true,
+      "position": [
+        -0.48,
+        0.0,
+        -79.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 190036515,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 190036516,
+          "type": "FinalDoorInteraction.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 190036517,
+          "type": "54",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 190036518,
+          "type": "HouseSwingDoor.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 204511935,
+      "gameObject": 204511933,
+      "name": "Porter exit door mechanism",
+      "path": "Threshold / del otro lado/Porter exit door mechanism",
+      "active": true,
+      "position": [
+        0.0,
+        0.0,
+        -84.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 204511934,
+          "type": "SlidingDoor.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 204511935,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 222786396,
+      "gameObject": 222786395,
+      "name": "Domestic hall partition",
+      "path": "Residence / habitable reconstruction/Domestic hall partition",
+      "active": true,
+      "position": [
+        1.0,
+        1.36,
+        -54.545
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.18,
+        2.72,
+        1.5099983
+      ],
+      "components": [
+        {
+          "id": 222786396,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 222786397,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 222786398,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 222786399,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 222786400,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 234143710,
+      "gameObject": 234143709,
+      "name": "Service connection ceiling",
+      "path": "Residence / habitable reconstruction/Service connection ceiling",
+      "active": true,
+      "position": [
+        0.0,
+        2.79,
+        -68.25
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        2.2,
+        0.14,
+        11.5
+      ],
+      "components": [
+        {
+          "id": 234143710,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 234143711,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 234143712,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 234143713,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 367516442,
+      "gameObject": 367516441,
+      "name": "Window sill",
+      "path": "Residence / habitable reconstruction/Window sill",
+      "active": true,
+      "position": [
+        -5.4,
+        0.85,
+        -52.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.42,
+        0.07,
+        1.9
+      ],
+      "components": [
+        {
+          "id": 367516442,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 367516443,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 367516444,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 367516445,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 370240397,
+      "gameObject": 370240396,
+      "name": "Domestic hall partition",
+      "path": "Residence / habitable reconstruction/Domestic hall partition",
+      "active": true,
+      "position": [
+        1.0,
+        1.36,
+        -60.15
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.18,
+        2.72,
+        0.8999977
+      ],
+      "components": [
+        {
+          "id": 370240397,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 370240398,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 370240399,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 370240400,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 370240401,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 380507872,
+      "gameObject": 380507871,
+      "name": "Window parapet",
+      "path": "Residence / habitable reconstruction/Window parapet",
+      "active": true,
+      "position": [
+        5.4,
+        0.43,
+        -52.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.22,
+        0.86,
+        1.8
+      ],
+      "components": [
+        {
+          "id": 380507872,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 380507873,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 380507874,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 380507875,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 380507876,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 392007276,
+      "gameObject": 392007273,
+      "name": "Kitchen reserve fixture",
+      "path": "Residence / habitable reconstruction/Kitchen reserve fixture",
+      "active": true,
+      "position": [
+        -3.4,
+        2.3,
+        -58.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 392007274,
+          "type": "108",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 392007275,
+          "type": "Mono",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 392007276,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 398543801,
+      "gameObject": 398543800,
+      "name": "Service passage fixture",
+      "path": "Residence / habitable reconstruction/Service passage fixture",
+      "active": true,
+      "position": [
+        0.0,
+        2.45,
+        -68.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 398543801,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 398543802,
+          "type": "Mono",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 398543803,
+          "type": "108",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 447011281,
+      "gameObject": 447011280,
+      "name": "Window parapet",
+      "path": "Residence / habitable reconstruction/Window parapet",
+      "active": true,
+      "position": [
+        -5.4,
+        0.43,
+        -52.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.22,
+        0.86,
+        1.8
+      ],
+      "components": [
+        {
+          "id": 447011281,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 447011282,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 447011283,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 447011284,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 447011285,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 458008345,
+      "gameObject": 458008344,
+      "name": "Domestic hall partition",
+      "path": "Residence / habitable reconstruction/Domestic hall partition",
+      "active": true,
+      "position": [
+        -1.0,
+        1.36,
+        -54.045
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.18,
+        2.72,
+        2.5099983
+      ],
+      "components": [
+        {
+          "id": 458008345,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 458008346,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 458008347,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 458008348,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 458008349,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 480536832,
+      "gameObject": 480536831,
+      "name": "Domestic hall partition",
+      "path": "Residence / habitable reconstruction/Domestic hall partition",
+      "active": true,
+      "position": [
+        1.0,
+        1.36,
+        -50.905
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.18,
+        2.72,
+        3.8099976
+      ],
+      "components": [
+        {
+          "id": 480536832,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 480536833,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 480536834,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 480536835,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 480536836,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 538410546,
+      "gameObject": 538410545,
+      "name": "Exterior wall",
+      "path": "Residence / habitable reconstruction/Exterior wall",
+      "active": true,
+      "position": [
+        5.4,
+        1.36,
+        -54.1
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.22,
+        2.72,
+        2.3999991
+      ],
+      "components": [
+        {
+          "id": 538410546,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 538410547,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 538410548,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 538410549,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 538410550,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 622047150,
+      "gameObject": 622047149,
+      "name": "Domestic hall partition",
+      "path": "Residence / habitable reconstruction/Domestic hall partition",
+      "active": true,
+      "position": [
+        1.0,
+        1.36,
+        -56.1
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.18,
+        2.72,
+        1.6
+      ],
+      "components": [
+        {
+          "id": 622047150,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 622047151,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 622047152,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 622047153,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 622047154,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 691413315,
+      "gameObject": 691413314,
+      "name": "Domestic hall partition",
+      "path": "Residence / habitable reconstruction/Domestic hall partition",
+      "active": true,
+      "position": [
+        -1.0,
+        1.36,
+        -50.405
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.18,
+        2.72,
+        2.8099976
+      ],
+      "components": [
+        {
+          "id": 691413315,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 691413316,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 691413317,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 691413318,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 691413319,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 744176539,
+      "gameObject": 744176538,
+      "name": "Facing the front of 6B",
+      "path": "Threshold / del otro lado/Facing the front of 6B",
+      "active": true,
+      "position": [
+        0.0,
+        1.0,
+        -79.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 744176539,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 752114005,
+      "gameObject": 752114004,
+      "name": "Domestic hall partition",
+      "path": "Residence / habitable reconstruction/Domestic hall partition",
+      "active": true,
+      "position": [
+        -1.0,
+        1.36,
+        -59.645
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.18,
+        2.72,
+        1.909996
+      ],
+      "components": [
+        {
+          "id": 752114005,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 752114006,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 752114007,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 752114008,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 752114009,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 784758674,
+      "gameObject": 784758672,
+      "name": "6B outside stillness",
+      "path": "Threshold / del otro lado/6B outside stillness",
+      "active": true,
+      "position": [
+        0.0,
+        1.0,
+        -80.25
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 784758673,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.6,
+            2.2,
+            1.2
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 784758674,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 803600929,
+      "gameObject": 803600926,
+      "name": "Bedroom reserve lamp",
+      "path": "Residence / habitable reconstruction/Bedroom reserve lamp",
+      "active": true,
+      "position": [
+        4.7,
+        1.22,
+        -50.4
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 803600927,
+          "type": "108",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 803600928,
+          "type": "Mono",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 803600929,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 825287677,
+      "gameObject": 825287676,
+      "name": "Window head",
+      "path": "Residence / habitable reconstruction/Window head",
+      "active": true,
+      "position": [
+        -5.4,
+        2.59,
+        -52.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.22,
+        0.26,
+        1.8
+      ],
+      "components": [
+        {
+          "id": 825287677,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 825287678,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 825287679,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 825287680,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 825287681,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 883765144,
+      "gameObject": 883765143,
+      "name": "Courtyard reflected spill",
+      "path": "Residence / habitable reconstruction/Courtyard reflected spill",
+      "active": true,
+      "position": [
+        -5.3,
+        2.05,
+        -52.0
+      ],
+      "rotation": [
+        0.1443122,
+        0.69222397,
+        -0.1443122,
+        0.69222397
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 883765144,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 883765145,
+          "type": "Mono",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 883765146,
+          "type": "108",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 957709269,
+      "gameObject": 957709268,
+      "name": "Window head",
+      "path": "Residence / habitable reconstruction/Window head",
+      "active": true,
+      "position": [
+        5.4,
+        2.59,
+        -52.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.22,
+        0.26,
+        1.8
+      ],
+      "components": [
+        {
+          "id": 957709269,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 957709270,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 957709271,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 957709272,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 957709273,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 986645581,
+      "gameObject": 986645579,
+      "name": "Inside 6B / actual witness",
+      "path": "Threshold / del otro lado/Inside 6B / actual witness",
+      "active": true,
+      "position": [
+        0.0,
+        1.0,
+        -78.05
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 986645580,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.6,
+            2.2,
+            0.9
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 986645581,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1034045144,
+      "gameObject": 1034045143,
+      "name": "Window sill",
+      "path": "Residence / habitable reconstruction/Window sill",
+      "active": true,
+      "position": [
+        5.4,
+        0.85,
+        -52.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.42,
+        0.07,
+        1.9
+      ],
+      "components": [
+        {
+          "id": 1034045144,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1034045145,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1034045146,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1034045147,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1059437005,
+      "gameObject": 1059437004,
+      "name": "Review origin instrument",
+      "path": "Threshold / del otro lado/Review origin instrument",
+      "active": true,
+      "position": [
+        2.35,
+        1.45,
+        -75.7
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.1,
+        0.68,
+        0.88
+      ],
+      "components": [
+        {
+          "id": 1059437005,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1059437006,
+          "type": "FinalDoorInteraction.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1059437007,
+          "type": "23",
+          "enabled": "0",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1059437008,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1059437009,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1110108312,
+      "gameObject": 1110108310,
+      "name": "6B exit / left hinge",
+      "path": "Residence / habitable reconstruction/6B exit / left hinge",
+      "active": true,
+      "position": [
+        -0.49,
+        0.0,
+        -62.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 1110108311,
+          "type": "HouseSwingDoor.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1110108312,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1110108313,
+          "type": "54",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1110108314,
+          "type": "HouseInteraction.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1247128550,
+      "gameObject": 1247128549,
+      "name": "Original conservation terminal",
+      "path": "Threshold / del otro lado/Original conservation terminal",
+      "active": true,
+      "position": [
+        2.16,
+        1.6,
+        -82.6
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.15,
+        0.57,
+        0.85
+      ],
+      "components": [
+        {
+          "id": 1247128550,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1247128551,
+          "type": "FinalDoorInteraction.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1247128552,
+          "type": "23",
+          "enabled": "0",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1247128553,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1247128554,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1283123317,
+      "gameObject": 1283123316,
+      "name": "Service connection floor",
+      "path": "Residence / habitable reconstruction/Service connection floor",
+      "active": true,
+      "position": [
+        0.0,
+        -0.1,
+        -68.25
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        2.0,
+        0.2,
+        11.5
+      ],
+      "components": [
+        {
+          "id": 1283123317,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1283123318,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1283123319,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1283123320,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1283123321,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1466548345,
+      "gameObject": 1466548344,
+      "name": "Exterior wall",
+      "path": "Residence / habitable reconstruction/Exterior wall",
+      "active": true,
+      "position": [
+        5.4,
+        1.36,
+        -50.05
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.22,
+        2.72,
+        2.1
+      ],
+      "components": [
+        {
+          "id": 1466548345,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1466548346,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1466548347,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1466548348,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1466548349,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1490314378,
+      "gameObject": 1490314377,
+      "name": "6B review origin",
+      "path": "Threshold / del otro lado/6B review origin",
+      "active": true,
+      "position": [
+        0.0,
+        0.03,
+        -76.0
+      ],
+      "rotation": [
+        -0.0,
+        1.0,
+        0.0,
+        -4.371139e-08
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 1490314378,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1496595117,
+      "gameObject": 1496595116,
+      "name": "Service connection wall",
+      "path": "Residence / habitable reconstruction/Service connection wall",
+      "active": true,
+      "position": [
+        -1.1,
+        1.36,
+        -68.25
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.2,
+        2.72,
+        11.5
+      ],
+      "components": [
+        {
+          "id": 1496595117,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1496595118,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1496595119,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1496595120,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1496595121,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1584833929,
+      "gameObject": 1584833926,
+      "name": "Parlor table lamp",
+      "path": "Residence / habitable reconstruction/Parlor table lamp",
+      "active": true,
+      "position": [
+        -4.75,
+        1.22,
+        -54.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 1584833927,
+          "type": "108",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1584833928,
+          "type": "Mono",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1584833929,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1613946142,
+      "gameObject": 1613946141,
+      "name": "Courtyard reflected spill",
+      "path": "Residence / habitable reconstruction/Courtyard reflected spill",
+      "active": true,
+      "position": [
+        5.3,
+        2.05,
+        -52.0
+      ],
+      "rotation": [
+        0.1443122,
+        -0.69222397,
+        0.1443122,
+        0.69222397
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 1613946142,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1613946143,
+          "type": "Mono",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1613946144,
+          "type": "108",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1668844872,
+      "gameObject": 1668844869,
+      "name": "Hall reserve light",
+      "path": "Residence / habitable reconstruction/Hall reserve light",
+      "active": true,
+      "position": [
+        0.68,
+        2.05,
+        -50.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 1668844870,
+          "type": "108",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1668844871,
+          "type": "Mono",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1668844872,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1669784158,
+      "gameObject": 1669784157,
+      "name": "Service connection wall",
+      "path": "Residence / habitable reconstruction/Service connection wall",
+      "active": true,
+      "position": [
+        1.1,
+        1.36,
+        -68.25
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.2,
+        2.72,
+        11.5
+      ],
+      "components": [
+        {
+          "id": 1669784158,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1669784159,
+          "type": "SurfaceMapping.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1669784160,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1669784161,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1669784162,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1677427444,
+      "gameObject": 1677427442,
+      "name": "Actual departure after returning key",
+      "path": "Threshold / del otro lado/Actual departure after returning key",
+      "active": true,
+      "position": [
+        0.0,
+        1.0,
+        -88.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 1677427443,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            2.0,
+            2.2,
+            2.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1677427444,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1683558760,
+      "gameObject": 1683558759,
+      "name": "Return key to porter's tray",
+      "path": "Threshold / del otro lado/Return key to porter's tray",
+      "active": true,
+      "position": [
+        -1.4,
+        0.93,
+        -83.62
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 1683558760,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1683558761,
+          "type": "FinalDoorInteraction.cs",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1683558762,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            0.55,
+            0.2,
+            0.36
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1893766738,
+      "gameObject": 1893766737,
+      "name": "Courtyard opposite facade",
+      "path": "Residence / habitable reconstruction/Courtyard opposite facade",
+      "active": true,
+      "position": [
+        -9.4,
+        2.5,
+        -52.0
+      ],
+      "rotation": [
+        -0.0,
+        0.7071068,
+        0.0,
+        -0.7071068
+      ],
+      "scale": [
+        12.0,
+        8.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 1893766738,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1893766739,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1893766740,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1940494728,
+      "gameObject": 1940494724,
+      "name": "6B exit leaf",
+      "path": "Residence / habitable reconstruction/6B exit / left hinge/6B exit leaf",
+      "active": true,
+      "position": [
+        0.0,
+        1.04,
+        -62.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.98,
+        2.08,
+        0.055
+      ],
+      "components": [
+        {
+          "id": 1940494725,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1940494726,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1940494727,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1940494728,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1974793549,
+      "gameObject": 1974793548,
+      "name": "Courtyard opposite facade",
+      "path": "Residence / habitable reconstruction/Courtyard opposite facade",
+      "active": true,
+      "position": [
+        9.4,
+        2.5,
+        -52.0
+      ],
+      "rotation": [
+        0.0,
+        0.7071068,
+        0.0,
+        0.7071068
+      ],
+      "scale": [
+        12.0,
+        8.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 1974793549,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1974793550,
+          "type": "23",
+          "enabled": "1",
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1974793551,
+          "type": "33",
+          "enabled": null,
+          "size": null,
+          "center": null
+        }
+      ]
+    },
+    {
+      "id": 1996735611,
+      "gameObject": 1996735610,
+      "name": "Residence enclosed shadow region",
+      "path": "Residence / habitable reconstruction/Residence enclosed shadow region",
+      "active": true,
+      "position": [
+        0.0,
+        1.5,
+        -55.75
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "components": [
+        {
+          "id": 1996735611,
+          "type": "4",
+          "enabled": null,
+          "size": null,
+          "center": null
+        },
+        {
+          "id": 1996735612,
+          "type": "65",
+          "enabled": "1",
+          "size": [
+            12.0,
+            5.0,
+            17.0
+          ],
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "scope": "Read-only runtime counters after full continuous FirstAct route; no audition",
+  "R3 permanently unlocked exit": {
+    "motorStarts": 1,
+    "endpointCues": 1
+  },
+  "R3 arrival rear": {
+    "motorStarts": 5,
+    "endpointCues": 5
+  },
+  "R3 Hub exit only": {
+    "motorStarts": 2,
+    "endpointCues": 2
+  }
+}

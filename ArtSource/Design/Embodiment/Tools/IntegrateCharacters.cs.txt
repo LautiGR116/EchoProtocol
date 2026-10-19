@@ -1,0 +1,38 @@
+using System;using System.IO;using System.Linq;using System.Collections.Generic;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;
+using EchoProtocol.Echo;using EchoProtocol.Campaign;using EchoProtocol.Horror;
+public static class IntegrateCharacters {
+ const string B="Assets/_Game/Art/Embodiment/RenderpeoplePrivate/";
+ const string Scene="Assets/_Game/Scenes/Production/EchoProtocol_Embodiment.unity";
+ static T L<T>(string p)where T:UnityEngine.Object{var x=AssetDatabase.LoadAssetAtPath<T>(p);if(!x)throw new Exception("Missing "+p);return x;}
+ static void Set(UnityEngine.Object o,string field,UnityEngine.Object x){var s=new SerializedObject(o);s.FindProperty(field).objectReferenceValue=x;s.ApplyModifiedPropertiesWithoutUndo();}
+ static void Bool(UnityEngine.Object o,string field,bool x){var s=new SerializedObject(o);s.FindProperty(field).boolValue=x;s.ApplyModifiedPropertiesWithoutUndo();}
+ static void Array(UnityEngine.Object o,string field,Transform[] xs){var s=new SerializedObject(o);var p=s.FindProperty(field);p.arraySize=xs.Length;for(int i=0;i<xs.Length;i++)p.GetArrayElementAtIndex(i).objectReferenceValue=xs[i];s.ApplyModifiedPropertiesWithoutUndo();}
+ static string C(string n)=>n.Replace("rp_nathan_animated_003_walking_","");
+ static RecordedCharacterMotion Add(GameObject owner,EchoBodyRig rig,string who,bool threat){
+  var g=UnityEngine.Object.Instantiate(L<GameObject>(B+who+"/"+(who=="Eric"?"rp_eric_rigged_001_u3d.fbx":"rp_nathan_animated_003_walking.fbx")));g.name=who+" / authored adult";g.transform.SetParent(owner.transform,false);g.transform.localPosition=Vector3.zero;g.transform.localRotation=Quaternion.identity;g.transform.localScale=Vector3.one*(threat?1.035f:1);
+  foreach(var a in g.GetComponentsInChildren<Animator>())UnityEngine.Object.DestroyImmediate(a);
+  var bones=g.GetComponentsInChildren<Transform>().Where(t=>t!=g.transform&&!t.GetComponent<SkinnedMeshRenderer>()).ToArray();var d=bones.ToDictionary(t=>C(t.name));
+  foreach(var r in g.GetComponentsInChildren<SkinnedMeshRenderer>()){r.name="RecordedAdultSurface";r.sharedMesh=L<Mesh>(B+who+"/ArticulatedSurface.asset");r.sharedMaterials=new[]{L<Material>(B+who+"/M_"+who+".mat"),L<Material>(B+who+"/M_Eyes.mat")};r.updateWhenOffscreen=true;r.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.On;r.receiveShadows=true;}
+  var m=owner.AddComponent<RecordedCharacterMotion>();Set(m,"modelRoot",g.transform);Array(m,"joints",bones);Set(m,"quietStance",L<AnimationClip>(B+who+"/QuietStance.anim"));Set(m,"walkingCycle",L<AnimationClip>(B+who+"/WalkingCycle.anim"));
+  foreach(var pair in new[]{new[]{"hips","hip"},new[]{"spine","spine_01"},new[]{"chest","spine_03"},new[]{"neck","neck"},new[]{"head","head"},new[]{"leftThigh","upperleg_l"},new[]{"leftShin","lowerleg_l"},new[]{"leftFoot","foot_l"},new[]{"rightThigh","upperleg_r"},new[]{"rightShin","lowerleg_r"},new[]{"rightFoot","foot_r"},new[]{"leftArm","upperarm_l"},new[]{"leftForearm","lowerarm_l"},new[]{"leftHand","hand_l"},new[]{"rightArm","upperarm_r"},new[]{"rightForearm","lowerarm_r"},new[]{"rightHand","hand_r"}})Set(m,pair[0],d[pair[1]]);
+  Set(m,"jaw",d["jaw"]);Array(m,"upperEyelids",new[]{d["eyelid_l"],d["eyelid_r"]});Array(m,"lowerEyelids",new Transform[0]);
+  Array(m,"rightGripFingers",bones.Where(t=>C(t.name).EndsWith("_r")&&new[]{"index","middle","ring","pinky"}.Any(k=>C(t.name).StartsWith(k))).ToArray());Bool(m,"presentThreat",threat);Set(rig,"characterMotion",m);Set(rig,"modelRoot",g.transform);
+  if(!m.Initialize())throw new Exception("Character initialization failed");m.SetPresentIntent(-1);rig.Apply(new RecordedBodyPose(0,0,threat?16:0,Vector2.zero));return m;
+ }
+ public static object Main(){
+  if(EditorApplication.isPlaying)throw new Exception("Stopped Editor required");if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().path!=Scene)throw new Exception("Embodiment must be active");
+  string pf="Assets/_Game/Prefabs/Embodiment/EchoEmbodiment.prefab";if(AssetDatabase.LoadAssetAtPath<GameObject>(pf))throw new Exception("Preserve existing candidate prefab");Directory.CreateDirectory("Assets/_Game/Prefabs/Embodiment");AssetDatabase.Refresh();
+  var g=PrefabUtility.LoadPrefabContents("Assets/_Game/Prefabs/Contraprueba/EchoContraprueba.prefab");
+  try{g.name="EchoEmbodiment";foreach(var child in g.transform.Cast<Transform>().ToArray())UnityEngine.Object.DestroyImmediate(child.gameObject);var rig=g.GetComponent<EchoBodyRig>();Add(g,rig,"Eric",false);PrefabUtility.SaveAsPrefabAsset(g,pf);}finally{PrefabUtility.UnloadPrefabContents(g);}
+  var loop=UnityEngine.Object.FindFirstObjectByType<LoopController>();Set(loop,"echoPrefab",L<GameObject>(pf).GetComponent<EchoPlayback>());
+  var source=UnityEngine.Object.FindFirstObjectByType<PlayerBodyPoseSource>();Bool(source,"adaptiveStride",true);
+  var threat=UnityEngine.Object.FindFirstObjectByType<MachineCoverThreat>();var tr=new SerializedObject(threat).FindProperty("body").objectReferenceValue as EchoBodyRig;
+  foreach(string field in new[]{"cry","movement","strike"}){var a=(AudioSource)new SerializedObject(threat).FindProperty(field).objectReferenceValue;if(a&&a.transform.IsChildOf(tr.transform))a.transform.SetParent(threat.transform,true);}
+  foreach(var child in tr.transform.Cast<Transform>().ToArray())UnityEngine.Object.DestroyImmediate(child.gameObject);var tm=Add(tr.gameObject,tr,"Nathan",true);
+  var f=UnityEngine.Object.FindFirstObjectByType<FinalDoorMemory>();Set(f,"directWitnessMaterial",L<Material>(B+"Eric/M_Eric.mat"));Bool(f,"opaqueDirectWitness",true);
+  var se2=UnityEngine.Object.FindFirstObjectByType<VS1ParallelFigureEvent>();var parent=(GameObject)new SerializedObject(se2).FindProperty("figureRoot").objectReferenceValue;
+  var old=parent.GetComponentsInChildren<MeshFilter>(true).FirstOrDefault(x=>x.name=="SE2 physical adult / same authored silhouette");if(!old)throw new Exception("SE2 authored surface not found");var name=old.name;var container=new GameObject(name+" / scanned adult");container.transform.SetParent(old.transform.parent,false);container.transform.position=old.transform.position;container.transform.rotation=Quaternion.Euler(0,old.transform.eulerAngles.y,0);UnityEngine.Object.DestroyImmediate(old.gameObject);var sr=container.AddComponent<EchoBodyRig>();var sm=Add(container,sr,"Eric",false);
+  EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());if(!EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene()))throw new Exception("Scene save failed");AssetDatabase.SaveAssets();
+  var report=new{status="INTEGRATED",scene=Scene,prefab=pf,echoJoints=L<GameObject>(pf).GetComponent<RecordedCharacterMotion>().Joints.Length,pursuerJoints=tm.Joints.Length,pursuerScale=tm.ModelRoot.lossyScale.ToString(),se2Joints=sm.Joints.Length,autonomousAnimators=UnityEngine.Object.FindObjectsByType<Animator>(FindObjectsInactive.Include,FindObjectsSortMode.None).Count(a=>a.transform.IsChildOf(tr.transform)||a.transform.IsChildOf(container.transform)),gameplay="Coverage controls, route, speeds, sight/hearing, catch distance and release timing retained. Present acting and contact cadence are presentation changes."};Directory.CreateDirectory("Docs/VisualEvidence/2026-10-09-Embodiment");File.WriteAllText("Docs/VisualEvidence/2026-10-09-Embodiment/integration.json",Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented));return report;
+ }
+}

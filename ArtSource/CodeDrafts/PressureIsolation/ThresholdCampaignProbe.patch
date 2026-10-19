@@ -1,0 +1,284 @@
+--- a/Assets/_Game/Tests/ThresholdCampaignProbe.cs
++++ b/Assets/_Game/Tests/ThresholdCampaignProbe.cs
+@@ -33,6 +33,11 @@
+     VS1HubReturnGate r3; SlidingDoor rear, front, returnGate; VS1DenialEvidence oldDenial;
+     ReturnRecordingBoundary recordingBoundary; GameObject returnGuide, recordingSignal; BoxCollider returnArrivalZone;
+     EchoRecording returnRecording; EchoPlayback returnEcho;
++    PressureIsolation isolation; PressureIsolationAudio isolationAudio;
++    AudioSource[] isolationSources; Vector3[] isolationSourcePositions; Quaternion[] isolationSourceRotations;
++    bool isolationEntryChecked, isolationCancelChecked, isolationPauseChecked, isolationDrainChecked;
++    int isolationCommitBaseline, isolationDrainBaseline, isolationLatchBaseline, isolationPurgeBaseline;
++    float isolationListenerVolume;
+     Keyboard keyboard; Mouse mouse; Camera view; InputDevice[] originalDevices;
+     InputSettings.EditorInputBehaviorInPlayMode oldBehavior;
+     string originalScheme, output, step = "title", runtimeError;
+@@ -58,6 +63,7 @@
+         public bool returnBoundaryPresent, realCrossingSuspensionChecked, arrivalGuideChecked, pressureRearmChecked;
+         public bool registrationPresent, letterReadThroughRealRay, stoppedAtRealPause, authoredOmittedPassageRoute;
+         public bool firstActPresent, se2CloseApproachChecked;
++        public bool pressureIsolationPresent, isolationEntryChecked, isolationCancelChecked, isolationPauseChecked, isolationDrainChecked;
+         public string[] screenshots;
+     }
+     public string Status { get; private set; } = "starting";
+@@ -116,6 +122,16 @@
+             "all original-act, new house and new final references exist");
+         readerA = Field<OpticalReader>(p3, "readerA"); readerB = Field<OpticalReader>(p3, "readerB");
+         rear = Field<SlidingDoor>(r3, "arrivalRear"); front = Field<SlidingDoor>(r3, "arrivalFront"); returnGate = Field<SlidingDoor>(r3, "returnGate");
++        isolation = campaign.IsolationControl;
++        isolationAudio = FindFirstObjectByType<PressureIsolationAudio>();
++        if (isolation)
++        {
++            Check(isolation.isActiveAndEnabled && isolationAudio && isolationAudio.isActiveAndEnabled &&
++                Field<PressureIsolation>(isolationAudio, "isolation") == isolation,
++                "optional isolation has its single configured physical audio owner");
++            Check(!isolation.Active && !isolation.IsLatched && !isolation.IsDrained && isolation.CommitCount == 0 && isolation.RestoreRevision == 0,
++                "isolation begins untouched at the real title without a restored fixture");
++        }
+         recordingBoundary = FindFirstObjectByType<ReturnRecordingBoundary>(FindObjectsInactive.Include);
+         returnGuide = Field<GameObject>(campaign, "returnDescentGuide"); returnArrivalZone = Field<BoxCollider>(campaign, "returnArrivalZone");
+         if (recordingBoundary)
+@@ -151,6 +167,7 @@
+         }
+         oldSuppressSaves = campaign.SuppressSaves; saveCaptured = true; campaign.SuppressSaves = true;
+         ConfigureDevices(); recallsAtStart = loop.CompletedLoopCount; player.PoseReset += ObservePoseReset;
++        if (isolation) File.WriteAllText(PathFor("isolation.csv"), "time,step,active,held,handle,latched,drained,pressure,motor,commits,drains,latches,purges,motorPlaying,purgePlaying,allStopped,recalls,checkpoint,paused\n");
+         log = new StreamWriter(PathFor("csv")); log.WriteLine("realtime,time,step,x,y,z,yaw,pitch,chapter,recalls,echoTime,se1,se2,se3,r3,housePower,key,witnessed,preserved,keyReturned,fade,paused,returnSuspended,recording,checkpoint,returnGuide");
+         Application.logMessageReceived += ReceiveLog;
+         running = true; Status = "running"; yaw = player.transform.eulerAngles.y; pitch = Field<float>(player, "pitch");
+@@ -185,8 +202,10 @@
+             Check(snapshot.recording.FrameCount == snapshot.frames.Length && Enumerable.Range(0, snapshot.frames.Length).All(i => SameFrame(snapshot.recording[i], snapshot.frames[i])),
+                 "all timestamps, positions and rotations remain identical in each saved snapshot");
+         }
+-        Check(playbackFrames > 100 && snapshots.Count >= (initialProtocol ? 1 : 5),
++        Check(playbackFrames > 100 && snapshots.Count >= (initialProtocol ? 1 : isolation ? 4 : 5),
+             initialProtocol ? "initial protocol audited the actual P1 Echo against its input-generated take" : "full campaign audited actual playback across multiple real takes");
++        Check(loop.CompletedLoopCount - recallsAtStart == (initialProtocol ? 1 : isolation ? 4 : 5),
++            "the actual route uses only its expected real RECALLs (one initial, four with isolation, five legacy)");
+         WriteSnapshots();
+         yield return Wait(.2f);
+         foreach (string file in screenshots) Check(File.Exists(Path.Combine(output, file)), "capture exists: " + file);
+@@ -345,6 +364,7 @@
+     }
+     IEnumerator Pressure()
+     {
++        if (isolation) { yield return IsolatePressure(); yield break; }
+         step = "pressure_origin";
+         yield return Go(0, -29.6f, 180); yield return Go(1.1f, -29.6f, 90);
+         if (recordingBoundary) CheckReturnSuspension();
+@@ -375,6 +395,145 @@
+         Check(campaign.ValvesDone == 2, "second sustained valve opens the physical house approach");
+         yield return Go(0, -46, 270); yield return Go(0, -49.5f, 180);
+     }
++    IEnumerator IsolatePressure()
++    {
++        step = "isolation_physical_entry";
++        Check(recordingBoundary && boundarySuspensionChecked && campaign.Chapter == CampaignChapter.Descent && !isolation.Active,
++            "isolation approach begins in the earned Descent with P3 already suspended by the real return boundary");
++        CheckReturnSuspension();
++        isolationCommitBaseline = isolation.CommitCount; isolationDrainBaseline = isolation.DrainCompletionCount;
++        isolationLatchBaseline = isolationAudio.LatchPlayCount; isolationPurgeBaseline = isolationAudio.PurgeStartCount;
++        isolationListenerVolume = AudioListener.volume;
++        isolationSources = new[] { Field<AudioSource>(isolationAudio, "motorSource"), Field<AudioSource>(isolationAudio, "controlSource"),
++            Field<AudioSource>(isolationAudio, "latchSource"), Field<AudioSource>(isolationAudio, "purgeSource") };
++        Check(isolationSources.All(source => source && source.isActiveAndEnabled && source.spatialBlend >= .999f && !source.ignoreListenerPause) &&
++            isolationSources.Distinct().Count() == 4, "four distinct local sources use authored spatial playback and respect listener pause");
++        isolationSourcePositions = isolationSources.Select(source => source.transform.position).ToArray();
++        isolationSourceRotations = isolationSources.Select(source => source.transform.rotation).ToArray();
++        Check(isolationSources[0].isPlaying && isolationSources[0].volume > 0 && !isolationSources[2].isPlaying && !isolationSources[3].isPlaying,
++            "the operating plant is audible-source-ready before entry with no fabricated latch or purge");
++        yield return Go(0, -29.6f, 180);
++        yield return Until(() => campaign.Chapter == CampaignChapter.Pressure && isolation.Active, 2,
++            "physical basement arrival did not enter the isolation service volume");
++        isolationEntryChecked = true;
++        CheckIsolationRecording();
++        Vector3 beforeR = player.transform.position; yield return Press(Key.R);
++        Check(Vector3.Distance(beforeR, player.transform.position) < .025f, "R at physical basement entry cannot move the Player");
++        CheckIsolationRecording();
++        Check(FindObjectsByType<CampaignStation>(FindObjectsInactive.Include, FindObjectsSortMode.None)
++                .Where(station => station.Kind == StationKind.PressureOrigin || station.Kind == StationKind.ValveA || station.Kind == StationKind.ValveB)
++                .All(station => !station.CanInteract(player.gameObject)),
++            "the opt-in chapter exposes no legacy recorder/valve callbacks");
++        var needles = Field<Transform[]>(isolation, "pressureNeedles");
++        var lights = Field<Light[]>(isolation, "workLights");
++        var pressureDoor = Field<SlidingDoor>(isolation, "exitDoor");
++        Check(needles != null && needles.Length == 2 && needles.All(needle => needle) && needles.Distinct().Count() == 2 &&
++            lights != null && lights.Length > 0 && lights.All(light => light && light.enabled && light.gameObject.activeInHierarchy && light.intensity > 0) &&
++            pressureDoor && pressureDoor.IsFullyClosed && !pressureDoor.IsOpenRequested,
++            "two separate pressure needles, live work lights and the closed mechanical exit are explicitly authored");
++        var highNeedleRotations = needles.Select(needle => needle.localRotation).ToArray();
++        yield return Go(4.5f, -30.3f, 90); yield return Go(4.5f, -36.5f, 180);
++        step = "isolation_short_tap"; yield return AimIsolationGrip();
++        yield return Press(Key.E); yield return Wait(.6f);
++        Check(!isolation.IsHolding && !isolation.IsLatched && isolation.HandleFraction < .001f && isolation.CommitCount == isolationCommitBaseline &&
++            isolationAudio.LatchPlayCount == isolationLatchBaseline && isolationAudio.PurgeStartCount == isolationPurgeBaseline &&
++            !isolationSources[1].isPlaying && isolationSources[1].volume == 0,
++            "a real short E tap returns the handle and stops friction without a latch, purge or progression");
++        isolationCancelChecked = true;
++
++        step = "isolation_pause_while_held"; yield return AimIsolationGrip();
++        keys = new[] { Key.E }; yield return new WaitForSecondsRealtime(.65f);
++        Check(isolation.IsHolding && isolation.HandleFraction > .1f && isolation.HandleFraction < .8f && !isolation.IsLatched,
++            "the real held action physically rotates a partial, unlatched control");
++        Check(isolationSources[1].isPlaying && isolationSources[1].volume > 0 && isolationAudio.ControlStartCount > 0,
++            "real handle motion drives its own local friction source");
++        expectedPause = true; keys = new[] { Key.E, Key.Escape }; yield return new WaitForSecondsRealtime(.12f);
++        keys = new[] { Key.E }; yield return new WaitForSecondsRealtime(.1f);
++        Check(session.IsPaused && AudioListener.pause && !isolation.IsHolding, "real Escape cancels grip and pauses listener playback while E remains held");
++        float pausedTime = Time.time, pausedHandle = isolation.HandleFraction;
++        float pausedPressure = isolation.Pressure01, pausedMotor = isolation.MotorLevel01;
++        Vector3 pausedPosition = player.transform.position;
++        int pausedControlStarts = isolationAudio.ControlStartCount;
++        yield return new WaitForSecondsRealtime(.3f);
++        Check(Mathf.Approximately(pausedTime, Time.time) && Mathf.Approximately(pausedHandle, isolation.HandleFraction) &&
++            Mathf.Approximately(pausedPressure, isolation.Pressure01) && Mathf.Approximately(pausedMotor, isolation.MotorLevel01) &&
++            Vector3.Distance(pausedPosition, player.transform.position) < .01f && isolationAudio.ControlStartCount == pausedControlStarts &&
++            isolationAudio.LatchPlayCount == isolationLatchBaseline && isolationAudio.PurgeStartCount == isolationPurgeBaseline,
++            "paused held input freezes the physical state and produces no new machine audio trigger");
++        keys = new[] { Key.E, Key.Escape }; yield return new WaitForSecondsRealtime(.12f);
++        keys = new[] { Key.E }; yield return new WaitForSecondsRealtime(.4f);
++        Check(!session.IsPaused && !AudioListener.pause && !isolation.IsHolding && !isolation.IsLatched && isolation.CommitCount == isolationCommitBaseline,
++            "resuming with E still held cannot automatically regrip or latch");
++        expectedPause = false; yield return Wait(.65f);
++        Check(isolation.HandleFraction < .001f && !isolation.IsHolding, "releasing the real key allows a complete physical return before a new action");
++        isolationPauseChecked = true;
++
++        step = "isolation_live_commit"; yield return AimIsolationGrip();
++        keys = new[] { Key.E }; float commitDeadline = Time.realtimeSinceStartup + 3;
++        while (!isolation.IsLatched)
++        {
++            if (Time.realtimeSinceStartup > commitDeadline) throw new Exception("Real sustained E did not latch the isolation control.");
++            yield return null;
++        }
++        keys = Array.Empty<Key>(); yield return new WaitForSecondsRealtime(.08f);
++        Check(!isolation.IsHolding && isolation.HandleFraction >= .999f && isolation.CommitCount == isolationCommitBaseline + 1 &&
++            !isolation.IsDrained && isolation.Pressure01 > 0 && isolation.Pressure01 < 1 && isolation.MotorLevel01 > 0 && isolation.MotorLevel01 < 1,
++            "one fresh sustained E mechanically latches and starts an autonomous pressure and motor decay");
++        Check(lights.All(light => !light.enabled) && !pressureDoor.IsOpenRequested,
++            "the actual work lights cut at commit while the pressurized exit stays closed");
++        Check(isolationAudio.LatchPlayCount == isolationLatchBaseline + 1 && isolationAudio.PurgeStartCount == isolationPurgeBaseline + 1 &&
++            isolationSources[0].isPlaying && isolationSources[0].volume > 0 && isolationSources[3].isPlaying && isolationSources[3].volume > 0,
++            "the live commit produces one stop impulse and one localized purge while the motor coasts down");
++        CheckIsolationRecording(); yield return Capture("07-pressure-isolation");
++        step = "isolation_walk_past_purge";
++        yield return Go(4.5f, -44, 180);
++        yield return Until(() => isolation.IsDrained && pressureDoor.IsFullyOpen, 5, "autonomous drainage did not release the physical exit");
++        yield return Wait(.2f);
++        Check(isolation.DrainCompletionCount == isolationDrainBaseline + 1 && isolation.CommitCount == isolationCommitBaseline + 1 &&
++            isolation.Pressure01 <= .0001f && isolation.MotorLevel01 <= .0001f && lights.All(light => !light.enabled),
++            "walking to valve B completes one autonomous drain with pressure, motor and work lighting off");
++        Vector3 needleAxis = Field<Vector3>(isolation, "needleLocalAxis").normalized;
++        float needleDelta = Field<float>(isolation, "lowNeedleAngle") - Field<float>(isolation, "highNeedleAngle");
++        for (int i = 0; i < needles.Length; i++)
++            Check(Quaternion.Angle(highNeedleRotations[i], needles[i].localRotation) > 20 &&
++                Quaternion.Angle(highNeedleRotations[i] * Quaternion.AngleAxis(needleDelta, needleAxis), needles[i].localRotation) < .2f,
++                "pressure needle " + i + " physically reaches its authored zero angle");
++        Check(isolationAudio.MachineSourcesStopped && isolationSources[0].volume == 0 && isolationSources[1].volume == 0 && isolationSources[3].volume == 0 &&
++            isolationAudio.LatchPlayCount == isolationLatchBaseline + 1 && isolationAudio.PurgeStartCount == isolationPurgeBaseline + 1,
++            "the passed machine has no local loop or impulse still playing after drainage; no new trigger occurred");
++        Check(Mathf.Approximately(AudioListener.volume, isolationListenerVolume) && footsteps.enabled && player.enabled,
++            "machine silence does not change listener gain or disable the actual Player and footsteps");
++        CheckIsolationRecording(); CheckIsolationSourceAnchors(); isolationDrainChecked = true;
++        yield return Capture("07-pressure-drained");
++        yield return Go(0, -46, 270); yield return Go(0, -49.5f, 180);
++        Check(isolationAudio.MachineSourcesStopped && isolation.IsLatched && isolation.IsDrained,
++            "passing through the open exit cannot restart the isolated plant");
++    }
++    IEnumerator AimIsolationGrip()
++    {
++        var grip = Field<Transform>(isolation, "gripPoint");
++        Check(grip && Vector3.Distance(view.transform.position, grip.position) <= Field<float>(isolation, "gripReach"),
++            "the physical approach reaches the authored grip without pose placement");
++        yield return Aim(grip.position);
++        Check(interactor.TryGetTarget(out var target) && ReferenceEquals(target, isolation) && isolation.CanInteract(player.gameObject),
++            "the real camera ray resolves the isolation control and accepts a new physical grip");
++    }
++    void CheckIsolationRecording()
++    {
++        Check(!loop.enabled && !recorder.IsRecording && recorder.CapturedFrameCount == 0 &&
++            ReferenceEquals(returnRecording, loop.LastRecording) && ReferenceEquals(returnEcho, loop.ActiveEcho) &&
++            loop.CompletedLoopCount == returnRecalls && loop.CurrentAttemptNumber == returnAttempt && loop.CheckpointRevision == returnCheckpoint,
++            "physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL");
++        Check(recorder.MaxRecordingDuration == recordingLimit && recorder.SampleInterval == recordingInterval,
++            "isolation never changes the deterministic recording cap or cadence");
++    }
++    void CheckIsolationSourceAnchors()
++    {
++        for (int i = 0; i < isolationSources.Length; i++)
++            Check(Vector3.Distance(isolationSources[i].transform.position, isolationSourcePositions[i]) < .001f &&
++                Quaternion.Angle(isolationSources[i].transform.rotation, isolationSourceRotations[i]) < .1f,
++                "machine audio source " + i + " remains at its authored physical anchor");
++    }
+     void CheckReturnSuspension()
+     {
+         Check(recordingBoundary.HasCommitted && recordingBoundary.IsSuspended && recordingBoundary.SuspensionCount == 1 && campaign.IsReturnRecordingSuspended &&
+@@ -391,8 +550,9 @@
+     IEnumerator EnterHouse()
+     {
+         step = "house_entry"; yield return UseTarget(Station(StationKind.HouseOrigin));
+-        Check(campaign.Chapter == CampaignChapter.House && house.Active && !loop.enabled && !recorder.IsRecording && loop.ActiveEcho == null,
++        Check(campaign.Chapter == CampaignChapter.House && house.Active && !loop.enabled && !recorder.IsRecording && (isolation ? ReferenceEquals(loop.ActiveEcho, returnEcho) : loop.ActiveEcho == null),
+             "earned pressure access and real E enter the house with recording suspended");
++        if (isolation) { CheckIsolationRecording(); Check(isolationAudio.MachineSourcesStopped, "entering the house does not restart the isolated plant"); }
+         Check(!house.HasAnswered && !house.HasKey && !house.HasExited && house.PowerLocation == HousePowerLocation.Hall, "house begins without fabricated domestic progress");
+         CheckFuseState(); yield return Capture("08-house-entry"); yield return RecallDisabled();
+     }
+@@ -575,7 +735,9 @@
+         bool key = house.HasKey;
+         yield return Press(Key.R);
+         Check(loop.CompletedLoopCount == recalls && Vector3.Distance(position, player.transform.position) < .025f &&
+-            loop.ActiveEcho == null && !recorder.IsRecording, "real R input cannot reset or record the house");
++            (isolation ? ReferenceEquals(loop.ActiveEcho, returnEcho) : loop.ActiveEcho == null) && !recorder.IsRecording,
++            "real R input cannot reset or record the house");
++        if (isolation) CheckIsolationRecording();
+         Check(house.PowerLocation == reserve && house.HasKey == key, "R leaves the reserve and key unchanged");
+     }
+ 
+@@ -750,6 +912,10 @@
+                  !ReferenceEquals(returnRecording, loop.LastRecording) || !ReferenceEquals(returnEcho, loop.ActiveEcho) ||
+                  loop.CompletedLoopCount != returnRecalls || loop.CurrentAttemptNumber != returnAttempt || loop.CheckpointRevision != returnCheckpoint))
+                 throw new Exception("The actual return resumed recording, replaced the P3 take or performed a RECALL before PressureOrigin.");
++            if (isolationEntryChecked && !review.Active &&
++                (loop.enabled || recorder.IsRecording || !ReferenceEquals(returnRecording, loop.LastRecording) || !ReferenceEquals(returnEcho, loop.ActiveEcho) ||
++                 loop.CompletedLoopCount != returnRecalls || loop.CurrentAttemptNumber != returnAttempt || loop.CheckpointRevision != returnCheckpoint))
++                throw new Exception("Physical isolation/house replaced P3 or resumed recording before the real final origin.");
+             var echo = loop.ActiveEcho;
+             if (echo && echo.gameObject.activeInHierarchy)
+             {
+@@ -769,6 +935,13 @@
+             observedFrame++;
+             if (Time.realtimeSinceStartup < nextLog) return;
+             nextLog = Time.realtimeSinceStartup + .1f; var p = player.transform.position;
++            if (isolation && isolationSources != null)
++                File.AppendAllText(PathFor("isolation.csv"), string.Join(",", Time.time.ToString("F3", Invariant), step,
++                    isolation.Active, isolation.IsHolding, isolation.HandleFraction.ToString("F3", Invariant), isolation.IsLatched, isolation.IsDrained,
++                    isolation.Pressure01.ToString("F3", Invariant), isolation.MotorLevel01.ToString("F3", Invariant), isolation.CommitCount,
++                    isolation.DrainCompletionCount, isolationAudio.LatchPlayCount, isolationAudio.PurgeStartCount,
++                    isolationSources[0].isPlaying, isolationSources[3].isPlaying, isolationAudio.MachineSourcesStopped,
++                    loop.CompletedLoopCount, loop.CheckpointRevision, session.IsPaused) + "\n");
+             log.WriteLine(string.Join(",", Time.realtimeSinceStartup.ToString("F3", Invariant), Time.time.ToString("F3", Invariant), step,
+                 p.x.ToString("F3", Invariant), p.y.ToString("F3", Invariant), p.z.ToString("F3", Invariant), player.transform.eulerAngles.y.ToString("F2", Invariant),
+                 Field<float>(player, "pitch").ToString("F2", Invariant), campaign.Chapter, loop.CompletedLoopCount, (echo ? echo.ElapsedTime : -1).ToString("F3", Invariant),
+@@ -889,7 +1062,7 @@
+             poseResets = poseResets, fixturePlacements = 0, unexpectedPauseResumes = 0, elapsedRealtime = Time.realtimeSinceStartup - startedAt,
+             p1 = p1Passed, se1 = se1 && se1.VisualConsequenceApplied, p2 = p2Passed,
+             se2 = se2 && se2.CurrentPhase == VS1ParallelFigureEvent.EventPhase.Complete, se3 = se3 && se3.IsComplete, r1 = anchor && anchor.IsActivated,
+-            p3 = p3Passed, r3 = r3 && r3.IsOpen, pressure = campaign && campaign.ValvesDone == 2, house = house && house.HasExited,
++            p3 = p3Passed, r3 = r3 && r3.IsOpen, pressure = isolation ? isolation.IsDrained : campaign && campaign.ValvesDone == 2, house = house && house.HasExited,
+             witnessed = review && review.HasWitnessed, preserved = review && review.OriginalPreserved, keyReturned = review && review.KeyReturned,
+             complete = review && review.IsComplete && session && session.IsEnding, screenshots = screenshots.ToArray(),
+             returnBoundaryPresent = recordingBoundary, realCrossingSuspensionChecked = boundarySuspensionChecked,
+@@ -897,11 +1070,13 @@
+             registrationPresent = registrationPresent, letterReadThroughRealRay = letterRead, stoppedAtRealPause = stoppedAtPause,
+             authoredOmittedPassageRoute = useOmittedPassageRoute,
+             firstActPresent = firstActPresent, se2CloseApproachChecked = se2CloseApproachChecked,
++            pressureIsolationPresent = isolation, isolationEntryChecked = isolationEntryChecked, isolationCancelChecked = isolationCancelChecked,
++            isolationPauseChecked = isolationPauseChecked, isolationDrainChecked = isolationDrainChecked,
+             scope = (initialProtocol ? "Continuous fresh title to the physical Registration letter, real document open/close, real P1 recording/cooperation and a final actual menu pause. SE1 and later chapters are outside this short run's scope. " : "Continuous title to ending via synthetic Input System WASD/mouse/E/R/Enter/Escape. ") +
+                 "No gameplay fixture, pose placement, direct interaction callback, state restoration, cursor override or hidden pause resume. " +
+                 "Only save suppression isolates persistent user data. Every live Echo body is sampled against its actual immutable recording; all recorded frames are compared at completion. " +
+                 (firstActPresent && !initialProtocol ? "The First Act route walks to the real SE2 glass, captures its cold state outside the distance limit with simulation running, reads the close domestic reveal, and physically traverses the authored south R1 opening. " : "") +
+-                (initialProtocol ? "" : recordingBoundary ? "The authored recording boundary is tested through the real P3 crossing, harmless R and the actual walk back through the Hub to PressureOrigin. " : "No recording boundary is present in this scene; boundary suspension/rearm is outside this run's scope. ") +
++                (initialProtocol ? "" : recordingBoundary ? (isolation ? "The real return retains P3 through physical basement entry, a short E tap, a held-action pause/release/regrip, one sustained isolation, autonomous drainage and the house. Source counters, needle transforms, lights and the mechanical exit are checked; there is no extra pressure RECALL. " : "The authored recording boundary is tested through the real P3 crossing, harmless R and the actual walk back through the Hub to PressureOrigin. ") : "No recording boundary is present in this scene; boundary suspension/rearm is outside this run's scope. ") +
+                 (initialProtocol ? "" : returnGuide ? "The physical descent guide is monitored from the distant R3 unlock through actual Hub occupancy and Descent acceptance. " : "No physical descent guide is authored in this scene. ") +
+                 "This is objective route evidence, not human first-play clarity, immersion, fear, visual approval or listening evidence."
+         }, true));

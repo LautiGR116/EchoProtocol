@@ -1,0 +1,22 @@
+using System.IO;
+using System.Linq;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using EchoProtocol.Campaign;
+using EchoProtocol.Puzzle;
+public static class LegibilityAudit {
+ static string P(Transform t) {return t.name+" @ "+t.position.ToString("F3")+" yaw "+t.eulerAngles.ToString("F1");}
+ public static void Main(){
+  var s=SceneManager.GetActiveScene();var lines=new System.Collections.Generic.List<string>();
+  lines.Add(s.path+" dirty="+s.isDirty);
+  foreach(var t in Object.FindObjectsByType<TextMesh>(FindObjectsInactive.Include,FindObjectsSortMode.None).OrderBy(t=>t.transform.position.z))
+   if(t.gameObject.activeInHierarchy)lines.Add("TEXT "+P(t.transform)+" size="+t.characterSize+" shader="+t.GetComponent<Renderer>().sharedMaterial.shader.name+" text="+t.text.Replace("\n"," | "));
+  foreach(var l in Object.FindObjectsByType<Light>(FindObjectsInactive.Include,FindObjectsSortMode.None))
+   if(l.gameObject.activeInHierarchy)lines.Add("LIGHT "+P(l.transform)+" intensity="+l.intensity+" range="+l.range+" type="+l.type+" angle="+l.spotAngle);
+  foreach(var o in Object.FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include,FindObjectsSortMode.None))
+   if(o is OpticalReader||o is FinalDoorMemory||o is CampaignDirector||o is EchoProtocol.Horror.VS1HubReturnGate||o is EchoProtocol.Campaign.FinalDoorInteraction||o is EchoProtocol.Campaign.CampaignStation)
+    lines.Add("CONTRACT "+P(o.transform)+" "+EditorJsonUtility.ToJson(o));
+  File.WriteAllLines("/tmp/legibility-scene-audit.txt",lines);
+ }
+}

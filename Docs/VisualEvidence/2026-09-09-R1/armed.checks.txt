@@ -1,0 +1,11 @@
+PASS fresh baseline sealed
+PASS P2 Player preview
+PASS real R completed once
+PASS domestic checkpoint unchanged
+PASS truthful Echo holds P2
+PASS outbound route remains original wall
+PASS baseline west wall blocks access
+PASS SE2 completed through actual visible reading
+PASS real R completed once
+PASS domestic checkpoint unchanged
+PASS completed SE2 recalled before real SE3 return keeps hub sealed

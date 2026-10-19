@@ -1,0 +1,1 @@
+PASS actual CampaignDirector.Update/SaveCheckpoint wrote Archive=5, Carried=3, answered=1 after explicit house/key/exit/final-origin API fixtures. Temporary key; user's campaign preferences untouched. Next verification requires fresh Play reload. Not a human route or Continue button check.

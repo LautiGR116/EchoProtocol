@@ -1,0 +1,40 @@
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Reflection;
+using UnityEngine;
+using EchoProtocol.Horror;
+using EchoProtocol.Player;
+using EchoProtocol.Presentation;
+public static class ObliqueVolumeCheck
+{
+ public static object Main()
+ {
+  var player=UnityEngine.Object.FindFirstObjectByType<FirstPersonController>();
+  var session=UnityEngine.Object.FindFirstObjectByType<GameSession>();
+  var gate=UnityEngine.Object.FindFirstObjectByType<VS1HubReturnGate>();
+  if(!Application.isPlaying||!session.IsPaused)throw new Exception("Requires completed paused survey; explicit pose fixtures only.");
+  var method=typeof(VS1HubReturnGate).GetMethod("Inside",BindingFlags.Instance|BindingFlags.NonPublic);
+  var original=new Pose(player.transform.position,player.transform.rotation);
+  var go=new GameObject("Temporary oriented volume diagnostic");
+  var box=go.AddComponent<BoxCollider>();box.isTrigger=true;box.center=new Vector3(.2f,.4f,-.1f);box.size=new Vector3(2,2,4);
+  go.transform.SetPositionAndRotation(new Vector3(100,1,100),Quaternion.Euler(0,45,0));go.transform.localScale=new Vector3(1.3f,.8f,.7f);
+  var checks=new List<string>();int placements=0;
+  Action<bool,string> check=(ok,message)=>{if(!ok)throw new Exception(message);checks.Add("PASS "+message);};
+  Action<Vector3> pose=local=>{player.ResetPose(go.transform.TransformPoint(box.center+local)-Vector3.up,Quaternion.identity);Physics.SyncTransforms();placements++;};
+  Func<bool> inside=()=> (bool)method.Invoke(gate,new object[]{box});
+  try
+  {
+   pose(Vector3.zero);check(inside(),"translated, rotated, nonuniformly scaled box accepts its true center");
+   pose(new Vector3(.9f,.9f,1.9f));check(inside(),"true interior near three positive faces is accepted");
+   pose(new Vector3(1.2f,0,0));check(box.bounds.Contains(player.transform.position+Vector3.up),"x-negative-control lies inside old world AABB");check(!inside(),"actual x-exterior is rejected despite its world AABB");
+   pose(new Vector3(0,0,2.2f));check(box.bounds.Contains(player.transform.position+Vector3.up),"z-negative-control lies inside old world AABB");check(!inside(),"actual z-exterior is rejected despite its world AABB");
+   pose(Vector3.zero);box.enabled=false;check(!inside(),"disabled volume cannot qualify");box.enabled=true;go.SetActive(false);check(!inside(),"inactive volume cannot qualify");
+  }
+  finally{player.ResetPose(original.position,original.rotation);UnityEngine.Object.DestroyImmediate(go);Physics.SyncTransforms();}
+  check(Vector3.Distance(player.transform.position,original.position)<.0001f,"original Player pose restored after diagnostic");
+  string output="Docs/VisualEvidence/2026-10-01-Orientation/oblique-volume-check.txt";
+  File.WriteAllText(output,"Reflection call to real VS1HubReturnGate.Inside while session paused. Five explicit Player pose fixtures, one temporary external box; no physical-input/interlock/emotional claim. Original pose restored.\n"+string.Join("\n",checks)+"\nplacements="+placements);
+  return new{checks=checks.Count,placements,output};
+ }
+}

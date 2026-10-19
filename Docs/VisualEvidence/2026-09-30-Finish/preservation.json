@@ -1,0 +1,21 @@
+{
+  "baseline": "/Users/lautigr116/EchoProtocol-backups/finish-start-20260930/workspace-source.tgz",
+  "same_files": 710,
+  "changed_files": [
+    "Assets/Settings/PC_RPAsset.asset",
+    "Assets/_Game/Scripts/Campaign/CampaignDirector.cs",
+    "Assets/_Game/Scripts/Campaign/CampaignStation.cs",
+    "Assets/_Game/Scripts/Presentation/GameSession.cs",
+    "Assets/_Game/Shaders/EchoSurface.shader",
+    "Assets/_Game/Tests/CampaignCheckpointProbe.cs",
+    "Assets/_Game/Tests/CampaignPresentationProbe.cs",
+    "Assets/_Game/Tests/CampaignRouteProbe.cs",
+    "Docs/ARCHITECTURE.md",
+    "Docs/AUDIO_ASSET_LEDGER.md",
+    "Docs/CREDITS.md",
+    "Docs/ROADMAP.md",
+    "ProjectSettings/EditorBuildSettings.asset",
+    "README.md"
+  ],
+  "missing_files": []
+}

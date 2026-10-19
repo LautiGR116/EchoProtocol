@@ -1,0 +1,10 @@
+{
+  "result": "Succeeded",
+  "errors": 0,
+  "warnings": 347,
+  "bytes": 319364196,
+  "seconds": 67.323844,
+  "output": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Embodiment-QA-20261009/EchoProtocol.app",
+  "qa": true,
+  "development": false
+}

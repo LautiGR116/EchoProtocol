@@ -1,0 +1,6 @@
+A height=1.15 hits=P3 A observation glass
+A height=1.65 hits=P3 A observation glass
+core height=1.15 hits=Closed technical core / solid | P3 A observation glass
+core height=1.65 hits=Closed technical core / solid | P3 A observation glass
+B height=1.15 hits=P3 B observation glass
+B height=1.65 hits=P3 B observation glass

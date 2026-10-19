@@ -1,0 +1,23 @@
+{
+  "status": "PASS scoped controls",
+  "dateUTC": "2026-10-08T21:22:19.065739+00:00",
+  "app": "Builds/EchoProtocol-Lighting-20261008/EchoProtocol.app",
+  "scope": "CUA actual native keyboard/click inspection; separate from automatic full QA route and human playtest.",
+  "checked": [
+    "Enter starts title",
+    "A/W movement starts recording",
+    "R returns to origin and replays18.7s take",
+    "H paused note and return",
+    "J explicit solution note",
+    "Escape pause",
+    "speaker mono and reduced-impact UI toggles both directions; initial false/false restored",
+    "credits",
+    "real menu quit with exit0"
+  ],
+  "notEstablished": [
+    "Native relative mouse drag did not establish camera rotation through CUA; actual Input System mouse is covered by full native QA, human mouse feel remains open.",
+    "listening/fear/comfort/first-play orientation"
+  ],
+  "quitExitCode": 0,
+  "toolReopen": "Post-quit AX observation launched a new title process. It was identified and closed without another observation; process inventory then empty."
+}

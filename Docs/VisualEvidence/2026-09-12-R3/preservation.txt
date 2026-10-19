@@ -1,0 +1,10 @@
+Original records: 2980
+Removed original records: 0
+Added records: 400
+Changed original records: 3
+833337447 P3 long return west end
+    m_IsActive: 1 ->   m_IsActive: 0
+1150361308 Hub West Wall
+    m_IsActive: 1 ->   m_IsActive: 0
+9223372036854775807 SceneRoots:
+Original gameplay scripts unchanged: 28/28

@@ -1,0 +1,21 @@
+{
+  "app": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Candidate-20261001/EchoProtocol.app",
+  "observations": [
+    "Title and credits render in a 1280x776 native window; ahriik and CREDITS.txt visible without clipping",
+    "Enter starts the actual reception",
+    "H opens legible contextual notes; C and Enter keep the notes open and do not change the underlying pause menu",
+    "H closes notes to play; Escape shows ordinary pause rather than hidden credits",
+    "H from pause shows Volver a pausa; Escape returns to pause without resuming",
+    "Native W pulses initiate real recording; HUD shows REGISTRANDO 03.0 / 60 s",
+    "R resets to actual origin; HUD shows ECHO 01.1 / 12.4 s and new recording waiting",
+    "Escape pause and Cmd-Q exit; CUA reports procNotFound after quit and Player.log records shutdown"
+  ],
+  "limitations": [
+    "Brief native input/UI check, not full native campaign",
+    "CUA screenshots inspected inline; no saved native PNG claimed",
+    "No human listening, comfort, spontaneous comprehension, pacing or fear evidence"
+  ],
+  "gameplayErrorMatches": 0,
+  "errors": [],
+  "shutdownNotes": "Mono thread prematurely-finalized exit messages are preserved separately from gameplay errors."
+}

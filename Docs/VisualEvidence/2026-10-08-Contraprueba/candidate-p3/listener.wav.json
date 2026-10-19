@@ -1,0 +1,38 @@
+{
+  "rate": 48000,
+  "channels": 2,
+  "samples": 9113600,
+  "marks": [
+    {
+      "label": "chapter entry: headphone stereo",
+      "sample": 0,
+      "seconds": 0.0
+    },
+    {
+      "label": "RECALL: preserved root and body channels",
+      "sample": 4253696,
+      "seconds": 44.309333333333335
+    },
+    {
+      "label": "A confirmed: blind closes",
+      "sample": 4780032,
+      "seconds": 49.792
+    },
+    {
+      "label": "B confirmed: fixed ventilation coasts to silence",
+      "sample": 5621760,
+      "seconds": 58.56
+    },
+    {
+      "label": "held return: blind opens onto the same Echo",
+      "sample": 6811648,
+      "seconds": 70.954666666666668
+    },
+    {
+      "label": "PASS",
+      "sample": 9113600,
+      "seconds": 94.933333333333337
+    }
+  ],
+  "scope": "Actual listener output; source position, reduction and mono require accompanying state checks. Not human listening or hardware volume evidence."
+}

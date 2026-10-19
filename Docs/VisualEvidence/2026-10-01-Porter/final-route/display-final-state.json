@@ -1,0 +1,35 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "var t=typeof(UnityEditor.EditorWindow).Assembly.GetType(\"UnityEditor.LogEntries\");object[] v={0,0,0};t.GetMethod(\"GetCountsByType\",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic).Invoke(null,v);var d=UnityEngine.Object.FindFirstObjectByType<EchoProtocol.Presentation.FinalRecordDisplay>(); var s=new UnityEditor.SerializedObject(d); var detail=(UnityEngine.TextMesh)s.FindProperty(\"detail\").objectReferenceValue;var action=(UnityEngine.TextMesh)s.FindProperty(\"action\").objectReferenceValue;var r=UnityEngine.Object.FindFirstObjectByType<EchoProtocol.Campaign.FinalDoorMemory>(); var loop=UnityEngine.Object.FindFirstObjectByType<EchoProtocol.Echo.LoopController>();return new {console=v,heading=d.VisibleHeading,detail=detail.text,action=action.text,duration=r.PreservedOriginal.Duration,same=object.ReferenceEquals(r.PreservedOriginal,loop.LastRecording)};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "console": [
+          1,
+          4,
+          1
+        ],
+        "heading": "ORIGINAL CONSERVADO",
+        "detail": "10.0 s   /   SESIÓN ACTUAL\nPOSICIÓN Y ORIENTACIÓN",
+        "action": "LLAVE RECIBIDA",
+        "duration": 10.0050545,
+        "same": true
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/lautigr116/EchoProtocol"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

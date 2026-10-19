@@ -1,0 +1,58 @@
+Observation authoring only; no Play, recording, camera, listening or human-play evidence.
+Assets/_Game/Scenes/Production/EchoProtocol_Arrival.unity -> Assets/_Game/Scenes/Production/EchoProtocol_Observation.unity
+P3 Reader A aligned lens: (-6.55900, 1.55000, 35.20000) -> (-6.04100, 1.55000, 35.20000); yaw=180.000
+P3 Reader A housing: (-6.43000, 1.55000, 35.20000) -> (-6.17000, 1.55000, 35.20000); yaw=180.000
+P3 Reader A neutral lens: (-6.53000, 1.55000, 35.20000) -> (-6.07000, 1.55000, 35.20000); yaw=180.000
+Optical enamel body: (-6.43000, 1.55000, 35.20000) -> (-6.17000, 1.55000, 35.20000); yaw=180.000
+Optical bezel: (-6.53200, 1.55000, 35.20000) -> (-6.06800, 1.55000, 35.20000); yaw=180.000
+Optical neutral lens: (-6.55000, 1.55000, 35.20000) -> (-6.05000, 1.55000, 35.20000); yaw=180.000
+P3 A identifier: (-6.57000, 2.10000, 35.20000) -> (-6.17600, 2.10000, 35.20000); yaw=270.000
+Optical case fastener: (-6.52000, 1.71000, 35.32500) -> (-6.08000, 1.71000, 35.07500); yaw=180.000
+Optical case fastener: (-6.52000, 1.39000, 35.07500) -> (-6.08000, 1.39000, 35.32500); yaw=180.000
+Optical case fastener: (-6.52000, 1.39000, 35.32500) -> (-6.08000, 1.39000, 35.07500); yaw=180.000
+Optical case fastener: (-6.52000, 1.71000, 35.07500) -> (-6.08000, 1.71000, 35.32500); yaw=180.000
+P3 Reader B aligned lens: (-6.55900, 1.55000, 43.00000) -> (-6.04100, 1.55000, 43.00000); yaw=180.000
+P3 Reader B housing: (-6.43000, 1.55000, 43.00000) -> (-6.17000, 1.55000, 43.00000); yaw=180.000
+P3 Reader B neutral lens: (-6.53000, 1.55000, 43.00000) -> (-6.07000, 1.55000, 43.00000); yaw=180.000
+Optical enamel body: (-6.43000, 1.55000, 43.00000) -> (-6.17000, 1.55000, 43.00000); yaw=180.000
+Optical bezel: (-6.53200, 1.55000, 43.00000) -> (-6.06800, 1.55000, 43.00000); yaw=180.000
+Optical neutral lens: (-6.55000, 1.55000, 43.00000) -> (-6.05000, 1.55000, 43.00000); yaw=180.000
+P3 B identifier: (-6.57000, 2.10000, 43.00000) -> (-6.17600, 2.10000, 43.00000); yaw=270.000
+Optical case fastener: (-6.52000, 1.39000, 43.12500) -> (-6.08000, 1.39000, 42.87500); yaw=180.000
+Optical case fastener: (-6.52000, 1.39000, 42.87500) -> (-6.08000, 1.39000, 43.12500); yaw=180.000
+Optical case fastener: (-6.52000, 1.71000, 42.87500) -> (-6.08000, 1.71000, 43.12500); yaw=180.000
+Optical case fastener: (-6.52000, 1.71000, 43.12500) -> (-6.08000, 1.71000, 42.87500); yaw=180.000
+P3 Reader A: (-7.80000, 0.00000, 35.20000) -> (-5.05000, 0.00000, 35.20000); yaw=270.000
+P3 Reader B: (-7.80000, 0.00000, 43.00000) -> (-5.05000, 0.00000, 43.00000); yaw=270.000
+P3 Gate A alternative route: (-5.05000, 0.00000, 35.20000) -> (-7.80000, 0.00000, 35.20000); yaw=0.000
+P3 Gate B final hold: (-5.05000, 0.00000, 43.00000) -> (-7.80000, 0.00000, 43.00000); yaw=0.000
+P3 Gate A alternative route header: (-5.05000, 3.10000, 35.20000) -> (-7.80000, 3.10000, 35.20000); yaw=0.000
+P3 Gate B final hold header: (-5.05000, 3.10000, 43.00000) -> (-7.80000, 3.10000, 43.00000); yaw=0.000
+P3 panel housing: (-7.80000, 3.16000, 35.50000) -> (-5.05000, 3.16000, 35.50000); yaw=0.000
+P3 stable diffuser: (-7.80000, 3.07500, 35.50000) -> (-5.05000, 3.07500, 35.50000); yaw=0.000
+P3 panel-owned cool light: (-7.80000, 2.95000, 35.50000) -> (-5.05000, 2.95000, 35.50000); yaw=0.000
+P3 panel housing: (-7.80000, 3.16000, 40.50000) -> (-5.05000, 3.16000, 40.50000); yaw=0.000
+P3 stable diffuser: (-7.80000, 3.07500, 40.50000) -> (-5.05000, 3.07500, 40.50000); yaw=0.000
+P3 panel-owned cool light: (-7.80000, 2.95000, 40.50000) -> (-5.05000, 2.95000, 40.50000); yaw=0.000
+P3 panel housing: (-5.05000, 3.16000, 36.50000) -> (-7.80000, 3.16000, 36.50000); yaw=0.000
+P3 stable diffuser: (-5.05000, 3.07500, 36.50000) -> (-7.80000, 3.07500, 36.50000); yaw=0.000
+P3 panel-owned cool light: (-5.05000, 2.95000, 36.50000) -> (-7.80000, 2.95000, 36.50000); yaw=0.000
+P3 panel housing: (-5.05000, 3.16000, 40.50000) -> (-7.80000, 3.16000, 40.50000); yaw=0.000
+P3 stable diffuser: (-5.05000, 3.07500, 40.50000) -> (-7.80000, 3.07500, 40.50000); yaw=0.000
+P3 panel-owned cool light: (-5.05000, 2.95000, 40.50000) -> (-7.80000, 2.95000, 40.50000); yaw=0.000
+P3 panel housing: (-5.05000, 3.16000, 43.70000) -> (-7.80000, 3.16000, 43.70000); yaw=0.000
+P3 stable diffuser: (-5.05000, 3.07500, 43.70000) -> (-7.80000, 3.07500, 43.70000); yaw=0.000
+P3 panel-owned cool light: (-5.05000, 2.95000, 43.70000) -> (-7.80000, 2.95000, 43.70000); yaw=0.000
+P3 A authorization retained: (-5.05000, 2.85000, 35.05000) -> (-7.80000, 3.07000, 34.96000); yaw=0.000
+R3 actual Player final crossing: (-5.05000, 0.00000, 43.70000) -> (-7.80000, 0.00000, 43.70000); yaw=0.000
+P3 recording lane terminal wall: (-7.75000, 1.60000, 44.60000) -> (-5.05000, 1.60000, 44.60000); yaw=0.000
+R1 recall remains (-5.70000, 0.03000, 27.80000) / (0.000000, 0.382684, 0.000000, -0.923880); original reader tolerance/qualification/mask and activeIndicator refs, relay, gate bodies/targets and R3 references preserved.
+Preserved 4124 original component serializations. Reset targets 29 -> 31; original order unchanged, motor A/B appended after doors/relay.
+Lights 138 -> 138; AudioSources 54 -> 56. New fixed motors at (-7.80000, 3.05000, 35.20000) / (-7.80000, 3.05000, 43.00000)
+Masters: Assets/_Game/Audio/Clips/Mechanisms/SFX_DoorMovement_LP.wav / Assets/_Game/Audio/Clips/Mechanisms/SFX_DoorEndpoint.wav; bus=WorldSFX; volume=0.13. No new clip, voice, bed or Echo channel.
+Terminal sealed east x[-6.30,-3.80] at z44.60; opaque core z[37,42.3], same continuous glass colliders at A/B. Physical core leaves2.125m east before shallow plinth (~2.094m local minimum),2.525m west. Door bodies2.3m; fixed jamb opening2.33m.
+Namespace EP.CampaignCheckpoint.Arrival.v1 -> EP.CampaignCheckpoint.Observation.v1; no PlayerPrefs writes. Pending cameras and actual-input solve/Player-only preview race/R during movement; no perceptual approval.
+
+Post-author source-only correction: refresh the printed material atlas after RequestCharactersInTexture for future authoring. Runtime DiegeticText already refreshes its atlas on Awake and rebuild. No re-author or scene mutation.
+
+Camera correction after first focused PASS41: B leaf/header/jambs/guide/motor and optical assembly/pier/label plate move +.35Z to43.35. B trigger/required yaw remain(-5.05,0,43)/270; R3 crossing stays43.7. Existing east fixture40.5 moves to43.15; no light/source addition, level or rule change. New camera/input evidence required.

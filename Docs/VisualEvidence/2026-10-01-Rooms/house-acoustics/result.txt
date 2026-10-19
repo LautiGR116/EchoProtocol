@@ -1,0 +1,2 @@
+PASS
+checks=37 fixtureCount=1 laterPoseResets=0 midTransitionPause=True intermediateValues=34 elapsed=21.0388

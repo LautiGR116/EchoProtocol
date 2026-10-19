@@ -1,0 +1,1 @@
+FAIL coverage_prepared_return: Present threat caught the Player. No retry or auto-resume was performed.

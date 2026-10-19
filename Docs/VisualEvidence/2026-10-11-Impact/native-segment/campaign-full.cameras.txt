@@ -1,0 +1,15 @@
+Actual Player camera; Camera captures omit OnGUI, Game captures include it.
+campaign-00-title position=(0.000, 1.600, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title
+campaign-coverage-control position=(4.584, 1.630, -35.809) euler=(26.75, 86.24, 0.00) FOV=60 paused=False step=coverage_enter
+campaign-coverage-paused position=(0.000, 1.630, -29.000) euler=(26.75, 86.24, 0.00) FOV=60 paused=True step=coverage_playback_pause
+campaign-coverage-work-before-release position=(-3.548, 1.630, -38.476) euler=(20.13, 175.44, 0.00) FOV=60 paused=False step=coverage_cross_to_crank
+campaign-coverage-grille-open position=(-3.548, 1.630, -38.476) euler=(20.13, 175.44, 0.00) FOV=60 paused=False step=coverage_hold_crank
+campaign-coverage-release-and-threat position=(-3.962, 1.630, -43.265) euler=(21.43, 171.89, 0.00) FOV=60 paused=False step=coverage_hold_release
+campaign-coverage-present-rush position=(-3.962, 1.630, -43.265) euler=(5.31, 272.62, 0.00) FOV=60 paused=False step=coverage_deliberate_failure
+campaign-coverage-failure position=(-3.962, 1.630, -43.265) euler=(12.40, 289.93, 0.00) FOV=60 paused=True step=coverage_deliberate_failure
+campaign-coverage-work-before-release position=(-3.615, 1.630, -38.559) euler=(21.32, 171.79, 0.00) FOV=60 paused=False step=coverage_cross_to_crank
+campaign-coverage-grille-open position=(-3.615, 1.630, -38.559) euler=(21.32, 171.79, 0.00) FOV=60 paused=False step=coverage_hold_crank
+campaign-coverage-release-and-threat position=(-4.056, 1.630, -43.138) euler=(19.27, 168.51, 0.00) FOV=60 paused=False step=coverage_hold_release
+campaign-coverage-return-covered position=(3.377, 1.630, -43.541) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=coverage_prepared_return
+campaign-coverage-natural-silence position=(0.058, 1.630, -49.575) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=coverage_natural_recorded_release
+campaign-coverage-complete position=(0.058, 1.630, -49.575) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=coverage_natural_recorded_release

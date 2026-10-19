@@ -1,0 +1,1536 @@
+#if UNITY_EDITOR || ECHO_NATIVE_VERIFY
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using EchoProtocol.Audio;
+using EchoProtocol.Campaign;
+using EchoProtocol.Echo;
+using EchoProtocol.Horror;
+using EchoProtocol.Interaction;
+using EchoProtocol.Player;
+using EchoProtocol.Presentation;
+using EchoProtocol.Puzzle;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
+
+/// <summary>Continuous title-to-ending or Registration/letter/P1 synthetic-input run. No fixture, teleport, saved restoration or gameplay API mutation.</summary>
+public sealed partial class ThresholdCampaignProbe : MonoBehaviour
+{
+    public static event Action<string,Camera> ViewCaptured;
+    public static string OutputDirectoryOverride; // Explicit evidence destination; never affects gameplay.
+    const float OverallTimeoutSeconds = 900;
+    static readonly BindingFlags Private = BindingFlags.Instance | BindingFlags.NonPublic;
+    static readonly CultureInfo Invariant = CultureInfo.InvariantCulture;
+    FirstPersonController player; PlayerInteractor interactor; PlayerInput playerInput; PlayerFootsteps footsteps;
+    EchoRecorder recorder; LoopController loop; GameSession session; CampaignDirector campaign;
+    HouseMemory house; FinalDoorMemory review; HouseSwingDoor door, domesticDoor; SlidingDoor exitDoor;
+    VS1StrongEventOne se1; VS1DomesticThresholdCheckpoint domesticCheckpoint; ParallelObservationRelay p1;
+    BlindAlignmentRelay p2; VS1ParallelFigureEvent se2; VS1OmittedPassageEvent se3;
+    VS1RecoveryHubGate hub; VS1RecallAnchor anchor; RecombinationRelay p3; OpticalReader readerA, readerB;
+    VS1HubReturnGate r3; SlidingDoor rear, front, returnGate; VS1DenialEvidence oldDenial;
+    ReturnRecordingBoundary recordingBoundary; GameObject returnGuide, recordingSignal; BoxCollider returnArrivalZone;
+    EchoRecording returnRecording; EchoPlayback returnEcho;
+    PressureIsolation isolation; PressureIsolationAudio isolationAudio;
+    AudioSource[] isolationSources; Vector3[] isolationSourcePositions; Quaternion[] isolationSourceRotations;
+    bool isolationEntryChecked, isolationCancelChecked, isolationPauseChecked, isolationDrainChecked;
+    Transform pressureRotor;
+    int isolationCommitBaseline, isolationDrainBaseline, isolationLatchBaseline, isolationPurgeBaseline;
+    float isolationListenerVolume;
+    Keyboard keyboard; Mouse mouse; Camera view; InputDevice[] originalDevices;
+    InputSettings.EditorInputBehaviorInPlayMode oldBehavior;
+    string originalScheme, output, step = "title", runtimeError;
+    bool originalAutoSwitch, devicesReady, saveCaptured, oldSuppressSaves, cleanedUp, running, expectedPause = true;
+    bool p1Passed, p2Passed, p3Passed;
+    bool boundarySuspensionChecked, hubGuideChecked, pressureRearmChecked, guideArrivalObserved;
+    bool readerSurvey, readersPresent;
+    bool initialProtocol, registrationPresent, letterRead, stoppedAtPause, useOmittedPassageRoute;
+    bool firstActPresent, se2CloseApproachChecked, recordsPassagePresent, obliqueArrivalPresent, observationPresent, courtyardPresent;
+    bool firstActTraversalOnly, northernPassage, passageRecallCase, passageRecallDone, passageUnseenCase;
+    string authoredReturnRouteRoot;
+    float yaw, pitch, sensitivity, startedAt, nextLog;
+    int checks, playbackFrames, poseResets, recallsAtStart, observedFrame;
+    int returnRecalls, returnAttempt, returnCheckpoint; float recordingLimit, recordingInterval;
+    Key[] keys = Array.Empty<Key>(); StreamWriter log;
+    readonly List<string> screenshots = new List<string>();
+    readonly List<Snapshot> snapshots = new List<Snapshot>();
+    sealed class Snapshot { public EchoRecording recording; public EchoFrame[] frames; }
+    [Serializable] sealed class Result
+    {
+        public string status, scene, lastStep, error, scope, mode;
+        public int checks, playbackFramesChecked, immutableSnapshots, recalls, poseResets, fixturePlacements, unexpectedPauseResumes;
+        public float elapsedRealtime;
+        public bool p1, se1, p2, se2, se3, r1, p3, r3, pressure, house, witnessed, preserved, keyReturned, complete;
+        public bool returnBoundaryPresent, realCrossingSuspensionChecked, arrivalGuideChecked, pressureRearmChecked;
+        public bool registrationPresent, letterReadThroughRealRay, stoppedAtRealPause, authoredOmittedPassageRoute;
+        public bool firstActPresent, se2CloseApproachChecked, recordsPassagePresent;
+        public bool se2PhysicalTraversal, se2Presented, se2Observed;
+        public int se2Entries, se2Exits, se2Appearances;
+        public float se2ObservedSeconds;
+        public string se2Occlusion;
+        public bool pressureIsolationPresent, isolationEntryChecked, isolationCancelChecked, isolationPauseChecked, isolationDrainChecked;
+        public string[] screenshots;
+    }
+    public string Status { get; private set; } = "starting";
+    public string CurrentStep => step;
+    public static void Run() => StartRun(false, null);
+    public static void RunFirstProtocol() => StartRun(true, null);
+    public static void RunReaderSurvey() => StartRun(true, null, true);
+    public static void RunFirstActTraversal() => StartRun(false, null, false, true);
+    public static void RunFirstActNorthEntry() => StartRun(false, null, false, true, true);
+    public static void RunFirstActInterruptedRecall() => StartRun(false, null, false, true, false, true);
+    public static void RunFirstActUnseenTraversal() => StartRun(false, null, false, true, true, false, true);
+    // Explicit alternative for an authored scene marker. The First Act marker is also detected
+    // automatically; earlier editions, including Registration, retain their original route.
+    public static void RunWithOmittedPassageRoute(string authoredRootName)
+    {
+        if (string.IsNullOrWhiteSpace(authoredRootName)) throw new ArgumentException("Name the active authored root for the south R1 opening.");
+        StartRun(false, authoredRootName);
+    }
+    static void StartRun(bool firstProtocolOnly, string authoredRootName, bool surveyReaders = false, bool passageOnly = false, bool north = false, bool interruptPassage = false, bool unseenPassage = false, bool coverOnly = false, bool coverFailure = false, bool coverPresentation = false)
+    {
+        if (!Application.isPlaying) throw new InvalidOperationException("ThresholdCampaignProbe requires fresh Play Mode at the title.");
+        if (FindObjectsByType<ThresholdCampaignProbe>(FindObjectsSortMode.None).Any(p => p.running)) throw new InvalidOperationException("A continuous campaign probe is running.");
+        var probe = new GameObject("Temporary continuous Threshold campaign verification").AddComponent<ThresholdCampaignProbe>();
+        probe.initialProtocol = firstProtocolOnly; probe.authoredReturnRouteRoot = authoredRootName; probe.readerSurvey = surveyReaders;
+        probe.firstActTraversalOnly = passageOnly; probe.northernPassage = north; probe.passageRecallCase = interruptPassage; probe.passageUnseenCase = unseenPassage;
+        probe.coverageOnly = coverOnly; probe.coverageFailure = coverFailure; probe.coveragePresentation = coverPresentation;
+        probe.output = firstProtocolOnly ? Path.GetFullPath(Path.Combine(Application.dataPath, "../Docs/VisualEvidence/2026-10-01-Threshold")) : Path.GetFullPath(Path.Combine(Application.dataPath, "../Docs/VisualEvidence/2026-10-01-" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name.Replace("EchoProtocol_", ""), "continuous"));
+        if (firstProtocolOnly) probe.output = Path.Combine(probe.output, "Registration-first-protocol");
+        if (surveyReaders) probe.output = Path.GetFullPath(Path.Combine(Application.dataPath, "../Docs/VisualEvidence/2026-10-01-" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name.Replace("EchoProtocol_", ""), "reader-survey"));
+        if (passageOnly) probe.output = Path.GetFullPath(Path.Combine(Application.dataPath, "../Docs/VisualEvidence/2026-10-01-" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name.Replace("EchoProtocol_", ""), unseenPassage ? "passage-unseen" : interruptPassage ? "passage-recall" : north ? "passage-north" : "passage"));
+        if (!string.IsNullOrEmpty(OutputDirectoryOverride)) probe.output=Path.GetFullPath(OutputDirectoryOverride);
+        Directory.CreateDirectory(probe.output);
+        probe.StartCoroutine(probe.Guarded(probe.Execute()));
+    }
+    IEnumerator Guarded(IEnumerator routine)
+    {
+        var stack = new Stack<IEnumerator>(); stack.Push(routine);
+        while (stack.Count > 0)
+        {
+            object yielded;
+            try { if (!stack.Peek().MoveNext()) { stack.Pop(); continue; } yielded = stack.Peek().Current; }
+            catch (Exception exception) { Finish(false, exception.ToString()); yield break; }
+            if (yielded is IEnumerator nested) { stack.Push(nested); continue; }
+            yield return yielded;
+        }
+    }
+    IEnumerator Execute()
+    {
+        yield return null; startedAt = Time.realtimeSinceStartup;
+        File.WriteAllText(PathFor("checks.txt"), (initialProtocol ? "CONTINUOUS TITLE, RECEPTION LETTER AND P1, ENDING IN A REAL MENU PAUSE. " : firstActTraversalOnly ? "CONTINUOUS TITLE TO R1 THROUGH THE PHYSICAL SE2 ROOM. " : "CONTINUOUS TITLE TO ENDING. ") +
+            "Zero fixtures or direct gameplay mutations. Input System keyboard/mouse only. Unexpected pauses fail rather than being resumed.\n");
+        File.WriteAllText(PathFor("cameras.txt"), "Actual Player camera; Camera captures omit OnGUI, Game captures include it.\n");
+        File.Delete(PathFor("result.json")); File.Delete(PathFor("result.txt"));
+        File.Delete(PathFor("notes.txt"));
+        player = FindFirstObjectByType<FirstPersonController>(); loop = FindFirstObjectByType<LoopController>();
+        session = FindFirstObjectByType<GameSession>(); campaign = FindFirstObjectByType<CampaignDirector>();
+        house = FindFirstObjectByType<HouseMemory>(); review = FindFirstObjectByType<FinalDoorMemory>();
+        Check(player && loop && session && campaign && house && review, "Threshold systems exist");
+        playerInput = player.GetComponent<PlayerInput>(); interactor = player.GetComponent<PlayerInteractor>();
+        recorder = player.GetComponent<EchoRecorder>(); footsteps = player.GetComponent<PlayerFootsteps>(); view = player.GetComponentInChildren<Camera>();
+        door = Field<HouseSwingDoor>(house, "exitDoor"); domesticDoor = Field<HouseSwingDoor>(review, "domesticDoor"); exitDoor = Field<SlidingDoor>(review, "exitDoor");
+        p1 = FindFirstObjectByType<ParallelObservationRelay>(); se1 = FindFirstObjectByType<VS1StrongEventOne>(); domesticCheckpoint = FindFirstObjectByType<VS1DomesticThresholdCheckpoint>();
+        p2 = FindFirstObjectByType<BlindAlignmentRelay>(); se2 = FindFirstObjectByType<VS1ParallelFigureEvent>(); se3 = FindFirstObjectByType<VS1OmittedPassageEvent>();
+        hub = FindFirstObjectByType<VS1RecoveryHubGate>(); anchor = FindFirstObjectByType<VS1RecallAnchor>(FindObjectsInactive.Include);
+        p3 = FindFirstObjectByType<RecombinationRelay>(FindObjectsInactive.Include); r3 = FindFirstObjectByType<VS1HubReturnGate>(); obliqueArrivalPresent = GameObject.Find("Arrival / remembered reception"); observationPresent = GameObject.Find("Observation / paired observation gallery"); courtyardPresent = GameObject.Find("Courtyard / real house exterior"); oldDenial = FindFirstObjectByType<VS1DenialEvidence>();
+        Check(playerInput && interactor && recorder && footsteps && view && door && domesticDoor && exitDoor && p1 && se1 && domesticCheckpoint && p2 && se2 && se3 && hub && anchor && p3 && r3,
+            "all original-act, new house and new final references exist");
+        readerA = Field<OpticalReader>(p3, "readerA"); readerB = Field<OpticalReader>(p3, "readerB");
+        rear = Field<SlidingDoor>(r3, "arrivalRear"); front = Field<SlidingDoor>(r3, "arrivalFront"); returnGate = Field<SlidingDoor>(r3, "returnGate");
+        isolation = campaign.IsolationControl;
+        isolationAudio = FindFirstObjectByType<PressureIsolationAudio>();
+        if (isolation)
+        {
+            Check(isolation.isActiveAndEnabled && isolationAudio && isolationAudio.isActiveAndEnabled &&
+                Field<PressureIsolation>(isolationAudio, "isolation") == isolation,
+                "optional isolation has its single configured physical audio owner");
+            Check(!isolation.Active && !isolation.IsLatched && !isolation.IsDrained && isolation.CommitCount == 0 && isolation.RestoreRevision == 0,
+                "isolation begins untouched at the real title without a restored fixture");
+        }
+        recordingBoundary = FindFirstObjectByType<ReturnRecordingBoundary>(FindObjectsInactive.Include);
+        returnGuide = Field<GameObject>(campaign, "returnDescentGuide"); returnArrivalZone = Field<BoxCollider>(campaign, "returnArrivalZone");
+        if (recordingBoundary)
+        {
+            Check(recordingBoundary.isActiveAndEnabled && Field<ReturnRecordingBoundary>(campaign, "returnRecordingBoundary") == recordingBoundary &&
+                Field<VS1HubReturnGate>(recordingBoundary, "returnGate") == r3 && Field<LoopController>(recordingBoundary, "loop") == loop,
+                "optional recording boundary shares the actual campaign, R3 and loop");
+            Check(!recordingBoundary.HasCommitted && !recordingBoundary.IsSuspended && returnGuide && returnArrivalZone,
+                "boundary starts unused and its actual Hub arrival guidance is authored");
+            recordingSignal = Field<GameObject>(recordingBoundary, "endOfRecordingSignal");
+        }
+        if (returnGuide) Check(returnArrivalZone && !returnGuide.activeInHierarchy, "physical descent guide starts hidden with an explicit Hub arrival volume");
+        var notes=FindFirstObjectByType<ProtocolGuidance>();
+        if(notes)Check(Field<ParallelObservationRelay>(notes,"firstRelay")==p1 && Field<VS1StrongEventOne>(notes,"firstEvent")==se1
+            && Field<VS1DomesticThresholdCheckpoint>(notes,"domesticCheckpoint")==domesticCheckpoint
+            && Field<BlindAlignmentRelay>(notes,"alignmentRelay")==p2 && Field<VS1ParallelFigureEvent>(notes,"passage")==se2
+            && Field<VS1OmittedPassageEvent>(notes,"returnPassage")==se3 && Field<VS1RecallAnchor>(notes,"recoveryOrigin")==anchor
+            && Field<RecombinationRelay>(notes,"returnRelay")==p3,
+            "contextual notes reference the actual gameplay systems, excluding inactive legacy studies");
+        recordingLimit = recorder.MaxRecordingDuration; recordingInterval = recorder.SampleInterval;
+        Check(session.IsPaused && !session.HasStarted && !session.IsEnding && Time.timeScale == 0 && campaign.Chapter == CampaignChapter.Protocol,
+            "run begins at the actual paused title, before gameplay");
+        Check(!p1.IsComplete && !hub.IsOpen && !r3.IsOpen && !house.Active && !house.HasKey && !review.Active && loop.CompletedLoopCount == 0 && loop.LastRecording == null,
+            "title has no earned progress, saved restoration or prior recording");
+        Check(oldDenial && !oldDenial.enabled && Field<VS1HubReturnGate>(campaign, "returnWithoutReview") == r3,
+            "Threshold replaces D1 with actual R3 availability");
+        readersPresent = ActiveSceneRoot("Readers / recessed optical heads");
+        recordsPassagePresent = ActiveSceneRoot("Records / physical return passage");
+        registrationPresent = ActiveSceneRoot("Registration / inhabited administrative booth");
+        if (initialProtocol) Check(registrationPresent, "first-protocol scope uses the actual authored Registration booth");
+        firstActPresent = ActiveSceneRoot("First Act / perception and return");
+        useOmittedPassageRoute = firstActPresent;
+        if (firstActPresent && !se2.UsesPhysicalTraversal)
+        {
+            Check(Mathf.Approximately(se2.MaximumObservationDistanceToGlass, 3.5f),
+                "First Act authors the optional SE2 observation limit at 3.5 meters from the physical glass");
+            useOmittedPassageRoute = true;
+        }
+        if (!string.IsNullOrEmpty(authoredReturnRouteRoot))
+        {
+            Check(ActiveSceneRoot(authoredReturnRouteRoot), "explicit future return route has its named active authored geometry root");
+            useOmittedPassageRoute = true;
+        }
+        oldSuppressSaves = campaign.SuppressSaves; saveCaptured = true; campaign.SuppressSaves = true;
+        ConfigureDevices(); recallsAtStart = loop.CompletedLoopCount; player.PoseReset += ObservePoseReset;
+        if (isolation) File.WriteAllText(PathFor("isolation.csv"), "time,step,active,held,handle,latched,drained,pressure,motor,commits,drains,latches,purges,motorPlaying,purgePlaying,allStopped,recalls,checkpoint,paused\n");
+        if (campaign.CoverEncounter) File.WriteAllText(PathFor("coverage.csv"),"time,step,echoTime,replayedGrip,expectedGrip,pressure,motor,bolt,exit,failed,complete,enemyX,enemyZ,sees,lured,diversions\n");
+        log = new StreamWriter(PathFor("csv")); log.WriteLine("realtime,time,step,x,y,z,yaw,pitch,chapter,recalls,echoTime,se1,se2,se3,r3,housePower,key,witnessed,preserved,keyReturned,fade,paused,returnSuspended,recording,checkpoint,returnGuide");
+        Application.logMessageReceived += ReceiveLog;
+        running = true; Status = "running"; yaw = player.transform.eulerAngles.y; pitch = Field<float>(player, "pitch");
+        yield return Capture("00-title");
+        if(coverageOnly)
+        {
+            yield return Press(Key.Tab);expectedPreviewAccess=true;yield return Press(Key.Enter);expectedPreviewAccess=false;expectedPause=false;
+            Check(campaign.Chapter==CampaignChapter.Pressure&&campaign.CoverEncounter.Active,"actual title button starts the authored segment");
+            if(coveragePresentation)
+            {
+                yield return FocusedCoverPresentation();WriteSnapshots();step="coverage-presentation-done";Finish(true,"");yield break;
+            }
+            yield return CoverPressure();
+            yield return Capture("coverage-complete");
+            AuditCoverTake();WriteSnapshots();step="coverage-done";Finish(true,"");yield break;
+        }
+        yield return Press(Key.Enter);
+        Check(!session.IsPaused && player.enabled && loop.enabled, "Enter starts the actual title session through input"); expectedPause = false;
+        yield return SessionNotes("initial");
+        if (initialProtocol)
+        {
+            yield return ReadRegistrationLetter();
+            yield return FirstProtocol();
+            step = "initial_protocol_complete_pause"; expectedPause = true;
+            yield return Press(Key.Escape);
+            Check(session.IsPaused && !session.IsEnding && string.IsNullOrEmpty(Field<string>(session, "documentTitle")),
+                "Escape ends the first-protocol verification at the actual pause menu");
+            Check(p1Passed && p1.IsComplete && loop.CompletedLoopCount == 1 && !domesticCheckpoint.IsCheckpointCommitted &&
+                se2.CurrentPhase == VS1ParallelFigureEvent.EventPhase.AwaitingCrossing && !hub.IsOpen && !r3.IsOpen,
+                "short scope completed genuine P1 cooperation and did not advance into SE2 or a later chapter");
+            stoppedAtPause = true; yield return Capture("P1-complete-paused");
+        }
+        else
+        {
+            yield return FirstAct();
+            if (firstActTraversalOnly)
+            {
+                expectedPause = true; yield return Press(Key.Escape);
+                Check(session.IsPaused && anchor.IsActivated && !p3.IsAuthorized, "first-act scope ends at a real pause after R1, before P3");
+                stoppedAtPause = true;
+            }
+            else
+            {
+                yield return Pressure();
+                yield return EnterHouse();
+                yield return NormalRoute();
+                yield return FinalAct();
+            }
+        }
+        step = "immutable_archive_audit";
+        Check(poseResets == loop.CompletedLoopCount - recallsAtStart, "every observed Player pose reset belongs to a real RECALL; there were zero fixture placements");
+        foreach (Snapshot snapshot in snapshots)
+        {
+            Check(snapshot.recording.FrameCount == snapshot.frames.Length && Enumerable.Range(0, snapshot.frames.Length).All(i => SameFrame(snapshot.recording[i], snapshot.frames[i])),
+                "all timestamps, root poses and recorded articulation remain identical in each saved snapshot");
+        }
+        Check(playbackFrames > 100 && snapshots.Count >= (initialProtocol ? 1 : firstActTraversalOnly ? passageRecallCase ? 4 : 2 : isolation ? 4 : 5),
+            initialProtocol ? "initial protocol audited the actual P1 Echo against its input-generated take" : "full campaign audited actual playback across multiple real takes");
+        Check(loop.CompletedLoopCount - recallsAtStart == (initialProtocol ? 1 : firstActTraversalOnly ? passageRecallCase ? 4 : 2 : isolation ? 4 : 5),
+            "the actual route uses only its expected real RECALLs (one initial, four with isolation, five legacy)");
+        WriteSnapshots();
+        yield return Wait(.2f);
+        foreach (string file in screenshots) Check(File.Exists(Path.Combine(output, file)), "capture exists: " + file);
+        step = "done"; Finish(true, "");
+    }
+    IEnumerator SessionNotes(string label, bool closeWithEscape = false)
+    {
+        var guidance=FindFirstObjectByType<ProtocolGuidance>();
+        if(!guidance)yield break;
+        string beforeStep=step;step += "/session_notes_"+label;
+        bool loopEnabled=loop.enabled;
+        expectedPause=true;yield return Press(Key.H);
+        Check(session.IsPaused && Field<bool>(session,"help") && Time.timeScale==0 && AudioListener.pause,
+            "H opens contextual notes through real input and pauses world/audio");
+        var contextual=FindFirstObjectByType<ContextualHints>();
+        string context=contextual?contextual.CurrentNote:guidance.Context;Check(!string.IsNullOrWhiteSpace(context),"notes resolve the actual configured stage");
+        File.AppendAllText(PathFor("notes.txt"),label+"\n"+context+"\n\n");
+        float clock=Time.time,echoTime=loop.ActiveEcho?loop.ActiveEcho.ElapsedTime:-1;
+        Vector3 position=player.transform.position;int frames=recorder.CapturedFrameCount,recalls=loop.CompletedLoopCount;
+        var phase=se2.CurrentPhase;int appearances=se2.AppearanceCount;
+        yield return Capture("notes-"+label);
+        keys=new[]{Key.W,Key.R};yield return new WaitForSecondsRealtime(.35f);keys=Array.Empty<Key>();yield return null;
+        Check(Time.time==clock && Vector3.Distance(player.transform.position,position)<.001f
+            && recorder.CapturedFrameCount==frames && loop.CompletedLoopCount==recalls
+            && (!loop.ActiveEcho || Mathf.Approximately(loop.ActiveEcho.ElapsedTime,echoTime))
+            && se2.CurrentPhase==phase && se2.AppearanceCount==appearances,
+            "reading notes with movement/R held leaves the actual recording, Echo, Player and event unchanged");
+        yield return Press(closeWithEscape?Key.Escape:Key.H);
+        Check(!session.IsPaused && !Field<bool>(session,"help") && player.enabled && loop.enabled==loopEnabled && !AudioListener.pause,
+            "H/Escape closes notes and restores exactly the prior controls");
+        if(label=="initial")
+        {
+            yield return Press(Key.Escape);
+            Check(session.IsPaused,"notes can also be requested from the real pause menu");
+            yield return Press(Key.H);yield return Press(Key.Escape);
+            Check(session.IsPaused && !Field<bool>(session,"help") && AudioListener.pause,
+                "closing notes requested from pause returns to pause without resuming the world");
+            yield return Press(Key.Escape);
+            Check(!session.IsPaused && player.enabled,"explicit Escape resumes after returning from notes to pause");
+        }
+        expectedPause=false;step=beforeStep;
+    }
+    IEnumerator ReadRegistrationLetter()
+    {
+        step = "registration_letter_approach";
+        yield return Go(.35f, -5.5f, 0); yield return Capture("reception-arrival");
+        var letter = Station(StationKind.IntroLetter);
+        Check(!p1.IsComplete && loop.CompletedLoopCount == 0 && campaign.Chapter == CampaignChapter.Protocol,
+            "actual public approach to the counter earns no puzzle or chapter progress");
+        expectedPause = true; yield return UseTarget(letter);
+        Check(session.IsPaused && Field<string>(session, "documentTitle") == "La llave de 6B",
+            "actual camera ray and E open the reception letter at its new authored counter");
+        step = "registration_letter_document";
+        float documentTime = Time.time; Vector3 documentPose = player.transform.position;
+        int documentFrames = recorder.CapturedFrameCount, recalls = loop.CompletedLoopCount;
+        yield return Capture("reception-document"); yield return Press(Key.R);
+        Check(Mathf.Approximately(documentTime, Time.time) && Vector3.Distance(documentPose, player.transform.position) < .01f &&
+            recorder.CapturedFrameCount == documentFrames && loop.CompletedLoopCount == recalls && loop.LastRecording == null,
+            "reading and paused R preserve the actual pose, recording buffer and clock");
+        yield return Press(Key.Escape);
+        Check(!session.IsPaused && player.enabled && loop.enabled && string.IsNullOrEmpty(Field<string>(session, "documentTitle")),
+            "Escape closes the letter and restores real movement and recording control");
+        expectedPause = false;
+        Check(!p1.IsComplete && !house.Active && campaign.Chapter == CampaignChapter.Protocol,
+            "optional correspondence changes no gameplay completion flags");
+        letterRead = true;
+    }
+    IEnumerator FirstProtocol()
+    {
+        step = "P1_record";
+        Check(!hub.IsOpen && !se3.IsComplete && !p3.gameObject.activeInHierarchy && !anchor.CanInteract(player.gameObject), "first-act gates start sealed");
+        yield return Go(-2.75f, -5.3f, 0);
+        if(OutputDirectoryOverride!=null) { yield return Capture("orientation-P1-entry"); yield return Go(-2.75f,1.4f,0); yield return Capture("orientation-P1-A-arrival"); }
+        if (readerSurvey) { yield return Go(-2.75f, 1.4f, 0); yield return SurveyReader("Lane Optical Reader A", "A-approach-idle", false); }
+        yield return Go(-2.75f, 3, 90); yield return Wait(.8f);
+        if (readerSurvey) yield return SurveyReader("Lane Optical Reader A", "A-aligned", true);
+        if(OutputDirectoryOverride!=null)yield return Capture("orientation-P1-A-preview");
+        var orientation=FindFirstObjectByType<OrientationFeedback>();
+        if(orientation)Check(orientation.CooperationText.Contains(p1.RequiresSimultaneousPresence?"PRIMERO A":"REQUIERE A + B"),"C reports no Echo authorization during the real Player-only A preview");
+        Check(p1.IsGateAPreviewActive, "P1 A previews from the actual Player");
+        if (readerSurvey) { yield return Go(-2.75f, 9.4f, 0); yield return SurveyReader("Lane Optical Reader B", "B-approach-idle", false); }
+        yield return Go(-2.75f, 11, 90); yield return Wait(p1.RequiresSimultaneousPresence ? 6 : 1);
+        if (readerSurvey) yield return SurveyReader("Lane Optical Reader B", "B-aligned", true);
+        yield return Recall();
+        step = "P1_cooperate";
+        yield return Go(2.5f, -5.3f, 0); yield return Go(2.5f, -2, 0); yield return Go(3.35f, 1.8f, 0);
+        if(ViewCaptured!=null&&loop.ActiveEcho&&loop.ActiveEcho.gameObject.activeInHierarchy)
+        {
+            yield return Aim(loop.ActiveEcho.transform.position+Vector3.up*1.15f);
+            yield return Capture("P1-visible");
+            // Capture the useful body only after the real A reading is earned.
+            // Earlier arrival segments can still be behind the opaque jamb.
+            yield return Until(()=>p1.EchoAAuthorized,loop.LastRecording.Duration+1,"the actual P1 A playback never authorized its reader");
+            yield return Aim(loop.ActiveEcho.transform.position+Vector3.up*1.15f);
+            yield return Capture("P1-reader-A-playback");
+        }
+        yield return Wait(2);
+        if (readerSurvey) { yield return Go(3.35f, 8.6f, 0); yield return SurveyReader("Service Player Reader", "C-approach-idle", false); }
+        yield return Go(3.35f, 10, 90); yield return Wait(2);
+        if (readerSurvey) yield return SurveyReader("Service Player Reader", "C-aligned", true);
+        if (initialProtocol) yield return Until(() => p1.IsComplete, loop.LastRecording.Duration + 2,
+            "the genuine Echo did not complete A/B after replaying the optional letter approach");
+        Check(p1.IsComplete, "P1 completes through real Echo A/B and Player cooperation"); p1Passed = true;
+        if(orientation)Check(orientation.CooperationText.Contains("ACEPTADA"),"physical C display reports the genuinely completed cooperation");
+        yield return Capture("01-P1");
+    }
+    IEnumerator SurveyReader(string readerName, string label, bool expectedAligned)
+    {
+        var reader = FindObjectsByType<OpticalReader>(FindObjectsSortMode.None).Single(r => r.name == readerName);
+        var indicator = Field<GameObject>(reader, "activeIndicator");
+        yield return Aim(indicator.transform.position); yield return Wait(.4f);
+        Check(reader.IsPlayerAligned == expectedAligned && indicator.activeSelf == reader.IsAligned,
+            label + ": actual trigger/facing owns indicator; survey uses only keyboard/mouse");
+        yield return Capture("reader-" + label);
+    }
+    IEnumerator WalkThroughSE2()
+    {
+        bool wasPresented = se2.PresentationCommitted;
+        string variant = wasPresented ? "SE2-retained-" : "SE2-";
+        step = "SE2_physical_approach";
+        yield return Go(.60f, 29.10f, 90); yield return Capture(variant + "approach-openings");
+        yield return Go(2.30f, 29.10f, 90);
+        Check(se2.CurrentPhase == VS1ParallelFigureEvent.EventPhase.Traversing &&
+            (wasPresented ? se2.IsDomesticVisible && se2.AppearanceCount == 1 : se2.IsColdRoomVisible && se2.AppearanceCount == 0),
+            "genuine P2 crossing admits the physical room and preserves its earned presentation state");
+        yield return Capture(variant + "cold-approach");
+        yield return SessionNotes("passage");
+        if (northernPassage)
+        {
+            step = "SE2_north_entry";
+            yield return Go(2.30f, 32.65f, passageUnseenCase ? 180 : 0); yield return Go(6.50f, 32.65f, passageUnseenCase ? 180 : 90);
+            yield return Go(6.50f, 28.90f, 180);
+            Check(se2.TraversalEntryCount == 1,
+                "the alternative entrance physically visits the room without requiring observation");
+            yield return Capture("SE2-north-interior");
+            if (!passageUnseenCase)
+            {
+                step = "SE2_fixed_rear_leaf_contact";
+                yield return Go(6.50f, 29.10f, 90);
+                keys = new[] { Key.W }; yield return new WaitForSecondsRealtime(1.2f); keys = Array.Empty<Key>();
+                Check(player.transform.position.x < 7.55f && player.transform.position.x > 6.3f && !session.IsPaused,
+                    "current Player makes physical contact with the visible fixed leaf/frame before reaching the figure room");
+                yield return Capture("SE2-visible-door-contact");
+                yield return Go(6.50f, 28.90f, 270);
+            }
+            yield return Go(6.50f, 32.65f, passageUnseenCase ? 180 : 0); yield return Go(2.30f, 32.65f, passageUnseenCase ? 180 : 270);
+        }
+        else
+        {
+            step = "SE2_south_refuge";
+            yield return Go(2.30f, 27.50f, 180); yield return Go(3.02f, 27.50f, 90);
+            yield return Go(3.02f, 25.60f, 180);
+            Check(se2.PresentationCommitted && se2.AppearanceCount == 1 && se2.TraversalEntryCount == 0
+                && !string.IsNullOrEmpty(se2.LastOcclusionMethod),
+                "whole-envelope occlusion presents the room before visiting it; reveal alone earns no completion");
+            yield return Capture(variant + "concealed-entry");
+            int appearances = se2.AppearanceCount;
+            yield return MenuPause();
+            Check(se2.AppearanceCount == appearances && se2.PresentationCommitted && se2.TraversalEntryCount == 0,
+                "real pause at the refuge preserves presentation and earns no visit or traversal");
+            if (passageRecallCase && !passageRecallDone)
+            {
+                passageRecallDone = true; step = "SE2_incomplete_recall";
+                yield return Recall();
+                Check(se2.CurrentPhase == VS1ParallelFigureEvent.EventPhase.AwaitingCrossing && se2.IsDomesticVisible
+                    && se2.PresentationCommitted && se2.AppearanceCount == 1 && se2.CompletionCount == 0,
+                    "actual incomplete RECALL rearms eligibility without reverting the room or inventing completion");
+                yield return Go(-2.75f, 23.05f, 90); yield return Wait(22);
+                Check(p2.IsPlayerPreviewActive, "retry authors a new genuine P2 hold through current Player input");
+                yield return Recall(); yield return Wait(5);
+                Check(p2.IsEchoHoldingGate, "retry P2 gate is held by the newly recorded Echo");
+                yield return Go(-2.75f, 29.03f, 0);
+                yield return WalkThroughSE2(); yield break;
+            }
+            yield return Go(3.02f, 24.60f, 180); yield return Go(4.90f, 24.60f, 90);
+            yield return Go(4.90f, 28.70f, 0); yield return Face(90);
+            yield return Capture(variant + "domestic-entry");
+            yield return Go(6.50f, 28.90f, 90);
+            Check(se2.TraversalEntryCount == 1 && se2.CurrentPhase == VS1ParallelFigureEvent.EventPhase.Traversing
+                && se2.IsDomesticVisible && se2.IsFigureVisible,
+                "actual movement enters the domestic floor; no timer or forced gaze completes it");
+            yield return Capture(variant + "inside-room");
+            yield return Go(6.50f, 32.65f, 0); yield return Go(2.30f, 32.65f, 270);
+        }
+        step = "SE2_physical_return";
+        yield return Go(2.30f, 29.10f, 180);
+        Check(se2.CurrentPhase == VS1ParallelFigureEvent.EventPhase.Complete && se2.TraversalExitCount == 1
+            && se2.CompletionCount == 1 && !hub.IsOpen,
+            "physical return completes SE2 once; the original SE3 return still owns R1 opening");
+        if (northernPassage)
+        {
+            if (passageUnseenCase) Check(!se2.PresentationCommitted && se2.AppearanceCount == 0 && se2.QualifiedReadSeconds == 0,
+                "backward travel keeps affected space in view; the unrevealed cold room still permits actual completion");
+            else Check(se2.PresentationCommitted && se2.AppearanceCount == 1,
+                "the ordinary northern approach also offers one concealed presentation");
+        }
+    }
+
+    IEnumerator FirstAct()
+    {
+        yield return FirstProtocol();
+        step = "SE1_empty_lane"; yield return Face(306); yield return Wait(2);
+        yield return MenuPause();
+        step = "SE1_consequence"; yield return Until(()=>se1.VisualConsequenceApplied && se1.LaneStagesExtinguished==3,35,"SE1 did not finish after the actual lane check");
+        Check(se1.VisualConsequenceApplied && se1.LaneStagesExtinguished == 3, "SE1 follows the actual empty-lane check");
+        if(readersPresent)
+        {
+            var names=new[]{"Panel Light - Cold Ceiling Panel Lane 2","Panel Light - Cold Ceiling Panel Lane 3","Panel Light - Service Ceiling Panel 3"};
+            var lights=FindObjectsByType<Light>(FindObjectsInactive.Include,FindObjectsSortMode.None);
+            Check(names.All(name=>lights.Single(l=>l.name==name).intensity==0),
+                "all three reaimed reader fixtures still extinguish through the original SE1 circuit");
+        }
+        yield return Capture("02-SE1");
+        var linkedTasks=FindObjectsByType<LinkedTaskLight>(FindObjectsSortMode.None);
+        if(linkedTasks.Length>0)Check(linkedTasks.Length==(GameObject.Find("Lighting / maintained route and indirect light")?7:3) && linkedTasks.All(t=>!Field<Light>(t,"taskLight").enabled || Field<Light>(t,"taskLight").intensity<.001f),
+            "every reader task and fixture reflection follows the actual SE1 blackout");
+        step = "domestic_checkpoint";
+        yield return Go(3.35f, 18, 0); yield return Go(-2.75f, 18, 270); yield return Go(-2.75f, 22.05f, 0); yield return Wait(2);
+        Check(domesticCheckpoint.IsCheckpointCommitted && domesticCheckpoint.HasSlammed && loop.CheckpointRevision == 1, "real domestic crossing establishes the first checkpoint and slam");
+        step = "P2_record"; yield return Go(-2.75f, 23.05f, 90); yield return Wait(22);
+        Check(p2.IsPlayerPreviewActive, "Player previews P2 while recording the genuine hold");
+        if(readersPresent)yield return SurveyReader("P2 Blind Alignment Reader", "P2-aligned", true);
+        yield return SessionNotes("P2", true);
+        yield return Recall();
+        yield return Wait(5); Check(p2.IsEchoHoldingGate, "actual Echo holds P2"); yield return Go(-2.75f, 29.03f, 0);
+        Check(!hub.IsOpen, "R1 remains sealed before SE3");
+        if (se2.UsesPhysicalTraversal)
+        {
+            yield return WalkThroughSE2();
+        }
+        else if (firstActPresent)
+        {
+            step = "SE2_cold_approach";
+            yield return Go(4.2f, 29.03f, 90);
+            var glass = Field<Collider>(se2, "visibilityGlass");
+            Check(Vector3.Distance(view.transform.position, glass.ClosestPoint(view.transform.position)) > se2.MaximumObservationDistanceToGlass &&
+                se2.CurrentPhase == VS1ParallelFigureEvent.EventPhase.AwaitingLook && se2.IsColdRoomVisible && !se2.IsDomesticVisible && !se2.IsFigureVisible,
+                "the authentic P2 crossing arms SE2 but its distant natural view still contains the cold room");
+            float coldViewStarted = Time.time;
+            yield return Wait(.8f);
+            Check(Time.time - coldViewStarted >= .65f && se2.CurrentPhase == VS1ParallelFigureEvent.EventPhase.AwaitingLook && se2.AppearanceCount == 0,
+                "live simulation passes the qualification time while the distant natural view remains cold");
+            yield return Capture("SE2-cold-approach");
+            step = "SE2_close_read";
+            yield return Go(5.5f, 29.03f, 90);
+            Check(!session.IsPaused && Vector3.Distance(view.transform.position, glass.ClosestPoint(view.transform.position)) <= se2.MaximumObservationDistanceToGlass,
+                "real forward input approaches within the authored glass distance without freezing time or placing the Player");
+            yield return Until(() => se2.CurrentPhase == VS1ParallelFigureEvent.EventPhase.Complete, 6,
+                "the actual close view did not complete SE2 through its solid glass");
+            Check(se2.AppearanceCount == 1 && se2.CompletionCount == 1 && se2.IsDomesticVisible && se2.IsFigureVisible && !se2.IsColdRoomVisible,
+                "one natural close reading reveals the domestic room and figure and completes SE2 once");
+            se2CloseApproachChecked = true;
+        }
+        else { step = "SE2_read"; yield return Go(-.45f, 29.03f, 90); yield return Wait(5); }
+        Check(se2.CurrentPhase == VS1ParallelFigureEvent.EventPhase.Complete, se2.UsesPhysicalTraversal ? "actual SE2 entry and return complete without a gaze timer" : "real SE2 visible reading completes"); yield return Capture("03-SE2");
+        p2Passed = true; // Set only after physically crossing the gate held by the actual Echo.
+        step = "SE3_return"; yield return Go(-2.75f, 29.03f, 270);
+        Check(se3.IsComplete && hub.IsOpen, "genuine SE3 return opens R1");
+        if (useOmittedPassageRoute)
+        {
+            yield return Go(-2.75f, 28.85f, 180); yield return Capture("SE3-entry");
+            yield return Go(-2.75f, 26.95f, 180); yield return Capture("SE3-codo");
+            yield return Go(-5.7f, 26.95f, 270); yield return Go(-5.7f, 27.8f, 0);
+        }
+        else { yield return Go(-5.7f, 29, 270); yield return Go(-5.7f, 27.8f, 270); }
+        step = "R1_anchor"; Vector3 before = player.transform.position; int attempts = loop.CompletedLoopCount;
+        yield return UseTarget(anchor);
+        Check(anchor.IsActivated && Vector3.Distance(before, player.transform.position) < .025f && attempts == loop.CompletedLoopCount,
+            "real anchor E establishes R1 without teleport or RECALL");
+        Check(loop.CheckpointRevision == 2 && loop.ActiveEcho == null && loop.LastRecording == null && recorder.IsArmed,
+            "R1 anchor discards the old take and arms an empty recorder"); yield return Capture("04-R1");
+        if (firstActTraversalOnly) yield break;
+        step = "P3_record";
+        yield return SessionNotes("P3", true);
+        float recordLane = observationPresent ? -5.05f : -7.8f, cooperationLane = observationPresent ? -7.8f : -5.05f, readerFacing = observationPresent ? 270 : 90;
+        if (p3.RequiresReturnWitness) { cooperationLane=-7.8f; yield return ContrapruebaCircuit(); }
+        else
+        {
+        yield return Go(-5.5f, 32.5f, 0); yield return Go(recordLane, 32.5f, observationPresent ? 90 : 270);
+        yield return Go(recordLane, 35.2f, readerFacing); yield return Wait(p3.RequiresPairedTransfer ? 5.5f : .7f);
+        Check(readerA.IsPlayerAligned && !p3.IsAuthorized, "P3 Player A preview does not authorize the route");
+        if(readersPresent)yield return SurveyReader("P3 Reader A", "P3-A-aligned", true);
+        yield return Go(recordLane, 43, 0); yield return Face(readerFacing); yield return Wait(p3.RequiresPairedTransfer ? 6 : 25);
+        Check(readerB.IsPlayerAligned, "P3 B hold is actually recorded");
+        if(readersPresent)yield return SurveyReader("P3 Reader B", "P3-B-aligned", true);
+        yield return Recall();
+        Check(!p3.IsAuthorized && loop.CheckpointRevision == 2 && hub.IsOpen && se3.IsComplete && anchor.IsActivated,
+            "RECALL clears P3 authorization while retaining earned spatial consequences");
+        step = "P3_cooperate"; yield return Go(-5.5f, 32.5f, 0); yield return Go(cooperationLane, 32.5f, observationPresent ? 270 : 90); yield return Go(cooperationLane, 34.25f, 0);
+        if(p3.RequiresPairedTransfer)
+        {
+            yield return Until(()=>p3.EchoAtA,8,"paired A presence did not arrive");
+            yield return UseTarget(FindObjectsByType<TemporalRelayTerminal>(FindObjectsSortMode.None).Single(t=>!t.FinalReceiver));
+            Check(p3.IsAuthorized && p3.AcceptedConfirmations==1,"present Player E confirms actual Echo A; opening latches");
+            yield return Capture("Reconstruction-A-confirmed");
+        }
+        else yield return Wait(3);
+        Check(p3.IsAuthorized, "real Echo A authorizes P3"); yield return Go(cooperationLane, 39.5f, 0);
+        if (observationPresent)
+        {
+            yield return Go(cooperationLane, 42.6f, 0);
+            yield return Until(() => readerB.IsEchoAligned, 8, "real Echo B failed to reach the opposite observation station");
+            yield return Aim(loop.ActiveEcho.transform.position + Vector3.up * 1.35f); yield return Capture("Observation-B-cooperation");
+        }
+        else yield return Wait(3);
+        Check(p3.IsEchoHoldingGate && readerB.IsEchoAligned && !r3.IsOpen, p3.RequiresPairedTransfer?"real B presence is available for the present Player confirmation; R3 still requires crossing":"real B hold opens the final puzzle gate, while R3 still requires Player crossing");
+        if(p3.RequiresPairedTransfer)
+        {
+            Check(!p3.IsTransferComplete,"Echo B alone does not commit the receiving terminal");
+            yield return UseTarget(FindObjectsByType<TemporalRelayTerminal>(FindObjectsSortMode.None).Single(t=>t.FinalReceiver));
+            Check(p3.IsTransferComplete && p3.AcceptedConfirmations==2,"present Player E confirms B and secures the final opening");
+            yield return Capture("Reconstruction-B-confirmed");
+        }
+        yield return Go(cooperationLane, 43.1f, 0); Check(!r3.IsOpen, "R3 remains locked before the final crossing plane");
+        }
+        if (recordingBoundary)
+        {
+            Check(!recordingBoundary.HasCommitted && loop.enabled && recorder.HasRecordingStarted, "recording stays live until the actual P3 exit crossing");
+            returnRecording = loop.LastRecording; returnEcho = loop.ActiveEcho;
+            returnRecalls = loop.CompletedLoopCount; returnAttempt = loop.CurrentAttemptNumber; returnCheckpoint = loop.CheckpointRevision;
+        }
+        yield return Go(cooperationLane, 46.35f, 0); Check(r3.IsOpen && r3.OpeningCount == 1, "physical Player crossing unlocks R3 once");
+        p3Passed = true;
+        if (recordingBoundary)
+        {
+            CheckReturnSuspension(); boundarySuspensionChecked = true;
+            Check(!recordingSignal || recordingSignal.activeInHierarchy, "the authored end-of-recording signal is active after the real crossing");
+            Check(campaign.StatusText.Contains("R INACTIVO"), "the actual return HUD explains why R is inactive");
+            Vector3 beforeR = player.transform.position; yield return Press(Key.R);
+            CheckReturnSuspension();
+            Check(Vector3.Distance(beforeR, player.transform.position) < .025f, "R after the real R3 crossing neither teleports nor creates a new attempt");
+        }
+        if (returnGuide) Check(!returnGuide.activeInHierarchy && !guideArrivalObserved, "distant R3 unlock does not announce the descent at the wrong location");
+        yield return Capture("05-R3-unlocked");
+        step = "R3_continuous_return";
+        yield return Go(-15.5f, 46.35f, 270); yield return Wait(1); yield return Go(-18.6f, 46.35f, 270);
+        if(recordsPassagePresent)
+        {
+            yield return Go(-18.6f,30,180);yield return Capture("records-approach");
+            yield return Go(-18.6f,27,180);yield return Go(-21.15f,27,270);
+            yield return Go(-21.15f,24.5f,180);yield return Capture("records-interior");
+            CheckReturnSuspension();
+            yield return Go(-21.15f,18,180);yield return Capture("records-exit-approach");
+            yield return Go(-21.15f,15,180);yield return Go(-18.6f,15,90);yield return Go(-18.6f,13,180);
+            Check(player.transform.position.y>-.05f,"the actual R3 return physically traverses both archive openings with floor support");
+            yield return Capture("return-archive");
+        }
+        else {yield return Go(-18.6f, 26, 180); yield return Capture("return-archive");}
+        yield return Go(-18.6f, 7, 180); yield return Capture("return-reception");
+        if(obliqueArrivalPresent)
+        {
+            yield return Go(-18.6f,-5.8995f,180);yield return Go(-10.0497f,-14.4497f,135);
+            var zone=Field<BoxCollider>(r3,"arrivalInterior");var point=zone.transform.TransformPoint(zone.center);
+            yield return Go(point.x,point.z,45);yield return Capture("arrival-interior-forward");
+        }
+        else {yield return Go(-18.6f, -9.5f, 180); yield return Go(-7.7f, -9.5f, 90); yield return Go(-7, -9.5f, 90);}
+        yield return Wait(2.3f);
+        Check(rear.IsFullyClosed && front.IsFullyOpen, "arrival interlock seals the rear before opening the Hub side");
+        if (returnGuide) Check(!returnGuide.activeInHierarchy && !guideArrivalObserved, "descent guide remains off throughout the gallery and receiving interlock");
+        if(obliqueArrivalPresent) {yield return Capture("arrival-open-forward");yield return Go(-3.4737f,-7.8737f,45);}
+        else yield return Go(-3.5f, -9.5f, 90);
+        yield return Wait(2);
+        Check(front.IsFullyClosed && !oldDenial.enabled && !oldDenial.IsActivated, "actual Hub arrival seals behind the Player and keeps legacy D1 disabled");
+        if (returnGuide)
+        {
+            Check(guideArrivalObserved && InsideReturnArrival() && returnGuide.activeInHierarchy,
+                "physical Hub arrival, rather than remote R3 availability, reveals the local descent guide");
+            hubGuideChecked = true;
+        }
+        if (recordingBoundary) CheckReturnSuspension();
+        yield return Capture("06-Hub-return");
+        if(OutputDirectoryOverride!=null) {yield return Face(90);yield return Capture("orientation-Hub-turn");
+            if(FindFirstObjectByType<OrientationFeedback>())yield return SessionNotes("Hub",true);}
+        step = "R3_to_descent"; yield return Go(2.25f, -10, 90);
+        var descent = Station(StationKind.Descent);
+        yield return Until(() => descent.CanInteract(player.gameObject), 8, "earned R3 did not make the Descent station available");
+        if(FindFirstObjectByType<OrientationFeedback>()){yield return Aim(TargetPoint(descent));yield return Capture("orientation-Hub-terminal");}
+        yield return UseTarget(descent);
+        Check(campaign.Chapter == CampaignChapter.Descent, "real E proceeds directly from earned R3 to Descent without D1");
+        if (returnGuide) Check(!returnGuide.activeInHierarchy, "accepting Descent removes the completed local guide");
+        if (recordingBoundary) CheckReturnSuspension();
+        yield return Wait(3); yield return Go(0, -10, 270);
+        if(FindFirstObjectByType<OrientationFeedback>()){yield return Face(180);yield return Capture("orientation-Hub-enabled-passage");}
+        yield return Go(0, -26, 180);
+    }
+    IEnumerator Pressure()
+    {
+        if(campaign.CoverEncounter){yield return CoverPressure();yield break;}
+        if (isolation) { yield return IsolatePressure(); yield break; }
+        step = "pressure_origin";
+        yield return Go(0, -29.6f, 180); yield return Go(1.1f, -29.6f, 90);
+        if (recordingBoundary) CheckReturnSuspension();
+        Vector3 beforeOrigin = player.transform.position;
+        yield return UseTarget(Station(StationKind.PressureOrigin));
+        Check(campaign.Chapter == CampaignChapter.Pressure && loop.enabled, "real pressure station commits the next recording origin");
+        if (recordingBoundary)
+        {
+            Check(!recordingBoundary.IsSuspended && !campaign.IsReturnRecordingSuspended && recordingBoundary.SuspensionCount == 1 &&
+                loop.CheckpointRevision == returnCheckpoint + 1 && loop.CompletedLoopCount == returnRecalls,
+                "only real PressureOrigin E releases the one-time suspension and creates the next checkpoint");
+            Check(recorder.IsArmed && recorder.CapturedFrameCount == 0 && loop.LastRecording == null && loop.ActiveEcho == null &&
+                Vector3.Distance(beforeOrigin, player.transform.position) < .025f,
+                "pressure rearms an empty take and clears the old Echo through the checkpoint contract without teleporting");
+            Check(!recordingSignal || !recordingSignal.activeInHierarchy, "the old recording-boundary signal releases at the new origin");
+            Check(recorder.MaxRecordingDuration == recordingLimit && recorder.SampleInterval == recordingInterval,
+                "the return suspension never changes the deterministic recording cap or sample cadence");
+            pressureRearmChecked = true;
+        }
+        step = "pressure_record";
+        yield return Go(-5.7f, -30.3f, 270); yield return Go(-5.7f, -34, 270); yield return Wait(34);
+        Check(campaign.Pressure < .01f && campaign.ValvesDone == 0, "the actual Player's recorded hold cannot operate the valves alone"); yield return Recall();
+        step = "pressure_valves"; yield return Go(3.8f, -32, 180); yield return Wait(4);
+        Check(campaign.Pressure > .95f, "real Echo body builds chamber pressure");
+        yield return Go(4.2f, -36.5f, 180); yield return UseTarget(Station(StationKind.ValveA)); yield return Wait(6.4f);
+        Check(campaign.ValvesDone == 1, "first real sustained valve completes"); yield return Capture("07-pressure");
+        yield return Go(4.2f, -44, 180); yield return UseTarget(Station(StationKind.ValveB)); yield return Wait(6.4f);
+        Check(campaign.ValvesDone == 2, "second sustained valve opens the physical house approach");
+        yield return Go(0, -46, 270); yield return Go(0, -49.5f, 180);
+    }
+    IEnumerator IsolatePressure()
+    {
+        step = "isolation_physical_entry";
+        Check(recordingBoundary && boundarySuspensionChecked && campaign.Chapter == CampaignChapter.Descent && !isolation.Active,
+            "isolation approach begins in the earned Descent with P3 already suspended by the real return boundary");
+        CheckReturnSuspension();
+        var motorPresentation=FindFirstObjectByType<PressureMotorRotor>();
+        pressureRotor=motorPresentation?Field<Transform>(motorPresentation,"rotor"):null;
+        isolationCommitBaseline = isolation.CommitCount; isolationDrainBaseline = isolation.DrainCompletionCount;
+        isolationLatchBaseline = isolationAudio.LatchPlayCount; isolationPurgeBaseline = isolationAudio.PurgeStartCount;
+        isolationListenerVolume = AudioListener.volume;
+        isolationSources = new[] { Field<AudioSource>(isolationAudio, "motorSource"), Field<AudioSource>(isolationAudio, "controlSource"),
+            Field<AudioSource>(isolationAudio, "latchSource"), Field<AudioSource>(isolationAudio, "purgeSource") };
+        Check(isolationSources.All(source => source && source.isActiveAndEnabled && source.spatialBlend >= .999f && !source.ignoreListenerPause) &&
+            isolationSources.Distinct().Count() == 4, "four distinct local sources use authored spatial playback and respect listener pause");
+        isolationSourcePositions = isolationSources.Select(source => source.transform.position).ToArray();
+        isolationSourceRotations = isolationSources.Select(source => source.transform.rotation).ToArray();
+        Check(isolationSources[0].isPlaying && isolationSources[0].volume > 0 && !isolationSources[2].isPlaying && !isolationSources[3].isPlaying,
+            "the operating plant is audible-source-ready before entry with no fabricated latch or purge");
+        yield return Go(0, -29.6f, 180);
+        yield return Until(() => campaign.Chapter == CampaignChapter.Pressure && isolation.Active, 2,
+            "physical basement arrival did not enter the isolation service volume");
+        isolationEntryChecked = true;
+        CheckIsolationRecording();
+        Vector3 beforeR = player.transform.position; yield return Press(Key.R);
+        Check(Vector3.Distance(beforeR, player.transform.position) < .025f, "R at physical basement entry cannot move the Player");
+        CheckIsolationRecording();
+        Check(FindObjectsByType<CampaignStation>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+                .Where(station => station.Kind == StationKind.PressureOrigin || station.Kind == StationKind.ValveA || station.Kind == StationKind.ValveB)
+                .All(station => !station.CanInteract(player.gameObject)),
+            "the opt-in chapter exposes no legacy recorder/valve callbacks");
+        var needles = Field<Transform[]>(isolation, "pressureNeedles");
+        var lights = Field<Light[]>(isolation, "workLights");
+        var pressureDoor = Field<SlidingDoor>(isolation, "exitDoor");
+        Check(needles != null && needles.Length == 2 && needles.All(needle => needle) && needles.Distinct().Count() == 2 &&
+            lights != null && lights.Length > 0 && lights.All(light => light && light.enabled && light.gameObject.activeInHierarchy && light.intensity > 0) &&
+            pressureDoor && pressureDoor.IsFullyClosed && !pressureDoor.IsOpenRequested,
+            "two separate pressure needles, live work lights and the closed mechanical exit are explicitly authored");
+        var highNeedleRotations = needles.Select(needle => needle.localRotation).ToArray();
+        if(pressureRotor){yield return Go(4.4f,-30.3f,90);yield return Go(4.4f,-35.45f,180);}
+        else{yield return Go(4.5f, -30.3f, 90); yield return Go(4.5f, -36.5f, 180);}
+        step = "isolation_short_tap"; yield return AimIsolationGrip();
+        if(pressureRotor)yield return Capture("07-pressure-ready");
+        yield return Press(Key.E); yield return Wait(.6f);
+        Check(!isolation.IsHolding && !isolation.IsLatched && isolation.HandleFraction < .001f && isolation.CommitCount == isolationCommitBaseline &&
+            isolationAudio.LatchPlayCount == isolationLatchBaseline && isolationAudio.PurgeStartCount == isolationPurgeBaseline &&
+            !isolationSources[1].isPlaying && isolationSources[1].volume == 0,
+            "a real short E tap returns the handle and stops friction without a latch, purge or progression");
+        isolationCancelChecked = true;
+
+        step = "isolation_pause_while_held"; yield return AimIsolationGrip();
+        keys = new[] { Key.E }; yield return new WaitForSecondsRealtime(.65f);
+        Check(isolation.IsHolding && isolation.HandleFraction > .1f && isolation.HandleFraction < .8f && !isolation.IsLatched,
+            "the real held action physically rotates a partial, unlatched control");
+        Check(isolationSources[1].isPlaying && isolationSources[1].volume > 0 && isolationAudio.ControlStartCount > 0,
+            "real handle motion drives its own local friction source");
+        expectedPause = true; keys = new[] { Key.E, Key.Escape }; yield return new WaitForSecondsRealtime(.12f);
+        keys = new[] { Key.E }; yield return new WaitForSecondsRealtime(.1f);
+        Check(session.IsPaused && AudioListener.pause && !isolation.IsHolding, "real Escape cancels grip and pauses listener playback while E remains held");
+        var pausedRotor=pressureRotor?pressureRotor.localRotation:Quaternion.identity;
+        float pausedTime = Time.time, pausedHandle = isolation.HandleFraction;
+        float pausedPressure = isolation.Pressure01, pausedMotor = isolation.MotorLevel01;
+        Vector3 pausedPosition = player.transform.position;
+        int pausedControlStarts = isolationAudio.ControlStartCount;
+        yield return new WaitForSecondsRealtime(.3f);
+        Check(Mathf.Approximately(pausedTime, Time.time) && Mathf.Approximately(pausedHandle, isolation.HandleFraction) &&
+            Mathf.Approximately(pausedPressure, isolation.Pressure01) && Mathf.Approximately(pausedMotor, isolation.MotorLevel01) &&
+            Vector3.Distance(pausedPosition, player.transform.position) < .01f && isolationAudio.ControlStartCount == pausedControlStarts &&
+            isolationAudio.LatchPlayCount == isolationLatchBaseline && isolationAudio.PurgeStartCount == isolationPurgeBaseline,
+            "paused held input freezes the physical state and produces no new machine audio trigger");
+        if(pressureRotor)Check(Quaternion.Angle(pausedRotor,pressureRotor.localRotation)<.001f,"real held-action pause freezes the visible pump rotor");
+        keys = new[] { Key.E, Key.Escape }; yield return new WaitForSecondsRealtime(.12f);
+        keys = new[] { Key.E }; yield return new WaitForSecondsRealtime(.4f);
+        Check(!session.IsPaused && !AudioListener.pause && !isolation.IsHolding && !isolation.IsLatched && isolation.CommitCount == isolationCommitBaseline,
+            "resuming with E still held cannot automatically regrip or latch");
+        expectedPause = false; yield return Wait(.65f);
+        Check(isolation.HandleFraction < .001f && !isolation.IsHolding, "releasing the real key allows a complete physical return before a new action");
+        isolationPauseChecked = true;
+
+        step = "isolation_live_commit"; yield return AimIsolationGrip();
+        keys = new[] { Key.E }; float commitDeadline = Time.realtimeSinceStartup + 3;
+        while (!isolation.IsLatched)
+        {
+            if (Time.realtimeSinceStartup > commitDeadline) throw new Exception("Real sustained E did not latch the isolation control.");
+            yield return null;
+        }
+        keys = Array.Empty<Key>(); yield return new WaitForSecondsRealtime(.08f);
+        Check(!isolation.IsHolding && isolation.HandleFraction >= .999f && isolation.CommitCount == isolationCommitBaseline + 1 &&
+            !isolation.IsDrained && isolation.Pressure01 > 0 && isolation.Pressure01 < 1 && isolation.MotorLevel01 > 0 && isolation.MotorLevel01 < 1,
+            "one fresh sustained E mechanically latches and starts an autonomous pressure and motor decay");
+        Check(lights.All(light => !light.enabled) && !pressureDoor.IsOpenRequested,
+            "the actual work lights cut at commit while the pressurized exit stays closed");
+        Check(isolationAudio.LatchPlayCount == isolationLatchBaseline + 1 && isolationAudio.PurgeStartCount == isolationPurgeBaseline + 1 &&
+            isolationSources[0].isPlaying && isolationSources[0].volume > 0 && isolationSources[3].isPlaying && isolationSources[3].volume > 0,
+            "the live commit produces one stop impulse and one localized purge while the motor coasts down");
+        CheckIsolationRecording(); yield return Capture("07-pressure-isolation");
+        step = "isolation_walk_past_purge";
+        if(pressureRotor){yield return Go(4.65f,-40.2f,180);yield return Capture("07-machine-aisle");yield return Go(4.65f,-44,180);}
+        else yield return Go(4.5f, -44, 180);
+        yield return Until(() => isolation.IsDrained && pressureDoor.IsFullyOpen, 5, "autonomous drainage did not release the physical exit");
+        yield return Wait(.2f);
+        Check(isolation.DrainCompletionCount == isolationDrainBaseline + 1 && isolation.CommitCount == isolationCommitBaseline + 1 &&
+            isolation.Pressure01 <= .0001f && isolation.MotorLevel01 <= .0001f && lights.All(light => !light.enabled),
+            "walking to valve B completes one autonomous drain with pressure, motor and work lighting off");
+        Vector3 needleAxis = Field<Vector3>(isolation, "needleLocalAxis").normalized;
+        float needleDelta = Field<float>(isolation, "lowNeedleAngle") - Field<float>(isolation, "highNeedleAngle");
+        for (int i = 0; i < needles.Length; i++)
+            Check(Quaternion.Angle(highNeedleRotations[i], needles[i].localRotation) > 20 &&
+                Quaternion.Angle(highNeedleRotations[i] * Quaternion.AngleAxis(needleDelta, needleAxis), needles[i].localRotation) < .2f,
+                "pressure needle " + i + " physically reaches its authored zero angle");
+        Check(isolationAudio.MachineSourcesStopped && isolationSources[0].volume == 0 && isolationSources[1].volume == 0 && isolationSources[3].volume == 0 &&
+            isolationAudio.LatchPlayCount == isolationLatchBaseline + 1 && isolationAudio.PurgeStartCount == isolationPurgeBaseline + 1,
+            "the passed machine has no local loop or impulse still playing after drainage; no new trigger occurred");
+        Check(Mathf.Approximately(AudioListener.volume, isolationListenerVolume) && footsteps.enabled && player.enabled,
+            "machine silence does not change listener gain or disable the actual Player and footsteps");
+        if(pressureRotor){var stoppedRotor=pressureRotor.localRotation;yield return Wait(.13f);Check(Quaternion.Angle(stoppedRotor,pressureRotor.localRotation)<.001f,"actual visible rotor remains stopped after its owning motor reaches zero");}
+        CheckIsolationRecording(); CheckIsolationSourceAnchors(); isolationDrainChecked = true;
+        yield return Capture("07-pressure-drained");
+        yield return Go(0, -46, 270); yield return Go(0, -49.5f, 180);
+        Check(isolationAudio.MachineSourcesStopped && isolation.IsLatched && isolation.IsDrained,
+            "passing through the open exit cannot restart the isolated plant");
+    }
+    IEnumerator AimIsolationGrip()
+    {
+        var grip = Field<Transform>(isolation, "gripPoint");
+        Check(grip && Vector3.Distance(view.transform.position, grip.position) <= Field<float>(isolation, "gripReach"),
+            "the physical approach reaches the authored grip without pose placement");
+        yield return Aim(grip.position);
+        Check(interactor.TryGetTarget(out var target) && ReferenceEquals(target, isolation) && isolation.CanInteract(player.gameObject),
+            "the real camera ray resolves the isolation control and accepts a new physical grip");
+    }
+    void CheckIsolationRecording()
+    {
+        Check(!loop.enabled && !recorder.IsRecording && recorder.CapturedFrameCount == 0 &&
+            ReferenceEquals(returnRecording, loop.LastRecording) && ReferenceEquals(returnEcho, loop.ActiveEcho) &&
+            loop.CompletedLoopCount == returnRecalls && loop.CurrentAttemptNumber == returnAttempt && loop.CheckpointRevision == returnCheckpoint,
+            "physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL");
+        Check(recorder.MaxRecordingDuration == recordingLimit && recorder.SampleInterval == recordingInterval,
+            "isolation never changes the deterministic recording cap or cadence");
+    }
+    void CheckIsolationSourceAnchors()
+    {
+        for (int i = 0; i < isolationSources.Length; i++)
+            Check(Vector3.Distance(isolationSources[i].transform.position, isolationSourcePositions[i]) < .001f &&
+                Quaternion.Angle(isolationSources[i].transform.rotation, isolationSourceRotations[i]) < .1f,
+                "machine audio source " + i + " remains at its authored physical anchor");
+    }
+    void CheckReturnSuspension()
+    {
+        Check(recordingBoundary.HasCommitted && recordingBoundary.IsSuspended && recordingBoundary.SuspensionCount == 1 && campaign.IsReturnRecordingSuspended &&
+            !loop.enabled && !recorder.IsRecording && recorder.CapturedFrameCount == 0,
+            "the real R3 boundary suspends only the unfinished take throughout the return");
+        Check(returnRecording != null && returnEcho && ReferenceEquals(returnRecording, loop.LastRecording) &&
+            ReferenceEquals(returnRecording, recordingBoundary.RecordingAtBoundary) && ReferenceEquals(returnEcho, loop.ActiveEcho) &&
+            loop.CompletedLoopCount == returnRecalls && loop.CurrentAttemptNumber == returnAttempt && loop.CheckpointRevision == returnCheckpoint,
+            "the return retains the exact P3 take and Echo without committing a recall or checkpoint");
+        var original = snapshots.Single(s => ReferenceEquals(s.recording, returnRecording));
+        Check(original.frames.Length == returnRecording.FrameCount && Enumerable.Range(0, original.frames.Length).All(i => SameFrame(original.frames[i], returnRecording[i])),
+            "every sample of the original P3 recording remains unchanged across the physical return");
+    }
+    IEnumerator EnterHouse()
+    {
+        step = "house_entry"; yield return UseTarget(Station(StationKind.HouseOrigin));
+        Check(campaign.Chapter == CampaignChapter.House && house.Active && !loop.enabled && !recorder.IsRecording && (isolation ? ReferenceEquals(loop.ActiveEcho, returnEcho) : loop.ActiveEcho == null),
+            "earned pressure access and real E enter the house with recording suspended");
+        if (isolation) { CheckIsolationRecording(); Check(isolationAudio.MachineSourcesStopped, "entering the house does not restart the isolated plant"); }
+        Check(!house.HasAnswered && !house.HasKey && !house.HasExited && house.PowerLocation == HousePowerLocation.Hall, "house begins without fabricated domestic progress");
+        CheckFuseState(); yield return Capture("08-house-entry"); yield return RecallDisabled();
+    }
+    private IEnumerator NormalRoute()
+    {
+        step = "parlor_document";
+        yield return Go(0, -52.3f, 180);
+        yield return Go(-2f, -52.3f, 270);
+        yield return Go(-2.4f, -50.5f, 0);
+        var document = FindObjectsByType<HouseInteraction>(FindObjectsSortMode.None)
+            .Where(s => s.Kind == HouseInteractionKind.Document)
+            .OrderBy(s => Vector3.Distance(TargetPoint(s), new Vector3(-2.4f, 1.5f, -49.15f))).FirstOrDefault();
+        Check(document, "an optional physical house document exists");
+        expectedPause = true;
+        yield return UseTarget(document);
+        Check(session.IsPaused && !string.IsNullOrEmpty(Field<string>(session, "documentTitle")), "E opens a real document and pauses simulation");
+        float documentTime = Time.time;
+        Vector3 documentPose = player.transform.position;
+        yield return Capture("01-document-game");
+        yield return Press(Key.R);
+        Check(Mathf.Approximately(documentTime, Time.time) && Vector3.Distance(documentPose, player.transform.position) < .01f,
+            "document pause preserves clock and pose despite R input");
+        yield return Press(Key.Escape);
+        Check(!session.IsPaused, "Escape closes the document through keyboard input");
+        expectedPause = false;
+        Check(!house.HasAnswered && !house.HasKey && !house.HasExited, "document reading changes no progression flags");
+
+        step = "phone_and_reserve";
+        yield return Go(-2f, -52.3f, 180);
+        yield return Go(-3.45f, -51.9f, 270);
+        yield return Aim(TargetPoint(Interaction(HouseInteractionKind.Telephone)));
+        yield return Capture("02-phone-before");
+        yield return Use(HouseInteractionKind.Telephone);
+        Check(house.HasAnswered && house.PowerLocation == HousePowerLocation.Hall, "phone removes mains and retains the hall reserve");
+        CheckFuseState(); CheckPowerState();
+        var receiver = FindFirstObjectByType<HouseTelephone>();
+        if (receiver)
+        {
+            yield return Wait(.75f);
+            Check(receiver.IsOffHook && !receiver.IsMoving, "optional real phone pickup settles off hook in the darkened house");
+            if (FindFirstObjectByType<EchoProtocol.Audio.ResonanceSequence>())
+            {
+                // Actual continuous listening, no placement or isolated playback:
+                // the earlier route immediately hung up before the call could begin.
+                step = "phone_listening"; yield return Wait(15.5f);
+                var line = FindObjectsByType<EchoProtocol.Audio.ResonanceEmitter>(FindObjectsSortMode.None).Single(e => e.name.Contains("live line"));
+                Check(line.PlayCount == 1 && !line.IsPlaying, "the earned receiver performance plays once to completion before real hang-up");
+                yield return Capture("Resonance-phone-listened"); step = "phone_and_reserve";
+            }
+
+            yield return Use(HouseInteractionKind.Telephone); yield return Wait(.75f);
+            Check(!receiver.IsOffHook && !receiver.IsMoving && house.HasAnswered,
+                "a second actual E hangs up while preserving the house consequence");
+        }
+        yield return Capture("03-phone-reserve");
+        yield return MenuPause();
+
+        step = "remove_hall_reserve";
+        yield return Go(-2f, -52.3f, 90);
+        yield return Go(0, -52.3f, 90);
+        yield return Go(0, -50.8f, 0);
+        yield return Use(HouseInteractionKind.HallSocket);
+        Check(house.PowerLocation == HousePowerLocation.Carried, "E physically removes the sole hall reserve");
+        CheckFuseState(); CheckPowerState();
+        yield return Capture("04-hall-without-reserve");
+
+        step = "reserve_to_kitchen";
+        yield return Go(0, -58.2f, 180);
+        yield return Go(-2f, -58.2f, 270);
+        yield return Go(-4.2f, -57.5f, 270);
+        yield return Use(HouseInteractionKind.KitchenSocket);
+        Check(house.PowerLocation == HousePowerLocation.Kitchen, "reserve can be placed directly in the kitchen");
+        CheckFuseState(); CheckPowerState();
+        yield return Capture("05-kitchen-powered");
+        yield return Use(HouseInteractionKind.KitchenSocket);
+        Check(house.PowerLocation == HousePowerLocation.Carried, "kitchen reserve is removable without a completion sequence");
+        CheckFuseState(); CheckPowerState();
+        yield return Go(-2f, -58.2f, 90);
+        yield return Go(0, -58.2f, 90);
+
+        step = "locked_door_without_key";
+        yield return Go(0, -61.1f, 180);
+        yield return Use(HouseInteractionKind.ExitDoor);
+        Check(!house.HasExited && !door.IsOpenRequested, "a real E attempt without the key cannot open the mechanical exit");
+
+        step = "reserve_to_bedroom";
+        yield return Go(0, -53.3f, 0);
+        yield return EnterBedroom();
+        yield return Go(4.6f, -51.25f, 90);
+        yield return Go(4.6f, -53f, 180);
+        yield return Use(HouseInteractionKind.BedroomSocket);
+        Check(house.PowerLocation == HousePowerLocation.Bedroom, "reserve transfers from kitchen to bedroom through actual carried state");
+        CheckFuseState(); CheckPowerState();
+        yield return Capture("06-bedroom-powered");
+
+        step = "physical_key";
+        yield return Go(4.6f, -51.25f, 0);
+        yield return Go(3.2f, -50.8f, 270);
+        yield return Use(HouseInteractionKind.Key);
+        Check(house.HasKey && !Field<GameObject>(house, "keyWorld").activeInHierarchy, "E collects the physical key and removes its world representation");
+        yield return Capture("07-key-taken");
+        yield return RecallDisabled();
+
+        step = "remove_bedroom_reserve";
+        yield return Go(4.6f, -51.25f, 90);
+        yield return Go(4.6f, -53f, 180);
+        yield return Use(HouseInteractionKind.BedroomSocket);
+        Check(house.PowerLocation == HousePowerLocation.Carried, "the key does not lock the reserve in the bedroom");
+        CheckFuseState(); CheckPowerState();
+        yield return Go(4.6f, -51.25f, 0);
+        yield return Go(1.8f, -50.8f, 270);
+        yield return Go(1.8f, -53.3f, 180);
+        yield return Go(0, -53.3f, 270);
+
+        step = "presence_through_actual_glass";
+        yield return Go(0, -57.7f, 180);
+        var presence = Field<GameObject>(house, "presenceRoot");
+        var volume = Field<BoxCollider>(house, "presenceVisibilityVolume");
+        Check(presence && volume, "the house has a configured contained presence");
+        Vector3 torso = volume.transform.TransformPoint(volume.center);
+        yield return Aim(torso);
+        yield return Wait(.2f);
+        Check(house.PresenceSeen && presence.activeInHierarchy, "unobstructed Player view actually sees the persistent presence");
+        yield return Capture("08-presence-held-in-view");
+        yield return Face(yaw + 180, 0);
+        yield return Wait(.2f);
+        Check(presence.activeInHierarchy && !house.PresenceRetired, "turning away without physical occlusion does not remove the presence");
+        yield return Go(0, -50.8f, 0);
+        yield return Wait(.2f);
+        Check(house.PresenceRetired && !presence.activeInHierarchy, "a genuine opaque return corner retires the already seen presence");
+
+        step = "leave_hall_lit";
+        yield return Use(HouseInteractionKind.HallSocket);
+        Check(house.HallLightLeftOn, "the Player can answer Mara's request by restoring the hall light");
+        CheckFuseState(); CheckPowerState();
+        yield return Capture("09-hall-light-returned");
+        yield return ExitThroughDoor();
+        Check(house.HasAnswered && house.HallLightLeftOn, "normal exit preserves the chosen hall light");
+    }
+
+    private IEnumerator EnterBedroom()
+    {
+        yield return Go(1.8f, -53.3f, 90);
+        yield return Go(1.8f, -50.8f, 0);
+    }
+
+    private IEnumerator ExitThroughDoor()
+    {
+        step = "unlock_and_cross_exit";
+        yield return Go(0, -61.1f, 180);
+        yield return Use(HouseInteractionKind.ExitDoor);
+        Check(house.HasExited && door.IsOpenRequested, "the key unlocks the physical hinged door with real E input");
+        float deadline = Time.realtimeSinceStartup + 8f;
+        while (!door.IsFullyOpen)
+        {
+            if (Time.realtimeSinceStartup > deadline) throw new Exception("Exit leaf did not finish opening; obstructed=" + door.IsObstructed);
+            yield return null;
+        }
+        Check(door.IsFullyOpen, "hinged leaf reaches its authored open rotation");
+        yield return Capture("10-mechanical-door-open");
+        yield return Go(0, -63.6f, 180);
+        Check(player.transform.position.z < -63.3f, "the real CharacterController crosses the opened exit");
+        yield return Capture("11-outside-house");
+    }
+
+    private IEnumerator MenuPause()
+    {
+        string phase = step;
+        step = phase + "/keyboard_pause";
+        expectedPause = true;
+        yield return Press(Key.Escape);
+        Check(session.IsPaused, "Escape opens the actual pause menu");
+        float at = Time.time;
+        float recordedAt = recorder.ElapsedTime;
+        float echoAt = loop.ActiveEcho ? loop.ActiveEcho.ElapsedTime : -1;
+        var phaseAt = se1.Phase;
+        Vector3 position = player.transform.position;
+        int recalls = loop.CompletedLoopCount;
+        keys = new[] { Key.W, Key.R };
+        yield return new WaitForSecondsRealtime(.25f);
+        keys = Array.Empty<Key>();
+        Check(Mathf.Approximately(at, Time.time) && Vector3.Distance(position, player.transform.position) < .01f && recalls == loop.CompletedLoopCount,
+            "real paused movement and R input leave clock, Player and loop unchanged");
+        Check(Mathf.Approximately(recordedAt, recorder.ElapsedTime) && se1.Phase == phaseAt &&
+            (!loop.ActiveEcho || Mathf.Approximately(echoAt, loop.ActiveEcho.ElapsedTime)),
+            "real menu pause freezes recording, Echo playback and the authored strong event");
+        yield return Capture("pause-" + phase.Replace('/', '-'));
+        yield return Press(Key.Escape);
+        Check(!session.IsPaused && player.enabled, "Escape restores actual Player control");
+        expectedPause = false;
+        step = phase;
+    }
+
+    private IEnumerator RecallDisabled()
+    {
+        int recalls = loop.CompletedLoopCount;
+        Vector3 position = player.transform.position;
+        var reserve = house.PowerLocation;
+        bool key = house.HasKey;
+        yield return Press(Key.R);
+        Check(loop.CompletedLoopCount == recalls && Vector3.Distance(position, player.transform.position) < .025f &&
+            (isolation ? ReferenceEquals(loop.ActiveEcho, returnEcho) : loop.ActiveEcho == null) && !recorder.IsRecording,
+            "real R input cannot reset or record the house");
+        if (isolation) CheckIsolationRecording();
+        Check(house.PowerLocation == reserve && house.HasKey == key, "R leaves the reserve and key unchanged");
+    }
+
+    private void CheckFuseState()
+    {
+        string[] names = { "hallFuse", "kitchenFuse", "bedroomFuse" };
+        int represented = 0;
+        for (int i = 0; i < names.Length; i++)
+        {
+            var representation = Field<GameObject>(house, names[i]);
+            Check(representation, "authored fuse representation exists: " + names[i]);
+            bool expected = (int)house.PowerLocation == i;
+            Check(representation.activeInHierarchy == expected, names[i] + " agrees with the single reserve state");
+            if (representation.activeInHierarchy) represented++;
+        }
+        var carried = Field<GameObject>(house, "carriedFuse");
+        if (carried)
+        {
+            Check(carried.activeInHierarchy == (house.PowerLocation == HousePowerLocation.Carried), "carried mesh agrees with reserve state");
+            if (carried.activeInHierarchy) represented++;
+        }
+        int expectedCount = house.PowerLocation == HousePowerLocation.Carried && !carried ? 0 : 1;
+        Check(represented == expectedCount, "reserve never has duplicate physical representations");
+    }
+
+    private void CheckPowerState()
+    {
+        Check(house.HasAnswered, "reserve lighting is checked after mains removal");
+        string[] groups = { "hallLights", "kitchenLights", "bedroomLights" };
+        var reserveLights = new HashSet<Light>();
+        for (int i = 0; i < groups.Length; i++)
+        {
+            var lights = Field<Light[]>(house, groups[i]);
+            Check(lights.Length > 0 && lights.All(light => light), groups[i] + " has explicit live references");
+            bool expected = (int)house.PowerLocation == i;
+            foreach (var light in lights)
+            {
+                reserveLights.Add(light);
+                Check(light.enabled == expected, light.name + " follows its actual reserve circuit");
+            }
+        }
+        foreach (var light in Field<Light[]>(house, "generalLights"))
+            if (light && !reserveLights.Contains(light)) Check(!light.enabled, "general supply removed from " + light.name);
+        var appliance = Field<AudioSource>(house, "kitchenApplianceAudio");
+        var clip = Field<AudioClip>(house, "kitchenApplianceClip");
+        if (appliance && clip && appliance.isActiveAndEnabled)
+            Check(appliance.isPlaying == (house.PowerLocation == HousePowerLocation.Kitchen), "appliance playback state follows kitchen power; this is not listening evidence");
+    }
+
+    private HouseInteraction Interaction(HouseInteractionKind kind)
+    {
+        return FindObjectsByType<HouseInteraction>(FindObjectsSortMode.None).Single(s => s.Kind == kind);
+    }
+
+    private IEnumerator Use(HouseInteractionKind kind) { yield return UseTarget(Interaction(kind)); }
+
+    private IEnumerator UseTarget(Component component)
+    {
+        Vector3 point = TargetPoint(component);
+        Check(Vector3.Distance(view.transform.position, point) <= interactor.InteractionDistance + .05f,
+            component.name + " is within the actual interaction range");
+        yield return Aim(point);
+        var expected = component as IInteractable;
+        Check(expected != null && interactor.TryGetTarget(out var target) && ReferenceEquals(target, expected),
+            "center-camera ray reaches " + component.name);
+        Check(expected.CanInteract(player.gameObject), component.name + " accepts the actual Player in the current chapter");
+        yield return Press(Key.E);
+    }
+
+    private Vector3 TargetPoint(Component component)
+    {
+        var collider = component.GetComponentsInChildren<Collider>()
+            .Where(c => c.enabled && c.gameObject.activeInHierarchy && !c.isTrigger)
+            .OrderBy(c => Vector3.Distance(c.bounds.center, view.transform.position)).FirstOrDefault();
+        return collider ? collider.bounds.center : component.transform.position;
+    }
+
+
+    // Courtesy route adaptation only: the real authored origin supplies the moved frame.
+    // These helpers never place the Player or alter a recorded frame.
+    Quaternion FinalRouteRotation()=>courtyardPresent?Field<Transform>(review,"origin").rotation*Quaternion.Euler(0,-180,0):Quaternion.identity;
+    IEnumerator GoFinal(float x,float z,float facing)
+    {
+        if(!courtyardPresent){yield return Go(x,z,facing);yield break;}
+        var origin=Field<Transform>(review,"origin");var rotation=FinalRouteRotation();
+        Vector3 target=origin.position+rotation*(new Vector3(x,.03f,z)-new Vector3(0,.03f,-76));
+        yield return Go(target.x,target.z,facing+rotation.eulerAngles.y);
+    }
+    IEnumerator FaceFinal(float facing){yield return Face(facing+FinalRouteRotation().eulerAngles.y);}
+    IEnumerator FinalAct()
+    {
+        step = "house_to_final_service";
+        if(courtyardPresent)
+        {
+            yield return Go(0,-63.9f,270);yield return Capture("Courtyard-south-turn");
+            yield return Go(-6.3f,-63.9f,270);yield return Go(-6.85f,-62,0);yield return Capture("Courtyard-rainwater-approach");yield return Go(-6.85f,-60,0);yield return Capture("Courtyard-west-approach");
+            var air=FindFirstObjectByType<CourtyardAir>();Check(air&&air.RegionGain>.99f&&!air.DirectPathBlocked&&air.AppliedGain>.15f,"earned outside walk reaches the actual clear exterior ambience region");
+            yield return Go(-6.85f,-54.2f,0);yield return Capture("Courtyard-house-window-forward");
+            yield return Go(-6.85f,-52.3f,0);yield return Aim(new Vector3(.91f,.95f,-52.27f));yield return Capture("Courtyard-real-house-state");
+            yield return Go(-8.4f,-52.4f,270);yield return GoFinal(0,-75.7f,180);
+        }
+        else {yield return Go(0, -70, 180); yield return Go(0, -75.7f, 180);}
+        Vector3 before = player.transform.position; int revision = loop.CheckpointRevision;
+        if(OutputDirectoryOverride!=null)yield return Capture("orientation-6B-arrival");
+        yield return Use(FinalDoorInteractionKind.BeginReview);
+        Check(review.Active && !house.Active && loop.enabled && recorder.IsRecording && loop.CheckpointRevision == revision + 1,
+            "physical service walk reaches final origin and real E rearms recording");
+        Check(Vector3.Distance(before, player.transform.position) < .025f && loop.LastRecording == null && loop.ActiveEcho == null,
+            "final origin commits without teleporting or fabricating a take");
+        Check(!review.HasWitnessed && !review.OriginalPreserved && !review.KeyReturned && !review.IsComplete && !domesticDoor.IsOpenRequested && !exitDoor.IsOpenRequested,
+            "earned final arrival still requires the new approach, witness and physical completion");
+        if(courtyardPresent)Check(FindFirstObjectByType<CourtyardAir>().AppliedGain==0,"continuous moved final has no sustained outside ambience");
+        yield return Capture("20-final-origin");
+        if(FindFirstObjectByType<OrientationFeedback>())yield return SessionNotes("6B-origin");
+        if(OutputDirectoryOverride!=null) { yield return FaceFinal(270); yield return Capture("orientation-6B-side-route"); }
+        step = "final_actual_approach";
+        yield return GoFinal(0, -76, 0); yield return GoFinal(-3.5f, -76, 270); yield return GoFinal(-3.5f, -81.8f, 180);
+        yield return GoFinal(0, -81.8f, 90); yield return GoFinal(0, -80.25f, 0); yield return FaceFinal(0);
+        if(review.RequiresDirectEncounter)yield return Until(()=>review.RecordingReady,8,"the minimum real exterior pause did not light its guide");
+        else yield return Wait(4.2f);
+        float captureStart=Time.time;
+        if(OutputDirectoryOverride!=null)yield return Capture("orientation-6B-pause-ready");
+        float acceptedPauseCaptureOverhead=Time.time-captureStart;
+        var orientation=FindFirstObjectByType<OrientationFeedback>();
+        if(orientation)Check(orientation.ExteriorText.Contains("PAUSA ACEPTADA"),"physical 6B plate reports only the actual accepted exterior pause");
+        Check(review.RecordingReady, "real exterior pause lights the current-recording guide"); yield return Recall();
+        Check(review.QualifiedPauseCount > 0 && ReferenceEquals(review.ReviewedRecording, loop.LastRecording) && !domesticDoor.IsOpenRequested,
+            "RECALL reviews the actual exterior pause and restores only the final door");
+        if(review.RequiresDirectEncounter)
+        {
+            var pauses=Field<List<Vector2>>(review,"qualifiedPauses");float actualPause=pauses.Max(p=>p.y-p.x);
+            Check(actualPause>=2f&&actualPause<2.5f+acceptedPauseCaptureOverhead,"direct encounter records a short actual pause including declared camera-capture overhead: "+actualPause.ToString("F3",Invariant)+" seconds");
+            if(OutputDirectoryOverride!=null) { yield return FaceFinal(180);yield return Capture("orientation-6B-recall-door"); }
+            step="final_prepare_door";yield return GoFinal(0,-76.2f,180);yield return Use(FinalDoorInteractionKind.OpenDoor);
+            Check(domesticDoor.IsOpenRequested&&loop.ActiveEcho.ElapsedTime<pauses[0].x,"real E prepares the door before the recorded stillness begins");
+            yield return GoFinal(0,-78.15f,180);
+        }
+        else yield return GoFinal(0, -77.3f, 180);
+        step = "final_witness_from_inside";
+        var outside = Field<BoxCollider>(review, "outsideZone");
+        yield return Until(() => loop.ActiveEcho && !loop.ActiveEcho.IsComplete && outside.bounds.Contains(loop.ActiveEcho.transform.position + Vector3.up),
+            loop.LastRecording.Duration + 3, "real recorded arrival did not reach the exterior bay");
+        yield return Capture("21-Echo-at-6B");
+        if(!domesticDoor.IsOpenRequested)yield return Use(FinalDoorInteractionKind.OpenDoor);
+        yield return FaceFinal(180);
+        yield return Until(() => review.HasWitnessed, 10, "actual body observation did not qualify the final witness");
+        EchoRecording original = review.WitnessedRecording;
+        Check(ReferenceEquals(original, loop.LastRecording), "final witness stores the exact actual playback reference");
+        yield return Capture("22-witnessed");
+        if(orientation)Check(orientation.InteriorText.Contains("LLEGADA OBSERVADA"),"interior plate reports the actual witnessed immutable take");
+        yield return Until(() => domesticDoor.IsFullyOpen, 8, "6B leaf did not finish opening");
+        yield return MenuPause();
+        Check(review.HasWitnessed && ReferenceEquals(original, review.WitnessedRecording), "completed final witness survives a real menu pause for the same take");
+        step = "preserve_original";
+        yield return GoFinal(0, -81.8f, 180); yield return Use(FinalDoorInteractionKind.Preserve);
+        Check(review.OriginalPreserved && ReferenceEquals(original, review.PreservedOriginal) && ReferenceEquals(original, loop.LastRecording) && !loop.enabled && !recorder.IsRecording,
+            "real conservation terminal preserves the exact witnessed original and stops new recording");
+        int attempts = loop.CompletedLoopCount; Vector3 retainedPose = player.transform.position;
+        yield return Press(Key.R);
+        Check(loop.CompletedLoopCount == attempts && Vector3.Distance(player.transform.position, retainedPose) < .025f && ReferenceEquals(original, review.PreservedOriginal),
+            "R cannot replace the preserved original or teleport the Player"); yield return Capture("23-original-preserved");
+        step = "return_key"; yield return GoFinal(0, -82.7f, 180);
+        if(OutputDirectoryOverride!=null)
+        {
+            yield return Capture("lighting-key-tray-approach");
+            var tray=FindObjectsByType<FinalDoorInteraction>(FindObjectsSortMode.None).Single(s=>s.Kind==FinalDoorInteractionKind.ReturnKey);
+            yield return Aim(tray.GetComponent<Collider>().bounds.center);yield return Capture("lighting-key-tray-action");
+        }
+        yield return Use(FinalDoorInteractionKind.ReturnKey);
+        Check(review.KeyReturned && Field<GameObject>(review, "keyInTray").activeInHierarchy && exitDoor.IsOpenRequested && !review.HasStartedDeparture && !session.IsEnding,
+            "real tray interaction returns the physical key and opens exit without prematurely finishing");
+        yield return Until(() => exitDoor.IsFullyOpen, 8, "final mechanical exit did not open");
+        step = "physical_departure";
+        if(OutputDirectoryOverride!=null){yield return GoFinal(0,-84.7f,180);yield return Capture("lighting-exit-before-fade");}
+        yield return GoFinal(0, -88, 180);
+        Check(review.HasStartedDeparture && review.Fade > 0 && player.enabled && !review.IsComplete, "actual final crossing begins the authored fade while control remains available");
+        yield return Until(() => review.IsComplete, 8, "physical departure did not finish after its fade");
+        Check(session.IsEnding && session.IsPaused && review.Fade >= .999f && ReferenceEquals(original, review.PreservedOriginal),
+            "continuous title-to-ending run reaches the real ending with the same original");
+        yield return Capture("24-ending");
+    }
+    void ConfigureDevices()
+    {
+        originalScheme = playerInput.currentControlScheme; originalDevices = playerInput.devices.ToArray();
+        originalAutoSwitch = playerInput.neverAutoSwitchControlSchemes; oldBehavior = InputSystem.settings.editorInputBehaviorInPlayMode;
+        sensitivity = Field<float>(player, "lookSensitivity"); Check(sensitivity > 0, "real look sensitivity is nonzero");
+        keyboard = InputSystem.AddDevice<Keyboard>("ThresholdCampaignKeyboard"); mouse = InputSystem.AddDevice<Mouse>("ThresholdCampaignMouse"); devicesReady = true;
+        playerInput.neverAutoSwitchControlSchemes = true; playerInput.SwitchCurrentControlScheme("Keyboard&Mouse", keyboard, mouse);
+        InputSystem.settings.editorInputBehaviorInPlayMode = InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
+        InputSystem.onBeforeUpdate += InputUpdate;
+    }
+    void InputUpdate()
+    {
+        if (!running || InputState.currentUpdateType != InputUpdateType.Dynamic) return;
+        InputSystem.QueueStateEvent(keyboard, new KeyboardState(keys));
+        InputSystem.QueueStateEvent(mouse, new MouseState { delta = session.IsPaused ? Vector2.zero : new Vector2(
+            Mathf.Clamp(Mathf.DeltaAngle(player.transform.eulerAngles.y, yaw), -12, 12) / sensitivity,
+            -Mathf.Clamp(Mathf.DeltaAngle(Field<float>(player, "pitch"), pitch), -10, 10) / sensitivity) });
+        // No focus repair, cursor reflection write, session call or automatic pause resume.
+    }
+    void ObservePoseReset() { poseResets++; if(expectedPreviewAccess)previewResets++; }
+    void ReceiveLog(string message, string stack, LogType type)
+    {
+#if UNITY_EDITOR
+        if (type == LogType.Error && message.StartsWith("connection.state_change")
+            && stack.Contains("Unity.Relay.Editor.RelayService") && stack.Contains("Unity.AI.Tracing.ConsoleSink"))
+        {
+            File.AppendAllText(PathFor("editor-service-errors.txt"), message + "\n" + stack + "\n");
+            return;
+        }
+#endif
+        if (type == LogType.Error || type == LogType.Exception || type == LogType.Assert) runtimeError = message + "\n" + stack;
+    }
+    void LateUpdate()
+    {
+        if (!running) return;
+        try
+        {
+            if (Time.realtimeSinceStartup - startedAt > (initialProtocol ? 180 : OverallTimeoutSeconds))
+                throw new Exception(initialProtocol ? "Initial protocol exceeded the three-minute real-time budget." : "Continuous route exceeded the 15-minute real-time budget.");
+            if (!string.IsNullOrEmpty(runtimeError)) throw new Exception("Unity runtime error: " + runtimeError);
+            if (session.IsPaused && !expectedPause && !session.IsEnding) throw new Exception(campaign.CoverEncounter&&campaign.CoverEncounter.Failed?"Present threat caught the Player. No retry or auto-resume was performed.":"Unexpected pause. No auto-resume was performed; keep the Game view focused and rerun from a fresh title.");
+            if (player.transform.position.y < -.2f) throw new Exception("Player fell below the authored floor.");
+            if ((rear.IsOpenRequested && front.IsOpenRequested) || (!rear.IsFullyClosed && !front.IsFullyClosed)) throw new Exception("Arrival interlock violated.");
+            if (poseResets != loop.CompletedLoopCount - recallsAtStart + loop.PlaybackRestartCount + previewResets) throw new Exception("Player pose reset outside a real RECALL, title segment access or deliberate retry.");
+            if (returnGuide)
+            {
+                if (r3.IsOpen && InsideReturnArrival()) guideArrivalObserved = true;
+                if (!guideArrivalObserved && returnGuide.activeInHierarchy) throw new Exception("Descent guide became visible before the actual Player arrived in the Hub.");
+                if (campaign.Chapter >= CampaignChapter.Descent && returnGuide.activeInHierarchy) throw new Exception("Completed descent guide remained visible after leaving Protocol.");
+            }
+            if (boundarySuspensionChecked && campaign.Chapter < CampaignChapter.Pressure &&
+                (!recordingBoundary.IsSuspended || loop.enabled || recorder.IsRecording ||
+                 !ReferenceEquals(returnRecording, loop.LastRecording) || !ReferenceEquals(returnEcho, loop.ActiveEcho) ||
+                 loop.CompletedLoopCount != returnRecalls || loop.CurrentAttemptNumber != returnAttempt || loop.CheckpointRevision != returnCheckpoint))
+                throw new Exception("The actual return resumed recording, replaced the P3 take or performed a RECALL before PressureOrigin.");
+            if (isolationEntryChecked && !review.Active &&
+                (loop.enabled || recorder.IsRecording || !ReferenceEquals(returnRecording, loop.LastRecording) || !ReferenceEquals(returnEcho, loop.ActiveEcho) ||
+                 loop.CompletedLoopCount != returnRecalls || loop.CurrentAttemptNumber != returnAttempt || loop.CheckpointRevision != returnCheckpoint))
+                throw new Exception("Physical isolation/house replaced P3 or resumed recording before the real final origin.");
+            var echo = loop.ActiveEcho;
+            if (echo && echo.gameObject.activeInHierarchy)
+            {
+                if (!ReferenceEquals(echo.Recording, loop.LastRecording)) throw new Exception("ActiveEcho and LastRecording are different objects.");
+                Track(echo.Recording); echo.Recording.Sample(echo.ElapsedTime, out Vector3 position, out Quaternion rotation);
+                var body = echo.GetComponent<Rigidbody>();
+                if (!body || Vector3.Distance(position, body.position) > .025f || Quaternion.Angle(rotation, body.rotation) > .2f) throw new Exception("Echo body differs from its immutable sampled pose.");
+                var rig=echo.GetComponent<EchoBodyRig>();
+                if(recorder.RecordsBodyPose && (!rig || !SameBody(echo.Recording.SampleBodyPose(echo.ElapsedTime),rig.AppliedPose)))throw new Exception("Recorded articulation differs from the actual sampled body channels.");
+                if(campaign.CoverEncounter&&campaign.CoverEncounter.Active&&!campaign.CoverEncounter.Failed
+                    &&campaign.CoverEncounter.Machine.ReplayHeld!=echo.Recording.SampleMachineGrip(echo.ElapsedTime,campaign.CoverEncounter.Machine.TargetId))
+                    throw new Exception("Physical pump grip differs from the event recorded at the Echo's actual elapsed time.");
+                playbackFrames++;
+            }
+            if (loop.LastRecording != null) Track(loop.LastRecording);
+            foreach (var snapshot in snapshots)
+            {
+                if (snapshot.frames.Length != snapshot.recording.FrameCount) throw new Exception("Recorded snapshot frame count changed.");
+                int index = observedFrame % snapshot.frames.Length;
+                if (!SameFrame(snapshot.frames[index], snapshot.recording[index])) throw new Exception("A recorded frame changed after snapshot creation.");
+            }
+            observedFrame++;
+            if (Time.realtimeSinceStartup < nextLog) return;
+            nextLog = Time.realtimeSinceStartup + .1f; var p = player.transform.position;
+            if(campaign.CoverEncounter&&campaign.CoverEncounter.Active)
+            {
+                var c=campaign.CoverEncounter;var t=Field<MachineCoverThreat>(c,"threat");
+                File.AppendAllText(PathFor("coverage.csv"),string.Join(",",Time.time.ToString("F3",Invariant),step,(echo?echo.ElapsedTime:-1).ToString("F3",Invariant),c.Machine.ReplayHeld,echo&&echo.Recording.SampleMachineGrip(echo.ElapsedTime,c.Machine.TargetId),c.Pressure01.ToString("F3",Invariant),c.Covered,c.BoltReleased,c.ExitReleased,c.Failed,c.Complete,t.transform.position.x.ToString("F3",Invariant),t.transform.position.z.ToString("F3",Invariant),t.SeesPlayer,t.AttractedToMachine,t.DiversionCount)+"\n");
+            }
+            if (isolation && isolationSources != null)
+                File.AppendAllText(PathFor("isolation.csv"), string.Join(",", Time.time.ToString("F3", Invariant), step,
+                    isolation.Active, isolation.IsHolding, isolation.HandleFraction.ToString("F3", Invariant), isolation.IsLatched, isolation.IsDrained,
+                    isolation.Pressure01.ToString("F3", Invariant), isolation.MotorLevel01.ToString("F3", Invariant), isolation.CommitCount,
+                    isolation.DrainCompletionCount, isolationAudio.LatchPlayCount, isolationAudio.PurgeStartCount,
+                    isolationSources[0].isPlaying, isolationSources[3].isPlaying, isolationAudio.MachineSourcesStopped,
+                    loop.CompletedLoopCount, loop.CheckpointRevision, session.IsPaused) + "\n");
+            log.WriteLine(string.Join(",", Time.realtimeSinceStartup.ToString("F3", Invariant), Time.time.ToString("F3", Invariant), step,
+                p.x.ToString("F3", Invariant), p.y.ToString("F3", Invariant), p.z.ToString("F3", Invariant), player.transform.eulerAngles.y.ToString("F2", Invariant),
+                Field<float>(player, "pitch").ToString("F2", Invariant), campaign.Chapter, loop.CompletedLoopCount, (echo ? echo.ElapsedTime : -1).ToString("F3", Invariant),
+                se1.Phase, se2.CurrentPhase, se3.CurrentPhase, r3.IsOpen, house.PowerLocation, house.HasKey, review.HasWitnessed, review.OriginalPreserved, review.KeyReturned,
+                review.Fade.ToString("F3", Invariant), session.IsPaused, recordingBoundary && recordingBoundary.IsSuspended,
+                recorder.IsRecording, loop.CheckpointRevision, returnGuide && returnGuide.activeInHierarchy)); log.Flush();
+        }
+        catch (Exception exception) { Finish(false, exception.Message); StopAllCoroutines(); }
+    }
+
+    IEnumerator ContrapruebaCircuit()
+    {
+        step="Contraprueba_record";
+        yield return Go(-5.5f,32.5f,0);yield return Go(-5.2f,35.2f,270);yield return new WaitForSeconds(6);
+        Check(readerA.IsPlayerAligned&&!p3.IsAuthorized,"Contraprueba A preview never substitutes for Echo presence");
+        yield return Go(-5.2f,43,270);yield return new WaitForSeconds(10);
+        yield return Go(-5.2f,35.2f,270);yield return Face(270,4);yield return new WaitForSeconds(16);yield return Recall();
+        Check(!p3.IsAuthorized&&!p3.IsSecondLinkAccepted&&!p3.IsTransferComplete,"RECALL resets all three receivers");
+        var terminals=FindObjectsByType<TemporalRelayTerminal>(FindObjectsSortMode.None);
+        var a=terminals.Single(t=>!t.FinalReceiver);var b=terminals.Single(t=>t.FinalReceiver);
+        var ret=FindFirstObjectByType<ReturnWitnessControl>();var apparatus=FindFirstObjectByType<ContrapruebaAtmosphere>();
+        step="Contraprueba_receive_A";
+        yield return Go(-7.8f,31.2f,0);yield return Go(-8,33.4f,0);yield return Go(-7.25f,34.25f,90);
+        yield return Until(()=>p3.EchoAtA,12,"first A did not reach its planned window");yield return UseTarget(a);
+        Check(p3.IsAuthorized&&!p3.IsSecondLinkAccepted,"present E receives the recorded A");
+        yield return Aim(loop.ActiveEcho.transform.position+Vector3.up*1.5f);yield return Capture("Contraprueba-first-presence");
+        yield return Until(()=>Field<SlidingDoor>(p3,"routeGate").IsFullyOpen,5,"service gate not open");
+        step="Contraprueba_service_passage";
+        yield return Go(-11,35.5f,270);yield return Go(-14.2f,35.5f,270);yield return Go(-14.2f,38.7f,0);
+        yield return Capture("Contraprueba-separation");yield return Go(-14.2f,41.6f,0);yield return Go(-9.2f,41.6f,90);yield return Go(-7.25f,42.15f,90);
+        yield return Until(()=>p3.EchoAtB,16,"recorded B absent from planned window");yield return UseTarget(b);
+        Check(p3.IsSecondLinkAccepted&&!p3.IsTransferComplete,"B transfers power but does not grant the exit");
+        step="Contraprueba_quiet_return";
+        yield return Go(-9.2f,41.6f,270);yield return Go(-14.2f,41.6f,270);yield return Go(-14.2f,38.7f,180);yield return Capture("Contraprueba-quiet-return");
+        yield return Go(-14.2f,35.6f,180);yield return Go(-10,35.6f,90);yield return Go(-7.2f,35.9f,90);
+        yield return Until(()=>p3.CanReceiveReturn,18,"the actual take never returned to A");
+        Check(apparatus.MachineLevel<.02f,"the same fixed machinery has stopped before the return");
+        step="Contraprueba_return_witness";
+        yield return Aim(TargetPoint(ret));keys=new[]{Key.E};yield return new WaitForSeconds(1.45f);keys=Array.Empty<Key>();yield return Wait(.15f);
+        Check(p3.IsTransferComplete&&p3.AcceptedConfirmations==3,"live A and held present E complete the third receipt");
+        yield return Go(-6.95f,35.3f,90);yield return Aim(loop.ActiveEcho.transform.position+Vector3.up*1.64f);yield return Capture("Contraprueba-close-return");
+        yield return Until(()=>loop.ActiveEcho.IsComplete,25,"recorded return did not finish");
+        Check(p3.CanCrossExit&&Field<SlidingDoor>(p3,"finalGate").IsOpenRequested,"earned exit persists after playback ends");
+        yield return Go(-11,35.6f,270);yield return Go(-14.2f,35.6f,270);yield return Go(-14.2f,41.6f,0);yield return Go(-9.2f,41.6f,90);yield return Go(-7.8f,43.1f,0);
+    }
+
+    void Track(EchoRecording recording)
+    {
+        if (snapshots.Any(s => ReferenceEquals(s.recording, recording))) return;
+        snapshots.Add(new Snapshot { recording = recording, frames = Enumerable.Range(0, recording.FrameCount).Select(i => recording[i]).ToArray() });
+    }
+    void WriteSnapshots()
+    {
+        using (var writer = new StreamWriter(PathFor("recorded-frames.csv")))
+        {
+            writer.WriteLine("snapshot,frame,timestamp,x,y,z,qx,qy,qz,qw,captured,gait,breath,pitch,vx,vz,turnPhase,turnRate,gripCaptured,gripX,gripY,gripZ");
+            for (int take = 0; take < snapshots.Count; take++)
+                for (int i = 0; i < snapshots[take].frames.Length; i++)
+                {
+                    var f = snapshots[take].frames[i];
+                    writer.WriteLine(take + "," + i + "," + string.Join(",", new[] { f.Timestamp, f.Position.x, f.Position.y, f.Position.z, f.Rotation.x, f.Rotation.y, f.Rotation.z, f.Rotation.w, f.BodyPose.Captured?1f:0f,f.BodyPose.GaitPhase,f.BodyPose.BreathPhase,f.BodyPose.HeadPitch,f.BodyPose.Velocity.x,f.BodyPose.Velocity.y,f.BodyPose.TurnPhase,f.BodyPose.TurnRate,f.BodyPose.HasMachineGripTarget?1f:0f,f.BodyPose.MachineGripTarget.x,f.BodyPose.MachineGripTarget.y,f.BodyPose.MachineGripTarget.z }.Select(v => v.ToString("R", Invariant))));
+                }
+        }
+    }
+    static bool SameFrame(EchoFrame a, EchoFrame b) => a.Timestamp.Equals(b.Timestamp) && a.Position.Equals(b.Position) && a.Rotation.Equals(b.Rotation) && SameBody(a.BodyPose,b.BodyPose);
+    static bool SameBody(RecordedBodyPose a,RecordedBodyPose b)=>a.Captured==b.Captured && Mathf.Abs(a.GaitPhase-b.GaitPhase)<.00001f && Mathf.Abs(a.BreathPhase-b.BreathPhase)<.00001f && Mathf.Abs(a.HeadPitch-b.HeadPitch)<.00001f && Vector2.Distance(a.Velocity,b.Velocity)<.00001f && Mathf.Abs(a.TurnPhase-b.TurnPhase)<.00001f && Mathf.Abs(a.TurnRate-b.TurnRate)<.00001f && a.HasMachineGripTarget==b.HasMachineGripTarget && Vector3.Distance(a.MachineGripTarget,b.MachineGripTarget)<.00001f;
+    static GameObject ActiveSceneRoot(string exactName) => UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()
+        .FirstOrDefault(root => root.activeInHierarchy && root.name == exactName);
+    static T Field<T>(object target, string name) => (T)(target.GetType().GetField(name, Private) ?? throw new MissingFieldException(target.GetType().Name, name)).GetValue(target);
+    CampaignStation Station(StationKind kind) => FindObjectsByType<CampaignStation>(FindObjectsSortMode.None).Single(s => s.Kind == kind);
+    IEnumerator Use(FinalDoorInteractionKind kind) { yield return UseTarget(FindObjectsByType<FinalDoorInteraction>(FindObjectsSortMode.None).Single(s => s.Kind == kind)); }
+    IEnumerator Go(float x, float z, float facing)
+    {
+        yield return Face(facing); float deadline = Time.realtimeSinceStartup + 28;
+        while (Vector2.Distance(new Vector2(player.transform.position.x, player.transform.position.z), new Vector2(x, z)) > .1f)
+        {
+            if (Time.realtimeSinceStartup > deadline) throw new Exception("Physical route blocked at " + player.transform.position.ToString("F2") + " toward " + x + "," + z);
+            Vector3 local = player.transform.InverseTransformDirection(new Vector3(x, player.transform.position.y, z) - player.transform.position);
+            var held = new List<Key>();
+            if (local.z > .06f) held.Add(Key.W); else if (local.z < -.06f) held.Add(Key.S);
+            if (local.x > .06f) held.Add(Key.D); else if (local.x < -.06f) held.Add(Key.A);
+            keys = held.ToArray(); yield return null;
+        }
+        yield return Wait(.12f);
+    }
+    IEnumerator Aim(Vector3 target)
+    {
+        Vector3 d = target - view.transform.position;
+        yield return Face(Mathf.Atan2(d.x, d.z) * Mathf.Rad2Deg, -Mathf.Atan2(d.y, new Vector2(d.x, d.z).magnitude) * Mathf.Rad2Deg);
+    }
+    IEnumerator Face(float targetYaw, float targetPitch = 0)
+    {
+        yaw = targetYaw; pitch = Mathf.Clamp(targetPitch, -84, 84); keys = Array.Empty<Key>();
+        float deadline = Time.realtimeSinceStartup + 5;
+        while (Mathf.Abs(Mathf.DeltaAngle(player.transform.eulerAngles.y, yaw)) > .6f || Mathf.Abs(Mathf.DeltaAngle(Field<float>(player, "pitch"), pitch)) > .6f)
+        {
+            if (Time.realtimeSinceStartup > deadline) throw new Exception("Mouse look did not reach its real camera angle. Application focused=" + Application.isFocused + ". No cursor-state override was applied.");
+            yield return null;
+        }
+        yield return Wait(.12f);
+    }
+    IEnumerator Recall()
+    {
+        int count = loop.CompletedLoopCount, contacts = footsteps.ContactCount;
+        Check(recorder.HasRecordingStarted, "RECALL has actual movement frames to finish");
+        yield return Press(Key.R);
+        Check(loop.CompletedLoopCount == count + 1 && loop.LastRecording != null && loop.ActiveEcho,
+            "one real R completes exactly one actual take");
+        Check(footsteps.ContactCount == contacts, "RECALL placement creates no physical footstep");
+        Track(loop.LastRecording);
+    }
+    IEnumerator Press(Key key)
+    {
+        keys = Array.Empty<Key>(); yield return new WaitForSecondsRealtime(.06f);
+        keys = new[] { key }; yield return new WaitForSecondsRealtime(.10f);
+        keys = Array.Empty<Key>(); yield return new WaitForSecondsRealtime(.12f);
+    }
+    IEnumerator Wait(float seconds) { keys = Array.Empty<Key>(); yield return new WaitForSecondsRealtime(seconds); }
+    IEnumerator Until(Func<bool> condition, float seconds, string error)
+    {
+        keys = Array.Empty<Key>(); float deadline = Time.realtimeSinceStartup + seconds;
+        while (!condition()) { if (Time.realtimeSinceStartup > deadline) throw new Exception(error); yield return null; }
+    }
+    IEnumerator Capture(string label)
+    {
+        keys = Array.Empty<Key>(); yield return null;
+        string name = (initialProtocol ? "initial-protocol-" : "campaign-") + label, game = name + "-Game.png", camera = name + "-Camera.png";
+        File.Delete(Path.Combine(output, game)); ScreenCapture.CaptureScreenshot(Path.Combine(output, game)); screenshots.Add(game);
+        var previousTarget = view.targetTexture; var previousActive = RenderTexture.active;
+        var target = new RenderTexture(1280, 720, 24); var texture = new Texture2D(1280, 720, TextureFormat.RGB24, false);
+        try
+        {
+            view.targetTexture = target; view.Render(); RenderTexture.active = target;
+            texture.ReadPixels(new Rect(0, 0, 1280, 720), 0, 0); texture.Apply(); File.WriteAllBytes(Path.Combine(output, camera), texture.EncodeToPNG()); screenshots.Add(camera);
+            File.AppendAllText(PathFor("cameras.txt"), name + " position=" + view.transform.position.ToString("F3") + " euler=" + view.transform.eulerAngles.ToString("F2") + " FOV=" + view.fieldOfView + " paused=" + session.IsPaused + " step=" + step + "\n");
+            ViewCaptured?.Invoke(name,view);
+        }
+        finally { view.targetTexture = previousTarget; RenderTexture.active = previousActive; Destroy(target); Destroy(texture); }
+        yield return Wait(.18f);
+    }
+    bool InsideReturnArrival()=>new Bounds(returnArrivalZone.center,returnArrivalZone.size).Contains(returnArrivalZone.transform.InverseTransformPoint(player.transform.position+Vector3.up));
+    string PathFor(string suffix) => Path.Combine(output, (initialProtocol ? "initial-protocol." : firstActTraversalOnly ? "first-act." : "campaign-full.") + suffix);
+    void Check(bool condition, string message)
+    {
+        if (!condition) throw new InvalidOperationException(step + ": " + message);
+        checks++; File.AppendAllText(PathFor("checks.txt"), "PASS [" + step + "] " + message + "\n");
+    }
+    void Finish(bool success, string error)
+    {
+        if (Status.StartsWith("PASS") || Status.StartsWith("FAIL")) return;
+        Status = success ? "PASS" : "FAIL " + step + ": " + error; running = false; keys = Array.Empty<Key>();
+        File.WriteAllText(PathFor("result.txt"), Status + "\n");
+        File.WriteAllText(PathFor("result.json"), JsonUtility.ToJson(new Result
+        {
+            status = success ? "PASS" : "FAIL", scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().path, lastStep = step, error = error,
+            mode = coverageOnly ? coveragePresentation ? "coveragePresentation" : coverageFailure ? "coverageFailureRetry" : "coverageSegment" : readerSurvey ? "readerSurvey" : initialProtocol ? "initialProtocol" : firstActTraversalOnly ? passageUnseenCase ? "firstActUnseenTraversal" : passageRecallCase ? "firstActInterruptedRecall" : northernPassage ? "firstActNorthEntry" : "firstActTraversal" : "full",
+            checks = checks, playbackFramesChecked = playbackFrames, immutableSnapshots = snapshots.Count, recalls = loop ? loop.CompletedLoopCount : 0,
+            poseResets = poseResets, fixturePlacements = 0, unexpectedPauseResumes = 0, elapsedRealtime = Time.realtimeSinceStartup - startedAt,
+            p1 = p1Passed, se1 = se1 && se1.VisualConsequenceApplied, p2 = p2Passed,
+            se2 = se2 && se2.CurrentPhase == VS1ParallelFigureEvent.EventPhase.Complete, se3 = se3 && se3.IsComplete, r1 = anchor && anchor.IsActivated,
+            p3 = p3Passed, r3 = r3 && r3.IsOpen, pressure = campaign&&campaign.CoverEncounter ? campaign.CoverEncounter.Complete : isolation ? isolation.IsDrained : campaign && campaign.ValvesDone == 2, house = house && house.HasExited,
+            witnessed = review && review.HasWitnessed, preserved = review && review.OriginalPreserved, keyReturned = review && review.KeyReturned,
+            complete = review && review.IsComplete && session && session.IsEnding, screenshots = screenshots.ToArray(),
+            returnBoundaryPresent = recordingBoundary, realCrossingSuspensionChecked = boundarySuspensionChecked,
+            arrivalGuideChecked = hubGuideChecked, pressureRearmChecked = pressureRearmChecked,
+            registrationPresent = registrationPresent, letterReadThroughRealRay = letterRead, stoppedAtRealPause = stoppedAtPause,
+            authoredOmittedPassageRoute = useOmittedPassageRoute,
+            firstActPresent = firstActPresent, se2CloseApproachChecked = se2CloseApproachChecked, recordsPassagePresent = recordsPassagePresent,
+            se2PhysicalTraversal = se2 && se2.UsesPhysicalTraversal, se2Presented = se2 && se2.PresentationCommitted,
+            se2Observed = se2 && se2.ObservedPresentation, se2ObservedSeconds = se2 ? se2.QualifiedReadSeconds : 0,
+            se2Entries = se2 ? se2.TraversalEntryCount : 0, se2Exits = se2 ? se2.TraversalExitCount : 0,
+            se2Appearances = se2 ? se2.AppearanceCount : 0, se2Occlusion = se2 ? se2.LastOcclusionMethod : "",
+            pressureIsolationPresent = isolation, isolationEntryChecked = isolationEntryChecked, isolationCancelChecked = isolationCancelChecked,
+            isolationPauseChecked = isolationPauseChecked, isolationDrainChecked = isolationDrainChecked,
+            scope = coveragePresentation ? "Focused actual title/E/R/W approach to the Echo. Live Player clearance and immutable take checked. At the end, an explicit HUD-only fixture shortens the countdown and combines an optional hint and subtitle. No whole-route, fear or listening claim. Ends at actual Escape pause." : (coverageOnly ? "Isolated segment through its actual title-menu access and authored placement. Keyboard/mouse perform recording, cooperation and actual pause. Prior/later campaign is outside this scope. " : initialProtocol ? "Continuous fresh title to the physical Registration letter, real document open/close, real P1 recording/cooperation and a final actual menu pause. SE1 and later chapters are outside this short run's scope. " : firstActTraversalOnly ? "Continuous fresh title through genuine P1, SE1, P2, physical SE2 entry/return, original SE3 and R1. Ends at the real pause before P3. " : "Continuous title to ending via synthetic Input System WASD/mouse/E/R/Enter/Escape. ") +
+                "No gameplay fixture, pose placement, direct interaction callback, state restoration, cursor override or hidden pause resume. " +
+                "Only save suppression isolates persistent user data. Every live Echo body is sampled against its actual immutable recording; all recorded frames are compared at completion. " +
+                (!coverageOnly && se2 && se2.UsesPhysicalTraversal ? "SE2 separates actual entry/return from optional presentation and observation. The route uses physical doorways; no gaze timer is a progress gate. " : !coverageOnly && firstActPresent && !initialProtocol ? "The First Act route walks to the real SE2 glass, captures its cold state outside the distance limit with simulation running, reads the close domestic reveal, and physically traverses the authored south R1 opening. " : "") +
+                (coverageOnly || initialProtocol || firstActTraversalOnly ? "" : recordingBoundary ? (isolation ? "The real return retains P3 through physical basement entry, a short E tap, a held-action pause/release/regrip, one sustained isolation, autonomous drainage and the house. Source counters, needle transforms, lights and the mechanical exit are checked; there is no extra pressure RECALL. " : "The authored recording boundary is tested through the real P3 crossing, harmless R and the actual walk back through the Hub to PressureOrigin. ") : "No recording boundary is present in this scene; boundary suspension/rearm is outside this run's scope. ") +
+                (coverageOnly || initialProtocol || firstActTraversalOnly ? "" : returnGuide ? "The physical descent guide is monitored from the distant R3 unlock through actual Hub occupancy and Descent acceptance. " : "No physical descent guide is authored in this scene. ") +
+                (recordsPassagePresent && !coverageOnly && !initialProtocol && !firstActTraversalOnly ? "The return physically enters the existing records room and exits its south opening; the arrival interlock and retained P3 take remain observed. " : "") +
+                "This is objective route evidence, not human first-play clarity, immersion, fear, visual approval or listening evidence."
+        }, true));
+        if (!success) File.AppendAllText(PathFor("checks.txt"), Status + "\n");
+        Cleanup();
+        string description = initialProtocol ? "Threshold initial protocol" : "Threshold continuous campaign";
+        if (success) Debug.Log(description + " PASS"); else Debug.LogWarning(description + " " + Status);
+    }
+    void Cleanup()
+    {
+        if (cleanedUp) return; cleanedUp = true; running = false; keys = Array.Empty<Key>();
+        InputSystem.onBeforeUpdate -= InputUpdate; Application.logMessageReceived -= ReceiveLog;
+        if (player) player.PoseReset -= ObservePoseReset; log?.Dispose(); log = null;
+        if (campaign && saveCaptured) campaign.SuppressSaves = oldSuppressSaves;
+        if (!devicesReady) return;
+        InputSystem.settings.editorInputBehaviorInPlayMode = oldBehavior;
+        if (playerInput)
+        {
+            playerInput.neverAutoSwitchControlSchemes = originalAutoSwitch;
+            var available = originalDevices.Where(d => d != null && d.added).ToArray();
+            if (!string.IsNullOrEmpty(originalScheme) && available.Length > 0)
+                try { playerInput.SwitchCurrentControlScheme(originalScheme, available); }
+                catch (Exception exception) { Debug.LogWarning("Continuous probe input restoration: " + exception.Message); }
+        }
+        if (keyboard != null && keyboard.added) InputSystem.RemoveDevice(keyboard);
+        if (mouse != null && mouse.added) InputSystem.RemoveDevice(mouse);
+    }
+    void OnDestroy() { Cleanup(); }
+}
+#endif

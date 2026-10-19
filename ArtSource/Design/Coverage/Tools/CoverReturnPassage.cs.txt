@@ -1,0 +1,17 @@
+using System;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using EchoProtocol.Campaign;using EchoProtocol.Puzzle;using EchoProtocol.Presentation;
+public static class CoverReturnPassage{
+static void R(UnityEngine.Object o,string field,UnityEngine.Object v){var so=new SerializedObject(o);so.FindProperty(field).objectReferenceValue=v;so.ApplyModifiedPropertiesWithoutUndo();}
+static GameObject Box(string n,Vector3 p,Vector3 size,Material mat,Transform parent){var o=GameObject.CreatePrimitive(PrimitiveType.Cube);o.name=n;o.transform.SetParent(parent);o.transform.position=p;o.transform.localScale=size;o.GetComponent<Renderer>().sharedMaterial=mat;return o;}
+public static string Main(){
+if(EditorApplication.isPlaying)throw new Exception("Stop for geometry changes");var root=GameObject.Find("Coverage / the machine covers your work").transform;var cover=root.GetComponent<MachineCoverEncounter>();var wall=GameObject.Find("Service / opaque wall");var mat=wall.GetComponent<Renderer>().sharedMaterial;
+wall.transform.position=new Vector3(-2.65f,1.55f,-41);wall.transform.localScale=new Vector3(.18f,3.1f,3.8f);
+Box("Service / return south pier",new Vector3(-2.65f,1.55f,-46.65f),new Vector3(.18f,3.1f,2.5f),mat,root);
+Box("Service / return header",new Vector3(-2.65f,2.91f,-44.15f),new Vector3(.30f,.38f,2.5f),mat,root);
+var door=new GameObject("Service / manual lateral return");door.transform.SetParent(root);door.transform.position=new Vector3(-2.65f,0,-44.15f);
+var panel=Box("Service / physical lateral door",new Vector3(-2.65f,1.3f,-44.15f),new Vector3(.12f,2.6f,2.4f),mat,door.transform);var rb=panel.AddComponent<Rigidbody>();rb.isKinematic=true;rb.useGravity=false;
+var slider=door.AddComponent<SlidingDoor>();R(slider,"doorBody",rb);var so=new SerializedObject(slider);so.FindProperty("closedLocalPosition").vector3Value=new Vector3(0,1.3f,0);so.FindProperty("openLocalPosition").vector3Value=new Vector3(0,4.15f,0);so.ApplyModifiedPropertiesWithoutUndo();R(cover,"returnGate",slider);
+var lamp=new GameObject("Return / maintained side passage light");lamp.transform.SetParent(root);lamp.transform.position=new Vector3(-1.3f,2.45f,-44.15f);var light=lamp.AddComponent<Light>();light.type=LightType.Point;light.color=new Color(.65f,.84f,.70f);light.intensity=2.6f;light.range=4;light.shadows=LightShadows.Soft;
+var label=new GameObject("Return / physical route plate");label.transform.SetParent(root);label.transform.SetPositionAndRotation(new Vector3(-2.78f,2.63f,-44.15f),Quaternion.Euler(0,90,0));var t=label.AddComponent<TextMesh>();t.font=GameObject.Find("Coverage / live gate plate").GetComponent<TextMesh>().font;t.fontSize=48;t.characterSize=.01f;t.text="RETORNO / COMPUERTA";t.anchor=TextAnchor.MiddleCenter;t.alignment=TextAlignment.Center;t.color=new Color(.78f,.87f,.79f);t.GetComponent<Renderer>().sharedMaterial=t.font.material;var dt=label.AddComponent<DiegeticText>();R(dt,"depthTestedShader",Shader.Find("EchoProtocol/DiegeticText"));
+var oldRotor=UnityEngine.Object.FindFirstObjectByType<PressureMotorRotor>();var rs=new SerializedObject(oldRotor);var rotor=(Transform)rs.FindProperty("rotor").objectReferenceValue;R(cover,"rotor",rotor);oldRotor.enabled=false;
+var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);return "Physical side return connects the released latch to the existing exit; listener diversion and line of sight remain real.";
+}}

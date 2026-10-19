@@ -1,0 +1,7 @@
+using System;using UnityEngine;using UnityEditor;using UnityEditor.Build.Reporting;using System.IO;
+public static class BuildFolio{
+ public static string QA()=>Build(true);public static string Delivery()=>Build(false);
+ static string Build(bool qa){if(EditorApplication.isPlaying)throw new Exception("Stopped Editor required");
+ var path="Builds/EchoProtocol-Folio-"+(qa?"QA-":"")+"20261008/EchoProtocol.app";
+ var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{"Assets/_Game/Scenes/Production/EchoProtocol_Folio.unity"},locationPathName=path,target=BuildTarget.StandaloneOSX,options=BuildOptions.DetailedBuildReport,extraScriptingDefines=qa?new[]{"ECHO_NATIVE_VERIFY"}:new string[0]});
+ File.WriteAllText("Docs/VisualEvidence/2026-10-08-Folio/"+(qa?"qa-build":"delivery-build")+".json",Newtonsoft.Json.JsonConvert.SerializeObject(new{result=report.summary.result.ToString(),errors=report.summary.totalErrors,warnings=report.summary.totalWarnings,bytes=report.summary.totalSize,seconds=report.summary.totalTime.TotalSeconds,output=report.summary.outputPath,development=false,qa},Newtonsoft.Json.Formatting.Indented));return report.summary.result.ToString();}}

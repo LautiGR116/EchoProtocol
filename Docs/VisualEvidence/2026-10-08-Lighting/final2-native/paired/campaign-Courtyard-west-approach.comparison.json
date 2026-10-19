@@ -1,0 +1,16 @@
+{
+    "label": "campaign-Courtyard-west-approach",
+    "state": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+    "position": {
+        "x": -6.794595241546631,
+        "y": 1.6299998760223389,
+        "z": -60.08015441894531
+    },
+    "rotation": {
+        "x": 3.7152385674349648e-23,
+        "y": 4.219792515414156e-9,
+        "z": -1.5677536418569377e-31,
+        "w": 1.0
+    },
+    "fov": 60.0
+}

@@ -1,0 +1,4 @@
+FAIL SE1_consequence: System.InvalidOperationException: SE1_consequence: every reader task and fixture reflection follows the actual SE1 blackout
+  at ThresholdCampaignProbe.Check (System.Boolean condition, System.String message) [0x00014] in <27ad706f5e6841bb9a4739eb287e2309>:0 
+  at ThresholdCampaignProbe+<FirstAct>d__142.MoveNext () [0x003c4] in <27ad706f5e6841bb9a4739eb287e2309>:0 
+  at ThresholdCampaignProbe+<Guarded>d__135.MoveNext () [0x0004b] in <27ad706f5e6841bb9a4739eb287e2309>:0 

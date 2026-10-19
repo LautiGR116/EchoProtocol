@@ -1,0 +1,5 @@
+Actual Game view copied into retained RenderTextures at frame end while W remains held. No extra Camera.Render, PNG encoding or ReadPixels during return. UI may appear. CPU readback/encoding occurs after the exit. GPU copy overhead remains possible; deltaTime is logged.
+z54.5 actualFrame=3823 time=17.6795 eye=(0.038, 1.630, -54.506) euler=(0.00, 180.00, 0.00) delta=0.0047
+z55.5 actualFrame=3825 time=18.0181 eye=(0.038, 1.630, -55.861) euler=(0.00, 180.00, 0.00) delta=0.3333
+z56.5 actualFrame=3855 time=18.1780 eye=(0.038, 1.630, -56.500) euler=(0.00, 180.00, 0.00) delta=0.0040
+z57.5 actualFrame=3917 time=18.4300 eye=(0.038, 1.630, -57.508) euler=(0.00, 180.00, 0.00) delta=0.0077

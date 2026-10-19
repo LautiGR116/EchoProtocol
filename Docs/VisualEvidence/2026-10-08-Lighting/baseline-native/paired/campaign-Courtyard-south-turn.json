@@ -1,0 +1,16 @@
+{
+    "label": "campaign-Courtyard-south-turn",
+    "state": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+    "position": {
+        "x": 0.04198314622044563,
+        "y": 1.6299998760223389,
+        "z": -63.810585021972659
+    },
+    "rotation": {
+        "x": 2.6270705819098933e-23,
+        "y": -0.7071067690849304,
+        "z": 2.627070266365531e-23,
+        "w": 0.7071068286895752
+    },
+    "fov": 60.0
+}

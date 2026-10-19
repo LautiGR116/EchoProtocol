@@ -1,0 +1,1 @@
+Visual iteration interrupted by real focus loss at recording time 29.07779. Resumed once via actual synthetic Escape input. Not evidence of an uninterrupted run.

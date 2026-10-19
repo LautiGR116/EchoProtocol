@@ -1,0 +1,6 @@
+frame,realtime,gameTime,step,echoElapsed,subject,playerDistance,gait,turnPhase,turnRate
+0,94.92533,67.50372,coverage_deliberate_failure,25.09248,present_pursuer,2.133554,9.750501,0,0
+1,95.09538,67.79959,coverage_deliberate_failure,25.37247,present_pursuer,2.036505,10.7957,0,0
+2,95.16161,67.87444,coverage_deliberate_failure,25.45248,present_pursuer,1.802478,11.52041,0,0
+3,95.22340,67.94498,coverage_deliberate_failure,25.53248,present_pursuer,1.505025,12.3323,0,0
+4,95.30161,68.01346,coverage_deliberate_failure,25.59248,present_pursuer,1.217347,13.12051,0,0

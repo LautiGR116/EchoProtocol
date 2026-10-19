@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "dateUTC": "2026-10-09T22:27:42.297495+00:00",
+  "app": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Coverage-20261009/EchoProtocol.app",
+  "method": "CUA native macOS keyboard/mouse; observed app screenshots after actions",
+  "verified": [
+    "visible title button Jugar · La máquina que te cubre",
+    "click enters actual authored basement origin",
+    "held W moves and arms recording",
+    "R produces a real 2.0-second Echo and resets to origin",
+    "H opens readable context notes",
+    "H closes notes",
+    "Escape opens session pause",
+    "visible Salir exits app; process absence confirmed"
+  ],
+  "scope": "Scoped native delivery smoke. Full encounter including held E uses normal Input System inputs in the separate native verification app. This is not human mouse-feel, visual or fear approval."
+}

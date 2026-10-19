@@ -1,0 +1,74 @@
+CONTINUOUS TITLE TO ENDING. Zero fixtures or direct gameplay mutations. Input System keyboard/mouse only. Unexpected pauses fail rather than being resumed.
+PASS [title] Threshold systems exist
+PASS [title] all original-act, new house and new final references exist
+PASS [title] optional isolation has its single configured physical audio owner
+PASS [title] isolation begins untouched at the real title without a restored fixture
+PASS [title] optional recording boundary shares the actual campaign, R3 and loop
+PASS [title] boundary starts unused and its actual Hub arrival guidance is authored
+PASS [title] physical descent guide starts hidden with an explicit Hub arrival volume
+PASS [title] contextual notes reference the actual gameplay systems, excluding inactive legacy studies
+PASS [title] run begins at the actual paused title, before gameplay
+PASS [title] title has no earned progress, saved restoration or prior recording
+PASS [title] Threshold replaces D1 with actual R3 availability
+PASS [title] real look sensitivity is nonzero
+PASS [title] Enter starts the actual title session through input
+PASS [title/session_notes_initial] H opens contextual notes through real input and pauses world/audio
+PASS [title/session_notes_initial] notes resolve the actual configured stage
+PASS [title/session_notes_initial] reading notes with movement/R held leaves the actual recording, Echo, Player and event unchanged
+PASS [title/session_notes_initial] H/Escape closes notes and restores exactly the prior controls
+PASS [title/session_notes_initial] notes can also be requested from the real pause menu
+PASS [title/session_notes_initial] closing notes requested from pause returns to pause without resuming the world
+PASS [title/session_notes_initial] explicit Escape resumes after returning from notes to pause
+PASS [P1_record] first-act gates start sealed
+PASS [P1_record] C reports no Echo authorization during the real Player-only A preview
+PASS [P1_record] P1 A previews from the actual Player
+PASS [P1_record] RECALL has actual movement frames to finish
+PASS [P1_record] one real R completes exactly one actual take
+PASS [P1_record] RECALL placement creates no physical footstep
+PASS [P1_cooperate] P1 completes through real Echo A/B and Player cooperation
+PASS [P1_cooperate] physical C display reports the genuinely completed cooperation
+PASS [SE1_empty_lane/keyboard_pause] Escape opens the actual pause menu
+PASS [SE1_empty_lane/keyboard_pause] real paused movement and R input leave clock, Player and loop unchanged
+PASS [SE1_empty_lane/keyboard_pause] real menu pause freezes recording, Echo playback and the authored strong event
+PASS [SE1_empty_lane/keyboard_pause] Escape restores actual Player control
+PASS [SE1_consequence] SE1 follows the actual empty-lane check
+PASS [SE1_consequence] all three reaimed reader fixtures still extinguish through the original SE1 circuit
+PASS [SE1_consequence] every reader task and fixture reflection follows the actual SE1 blackout
+PASS [domestic_checkpoint] real domestic crossing establishes the first checkpoint and slam
+PASS [P2_record] Player previews P2 while recording the genuine hold
+PASS [P2_record] P2-aligned: actual trigger/facing owns indicator; survey uses only keyboard/mouse
+PASS [P2_record/session_notes_P2] H opens contextual notes through real input and pauses world/audio
+PASS [P2_record/session_notes_P2] notes resolve the actual configured stage
+PASS [P2_record/session_notes_P2] reading notes with movement/R held leaves the actual recording, Echo, Player and event unchanged
+PASS [P2_record/session_notes_P2] H/Escape closes notes and restores exactly the prior controls
+PASS [P2_record] RECALL has actual movement frames to finish
+PASS [P2_record] one real R completes exactly one actual take
+PASS [P2_record] RECALL placement creates no physical footstep
+PASS [P2_record] actual Echo holds P2
+PASS [P2_record] R1 remains sealed before SE3
+PASS [SE2_physical_approach] genuine P2 crossing admits the physical room and preserves its earned presentation state
+PASS [SE2_physical_approach/session_notes_passage] H opens contextual notes through real input and pauses world/audio
+PASS [SE2_physical_approach/session_notes_passage] notes resolve the actual configured stage
+PASS [SE2_physical_approach/session_notes_passage] reading notes with movement/R held leaves the actual recording, Echo, Player and event unchanged
+PASS [SE2_physical_approach/session_notes_passage] H/Escape closes notes and restores exactly the prior controls
+PASS [SE2_south_refuge] whole-envelope occlusion presents the room before visiting it; reveal alone earns no completion
+PASS [SE2_south_refuge/keyboard_pause] Escape opens the actual pause menu
+PASS [SE2_south_refuge/keyboard_pause] real paused movement and R input leave clock, Player and loop unchanged
+PASS [SE2_south_refuge/keyboard_pause] real menu pause freezes recording, Echo playback and the authored strong event
+PASS [SE2_south_refuge/keyboard_pause] Escape restores actual Player control
+PASS [SE2_south_refuge] real pause at the refuge preserves presentation and earns no visit or traversal
+PASS [SE2_south_refuge] actual movement enters the domestic floor; no timer or forced gaze completes it
+PASS [SE2_physical_return] physical return completes SE2 once; the original SE3 return still owns R1 opening
+PASS [SE2_physical_return] actual SE2 entry and return complete without a gaze timer
+PASS [SE3_return] genuine SE3 return opens R1
+PASS [R1_anchor] R1 Central observation station is within the actual interaction range
+PASS [R1_anchor] center-camera ray reaches R1 Central observation station
+PASS [R1_anchor] R1 Central observation station accepts the actual Player in the current chapter
+PASS [R1_anchor] real anchor E establishes R1 without teleport or RECALL
+PASS [R1_anchor] R1 anchor discards the old take and arms an empty recorder
+PASS [P3_record/session_notes_P3] H opens contextual notes through real input and pauses world/audio
+PASS [P3_record/session_notes_P3] notes resolve the actual configured stage
+PASS [P3_record/session_notes_P3] reading notes with movement/R held leaves the actual recording, Echo, Player and event unchanged
+PASS [P3_record/session_notes_P3] H/Escape closes notes and restores exactly the prior controls
+PASS [Contraprueba_record] Contraprueba A preview never substitutes for Echo presence
+FAIL Contraprueba_record: Unexpected pause. No auto-resume was performed; keep the Game view focused and rerun from a fresh title.

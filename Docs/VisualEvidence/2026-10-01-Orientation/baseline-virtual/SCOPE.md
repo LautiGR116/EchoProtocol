@@ -1,0 +1,1 @@
+Stationary cloned gameplay camera after the completed Shutdown full route; actual R1 opened world and inherited lighting retained. Three deliberately authored eye poses at1.63m, original FOV/postprocessing. No Player input, discovery, movement or first-use evidence; planning views only. The full-route evidence was already complete before capture.

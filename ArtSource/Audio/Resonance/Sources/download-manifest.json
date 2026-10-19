@@ -1,0 +1,178 @@
+{
+  "cry": [
+    {
+      "file": "cry-776565_16019975-hq.mp3",
+      "url": "https://cdn.freesound.org/previews/776/776565_16019975-hq.mp3",
+      "page": "https://freesound.org/people/SPAudiobooks/sounds/776565/",
+      "author": "SPAudiobooks",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 1496221,
+      "sha256": "16fa66913627089f7ec2ffddcae6bb357ec836997aa67d08027ee8f80beaa963",
+      "delivery": "Public HQ MP3 preview, lossy"
+    }
+  ],
+  "scream": [
+    {
+      "file": "scream-325548_2826150-hq.mp3",
+      "url": "https://cdn.freesound.org/previews/325/325548_2826150-hq.mp3",
+      "page": "https://freesound.org/people/Archeos/sounds/325548/",
+      "author": "Archeos",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 672583,
+      "sha256": "5efba53c2748b64ccba6d64694a230d875d1131c4bbde8fe1ce5c7273cd9e937",
+      "delivery": "Public HQ MP3 preview, lossy"
+    }
+  ],
+  "scrapes": [
+    {
+      "file": "scrapes-scrapes.zip",
+      "url": "https://opengameart.org/sites/default/files/scrapes.zip",
+      "page": "https://opengameart.org/content/scrapes",
+      "author": "AntumDeluge",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 960162,
+      "sha256": "9598070ddd77ed99e922df1d4472a249624adcd945794d1b6eba88ac77f6a014",
+      "delivery": "Published downloadable original"
+    }
+  ],
+  "mechanical": [
+    {
+      "file": "mechanical-clank1.wav",
+      "url": "https://opengameart.org/sites/default/files/clank1.wav",
+      "page": "https://opengameart.org/content/mechanical-sounds",
+      "author": "Brian MacIntosh (BMacZero)",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 59436,
+      "sha256": "899a46a8423fa0ca349b3c70a07a422d1eaa3a58695ce6facfbae074dd70226f",
+      "delivery": "Published downloadable original"
+    },
+    {
+      "file": "mechanical-lightclunk1.wav",
+      "url": "https://opengameart.org/sites/default/files/lightclunk1.wav",
+      "page": "https://opengameart.org/content/mechanical-sounds",
+      "author": "Brian MacIntosh (BMacZero)",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 32812,
+      "sha256": "d5a2aa8764c02924f6ed6fbaad0c650ab2d57ec57a626cee9e6645f941dbc8fa",
+      "delivery": "Published downloadable original"
+    },
+    {
+      "file": "mechanical-lightclunk2.wav",
+      "url": "https://opengameart.org/sites/default/files/lightclunk2.wav",
+      "page": "https://opengameart.org/content/mechanical-sounds",
+      "author": "Brian MacIntosh (BMacZero)",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 26668,
+      "sha256": "987be837a5941ded9a81572c319b9bf8f57d9f89741a5781fc7104adc87d60f5",
+      "delivery": "Published downloadable original"
+    },
+    {
+      "file": "mechanical-rattle1.wav",
+      "url": "https://opengameart.org/sites/default/files/rattle1.wav",
+      "page": "https://opengameart.org/content/mechanical-sounds",
+      "author": "Brian MacIntosh (BMacZero)",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 68652,
+      "sha256": "65ae71cd800986e4e4c0c1a180221c0f240f6ffd9e306f8634c0335a5e3f039a",
+      "delivery": "Published downloadable original"
+    },
+    {
+      "file": "mechanical-squeakyclick1.wav",
+      "url": "https://opengameart.org/sites/default/files/squeakyclick1.wav",
+      "page": "https://opengameart.org/content/mechanical-sounds",
+      "author": "Brian MacIntosh (BMacZero)",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 35884,
+      "sha256": "27b9430c35123a6b2e662b4268adb2238c59fa02522b060756d47666c6b0ffe0",
+      "delivery": "Published downloadable original"
+    },
+    {
+      "file": "mechanical-squeakyclick2.wav",
+      "url": "https://opengameart.org/sites/default/files/squeakyclick2.wav",
+      "page": "https://opengameart.org/content/mechanical-sounds",
+      "author": "Brian MacIntosh (BMacZero)",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 48172,
+      "sha256": "33adab3bd231593b4d1a7d3735b869275550e469fa6656ff7f836d8c391e5f0e",
+      "delivery": "Published downloadable original"
+    },
+    {
+      "file": "mechanical-mechanical1.wav",
+      "url": "https://opengameart.org/sites/default/files/mechanical1.wav",
+      "page": "https://opengameart.org/content/mechanical-sounds",
+      "author": "Brian MacIntosh (BMacZero)",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 80940,
+      "sha256": "de520ad93fa9f4df357b31a8fdef7778d8df994574c861f9337d5241fee5db33",
+      "delivery": "Published downloadable original"
+    },
+    {
+      "file": "mechanical-mechanical2.wav",
+      "url": "https://opengameart.org/sites/default/files/mechanical2.wav",
+      "page": "https://opengameart.org/content/mechanical-sounds",
+      "author": "Brian MacIntosh (BMacZero)",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 53292,
+      "sha256": "27b4b6c3517c90d635295fca48fccd747950f869d680c871662f26038c3665ef",
+      "delivery": "Published downloadable original"
+    },
+    {
+      "file": "mechanical-typewriter.wav",
+      "url": "https://opengameart.org/sites/default/files/typewriter.wav",
+      "page": "https://opengameart.org/content/mechanical-sounds",
+      "author": "Brian MacIntosh (BMacZero)",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 10334,
+      "sha256": "f62eade0c6b597f9faa00406ff74924d61f75ff770b906e45b90388b81907bd3",
+      "delivery": "Published downloadable original"
+    }
+  ],
+  "strain": [
+    {
+      "page": "https://opengameart.org/content/15-vocal-male-strainhurtpainjump-sounds",
+      "author": "qubodup",
+      "file": "strain-slightscreams.7z",
+      "use": "Not imported: very short exertion grunts, saturated peaks; weaker dramatic fit than adult actor and cry recording.",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 1444637,
+      "sha256": "3220b234efed17305bef05fe82c5d2e2b38302ae02b0d188021af9b045499a1e"
+    }
+  ],
+  "metal": [
+    {
+      "page": "https://opengameart.org/content/metal-interactions",
+      "author": "qubodup",
+      "file": "metal-metal_interactions.7z",
+      "use": "Selected metal swing and small contact only.",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 166271,
+      "sha256": "f9443ead6d1346d89c899e7916494ebc88f050073e1604f1e2f27851dba35a34"
+    }
+  ],
+  "breath": [
+    {
+      "page": "https://opengameart.org/content/breathing-tired",
+      "author": "mikeask",
+      "file": "breath-breathing%20tired.wav",
+      "use": "Not imported: quiet running breaths; would need a large gain increase and duplicate previously rejected intimate-breath language.",
+      "license": "CC0 1.0",
+      "retrieved": "2026-10-08",
+      "bytes": 559292,
+      "sha256": "08d9c9e15426f0cd889b63867a3bc68bafd985e8d39fd57f805d4372b23aeeca"
+    }
+  ]
+}

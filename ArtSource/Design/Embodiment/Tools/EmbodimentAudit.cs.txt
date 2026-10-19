@@ -1,0 +1,54 @@
+using System;using System.IO;using System.Linq;using System.Collections.Generic;using System.Reflection;
+using UnityEngine;using UnityEditor;using EchoProtocol.Echo;using EchoProtocol.Campaign;
+public static class EmbodimentAudit
+{
+ const BindingFlags F=BindingFlags.Instance|BindingFlags.NonPublic;
+ static readonly List<string> checks=new List<string>();
+ static void Check(bool value,string label){if(!value)throw new Exception(label);checks.Add(label);}
+ public static object Main()
+ {
+  Check(!EditorApplication.isPlaying,"Stopped Editor configuration audit");
+  Check(UnityEngine.SceneManagement.SceneManager.GetActiveScene().path.EndsWith("Embodiment.unity"),"Candidate active");
+  var source=UnityEngine.Object.FindFirstObjectByType<PlayerBodyPoseSource>();var ss=new SerializedObject(source);
+  Check(ss.FindProperty("adaptiveStride").boolValue,"Adaptive stride capture enabled");
+  Check(ss.FindProperty("recordedMachine").objectReferenceValue==UnityEngine.Object.FindFirstObjectByType<MachineCoverEncounter>().Machine,"Contact point captured from explicit configured machine");
+  var threat=UnityEngine.Object.FindFirstObjectByType<MachineCoverThreat>();var ts=new SerializedObject(threat);
+  foreach(string audioField in new[]{"cry","movement","strike"})Check(ts.FindProperty(audioField).objectReferenceValue is AudioSource,"Present "+audioField+" emitter assigned");
+  var body=(EchoBodyRig)ts.FindProperty("body").objectReferenceValue;
+  Check(((AudioSource)ts.FindProperty("cry").objectReferenceValue).transform.IsChildOf(body.CharacterMotion.transform),"Cry follows articulated present body");
+  Check(body.CharacterMotion.IsPresentThreat,"Pursuer profile separate from recorded profile");
+  var echo=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/Embodiment/EchoEmbodiment.prefab"));
+  Material test=null;var review=UnityEngine.Object.FindFirstObjectByType<FinalDoorMemory>();var field=typeof(FinalDoorMemory).GetField("directWitnessMaterial",F);var original=(Material)field.GetValue(review);
+  try
+  {
+   var m=echo.GetComponent<RecordedCharacterMotion>();Check(m.Initialize(),"Recorded anatomy references and clips initialize");
+   Check(!m.IsPresentThreat&&echo.GetComponentsInChildren<Animator>(true).Length==0,"Echo has no present intent or autonomous Animator");
+   var so=new SerializedObject(m);Check(so.FindProperty("jaw").objectReferenceValue&&so.FindProperty("upperEyelids").arraySize==2,"Explicit facial anatomy configured");
+   var skin=echo.GetComponentInChildren<SkinnedMeshRenderer>();Check(skin.sharedMesh.vertexCount>10000&&skin.sharedMaterials.Length==2,"Articulated body and eye surfaces configured");
+   Check((bool)typeof(FinalDoorMemory).GetField("opaqueDirectWitness",F).GetValue(review),"Opaque witness branch enabled only for candidate");
+   var method=typeof(FinalDoorMemory).GetMethod("IsDirectColorSurface",F);
+   Func<bool> accepted=()=> (bool)method.Invoke(review,new object[]{skin});
+   Check(accepted(),"Exact authored color surface accepted");
+   skin.forceRenderingOff=true;Check(!accepted(),"Forced invisible color surface rejected");skin.forceRenderingOff=false;
+   var shadow=skin.shadowCastingMode;skin.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;Check(!accepted(),"Shadows-only proxy rejected");skin.shadowCastingMode=shadow;
+   var materials=skin.sharedMaterials;skin.sharedMaterials=new[]{materials[1],materials[1]};Check(!accepted(),"Eye-only/unrelated material cannot witness body");skin.sharedMaterials=materials;
+   test=new Material(original);field.SetValue(review,test);Check(!accepted(),"Another same-shader material cannot replace exact identity");skin.sharedMaterials=new[]{test,materials[1]};Check(accepted(),"Explicit temporary whitelist test fixture accepted");
+   test.SetColor("_BaseColor",new Color(1,1,1,0));Check(!accepted(),"Zero-alpha color material rejected");test.SetColor("_BaseColor",Color.white);
+   test.SetFloat("_Surface",1);Check(!accepted(),"Transparent material rejected by opaque contract");test.SetFloat("_Surface",0);
+   test.SetShaderPassEnabled("ForwardLit",false);Check(!accepted(),"Disabled real color pass rejected");test.SetShaderPassEnabled("ForwardLit",true);
+   field.SetValue(review,original);skin.sharedMaterials=materials;
+   float floorMin=float.MaxValue,floorMax=float.MinValue;var baked=new Mesh();
+   for(int speed=0;speed<3;speed++)for(int i=0;i<32;i++)
+   {
+    float v=speed==0?0:speed==1?1.55f:3.5f;
+    m.Apply(new RecordedBodyPose(i*Mathf.PI*2/32,1.1f,0,new Vector2(0,v)));
+    skin.BakeMesh(baked);var vertices=baked.vertices;Check(vertices.All(p=>float.IsFinite(p.x)&&float.IsFinite(p.y)&&float.IsFinite(p.z)),"Finite deformation "+speed+"/"+i);
+    float min=vertices.Min(p=>skin.transform.TransformPoint(p).y);floorMin=Mathf.Min(floorMin,min);floorMax=Mathf.Max(floorMax,min);
+   }
+   UnityEngine.Object.DestroyImmediate(baked);Check(floorMin>-.025f&&floorMax<.12f,"Walk support/run flight remain in authored floor envelope");
+   var report=new{status="PASS",checks=checks.Count,messages=checks,joints=m.Joints.Length,minimumMeshY=floorMin,maximumMeshY=floorMax,scope="Editor configuration, temporary visibility/material fixtures and deterministic deformation sweep. Full campaign is a separate normal-input proof. No human approval."};
+   File.WriteAllText("Docs/VisualEvidence/2026-10-09-Embodiment/configuration.json",Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented));return report;
+  }
+  finally {field.SetValue(review,original);if(test)UnityEngine.Object.DestroyImmediate(test);UnityEngine.Object.DestroyImmediate(echo);}
+ }
+}

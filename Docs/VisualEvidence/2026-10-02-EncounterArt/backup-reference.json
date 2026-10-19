@@ -1,0 +1,10 @@
+{
+  "checkpoint": "EncounterArt",
+  "folder": "/Users/lautigr116/EchoProtocol-backups/encounter-art-checkpoint-20261002",
+  "archive": "source-overlay.tar.gz",
+  "baseChain": [
+    "/Users/lautigr116/EchoProtocol-backups/candidate-checkpoint-20261001/source.tar.gz",
+    "/Users/lautigr116/EchoProtocol-backups/legibility-checkpoint-20261002/source-overlay.tar.gz"
+  ],
+  "scope": "Changed/new project sources, docs, evidence and settings. Full hashes and restore verification live in external checkpoint folder; no caches, builds, Git or Blender autosaves."
+}

@@ -1,0 +1,26 @@
+One initial prior-chapter/lighting/pose fixture. Input-only house interactions and route; measured return fixes yaw180/pitch0 via mouse, never Aim at figure. PASS covers geometry/controls/safety contract, not visibility duration, human discovery, listening or fear.
+PASS fresh Study scene selected
+PASS house and presence start without fabricated progress
+PASS enabled original adult meshes exist separately from disabled legacy renderers
+PASS safety contains every transformed bounds corner of Study adult silhouette
+PASS permanent study residual is not switched with the figure
+PASS existing floorboard source follows the physical figure horizontally
+PASS initial fixture restores completed first-act lighting
+PASS actual ray authorizes Station / HouseOrigin
+PASS actual E commits house entry
+PASS actual ray authorizes House interaction / Telephone
+PASS actual E answers the optional telephone
+PASS actual ray authorizes Reserve socket / RECIBIDOR
+PASS actual E removes the sole hall reserve
+PASS actual ray authorizes Reserve socket / DORMITORIO
+PASS actual E powers the bedroom for the key approach
+PASS actual ray authorizes House interaction / Key
+PASS real key interaction preserves the selected telephone branch
+PASS actual ray authorizes Reserve socket / DORMITORIO
+PASS actual E removes bedroom power for the dark carried return
+PASS physical march crosses all four requested camera depths
+PASS forward return uses one initial fixture and reaches the door without any later pose reset
+PASS actual ray authorizes 6B exit / left hinge
+PASS key alone opens the real exit irrespective of measured presence visibility
+PASS actual departure preserves answered/carried or unanswered/hall choice
+PASS

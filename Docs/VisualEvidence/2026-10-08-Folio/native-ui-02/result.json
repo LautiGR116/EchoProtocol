@@ -1,0 +1,17 @@
+{
+    "status": "FAIL",
+    "error": "System.Exception: title keyboard focus moves once\n  at FolioPresentationProbe.Check (System.Boolean value, System.String label) [0x00040] in <59e821ff5c904116a14ca643beaacc6c>:0 \n  at FolioPresentationProbe+<Execute>d__28.MoveNext () [0x004d7] in <59e821ff5c904116a14ca643beaacc6c>:0 \n  at FolioPresentationProbe+<Guarded>d__27.MoveNext () [0x0004b] in <59e821ff5c904116a14ca643beaacc6c>:0 ",
+    "scope": "Native UI keyboard and resolution verification. Explicit document, saved-menu, HUD placement and ending fixtures; not a continuous gameplay run. Before views use the unchanged legacy renderer in equivalent state.",
+    "checks": 5,
+    "screenshots": [
+        {
+            "file": "1280x800-title.png",
+            "page": "title",
+            "width": 1280,
+            "height": 800,
+            "frame": 32186,
+            "time": 163.25059509277345
+        }
+    ],
+    "preferencesRestored": true
+}

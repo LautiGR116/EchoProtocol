@@ -1,0 +1,10 @@
+{
+  "result": "Unknown",
+  "errors": 0,
+  "warnings": 0,
+  "bytes": 0,
+  "seconds": 0.0,
+  "output": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Embodiment-QA-20261009/EchoProtocol.app",
+  "qa": true,
+  "development": false
+}

@@ -1,0 +1,18 @@
+{
+    "label": "live-house-Hall-key-approach",
+    "position": {
+        "x": 0.6000000238418579,
+        "y": 1.6299999952316285,
+        "z": -53.29999923706055
+    },
+    "target": {
+        "x": 3.4149999618530275,
+        "y": 0.800000011920929,
+        "z": -49.599998474121097
+    },
+    "chapter": "House",
+    "power": "Hall",
+    "answered": true,
+    "latched": true,
+    "drained": true
+}

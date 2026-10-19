@@ -1,0 +1,11 @@
+Camera renders omit OnGUI. One initial fixture, then physical input only. No listening claim.
+01-hall-wall eye=(0.000, 1.630, -53.919) euler=(0.00, 180.00, 0.00) phone=1600.0000Hz/blocked=True fridge=1600.0000Hz/blocked=True paused=False
+02-paused-intermediate eye=(0.000, 1.630, -53.020) euler=(0.00, 0.00, 0.00) phone=1873.2260Hz/blocked=False fridge=1600.0000Hz/blocked=True paused=True
+03-hall-open-path eye=(0.000, 1.630, -52.435) euler=(0.00, 0.00, 0.00) phone=21999.9900Hz/blocked=False fridge=1600.0000Hz/blocked=True paused=False
+04-inside-parlor eye=(-2.917, 1.630, -52.404) euler=(0.00, 270.00, 0.00) phone=21999.9900Hz/blocked=False fridge=1600.0000Hz/blocked=True paused=False
+05-hall-both-walls eye=(-0.048, 1.630, -55.917) euler=(0.00, 180.00, 0.00) phone=1600.0000Hz/blocked=True fridge=1600.0000Hz/blocked=True paused=False
+06-kitchen-open-path eye=(-0.048, 1.630, -58.113) euler=(0.00, 270.00, 0.00) phone=1600.0000Hz/blocked=True fridge=21999.9900Hz/blocked=False paused=False
+07-inside-kitchen eye=(-3.414, 1.630, -58.149) euler=(0.00, 270.00, 0.00) phone=1600.0000Hz/blocked=True fridge=21999.9900Hz/blocked=False paused=False
+08-return-obstructed eye=(-0.056, 1.630, -56.068) euler=(0.00, 0.00, 0.00) phone=1600.0000Hz/blocked=True fridge=1600.0000Hz/blocked=True paused=False
+09-ringing-before-answer eye=(-3.379, 1.630, -51.959) euler=(35.39, 276.66, 0.00) phone=21999.9900Hz/blocked=False fridge=1600.0000Hz/blocked=True paused=False
+10-owner-power-off eye=(-3.379, 1.630, -51.959) euler=(35.39, 276.66, 0.00) phone=21999.9900Hz/blocked=False fridge=1600.0000Hz/blocked=True paused=False

@@ -1,0 +1,16 @@
+{
+    "label": "campaign-Contraprueba-separation",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00",
+    "position": {
+        "x": -14.21113395690918,
+        "y": 1.6299999952316285,
+        "z": 38.6163215637207
+    },
+    "rotation": {
+        "x": -3.4799207128697609e-17,
+        "y": 2.9802318834981635e-8,
+        "z": -1.0370970910780179e-24,
+        "w": -1.0
+    },
+    "fov": 60.0
+}

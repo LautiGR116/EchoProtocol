@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "command": "command get_build_settings",
+  "data": {
+    "command": "get_build_settings",
+    "parameters": {},
+    "result": {
+      "activeBuildTarget": "StandaloneOSX",
+      "activeBuildTargetGroup": "Standalone",
+      "developmentBuild": false,
+      "allowDebugging": false,
+      "connectWithProfiler": false,
+      "buildScriptsOnly": false,
+      "symlinkSources": false,
+      "il2CppCodeGeneration": "OptimizeSpeed",
+      "scenes": [
+        {
+          "path": "Assets/_Game/Scenes/Development/VS1_ParallelReturn_Blockout.unity",
+          "guid": "d3c58eb0b96514d5cac65746a5e544ec",
+          "enabled": true
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/lautigr116/EchoProtocol"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

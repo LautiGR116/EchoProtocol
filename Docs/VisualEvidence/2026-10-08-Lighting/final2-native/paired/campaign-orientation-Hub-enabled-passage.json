@@ -1,0 +1,16 @@
+{
+    "label": "campaign-orientation-Hub-enabled-passage",
+    "state": "Descent|house:False/False/Hall|pressure:False/False|P3:0.00",
+    "position": {
+        "x": 0.06619056314229965,
+        "y": 1.6299999952316285,
+        "z": -9.95026969909668
+    },
+    "rotation": {
+        "x": 1.1416584290010134e-15,
+        "y": -1.0,
+        "z": 1.0215387646894669e-7,
+        "w": 1.1175870007207323e-8
+    },
+    "fov": 60.0
+}

@@ -57,7 +57,7 @@ namespace EchoProtocol.Audio
                 mechanismSource.volume = Mathf.MoveTowards(
                     mechanismSource.volume,
                     mechanismVolume,
-                    mechanismVolume * Time.unscaledDeltaTime / edgeFadeDuration);
+                    mechanismVolume * Time.deltaTime / edgeFadeDuration);
                 return;
             }
 
@@ -69,7 +69,7 @@ namespace EchoProtocol.Audio
             mechanismSource.volume = Mathf.MoveTowards(
                 mechanismSource.volume,
                 0f,
-                mechanismVolume * Time.unscaledDeltaTime / edgeFadeDuration);
+                mechanismVolume * Time.deltaTime / edgeFadeDuration);
 
             if (mechanismSource.volume > Mathf.Epsilon)
             {

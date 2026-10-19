@@ -1,0 +1,210 @@
+using System;using System.IO;using System.Linq;using System.Collections.Generic;
+using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine;using UnityEngine.Rendering;using UnityEngine.Rendering.Universal;
+using EchoProtocol.Echo;using EchoProtocol.Campaign;using EchoProtocol.Horror;using EchoProtocol.Puzzle;using EchoProtocol.Presentation;using EchoProtocol.Player;using EchoProtocol.Interaction;
+using Object=UnityEngine.Object;
+public static class ContrapruebaAuthor
+{
+ const string Art="Assets/_Game/Art/Contraprueba/";
+ static Transform root;static Font font;static Material wall,teal,trim,floor,ceiling,metal,black,ivory,glow,amber,glass,paper,wallpaper;
+ static List<Light> cold=new List<Light>(),warm=new List<Light>();
+ static T[] All<T>()where T:Component=>Object.FindObjectsByType<T>(FindObjectsInactive.Include,FindObjectsSortMode.None).Where(x=>x.gameObject.scene.IsValid()).ToArray();
+ static void Set(Object o,string n,Object v){var s=new SerializedObject(o);s.FindProperty(n).objectReferenceValue=v;s.ApplyModifiedPropertiesWithoutUndo();}
+ static T Get<T>(Object o,string n)where T:Object=>new SerializedObject(o).FindProperty(n).objectReferenceValue as T;
+ static void Bool(Object o,string n,bool v){var s=new SerializedObject(o);s.FindProperty(n).boolValue=v;s.ApplyModifiedPropertiesWithoutUndo();}
+ static void Str(Object o,string n,string v){var s=new SerializedObject(o);s.FindProperty(n).stringValue=v;s.ApplyModifiedPropertiesWithoutUndo();}
+ static void Array(Object o,string n,IEnumerable<Object> values){var s=new SerializedObject(o);var p=s.FindProperty(n);var a=values.ToArray();p.arraySize=a.Length;for(int i=0;i<a.Length;i++)p.GetArrayElementAtIndex(i).objectReferenceValue=a[i];s.ApplyModifiedPropertiesWithoutUndo();}
+ static Transform Group(string n,Transform parent=null){var g=new GameObject(n).transform;g.SetParent(parent?parent:root,false);return g;}
+ static Material Mat(string n,Color c,float smooth=.2f,float metallic=0,string copy=null)
+ {var m=copy!=null?new Material(AssetDatabase.LoadAssetAtPath<Material>(copy)):new Material(Shader.Find("Universal Render Pipeline/Lit"));m.name="CP_"+n;m.SetColor("_BaseColor",c);m.SetFloat("_Smoothness",smooth);m.SetFloat("_Metallic",metallic);AssetDatabase.CreateAsset(m,Art+"M_"+n+".mat");return m;}
+ static GameObject Box(string n,Vector3 p,Vector3 size,Material m,bool solid=false,Transform parent=null)
+ {var g=GameObject.CreatePrimitive(PrimitiveType.Cube);g.name=n;g.transform.SetParent(parent?parent:root,true);g.transform.position=p;g.transform.localScale=size;g.GetComponent<Renderer>().sharedMaterial=m;if(!solid)Object.DestroyImmediate(g.GetComponent<Collider>());return g;}
+ static void Wall(string n,Vector3 p,Vector3 size)
+ {Box(n,p,size,wall,true);bool x=size.x<size.z;var s=size;s.y=1.12f;s[x?0:2]+=.025f;Box(n+" / enamel dado",new Vector3(p.x,.56f,p.z),s,teal);s.y=.07f;s[x?0:2]+=.025f;Box(n+" / dado cap",new Vector3(p.x,1.14f,p.z),s,trim);s.y=.14f;Box(n+" / skirting",new Vector3(p.x,.07f,p.z),s,black);}
+ static TextMesh Label(string n,string value,Vector3 p,float yaw,float width,float height=.3f,Material backing=null,Color? ink=null)
+ {
+  var t=Group(n);t.position=p;var tm=t.gameObject.AddComponent<TextMesh>();tm.font=font;tm.fontSize=64;tm.characterSize=.1f;tm.anchor=TextAnchor.MiddleCenter;tm.alignment=TextAlignment.Center;tm.text=value;tm.color=ink??new Color(.72f,.74f,.64f);font.RequestCharactersInTexture(value,64,FontStyle.Normal);
+  var r=t.GetComponent<Renderer>();var material=new Material(Shader.Find("EchoProtocol/PrintedText"));material.mainTexture=font.material.mainTexture; r.sharedMaterial=material;r.shadowCastingMode=ShadowCastingMode.Off;
+  var size=r.bounds.size;if(size.x>0&&size.y>0)tm.characterSize*=Mathf.Min(width/size.x,height/size.y);
+  t.rotation=Quaternion.Euler(0,yaw,0);var d=t.gameObject.AddComponent<DiegeticText>();Set(d,"depthTestedShader",material.shader);
+  if(backing){var b=Box(n+" / physical plate",p+t.forward*.02f,new Vector3(width+.08f,height+.08f,.035f),backing);b.transform.rotation=t.rotation;}
+  return tm;
+ }
+ static Light Lamp(string n,Vector3 p,Vector3 aim,Color c,float power,float range,float cone,bool clinical=true)
+ {var t=Group(n);t.position=p;t.rotation=Quaternion.LookRotation(aim-p);var l=t.gameObject.AddComponent<Light>();l.type=LightType.Spot;l.color=c;l.intensity=power;l.range=range;l.spotAngle=cone;l.innerSpotAngle=cone*.62f;l.shadows=LightShadows.Soft;l.shadowBias=.018f;l.shadowNormalBias=.12f;l.shadowCustomResolution=512;if(clinical)cold.Add(l);else warm.Add(l);return l;}
+ static Light Fixture(string n,Vector3 p,bool clinical=true)
+ {Box(n+" housing",p,new Vector3(1.24f,.10f,.30f),metal);var tube=Box(n+" prismatic diffuser",p+Vector3.down*.055f,new Vector3(1.10f,.025f,.23f),glow);var l=Lamp(n+" light",p+Vector3.down*.11f,p+Vector3.down*3,new Color(.70f,.80f,.74f),2.5f,6.5f,108,clinical);var em=tube.AddComponent<PracticalEmission>();Set(em,"source",l);Set(em,"surface",tube.GetComponent<Renderer>());return l;}
+ static GameObject Model(string path,string n,Vector3 p,float yaw,float height)
+ {
+  var asset=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Art/Models/"+path+".fbx");if(!asset)throw new Exception(path);
+  var g=(GameObject)PrefabUtility.InstantiatePrefab(asset);g.name=n;g.transform.SetParent(root,true);g.transform.rotation=Quaternion.Euler(0,yaw,0);
+  var rs=g.GetComponentsInChildren<Renderer>();var b=rs[0].bounds;foreach(var r in rs)b.Encapsulate(r.bounds);g.transform.localScale*=height/b.size.y;
+  b=rs[0].bounds;foreach(var r in rs)b.Encapsulate(r.bounds);g.transform.position+=p-new Vector3(b.center.x,b.min.y,b.center.z);
+  var palette=new Dictionary<string,string>{{"Steel","M_PatinatedSteel"},{"Metal","M_PatinatedSteel"},{"Wood","M_Walnut"},{"Walnut","M_Walnut"},{"Glass","M_ObservationGlass"},{"Paper","M_BoneEnamel"},{"WarmDiffuser","M_LinenShade"}};
+  foreach(var r in rs){r.sharedMaterials=r.sharedMaterials.Select(m=>{var pair=palette.FirstOrDefault(x=>m&&m.name.IndexOf(x.Key,StringComparison.OrdinalIgnoreCase)>=0);var mapped=pair.Value!=null?AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Finish/"+pair.Value+".mat"):null;return mapped?mapped:m;}).ToArray();}
+  return g;
+ }
+ static AudioSource Sound(string n,Vector3 p,AudioClip clip,UnityEngine.Audio.AudioMixerGroup bus,float volume,bool loop)
+ {var t=Group(n);t.position=p;var a=t.gameObject.AddComponent<AudioSource>();a.clip=clip;a.outputAudioMixerGroup=bus;a.playOnAwake=false;a.loop=loop;a.volume=volume;a.spatialBlend=1;a.dopplerLevel=0;a.rolloffMode=AudioRolloffMode.Linear;a.minDistance=1.3f;a.maxDistance=9;return a;}
+ public static object Main()
+ {
+  if(EditorApplication.isPlaying||UnityEngine.SceneManagement.SceneManager.GetActiveScene().path!="Assets/_Game/Scenes/Production/EchoProtocol_Contraprueba.unity")throw new Exception("Saved Contraprueba Edit required");
+  if(All<Transform>().Any(t=>t.name=="Contraprueba / authored chapter"))throw new Exception("Chapter exists; refine it, do not overwrite");
+  AssetDatabase.Refresh();font=All<TextMesh>().First(x=>x.font).font;
+  var gallery=All<Transform>().Single(t=>t.name=="VS1 R2 Return Gallery");var relay=All<RecombinationRelay>().Single();var gateA=Get<SlidingDoor>(relay,"routeGate");var gateB=Get<SlidingDoor>(relay,"finalGate");var loop=Get<LoopController>(relay,"loop");
+  var readerA=Get<OpticalReader>(relay,"readerA");var readerB=Get<OpticalReader>(relay,"readerB");var terminals=gallery.GetComponentsInChildren<TemporalRelayTerminal>(true);var donor=All<AudioSource>().First(s=>s.name=="6B review latch");
+  // Retain original gameplay objects and references. Retire their old visible
+  // shell only in this independent scene; new authoring supplies its enclosure.
+  foreach(var r in gallery.GetComponentsInChildren<Renderer>(true))if(!r.GetComponentInParent<SlidingDoor>())r.enabled=false;
+  foreach(var c in gallery.GetComponentsInChildren<Collider>(true))if(!c.isTrigger&&!c.GetComponentInParent<SlidingDoor>()&&!c.GetComponent<TemporalRelayTerminal>())c.enabled=false;
+  foreach(var l in gallery.GetComponentsInChildren<Light>(true))l.enabled=false;
+  root=Group("Contraprueba / authored chapter",gallery);
+  wall=Mat("OldIvory",new Color(.57f,.58f,.52f),.18f,0,"Assets/_Game/Art/Finish/M_ClinicPaint.mat");
+  teal=Mat("ServiceEnamel",new Color(.155f,.23f,.22f),.31f);trim=Mat("Trim",new Color(.26f,.29f,.265f),.38f,.16f);
+  floor=Mat("MineralFloor",new Color(.30f,.32f,.29f),.30f,0,"Assets/_Game/Art/Finish/M_ClinicPaint.mat");
+  ceiling=Mat("AcousticCeiling",new Color(.29f,.32f,.30f),.07f);metal=Mat("BlackenedSteel",new Color(.12f,.15f,.15f),.43f,.55f);
+  black=Mat("Rubber",new Color(.036f,.042f,.039f),.12f);ivory=Mat("LetteringPlate",new Color(.63f,.61f,.50f),.15f);
+  glow=Mat("GlassDiffuser",new Color(.59f,.70f,.64f),.24f);glow.EnableKeyword("_EMISSION");glow.SetColor("_EmissionColor",new Color(.60f,.78f,.68f)*1.1f);
+  amber=Mat("ReturnWire",new Color(.43f,.24f,.08f),.28f,.2f);paper=Mat("Paper",new Color(.62f,.59f,.47f),.1f);
+  glass=new Material(AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Finish/M_ObservationGlass.mat"));AssetDatabase.CreateAsset(glass,Art+"M_Glass.mat");glass.SetColor("_BaseColor",new Color(.18f,.28f,.26f,.055f));
+  wallpaper=Mat("DomesticPaper",Color.white,.14f);wallpaper.mainTexture=AssetDatabase.LoadAssetAtPath<Texture2D>(Art+"DomesticWallpaper.png");wallpaper.mainTextureScale=new Vector2(1.4f,1);
+  // One continuous grounded footprint, then actual rooms and a dog-leg route.
+  Box("Continuous mineral floor",new Vector3(-9.9f,-.115f,38.4f),new Vector3(12.4f,.23f,17.0f),floor,true);
+  Box("Ceiling",new Vector3(-9.9f,3.30f,38.2f),new Vector3(12.4f,.2f,16.6f),ceiling,true);
+  Wall("East record boundary",new Vector3(-3.8f,1.6f,38.2f),new Vector3(.2f,3.2f,16.4f));
+  Wall("West external wall",new Vector3(-16,1.6f,38.2f),new Vector3(.2f,3.2f,12.4f));
+  Wall("South reception wall",new Vector3(-12.65f,1.6f,32),new Vector3(6.7f,3.2f,.20f));
+  Wall("Origin west connection",new Vector3(-9.3f,1.6f,31),new Vector3(.2f,3.2f,2));
+  Wall("North blind wall",new Vector3(-12.65f,1.6f,44.65f),new Vector3(6.7f,3.2f,.2f));
+  Wall("North subject wall",new Vector3(-5.05f,1.6f,44.65f),new Vector3(2.5f,3.2f,.2f));
+  // Machine island denies the direct view and asks the Player to go around it.
+  Wall("Machine room south",new Vector3(-9.45f,1.6f,37.15f),new Vector3(6.3f,3.2f,.22f));
+  Wall("Machine room north",new Vector3(-9.45f,1.6f,40.2f),new Vector3(6.3f,3.2f,.22f));
+  Wall("Machine island west",new Vector3(-12.52f,1.6f,38.68f),new Vector3(.22f,3.2f,3.04f));
+  Wall("Record separator opaque middle",new Vector3(-6.3f,1.6f,39.45f),new Vector3(.2f,3.2f,4.6f));
+  Wall("Record separator entrance pier",new Vector3(-6.3f,1.6f,32.95f),new Vector3(.2f,3.2f,1.9f));
+  Window("A",34,37.05f);Window("B",41.8f,44.55f);
+  // Existing kinematic doors are moved as assemblies; their reset contract stays.
+  var deltaA=new Vector3(-14.20f,0,37.15f)-gateA.transform.position;gateA.transform.position+=deltaA;
+  var deltaB=new Vector3(-7.8f,0,44.65f)-gateB.transform.position;gateB.transform.position+=deltaB;
+  foreach(var audio in gallery.GetComponentsInChildren<EchoProtocol.Audio.SlidingDoorAudio>(true)){var target=Get<SlidingDoor>(audio,"door");if(target==gateA)audio.transform.position+=deltaA;else if(target==gateB)audio.transform.position+=deltaB;}
+  DoorFrame("Service gate",gateA.transform.position);DoorFrame("Return gate",gateB.transform.position);
+  Wall("Service gate west fill",new Vector3(-15.72f,1.6f,37.15f),new Vector3(.55f,3.2f,.22f));
+  Wall("Service gate east fill",new Vector3(-12.73f,1.6f,37.15f),new Vector3(.68f,3.2f,.22f));
+  var r3=All<VS1HubReturnGate>().Single();r3.transform.position=new Vector3(-7.8f,0,45.12f);
+  Bool(relay,"requireReturnWitness",true);
+  // Receivers sit beside the sightline, leaving the face and torso visible.
+  foreach(var t in terminals)
+  {
+   bool b=t.FinalReceiver;var old=t.transform.position;t.transform.position=new Vector3(-6.58f,1.14f,b?42.05f:34.22f);
+   t.GetComponent<BoxCollider>().size=new Vector3(.30f,.48f,.44f);
+   foreach(var rr in t.GetComponentsInChildren<Renderer>(true))rr.enabled=false;
+   foreach(var ll in t.GetComponentsInChildren<Light>(true))ll.enabled=false;
+   var panel=Box((b?"B":"A")+" receiver enamel case",t.transform.position,new Vector3(.18f,.52f,.55f),teal,false,t.transform);
+   var label=Label("Receiver "+(b?"B":"A")+" status","PRESENCIA / ESPERANDO",t.transform.position+Vector3.left*.103f+Vector3.up*.055f,90,.43f,.18f,black);
+   var pilot=Box("Receiver pilot",t.transform.position+Vector3.left*.112f+Vector3.down*.14f,new Vector3(.01f,.025f,.39f),glow);
+   Set(t,"status",label);Set(t,"pilot",pilot.GetComponent<Renderer>());
+   t.GetComponent<AudioSource>().outputAudioMixerGroup=donor.outputAudioMixerGroup;
+   Label("Receiver station",b?"02 / TRANSFERIR":"01 / RECIBIR",new Vector3(-6.42f,1.76f,b?42.02f:34.15f),90,.65f,.14f,ivory,new Color(.07f,.10f,.09f));
+  }
+  Optical(readerA,"A",35.2f);Optical(readerB,"B",43);
+  var player=All<FirstPersonController>().Single();var session=All<GameSession>().Single();
+  var control=Group("A / return witness control");control.position=new Vector3(-6.59f,1.17f,36.24f);control.gameObject.AddComponent<BoxCollider>().size=new Vector3(.26f,.48f,.5f);
+  Box("Return detent housing",control.position,new Vector3(.19f,.47f,.51f),metal,false,control);
+  var handle=Box("Physical return lever",control.position+Vector3.left*.17f+Vector3.down*.08f,new Vector3(.09f,.23f,.045f),ivory,false,control);
+  var controlStatus=Label("Return control state","03 / RECIBIR EL RETORNO",control.position+Vector3.left*.105f+Vector3.up*.095f,90,.44f,.17f,black);
+  var witness=control.gameObject.AddComponent<ReturnWitnessControl>();Set(witness,"relay",relay);Set(witness,"interactor",player.GetComponent<PlayerInteractor>());Set(witness,"input",player.GetComponent<UnityEngine.InputSystem.PlayerInput>());Set(witness,"player",player);Set(witness,"session",session);Set(witness,"status",controlStatus);Set(witness,"lever",handle.transform);
+  var click=Sound("A return handle contact",control.position,donor.clip,donor.outputAudioMixerGroup,.10f,false);if(!click.clip)click.clip=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Finish/Relay.wav");Set(witness,"contact",click);
+  // Restrained construction detail: panel joints, acoustic seams, cable and sill.
+  for(float z=31;z<45;z+=1.2f)Box("Ceiling cross rail",new Vector3(-9.9f,3.18f,z),new Vector3(12.05f,.028f,.022f),trim);
+  for(float x=-15.4f;x<-4;x+=1.2f)Box("Ceiling longitudinal rail",new Vector3(x,3.18f,38.2f),new Vector3(.022f,.028f,16.1f),trim);
+  for(float z=32;z<45;z+=2.4f)Box("Floor construction joint",new Vector3(-9.9f,.002f,z),new Vector3(12.05f,.002f,.012f),black);
+  foreach(float x in new[]{-14.3f,-11.9f,-9.5f,-7.1f,-4.7f})Box("Floor construction joint",new Vector3(x,.003f,38.2f),new Vector3(.012f,.002f,16.1f),black);
+  Fixture("Origin reception",new Vector3(-7.7f,3.1f,32.8f));Fixture("A recording room",new Vector3(-4.9f,3.1f,35.7f));
+  Fixture("A control room",new Vector3(-10.4f,3.1f,34.9f));Fixture("B recording room",new Vector3(-4.9f,3.1f,42.8f));
+  Fixture("B transfer room",new Vector3(-9.4f,3.1f,42.4f));Fixture("Service passage",new Vector3(-14.1f,3.1f,39.1f));
+  Lamp("A receiver work light",new Vector3(-7.05f,2.65f,34.0f),new Vector3(-6.55f,1.12f,34.3f),new Color(.84f,.78f,.57f),1.4f,3.5f,68,false);
+  Lamp("B receiver work light",new Vector3(-7.1f,2.65f,41.8f),new Vector3(-6.55f,1.13f,42.1f),new Color(.84f,.78f,.57f),1.4f,3.5f,68,false);
+  Lamp("A return work light",new Vector3(-7.10f,2.65f,36.40f),new Vector3(-6.55f,1.17f,36.2f),new Color(.95f,.70f,.39f),1.4f,3.5f,68,false);
+  foreach(var p in new[]{new Vector3(-15.83f,.44f,36.0f),new Vector3(-15.83f,.44f,39.2f),new Vector3(-13.15f,.44f,41.1f)})
+  {Box("Return footlight case",p,new Vector3(.09f,.16f,.34f),metal);Box("Return footlight louver",p+Vector3.right*.05f,new Vector3(.01f,.045f,.25f),amber);Lamp("Low return pool",p+Vector3.right*.10f,p+new Vector3(1.6f,-.35f,0),new Color(1,.56f,.25f),1.1f,3.8f,100,false);}
+  // A quiet domestic layer exists physically from entry; power reveals it later.
+  Box("A domestic papered backing",new Vector3(-3.916f,1.61f,35.52f),new Vector3(.024f,2.92f,2.9f),wallpaper);
+  var lamp=Model("Campaign/EP_LampTable","A witness table lamp",new Vector3(-4.12f,0,36.55f),270,1.38f);
+  var lampLight=Lamp("A witness warm lamp",new Vector3(-4.16f,1.16f,36.48f),new Vector3(-5.28f,1.50f,35.2f),new Color(1,.67f,.36f),2.6f,4,112,false);warm.Remove(lampLight);
+  Model("Overhaul/EP_OV_Armchair","A empty worn armchair",new Vector3(-4.3f,0,34.25f),270,1.03f);
+  Model("RecoveryOffice/EP_RO_ReviewDesk","Control desk",new Vector3(-11.2f,0,33.45f),180,.80f);
+  Model("ReceptionLife/EP_RL_ClericalChair","Displaced observer chair",new Vector3(-10.6f,0,34.25f),32,.90f);
+  Model("Campaign/EP_ArchiveCabinet","Calibration records cabinet",new Vector3(-15.45f,0,33.45f),90,1.55f);
+  Model("SE2Service/EP_SE2_ServiceCase","Service case",new Vector3(-15.45f,0,38.3f),90,.94f);
+  Model("PressurePlant/EP_PP_ServiceCabinet","Transfer cabinet",new Vector3(-11.25f,0,42.15f),0,1.75f);
+  Model("Campaign/EP_Trolley","Empty transfer trolley",new Vector3(-13.3f,0,43.65f),-14,.91f);
+  // Large, simple fan housing owns both the movement and its audible source.
+  Box("Ventilation plenum",new Vector3(-12.70f,2.12f,38.65f),new Vector3(.22f,1.1f,1.3f),metal);
+  var rotor=Group("Service ventilation rotor");rotor.position=new Vector3(-12.84f,2.13f,38.65f);rotor.rotation=Quaternion.Euler(0,90,0);
+  for(int i=0;i<4;i++){var blade=Box("Ventilation blade",rotor.position,new Vector3(.48f,.10f,.03f),trim,false,rotor);blade.transform.localRotation=Quaternion.Euler(0,0,i*90+20);blade.transform.localPosition=blade.transform.localRotation*Vector3.right*.21f;}
+  for(int i=0;i<10;i++)Box("Ventilation guard slat",new Vector3(-12.89f,1.67f+i*.10f,38.65f),new Vector3(.015f,.018f,1.16f),black);
+  var fanClip=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Finish/Fridge.wav");if(!fanClip)fanClip=Get<AudioSource>(All<EchoProtocol.Audio.EncounterAtmosphere>().Single(),"passageVent").clip;
+  var fan=Sound("Contraprueba fixed ventilation",rotor.position,fanClip,donor.outputAudioMixerGroup,.13f,true);
+  var contact=Sound("Transfer contact behind the service wall",new Vector3(-12.0f,1.75f,39.4f),AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Finish/Relay.wav"),donor.outputAudioMixerGroup,.13f,false);
+  var motorClip=Get<AudioClip>(gallery.GetComponentsInChildren<EchoProtocol.Audio.SlidingDoorAudio>(true).First(),"movementLoopClip");
+  if(!motorClip)motorClip=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Finish/Fridge.wav");
+  var motor=Sound("A physical observation blind motor",new Vector3(-6.28f,2.85f,35.50f),motorClip,donor.outputAudioMixerGroup,.08f,true);
+  var shutter=Group("A movable observation blind");shutter.position=new Vector3(-6.28f,1.79f,35.52f);
+  for(int i=0;i<18;i++)Box("Blind slat",shutter.position+Vector3.up*(-.94f+i*.112f),new Vector3(.045f,.116f,3.02f),trim,false,shutter);
+  var diagram=Label("Entry circuit diagram","[A] — B — A\nRECIBIR · TRANSFERIR · VOLVER",new Vector3(-8.25f,1.85f,32.14f),0,1.44f,.34f,ivory,new Color(.07f,.10f,.08f));
+  Label("Chapter threshold","03 / CONTRAPRUEBA",new Vector3(-7.4f,2.64f,31.98f),0,1.8f,.22f,trim);
+  Label("Recording route identity","REGISTRO\nA · B · A",new Vector3(-4.95f,2.32f,33.0f),0,.9f,.35f,trim);
+  Label("Receiving route identity","RECEPCIÓN",new Vector3(-9.12f,2.32f,33.0f),0,1.1f,.20f,trim);
+  Label("Service route","TRANSFERENCIA B  →",new Vector3(-12.0f,1.75f,37.00f),0,1.15f,.17f,ivory,new Color(.09f,.12f,.10f));
+  Label("Return cable label","RETORNO A",new Vector3(-12.9f,1.85f,40.34f),180,.90f,.17f,ivory,new Color(.09f,.12f,.10f));
+  Label("Exit legend","RETORNO / ARCHIVO",new Vector3(-7.8f,2.97f,44.48f),0,1.52f,.18f,trim);
+  Label("Circuit rule plate","UNA TOMA · TRES RECEPCIONES\nLa presencia abre una ventana de trabajo.\nEl circuito conserva cada confirmación.\nRECALL vuelve a ponerlo en cero.",new Vector3(-9.06f,1.52f,31.45f),270,.83f,.51f,ivory,new Color(.10f,.12f,.10f));
+  // Amber cable follows the actual detour and returns to A, an architectural cue.
+  Box("Return cable / A wall",new Vector3(-10.2f,2.62f,36.99f),new Vector3(7.4f,.034f,.034f),amber);
+  Box("Return cable / service",new Vector3(-15.78f,2.62f,38.70f),new Vector3(.034f,.034f,5.5f),amber);
+  Box("Return cable / B wall",new Vector3(-11.15f,2.62f,40.35f),new Vector3(8.9f,.034f,.034f),amber);
+  var ambience=root.gameObject.AddComponent<ContrapruebaAtmosphere>();Set(ambience,"relay",relay);Set(ambience,"session",session);Set(ambience,"ventilation",fan);Set(ambience,"relayContact",contact);Set(ambience,"shutterMotor",motor);Set(ambience,"rotor",rotor);Set(ambience,"observationShutter",shutter);Set(ambience,"witnessLamp",lampLight);Set(ambience,"circuitStatus",diagram);Array(ambience,"clinicalLights",cold);Array(ambience,"returnLights",warm);Array(ambience,"machinePilots",new Renderer[0]);
+  var source=player.gameObject.AddComponent<PlayerBodyPoseSource>();Set(source,"view",player.GetComponentInChildren<Camera>());Set(source,"controller",player);Set(player.GetComponent<EchoRecorder>(),"bodyPoseSource",source);
+  AuthorRig(loop);
+  var budget=All<LightShadowBudget>().First();var soBudget=new SerializedObject(budget);var list=soBudget.FindProperty("lights");var original=Enumerable.Range(0,list.arraySize).Select(i=>list.GetArrayElementAtIndex(i).objectReferenceValue).ToList();original.AddRange(cold);original.AddRange(warm);original.Add(lampLight);Array(budget,"lights",original);
+  Str(session,"editionLabel","CONTRAPRUEBA / ARCHIVO 6B");
+  Physics.SyncTransforms();EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene());AssetDatabase.SaveAssets();
+  return new{chapter=root.name,lights=cold.Count+warm.Count+1,rig="16 explicitly recorded bones",route="A → B → A",wallpaper=Art+"DomesticWallpaper.png"};
+ }
+ static void Window(string id,float a,float b)
+ {
+  float z=(a+b)*.5f,len=b-a;Box(id+" sealed glass",new Vector3(-6.3f,1.76f,z),new Vector3(.035f,1.98f,len),glass,true);
+  Box(id+" window plinth",new Vector3(-6.3f,.39f,z),new Vector3(.22f,.78f,len),teal,true);Box(id+" window header",new Vector3(-6.3f,2.98f,z),new Vector3(.24f,.44f,len),wall,true);
+  foreach(float edge in new[]{a,b})Box(id+" sealed window jamb",new Vector3(-6.3f,1.76f,edge),new Vector3(.16f,1.98f,.065f),metal);
+  foreach(float y in new[]{.78f,2.76f})Box(id+" sealed window sill",new Vector3(-6.3f,y,z),new Vector3(.26f,.048f,len),metal);
+ }
+ static void DoorFrame(string n,Vector3 p)
+ {foreach(float sign in new[]{-1f,1f})Box(n+" jamb",p+new Vector3(sign*1.2f,1.5f,0),new Vector3(.12f,3,.32f),metal,true);Box(n+" lintel",p+Vector3.up*3.03f,new Vector3(2.55f,.19f,.36f),metal,true);}
+ static void Optical(OpticalReader reader,string id,float z)
+ {
+  var head=Box(id+" recessed optical instrument",new Vector3(-6.17f,1.38f,z),new Vector3(.15f,.20f,.18f),metal);
+  Box(id+" dark optic",new Vector3(-6.086f,1.39f,z),new Vector3(.016f,.105f,.105f),black);
+  var indicator=Box(id+" actual reader pilot",new Vector3(-6.071f,1.34f,z),new Vector3(.01f,.018f,.08f),glow);Set(reader,"activeIndicator",indicator);
+  Label(id+" subject plate",id+" / PRESENCIA",new Vector3(-6.17f,1.90f,z),270,.73f,.17f,ivory,new Color(.07f,.10f,.09f));
+  foreach(float side in new[]{-1f,1f})Box(id+" floor pause bracket",new Vector3(-5.20f+side*.49f,.005f,z),new Vector3(.035f,.005f,1.14f),ivory);
+ }
+ static void AuthorRig(LoopController loop)
+ {
+  const string model="Assets/_Game/Art/Models/Contraprueba/EP_RecordedAdultRig.fbx";var importer=(ModelImporter)AssetImporter.GetAtPath(model);importer.importAnimation=false;importer.animationType=ModelImporterAnimationType.Generic;importer.optimizeGameObjects=false;importer.isReadable=true;importer.SaveAndReimport();
+  var prefab=Get<EchoPlayback>(loop,"echoPrefab");var g=(GameObject)PrefabUtility.InstantiatePrefab(prefab.gameObject);g.name="EchoContraprueba";
+  var old=g.GetComponentsInChildren<MeshFilter>(true).First(x=>x.name=="EP_AdultRecordedSurface");Object.DestroyImmediate(old.gameObject);
+  var figure=(GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(model));figure.transform.SetParent(g.transform,false);figure.name="Recorded articulated adult";
+  foreach(var animator in figure.GetComponentsInChildren<Animator>(true))Object.DestroyImmediate(animator);
+  var skin=figure.GetComponentInChildren<SkinnedMeshRenderer>();var names=skin.sharedMaterials.Select(m=>m.name).ToArray();
+  var ms=names.Select(n=>{var src=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Reconstruction/M_Record_"+n+".mat");var m=new Material(src);m.shader=Shader.Find("EchoProtocol/RecordedContraprueba");m.SetFloat("_WorldLightGain",1);m.SetFloat("_RecordLevel",.22f);m.SetFloat("_NearFadeStart",.25f);m.SetFloat("_NearFadeEnd",.72f);AssetDatabase.CreateAsset(m,Art+"M_Record_"+n+".mat");return m;}).ToArray();skin.sharedMaterials=ms;skin.updateWhenOffscreen=true;skin.shadowCastingMode=ShadowCastingMode.Off;
+  // Identical skinned depth surface prevents the near/far layers of a translucent
+  // body from exposing each other. It consumes exactly the same mesh and bones.
+  var depth=Group("Recorded skinned self depth",skin.transform);var ds=depth.gameObject.AddComponent<SkinnedMeshRenderer>();ds.sharedMesh=skin.sharedMesh;ds.bones=skin.bones;ds.rootBone=skin.rootBone;ds.localBounds=skin.localBounds;ds.updateWhenOffscreen=true;ds.shadowCastingMode=ShadowCastingMode.Off;
+  var depthMaterial=new Material(Shader.Find("EchoProtocol/RecordedSelfDepth"));depthMaterial.SetFloat("_NearFadeStart",.25f);depthMaterial.SetFloat("_NearFadeEnd",.72f);AssetDatabase.CreateAsset(depthMaterial,Art+"M_RecordDepth.mat");ds.sharedMaterials=names.Select(_=>depthMaterial).ToArray();
+  var rig=g.AddComponent<EchoBodyRig>();Set(rig,"modelRoot",g.transform);
+  var bones=figure.GetComponentsInChildren<Transform>(true);var mapping=new Dictionary<string,string>{{"hips","Hips"},{"spine","Spine"},{"head","Head"},{"leftThigh","Thigh.L"},{"leftShin","Shin.L"},{"leftFoot","Foot.L"},{"rightThigh","Thigh.R"},{"rightShin","Shin.R"},{"rightFoot","Foot.R"},{"leftArm","Arm.L"},{"leftForearm","Forearm.L"},{"rightArm","Arm.R"},{"rightForearm","Forearm.R"}};
+  foreach(var kv in mapping)Set(rig,kv.Key,bones.Single(t=>t.name==kv.Value));Set(g.GetComponent<EchoPlayback>(),"bodyRig",rig);
+  Directory.CreateDirectory("Assets/_Game/Prefabs/Contraprueba");var saved=PrefabUtility.SaveAsPrefabAsset(g,"Assets/_Game/Prefabs/Contraprueba/EchoContraprueba.prefab");Object.DestroyImmediate(g);Set(loop,"echoPrefab",saved.GetComponent<EchoPlayback>());
+  var review=All<FinalDoorMemory>().Single();Set(review,"directWitnessMaterial",ms[System.Array.IndexOf(names,"FIG_Skin")]);
+ }
+}

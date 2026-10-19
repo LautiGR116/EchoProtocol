@@ -1,0 +1,110 @@
+One isolated previous-chapter fixture; subsequent gameplay uses synthetic Input System devices. No listening or human-play evidence.
+PASS the scene has an enabled PressureWorkAudio and its actual campaign systems
+PASS Player and both distinct pressure sources are explicitly available
+PASS pressure audio references this actual director and session
+PASS authored clips are assigned with deliberate loop and startup state
+PASS both world sources participate in listener pause and spatial playback
+PASS the valve discharge has the authored seven-metre linear falloff and forward playback
+PASS fresh session has no completed valves, active work or startup discharge
+PASS fixture stops before the genuine pressure-origin interaction
+PASS startup and previous-chapter baseline: both pressure sources are silent
+PASS startup and previous-chapter baseline: release count matches actual completed valves
+PASS actual camera ray reaches PressureOrigin
+PASS actual station accepts interaction: PressureOrigin
+PASS real E enters pressure and starts recording
+PASS chapter entry is a baseline, not a valve release: both pressure sources are silent
+PASS chapter entry is a baseline, not a valve release: release count matches actual completed valves
+PASS actual camera ray reaches ValveA
+PASS actual station accepts interaction: ValveA
+PASS unpowered E rejects valve work
+PASS unpowered interaction: both pressure sources are silent
+PASS unpowered interaction: release count matches actual completed valves
+PASS the real chamber hold fits inside the recording limit without an automatic RECALL
+PASS the chamber take had no automatic or unrequested RECALL
+PASS the real Player holding the blue chamber supplies no pressure
+PASS Player-only chamber hold: both pressure sources are silent
+PASS Player-only chamber hold: release count matches actual completed valves
+PASS real R completes one take and instantiates actual playback
+PASS RECALL itself emits no pressure discharge
+PASS the actual recorded Echo supplies pressure
+PASS actual camera ray reaches ValveA
+PASS actual station accepts interaction: ValveA
+PASS ValveA has genuine, powered, observed work
+PASS ValveA reaches the authored flow gain after its fade
+PASS ValveA positions flow at the real working station
+PASS the source is advancing before the intentional pause
+PASS real Escape pauses simulation and both world sources
+PASS paused W and R leave the clock, work, recalls and discharges unchanged
+PASS pause freezes the actual Echo and Player positions
+PASS pause freezes the source cursor, envelope and both world positions
+PASS real Escape restores simulation and Player control
+PASS resume continues the existing audio cursor instead of restarting it
+PASS resume does not manufacture a new discharge
+PASS ValveA has genuine, powered, observed work
+PASS ValveA reaches the authored flow gain after its fade
+PASS ValveA positions flow at the real working station
+PASS work pause and resume create no discharge
+PASS real mouse look cancels unfinished work
+PASS look-away cancellation after authored fade: both pressure sources are silent
+PASS look-away cancellation after authored fade: release count matches actual completed valves
+PASS cancellation leaves the source at the physical valve
+PASS actual camera ray reaches ValveA
+PASS actual station accepts interaction: ValveA
+PASS ValveA has genuine, powered, observed work
+PASS ValveA reaches the authored flow gain after its fade
+PASS ValveA positions flow at the real working station
+PASS real R completes one take and instantiates actual playback
+PASS RECALL itself emits no pressure discharge
+PASS real R placement cancels the unfinished valve without granting progress
+PASS RECALL cancellation after authored fade: both pressure sources are silent
+PASS RECALL cancellation after authored fade: release count matches actual completed valves
+PASS RECALL moves the Player, not the valve source
+PASS the real chamber hold fits inside the recording limit without an automatic RECALL
+PASS the chamber take had no automatic or unrequested RECALL
+PASS real R completes one take and instantiates actual playback
+PASS RECALL itself emits no pressure discharge
+PASS the actual recorded Echo supplies pressure
+PASS actual camera ray reaches ValveA
+PASS actual station accepts interaction: ValveA
+PASS ValveA has genuine, powered, observed work
+PASS ValveA reaches the authored flow gain after its fade
+PASS ValveA positions flow at the real working station
+PASS ValveA advances one real valve and exactly one discharge
+PASS ValveA actually starts the authored discharge source
+PASS ValveA releases from the completed station after WorkingStation clears
+PASS ValveA stops its flow after completion fade
+PASS the source is advancing before the intentional pause
+PASS real Escape pauses simulation and both world sources
+PASS paused W and R leave the clock, work, recalls and discharges unchanged
+PASS pause freezes the actual Echo and Player positions
+PASS pause freezes the source cursor, envelope and both world positions
+PASS real Escape restores simulation and Player control
+PASS resume continues the existing audio cursor instead of restarting it
+PASS resume does not manufacture a new discharge
+PASS pausing a real release resumes its tail without a second discharge
+PASS repeated real E on a completed valve cannot replay its discharge
+PASS turning the camera leaves the release at its physical valve
+PASS first completed discharge ends naturally without another interaction: both pressure sources are silent
+PASS first completed discharge ends naturally without another interaction: release count matches actual completed valves
+PASS actual camera ray reaches ValveB
+PASS actual station accepts interaction: ValveB
+PASS ValveB has genuine, powered, observed work
+PASS ValveB reaches the authored flow gain after its fade
+PASS ValveB positions flow at the real working station
+PASS ValveB advances one real valve and exactly one discharge
+PASS ValveB actually starts the authored discharge source
+PASS ValveB releases from the completed station after WorkingStation clears
+PASS ValveB stops its flow after completion fade
+PASS two genuine valve successes emit exactly two discharges
+PASS actual camera ray reaches HouseOrigin
+PASS actual station accepts interaction: HouseOrigin
+PASS real E leaves pressure for the house and suspends recording
+PASS leaving pressure stops flow without generating a new discharge; an existing spatial tail may continue
+PASS house R cannot produce a phantom pressure release
+PASS chapter exit and disabled R leave both sources at the last physical valve
+PASS the final physical release ends naturally, including any tail after leaving pressure: both pressure sources are silent
+PASS the final physical release ends naturally, including any tail after leaving pressure: release count matches actual completed valves
+PASS the final discharge cursor was monitored until its natural duration, with no restart or early chapter cut
+PASS work audio preserves authored mixer routing, distances, spatial blend, Doppler, pitch and source parents
+PASS three real immutable takes were monitored during playback
+PASS the complete probe used only one initial pose fixture

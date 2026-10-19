@@ -1,0 +1,31 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "var r=UnityEngine.Object.FindObjectsByType<UnityEngine.Renderer>(UnityEngine.FindObjectsSortMode.None).First(x=>x.name==\"Porter ceiling opal face\");var d=UnityEngine.Object.FindFirstObjectByType<EchoProtocol.Presentation.FinalRecordDisplay>();var review=UnityEngine.Object.FindFirstObjectByType<EchoProtocol.Campaign.FinalDoorMemory>();return new {diffuserKeyword=r.sharedMaterial.IsKeywordEnabled(\"_EMISSION\"),diffuserFlags=r.sharedMaterial.globalIlluminationFlags.ToString(),factor=r.GetComponent<EchoProtocol.Presentation.PracticalEmission>().CurrentIntensityFactor,heading=d.VisibleHeading,witnessed=review.HasWitnessed,preserved=review.OriginalPreserved};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "diffuserKeyword": true,
+        "diffuserFlags": "RealtimeEmissive",
+        "factor": 1,
+        "heading": "SIN TOMA OBSERVADA",
+        "witnessed": false,
+        "preserved": false
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/lautigr116/EchoProtocol"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

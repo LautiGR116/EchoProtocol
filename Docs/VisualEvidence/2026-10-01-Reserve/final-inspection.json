@@ -1,0 +1,14 @@
+{
+  "focusedChecks": 65,
+  "focusedResult": "PASS",
+  "scope": "Six explicit pose placements and public prior-house/final-review fixtures; actual E/W/R. Not a continuous route.",
+  "finalGripSha256": "a46adb0e2ba87a517a1aa768c29fb63fd6b75f2d3df1e3b31767a6f113dcf5db",
+  "finalGripTriangles": 7688,
+  "consoleErrors": 0,
+  "consoleWarnings": 1,
+  "printedShaderMessages": 0,
+  "savedScene": "Assets/_Game/Scenes/Production/EchoProtocol_Reserve.unity",
+  "humanApproval": false,
+  "visualReview": "Final Unity captures01\u201310 inspected. Original triangular thumb/wrist defect resolved in07/09. Bedroom curtain overlap corrected. Dark-route fixture recaptured after final mesh and local bounce.",
+  "continuation": "Fresh Play save/restore passes on isolated temporary key, then key removed; no Continue UI click. Correct .0015 first-act ambient multiplier, no knock/relay replay."
+}

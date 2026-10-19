@@ -1,0 +1,11 @@
+Reflection call to real VS1HubReturnGate.Inside while session paused. Five explicit Player pose fixtures, one temporary external box; no physical-input/interlock/emotional claim. Original pose restored.
+PASS translated, rotated, nonuniformly scaled box accepts its true center
+PASS true interior near three positive faces is accepted
+PASS x-negative-control lies inside old world AABB
+PASS actual x-exterior is rejected despite its world AABB
+PASS z-negative-control lies inside old world AABB
+PASS actual z-exterior is rejected despite its world AABB
+PASS disabled volume cannot qualify
+PASS inactive volume cannot qualify
+PASS original Player pose restored after diagnostic
+placements=5

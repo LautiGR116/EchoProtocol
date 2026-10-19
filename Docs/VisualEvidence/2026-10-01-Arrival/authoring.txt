@@ -1,0 +1,43 @@
+Arrival authoring only; no Play/input/listening/human-experience evidence.
+Assets/_Game/Scenes/Production/EchoProtocol_Orientation.unity -> Assets/_Game/Scenes/Production/EchoProtocol_Arrival.unity
+R3 arrival rear: (-9.20000, 0.00000, -9.50000) -> (-7.99914, 0.00000, -12.39914); yaw 45.000
+R3 Hub exit only: (-5.10000, 0.00000, -9.50000) -> (-5.10000, 0.00000, -9.50000); yaw 45.000
+R3 arrival clear of rear: (-6.85000, 1.00000, -9.50000) -> (-6.33744, 1.00000, -10.73744); yaw 315.000
+R3 Player fully inside original Hub: (-3.60000, 1.00000, -9.50000) -> (-4.03934, 1.00000, -8.43934); yaw 315.000
+R3 entire arrival occupancy: (-7.15000, 1.00000, -9.50000) -> (-6.54957, 1.00000, -10.94957); yaw 315.000
+Return / actual arrival zone: (-3.45000, 1.00000, -9.50000) -> (-3.93327, 1.00000, -8.33327); yaw 315.000
+R3 arrival rear header: (-9.20000, 3.08000, -9.50000) -> (-7.99914, 3.08000, -12.39914); yaw 315.000
+R3 Hub exit only header: (-5.10000, 3.08000, -9.50000) -> (-5.10000, 3.08000, -9.50000); yaw 315.000
+R3 arrival rear physical motor: (-9.20000, 2.75000, -9.50000) -> (-7.99914, 2.75000, -12.39914); yaw 315.000
+R3 Hub exit only physical motor: (-5.10000, 2.75000, -9.50000) -> (-5.10000, 2.75000, -9.50000); yaw 315.000
+R3 clinical housing: (-10.50000, 3.10000, -9.50000) -> (-8.91838, 3.10000, -13.31838); yaw 315.000
+R3 cool diffuser: (-10.50000, 3.03000, -9.50000) -> (-8.91838, 3.03000, -13.31838); yaw 315.000
+R3 local cool fill: (-10.50000, 2.75000, -9.50000) -> (-8.91838, 2.75000, -13.31838); yaw 315.000
+R3 clinical housing: (-7.00000, 3.10000, -9.50000) -> (-6.44350, 3.10000, -10.84350); yaw 315.000
+R3 cool diffuser: (-7.00000, 3.03000, -9.50000) -> (-6.44350, 3.03000, -10.84350); yaw 315.000
+R3 local cool fill: (-7.00000, 2.75000, -9.50000) -> (-6.44350, 2.75000, -10.84350); yaw 315.000
+R3 clinical housing: (-18.60000, 3.10000, -8.00000) -> (-16.47868, 3.10000, -8.02082)
+R3 cool diffuser: (-18.60000, 3.03000, -8.00000) -> (-16.47868, 3.03000, -8.02082)
+R3 local cool fill: (-18.60000, 2.75000, -8.00000) -> (-16.47868, 2.75000, -8.02082)
+R3 clinical housing: (-14.00000, 3.10000, -9.50000) -> (-12.94315, 3.10000, -11.55635)
+R3 cool diffuser: (-14.00000, 3.03000, -9.50000) -> (-12.94315, 3.03000, -11.55635)
+R3 local cool fill: (-14.00000, 2.75000, -9.50000) -> (-12.94315, 2.75000, -11.55635)
+Trimmed R3 spine floor position=(-18.60000, -0.10000, 27.60000) scale=(2.80000, 0.20000, 41.20000)
+Trimmed R3 spine ceiling position=(-18.60000, 3.30000, 27.65000) scale=(3.00000, 0.20000, 41.30000)
+Trimmed R3 spine east wall position=(-17.20000, 1.60000, 25.20000) scale=(0.20000, 3.20000, 36.40000)
+Trimmed Return west south wall position=(-20.00000, 1.60000, 10.50000) scale=(0.20000, 3.20000, 7.00000)
+Trimmed West original south perimeter position=(-20.00000, 1.60000, 10.50000) scale=(1.00000, 1.00000, 1.00000)
+Retired originals: R3 south end, R3 arrival floor, R3 arrival ceiling, R3 arrival north wall, R3 arrival south wall, R3 Hub west south pier, R3 return wayfinding, Reception visible at return end, Reception visible at return end backing, Reception return lower timber, Reception return dado rail, Reception return lower timber, Reception return dado rail
+R3 arrival clear of rear size=(1.80000, 2.40000, 2.30000) centre=(0.00000, 0.00000, 0.00000); same Collider reference
+R3 Player fully inside original Hub size=(1.40000, 2.40000, 2.40000) centre=(0.00000, 0.00000, 0.00000); same Collider reference
+R3 entire arrival occupancy size=(4.80000, 2.40000, 2.40000) centre=(0.00000, 0.00000, 0.00000); same Collider reference
+Return / actual arrival zone size=(2.40000, 2.20000, 2.30000) centre=(0.00000, 0.00000, 0.00000); same Collider reference
+R3 arrival rear keeps Rigidbody, closed/open local targets, movement speed and actual-motion sound references.
+R3 Hub exit only keeps Rigidbody, closed/open local targets, movement speed and actual-motion sound references.
+Original component serializations preserved: 4076; lights 138 -> 138; AudioSources 54 -> 54; colliders 607 -> 621 (obsolete objects inactive).
+No root movement for residualRoot, arrivalLightRoot, Registration, P3 crossing or R1. Archive unchanged except documented southern perimeter trim z[7,14].
+Centreline: (-18.60000, 0.00000, 7.00000) -> (-18.60000, 0.00000, -5.89949) -> (-10.04975, 0.00000, -14.44975) -> (-5.10000, 0.00000, -9.50000) -> (-3.47365, 0.00000, -7.87365). Clear wall width 2.60m, dado minimum 2.503m / existing door aperture 2.40m.
+Old suspended reverse marking replaced in-place by RETORNO / SOLO SALIDA on opaque Hub-facing header plate; PrintedText owner wired, no emission/new light.
+Checkpoint EP.CampaignCheckpoint.Orientation.v1 -> EP.CampaignCheckpoint.Arrival.v1; no PlayerPrefs writes. Requires local-box Inside/AtReviewAnnouncement already integrated by root.
+Pending actual-input checks: corners/floor, interlock retreat/re-entry, real motor positions, guide once, final camera toward original booth, initial Hub reverse face. No recognition or audibility claim.
+Camera-driven finish: retired noncolliding Hub panel seam -1 2/3 and shortened Hub skirting -1 to z[-8.2,-4.1], removing remnants across the new portal. No physical envelope or state changes.

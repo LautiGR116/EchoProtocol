@@ -1,0 +1,17 @@
+using System;
+using System.Linq;
+using System.IO;
+using UnityEngine;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+public static class LegibilityHubRefine {
+ public static void Main(){
+  var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();if(EditorApplication.isPlaying||scene.path!="Assets/_Game/Scenes/Production/EchoProtocol_Legibility.unity")throw new Exception("Legibility edit scene required");
+  var ts=UnityEngine.Object.FindObjectsByType<Transform>(FindObjectsInactive.Include,FindObjectsSortMode.None);var text=ts.Single(t=>t.name=="Return / reception continuation").GetComponent<TextMesh>();text.text="SUBSUELO  >\nREGISTRO 02";text.characterSize=.014f;float w=text.GetComponent<Renderer>().localBounds.size.x;if(w>1.28f)text.characterSize*=1.28f/w;
+  var parent=text.transform.parent;var mat=UnityEditor.AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Readers/M_Bezel.mat");
+  foreach(float y in new[]{1.67f,1.93f}){var g=GameObject.CreatePrimitive(PrimitiveType.Cube);g.name="Return / panel frame standoff";g.transform.SetParent(parent);g.transform.position=new Vector3(-1.44f,y,-4.12f);g.transform.localScale=new Vector3(.09f,.055f,.32f);g.GetComponent<Renderer>().sharedMaterial=mat;UnityEngine.Object.DestroyImmediate(g.GetComponent<Collider>());}
+  foreach(var p in new[]{new Vector3(-.9f,2.91f,-5.6f),new Vector3(2.1f,2.91f,-10.75f)}){var g=GameObject.CreatePrimitive(PrimitiveType.Cube);g.name="Return / task canopy ceiling mount";g.transform.SetParent(parent);g.transform.position=p;g.transform.localScale=new Vector3(.065f,.35f,.065f);g.GetComponent<Renderer>().sharedMaterial=mat;UnityEngine.Object.DestroyImmediate(g.GetComponent<Collider>());}
+  EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();
+  File.AppendAllText("Docs/VisualEvidence/2026-10-02-Legibility/authoring.txt","Hub camera refinement: shorter destination wording at reception, frame standoffs and ceiling mounts; no new collider or guide timing changes.\n");
+ }
+}

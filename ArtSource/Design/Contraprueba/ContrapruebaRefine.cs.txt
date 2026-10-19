@@ -1,0 +1,24 @@
+using System;using System.Linq;using System.Collections.Generic;using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine;using EchoProtocol.Presentation;using Object=UnityEngine.Object;
+public static class ContrapruebaRefine {
+ static Transform root;static Transform Find(string n)=>root.GetComponentsInChildren<Transform>(true).Single(t=>t.name==n);
+ static Bounds B(GameObject g){var rr=g.GetComponentsInChildren<Renderer>();var b=rr[0].bounds;foreach(var r in rr)b.Encapsulate(r.bounds);return b;}
+ static void Fit(string name,string path,Vector3 p,float yaw,float height,bool solid=true){var g=Find(name).gameObject;var asset=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Art/Models/"+path+".fbx");g.transform.localScale=asset.transform.localScale;g.transform.rotation=Quaternion.Euler(0,yaw,0)*asset.transform.localRotation;g.transform.position=Vector3.zero;g.transform.localScale*=height/B(g).size.y;var b=B(g);g.transform.position+=p-new Vector3(b.center.x,b.min.y,b.center.z);b=B(g);if(solid){var c=new GameObject(name+" / solid footprint").AddComponent<BoxCollider>();c.transform.SetParent(root,true);c.transform.position=b.center;c.size=new Vector3(b.size.x*.86f,b.size.y*.95f,b.size.z*.86f);}}
+ public static object Main(){if(EditorApplication.isPlaying)throw new Exception("Edit required");root=Object.FindObjectsByType<Transform>(FindObjectsInactive.Include,FindObjectsSortMode.None).Single(t=>t.name=="Contraprueba / authored chapter");
+ Fit("A witness table lamp","Campaign/EP_LampTable",new Vector3(-4.36f,0,36.5f),270,1.38f);
+ Fit("A empty worn armchair","Overhaul/EP_OV_Armchair",new Vector3(-4.38f,0,34.1f),270,1.03f);
+ Fit("Control desk","RecoveryOffice/EP_RO_ReviewDesk",new Vector3(-11.2f,0,33.45f),180,.80f);
+ Fit("Displaced observer chair","ReceptionLife/EP_RL_ClericalChair",new Vector3(-10.6f,0,34.25f),32,.9f);
+ Fit("Calibration records cabinet","Campaign/EP_ArchiveCabinet",new Vector3(-15.45f,0,33.45f),90,1.55f);
+ Fit("Service case","SE2Service/EP_SE2_ServiceCase",new Vector3(-15.45f,0,38.3f),90,.94f);
+ Fit("Transfer cabinet","PressurePlant/EP_PP_ServiceCabinet",new Vector3(-11.25f,0,42.15f),0,1.75f);
+ Fit("Empty transfer trolley","Campaign/EP_Trolley",new Vector3(-13.3f,0,43.65f),-14,.91f);
+ foreach(var l in root.GetComponentsInChildren<Light>(true)){if(l.name.EndsWith("room light")||l.name=="Origin reception light"||l.name=="Service passage light"){l.intensity=13;l.spotAngle=122;l.innerSpotAngle=88;}else if(l.name.Contains("work light"))l.intensity=7;else if(l.name=="Low return pool")l.intensity=3.4f;else if(l.name=="A witness warm lamp")l.intensity=7.5f;}
+ // Per-face construction scale; repeated texture is stored and reapplied on load.
+ foreach(var r in root.GetComponentsInChildren<MeshRenderer>(true)){if(r.sharedMaterial&&new[]{"CP_OldIvory","CP_MineralFloor","CP_AcousticCeiling","CP_ServiceEnamel"}.Contains(r.sharedMaterial.name)){var s=r.transform.lossyScale;var ordered=new[]{Mathf.Abs(s.x),Mathf.Abs(s.y),Mathf.Abs(s.z)}.OrderByDescending(v=>v).ToArray();var map=r.GetComponent<SurfaceMapping>()??r.gameObject.AddComponent<SurfaceMapping>();map.Configure(r,new Vector2(ordered[0]/2f,ordered[1]/2f));}}
+ // The first choice is made before the opaque divider. Keep its sign low enough
+ // to read at the actual eye height and both routes free of floating panels.
+ Find("Chapter threshold").position=new Vector3(-7.7f,2.52f,31.98f);Find("Chapter threshold / physical plate").position=new Vector3(-7.7f,2.52f,32.0f);
+ Find("Entry circuit diagram").position=new Vector3(-8.2f,1.78f,32.12f);Find("Entry circuit diagram / physical plate").position=new Vector3(-8.2f,1.78f,32.14f);
+ Physics.SyncTransforms();EditorSceneManager.MarkSceneDirty(root.gameObject.scene);EditorSceneManager.SaveScene(root.gameObject.scene);AssetDatabase.SaveAssets();
+ return Newtonsoft.Json.JsonConvert.SerializeObject(new {fixedProps=8,fixturePower=13,root=root.name});}
+}

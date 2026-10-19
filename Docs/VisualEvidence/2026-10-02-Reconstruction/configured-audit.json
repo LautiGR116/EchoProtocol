@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Reconstruction.unity",
+  "missingScripts": 0,
+  "mesh": "Assets/_Game/Art/Models/Reconstruction/EP_ReconstructedAdult.fbx",
+  "vertices": 72859,
+  "triangles": 142952,
+  "meshBounds": [
+    0.00579127762,
+    0.0034176074,
+    0.0179910418
+  ],
+  "bodyLocalScale": [
+    100.0,
+    100.0,
+    100.0
+  ],
+  "materials": [
+    "M_Record_FIG_Skin",
+    "M_Record_FIG_Trousers",
+    "M_Record_FIG_Jacket",
+    "M_Record_FIG_Eye",
+    "M_Record_FIG_Iris",
+    "M_Record_FIG_Hair",
+    "M_Record_FIG_Shoe",
+    "M_Record_FIG_Sole",
+    "M_Record_FIG_Stitch",
+    "M_Record_FIG_Metal"
+  ],
+  "recordedChannels": "Root position/body yaw only; no Animator or AudioSource",
+  "p1CooperationSeconds": 0.65,
+  "p3Receivers": [
+    {
+      "name": "P3 receiver A",
+      "FinalReceiver": false,
+      "position": [
+        -6.51,
+        1.27,
+        34.74
+      ]
+    },
+    {
+      "name": "P3 receiver B",
+      "FinalReceiver": true,
+      "position": [
+        -6.51,
+        1.27,
+        42.91
+      ]
+    }
+  ],
+  "firstHintSeconds": 45,
+  "nextHintSeconds": 65,
+  "shaderSupported": true,
+  "shaderMessages": [],
+  "saveKey": "EP.CampaignCheckpoint.Reconstruction.v1",
+  "buildScenes": [
+    "Assets/_Game/Scenes/Production/EchoProtocol_Reconstruction.unity"
+  ]
+}

@@ -1,0 +1,10 @@
+One initial prior-act/lighting/pose fixture; actual physical input thereafter. Camera.Render while stopped; no human discovery, listening or frame-time claim.
+00-entry position=(0.00, 1.63, -26.00) rotation=(0.00, 180.00, 0.00)
+01-approach position=(4.35, 1.63, -32.93) rotation=(0.00, 180.00, 0.00)
+02-ready position=(4.35, 1.63, -35.38) rotation=(7.99, 105.54, 0.00)
+03-latched position=(4.35, 1.63, -35.38) rotation=(7.99, 105.54, 0.00)
+04-stopped position=(4.35, 1.63, -35.38) rotation=(7.99, 105.54, 0.00)
+05-aisle-entry position=(4.60, 1.63, -36.74) rotation=(0.00, 180.00, 0.00)
+06-between-machines position=(4.60, 1.63, -40.13) rotation=(0.00, 180.00, 0.00)
+07-second-machine position=(4.60, 1.63, -43.92) rotation=(0.00, 180.00, 0.00)
+08-exit position=(0.07, 1.63, -45.94) rotation=(0.00, 180.00, 0.00)

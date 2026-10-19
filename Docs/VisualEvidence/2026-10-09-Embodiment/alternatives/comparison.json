@@ -1,0 +1,150 @@
+{
+  "status": "RENDERED",
+  "camera": "Main Camera",
+  "fieldOfView": 60.0,
+  "width": 1280,
+  "height": 720,
+  "scope": "Editor render fixtures: actual Player camera, identical hub location, existing scene lights. This is a visual alternatives comparison, not a campaign playthrough.",
+  "alternatives": [
+    {
+      "choice": "baseline",
+      "renderers": [
+        {
+          "name": "Silhouette",
+          "bounds": "Center: (0.00, 0.93, -8.00), Extents: (0.32, 0.90, 0.32)",
+          "materials": [
+            "M_EchoGreybox"
+          ]
+        },
+        {
+          "name": "Facing Marker",
+          "bounds": "Center: (0.00, 1.48, -8.36), Extents: (0.08, 0.06, 0.05)",
+          "materials": [
+            "M_EchoGreybox"
+          ]
+        },
+        {
+          "name": "Campaign RecordedFigure",
+          "bounds": "Center: (0.00, 0.94, -8.02), Extents: (0.34, 0.90, 0.17)",
+          "materials": [
+            "M_EchoFigure"
+          ]
+        },
+        {
+          "name": "RecordedAdultSurface",
+          "bounds": "Center: (0.00, 0.88, -8.05), Extents: (0.33, 0.95, 0.29)",
+          "materials": [
+            "M_Record_FIG_Skin",
+            "M_Record_FIG_Trousers",
+            "M_Record_FIG_Jacket",
+            "M_Record_FIG_Eye",
+            "M_Record_FIG_Iris",
+            "M_Record_FIG_Hair",
+            "M_Record_FIG_Shoe",
+            "M_Record_FIG_Sole",
+            "M_Record_FIG_Stitch",
+            "M_Record_FIG_Metal"
+          ]
+        },
+        {
+          "name": "Recorded skinned self depth",
+          "bounds": "Center: (0.00, 0.88, -8.05), Extents: (0.33, 0.95, 0.29)",
+          "materials": [
+            "M_RecordDepth",
+            "M_RecordDepth",
+            "M_RecordDepth",
+            "M_RecordDepth",
+            "M_RecordDepth",
+            "M_RecordDepth",
+            "M_RecordDepth",
+            "M_RecordDepth",
+            "M_RecordDepth",
+            "M_RecordDepth"
+          ]
+        }
+      ]
+    },
+    {
+      "choice": "worked-base",
+      "renderers": [
+        {
+          "name": "Silhouette",
+          "bounds": "Center: (0.00, 0.93, -8.00), Extents: (0.32, 0.90, 0.32)",
+          "materials": [
+            "Universal Render Pipeline/Lit"
+          ]
+        },
+        {
+          "name": "Facing Marker",
+          "bounds": "Center: (0.00, 1.48, -8.36), Extents: (0.08, 0.06, 0.05)",
+          "materials": [
+            "Universal Render Pipeline/Lit"
+          ]
+        },
+        {
+          "name": "Campaign RecordedFigure",
+          "bounds": "Center: (0.00, 0.94, -8.02), Extents: (0.34, 0.90, 0.17)",
+          "materials": [
+            "Universal Render Pipeline/Lit"
+          ]
+        },
+        {
+          "name": "RecordedAdultSurface",
+          "bounds": "Center: (0.00, 0.88, -8.05), Extents: (0.33, 0.95, 0.29)",
+          "materials": [
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit"
+          ]
+        },
+        {
+          "name": "Recorded skinned self depth",
+          "bounds": "Center: (0.00, 0.88, -8.05), Extents: (0.33, 0.95, 0.29)",
+          "materials": [
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit",
+            "Universal Render Pipeline/Lit"
+          ]
+        }
+      ]
+    },
+    {
+      "choice": "Eric",
+      "renderers": [
+        {
+          "name": "rp_eric_rigged_001_geo",
+          "bounds": "Center: (0.03, 0.93, -8.09), Extents: (0.40, 0.92, 0.50)",
+          "materials": [
+            "M_Eric"
+          ]
+        }
+      ]
+    },
+    {
+      "choice": "Nathan",
+      "renderers": [
+        {
+          "name": "rp_nathan_animated_003_walking_geo",
+          "bounds": "Center: (0.00, 0.94, -8.11), Extents: (0.32, 0.92, 0.48)",
+          "materials": [
+            "M_Nathan"
+          ]
+        }
+      ]
+    }
+  ]
+}

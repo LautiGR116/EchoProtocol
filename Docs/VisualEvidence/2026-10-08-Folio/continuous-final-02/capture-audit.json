@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "gameplayRouteStatus": "FAIL Contraprueba_record: Unexpected pause. No auto-resume was performed; keep the Game view focused and rerun from a fresh title.",
+  "scope": "Actual post-session mix, no normalization or source soloing. Checks capture completeness and digital samples only; not voice/localization/comfort approval or proof of OS/hardware output.",
+  "rate": 48000,
+  "channels": 2,
+  "dropped": 0,
+  "shapeMismatch": 0,
+  "bufferStarved": 0,
+  "writerJoined": true,
+  "sampleCountMatches": true,
+  "clippedSamples": 0,
+  "peakDbFS": -5.187855648793352,
+  "rmsDbFS": -35.98798996451933,
+  "cueCount": 1,
+  "recalls": 2,
+  "sourcePlays": {
+    "Internal score / recognition": 1,
+    "Internal score / release": 0,
+    "P3 / metal beyond the transfer wall": 0,
+    "Plant / air in fixed riser": 1,
+    "Plant / contracting upper pipe": 0,
+    "Plant / distant voice beyond the shaft grille": 0,
+    "Records / moving friction beyond the back wall": 0,
+    "Telephone / live line at actual receiver": 0
+  },
+  "frameMeanMs": 7.452584,
+  "frameP95Ms": 14.25917
+}

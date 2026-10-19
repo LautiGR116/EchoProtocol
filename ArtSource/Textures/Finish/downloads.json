@@ -1,0 +1,137 @@
+[
+  {
+    "asset": "decrepit_wallpaper",
+    "map": "Diffuse",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/decrepit_wallpaper/decrepit_wallpaper_diff_1k.jpg",
+    "bytes": 814172,
+    "sha256": "895823967eba5296c0928694d1299964aa1884184215c510515fb246f5bbe4ec",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/decrepit_wallpaper"
+  },
+  {
+    "asset": "decrepit_wallpaper",
+    "map": "nor_gl",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/decrepit_wallpaper/decrepit_wallpaper_nor_gl_1k.jpg",
+    "bytes": 691701,
+    "sha256": "dcb75f00c055b23f82250ef5c7ced71a5e28e197a563ff69011d8deb2c45a83c",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/decrepit_wallpaper"
+  },
+  {
+    "asset": "decrepit_wallpaper",
+    "map": "Rough",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/decrepit_wallpaper/decrepit_wallpaper_rough_1k.jpg",
+    "bytes": 402582,
+    "sha256": "25dd0dfc2021fe98fa40fbeaed8e634e420c2a34fa9227f36525d56b01cec22d",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/decrepit_wallpaper"
+  },
+  {
+    "asset": "old_linoleum_flooring_01",
+    "map": "Diffuse",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/old_linoleum_flooring_01/old_linoleum_flooring_01_diff_1k.jpg",
+    "bytes": 677917,
+    "sha256": "ad6a77cea42a24b94da2e7436e85db154e52644e37743f5907acd20482ece6b9",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/old_linoleum_flooring_01"
+  },
+  {
+    "asset": "old_linoleum_flooring_01",
+    "map": "nor_gl",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/old_linoleum_flooring_01/old_linoleum_flooring_01_nor_gl_1k.jpg",
+    "bytes": 387519,
+    "sha256": "3509df9f71940e60df85e0b2a2d46951434958f89728393bdb92860b4e5ad70f",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/old_linoleum_flooring_01"
+  },
+  {
+    "asset": "old_linoleum_flooring_01",
+    "map": "Rough",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/old_linoleum_flooring_01/old_linoleum_flooring_01_rough_1k.jpg",
+    "bytes": 461548,
+    "sha256": "f09f4cd96334298c6fadde4f9f4d0b545a84181e3654259ad6036396c51de5a8",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/old_linoleum_flooring_01"
+  },
+  {
+    "asset": "wood_floor_worn",
+    "map": "Diffuse",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_floor_worn/wood_floor_worn_diff_1k.jpg",
+    "bytes": 629271,
+    "sha256": "db386853009b92b9edd7255b35c9f7b0d4b7de16837a7a9da8422148754bc758",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/wood_floor_worn"
+  },
+  {
+    "asset": "wood_floor_worn",
+    "map": "nor_gl",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_floor_worn/wood_floor_worn_nor_gl_1k.jpg",
+    "bytes": 636603,
+    "sha256": "f428496e5d6c726d17d9ecea29c0acd8660348630acf791cea7bdd7f3c6e262b",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/wood_floor_worn"
+  },
+  {
+    "asset": "wood_floor_worn",
+    "map": "Rough",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_floor_worn/wood_floor_worn_rough_1k.jpg",
+    "bytes": 290570,
+    "sha256": "9d7492db1197f1386466dfd7dd43f692446166c1433ddeebf66c10e8b226a6d0",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/wood_floor_worn"
+  },
+  {
+    "asset": "grey_plaster",
+    "map": "Diffuse",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/grey_plaster/grey_plaster_diff_1k.jpg",
+    "bytes": 704079,
+    "sha256": "dcf34c5f3801cc43189f0edae3c430b602c827956e9d6ce4b89a85e53e952da9",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/grey_plaster"
+  },
+  {
+    "asset": "grey_plaster",
+    "map": "nor_gl",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/grey_plaster/grey_plaster_nor_gl_1k.jpg",
+    "bytes": 355288,
+    "sha256": "85fe18209cb354b582003892898ee0cd6fe6b853644e01983718fc011140c0c2",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/grey_plaster"
+  },
+  {
+    "asset": "grey_plaster",
+    "map": "Rough",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/grey_plaster/grey_plaster_rough_1k.jpg",
+    "bytes": 635335,
+    "sha256": "67566b1b5ee25502596916303c246b08d47725b8a697283cfdc1494e6f659aa2",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/grey_plaster"
+  },
+  {
+    "asset": "painted_plaster_wall",
+    "map": "Diffuse",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/painted_plaster_wall/painted_plaster_wall_diff_1k.jpg",
+    "bytes": 686726,
+    "sha256": "440310f05af089f2c93353167573403cbc3f805948203237b5d26431eeb9e19c",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/painted_plaster_wall"
+  },
+  {
+    "asset": "painted_plaster_wall",
+    "map": "nor_gl",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/painted_plaster_wall/painted_plaster_wall_nor_gl_1k.jpg",
+    "bytes": 900461,
+    "sha256": "8eb01647d126eb5341e2c325821ad48c8ca11349dbef53447c95422c5d91cc9d",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/painted_plaster_wall"
+  },
+  {
+    "asset": "painted_plaster_wall",
+    "map": "Rough",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/painted_plaster_wall/painted_plaster_wall_rough_1k.jpg",
+    "bytes": 354762,
+    "sha256": "e0564c297b22ab1cf4ef02a82157b84ce3b92eb4fd49d9c64b7256a8b300af82",
+    "license": "CC0 1.0",
+    "page": "https://polyhaven.com/a/painted_plaster_wall"
+  }
+]

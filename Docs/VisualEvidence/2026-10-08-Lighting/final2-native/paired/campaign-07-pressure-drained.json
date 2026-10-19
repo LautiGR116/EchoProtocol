@@ -1,0 +1,16 @@
+{
+    "label": "campaign-07-pressure-drained",
+    "state": "Pressure|house:False/False/Hall|pressure:True/True|P3:0.00",
+    "position": {
+        "x": 4.606541633605957,
+        "y": 1.6299999952316285,
+        "z": -43.92837905883789
+    },
+    "rotation": {
+        "x": -9.930923281679048e-31,
+        "y": -1.0,
+        "z": 1.403058855239591e-23,
+        "w": -7.078051567077637e-8
+    },
+    "fov": 60.0
+}

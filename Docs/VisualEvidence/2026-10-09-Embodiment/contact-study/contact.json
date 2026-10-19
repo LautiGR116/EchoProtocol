@@ -1,0 +1,9 @@
+{
+  "status": "STUDIED",
+  "scope": "Explicit Editor pose fixtures, actual Player camera and scene lighting; pump position is authored route standing point, no input route claim.",
+  "contact": {
+    "hand": "(5.5489, 1.4412, -35.7589)",
+    "grip": "(5.6377, 1.4421, -35.7397)",
+    "wristDistance": 0.0907944962
+  }
+}

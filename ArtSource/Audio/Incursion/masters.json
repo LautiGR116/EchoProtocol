@@ -1,0 +1,73 @@
+[
+  {
+    "file": "Threat_AttackVoice.wav",
+    "sources": [
+      "ArtSource/Audio/Resonance/Decoded/scream-325548_2826150-hq.wav",
+      "Archeos 325548; CC0 existing Resonance source manifest"
+    ],
+    "license": "CC0 1.0; existing repository source trail",
+    "date": "2026-10-11",
+    "model": null,
+    "voice": "Archeos original adult performance",
+    "edit": "Original adult pitch. Two dry efforts cut from 0.86\u20131.39 and 1.72\u20132.04 s, 45 ms separation, 6 ms attack, no room wash. Attached to recognized-player launch; human performance approval pending.",
+    "seconds": 0.895,
+    "peakDb": -5.036239459208016,
+    "rmsDb": -22.839104010172278,
+    "loop": false,
+    "sha256": "a2d1f42a8c38d7ef4162e25a412fd2311c0cd1ab5cd280ce6b26519aed594ce4",
+    "generation": null
+  },
+  {
+    "file": "Threat_RecognitionVoice.wav",
+    "sources": [
+      "ArtSource/Audio/Resonance/Decoded/scream-325548_2826150-hq.wav",
+      "Archeos 325548; CC0"
+    ],
+    "license": "CC0 1.0; existing repository source trail",
+    "date": "2026-10-11",
+    "model": null,
+    "voice": "Archeos original adult performance",
+    "edit": "Original early adult strain, 0.32\u20130.82 s. Recognition and pump-listening change, lower level; no speech or fabricated Echo channel.",
+    "seconds": 0.5,
+    "peakDb": -12.7654447805358,
+    "rmsDb": -27.929471312296634,
+    "loop": false,
+    "sha256": "91cbb844900ffe901009b8ee442863a343e5d39af301e36e1fe025dcc8db98ad",
+    "generation": null
+  },
+  {
+    "file": "Threat_PursuitVoice.wav",
+    "sources": [
+      "ArtSource/Audio/Resonance/Decoded/scream-325548_2826150-hq.wav",
+      "Archeos 325548; CC0"
+    ],
+    "license": "CC0 1.0; existing repository source trail",
+    "date": "2026-10-11",
+    "model": null,
+    "voice": "Archeos original adult performance",
+    "edit": "Original late voiced effort, 2.20\u20132.65 s. Deterministic short pursuit efforts, stopped during pump diversion; no pitch shift.",
+    "seconds": 0.45,
+    "peakDb": -9.629721201569799,
+    "rmsDb": -23.51322171759928,
+    "loop": false,
+    "sha256": "eb4d240fb65930347e27e4745e33854a883644a2f091554325bc8b0ec5c98cb7",
+    "generation": null
+  },
+  {
+    "file": "Threat_CaptureContact.wav",
+    "sources": [
+      "Brian MacIntosh mechanical-clank1.wav; existing CC0 manifest"
+    ],
+    "license": "CC0 1.0; existing repository source trail",
+    "date": "2026-10-11",
+    "model": null,
+    "voice": null,
+    "edit": "Short low-mid physical capture contact, 290 ms; no long metallic tail into retry.",
+    "seconds": 0.2899791666666667,
+    "peakDb": -9.118639111479187,
+    "rmsDb": -28.09106674646418,
+    "loop": false,
+    "sha256": "f9f7b59e926f795605e7c853e6e6cc65e185a514e601cda57dc1fbbd9119c16d",
+    "generation": null
+  }
+]

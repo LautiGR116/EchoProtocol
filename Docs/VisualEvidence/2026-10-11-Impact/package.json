@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "dateUTC": "2026-10-11T21:38:15.892524+00:00",
+  "zip": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Impact-20261011.zip",
+  "sha256": "7388d105c7c0c9be5fb72aa6f0e95bd82736902324d46da2d6bffc361f67f0c6",
+  "bytes": 146492414,
+  "regularFilesMatched": 205,
+  "zipCRC": "all entries pass",
+  "executablePermissionRetained": true,
+  "strictAdHocSignature": "PASS original and ZIP-extracted app",
+  "architectures": [
+    "x86_64",
+    "arm64"
+  ],
+  "notarized": false,
+  "preserved": {
+    "Embodiment-20261009": "0b5971ea4a0329ca5f6480d6bb37ec1b074e886db5d37ad1176aefa8a521b1f5",
+    "Coverage-20261009": "5e36228a8457253ef66abc22ec5dd292dc9615b2dd7b968f008b52ccb2025f88"
+  }
+}

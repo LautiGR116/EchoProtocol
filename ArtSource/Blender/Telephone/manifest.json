@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-01",
+  "authorship": "Original project geometry and material values; no third-party model, texture, font or service.",
+  "axis_contract": "Source Xwidth,-Yfront,Zup. FBX -Z/+Y; Unity negate imported root X once, retain import rotation and scale. Corrected(X,Z,-Y).",
+  "materials": {
+    "PH_Bakelite": {
+      "color": [
+        0.034,
+        0.025,
+        0.019,
+        1
+      ],
+      "roughness": 0.31,
+      "metallic": 0
+    },
+    "PH_Rim": {
+      "color": [
+        0.068,
+        0.05,
+        0.034,
+        1
+      ],
+      "roughness": 0.37,
+      "metallic": 0
+    },
+    "PH_Rubber": {
+      "color": [
+        0.013,
+        0.015,
+        0.012,
+        1
+      ],
+      "roughness": 0.66,
+      "metallic": 0
+    },
+    "PH_Nickel": {
+      "color": [
+        0.29,
+        0.27,
+        0.22,
+        1
+      ],
+      "roughness": 0.34,
+      "metallic": 0.78
+    },
+    "PH_Ivory": {
+      "color": [
+        0.66,
+        0.56,
+        0.37,
+        1
+      ],
+      "roughness": 0.57,
+      "metallic": 0
+    },
+    "PH_Ink": {
+      "color": [
+        0.024,
+        0.031,
+        0.027,
+        1
+      ],
+      "roughness": 0.6,
+      "metallic": 0
+    }
+  },
+  "total_triangles": 17560,
+  "assets": {
+    "RotaryTelephone": {
+      "file": "exports/EP_PH_RotaryTelephone.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.14949999749660492,
+          0.14799998700618744
+        ],
+        [
+          -0.11760050058364868,
+          0.11760049313306808
+        ],
+        [
+          0.0,
+          0.23000000417232513
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.29749998450279236,
+        0.23520099371671677,
+        0.23000000417232513
+      ],
+      "materials": [
+        "PH_Bakelite",
+        "PH_Ink",
+        "PH_Ivory",
+        "PH_Nickel",
+        "PH_Rim",
+        "PH_Rubber"
+      ],
+      "mesh_objects": [
+        {
+          "name": "TelephoneBody",
+          "vertices": 7352,
+          "triangles": 14392,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        {
+          "name": "TelephoneHandset",
+          "vertices": 1632,
+          "triangles": 3168,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "anchors_blender_xyz": {
+        "RotaryTelephone__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "RotaryTelephone__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "RotaryTelephone__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "RotaryTelephone__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "RotaryTelephone__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "RotaryTelephone__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ],
+        "RotaryTelephone__TABLE_CONTACT": [
+          0,
+          0,
+          0
+        ],
+        "RotaryTelephone__HANDSET_REST": [
+          0.0,
+          0.06499999761581421,
+          0.1940000057220459
+        ],
+        "RotaryTelephone__HANDSET_OFFHOOK": [
+          -0.232,
+          -0.018,
+          0.063
+        ],
+        "RotaryTelephone__CORD_BASE": [
+          -0.144,
+          0.05,
+          0.061
+        ],
+        "RotaryTelephone__CORD_HANDSET_REST": [
+          -0.151,
+          0.065,
+          0.181
+        ]
+      },
+      "notes": "Original brandless rotary phone. Body and handset separate. Handset pivot at HANDSET_REST; rotate +90deg sourceZ and place at HANDSET_OFFHOOK for tabletop rest. Runtime cord is separate and follows both physical endpoints. No dial interaction or voice implied."
+    }
+  }
+}

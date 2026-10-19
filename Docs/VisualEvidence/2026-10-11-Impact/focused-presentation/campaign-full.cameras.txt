@@ -1,0 +1,4 @@
+Actual Player camera; Camera captures omit OnGUI, Game captures include it.
+campaign-00-title position=(0.000, 1.600, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title
+campaign-impact-echo-contact position=(4.305, 1.630, -35.939) euler=(9.19, 45.34, 0.00) FOV=60 paused=False step=coverage_contact_approach
+campaign-impact-hud-countdown-subtitle position=(4.305, 1.630, -35.939) euler=(9.19, 45.34, 0.00) FOV=60 paused=False step=coverage_hud_fixture

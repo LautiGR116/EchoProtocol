@@ -1,0 +1,16 @@
+{
+    "label": "campaign-lighting-exit-before-fade",
+    "state": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00",
+    "position": {
+        "x": -19.08156967163086,
+        "y": 1.6299999952316285,
+        "z": -52.400001525878909
+    },
+    "rotation": {
+        "x": 7.041699490173414e-8,
+        "y": -0.7071068286895752,
+        "z": 7.041700911258886e-8,
+        "w": 0.7071067094802856
+    },
+    "fov": 60.0
+}

@@ -1,0 +1,12 @@
+CONTINUOUS TITLE TO ENDING. Zero fixtures or direct gameplay mutations. Input System keyboard/mouse only. Unexpected pauses fail rather than being resumed.
+PASS [title] Threshold systems exist
+PASS [title] all original-act, new house and new final references exist
+PASS [title] optional recording boundary shares the actual campaign, R3 and loop
+PASS [title] boundary starts unused and its actual Hub arrival guidance is authored
+PASS [title] physical descent guide starts hidden with an explicit Hub arrival volume
+PASS [title] contextual notes reference the actual gameplay systems, excluding inactive legacy studies
+PASS [title] run begins at the actual paused title, before gameplay
+PASS [title] title has no earned progress, saved restoration or prior recording
+PASS [title] Threshold replaces D1 with actual R3 availability
+PASS [title] real look sensitivity is nonzero
+FAIL title: Player pose reset outside a real RECALL, title segment access or deliberate retry.

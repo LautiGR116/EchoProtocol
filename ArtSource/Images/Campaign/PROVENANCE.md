@@ -1,0 +1,7 @@
+# Courtyard painting
+
+Created 2026-09-30 using the built-in OpenAI image generation tool. One original generation, no source image, no named artist, no third-party assets. Selected production texture: `CourtyardPainting.png`; native generated resolution 1536 × 1024. The original generated output remains in Codex generated_images. No external paid service was purchased. Artistic human approval pending.
+
+## Exact prompt
+
+Create a production-ready full-bleed rectangular oil painting texture for an original psychological horror game set in an old Argentine apartment reconstructed inside a clinical institution. This is the painting itself, photographed perfectly straight-on, NOT a scene, NOT a mockup, NO frame, NO wall, NO text or signature. Horizontal 3:2 composition. A quiet empty interior courtyard in Buenos Aires at blue dusk after rain: worn ochre plaster, one dark green wooden doorway, a narrow amber-lit upper window, a wet stone floor reflecting a small warm light, climbing ivy and a simple iron railing. No people, no figures, no monsters, no faces. Emotion: domestic familiarity, loneliness and restrained unease. Beautiful traditional 1940s amateur oil painting, substantial visible brush strokes, subtle age craquelure, dark umber and muted teal with a single subdued amber light; rich midtone detail readable under warm low game lighting. Avoid pure black. Painterly handmade artwork with coherent perspective and balanced composition. Fill every pixel with canvas art, no borders. Entirely original, no imitation of a named artist.

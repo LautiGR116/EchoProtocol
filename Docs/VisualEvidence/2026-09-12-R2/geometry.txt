@@ -1,0 +1,86 @@
+PASS continuous floor 6402 samples missing=0
+PASS P3 A observation glass boundary rays=200 missing=0
+PASS P3 opaque separation boundary rays=350 missing=0
+PASS P3 B observation glass boundary rays=150 missing=0
+PASS P3 lane west boundary boundary rays=710 missing=0
+PASS P3 alternative east boundary boundary rays=710 missing=0
+PASS P3 recording lane terminal wall boundary rays=210 missing=0
+PASS P3 distant hub sealed glazing boundary rays=530 missing=0
+PASS P3 long return north wall boundary rays=910 missing=0
+PASS P3 long return west end boundary rays=240 missing=0
+PASS P3 long return east end boundary rays=240 missing=0
+PASS R2 R1 north sealed glass boundary rays=220 missing=0
+PASS P3 Gate A alternative route solid panel closed cross section misses=0
+PASS P3 Gate B final hold solid panel closed cross section misses=0
+PASS Lane Optical Reader A.m_Script
+PASS Lane Optical Reader A.activeIndicator
+PASS Lane Optical Reader B.m_Script
+PASS Lane Optical Reader B.activeIndicator
+PASS Service Player Reader.m_Script
+PASS Service Player Reader.activeIndicator
+PASS P2 Blind Alignment Reader.m_Script
+PASS P2 Blind Alignment Reader.activeIndicator
+PASS SE3 Return Crossing (+Z toward return).m_Script
+PASS SE3 Return Crossing (+Z toward return).completedObservation
+PASS SE3 Return Crossing (+Z toward return).loopController
+PASS SE3 Return Crossing (+Z toward return).player
+PASS SE3 Return Crossing (+Z toward return).clinicalBaselineRoot
+PASS SE3 Return Crossing (+Z toward return).domesticOverlayRoot
+PASS R1 Central observation station.m_Script
+PASS R1 Central observation station.recoveryHub
+PASS R1 Central observation station.loop
+PASS R1 Central observation station.player
+PASS R1 Central observation station.recallPoint
+PASS R1 Central observation station.activeDisplay
+PASS R1 Central observation station.statusLabel
+PASS R1 Central observation station.galleryAccess
+PASS P3 Reader A.m_Script
+PASS P3 Reader A.activeIndicator
+PASS P3 Reader B.m_Script
+PASS P3 Reader B.activeIndicator
+PASS P3 Recombination Relay.m_Script
+PASS P3 Recombination Relay.readerA
+PASS P3 Recombination Relay.readerB
+PASS P3 Recombination Relay.loop
+PASS P3 Recombination Relay.routeGate
+PASS P3 Recombination Relay.finalGate
+PASS P3 Recombination Relay.authorizationIndicator
+PASS R1 Player return access trigger.m_Script
+PASS R1 Player return access trigger.omittedPassage
+PASS R1 Player return access trigger.player
+PASS R1 Player return access trigger.baselineRoot
+PASS R1 Player return access trigger.hubRoot
+PASS R1 Player return access trigger.accessRoot
+PASS R1 Player return access trigger.domesticResidualRoot
+PASS R1 Player return access trigger.baselineBarrier
+PASS R1 Player return access trigger.observationBarrier
+PASS reset target 0
+PASS reset target 1
+PASS reset target 2
+PASS reset target 3
+PASS reset target 4
+PASS reset target 5
+PASS reset target 6
+PASS reset target 7
+PASS reset target 8
+PASS reset target 9
+PASS reset target 10
+PASS reset target 11
+PASS reset target 12
+PASS reset target 13
+PASS reset target 14
+PASS reset target 15
+PASS reset target 16
+PASS reset target 17
+PASS reset target 18
+PASS reset target 19
+PASS reset target 20
+PASS reset target 21
+PASS reset target 22
+PASS reset target 23
+PASS reset target 24
+PASS reset target 25
+PASS reset target 26
+PASS reset target 27
+PASS reset target 28
+TOTAL passed=85 failed=0

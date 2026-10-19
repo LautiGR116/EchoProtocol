@@ -1,0 +1,133 @@
+{
+  "pass": true,
+  "assets": [
+    {
+      "asset": "ReservePack",
+      "file": "exports/EP_RU_ReservePack.fbx",
+      "bytes": 98252,
+      "sha256": "0fbc9d51edb07b356f06412dcfbcef9de08495419eb1c8bc495ff571a6a0c2e0",
+      "pass": true,
+      "failures": [],
+      "mesh_count": 1,
+      "triangles": 2937,
+      "finite_vertices": true,
+      "bounds_blender_xyz": [
+        [
+          -0.06849999725818634,
+          0.06849999725818634
+        ],
+        [
+          -0.04449998587369919,
+          0.045300018042325974
+        ],
+        [
+          -4.806159914494401e-09,
+          0.2110000103712082
+        ]
+      ],
+      "bounds_error_m": 1.862645149230957e-08,
+      "missing_materials": [],
+      "unexpected_materials": [],
+      "anchor_errors_m": {
+        "ReservePack__ROOT": 0.0,
+        "ReservePack__AXIS_X": 1.4901161138336505e-09,
+        "ReservePack__AXIS_Y": 1.6292068139023286e-08,
+        "ReservePack__AXIS_Z": 1.6292068139023286e-08,
+        "ReservePack__FRONT_BASE": 0.0,
+        "ReservePack__FRONT_TIP": 1.6292068139023286e-08,
+        "ReservePack__BOTTOM": 0.0,
+        "ReservePack__GRIP": 3.2747056621929005e-08,
+        "ReservePack__LABEL_CENTRE": 1.7493963243297994e-08,
+        "ReservePack__READINESS_LENS": 9.387731550458689e-09,
+        "ReservePack__REAR_CONNECTOR": 1.838803291576152e-08
+      },
+      "meshes": [
+        {
+          "name": "ReservePackBody",
+          "vertices": 1535,
+          "triangles": 2937,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": null
+        }
+      ],
+      "checks": {
+        "explicit_root_anchor_present": true,
+        "root_origin_error_m": 0.0
+      }
+    },
+    {
+      "asset": "ReserveDock",
+      "file": "exports/EP_RU_ReserveDock.fbx",
+      "bytes": 93388,
+      "sha256": "6d319567fc17a092c4bb40e2df5a572b8a33fe1ab8589e7a39c8da0a2ab8fb11",
+      "pass": true,
+      "failures": [],
+      "mesh_count": 1,
+      "triangles": 2908,
+      "finite_vertices": true,
+      "bounds_blender_xyz": [
+        [
+          -0.10400000214576721,
+          0.10400000214576721
+        ],
+        [
+          -0.07900001853704453,
+          2.248305186469679e-08
+        ],
+        [
+          -0.16200000047683716,
+          0.1420000046491623
+        ]
+      ],
+      "bounds_error_m": 2.248305186469679e-08,
+      "missing_materials": [],
+      "unexpected_materials": [],
+      "anchor_errors_m": {
+        "ReserveDock__ROOT": 0.0,
+        "ReserveDock__AXIS_X": 1.4901161138336505e-09,
+        "ReserveDock__AXIS_Y": 1.6292068139023286e-08,
+        "ReserveDock__AXIS_Z": 1.6292068139023286e-08,
+        "ReserveDock__FRONT_BASE": 0.0,
+        "ReserveDock__FRONT_TIP": 1.6292068139023286e-08,
+        "ReserveDock__WALL_PLANE": 0.0,
+        "ReserveDock__DOCKED_PACK_BOTTOM": 1.5139579770395706e-08,
+        "ReserveDock__LABEL_CENTRE": 1.9073486328541334e-08,
+        "ReserveDock__EMPTY_SOCKET_CENTRE": 4.8279762271397075e-09
+      },
+      "meshes": [
+        {
+          "name": "ReserveDockBody",
+          "vertices": 1512,
+          "triangles": 2908,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": null
+        }
+      ],
+      "checks": {
+        "explicit_root_anchor_present": true,
+        "root_origin_error_m": 0.0
+      }
+    }
+  ],
+  "assembly": {
+    "side_rail_clearance_m": 0.0035000027418136542,
+    "seat_gap_m": 0.0005000000000000004,
+    "rear_wall_clearance_m": 0.03570000058412552,
+    "pass": true
+  },
+  "scope": "Independent FBX reimport; finite geometry/materials/UV/anchors/bounds and numerical dock fit. No gameplay or human visual acceptance."
+}

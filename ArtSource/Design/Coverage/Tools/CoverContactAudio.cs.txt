@@ -1,0 +1,12 @@
+using System;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using EchoProtocol.Campaign;
+public static class CoverContactAudio {
+public static string Main(){
+if(EditorApplication.isPlaying)throw new Exception("Stopped scene required");
+var template=GameObject.Find("Coverage / actual detent").GetComponent<AudioSource>();
+foreach(var w in UnityEngine.Object.FindObjectsByType<MachineCoverInteraction>(FindObjectsSortMode.None)){
+var g=new GameObject(w.name+" / physical work contact");g.transform.SetParent(w.transform);g.transform.localPosition=Vector3.zero;
+var s=g.AddComponent<AudioSource>();s.clip=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Resonance/Contact_Closed.wav");s.outputAudioMixerGroup=template.outputAudioMixerGroup;s.playOnAwake=false;s.spatialBlend=1;s.rolloffMode=AudioRolloffMode.Logarithmic;s.minDistance=1;s.maxDistance=14;s.volume=.045f;
+var so=new SerializedObject(w);so.FindProperty("workContact").objectReferenceValue=s;so.ApplyModifiedPropertiesWithoutUndo();
+}
+var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);return "Real manual work emits contact from the physical handle; no new recording audio channel.";
+}}

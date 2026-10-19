@@ -1,0 +1,10 @@
+{
+  "dateUTC": "2026-10-02T20:32:20.410641+00:00",
+  "scene": "Assets/_Game/Scenes/Production/EchoProtocol_EncounterArt.unity",
+  "sceneSha256": "b2f49bf02dffab151ea3b7bdb8e68daa878b88aee5cc338d0b4aeb6a7362fea0",
+  "zip": "Builds/EchoProtocol-EncounterArt-20261002.zip",
+  "zipSha256": "8e86f89d20e6f3b358cc111ef94081d668c1004ef56898ffd79dec4a23cb9606",
+  "recoverableSource": "/Users/lautigr116/EchoProtocol-backups/encounter-art-checkpoint-20261002",
+  "sourceArchiveSha256": "bc2a31da9ecb05e3746bee65ad2acd3cc0192afc6d97c3067a237c8526291ac9",
+  "scope": "Baseline preserved. Current goal explicitly rejects prior Echo appearance and supersedes earlier puzzle approvals."
+}

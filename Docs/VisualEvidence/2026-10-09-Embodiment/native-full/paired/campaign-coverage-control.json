@@ -1,0 +1,16 @@
+{
+    "label": "campaign-coverage-control",
+    "state": "Pressure|house:False/False/Hall|pressure:False/False|P3:0.00",
+    "position": {
+        "x": 4.547245502471924,
+        "y": 1.6299999952316285,
+        "z": -35.82154083251953
+    },
+    "rotation": {
+        "x": -0.16457729041576386,
+        "y": -0.6627761721611023,
+        "z": 0.1526905596256256,
+        "w": -0.7143722772598267
+    },
+    "fov": 60.0
+}

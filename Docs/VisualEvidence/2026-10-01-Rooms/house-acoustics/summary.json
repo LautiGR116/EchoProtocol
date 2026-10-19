@@ -1,0 +1,73 @@
+{
+  "framesLogged": 4119,
+  "pausedFrames": 72,
+  "pauseCutoffs": [
+    [
+      "1873.2260",
+      "1600.0000"
+    ]
+  ],
+  "lastRowWithinNamedStep": {
+    "hall_phone_blocked": {
+      "eye_x": "0.0000",
+      "eye_y": "1.6300",
+      "eye_z": "-53.9194",
+      "phone_blocked": "True",
+      "phone_hz": "1600.0000",
+      "fridge_blocked": "True",
+      "fridge_hz": "1600.0000",
+      "phone_playing": "False",
+      "fridge_playing": "True",
+      "answered": "False"
+    },
+    "inside_parlor": {
+      "eye_x": "-0.0816",
+      "eye_y": "1.6300",
+      "eye_z": "-52.4039",
+      "phone_blocked": "False",
+      "phone_hz": "21999.9900",
+      "fridge_blocked": "True",
+      "fridge_hz": "1600.0000",
+      "phone_playing": "True",
+      "fridge_playing": "True",
+      "answered": "False"
+    },
+    "hall_between_rooms": {
+      "eye_x": "-0.0485",
+      "eye_y": "1.6300",
+      "eye_z": "-55.9170",
+      "phone_blocked": "True",
+      "phone_hz": "1600.0000",
+      "fridge_blocked": "True",
+      "fridge_hz": "1600.0000",
+      "phone_playing": "True",
+      "fridge_playing": "True",
+      "answered": "False"
+    },
+    "inside_kitchen": {
+      "eye_x": "-3.4143",
+      "eye_y": "1.6300",
+      "eye_z": "-58.1487",
+      "phone_blocked": "True",
+      "phone_hz": "1600.0000",
+      "fridge_blocked": "False",
+      "fridge_hz": "21999.9900",
+      "phone_playing": "False",
+      "fridge_playing": "True",
+      "answered": "False"
+    },
+    "actual_answer": {
+      "eye_x": "-3.3793",
+      "eye_y": "1.6300",
+      "eye_z": "-51.9592",
+      "phone_blocked": "False",
+      "phone_hz": "21999.9900",
+      "fridge_blocked": "True",
+      "fridge_hz": "1600.0000",
+      "phone_playing": "False",
+      "fridge_playing": "False",
+      "answered": "True"
+    }
+  },
+  "note": "Last rows may include the subsequent unlabelled transition. Use cameras.txt for exact capture poses."
+}

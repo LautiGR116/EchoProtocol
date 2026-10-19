@@ -1,0 +1,8 @@
+{
+  "name": "departure-approach",
+  "position": "(-19.06, 1.63, -52.40)",
+  "yaw": 270.0,
+  "pitch": 0.0,
+  "ambient": 0.0015,
+  "scope": "Render-only camera fixture at observed final-native actual motion coordinates; before/after refinement4 local sources only. No gameplay movement; final state not activated in this isolated view. Must verify in continuous native route."
+}

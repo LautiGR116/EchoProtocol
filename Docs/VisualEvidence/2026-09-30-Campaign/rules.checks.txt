@@ -1,0 +1,37 @@
+PASS fresh D1 unavailable and hidden
+PASS revision sign hidden before R3
+PASS fresh R3 and Hub reverse gate solid and closed
+PASS fresh session menu pauses time
+PASS campaign begins in protocol act
+PASS fresh baseline sealed, P3 inactive and anchor rejects Player
+PASS ray reaches PressureOrigin
+PASS station available PressureOrigin
+PASS pressure chapter starts
+PASS Player alone cannot pressurize chamber
+PASS real R completed once
+PASS short take cannot complete valves
+PASS real R completed once
+PASS real Echo creates full pressure
+PASS ray reaches ValveA
+PASS station available ValveA
+PASS pause freezes valve work and actual Echo
+PASS looking away cancels unfinished valve
+PASS ray reaches ValveA
+PASS station available ValveA
+PASS first sustained valve completes
+PASS Echo exhaustion removes pressure but retains completed valve
+PASS ray reaches ValveB
+PASS station available ValveB
+PASS unpowered second valve rejects work
+PASS real R completed once
+PASS real R completed once
+PASS replacement take preserves physical valve progress
+PASS ray reaches ValveB
+PASS station available ValveB
+PASS second sustained valve completes
+PASS ray reaches HouseOrigin
+PASS station available HouseOrigin
+PASS house exploration suspends automatic recall
+PASS ray reaches NoteArrival
+PASS station available NoteArrival
+PASS document pauses simulation NoteArrival

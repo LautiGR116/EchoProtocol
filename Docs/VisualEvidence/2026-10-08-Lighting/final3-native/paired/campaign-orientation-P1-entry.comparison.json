@@ -1,0 +1,16 @@
+{
+    "label": "campaign-orientation-P1-entry",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+    "position": {
+        "x": -2.698336124420166,
+        "y": 1.6299998760223389,
+        "z": -5.373710632324219
+    },
+    "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+    },
+    "fov": 60.0
+}

@@ -1,0 +1,10 @@
+{
+  "result": "Succeeded",
+  "errors": 0,
+  "warnings": 1,
+  "bytes": 227989325,
+  "seconds": 14.567475,
+  "output": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Folio-20261008/EchoProtocol.app",
+  "development": false,
+  "qa": false
+}

@@ -1,0 +1,9 @@
+Courtyard authoring only. No Play, camera, listening or human-experience verification.
+Assets/_Game/Scenes/Production/EchoProtocol_Observation.unity -> Assets/_Game/Scenes/Production/EchoProtocol_Courtyard.unity; checkpoint=EP.CampaignCheckpoint.Courtyard.v1
+Rigid map T(x,y,z)=(z+65.6,y,-52.4-x); yaw+90. Roots: Threshold / del otro lado | Porter / inhabited conservation station
+Preserved 4189 component serializations; 3312 original transforms audited. No gameplay thresholds, recordings, lights/audio gains, prefs or reset-target changes.
+Final origin=(-10.40000, 0.03000, -52.40000); witness=(-12.45000, 1.00000, -52.40000); outside=(-14.65000, 1.00000, -52.40000); hinge=(-13.40000, 0.00000, -51.92000); exit=(-18.40000, 0.00000, -52.40000)
+Acoustic partitions 47 -> 52; new closed window is explicit. House sources/filter owners unchanged.
+AudioSources 56 -> 56; lights 138 -> 138; reused service fitting=(-7.15000, 2.45000, -57.60000)
+Compact approach20.58m vs11.5m before portal; theoretical delta2.27s at4m/s, not measured player pace. New final region holds .20; return-key .015 remains runtime priority.
+Pending real camera through parlor/hall, Hall-vs-other-light comparison, exterior shadows/collision, moved-final actual-input/Continue and subjective listening. LeaveHouse still stops unanswered phone at review; assess audibility honestly.

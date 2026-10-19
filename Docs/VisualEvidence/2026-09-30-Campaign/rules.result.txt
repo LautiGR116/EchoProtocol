@@ -1,0 +1,1 @@
+FAIL house_arrival: movement timeout at (-4.33, 0.03, -72.23) toward (-4.40, 0.00, -72.30)

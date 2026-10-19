@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-12",
+  "generation": "No AI voice generation/cloning. Existing locally traced CC0 recordings plus original DSP.",
+  "masters": [
+    {
+      "file": "Assets/_Game/Audio/Clips/Embestida/Embestida_HousingContact.wav",
+      "source": "NachtmahrTV 556693 CC0, 0.11\u20130.69 s; original authored damped 125/213 Hz housing modes, 80\u20136500 Hz band. No pitch/time change.",
+      "sha256": "af90caa43863604b8704d140824fcd71e2655227f2d1c4435e7fb0105db117db",
+      "seconds": 0.58,
+      "peak": 0.56
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/Embestida/Embestida_ExpelledEffort.wav",
+      "source": "aldenroth2 272023 CC0, 0.045\u20130.39 s. One compressed adult effort, no pitch/time change, 130\u20135800 Hz. Plays 75 ms after contact.",
+      "sha256": "ffadb3fc63628ad7f14a459e73016121c07369eeeaa659d27cfca037963709b6",
+      "seconds": 0.345,
+      "peak": 0.34
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/Embestida/Embestida_BodyBreath.wav",
+      "source": "JohnsonBrandEditing 173944 CC0, 6.00\u20137.02 s intake with shorter repeated release and authored silence. No pitch/time change. Body source after impact.",
+      "sha256": "37011ee13be33d3bd378c9dc8af706c41bbd9ec8e97ff8d2896023c51838a06d",
+      "seconds": 2.62,
+      "peak": 0.15
+    }
+  ]
+}

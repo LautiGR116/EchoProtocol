@@ -1,0 +1,12 @@
+Readers authored from Pane. Original source geometry; six real OpticalReaders, no P-02 placeholder.
+Lane Optical Reader A: unchanged trigger/facing/qualification/indicator reference; four meshes replaced at original transforms.
+Lane Optical Reader B: unchanged trigger/facing/qualification/indicator reference; four meshes replaced at original transforms.
+P2 Blind Alignment Reader: unchanged trigger/facing/qualification/indicator reference; four meshes replaced at original transforms.
+P3 Reader A: unchanged trigger/facing/qualification/indicator reference; four meshes replaced at original transforms.
+P3 Reader B: unchanged trigger/facing/qualification/indicator reference; four meshes replaced at original transforms.
+Service Player Reader: unchanged trigger/facing/qualification/indicator reference; four meshes replaced at original transforms.
+Panel Light - Cold Ceiling Panel Lane 2: existing circuit/source retained, broadened and aimed spill at (-1.55, 0.70, 3.50); intensity=1.55.
+Panel Light - Cold Ceiling Panel Lane 3: existing circuit/source retained, broadened and aimed spill at (-1.55, 0.70, 10.00); intensity=1.55.
+Panel Light - Service Ceiling Panel 3: existing circuit/source retained, broadened and aimed spill at (3.40, 0.70, 9.50); intensity=1.15.
+607 original collider serializations and 54 original audio source serializations unchanged.
+B reminder lowered .52 m; three original fixture cones revised. Camera review pending.

@@ -1,0 +1,568 @@
+{
+  "date": "2026-10-01",
+  "authorship": "Original project geometry and PBR values. No external model, image, texture, font, service or add-on. No exported words, screen, light, sound or animation. All visible studio surfaces are the exported material values.",
+  "axis_contract": "Source Xwidth,-Yfront,Zup. FBX -Z/+Y. Observed Unity importer maps(-X,Z,-Y): negate imported root localScale.x once, retain imported magnitudes/rotation, then placementRotation*importedRotation. Corrected map(X,Z,-Y), nominal frontUnity+Z. Direction markers require world-position differences; endpoint anchors are authoritative for animation signs.",
+  "materials": {
+    "IC_Enamel": {
+      "color": [
+        0.135,
+        0.17,
+        0.148,
+        1
+      ],
+      "roughness": 0.57,
+      "metallic": 0.3
+    },
+    "IC_DoorEnamel": {
+      "color": [
+        0.255,
+        0.273,
+        0.218,
+        1
+      ],
+      "roughness": 0.6,
+      "metallic": 0.18
+    },
+    "IC_EdgeMetal": {
+      "color": [
+        0.255,
+        0.268,
+        0.233,
+        1
+      ],
+      "roughness": 0.43,
+      "metallic": 0.77
+    },
+    "IC_DarkMetal": {
+      "color": [
+        0.061,
+        0.074,
+        0.064,
+        1
+      ],
+      "roughness": 0.55,
+      "metallic": 0.58
+    },
+    "IC_Bakelite": {
+      "color": [
+        0.03,
+        0.019,
+        0.011,
+        1
+      ],
+      "roughness": 0.4,
+      "metallic": 0
+    },
+    "IC_Rubber": {
+      "color": [
+        0.011,
+        0.013,
+        0.011,
+        1
+      ],
+      "roughness": 0.84,
+      "metallic": 0
+    },
+    "IC_DialIvory": {
+      "color": [
+        0.67,
+        0.653,
+        0.542,
+        1
+      ],
+      "roughness": 0.79,
+      "metallic": 0
+    },
+    "IC_DialInk": {
+      "color": [
+        0.01,
+        0.013,
+        0.01,
+        1
+      ],
+      "roughness": 0.7,
+      "metallic": 0
+    },
+    "IC_Needle": {
+      "color": [
+        0.205,
+        0.052,
+        0.021,
+        1
+      ],
+      "roughness": 0.47,
+      "metallic": 0.2
+    },
+    "IC_Brass": {
+      "color": [
+        0.26,
+        0.181,
+        0.081,
+        1
+      ],
+      "roughness": 0.49,
+      "metallic": 0.7
+    }
+  },
+  "total_triangles": 7656,
+  "assets": {
+    "IsolationPanel": {
+      "file": "exports/EP_IC_IsolationPanel.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.25999999046325684,
+          0.25
+        ],
+        [
+          -0.18199999630451202,
+          0.07500000298023224
+        ],
+        [
+          -0.36800000071525574,
+          0.32499998807907104
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.5099999904632568,
+        0.25699999928474426,
+        0.6929999887943268
+      ],
+      "materials": [
+        "IC_Bakelite",
+        "IC_DarkMetal",
+        "IC_DialIvory",
+        "IC_DoorEnamel",
+        "IC_EdgeMetal",
+        "IC_Enamel",
+        "IC_Rubber"
+      ],
+      "mesh_objects": [
+        {
+          "name": "IsolationHousing",
+          "vertices": 1504,
+          "triangles": 2888,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "IsolationLever",
+          "vertices": 376,
+          "triangles": 724,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "pivot_blender_xyz": [
+            -0.11999999731779099,
+            -0.15000000596046448,
+            -0.07999999821186066
+          ]
+        }
+      ],
+      "anchors_blender_xyz": {
+        "IsolationPanel__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "IsolationPanel__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "IsolationPanel__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "IsolationPanel__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "IsolationPanel__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "IsolationPanel__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ],
+        "IsolationPanel__LEVER_PIVOT": [
+          -0.11999999731779099,
+          -0.15000000596046448,
+          -0.07999999821186066
+        ],
+        "IsolationPanel__LEVER_AXIS_POS": [
+          -0.11999999731779099,
+          -0.05000000447034836,
+          -0.07999999821186066
+        ],
+        "IsolationPanel__LEVER_GRIP_MARCHA": [
+          0.12574562430381775,
+          -0.15000000596046448,
+          0.09207293391227722
+        ],
+        "IsolationPanel__LEVER_GRIP_AISLADO": [
+          0.12574562430381775,
+          -0.15000000596046448,
+          -0.25207293033599854
+        ],
+        "IsolationPanel__LABEL_MARCHA": [
+          0.104,
+          -0.104,
+          0.131
+        ],
+        "IsolationPanel__LABEL_AISLADO": [
+          -0.094,
+          -0.104,
+          -0.28
+        ],
+        "IsolationPanel__SERVICE_LABEL": [
+          0.117,
+          -0.094,
+          0.255
+        ],
+        "IsolationPanel__GAUGE_MOUNT": [
+          -0.12,
+          -0.086,
+          0.203
+        ],
+        "IsolationPanel__BACK_MOUNT": [
+          0,
+          0.075,
+          -0.23
+        ],
+        "IsolationPanel__CABLE_PORT": [
+          0.09,
+          0.025,
+          -0.368
+        ]
+      },
+      "notes": "Root is the control centre; place at world height1.5m. Enclosure approximately .5x.163x.65m; handle and fittings extend in front/below. IsolationHousing is static; animate only IsolationLever. Export rest is MARCHA, with zero rotation and origin at LEVER_PIVOT. Gauge is a separate export and mounts at GAUGE_MOUNT; no labels, lamps, text, sounds, colliders or baked animation exported.",
+      "animation": {
+        "mesh": "IsolationLever",
+        "pivot_blender_xyz": [
+          -0.11999999731779099,
+          -0.15000000596046448,
+          -0.07999999821186066
+        ],
+        "axis_blender_xyz": [
+          0,
+          1,
+          0
+        ],
+        "rest_state": "MARCHA",
+        "marcha_degrees": 0,
+        "aislado_degrees": 70,
+        "suggested_duration_seconds": 1.8,
+        "grip_marcha_blender_xyz": [
+          0.12574562430381775,
+          -0.15000000596046448,
+          0.09207293391227722
+        ],
+        "grip_aislado_blender_xyz": [
+          0.12574562430381775,
+          -0.15000000596046448,
+          -0.25207293033599854
+        ],
+        "interpolation": "Lerp scalar angle 0 to70, then apply axis-angle relative to rest. Check grip anchors after Unity corrected mirrored import; do not infer signs from Transform.forward."
+      }
+    },
+    "ControlPedestal": {
+      "file": "exports/EP_IC_ControlPedestal.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.20000000298023224,
+          0.20000000298023224
+        ],
+        [
+          -0.11000000685453415,
+          0.2199999988079071
+        ],
+        [
+          -1.5,
+          -0.08799993991851807
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.4000000059604645,
+        0.33000000566244125,
+        1.412000060081482
+      ],
+      "materials": [
+        "IC_DarkMetal",
+        "IC_EdgeMetal",
+        "IC_Enamel",
+        "IC_Rubber"
+      ],
+      "mesh_objects": [
+        {
+          "name": "PedestalStructure",
+          "vertices": 476,
+          "triangles": 888,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "PedestalConduit",
+          "vertices": 328,
+          "triangles": 636,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "anchors_blender_xyz": {
+        "ControlPedestal__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "ControlPedestal__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "ControlPedestal__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "ControlPedestal__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "ControlPedestal__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "ControlPedestal__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ],
+        "ControlPedestal__FLOOR_CONTACT": [
+          0,
+          0,
+          -1.5
+        ],
+        "ControlPedestal__PANEL_CENTRE": [
+          0,
+          0,
+          0
+        ],
+        "ControlPedestal__BACK_MOUNT": [
+          0,
+          0.075,
+          -0.23
+        ],
+        "ControlPedestal__CABLE_PORT": [
+          0.09,
+          0.025,
+          -0.368
+        ]
+      },
+      "notes": "Root matches IsolationPanel centre, not floor. Install both with same transform; floor at sourceZ-1.500. Base .40x.33m. Support and routed conduit are separate meshes. No decorative control, switches, words or lights."
+    },
+    "PressureGauge": {
+      "file": "exports/EP_IC_PressureGauge.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.10400000214576721,
+          0.10400000214576721
+        ],
+        [
+          -0.07999999821186066,
+          0.02199999988079071
+        ],
+        [
+          -0.1643301248550415,
+          0.10400000214576721
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.20800000429153442,
+        0.10199999809265137,
+        0.2683301270008087
+      ],
+      "materials": [
+        "IC_Brass",
+        "IC_DarkMetal",
+        "IC_DialInk",
+        "IC_DialIvory",
+        "IC_EdgeMetal",
+        "IC_Enamel",
+        "IC_Needle"
+      ],
+      "mesh_objects": [
+        {
+          "name": "PressureGaugeHousing",
+          "vertices": 1294,
+          "triangles": 2404,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "PressureNeedle",
+          "vertices": 62,
+          "triangles": 116,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "pivot_blender_xyz": [
+            0.0,
+            -0.0729999989271164,
+            0.0
+          ]
+        }
+      ],
+      "anchors_blender_xyz": {
+        "PressureGauge__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "PressureGauge__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "PressureGauge__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "PressureGauge__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "PressureGauge__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "PressureGauge__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ],
+        "PressureGauge__NEEDLE_PIVOT": [
+          0.0,
+          -0.0729999989271164,
+          0.0
+        ],
+        "PressureGauge__NEEDLE_AXIS_POS": [
+          0.0,
+          0.027000002562999725,
+          0.0
+        ],
+        "PressureGauge__NEEDLE_TIP_HIGH": [
+          0.04949747398495674,
+          -0.0729999989271164,
+          -0.04949747398495674
+        ],
+        "PressureGauge__NEEDLE_TIP_ZERO": [
+          -0.04949747398495674,
+          -0.0729999989271164,
+          -0.04949747398495674
+        ],
+        "PressureGauge__FACE_CENTRE": [
+          0,
+          -0.0685,
+          0
+        ],
+        "PressureGauge__BACK_MOUNT": [
+          0,
+          0,
+          0
+        ],
+        "PressureGauge__PRESSURE_PORT": [
+          0,
+          0.022,
+          -0.16
+        ],
+        "PressureGauge__UNIT_LABEL": [
+          0,
+          -0.07,
+          -0.046
+        ]
+      },
+      "notes": "Root at gauge face centre in XZ, mounting planeY0. Front-Y, no glass pane obscures the moving needle. PressureGaugeHousing static, PressureNeedle separate with exact pivot. Rest export is HIGH, blade down/right45deg. ZERO is down/left45deg after270deg across the upper scale. No words/numbers/units, labels, collider, light or animation.",
+      "animation": {
+        "mesh": "PressureNeedle",
+        "pivot_blender_xyz": [
+          0.0,
+          -0.0729999989271164,
+          0.0
+        ],
+        "axis_blender_xyz": [
+          0,
+          1,
+          0
+        ],
+        "rest_state": "HIGH",
+        "high_degrees": 0,
+        "zero_degrees": -270,
+        "suggested_duration_seconds": 3,
+        "needle_tip_high_blender_xyz": [
+          0.04949747398495674,
+          -0.0729999989271164,
+          -0.04949747398495674
+        ],
+        "needle_tip_zero_blender_xyz": [
+          -0.04949747398495674,
+          -0.0729999989271164,
+          -0.04949747398495674
+        ],
+        "interpolation": "Interpolate scalar angle 0 to-270 then AngleAxis relative to rest. Do not Slerp endpoint quaternions, which traverses the lower90deg gap. Read actual machine pressure, never Echo activity/hold progress."
+      }
+    }
+  },
+  "assembly": {
+    "root_world_height_m": 1.5,
+    "IsolationPanel": [
+      0,
+      0,
+      0
+    ],
+    "ControlPedestal": [
+      0,
+      0,
+      0
+    ],
+    "PressureGauge": [
+      -0.12,
+      -0.086,
+      0.203
+    ]
+  },
+  "verification_limit": "Blender studio previews and roundtrip only. Unity motion/collision, interaction clarity, timing and human judgment remain integration/playtest work."
+}

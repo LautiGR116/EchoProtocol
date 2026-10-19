@@ -1,0 +1,11 @@
+{
+  "audio" : false,
+  "cuts" : 0,
+  "frames" : 62,
+  "height" : 540,
+  "lastPresentationSeconds" : 4.7820800000000006,
+  "scope" : "Actual camera frames from the stated QA route, source timing retained within each segment; uncaptured travel\/wait gaps cut. This motion sample is silent.",
+  "status" : "ENCODED_AND_DECODED",
+  "video" : "\/Users\/lautigr116\/EchoProtocol\/Docs\/VisualEvidence\/2026-10-09-Embodiment\/first-cooperation-study.mp4",
+  "width" : 960
+}

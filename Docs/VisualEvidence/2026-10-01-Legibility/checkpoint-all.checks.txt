@@ -1,0 +1,343 @@
+ISOLATED CHECKPOINT VERIFICATION. API fixtures and scene reloads; synthetic movement/R only after Continue. No human-play claim.
+PASS [initialization] configured Threshold campaign, house, review and Player systems exist
+PASS [initialization] recording and physical threshold references are assigned
+PASS [initialization] director and session use this scene's new final act
+PASS [initialization] continuation uses the real house and the same final recall origin
+PASS [initialization] active scene can be reloaded through the actual player scene path
+PASS [initialization] authored edition checkpoint is isolated from the old campaign key
+PASS [general/fresh_scene] fresh scene load was accepted
+PASS [general/fresh_scene] configured Threshold campaign, house, review and Player systems exist
+PASS [general/fresh_scene] recording and physical threshold references are assigned
+PASS [general/fresh_scene] director and session use this scene's new final act
+PASS [general/fresh_scene] continuation uses the real house and the same final recall origin
+PASS [general/fresh_scene] reloaded edition keeps its own checkpoint namespace
+PASS [general/fresh_scene] reload starts a fresh session instead of reusing completed runtime state
+PASS [general/fresh_scene] generalLights has active authored fixtures
+PASS [general/fresh_scene] hallLights has active authored fixtures
+PASS [general/fresh_scene] kitchenLights has active authored fixtures
+PASS [general/fresh_scene] bedroomLights has active authored fixtures
+PASS [general/legitimate_save_fixture] explicit prior-pressure fixture permits the actual house entry API
+PASS [general/legitimate_save_fixture] house entry really suspends Echo recording
+PASS [general/legitimate_save_fixture] SuppressSaves prevents house-entry preference writes
+PASS [general/legitimate_save_fixture] review cannot be entered before the physical key is acquired
+PASS [general/legitimate_save_fixture] public house choices earn the intended phone, reserve and key state
+PASS [general/legitimate_save_fixture] actual final entry accepts the legitimately obtained key
+PASS [general/legitimate_save_fixture] the real director commits the new Archive checkpoint and menu title
+PASS [general/legitimate_save_fixture] saved preferences contain the actual domestic decisions
+PASS [general/legitimate_save_fixture] saving at the final origin does not manufacture an Echo
+PASS [general/legitimate_save_fixture] Threshold entry leaves old campaign continuation untouched
+PASS [general/fresh_scene] fresh scene load was accepted
+PASS [general/fresh_scene] configured Threshold campaign, house, review and Player systems exist
+PASS [general/fresh_scene] recording and physical threshold references are assigned
+PASS [general/fresh_scene] director and session use this scene's new final act
+PASS [general/fresh_scene] continuation uses the real house and the same final recall origin
+PASS [general/fresh_scene] reloaded edition keeps its own checkpoint namespace
+PASS [general/fresh_scene] reload starts a fresh session instead of reusing completed runtime state
+PASS [general/fresh_scene] generalLights has active authored fixtures
+PASS [general/fresh_scene] hallLights has active authored fixtures
+PASS [general/fresh_scene] kitchenLights has active authored fixtures
+PASS [general/fresh_scene] bedroomLights has active authored fixtures
+PASS [general/actual_continue_api] fresh initial menu recognizes the saved final review
+PASS [general/actual_continue_api] the same public RestoreCheckpoint API used by Continue succeeds
+PASS [general/actual_continue_api] Continue enters the actual new final review and ends domestic interactions
+PASS [general/actual_continue_api] restoration retains only earned key and domestic decisions
+PASS [general/actual_continue_api] new final continuation invents no document reads, old circuits, gallery pairs or old witness
+PASS [general/actual_continue_api] Player and RECALL begin at the authored interior origin
+PASS [general/actual_continue_api] continuation arms an empty recorder with no saved or fabricated take
+PASS [general/actual_continue_api] final witness, preserved reference, key return, departure and completion all start fresh
+PASS [general/actual_continue_api] physical doors and key tray distinguish the completed house from the uncompleted final review
+PASS [general/actual_continue_api] restored key no longer remains in the house as a duplicate pickup
+PASS [general/actual_continue_api] only the chosen socket contains its reserve, or all sockets are empty while carried
+PASS [general/actual_continue_api] optional carried reserve representation matches inventory
+PASS [general/actual_continue_api] generalLights has active authored fixtures
+PASS [general/actual_continue_api] hallLights has active authored fixtures
+PASS [general/actual_continue_api] kitchenLights has active authored fixtures
+PASS [general/actual_continue_api] bedroomLights has active authored fixtures
+PASS [general/actual_continue_api] unanswered continuation preserves the authored general-light state rather than inventing a blackout
+PASS [general/actual_continue_api] standing at restored origin does not capture the restoration teleport
+PASS [general/actual_continue_api] Continue in the relocated final leaves outdoor ambience silent
+PASS [general/actual_continue_api] fresh restoration cannot skip witness, preservation or key return
+PASS [general/actual_continue_api] final witness, preserved reference, key return, departure and completion all start fresh
+PASS [general/actual_continue_api] physical doors and key tray distinguish the completed house from the uncompleted final review
+PASS [general/pause_and_recall_recovery] R while paused neither records nor advances the fresh ending
+PASS [general/pause_and_recall_recovery] resume restores Player and armed RECALL after continuation
+PASS [general/pause_and_recall_recovery] R without movement cannot manufacture an empty take
+PASS [general/pause_and_recall_recovery] real synthetic movement starts a new recording after restoration
+PASS [general/pause_and_recall_recovery] one real R creates one authentic new snapshot and matching Echo
+PASS [general/pause_and_recall_recovery] the resumed snapshot contains the origin and the actual new displacement
+PASS [general/pause_and_recall_recovery] RECALL recovers the origin while an inside-only take earns no final witness
+PASS [general/pause_and_recall_recovery] new review door remains manually recoverable after Continue
+PASS [general/pause_and_recall_recovery] another real R replaces the take and resets only 6B, preserving the completed house exit
+PASS [general/pause_and_recall_recovery] later movement and RECALL leave every frame of the previous snapshot immutable
+PASS [general/pause_and_recall_recovery] a second Continue call during active review is rejected without erasing its real recording or moving the Player
+PASS [general/pause_and_recall_recovery] restored play still requires a real exterior approach and witness before physical completion
+PASS [general/pause_and_recall_recovery] recall recovery does not overwrite either edition's saved decisions
+PASS [hall/fresh_scene] fresh scene load was accepted
+PASS [hall/fresh_scene] configured Threshold campaign, house, review and Player systems exist
+PASS [hall/fresh_scene] recording and physical threshold references are assigned
+PASS [hall/fresh_scene] director and session use this scene's new final act
+PASS [hall/fresh_scene] continuation uses the real house and the same final recall origin
+PASS [hall/fresh_scene] reloaded edition keeps its own checkpoint namespace
+PASS [hall/fresh_scene] reload starts a fresh session instead of reusing completed runtime state
+PASS [hall/fresh_scene] generalLights has active authored fixtures
+PASS [hall/fresh_scene] hallLights has active authored fixtures
+PASS [hall/fresh_scene] kitchenLights has active authored fixtures
+PASS [hall/fresh_scene] bedroomLights has active authored fixtures
+PASS [hall/legitimate_save_fixture] explicit prior-pressure fixture permits the actual house entry API
+PASS [hall/legitimate_save_fixture] house entry really suspends Echo recording
+PASS [hall/legitimate_save_fixture] SuppressSaves prevents house-entry preference writes
+PASS [hall/legitimate_save_fixture] review cannot be entered before the physical key is acquired
+PASS [hall/legitimate_save_fixture] public house choices earn the intended phone, reserve and key state
+PASS [hall/legitimate_save_fixture] actual final entry accepts the legitimately obtained key
+PASS [hall/legitimate_save_fixture] the real director commits the new Archive checkpoint and menu title
+PASS [hall/legitimate_save_fixture] saved preferences contain the actual domestic decisions
+PASS [hall/legitimate_save_fixture] saving at the final origin does not manufacture an Echo
+PASS [hall/legitimate_save_fixture] Threshold entry leaves old campaign continuation untouched
+PASS [hall/fresh_scene] fresh scene load was accepted
+PASS [hall/fresh_scene] configured Threshold campaign, house, review and Player systems exist
+PASS [hall/fresh_scene] recording and physical threshold references are assigned
+PASS [hall/fresh_scene] director and session use this scene's new final act
+PASS [hall/fresh_scene] continuation uses the real house and the same final recall origin
+PASS [hall/fresh_scene] reloaded edition keeps its own checkpoint namespace
+PASS [hall/fresh_scene] reload starts a fresh session instead of reusing completed runtime state
+PASS [hall/fresh_scene] generalLights has active authored fixtures
+PASS [hall/fresh_scene] hallLights has active authored fixtures
+PASS [hall/fresh_scene] kitchenLights has active authored fixtures
+PASS [hall/fresh_scene] bedroomLights has active authored fixtures
+PASS [hall/actual_continue_api] fresh initial menu recognizes the saved final review
+PASS [hall/actual_continue_api] the same public RestoreCheckpoint API used by Continue succeeds
+PASS [hall/actual_continue_api] Continue enters the actual new final review and ends domestic interactions
+PASS [hall/actual_continue_api] restoration retains only earned key and domestic decisions
+PASS [hall/actual_continue_api] new final continuation invents no document reads, old circuits, gallery pairs or old witness
+PASS [hall/actual_continue_api] Player and RECALL begin at the authored interior origin
+PASS [hall/actual_continue_api] continuation arms an empty recorder with no saved or fabricated take
+PASS [hall/actual_continue_api] final witness, preserved reference, key return, departure and completion all start fresh
+PASS [hall/actual_continue_api] physical doors and key tray distinguish the completed house from the uncompleted final review
+PASS [hall/actual_continue_api] restored key no longer remains in the house as a duplicate pickup
+PASS [hall/actual_continue_api] only the chosen socket contains its reserve, or all sockets are empty while carried
+PASS [hall/actual_continue_api] optional carried reserve representation matches inventory
+PASS [hall/actual_continue_api] answered phone retains the loss of every general-only lamp
+PASS [hall/actual_continue_api] hallLights has active authored fixtures
+PASS [hall/actual_continue_api] kitchenLights has active authored fixtures
+PASS [hall/actual_continue_api] bedroomLights has active authored fixtures
+PASS [hall/actual_continue_api] only the chosen reserve circuit is lit, or all are dark while carried
+PASS [hall/actual_continue_api] standing at restored origin does not capture the restoration teleport
+PASS [hall/actual_continue_api] Continue in the relocated final leaves outdoor ambience silent
+PASS [hall/actual_continue_api] fresh restoration cannot skip witness, preservation or key return
+PASS [hall/actual_continue_api] final witness, preserved reference, key return, departure and completion all start fresh
+PASS [hall/actual_continue_api] physical doors and key tray distinguish the completed house from the uncompleted final review
+PASS [hall/pause_and_recall_recovery] R while paused neither records nor advances the fresh ending
+PASS [hall/pause_and_recall_recovery] resume restores Player and armed RECALL after continuation
+PASS [hall/pause_and_recall_recovery] R without movement cannot manufacture an empty take
+PASS [hall/pause_and_recall_recovery] real synthetic movement starts a new recording after restoration
+PASS [hall/pause_and_recall_recovery] one real R creates one authentic new snapshot and matching Echo
+PASS [hall/pause_and_recall_recovery] the resumed snapshot contains the origin and the actual new displacement
+PASS [hall/pause_and_recall_recovery] RECALL recovers the origin while an inside-only take earns no final witness
+PASS [hall/pause_and_recall_recovery] new review door remains manually recoverable after Continue
+PASS [hall/pause_and_recall_recovery] another real R replaces the take and resets only 6B, preserving the completed house exit
+PASS [hall/pause_and_recall_recovery] later movement and RECALL leave every frame of the previous snapshot immutable
+PASS [hall/pause_and_recall_recovery] a second Continue call during active review is rejected without erasing its real recording or moving the Player
+PASS [hall/pause_and_recall_recovery] restored play still requires a real exterior approach and witness before physical completion
+PASS [hall/pause_and_recall_recovery] recall recovery does not overwrite either edition's saved decisions
+PASS [kitchen/fresh_scene] fresh scene load was accepted
+PASS [kitchen/fresh_scene] configured Threshold campaign, house, review and Player systems exist
+PASS [kitchen/fresh_scene] recording and physical threshold references are assigned
+PASS [kitchen/fresh_scene] director and session use this scene's new final act
+PASS [kitchen/fresh_scene] continuation uses the real house and the same final recall origin
+PASS [kitchen/fresh_scene] reloaded edition keeps its own checkpoint namespace
+PASS [kitchen/fresh_scene] reload starts a fresh session instead of reusing completed runtime state
+PASS [kitchen/fresh_scene] generalLights has active authored fixtures
+PASS [kitchen/fresh_scene] hallLights has active authored fixtures
+PASS [kitchen/fresh_scene] kitchenLights has active authored fixtures
+PASS [kitchen/fresh_scene] bedroomLights has active authored fixtures
+PASS [kitchen/legitimate_save_fixture] explicit prior-pressure fixture permits the actual house entry API
+PASS [kitchen/legitimate_save_fixture] house entry really suspends Echo recording
+PASS [kitchen/legitimate_save_fixture] SuppressSaves prevents house-entry preference writes
+PASS [kitchen/legitimate_save_fixture] review cannot be entered before the physical key is acquired
+PASS [kitchen/legitimate_save_fixture] public house choices earn the intended phone, reserve and key state
+PASS [kitchen/legitimate_save_fixture] actual final entry accepts the legitimately obtained key
+PASS [kitchen/legitimate_save_fixture] the real director commits the new Archive checkpoint and menu title
+PASS [kitchen/legitimate_save_fixture] saved preferences contain the actual domestic decisions
+PASS [kitchen/legitimate_save_fixture] saving at the final origin does not manufacture an Echo
+PASS [kitchen/legitimate_save_fixture] Threshold entry leaves old campaign continuation untouched
+PASS [kitchen/fresh_scene] fresh scene load was accepted
+PASS [kitchen/fresh_scene] configured Threshold campaign, house, review and Player systems exist
+PASS [kitchen/fresh_scene] recording and physical threshold references are assigned
+PASS [kitchen/fresh_scene] director and session use this scene's new final act
+PASS [kitchen/fresh_scene] continuation uses the real house and the same final recall origin
+PASS [kitchen/fresh_scene] reloaded edition keeps its own checkpoint namespace
+PASS [kitchen/fresh_scene] reload starts a fresh session instead of reusing completed runtime state
+PASS [kitchen/fresh_scene] generalLights has active authored fixtures
+PASS [kitchen/fresh_scene] hallLights has active authored fixtures
+PASS [kitchen/fresh_scene] kitchenLights has active authored fixtures
+PASS [kitchen/fresh_scene] bedroomLights has active authored fixtures
+PASS [kitchen/actual_continue_api] fresh initial menu recognizes the saved final review
+PASS [kitchen/actual_continue_api] the same public RestoreCheckpoint API used by Continue succeeds
+PASS [kitchen/actual_continue_api] Continue enters the actual new final review and ends domestic interactions
+PASS [kitchen/actual_continue_api] restoration retains only earned key and domestic decisions
+PASS [kitchen/actual_continue_api] new final continuation invents no document reads, old circuits, gallery pairs or old witness
+PASS [kitchen/actual_continue_api] Player and RECALL begin at the authored interior origin
+PASS [kitchen/actual_continue_api] continuation arms an empty recorder with no saved or fabricated take
+PASS [kitchen/actual_continue_api] final witness, preserved reference, key return, departure and completion all start fresh
+PASS [kitchen/actual_continue_api] physical doors and key tray distinguish the completed house from the uncompleted final review
+PASS [kitchen/actual_continue_api] restored key no longer remains in the house as a duplicate pickup
+PASS [kitchen/actual_continue_api] only the chosen socket contains its reserve, or all sockets are empty while carried
+PASS [kitchen/actual_continue_api] optional carried reserve representation matches inventory
+PASS [kitchen/actual_continue_api] answered phone retains the loss of every general-only lamp
+PASS [kitchen/actual_continue_api] hallLights has active authored fixtures
+PASS [kitchen/actual_continue_api] kitchenLights has active authored fixtures
+PASS [kitchen/actual_continue_api] bedroomLights has active authored fixtures
+PASS [kitchen/actual_continue_api] only the chosen reserve circuit is lit, or all are dark while carried
+PASS [kitchen/actual_continue_api] standing at restored origin does not capture the restoration teleport
+PASS [kitchen/actual_continue_api] Continue in the relocated final leaves outdoor ambience silent
+PASS [kitchen/actual_continue_api] fresh restoration cannot skip witness, preservation or key return
+PASS [kitchen/actual_continue_api] final witness, preserved reference, key return, departure and completion all start fresh
+PASS [kitchen/actual_continue_api] physical doors and key tray distinguish the completed house from the uncompleted final review
+PASS [kitchen/pause_and_recall_recovery] R while paused neither records nor advances the fresh ending
+PASS [kitchen/pause_and_recall_recovery] resume restores Player and armed RECALL after continuation
+PASS [kitchen/pause_and_recall_recovery] R without movement cannot manufacture an empty take
+PASS [kitchen/pause_and_recall_recovery] real synthetic movement starts a new recording after restoration
+PASS [kitchen/pause_and_recall_recovery] one real R creates one authentic new snapshot and matching Echo
+PASS [kitchen/pause_and_recall_recovery] the resumed snapshot contains the origin and the actual new displacement
+PASS [kitchen/pause_and_recall_recovery] RECALL recovers the origin while an inside-only take earns no final witness
+PASS [kitchen/pause_and_recall_recovery] new review door remains manually recoverable after Continue
+PASS [kitchen/pause_and_recall_recovery] another real R replaces the take and resets only 6B, preserving the completed house exit
+PASS [kitchen/pause_and_recall_recovery] later movement and RECALL leave every frame of the previous snapshot immutable
+PASS [kitchen/pause_and_recall_recovery] a second Continue call during active review is rejected without erasing its real recording or moving the Player
+PASS [kitchen/pause_and_recall_recovery] restored play still requires a real exterior approach and witness before physical completion
+PASS [kitchen/pause_and_recall_recovery] recall recovery does not overwrite either edition's saved decisions
+PASS [bedroom/fresh_scene] fresh scene load was accepted
+PASS [bedroom/fresh_scene] configured Threshold campaign, house, review and Player systems exist
+PASS [bedroom/fresh_scene] recording and physical threshold references are assigned
+PASS [bedroom/fresh_scene] director and session use this scene's new final act
+PASS [bedroom/fresh_scene] continuation uses the real house and the same final recall origin
+PASS [bedroom/fresh_scene] reloaded edition keeps its own checkpoint namespace
+PASS [bedroom/fresh_scene] reload starts a fresh session instead of reusing completed runtime state
+PASS [bedroom/fresh_scene] generalLights has active authored fixtures
+PASS [bedroom/fresh_scene] hallLights has active authored fixtures
+PASS [bedroom/fresh_scene] kitchenLights has active authored fixtures
+PASS [bedroom/fresh_scene] bedroomLights has active authored fixtures
+PASS [bedroom/legitimate_save_fixture] explicit prior-pressure fixture permits the actual house entry API
+PASS [bedroom/legitimate_save_fixture] house entry really suspends Echo recording
+PASS [bedroom/legitimate_save_fixture] SuppressSaves prevents house-entry preference writes
+PASS [bedroom/legitimate_save_fixture] review cannot be entered before the physical key is acquired
+PASS [bedroom/legitimate_save_fixture] public house choices earn the intended phone, reserve and key state
+PASS [bedroom/legitimate_save_fixture] actual final entry accepts the legitimately obtained key
+PASS [bedroom/legitimate_save_fixture] the real director commits the new Archive checkpoint and menu title
+PASS [bedroom/legitimate_save_fixture] saved preferences contain the actual domestic decisions
+PASS [bedroom/legitimate_save_fixture] saving at the final origin does not manufacture an Echo
+PASS [bedroom/legitimate_save_fixture] Threshold entry leaves old campaign continuation untouched
+PASS [bedroom/fresh_scene] fresh scene load was accepted
+PASS [bedroom/fresh_scene] configured Threshold campaign, house, review and Player systems exist
+PASS [bedroom/fresh_scene] recording and physical threshold references are assigned
+PASS [bedroom/fresh_scene] director and session use this scene's new final act
+PASS [bedroom/fresh_scene] continuation uses the real house and the same final recall origin
+PASS [bedroom/fresh_scene] reloaded edition keeps its own checkpoint namespace
+PASS [bedroom/fresh_scene] reload starts a fresh session instead of reusing completed runtime state
+PASS [bedroom/fresh_scene] generalLights has active authored fixtures
+PASS [bedroom/fresh_scene] hallLights has active authored fixtures
+PASS [bedroom/fresh_scene] kitchenLights has active authored fixtures
+PASS [bedroom/fresh_scene] bedroomLights has active authored fixtures
+PASS [bedroom/actual_continue_api] fresh initial menu recognizes the saved final review
+PASS [bedroom/actual_continue_api] the same public RestoreCheckpoint API used by Continue succeeds
+PASS [bedroom/actual_continue_api] Continue enters the actual new final review and ends domestic interactions
+PASS [bedroom/actual_continue_api] restoration retains only earned key and domestic decisions
+PASS [bedroom/actual_continue_api] new final continuation invents no document reads, old circuits, gallery pairs or old witness
+PASS [bedroom/actual_continue_api] Player and RECALL begin at the authored interior origin
+PASS [bedroom/actual_continue_api] continuation arms an empty recorder with no saved or fabricated take
+PASS [bedroom/actual_continue_api] final witness, preserved reference, key return, departure and completion all start fresh
+PASS [bedroom/actual_continue_api] physical doors and key tray distinguish the completed house from the uncompleted final review
+PASS [bedroom/actual_continue_api] restored key no longer remains in the house as a duplicate pickup
+PASS [bedroom/actual_continue_api] only the chosen socket contains its reserve, or all sockets are empty while carried
+PASS [bedroom/actual_continue_api] optional carried reserve representation matches inventory
+PASS [bedroom/actual_continue_api] answered phone retains the loss of every general-only lamp
+PASS [bedroom/actual_continue_api] hallLights has active authored fixtures
+PASS [bedroom/actual_continue_api] kitchenLights has active authored fixtures
+PASS [bedroom/actual_continue_api] bedroomLights has active authored fixtures
+PASS [bedroom/actual_continue_api] only the chosen reserve circuit is lit, or all are dark while carried
+PASS [bedroom/actual_continue_api] standing at restored origin does not capture the restoration teleport
+PASS [bedroom/actual_continue_api] Continue in the relocated final leaves outdoor ambience silent
+PASS [bedroom/actual_continue_api] fresh restoration cannot skip witness, preservation or key return
+PASS [bedroom/actual_continue_api] final witness, preserved reference, key return, departure and completion all start fresh
+PASS [bedroom/actual_continue_api] physical doors and key tray distinguish the completed house from the uncompleted final review
+PASS [bedroom/pause_and_recall_recovery] R while paused neither records nor advances the fresh ending
+PASS [bedroom/pause_and_recall_recovery] resume restores Player and armed RECALL after continuation
+PASS [bedroom/pause_and_recall_recovery] R without movement cannot manufacture an empty take
+PASS [bedroom/pause_and_recall_recovery] real synthetic movement starts a new recording after restoration
+PASS [bedroom/pause_and_recall_recovery] one real R creates one authentic new snapshot and matching Echo
+PASS [bedroom/pause_and_recall_recovery] the resumed snapshot contains the origin and the actual new displacement
+PASS [bedroom/pause_and_recall_recovery] RECALL recovers the origin while an inside-only take earns no final witness
+PASS [bedroom/pause_and_recall_recovery] new review door remains manually recoverable after Continue
+PASS [bedroom/pause_and_recall_recovery] another real R replaces the take and resets only 6B, preserving the completed house exit
+PASS [bedroom/pause_and_recall_recovery] later movement and RECALL leave every frame of the previous snapshot immutable
+PASS [bedroom/pause_and_recall_recovery] a second Continue call during active review is rejected without erasing its real recording or moving the Player
+PASS [bedroom/pause_and_recall_recovery] restored play still requires a real exterior approach and witness before physical completion
+PASS [bedroom/pause_and_recall_recovery] recall recovery does not overwrite either edition's saved decisions
+PASS [carried/fresh_scene] fresh scene load was accepted
+PASS [carried/fresh_scene] configured Threshold campaign, house, review and Player systems exist
+PASS [carried/fresh_scene] recording and physical threshold references are assigned
+PASS [carried/fresh_scene] director and session use this scene's new final act
+PASS [carried/fresh_scene] continuation uses the real house and the same final recall origin
+PASS [carried/fresh_scene] reloaded edition keeps its own checkpoint namespace
+PASS [carried/fresh_scene] reload starts a fresh session instead of reusing completed runtime state
+PASS [carried/fresh_scene] generalLights has active authored fixtures
+PASS [carried/fresh_scene] hallLights has active authored fixtures
+PASS [carried/fresh_scene] kitchenLights has active authored fixtures
+PASS [carried/fresh_scene] bedroomLights has active authored fixtures
+PASS [carried/legitimate_save_fixture] explicit prior-pressure fixture permits the actual house entry API
+PASS [carried/legitimate_save_fixture] house entry really suspends Echo recording
+PASS [carried/legitimate_save_fixture] SuppressSaves prevents house-entry preference writes
+PASS [carried/legitimate_save_fixture] review cannot be entered before the physical key is acquired
+PASS [carried/legitimate_save_fixture] public house choices earn the intended phone, reserve and key state
+PASS [carried/legitimate_save_fixture] actual final entry accepts the legitimately obtained key
+PASS [carried/legitimate_save_fixture] the real director commits the new Archive checkpoint and menu title
+PASS [carried/legitimate_save_fixture] saved preferences contain the actual domestic decisions
+PASS [carried/legitimate_save_fixture] saving at the final origin does not manufacture an Echo
+PASS [carried/legitimate_save_fixture] Threshold entry leaves old campaign continuation untouched
+PASS [carried/fresh_scene] fresh scene load was accepted
+PASS [carried/fresh_scene] configured Threshold campaign, house, review and Player systems exist
+PASS [carried/fresh_scene] recording and physical threshold references are assigned
+PASS [carried/fresh_scene] director and session use this scene's new final act
+PASS [carried/fresh_scene] continuation uses the real house and the same final recall origin
+PASS [carried/fresh_scene] reloaded edition keeps its own checkpoint namespace
+PASS [carried/fresh_scene] reload starts a fresh session instead of reusing completed runtime state
+PASS [carried/fresh_scene] generalLights has active authored fixtures
+PASS [carried/fresh_scene] hallLights has active authored fixtures
+PASS [carried/fresh_scene] kitchenLights has active authored fixtures
+PASS [carried/fresh_scene] bedroomLights has active authored fixtures
+PASS [carried/actual_continue_api] fresh initial menu recognizes the saved final review
+PASS [carried/actual_continue_api] the same public RestoreCheckpoint API used by Continue succeeds
+PASS [carried/actual_continue_api] Continue enters the actual new final review and ends domestic interactions
+PASS [carried/actual_continue_api] restoration retains only earned key and domestic decisions
+PASS [carried/actual_continue_api] new final continuation invents no document reads, old circuits, gallery pairs or old witness
+PASS [carried/actual_continue_api] Player and RECALL begin at the authored interior origin
+PASS [carried/actual_continue_api] continuation arms an empty recorder with no saved or fabricated take
+PASS [carried/actual_continue_api] final witness, preserved reference, key return, departure and completion all start fresh
+PASS [carried/actual_continue_api] physical doors and key tray distinguish the completed house from the uncompleted final review
+PASS [carried/actual_continue_api] restored key no longer remains in the house as a duplicate pickup
+PASS [carried/actual_continue_api] only the chosen socket contains its reserve, or all sockets are empty while carried
+PASS [carried/actual_continue_api] optional carried reserve representation matches inventory
+PASS [carried/actual_continue_api] answered phone retains the loss of every general-only lamp
+PASS [carried/actual_continue_api] hallLights has active authored fixtures
+PASS [carried/actual_continue_api] kitchenLights has active authored fixtures
+PASS [carried/actual_continue_api] bedroomLights has active authored fixtures
+PASS [carried/actual_continue_api] only the chosen reserve circuit is lit, or all are dark while carried
+PASS [carried/actual_continue_api] standing at restored origin does not capture the restoration teleport
+PASS [carried/actual_continue_api] Continue in the relocated final leaves outdoor ambience silent
+PASS [carried/actual_continue_api] fresh restoration cannot skip witness, preservation or key return
+PASS [carried/actual_continue_api] final witness, preserved reference, key return, departure and completion all start fresh
+PASS [carried/actual_continue_api] physical doors and key tray distinguish the completed house from the uncompleted final review
+PASS [carried/pause_and_recall_recovery] R while paused neither records nor advances the fresh ending
+PASS [carried/pause_and_recall_recovery] resume restores Player and armed RECALL after continuation
+PASS [carried/pause_and_recall_recovery] R without movement cannot manufacture an empty take
+PASS [carried/pause_and_recall_recovery] real synthetic movement starts a new recording after restoration
+PASS [carried/pause_and_recall_recovery] one real R creates one authentic new snapshot and matching Echo
+PASS [carried/pause_and_recall_recovery] the resumed snapshot contains the origin and the actual new displacement
+PASS [carried/pause_and_recall_recovery] RECALL recovers the origin while an inside-only take earns no final witness
+PASS [carried/pause_and_recall_recovery] new review door remains manually recoverable after Continue
+PASS [carried/pause_and_recall_recovery] another real R replaces the take and resets only 6B, preserving the completed house exit
+PASS [carried/pause_and_recall_recovery] later movement and RECALL leave every frame of the previous snapshot immutable
+PASS [carried/pause_and_recall_recovery] a second Continue call during active review is rejected without erasing its real recording or moving the Player
+PASS [carried/pause_and_recall_recovery] restored play still requires a real exterior approach and witness before physical completion
+PASS [carried/pause_and_recall_recovery] recall recovery does not overwrite either edition's saved decisions
+PASS

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "error": "",
+  "checks": 48,
+  "reloads": 8,
+  "explicitFixtures": 10,
+  "preferencesRestored": true,
+  "scope": "Explicit public API state fixtures, actual save/load and fresh scenes; separate from normal controls route."
+}

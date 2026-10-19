@@ -1,0 +1,18 @@
+{
+    "label": "house-Hall-6B-side-approach",
+    "position": {
+        "x": -10.0,
+        "y": 1.6299999952316285,
+        "z": -49.099998474121097
+    },
+    "target": {
+        "x": -13.0,
+        "y": 1.100000023841858,
+        "z": -48.900001525878909
+    },
+    "chapter": "Archive",
+    "power": "Hall",
+    "answered": true,
+    "latched": true,
+    "drained": true
+}

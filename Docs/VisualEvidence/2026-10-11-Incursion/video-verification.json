@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "duration": 15.366666666666667,
+  "videoStreams": 1,
+  "audioStreams": 1,
+  "dimensions": "960x540",
+  "encodedPeakDb": -5.827665410799999,
+  "encodedFullScaleSamples": 0,
+  "gain": "Original PCM; only 8 ms cut fades",
+  "inspection": "Decoded frame at 4.2 seconds; full native phase sheets and real Player captures inspected"
+}

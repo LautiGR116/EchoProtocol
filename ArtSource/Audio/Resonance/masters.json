@@ -1,0 +1,173 @@
+[
+  {
+    "file": "Assets/_Game/Audio/Clips/Resonance/Contact_Closed.wav",
+    "sources": [
+      "mechanical-lightclunk1.wav"
+    ],
+    "edit": "Mono; 75 Hz high pass, short room, fades",
+    "seconds": 0.6314791666666667,
+    "peakDb": -6.38,
+    "rmsDb": -32.87,
+    "loop": false,
+    "sha256": "78ee3b185f8587a727406975afc2d9dc16eaabd3109cfb04610c64323f16b888"
+  },
+  {
+    "file": "Assets/_Game/Audio/Clips/Resonance/Relay_Strain.wav",
+    "sources": [
+      "mechanical-clank1.wav",
+      "metal_interactions/metal_swing1.wav"
+    ],
+    "edit": "Physical metal onset and friction, fits 0.82 s lane stage",
+    "seconds": 0.7,
+    "peakDb": -9.63,
+    "rmsDb": -31.82,
+    "loop": false,
+    "sha256": "b336165f3d1b09d8315fe0c577c4361778974a562fdaa71fd465881b1f1e4644"
+  },
+  {
+    "file": "Assets/_Game/Audio/Clips/Resonance/Transfer_Seat.wav",
+    "sources": [
+      "mechanical-lightclunk1.wav",
+      "mechanical-clank1.wav",
+      "metal_interactions/metal_swing1.wav"
+    ],
+    "edit": "Two causal contacts; tail; no voice",
+    "seconds": 1.7,
+    "peakDb": -7.13,
+    "rmsDb": -34.16,
+    "loop": false,
+    "sha256": "960a1c9d7f08b9deb05a48a9861ba6df3299f09256c8694cab995c8357e0ab21"
+  },
+  {
+    "file": "Assets/_Game/Audio/Clips/Resonance/Latch_Release.wav",
+    "sources": [
+      "mechanical-mechanical2.wav",
+      "mechanical-lightclunk1.wav"
+    ],
+    "edit": "Lever release, short fade",
+    "seconds": 0.65,
+    "peakDb": -7.13,
+    "rmsDb": -29.18,
+    "loop": false,
+    "sha256": "f2dfc85758156afcf3e5067f1ddb0a7c0655094b6f7a85ad125661430e4ac612"
+  },
+  {
+    "file": "Assets/_Game/Audio/Clips/Resonance/Wall_ThreeStrains.wav",
+    "sources": [
+      "scrape-1.wav",
+      "scrape-2.wav",
+      "scrape-6.wav",
+      "original modal composition"
+    ],
+    "edit": "Three uneven real friction gestures, descending 111/104.8/98.8 Hz modes, room decay",
+    "seconds": 9.949958333333333,
+    "peakDb": -6.74,
+    "rmsDb": -25.2,
+    "loop": false,
+    "sha256": "1a44c576963d28e0919e1c69ffa9841b2da77790fd71923b48827c636e1d3c62"
+  },
+  {
+    "file": "Assets/_Game/Audio/Clips/Resonance/Passage_RearContact.wav",
+    "sources": [
+      "scrape-6.wav",
+      "scrape-1.wav",
+      "mechanical-rattle1.wav"
+    ],
+    "edit": "Concrete drag behind rear partition, no vocal ownership or footfall",
+    "seconds": 5.349958333333333,
+    "peakDb": -6.38,
+    "rmsDb": -28.5,
+    "loop": false,
+    "sha256": "f0c33628731e4f04c376c3ba0cb15e149a56f0cee4753142b72dfea41b796dff"
+  },
+  {
+    "file": "Assets/_Game/Audio/Clips/Resonance/Archive_Approach.wav",
+    "sources": [
+      "scrape-1.wav",
+      "scrape-2.wav",
+      "scrape-6.wav",
+      "mechanical-lightclunk1.wav"
+    ],
+    "edit": "Deliberately approaching sequence, increasing friction density, no footstep pattern",
+    "seconds": 7.799979166666667,
+    "peakDb": -6.38,
+    "rmsDb": -27.47,
+    "loop": false,
+    "sha256": "837d3edb0e0d49298d1ecd30d96ed750c10a46d2c44075feef215afb3c0043e4"
+  },
+  {
+    "file": "Assets/_Game/Audio/Clips/Resonance/Line_Unanswered.wav",
+    "sources": [
+      "SPAudiobooks 776565, excerpt 17.5\u201329.5 s"
+    ],
+    "edit": "Native pitch, mono telephone 330\u20132950 Hz, 1.45 s anticipation, twelve-second vocal excerpt, line end",
+    "seconds": 15.2,
+    "peakDb": -6.56,
+    "rmsDb": -30.83,
+    "loop": false,
+    "sha256": "66203b44630ef89f737f7e0d8325b86d096d8cfc22b6ddd193c34f2fdabeeec8"
+  },
+  {
+    "file": "Assets/_Game/Audio/Clips/Resonance/Shaft_DistantCry.wav",
+    "sources": [
+      "Archeos 325548, excerpt 0.82\u20133.20 s"
+    ],
+    "edit": "Adult actor original pitch, distant shaft bandwidth and 2.05 s decay; one live shutdown cry only",
+    "seconds": 4.429958333333333,
+    "peakDb": -6.38,
+    "rmsDb": -24.97,
+    "loop": false,
+    "sha256": "454cdf6244dc780009500a50207163f4e0f713c2bc66b35ec7eec375d6335971"
+  },
+  {
+    "file": "Assets/_Game/Audio/Clips/Resonance/Score_Recognition.wav",
+    "sources": [
+      "original modal composition",
+      "scrape-1.wav"
+    ],
+    "edit": "Internal nonverbal cue; descending structural motif, 1.2 s entrance/3 s release",
+    "seconds": 19.0,
+    "peakDb": -9.11,
+    "rmsDb": -22.5,
+    "loop": false,
+    "sha256": "17fe6029e11e1f710bf0a4618fbefe286ca2e7a50c9f988016f005aa3b081648"
+  },
+  {
+    "file": "Assets/_Game/Audio/Clips/Resonance/Score_Release.wav",
+    "sources": [
+      "original modal composition",
+      "scrape-1.wav"
+    ],
+    "edit": "Lowered final reminiscence; no vocal, five-second release",
+    "seconds": 22.619041666666668,
+    "peakDb": -10.79,
+    "rmsDb": -24.44,
+    "loop": false,
+    "sha256": "61dc68ba3aceb0a793e34d1167b29e0664fcfc0a32eeef5d5f6cb858849a9755"
+  },
+  {
+    "file": "Assets/_Game/Audio/Clips/Resonance/Key_Tray.wav",
+    "sources": [
+      "metal_interactions/metal_button_press2.wav",
+      "mechanical-lightclunk1.wav"
+    ],
+    "edit": "Small metal contact and restrained tray resonance",
+    "seconds": 1.1999791666666666,
+    "peakDb": -6.94,
+    "rmsDb": -30.8,
+    "loop": false,
+    "sha256": "9248d32822206273634e5c763151ea6c20ad6e6669330239ca3ce616421f7912"
+  },
+  {
+    "file": "Assets/_Game/Audio/Clips/Resonance/Pipe_Air_LP.wav",
+    "sources": [
+      "HECKFRICKER 753542 via existing FacilityAir derivative"
+    ],
+    "edit": "Slow physical air modulation, 80\u20133800 Hz, seamless overlap, no musical pulse",
+    "seconds": 23.6,
+    "peakDb": -6.94,
+    "rmsDb": -20.69,
+    "loop": true,
+    "sha256": "6116f338ebffa8d9d1f3b3ba098be0c372d234cd72c5f5456ce74e95086814e3"
+  }
+]

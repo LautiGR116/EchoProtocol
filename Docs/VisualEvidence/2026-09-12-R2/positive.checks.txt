@@ -1,0 +1,66 @@
+PASS fresh baseline sealed, P3 inactive and anchor rejects Player
+PASS P2 Player preview preserved
+PASS real R completed once
+PASS real Echo holds P2
+PASS R1 remains sealed before SE3
+PASS real SE2 visible reading complete
+PASS genuine SE3 return opens R1
+PASS actual Player can activate anchor after valid return
+PASS existing E ray activates physical station
+PASS anchor activation neither teleports nor performs RECALL
+PASS anchor discards old Echo and history and immediately rearms empty recorder
+PASS repeat E cannot recommit
+PASS without Echo Gate A physically blocks
+PASS real R completed once
+PASS A Player preview does not latch
+PASS B Player preview acquired
+PASS real R completed once
+PASS R clears both P3 gates and authorization
+PASS R1 checkpoint persists
+PASS SE2 SE3 R1 and anchor persist
+PASS Echo begins with actual R1 recording pose
+PASS Echo A latches alternative route
+PASS opaque section removes continuous Echo sight
+PASS final gate requires true B Echo hold after A
+PASS Player crosses final gate by alternative route
+PASS real R completed once
+PASS post-payoff R resets P3
+PASS post-payoff R retains completed SE2 SE3 R1 anchor
+PASS B Player preview acquired
+PASS real R completed once
+PASS R clears both P3 gates and authorization
+PASS R1 checkpoint persists
+PASS SE2 SE3 R1 and anchor persist
+PASS Echo begins with actual R1 recording pose
+PASS Echo at B without A cannot authorize final gate
+PASS real R completed once
+PASS negative R restores baseline
+PASS A Player preview does not latch
+PASS real R completed once
+PASS R clears both P3 gates and authorization
+PASS R1 checkpoint persists
+PASS SE2 SE3 R1 and anchor persist
+PASS Echo begins with actual R1 recording pose
+PASS wrong B orientation cannot hold final gate
+PASS real R completed once
+PASS negative R restores baseline
+PASS A Player preview does not latch
+PASS B Player preview acquired
+PASS real R completed once
+PASS R clears both P3 gates and authorization
+PASS R1 checkpoint persists
+PASS SE2 SE3 R1 and anchor persist
+PASS Echo begins with actual R1 recording pose
+PASS short recording restores both gates and authorization when Echo ends
+PASS real R completed once
+PASS negative R restores baseline
+PASS A Player preview does not latch
+PASS B Player preview acquired
+PASS real R completed once
+PASS R clears both P3 gates and authorization
+PASS R1 checkpoint persists
+PASS SE2 SE3 R1 and anchor persist
+PASS Echo begins with actual R1 recording pose
+PASS real R completed once
+PASS R during separated route restores P3 baseline
+PASS R during separated route preserves completed world

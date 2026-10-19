@@ -1,0 +1,15 @@
+{
+  "status": "FAIL",
+  "error": "System.Exception: one real R creates one take\n  at ReconstructionPuzzleProbe.Check (System.Boolean ok, System.String s) [0x00016] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ReconstructionPuzzleProbe.cs:20 \n  at ReconstructionPuzzleProbe+<Recall>d__47.MoveNext () [0x00058] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ReconstructionPuzzleProbe.cs:72 \n  at ReconstructionPuzzleProbe+<Guarded>d__38.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ReconstructionPuzzleProbe.cs:19 ",
+  "phase": "production hint timing and actual retries",
+  "mode": "hints",
+  "fixtureCount": 0,
+  "scope": "Input System WASD/mouse/E/R/H/J/Escape. P3 has one initial R1 prerequisite/pose fixture. Hints uses actual RECALL attempts and production 45/65-second defaults; accelerated thresholds are behavior, not fixtures. No direct puzzle/interaction/recall callbacks after fixture. Not human clarity, difficulty, comfort or fear evidence.",
+  "takeCount": 0,
+  "checks": [
+    "fresh real title",
+    "Enter starts controls",
+    "hints count the actual enabled loop, not preserved inactive prototypes",
+    "authored production delays are 45/65 seconds"
+  ]
+}

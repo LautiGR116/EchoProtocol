@@ -1,0 +1,28 @@
+{
+    "mode": "alternate",
+    "status": "PASS",
+    "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Residence.unity",
+    "lastStep": "done",
+    "evidenceScope": "Isolated previous-chapter fixture, then real CharacterController/raycast/keyboard/mouse through Input System. Game captures include UI; Camera captures omit it. No human play, listening, fear or full-campaign claim.",
+    "error": "",
+    "checks": 48,
+    "initialPoseFixtures": 1,
+    "unexpectedPauseResumes": 0,
+    "elapsedRealtime": 15.073135375976563,
+    "hasKey": true,
+    "answeredPhone": false,
+    "unlockedExit": true,
+    "presenceSeen": false,
+    "presenceRetired": false,
+    "powerLocation": "Hall",
+    "screenshots": [
+        "alternate-00-entry-Game.png",
+        "alternate-00-entry-Camera.png",
+        "alternate-alternate-key-before-phone-Game.png",
+        "alternate-alternate-key-before-phone-Camera.png",
+        "alternate-10-mechanical-door-open-Game.png",
+        "alternate-10-mechanical-door-open-Camera.png",
+        "alternate-11-outside-house-Game.png",
+        "alternate-11-outside-house-Camera.png"
+    ]
+}

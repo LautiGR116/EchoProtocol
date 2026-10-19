@@ -1,0 +1,251 @@
+{
+  "date": "2026-10-01",
+  "authorship": "Original project derivative of PressurePlant. Construction helpers and original unchanged MotorSkid geometry copied; true annular hood and rotor newly authored here. No external asset, service or purchase.",
+  "source_pressureplant_builder_sha256": "e19bd9934af9686c7a390814f10b881a7c1cfd7a4c96b15a837cd7603917c421",
+  "axis_contract": "Source X shaft axis, Z up. FBX -Z/+Y. Prior importer maps(-X,Z,-Y); apply the same corrected root X reflection used by PressurePlant, preserving import rotation/scale. Corrected assembly maps(X,Z,-Y). Markers are authoritative.",
+  "materials": {
+    "PP_CastIron": {
+      "color": [
+        0.078,
+        0.094,
+        0.086,
+        1
+      ],
+      "roughness": 0.6,
+      "metallic": 0.7
+    },
+    "PP_FastenerZinc": {
+      "color": [
+        0.39,
+        0.405,
+        0.37,
+        1
+      ],
+      "roughness": 0.38,
+      "metallic": 0.82
+    },
+    "PP_MachinedSteel": {
+      "color": [
+        0.25,
+        0.28,
+        0.26,
+        1
+      ],
+      "roughness": 0.39,
+      "metallic": 0.8
+    },
+    "PP_MotorPaint": {
+      "color": [
+        0.095,
+        0.137,
+        0.143,
+        1
+      ],
+      "roughness": 0.51,
+      "metallic": 0.15
+    },
+    "PP_PlateIvory": {
+      "color": [
+        0.49,
+        0.477,
+        0.373,
+        1
+      ],
+      "roughness": 0.67,
+      "metallic": 0.05
+    },
+    "PP_Recess": {
+      "color": [
+        0.021,
+        0.027,
+        0.024,
+        1
+      ],
+      "roughness": 0.89,
+      "metallic": 0
+    },
+    "PP_Rubber": {
+      "color": [
+        0.016,
+        0.021,
+        0.018,
+        1
+      ],
+      "roughness": 0.87,
+      "metallic": 0
+    },
+    "SD_RotorMatte": {
+      "color": [
+        0.078,
+        0.09,
+        0.08,
+        1
+      ],
+      "roughness": 0.77,
+      "metallic": 0.14
+    },
+    "SD_RotorPatina": {
+      "color": [
+        0.054,
+        0.067,
+        0.058,
+        1
+      ],
+      "roughness": 0.84,
+      "metallic": 0.08
+    }
+  },
+  "assets": {
+    "MotorSkid": {
+      "file": "exports/EP_SD_MotorSkid.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.7599999904632568,
+          0.7900000214576721
+        ],
+        [
+          -0.4000000059604645,
+          0.4000000059604645
+        ],
+        [
+          0.0,
+          1.0099999904632568
+        ]
+      ],
+      "materials": [
+        "PP_CastIron",
+        "PP_FastenerZinc",
+        "PP_MachinedSteel",
+        "PP_MotorPaint",
+        "PP_PlateIvory",
+        "PP_Recess",
+        "PP_Rubber",
+        "SD_RotorMatte",
+        "SD_RotorPatina"
+      ],
+      "mesh_objects": [
+        {
+          "name": "ShutdownMotorStatic",
+          "vertices": 8632,
+          "triangles": 16824,
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        {
+          "name": "ShutdownRotor",
+          "vertices": 482,
+          "triangles": 952,
+          "pivot_blender_xyz": [
+            -0.6819999814033508,
+            0.0,
+            0.5350000262260437
+          ],
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "anchors_blender_xyz": {
+        "MotorSkid__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "MotorSkid__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "MotorSkid__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "MotorSkid__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "MotorSkid__ROTOR_PIVOT": [
+          -0.682,
+          0,
+          0.535
+        ],
+        "MotorSkid__ROTOR_AXIS_POS": [
+          -0.582,
+          0,
+          0.535
+        ],
+        "MotorSkid__ROTOR_REFERENCE": [
+          -0.682,
+          0.16,
+          0.535
+        ],
+        "MotorSkid__AXIAL_INLET": [
+          0.79,
+          0,
+          0.535
+        ],
+        "MotorSkid__UPPER_DISCHARGE": [
+          0.41,
+          0,
+          1.01
+        ]
+      },
+      "ports_blender_xyz": [
+        {
+          "name": "axial inlet",
+          "position": [
+            0.79,
+            0,
+            0.535
+          ],
+          "outward": [
+            1,
+            0,
+            0
+          ],
+          "bore_diameter": 0.164
+        },
+        {
+          "name": "upper discharge",
+          "position": [
+            0.41,
+            0,
+            1.01
+          ],
+          "outward": [
+            0,
+            0,
+            1
+          ],
+          "bore_diameter": 0.164
+        }
+      ],
+      "animation": {
+        "mesh": "ShutdownRotor",
+        "pivot_blender_xyz": [
+          -0.682,
+          0,
+          0.535
+        ],
+        "axis_blender_xyz": [
+          1,
+          0,
+          0
+        ],
+        "candidate_degrees_per_second": 1440,
+        "status": "Provisional presentation speed, not simulated motor RPM; root must judge real camera aliasing, slowdown and comfort."
+      },
+      "notes": "Original existing MotorSkid body/skid/ports rebuilt exactly; only original capped rear hood and disk replaced. Fixed guard belongs to ShutdownMotorStatic. The matte wheel is separate and the inlet/discharge stay connected. No collider, light, text, audio or runtime animation exported."
+    }
+  },
+  "total_triangles": 17776,
+  "verification_limit": "Source geometry and Blender previews only; Unity placement/materials/motion and human experience remain pending."
+}

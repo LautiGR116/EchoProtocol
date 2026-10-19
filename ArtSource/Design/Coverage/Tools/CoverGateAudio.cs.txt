@@ -1,0 +1,14 @@
+using System;using System.Linq;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using EchoProtocol.Campaign;using EchoProtocol.Puzzle;using EchoProtocol.Audio;
+public static class CoverGateAudio {
+static void R(UnityEngine.Object o,string f,UnityEngine.Object v){var s=new SerializedObject(o);s.FindProperty(f).objectReferenceValue=v;s.ApplyModifiedPropertiesWithoutUndo();}
+public static string Main(){
+if(EditorApplication.isPlaying)throw new Exception("Stopped scene required");var cover=UnityEngine.Object.FindFirstObjectByType<MachineCoverEncounter>();var c=new SerializedObject(cover);var template=GameObject.Find("Coverage / physical pump motor").GetComponent<AudioSource>();var list=new System.Collections.Generic.List<SlidingDoorAudio>();
+foreach(string field in new[]{"serviceGate","returnGate","exitDoor"}){
+var door=(SlidingDoor)c.FindProperty(field).objectReferenceValue;var ds=new SerializedObject(door);var rb=(Rigidbody)ds.FindProperty("doorBody").objectReferenceValue;
+var audio=UnityEngine.Object.FindObjectsByType<SlidingDoorAudio>(FindObjectsSortMode.None).FirstOrDefault(x=>new SerializedObject(x).FindProperty("door").objectReferenceValue==door);
+if(!audio){var g=new GameObject(door.name+" / real mechanism sound");g.transform.SetParent(cover.transform);g.transform.position=rb.position+Vector3.up*1.7f;var source=g.AddComponent<AudioSource>();source.outputAudioMixerGroup=template.outputAudioMixerGroup;source.minDistance=1.4f;source.maxDistance=18;source.rolloffMode=AudioRolloffMode.Logarithmic;audio=g.AddComponent<SlidingDoorAudio>();R(audio,"door",door);R(audio,"doorBody",rb);R(audio,"mechanismSource",source);R(audio,"movementLoopClip",AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Mechanisms/SFX_DoorMovement_LP.wav"));R(audio,"endpointClip",AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Mechanisms/SFX_DoorEndpoint.wav"));var s=new SerializedObject(audio);s.FindProperty("mechanismVolume").floatValue=.12f;s.ApplyModifiedPropertiesWithoutUndo();}
+list.Add(audio);}
+var a=c.FindProperty("gateAudio");a.arraySize=list.Count;for(int i=0;i<list.Count;i++)a.GetArrayElementAtIndex(i).objectReferenceValue=list[i];c.ApplyModifiedPropertiesWithoutUndo();
+var release=GameObject.Find("Service / exit release and grille catch").GetComponent<MachineCoverInteraction>();var ws=new SerializedObject(release);ws.FindProperty("handleAxis").vector3Value=Vector3.right;ws.ApplyModifiedPropertiesWithoutUndo();
+var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);return "Real gate movement/contact routed at physical frames; canonical restores remain quiet; original imported control axes retained.";
+}}

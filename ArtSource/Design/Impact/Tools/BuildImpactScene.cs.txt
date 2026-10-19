@@ -1,0 +1,57 @@
+using System;using System.IO;using System.Linq;using System.Collections.Generic;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using EchoProtocol.Audio;using EchoProtocol.Campaign;using EchoProtocol.Echo;using EchoProtocol.Player;using EchoProtocol.Presentation;
+public static class BuildImpactScene
+{
+ const string Scene="Assets/_Game/Scenes/Production/EchoProtocol_Impact.unity";
+ static T Find<T>()where T:UnityEngine.Object=>UnityEngine.Object.FindFirstObjectByType<T>(FindObjectsInactive.Include);
+ static T Field<T>(UnityEngine.Object o,string field)where T:UnityEngine.Object=>(T)new SerializedObject(o).FindProperty(field).objectReferenceValue;
+ static void Set(UnityEngine.Object o,string field,UnityEngine.Object value){var s=new SerializedObject(o);var p=s.FindProperty(field);if(p==null)throw new Exception(field);p.objectReferenceValue=value;s.ApplyModifiedPropertiesWithoutUndo();}
+ static void Float(UnityEngine.Object o,string field,float value){var s=new SerializedObject(o);s.FindProperty(field).floatValue=value;s.ApplyModifiedPropertiesWithoutUndo();}
+ static void Array(UnityEngine.Object o,string field,UnityEngine.Object[] values){var s=new SerializedObject(o);var p=s.FindProperty(field);p.arraySize=values.Length;for(int i=0;i<values.Length;i++)p.GetArrayElementAtIndex(i).objectReferenceValue=values[i];s.ApplyModifiedPropertiesWithoutUndo();}
+ static AudioSource Source(string name,Transform parent,Vector3 local,string clip,float volume,float min,bool loop=false,bool internalScore=false)
+ {
+  var g=new GameObject(name);g.transform.SetParent(parent,false);g.transform.localPosition=local;var a=g.AddComponent<AudioSource>();a.playOnAwake=false;a.loop=loop;a.clip=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Impact/"+clip+".wav");a.volume=volume;a.spatialBlend=internalScore?0:1;a.dopplerLevel=0;a.priority=40;a.outputAudioMixerGroup=AssetDatabase.LoadAssetAtPath<UnityEngine.Audio.AudioMixer>("Assets/_Game/Audio/MX_Main.mixer").FindMatchingGroups("WorldSFX").Single();Falloff(a,min,19);return a;
+ }
+ static void Falloff(AudioSource a,float min,float max){a.minDistance=min;a.maxDistance=max;a.rolloffMode=AudioRolloffMode.Custom;a.SetCustomCurve(AudioSourceCurveType.CustomRolloff,new AnimationCurve(new Keyframe(0,1),new Keyframe(min/max,1),new Keyframe(.42f,.62f),new Keyframe(.75f,.18f),new Keyframe(1,0)));a.dopplerLevel=0;}
+ static GameObject Cube(string name,Transform parent,Vector3 position,Vector3 size,Material material,bool collision=true)
+ {var g=GameObject.CreatePrimitive(PrimitiveType.Cube);g.name=name;g.transform.SetParent(parent,true);g.transform.position=position;g.transform.localScale=size;g.GetComponent<Renderer>().sharedMaterial=material;if(!collision)UnityEngine.Object.DestroyImmediate(g.GetComponent<Collider>());return g;}
+ public static object Main()
+ {
+  if(EditorApplication.isPlaying||UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty)throw new Exception("Clean stopped Editor required");
+  if(AssetDatabase.LoadAssetAtPath<SceneAsset>(Scene))throw new Exception("Preserve existing candidate");
+  if(!AssetDatabase.CopyAsset("Assets/_Game/Scenes/Production/EchoProtocol_Embodiment.unity",Scene))throw new Exception("Scene copy failed");
+  var scene=EditorSceneManager.OpenScene(Scene);var cover=Find<MachineCoverEncounter>();var threat=Find<MachineCoverThreat>();var session=Find<GameSession>();var player=Find<FirstPersonController>();var loop=Field<LoopController>(Find<CampaignDirector>(),"loop");var listener=player.GetComponentInChildren<Camera>().transform;
+  var c=new SerializedObject(Find<CampaignDirector>());c.FindProperty("checkpointKey").stringValue="EP.CampaignCheckpoint.Impact.v1";c.ApplyModifiedPropertiesWithoutUndo();
+  var p=threat.gameObject.AddComponent<MachineCoverPresence>();Set(p,"encounter",cover);Set(p,"threat",threat);Set(p,"session",session);Set(p,"listener",listener);Set(threat,"presence",p);
+  var cry=Field<AudioSource>(threat,"cry");var movement=Field<AudioSource>(threat,"movement");var strike=Field<AudioSource>(threat,"strike");
+  cry.clip=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Impact/Threat_DirectCry.wav");cry.volume=.43f;Falloff(cry,3.3f,19);
+  movement.clip=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Impact/Threat_Step0.wav");movement.volume=.26f;Falloff(movement,2.7f,18);
+  strike.clip=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Impact/Threat_FrameContact.wav");strike.volume=.24f;Falloff(strike,2,8);
+  var warning=Source("Presence / contact behind the baffle",cover.transform,Vector3.zero,"Threat_FrameContact",.29f,4.4f);warning.transform.position=new Vector3(-6.2f,1.4f,-43.3f);
+  var rush=Source("Presence / real frame contact",cover.transform,Vector3.zero,"Threat_FrameContact",.29f,3.3f);rush.transform.position=new Vector3(-5.85f,1.4f,-42.85f);
+  var friction=Source("Presence / moving body grain",threat.transform,new Vector3(0,1.1f,0),"Threat_MovingFriction",.22f,2.7f,true);
+  var score=Source("Presence / internal pursuit pulse",cover.transform,Vector3.zero,"Pursuit_Pulse",.25f,1,true,true);
+  var frame=new GameObject("Presence / frame contact point");frame.transform.SetParent(cover.transform,true);frame.transform.position=new Vector3(-5.85f,.03f,-42.85f);
+  Set(p,"frameContact",frame.transform);Set(p,"warning",warning);Set(p,"rush",rush);Set(p,"friction",friction);Set(p,"score",score);
+  var spatial=new[]{cry,movement,warning,rush,friction};Array(p,"spatialSources",spatial);Array(p,"boundaries",spatial.Select(a=>(UnityEngine.Object)a.gameObject.AddComponent<AudioLowPassFilter>()).ToArray());Array(p,"steps",Enumerable.Range(0,3).Select(i=>(UnityEngine.Object)AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Impact/Threat_Step"+i+".wav")).ToArray());
+  var material=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Materials/VS1/VT1/M_VS1_VT1_Service.mat");var metal=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Isolation/M_ServiceSteel.mat");
+  var lamp=new GameObject("Presence / shielded service practical");lamp.transform.SetParent(cover.transform,true);lamp.transform.position=new Vector3(-4.8f,2.45f,-42.55f);var light=lamp.AddComponent<Light>();light.type=LightType.Point;light.range=4.8f;light.intensity=.25f;light.color=new Color(1,.62f,.32f);light.shadows=LightShadows.None;Set(p,"threatPractical",light);
+  Cube("Presence / service lamp housing",cover.transform,lamp.transform.position+Vector3.up*.08f,new Vector3(.42f,.16f,.18f),metal,false);
+  Float(threat,"navigationClearance",.39f);Float(threat,"captureDistance",1.08f);Float(threat,"initialRushSeconds",3.4f);Float(threat,"pursuitSpeed",3.2f);var cc=threat.GetComponent<CharacterController>();cc.radius=.40f;cc.skinWidth=.035f;
+  Float(cover,"motorLevel",.32f);Float(cover,"purgeLevel",.18f);Float(Find<SessionAudio>(),"normalCeiling",.5f);
+  var release=Field<MachineCoverInteraction>(cover,"release");Float(release,"workSeconds",2.3f);
+  foreach(var work in new[]{Field<MachineCoverInteraction>(cover,"crank"),release})Field<AudioSource>(work,"workContact").volume=.105f;
+  Field<AudioSource>(cover,"contact").volume=.22f;
+  var motor=Field<AudioSource>(cover,"motor");Falloff(motor,4.5f,27);
+  Cube("Return / maintained sound-break partition",cover.transform,new Vector3(1.05f,1.55f,-45.7f),new Vector3(3,3.1f,.18f),material);
+  foreach(float x in new[]{-.45f,2.55f})Cube("Return / visible partition edge",cover.transform,new Vector3(x,1.55f,-45.7f),new Vector3(.07f,3.1f,.24f),metal,false);
+  var points=Field<Transform>(threat,"start");var old=(Transform[])threat.GetType().GetField("navigationPoints",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).GetValue(threat);
+  var positions=new[]{new Vector3(-6.65f,.03f,-46.5f),new Vector3(-6.65f,.03f,-42.6f),new Vector3(-4.65f,.03f,-42),new Vector3(-4.65f,.03f,-39),new Vector3(-4.65f,.03f,-37),new Vector3(0,.03f,-37),new Vector3(4.5f,.03f,-36),new Vector3(-4.05f,.03f,-43.2f),new Vector3(-2.1f,.03f,-43.55f),new Vector3(0,.03f,-43.6f),new Vector3(3.3f,.03f,-43.6f),new Vector3(3.3f,.03f,-46.85f),new Vector3(0,.03f,-46.85f),new Vector3(0,.03f,-49)};
+  var route=new List<UnityEngine.Object>();for(int i=0;i<positions.Length;i++){var tr=i<old.Length?old[i]:new GameObject("Threat / authored return point "+i).transform;tr.SetParent(cover.transform,true);tr.position=positions[i];route.Add(tr);}Array(threat,"navigationPoints",route.ToArray());
+  var originalLight=GameObject.Find("Return / maintained side passage light");for(int i=0;i<2;i++){var g=UnityEngine.Object.Instantiate(originalLight,cover.transform);g.name="Return / maintained guide practical "+i;g.transform.position=i==0?new Vector3(3.3f,2.6f,-45):new Vector3(0,2.6f,-47.5f);var l=g.GetComponent<Light>();l.range=4;l.intensity=1.4f;l.shadows=LightShadows.None;Cube(g.name+" / actual housing",cover.transform,g.transform.position+Vector3.up*.08f,new Vector3(.4f,.16f,.18f),metal,false);}
+  // Old emitter labels contained literal slash-ns; retain readable physical text.
+  foreach(var label in cover.GetComponentsInChildren<TextMesh>(true))label.text=label.text.Replace("\\n","\n");
+  var clearance=player.gameObject.AddComponent<PlayerEchoClearance>();Set(clearance,"player",player);Set(clearance,"loop",loop);Set(clearance,"session",session);
+  EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();
+  var report=new{status="AUTHORED",scene=Scene,sources=spatial.Select(a=>new{a.name,clip=AssetDatabase.GetAssetPath(a.clip),a.volume,a.minDistance,a.maxDistance,a.spatialBlend}).ToArray(),controllerRadius=cc.radius,routePoints=route.Count,rights="Existing CC0 sources; original adult voice pitch; licensed Embodiment models remain private",changes="Near source edits and custom attenuation; authored warning/rush/pulse; longer physical sight-breaking retreat; Player yields to unchanged recorded torso."};Directory.CreateDirectory("Docs/VisualEvidence/2026-10-11-Impact");File.WriteAllText("Docs/VisualEvidence/2026-10-11-Impact/authoring.json",Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented));return report;
+ }
+}

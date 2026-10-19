@@ -1,0 +1,45 @@
+{
+    "status": "FAIL",
+    "error": "Sequence contains no matching element",
+    "scope": "Read-only observer of normal-control campaign: fixed environmental sources, passive motor subtraction, pause, shared adult geometry, no Echo audio/animation. No listening or human fear claim.",
+    "fixedSourceFrames": 3969,
+    "pausedFrames": 325,
+    "samples": [
+        {
+            "frame": "campaign-orientation-P1-entry",
+            "passageMotor": 1.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-orientation-P1-A-arrival",
+            "passageMotor": 1.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-orientation-P1-A-preview",
+            "passageMotor": 1.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        },
+        {
+            "frame": "campaign-P1-visible",
+            "passageMotor": 1.0,
+            "finalMotor": 1.0,
+            "institutionGain": 1.0,
+            "contacts": 0,
+            "finalQuiet": false,
+            "witnessed": false
+        }
+    ]
+}

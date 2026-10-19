@@ -1,0 +1,13 @@
+Actual Player camera; Camera captures omit OnGUI, Game captures include it.
+campaign-00-title position=(0.000, 1.600, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title
+campaign-01-P1 position=(3.293, 1.630, 9.928) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=P1_cooperate
+campaign-pause-SE1_empty_lane position=(3.293, 1.630, 9.928) euler=(0.00, 306.00, 0.00) FOV=60 paused=True step=SE1_empty_lane/keyboard_pause
+campaign-02-SE1 position=(3.293, 1.630, 9.928) euler=(0.00, 306.00, 0.00) FOV=60 paused=False step=SE1_consequence
+campaign-reader-P2-aligned position=(-2.692, 1.630, 22.975) euler=(10.57, 86.49, 0.00) FOV=60 paused=False step=P2_record
+campaign-SE2-cold-approach position=(4.122, 1.630, 28.978) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=SE2_cold_approach
+campaign-03-SE2 position=(5.418, 1.630, 28.978) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=SE2_close_read
+campaign-SE3-entry position=(-2.691, 1.630, 28.909) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=SE3_return
+campaign-SE3-codo position=(-2.691, 1.630, 27.002) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=SE3_return
+campaign-04-R1 position=(-5.640, 1.630, 27.734) euler=(5.16, 272.27, 0.00) FOV=60 paused=False step=R1_anchor
+campaign-reader-P3-A-aligned position=(-7.749, 1.630, 35.124) euler=(3.84, 86.36, 0.00) FOV=60 paused=False step=P3_record
+campaign-reader-P3-B-aligned position=(-7.749, 1.630, 42.921) euler=(3.84, 86.18, 0.00) FOV=60 paused=False step=P3_record

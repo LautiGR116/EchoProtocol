@@ -1,0 +1,23 @@
+Scope: one explicit prior-act fixture and one Player pose fixture. Actual E/R and player-camera ray thereafter. Objective evidence, no human listening or fear claim.
+PASS explicit telephone runtime is configured and enabled
+PASS fresh telephone is on hook and unanswered
+PASS title and inactive chapter reject telephone use
+PASS actual center-camera ray reaches existing HouseInteraction
+PASS foreign actor cannot operate handset
+PASS actual ring source plays spatially at the phone base
+PASS real E stops ring, commits house answer and starts physical pickup
+PASS answer preserves the sole hall reserve and fabricates no key or exit
+PASS repeated E cannot reverse an unfinished handset motion
+PASS pause freezes both physical handset position and rotation
+PASS paused handset interaction and audio respect session pause
+PASS resumed pickup settles on exact authored tabletop pose
+PASS coiled cord endpoints remain attached to base and moving handset
+PASS all sampled cord vertices remain above the actual tabletop
+PASS house R does not rewind the handset or invent a recording
+PASS second real E returns handset to its physical cradle
+PASS hanging up does not restore mains or restart the call
+PASS coiled cord endpoints remain attached to base and moving handset
+PASS all sampled cord vertices remain above the actual tabletop
+PASS later pickup remains optional and does not repeat the call
+PASS leaving the house disables phone interaction
+PASS

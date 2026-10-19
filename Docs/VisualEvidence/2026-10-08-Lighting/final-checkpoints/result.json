@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Lighting.unity",
+  "reloads": 12,
+  "cameraFixtureRenders": 112,
+  "explicitPublicStateActions": 9,
+  "gameplayPosePlacements": 0,
+  "preferencesRestored": true,
+  "scope": "Isolated public Continue restoration with twelve actual PlayerPrefs writes and fresh scene loads. Render-only camera fixtures at normal approach height; Live key views additionally use explicitly counted public telephone/socket state actions. No Player movement, Echo take or campaign playthrough is inferred."
+}

@@ -1,0 +1,218 @@
+Synthetic input route; one explicit initial pose fixture. No human evidence.
+PASS explicit campaign and residence systems exist
+PASS Player input, camera and solid door references exist
+PASS fresh house has not been played
+PASS isolated fixture prepares only the previous chapter
+PASS Station / HouseOrigin is within the actual interaction range
+PASS center-camera ray reaches Station / HouseOrigin
+PASS Station / HouseOrigin accepts the actual Player in the current chapter
+PASS real E ray commits the house chapter
+PASS house suspends recording and playback
+PASS reserve begins in the hall before the phone
+PASS authored fuse representation exists: hallFuse
+PASS hallFuse agrees with the single reserve state
+PASS authored fuse representation exists: kitchenFuse
+PASS kitchenFuse agrees with the single reserve state
+PASS authored fuse representation exists: bedroomFuse
+PASS bedroomFuse agrees with the single reserve state
+PASS reserve never has duplicate physical representations
+PASS real R input cannot reset or record the house
+PASS R leaves the reserve and key unchanged
+PASS an optional physical house document exists
+PASS House interaction / Document is within the actual interaction range
+PASS center-camera ray reaches House interaction / Document
+PASS House interaction / Document accepts the actual Player in the current chapter
+PASS E opens a real document and pauses simulation
+PASS document pause preserves clock and pose despite R input
+PASS Escape closes the document through keyboard input
+PASS document reading changes no progression flags
+PASS House interaction / Telephone is within the actual interaction range
+PASS center-camera ray reaches House interaction / Telephone
+PASS House interaction / Telephone accepts the actual Player in the current chapter
+PASS phone removes mains and retains the hall reserve
+PASS authored fuse representation exists: hallFuse
+PASS hallFuse agrees with the single reserve state
+PASS authored fuse representation exists: kitchenFuse
+PASS kitchenFuse agrees with the single reserve state
+PASS authored fuse representation exists: bedroomFuse
+PASS bedroomFuse agrees with the single reserve state
+PASS reserve never has duplicate physical representations
+PASS reserve lighting is checked after mains removal
+PASS hallLights has explicit live references
+PASS Hall reserve light follows its actual reserve circuit
+PASS kitchenLights has explicit live references
+PASS Kitchen reserve fixture follows its actual reserve circuit
+PASS bedroomLights has explicit live references
+PASS Bedroom reserve lamp follows its actual reserve circuit
+PASS general supply removed from Parlor table lamp
+PASS appliance playback state follows kitchen power; this is not listening evidence
+PASS Escape opens the actual pause menu
+PASS real paused movement and R input leave clock, Player and loop unchanged
+PASS Escape restores actual Player control
+PASS Reserve socket / RECIBIDOR is within the actual interaction range
+PASS center-camera ray reaches Reserve socket / RECIBIDOR
+PASS Reserve socket / RECIBIDOR accepts the actual Player in the current chapter
+PASS E physically removes the sole hall reserve
+PASS authored fuse representation exists: hallFuse
+PASS hallFuse agrees with the single reserve state
+PASS authored fuse representation exists: kitchenFuse
+PASS kitchenFuse agrees with the single reserve state
+PASS authored fuse representation exists: bedroomFuse
+PASS bedroomFuse agrees with the single reserve state
+PASS reserve never has duplicate physical representations
+PASS reserve lighting is checked after mains removal
+PASS hallLights has explicit live references
+PASS Hall reserve light follows its actual reserve circuit
+PASS kitchenLights has explicit live references
+PASS Kitchen reserve fixture follows its actual reserve circuit
+PASS bedroomLights has explicit live references
+PASS Bedroom reserve lamp follows its actual reserve circuit
+PASS general supply removed from Parlor table lamp
+PASS appliance playback state follows kitchen power; this is not listening evidence
+PASS Reserve socket / COCINA is within the actual interaction range
+PASS center-camera ray reaches Reserve socket / COCINA
+PASS Reserve socket / COCINA accepts the actual Player in the current chapter
+PASS reserve can be placed directly in the kitchen
+PASS authored fuse representation exists: hallFuse
+PASS hallFuse agrees with the single reserve state
+PASS authored fuse representation exists: kitchenFuse
+PASS kitchenFuse agrees with the single reserve state
+PASS authored fuse representation exists: bedroomFuse
+PASS bedroomFuse agrees with the single reserve state
+PASS reserve never has duplicate physical representations
+PASS reserve lighting is checked after mains removal
+PASS hallLights has explicit live references
+PASS Hall reserve light follows its actual reserve circuit
+PASS kitchenLights has explicit live references
+PASS Kitchen reserve fixture follows its actual reserve circuit
+PASS bedroomLights has explicit live references
+PASS Bedroom reserve lamp follows its actual reserve circuit
+PASS general supply removed from Parlor table lamp
+PASS appliance playback state follows kitchen power; this is not listening evidence
+PASS Reserve socket / COCINA is within the actual interaction range
+PASS center-camera ray reaches Reserve socket / COCINA
+PASS Reserve socket / COCINA accepts the actual Player in the current chapter
+PASS kitchen reserve is removable without a completion sequence
+PASS authored fuse representation exists: hallFuse
+PASS hallFuse agrees with the single reserve state
+PASS authored fuse representation exists: kitchenFuse
+PASS kitchenFuse agrees with the single reserve state
+PASS authored fuse representation exists: bedroomFuse
+PASS bedroomFuse agrees with the single reserve state
+PASS reserve never has duplicate physical representations
+PASS reserve lighting is checked after mains removal
+PASS hallLights has explicit live references
+PASS Hall reserve light follows its actual reserve circuit
+PASS kitchenLights has explicit live references
+PASS Kitchen reserve fixture follows its actual reserve circuit
+PASS bedroomLights has explicit live references
+PASS Bedroom reserve lamp follows its actual reserve circuit
+PASS general supply removed from Parlor table lamp
+PASS appliance playback state follows kitchen power; this is not listening evidence
+PASS 6B exit / left hinge is within the actual interaction range
+PASS center-camera ray reaches 6B exit / left hinge
+PASS 6B exit / left hinge accepts the actual Player in the current chapter
+PASS a real E attempt without the key cannot open the mechanical exit
+PASS Reserve socket / DORMITORIO is within the actual interaction range
+PASS center-camera ray reaches Reserve socket / DORMITORIO
+PASS Reserve socket / DORMITORIO accepts the actual Player in the current chapter
+PASS reserve transfers from kitchen to bedroom through actual carried state
+PASS authored fuse representation exists: hallFuse
+PASS hallFuse agrees with the single reserve state
+PASS authored fuse representation exists: kitchenFuse
+PASS kitchenFuse agrees with the single reserve state
+PASS authored fuse representation exists: bedroomFuse
+PASS bedroomFuse agrees with the single reserve state
+PASS reserve never has duplicate physical representations
+PASS reserve lighting is checked after mains removal
+PASS hallLights has explicit live references
+PASS Hall reserve light follows its actual reserve circuit
+PASS kitchenLights has explicit live references
+PASS Kitchen reserve fixture follows its actual reserve circuit
+PASS bedroomLights has explicit live references
+PASS Bedroom reserve lamp follows its actual reserve circuit
+PASS general supply removed from Parlor table lamp
+PASS appliance playback state follows kitchen power; this is not listening evidence
+PASS House interaction / Key is within the actual interaction range
+PASS center-camera ray reaches House interaction / Key
+PASS House interaction / Key accepts the actual Player in the current chapter
+PASS E collects the physical key and removes its world representation
+PASS real R input cannot reset or record the house
+PASS R leaves the reserve and key unchanged
+PASS Reserve socket / DORMITORIO is within the actual interaction range
+PASS center-camera ray reaches Reserve socket / DORMITORIO
+PASS Reserve socket / DORMITORIO accepts the actual Player in the current chapter
+PASS the key does not lock the reserve in the bedroom
+PASS authored fuse representation exists: hallFuse
+PASS hallFuse agrees with the single reserve state
+PASS authored fuse representation exists: kitchenFuse
+PASS kitchenFuse agrees with the single reserve state
+PASS authored fuse representation exists: bedroomFuse
+PASS bedroomFuse agrees with the single reserve state
+PASS reserve never has duplicate physical representations
+PASS reserve lighting is checked after mains removal
+PASS hallLights has explicit live references
+PASS Hall reserve light follows its actual reserve circuit
+PASS kitchenLights has explicit live references
+PASS Kitchen reserve fixture follows its actual reserve circuit
+PASS bedroomLights has explicit live references
+PASS Bedroom reserve lamp follows its actual reserve circuit
+PASS general supply removed from Parlor table lamp
+PASS appliance playback state follows kitchen power; this is not listening evidence
+PASS the house has a configured contained presence
+PASS unobstructed Player view actually sees the persistent presence
+PASS turning away without physical occlusion does not remove the presence
+PASS a genuine opaque return corner retires the already seen presence
+PASS Reserve socket / RECIBIDOR is within the actual interaction range
+PASS center-camera ray reaches Reserve socket / RECIBIDOR
+PASS Reserve socket / RECIBIDOR accepts the actual Player in the current chapter
+PASS the Player can answer Mara's request by restoring the hall light
+PASS authored fuse representation exists: hallFuse
+PASS hallFuse agrees with the single reserve state
+PASS authored fuse representation exists: kitchenFuse
+PASS kitchenFuse agrees with the single reserve state
+PASS authored fuse representation exists: bedroomFuse
+PASS bedroomFuse agrees with the single reserve state
+PASS reserve never has duplicate physical representations
+PASS reserve lighting is checked after mains removal
+PASS hallLights has explicit live references
+PASS Hall reserve light follows its actual reserve circuit
+PASS kitchenLights has explicit live references
+PASS Kitchen reserve fixture follows its actual reserve circuit
+PASS bedroomLights has explicit live references
+PASS Bedroom reserve lamp follows its actual reserve circuit
+PASS general supply removed from Parlor table lamp
+PASS appliance playback state follows kitchen power; this is not listening evidence
+PASS 6B exit / left hinge is within the actual interaction range
+PASS center-camera ray reaches 6B exit / left hinge
+PASS 6B exit / left hinge accepts the actual Player in the current chapter
+PASS the key unlocks the physical hinged door with real E input
+PASS hinged leaf reaches its authored open rotation
+PASS the real CharacterController crosses the opened exit
+PASS normal exit preserves the chosen hall light
+PASS capture written: house-00-entry-Game.png
+PASS capture written: house-00-entry-Camera.png
+PASS capture written: house-01-document-game-Game.png
+PASS capture written: house-01-document-game-Camera.png
+PASS capture written: house-02-phone-before-Game.png
+PASS capture written: house-02-phone-before-Camera.png
+PASS capture written: house-03-phone-reserve-Game.png
+PASS capture written: house-03-phone-reserve-Camera.png
+PASS capture written: house-pause-menu-Game.png
+PASS capture written: house-pause-menu-Camera.png
+PASS capture written: house-04-hall-without-reserve-Game.png
+PASS capture written: house-04-hall-without-reserve-Camera.png
+PASS capture written: house-05-kitchen-powered-Game.png
+PASS capture written: house-05-kitchen-powered-Camera.png
+PASS capture written: house-06-bedroom-powered-Game.png
+PASS capture written: house-06-bedroom-powered-Camera.png
+PASS capture written: house-07-key-taken-Game.png
+PASS capture written: house-07-key-taken-Camera.png
+PASS capture written: house-08-presence-held-in-view-Game.png
+PASS capture written: house-08-presence-held-in-view-Camera.png
+PASS capture written: house-09-hall-light-returned-Game.png
+PASS capture written: house-09-hall-light-returned-Camera.png
+PASS capture written: house-10-mechanical-door-open-Game.png
+PASS capture written: house-10-mechanical-door-open-Camera.png
+PASS capture written: house-11-outside-house-Game.png
+PASS capture written: house-11-outside-house-Camera.png

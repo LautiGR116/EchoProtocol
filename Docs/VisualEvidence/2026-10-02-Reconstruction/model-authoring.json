@@ -1,0 +1,23 @@
+{
+  "mesh": "Assets/_Game/Art/Models/Reconstruction/EP_ReconstructedAdult.fbx",
+  "vertices": 72859,
+  "submeshes": 10,
+  "slots": [
+    "FIG_Skin",
+    "FIG_Trousers",
+    "FIG_Jacket",
+    "FIG_Eye",
+    "FIG_Iris",
+    "FIG_Hair",
+    "FIG_Shoe",
+    "FIG_Sole",
+    "FIG_Stitch",
+    "FIG_Metal"
+  ],
+  "prefab": "Assets/_Game/Prefabs/Reconstruction/EchoReconstructedAdult.prefab",
+  "bodyScale": [
+    1.0
+  ],
+  "rigs": 0,
+  "audio": 0
+}

@@ -1,0 +1,9 @@
+{
+  "app": "Builds/EchoProtocol-Offhook-20261001/EchoProtocol.app",
+  "method": "CUA native macOS app path, AX Raise, Enter, 24 individual W presses, R, Escape pause, Escape resume, Command-Q",
+  "result": "PASS",
+  "observed_echo_duration_seconds": 1.6,
+  "player_log_error_pattern_count": 0,
+  "limits": "Brief native smoke check only; no full route, mouse feel, human fear or audio audition. Native UI became available after the earlier locked-Mac attempt.",
+  "process_exited": true
+}

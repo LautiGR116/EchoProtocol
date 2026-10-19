@@ -1,0 +1,29 @@
+{
+  "change": "P1 dynamic status backing planes aligned to their actual text rotation; no collider or gameplay modification",
+  "plates": [
+    {
+      "id": "A",
+      "bounds": [
+        0.035000138,
+        0.215,
+        1.1400001
+      ]
+    },
+    {
+      "id": "B",
+      "bounds": [
+        0.035000138,
+        0.215,
+        1.1400001
+      ]
+    },
+    {
+      "id": "C",
+      "bounds": [
+        0.035000138,
+        0.215,
+        1.1400001
+      ]
+    }
+  ]
+}

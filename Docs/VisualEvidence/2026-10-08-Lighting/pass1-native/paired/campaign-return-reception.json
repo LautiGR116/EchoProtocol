@@ -1,0 +1,16 @@
+{
+    "label": "campaign-return-reception",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+    "position": {
+        "x": -18.64164161682129,
+        "y": 1.6299998760223389,
+        "z": 7.067665100097656
+    },
+    "rotation": {
+        "x": -3.855724840078181e-19,
+        "y": -1.0,
+        "z": 3.450044416819509e-11,
+        "w": -1.1175870007207323e-8
+    },
+    "fov": 60.0
+}

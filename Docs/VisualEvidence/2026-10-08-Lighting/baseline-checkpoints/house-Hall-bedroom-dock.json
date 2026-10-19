@@ -1,0 +1,18 @@
+{
+    "label": "house-Hall-bedroom-dock",
+    "position": {
+        "x": 3.9000000953674318,
+        "y": 1.6299999952316285,
+        "z": -53.45000076293945
+    },
+    "target": {
+        "x": 5.242000102996826,
+        "y": 1.2999999523162842,
+        "z": -53.45000076293945
+    },
+    "chapter": "Archive",
+    "power": "Hall",
+    "answered": true,
+    "latched": true,
+    "drained": true
+}

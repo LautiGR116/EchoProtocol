@@ -1,0 +1,103 @@
+{
+  "status": "PASS",
+  "rate": 48000,
+  "channels": 2,
+  "samples": 11225088,
+  "frames": 820,
+  "marks": [
+    {
+      "step": "title",
+      "seconds": 0.021333333333333333,
+      "realtime": 7.04170275
+    },
+    {
+      "step": "coverage_enter",
+      "seconds": 0.85333333333333339,
+      "realtime": 7.87468529
+    },
+    {
+      "step": "coverage_record_first_noise",
+      "seconds": 4.416,
+      "realtime": 11.4342823
+    },
+    {
+      "step": "coverage_record_silence",
+      "seconds": 16.597333333333335,
+      "realtime": 23.621994
+    },
+    {
+      "step": "coverage_record_return_noise",
+      "seconds": 23.445333333333334,
+      "realtime": 30.44951
+    },
+    {
+      "step": "coverage_playback_pause",
+      "seconds": 43.968,
+      "realtime": 50.9761353
+    },
+    {
+      "step": "coverage_cross_to_crank",
+      "seconds": 45.653333333333336,
+      "realtime": 52.66585
+    },
+    {
+      "step": "coverage_hold_crank",
+      "seconds": 50.090666666666664,
+      "realtime": 57.1054764
+    },
+    {
+      "step": "coverage_enter_service",
+      "seconds": 63.808,
+      "realtime": 70.88778
+    },
+    {
+      "step": "coverage_hold_release",
+      "seconds": 66.709333333333333,
+      "realtime": 73.78428
+    },
+    {
+      "step": "coverage_deliberate_failure",
+      "seconds": 68.970666666666673,
+      "realtime": 76.04894
+    },
+    {
+      "step": "coverage_cross_to_crank",
+      "seconds": 71.616,
+      "realtime": 78.70144
+    },
+    {
+      "step": "coverage_hold_crank",
+      "seconds": 77.077333333333328,
+      "realtime": 84.15069
+    },
+    {
+      "step": "coverage_enter_service",
+      "seconds": 90.304,
+      "realtime": 97.38731
+    },
+    {
+      "step": "coverage_hold_release",
+      "seconds": 92.992,
+      "realtime": 100.077637
+    },
+    {
+      "step": "coverage_prepared_return",
+      "seconds": 95.189333333333337,
+      "realtime": 102.272331
+    },
+    {
+      "step": "coverage_natural_recorded_release",
+      "seconds": 99.178666666666672,
+      "realtime": 106.260635
+    },
+    {
+      "step": "coverage-done",
+      "seconds": 116.928,
+      "realtime": 123.996208
+    }
+  ],
+  "listenerVolume": 1.0,
+  "reduced": false,
+  "mono": false,
+  "scope": "Actual post-SessionAudio stereo signal and composited Player view; normal input route. Device SPL, performance with capture disabled, comfort and fear require separate assessment."
+}

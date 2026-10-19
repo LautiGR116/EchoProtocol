@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-01",
+  "authorship": "Original procedural modelling; no third-party model or real-person likeness",
+  "model": "exports/EP_AdultRecordedSurface.fbx",
+  "front_source": "-Y",
+  "intended_Unity_front": "+Z; preserve importer axis correction",
+  "root": "feet midpoint at floor, no armature",
+  "bounds_source_xyz": [
+    [
+      -0.2716098725795746,
+      0.279305636882782
+    ],
+    [
+      -0.1688617765903473,
+      0.1775093376636505
+    ],
+    [
+      -8.532838933206222e-07,
+      1.7614355087280273
+    ]
+  ],
+  "height_m": 1.7614363620119207,
+  "vertices": 38766,
+  "triangles": 77184,
+  "materials": {
+    "FIG_Jacket": {
+      "baseColorLinear": [
+        0.11,
+        0.15,
+        0.14,
+        1
+      ],
+      "roughness": 0.86,
+      "metallic": 0
+    },
+    "FIG_Stitch": {
+      "baseColorLinear": [
+        0.06,
+        0.078,
+        0.07,
+        1
+      ],
+      "roughness": 0.89,
+      "metallic": 0
+    },
+    "FIG_Trousers": {
+      "baseColorLinear": [
+        0.076,
+        0.078,
+        0.072,
+        1
+      ],
+      "roughness": 0.93,
+      "metallic": 0
+    },
+    "FIG_Skin": {
+      "baseColorLinear": [
+        0.37,
+        0.255,
+        0.182,
+        1
+      ],
+      "roughness": 0.65,
+      "metallic": 0
+    },
+    "FIG_Hair": {
+      "baseColorLinear": [
+        0.04,
+        0.03,
+        0.025,
+        1
+      ],
+      "roughness": 0.94,
+      "metallic": 0
+    },
+    "FIG_Shoe": {
+      "baseColorLinear": [
+        0.047,
+        0.03,
+        0.022,
+        1
+      ],
+      "roughness": 0.67,
+      "metallic": 0
+    },
+    "FIG_Sole": {
+      "baseColorLinear": [
+        0.02,
+        0.019,
+        0.016,
+        1
+      ],
+      "roughness": 0.88,
+      "metallic": 0
+    },
+    "FIG_Eyes": {
+      "baseColorLinear": [
+        0.027,
+        0.025,
+        0.023,
+        1
+      ],
+      "roughness": 0.55,
+      "metallic": 0
+    },
+    "FIG_Metal": {
+      "baseColorLinear": [
+        0.25,
+        0.24,
+        0.2,
+        1
+      ],
+      "roughness": 0.49,
+      "metallic": 0.62
+    },
+    "FIG_Sclera": {
+      "baseColorLinear": [
+        0.45,
+        0.42,
+        0.35,
+        1
+      ],
+      "roughness": 0.43,
+      "metallic": 0
+    }
+  },
+  "notes": [
+    "Static relaxed adult body. No rig or implied recorded articulation.",
+    "Large anatomical/clothing surfaces voxel-unioned before export to reduce transparent internal seams.",
+    "Small face/cloth features remain surface geometry. Echo may replace every material slot with one shader.",
+    "Studio procedural fabric bump is not baked into FBX."
+  ]
+}

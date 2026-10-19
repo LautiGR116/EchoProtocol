@@ -1,0 +1,5 @@
+{
+  "status": "PASS",
+  "checks": 7,
+  "scope": "Pure bounded recording contract: defensive copy, exact event boundaries, target isolation and invalid-time rejection. Actual playback separately tested through physical controls."
+}

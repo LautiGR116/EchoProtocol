@@ -1,0 +1,24 @@
+PASS explicit scene identity and campaign
+PASS actual native viewport (1280, 800)
+PASS native window stays focused
+PASS native screenshot 1280x800-title
+PASS title keyboard focus moves once
+PASS settings Enter opens without starting
+PASS keyboard volume step
+PASS reduced dynamics toggles exactly once
+PASS speaker toggle via Space
+PASS automatic hints toggle
+PASS native screenshot 1280x800-settings
+PASS settings Esc keeps title paused
+PASS credits shortcut
+PASS native screenshot 1280x800-credits
+PASS title Enter starts once
+PASS actual pause
+PASS native screenshot 1280x800-pause
+PASS reverse Tab wraps to restart
+PASS restart confirmation
+PASS native screenshot 1280x800-restart
+PASS restart cancel stays paused
+PASS native screenshot 1280x800-letter
+PASS document pauses time player and audio
+FAIL letter ending reachable through End

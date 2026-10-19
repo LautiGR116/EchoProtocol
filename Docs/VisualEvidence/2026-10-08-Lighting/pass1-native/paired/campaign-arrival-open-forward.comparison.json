@@ -1,0 +1,16 @@
+{
+    "label": "campaign-arrival-open-forward",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+    "position": {
+        "x": -6.4047698974609379,
+        "y": 1.6299998760223389,
+        "z": -10.80695629119873
+    },
+    "rotation": {
+        "x": -4.205318593353269e-10,
+        "y": -0.3826834559440613,
+        "z": 1.7419002351637403e-10,
+        "w": -0.9238795042037964
+    },
+    "fov": 60.0
+}

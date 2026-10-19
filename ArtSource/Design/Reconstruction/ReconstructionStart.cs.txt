@@ -1,0 +1,15 @@
+using System;using System.IO;using System.Linq;using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine;using UnityEngine.SceneManagement;using EchoProtocol.Campaign;using EchoProtocol.Interaction;using Object=UnityEngine.Object;
+public static class ReconstructionStart {
+ static string PathOf(Transform t)=>t.parent?PathOf(t.parent)+"/"+t.name:t.name;
+ static float[] V(Vector3 v)=>new[]{v.x,v.y,v.z};
+ public static object Main(){
+  const string path="Assets/_Game/Scenes/Production/EchoProtocol_Reconstruction.unity";
+  if(EditorApplication.isPlaying||SceneManager.GetActiveScene().isDirty||File.Exists(path))throw new Exception("Need saved Edit baseline and absent new scene");
+  var scene=EditorSceneManager.OpenScene("Assets/_Game/Scenes/Production/EchoProtocol_EncounterArt.unity");
+  var d=Object.FindFirstObjectByType<CampaignDirector>();var s=new SerializedObject(d);s.FindProperty("checkpointKey").stringValue="EP.CampaignCheckpoint.Reconstruction.v1";s.ApplyModifiedPropertiesWithoutUndo();
+  EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene,path);EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(path,true)};AssetDatabase.SaveAssets();
+  var targets=Object.FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include,FindObjectsSortMode.None).Where(x=>x is IInteractable).Select(x=>new{path=PathOf(x.transform),type=x.GetType().Name,enabled=x.enabled,active=x.gameObject.activeInHierarchy,position=V(x.transform.position),colliders=x.GetComponentsInChildren<Collider>(true).Select(c=>new{name=c.name,type=c.GetType().Name,center=V(c.bounds.center),size=V(c.bounds.size),enabled=c.enabled,active=c.gameObject.activeInHierarchy,trigger=c.isTrigger,layer=c.gameObject.layer}).ToArray()}).ToArray();
+  File.WriteAllText("Docs/VisualEvidence/2026-10-02-Reconstruction/interaction-inventory.json",Newtonsoft.Json.JsonConvert.SerializeObject(targets,Newtonsoft.Json.Formatting.Indented));
+  return new{scene=path,interactionTargets=targets.Length};
+ }
+}

@@ -1,0 +1,20 @@
+{
+  "app": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Courtyard-20261001/EchoProtocol.app",
+  "observations": [
+    "Title rendered at 1280x776 window",
+    "Credits show ahriik and CREDITS.txt without clipping",
+    "Enter starts reception",
+    "After window focus and W pulses HUD reports REGISTRANDO 02.4 / 60 s",
+    "R gives ECHO 01.4 / 07.0 s and waiting new recording",
+    "Escape shows pause controls and comfortable-volume guidance",
+    "Escape returns to game",
+    "Cmd-Q exits; final AX query reports procNotFound; log has input/physics shutdown"
+  ],
+  "limitations": [
+    "Brief native input and UI check, not complete native campaign",
+    "Screenshots inspected inline through CUA; no saved native PNG claimed",
+    "No human listening, comfort, fear or spontaneous recognition judgment"
+  ],
+  "gameplayErrorMatches": 0,
+  "shutdownNotes": "Mono thread prematurely-finalized messages present on exit, no gameplay error matched."
+}

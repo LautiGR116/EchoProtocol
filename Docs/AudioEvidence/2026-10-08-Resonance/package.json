@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "dateUTC": "2026-10-08T22:31:04.178676+00:00",
+  "zip": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Resonance-20261008.zip",
+  "sha256": "37211b901446a162419b9ca9b934149cea5d107625bb6ea9b941a679f865de3f",
+  "bytes": 89626040,
+  "regularFilesMatched": 203,
+  "zipCRC": "all entries pass",
+  "executablePermissionRetained": true,
+  "strictAdHocSignature": "PASS original and ZIP-extracted app",
+  "architectures": [
+    "x86_64",
+    "arm64"
+  ],
+  "notarized": false,
+  "preservedLightingSha256": "7410178f7f72eab540f2bcb972d3c0d922885aed92c84b3d1e467075b9f9fecf"
+}

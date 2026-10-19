@@ -1,0 +1,39 @@
+One explicit initial prior-act/lighting/pose fixture; subsequent real synthetic Input System route/E/Escape. No full campaign, audition, human navigation, fear or comfort claim. Final cleanup intentionally pauses the session.
+PASS probe uses the opt-in Rooms successor
+PASS required actual runtime components exist
+PASS fresh fixture begins before all domestic interactions
+PASS treatment references the two actual owner sources and matching filters
+PASS treatment uses the actual Player camera and session
+PASS authored provisional filter settings are 22000/1600 Hz and 0.20 s
+PASS 47 distinct existing architectural BoxColliders are explicitly assigned
+PASS explicit initial fixture restores completed first-act lighting
+PASS actual mouse sensitivity is positive
+PASS actual center-camera ray and owner authorize Station / HouseOrigin
+PASS actual E enters the house and its owner suspends recording
+PASS initial general supply powers the actual refrigerator without a probe playback call
+PASS hall_phone_blocked: telephone settles at the expected geometric endpoint
+PASS actual menu pause catches an intermediate cutoff and pauses listener audio
+PASS paused W/R cannot advance the filters, simulation clock, Player or recording origin
+PASS second real Escape restores control and listener without automatic resume
+PASS phone_portal_transition: telephone settles at the expected geometric endpoint
+PASS actual approach produced at least two distinct intermediate cutoff samples, not an endpoint jump
+PASS real Escape froze and resumed an intermediate filter transition
+PASS inside_parlor: telephone settles at the expected geometric endpoint
+PASS hall_between_rooms: telephone settles at the expected geometric endpoint
+PASS hall_between_rooms: refrigerator settles at the expected geometric endpoint
+PASS kitchen_portal: refrigerator settles at the expected geometric endpoint
+PASS inside_kitchen: refrigerator settles at the expected geometric endpoint
+PASS inside_kitchen: telephone settles at the expected geometric endpoint
+PASS owner keeps the refrigerator running throughout the powered traversal
+PASS return_hall: telephone settles at the expected geometric endpoint
+PASS return_hall: refrigerator settles at the expected geometric endpoint
+PASS return_to_phone: telephone settles at the expected geometric endpoint
+PASS actual center-camera ray and owner authorize House interaction / Telephone
+PASS real ring onset occurs while the house is unanswered and kitchen powered
+PASS telephone is still ringing immediately before the actual E press
+PASS actual E stops the ring and kitchen supply through their existing owner, with receiver off hook
+PASS answer changes no reserve placement, key or exit state
+PASS the same owner consequence removes kitchen light power
+PASS every observed frame preserved source anchors, references, authored audio settings and master volume
+PASS entire traversal used one initial fixture and no later pose reset
+PASS

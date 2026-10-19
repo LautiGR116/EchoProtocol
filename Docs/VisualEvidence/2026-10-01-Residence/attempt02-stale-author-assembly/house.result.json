@@ -1,0 +1,22 @@
+{
+    "mode": "house",
+    "status": "FAIL",
+    "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Residence.unity",
+    "lastStep": "parlor_document",
+    "evidenceScope": "Isolated previous-chapter fixture, then real CharacterController/raycast/keyboard/mouse through Input System. Game captures include UI; Camera captures omit it. No human play, listening, fear or full-campaign claim.",
+    "error": "parlor_document: center-camera ray reaches House interaction / Document",
+    "checks": 21,
+    "initialPoseFixtures": 1,
+    "unexpectedPauseResumes": 0,
+    "elapsedRealtime": 3.949390411376953,
+    "hasKey": false,
+    "answeredPhone": false,
+    "unlockedExit": false,
+    "presenceSeen": false,
+    "presenceRetired": false,
+    "powerLocation": "Hall",
+    "screenshots": [
+        "house-00-entry-Game.png",
+        "house-00-entry-Camera.png"
+    ]
+}

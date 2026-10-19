@@ -1,0 +1,34 @@
+using System;using System.IO;using System.Linq;using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine;using UnityEngine.SceneManagement;using EchoProtocol.Puzzle;using EchoProtocol.Presentation;using EchoProtocol.Echo;using EchoProtocol.Campaign;using EchoProtocol.Horror;using Object=UnityEngine.Object;
+public static class ReconstructionPuzzleAuthor {
+static Transform Named(string n)=>Object.FindObjectsByType<Transform>(FindObjectsInactive.Include,FindObjectsSortMode.None).Single(t=>t.name==n);
+static T Find<T>()where T:Object=>Object.FindFirstObjectByType<T>(FindObjectsInactive.Include);
+static void Ref(Object o,string n,Object v){var s=new SerializedObject(o);s.FindProperty(n).objectReferenceValue=v;s.ApplyModifiedPropertiesWithoutUndo();}
+static void Bool(Object o,string n,bool v){var s=new SerializedObject(o);s.FindProperty(n).boolValue=v;s.ApplyModifiedPropertiesWithoutUndo();}
+static GameObject Box(string n,Transform p,Vector3 pos,Vector3 size,Material m,bool collider=false){var g=GameObject.CreatePrimitive(PrimitiveType.Cube);g.name=n;g.transform.SetParent(p,false);g.transform.position=pos;g.transform.localScale=size;g.GetComponent<Renderer>().sharedMaterial=m;if(!collider)Object.DestroyImmediate(g.GetComponent<Collider>());return g;}
+static Material Mat(string n,Color c){string path="Assets/_Game/Art/Reconstruction/"+n+".mat";var m=new Material(Shader.Find("Universal Render Pipeline/Lit"));m.name=n;m.SetColor("_BaseColor",c);m.SetFloat("_Smoothness",.22f);AssetDatabase.CreateAsset(m,path);return m;}
+static TextMesh Text(string n,Transform p,Vector3 pos,float yaw,string value,float size){var template=Named("P1 C actual state");var t=Object.Instantiate(template.gameObject,p).transform;t.name=n;t.position=pos;t.rotation=Quaternion.Euler(0,yaw,0);t.localScale=Vector3.one;var text=t.GetComponent<TextMesh>();text.text=value;text.fontSize=64;text.characterSize=size;text.anchor=TextAnchor.MiddleCenter;text.alignment=TextAlignment.Center;return text;}
+static void Rewrite(string n,string value){Named(n).GetComponent<TextMesh>().text=value;}
+static Light Light(string n,Transform p,Vector3 pos,Vector3 target,Color color,float intensity){var g=new GameObject(n);g.transform.SetParent(p,false);g.transform.position=pos;g.transform.rotation=Quaternion.LookRotation(target-pos);var l=g.AddComponent<Light>();l.type=LightType.Spot;l.range=4.2f;l.spotAngle=92;l.innerSpotAngle=65;l.intensity=intensity;l.color=color;l.shadows=LightShadows.None;return l;}
+public static object Main(){var scene=SceneManager.GetActiveScene();if(EditorApplication.isPlaying||scene.path!="Assets/_Game/Scenes/Production/EchoProtocol_Reconstruction.unity"||scene.isDirty)throw new Exception("Saved Reconstruction Edit required");if(Find<ContextualHints>())throw new Exception("Already authored");Directory.CreateDirectory("Assets/_Game/Art/Reconstruction");AssetDatabase.Refresh();
+var p1=Find<ParallelObservationRelay>();var p3=Find<RecombinationRelay>();Bool(p1,"requireSimultaneousPresence",true);Bool(p3,"requirePairedTransfer",true);
+Rewrite("P1 A rule","A / AUTORIZACIÓN\nUNA LECTURA QUEDA ACEPTADA");Rewrite("P1 B rule","B / PRESENCIA CONTINUA\nLA PAUSA GRABADA DA TIEMPO");Rewrite("P1 service rule","C / COINCIDENCIA\nTU MIRADA + PRESENCIA EN B");Rewrite("Cooperate after recall instruction","SERVICIO / TRAS RECALL\nRECIBIR LA PRESENCIA");
+var metal=Mat("M_ReceiverHousing",new Color(.09f,.12f,.12f));var paper=Mat("M_ReceiverLabel",new Color(.22f,.23f,.20f));var rubber=Mat("M_ReceiverButton",new Color(.11f,.14f,.13f));var lamp=Mat("M_ReceiverPilot",new Color(.24f,.5f,.44f));
+var root=new GameObject("Reconstruction / paired transfer receivers").transform;root.SetParent(p3.transform,false);
+for(int i=0;i<2;i++){
+float z=i==0?34.74f:42.91f;var g=new GameObject("P3 receiver "+(i==0?"A":"B"));g.transform.SetParent(root,false);g.transform.position=new Vector3(-6.51f,1.27f,z);var c=g.AddComponent<BoxCollider>();c.size=new Vector3(.19f,.65f,.61f);var terminal=g.AddComponent<TemporalRelayTerminal>();Ref(terminal,"relay",p3);Bool(terminal,"finalReceiver",i==1);
+Box("Receiver metal enclosure",g.transform,g.transform.position,new Vector3(.12f,.63f,.60f),metal);Box("Receiver inset label",g.transform,g.transform.position+new Vector3(-.067f,.125f,0),new Vector3(.012f,.30f,.56f),paper);
+var button=GameObject.CreatePrimitive(PrimitiveType.Cylinder);button.name="Present player confirmation button";button.transform.SetParent(g.transform,false);button.transform.localPosition=new Vector3(-.095f,-.16f,0);button.transform.localRotation=Quaternion.Euler(0,0,90);button.transform.localScale=new Vector3(.105f,.021f,.105f);button.GetComponent<Renderer>().sharedMaterial=rubber;Object.DestroyImmediate(button.GetComponent<Collider>());
+var pilot=Box("Actual relay pilot",g.transform,g.transform.position+new Vector3(-.081f,-.035f,0),new Vector3(.013f,.018f,.34f),lamp).GetComponent<Renderer>();Ref(terminal,"pilot",pilot);
+var label=Text("P3 receiver "+(i==0?"A":"B")+" actual state",g.transform,g.transform.position+new Vector3(-.078f,.135f,0),90,(i==0?"A / ENLACE":"B / TRANSFERENCIA")+"\nESPERANDO PRESENCIA",.020f);Ref(terminal,"status",label);
+Light("Receiver task light "+i,g.transform,new Vector3(-6.65f,2.45f,z-.24f),g.transform.position,new Color(.91f,.79f,.6f),1.55f);
+Box("Receiver practical housing",g.transform,new Vector3(-6.47f,2.45f,z-.24f),new Vector3(.22f,.06f,.27f),metal);
+}
+Text("P3 recording explanation A",root,new Vector3(-6.178f,1.01f,35.2f),270,"A / ENLACE\nPRESENCIA AQUÍ · CONFIRMACIÓN ALLÁ",.022f);
+Text("P3 recording explanation B",root,new Vector3(-6.178f,1.01f,43.35f),270,"B / TRANSFERENCIA\nUNA PAUSA PARA RECIBIR AL OTRO LADO",.022f);
+Text("P3 receiving path identity",root,new Vector3(-7.8f,2.10f,32.17f),0,"RECEPCIÓN / A → B\nCONFIRMAR DURANTE CADA PRESENCIA",.034f);
+// A narrow warm path marks receiving; the recording instruments retain cyan.
+for(float z=33;z<44;z+=2){Box("Receiving edge inlay",root,new Vector3(-8.62f,.012f,z),new Vector3(.035f,.015f,1.45f),paper);}
+Light("Receiving first turn",root,new Vector3(-8.7f,2.55f,32.6f),new Vector3(-7.7f,.5f,34.2f),new Color(.88f,.78f,.64f),1.15f);
+var session=Find<GameSession>();var hints=new GameObject("Guidance / gradual optional session notes").AddComponent<ContextualHints>();Ref(hints,"session",session);Ref(hints,"guidance",Find<ProtocolGuidance>());Ref(hints,"loop",Find<LoopController>());Ref(session,"contextualHints",hints);var ss=new SerializedObject(session);ss.FindProperty("editionLabel").stringValue="RECONSTRUCCIÓN / 02";ss.ApplyModifiedPropertiesWithoutUndo();
+EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();Physics.SyncTransforms();return "P1 live B/C coincidence, P3 two explicit present-player confirmations, physical receivers/path lights and progressive hints saved";
+}}

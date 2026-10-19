@@ -1,0 +1,49 @@
+PASS fresh D1 unavailable and hidden
+PASS revision sign hidden before R3
+PASS fresh R3 and Hub reverse gate solid and closed
+PASS fresh session menu pauses time
+PASS campaign begins in protocol act
+PASS fresh baseline sealed, P3 inactive and anchor rejects Player
+PASS ray reaches HouseOrigin
+PASS station available HouseOrigin
+PASS house exploration suspends automatic recall
+PASS ray reaches NoteArrival
+PASS station available NoteArrival
+PASS document pauses simulation NoteArrival
+PASS ray reaches NoteWorkOrder
+PASS station available NoteWorkOrder
+PASS document pauses simulation NoteWorkOrder
+PASS ray reaches NoteConsent
+PASS station available NoteConsent
+PASS document pauses simulation NoteConsent
+PASS three distinct evidence documents stored
+PASS ray reaches Telephone
+PASS station available Telephone
+PASS ray reaches CircuitHall
+PASS station available CircuitHall
+PASS out-of-order circuit rejected
+PASS ray reaches CircuitKitchen
+PASS station available CircuitKitchen
+PASS kitchen circuit restored
+PASS ray reaches CircuitBedroom
+PASS station available CircuitBedroom
+PASS bedroom circuit moves house consequence
+PASS ray reaches CircuitHall
+PASS station available CircuitHall
+PASS hall completes spatial restoration
+PASS ray reaches GalleryOrigin
+PASS station available GalleryOrigin
+PASS gallery re-arms recording
+PASS recording lane alone authorizes no companion shutter
+PASS real R completed once
+PASS real concurrent pair 0
+PASS real concurrent pair 1
+PASS real concurrent pair 2
+PASS ray reaches ArchiveOrigin
+PASS station available ArchiveOrigin
+PASS archive activated
+PASS real R completed once
+PASS final immutable Echo witnessed at the opposing mark
+PASS ray reaches Preserve
+PASS station available Preserve
+PASS preservation keeps the exact original recording

@@ -1,0 +1,16 @@
+{
+    "label": "campaign-07-machine-aisle",
+    "state": "Pressure|house:False/False/Hall|pressure:True/False|P3:0.00",
+    "position": {
+        "x": 4.601227760314941,
+        "y": 1.6299999952316285,
+        "z": -40.11436462402344
+    },
+    "rotation": {
+        "x": 4.380748947597308e-15,
+        "y": -1.0,
+        "z": 9.04575614413261e-8,
+        "w": 4.842877388000488e-8
+    },
+    "fov": 60.0
+}

@@ -1,0 +1,16 @@
+{
+    "label": "campaign-05-R3-unlocked",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+    "position": {
+        "x": -7.854404449462891,
+        "y": 1.6299998760223389,
+        "z": 46.32793045043945
+    },
+    "rotation": {
+        "x": 3.450044416819509e-11,
+        "y": 1.1920927533992654e-7,
+        "z": -4.112773024886624e-18,
+        "w": 1.0
+    },
+    "fov": 60.0
+}

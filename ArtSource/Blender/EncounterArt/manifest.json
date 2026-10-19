@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-02",
+  "authorship": "Project-owned procedural adult; derivative of OverhaulFigure. No real-person likeness or third-party model.",
+  "sourceSha256": "31a3c137e07b798ad15ed71f6f6d22a40ae311e1c47ea6d600adf57d04408c32",
+  "model": "exports/EP_WitnessSurface.fbx",
+  "vertices": 39494,
+  "triangles": 78624,
+  "modifiedVertices": 22810,
+  "boundsXYZ": [
+    [
+      -0.25799599289894104,
+      0.26647651195526123
+    ],
+    [
+      -0.1688617765903473,
+      0.1775093376636505
+    ],
+    [
+      -8.532838933206222e-07,
+      1.7590211629867554
+    ]
+  ],
+  "materials": [
+    "FIG_Jacket",
+    "FIG_Skin",
+    "FIG_Trousers",
+    "FIG_Shoe",
+    "FIG_Sole",
+    "FIG_Stitch",
+    "FIG_Metal",
+    "FIG_Hair"
+  ],
+  "rig": false,
+  "animations": false,
+  "purpose": "Fixed display body, never a recording of appearance or articulation; sole recorded motion is original root position/body yaw."
+}

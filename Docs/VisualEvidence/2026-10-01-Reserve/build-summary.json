@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "buildId": "build_51d6bd742012",
+  "result": "Succeeded",
+  "platform": "StandaloneOSX",
+  "totalSizeBytes": 197216081,
+  "buildTimeMs": 25960,
+  "totalWarnings": 346,
+  "totalErrors": 0,
+  "signature": "codesign --verify --deep --strict PASS",
+  "architectures": [
+    "arm64",
+    "x86_64"
+  ],
+  "native": "PASS: exact-path launch, title/credits, Enter, 24 W pulses, actual 2.0-second RECALL, pause/resume, quit; no full native or listening claim.",
+  "human": "No human playthrough or listening approval"
+}

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Echo Protocol · Personajes / Embodiment</title>
+  <style>
+    :root{color-scheme:dark;--bg:#111513;--panel:#1b211e;--ink:#eae5d9;--muted:#b2b9b0;--line:#37413b;--accent:#bfd6b5}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,sans-serif}
+    main{max-width:1160px;margin:auto;padding:48px 28px 70px}a{color:var(--accent);text-underline-offset:4px}a:hover{color:#fff}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #d6e9bb;outline-offset:5px}
+    .eyebrow{font:12px/1.5 ui-monospace,monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}h1,h2,h3{font-family:Georgia,serif;line-height:1.1;font-weight:400}h1{font-size:clamp(42px,6vw,76px);margin:20px 0}h2{font-size:clamp(29px,4vw,42px);margin:0 0 14px}h3{font-size:25px;margin:0 0 14px}
+    p{max-width:850px;margin:12px 0 22px}.intro{font-size:21px;color:#d0d5cc;max-width:860px}.nav{display:flex;gap:12px 24px;flex-wrap:wrap;margin:26px 0 38px}.status{border-left:3px solid var(--accent);padding:10px 18px;color:var(--muted);background:var(--panel);max-width:920px}.status strong{color:var(--ink)}
+    section{margin-top:58px}figure{margin:0}.compare{border:1px solid var(--line);background:#080a09;overflow:hidden;border-radius:4px}.compare img{display:block;width:100%;height:auto}.compare img[hidden]{display:none}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:var(--panel);border-bottom:1px solid var(--line)}.switch{display:flex;gap:5px}button{color:var(--muted);background:transparent;border:1px solid var(--line);padding:8px 15px;font:inherit;font-size:14px;cursor:pointer;border-radius:3px}button[aria-pressed=true]{color:#142011;background:var(--accent);border-color:var(--accent)}.state{font:12px/1.4 ui-monospace,monospace;color:var(--muted)}
+    figcaption{color:var(--muted);font-size:14px;margin-top:12px;max-width:900px}.media{display:block;width:100%;background:#080a09;border:1px solid var(--line);border-radius:4px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.grid img{display:block;width:100%;height:auto;border:1px solid var(--line)}details{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin-top:28px}summary{cursor:pointer;color:var(--accent)}ul{padding-left:22px}li{margin:8px 0}.fine{color:var(--muted);font-size:14px}footer{border-top:1px solid var(--line);margin-top:60px;padding-top:25px;color:var(--muted);font-size:14px}
+    @media(max-width:660px){main{padding:30px 16px 44px}.grid{grid-template-columns:1fr}.toolbar{align-items:flex-start;flex-direction:column}.intro{font-size:18px}section{margin-top:42px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">Echo Protocol · Embodiment · 09.10.2026</div>
+    <h1>Una presencia humana.</h1>
+    <p class="intro">Nuevo rostro, pelo, manos y ropa para el Echo. Otra persona y otra postura para quien te persigue. La misma grabación fiel, ahora con un cuerpo articulado.</p>
+    <nav class="nav" aria-label="Entrega y muestras">
+      <a href="../../../Builds/EchoProtocol-Embodiment-20261009/EchoProtocol.app">Abrir la app macOS</a>
+      <a href="../../../Builds/EchoProtocol-Embodiment-20261009.zip">Paquete macOS</a>
+      <a href="../../EMBODIMENT_CANDIDATE.md">Informe y límites</a>
+      <a href="#movimiento">Ver movimiento</a>
+    </nav>
+    <p class="status"><strong>Campaña y fidelidad verificadas.</strong> Credibilidad, naturalidad y miedo siguen <strong>EN PRUEBA humana</strong>. Las instrucciones y la manivela quedan para el siguiente ajuste.</p>
+  </header>
+
+  <section aria-labelledby="cerca">
+    <div class="eyebrow">01 / Cercanía</div>
+    <h2 id="cerca">La vuelta por P3.</h2>
+    <p>La luz del cuarto deja ver ojos, pelo, manos y caída de la camisa. Cambiá entre los cuerpos para comparar el mismo encuadre.</p>
+    <figure>
+      <div class="compare">
+        <div class="toolbar"><div class="switch" role="group" aria-label="Cuerpo en el regreso de P3"><button type="button" data-show="before" aria-pressed="false">Antes</button><button type="button" data-show="after" aria-pressed="true">Después</button></div><span class="state" aria-live="polite">Después · captura del recorrido</span></div>
+        <img data-before hidden src="editor-full/characters/campaign-Contraprueba-close-return-before.png" alt="Cuerpo anterior en la habitación de P3, misma cámara y luz">
+        <img data-after src="editor-full/characters/campaign-Contraprueba-close-return-after.png" alt="Echo nuevo, Eric, con rostro, chaleco y manos visibles al volver por P3">
+      </div>
+      <figcaption>Después: cámara real durante el recorrido de Editor. Antes: sustitución temporal del cuerpo por el anterior, en ese mismo instante, cámara y luz de la candidata. Es una comparación del cuerpo; no son dos partidas ni dos builds nativas.</figcaption>
+    </figure>
+  </section>
+
+  <section aria-labelledby="primera">
+    <div class="eyebrow">02 / Cooperación</div>
+    <h2 id="primera">Tu primer Echo.</h2>
+    <p>En P1, el personaje debe poder acompañar el plan sin romper la credibilidad. La cara queda despejada entre los instrumentos; los pasos y los giros siguen datos capturados.</p>
+    <figure>
+      <div class="compare">
+        <div class="toolbar"><div class="switch" role="group" aria-label="Cuerpo durante P1"><button type="button" data-show="before" aria-pressed="false">Antes</button><button type="button" data-show="after" aria-pressed="true">Después</button></div><span class="state" aria-live="polite">Después · captura del recorrido</span></div>
+        <img data-before hidden loading="lazy" src="editor-full/characters/campaign-P1-reader-A-playback-before.png" alt="Cuerpo anterior caminando entre los instrumentos de P1">
+        <img data-after loading="lazy" src="editor-full/characters/campaign-P1-reader-A-playback-after.png" alt="Echo nuevo caminando durante la reproducción de P1">
+      </div>
+      <figcaption>Misma cámara del Player y luz. El cuerpo anterior es una sustitución de comparación; la escena candidata y sus rótulos se mantienen en ambos encuadres.</figcaption>
+    </figure>
+  </section>
+
+  <section aria-labelledby="puerta">
+    <div class="eyebrow">03 / Encuentro</div>
+    <h2 id="puerta">El umbral de 6B.</h2>
+    <p>La cara se sostiene a distancia corta. El cuerpo opaco sigue necesitando la puerta abierta y visión real para que el encuentro sea aceptado.</p>
+    <figure>
+      <div class="compare">
+        <div class="toolbar"><div class="switch" role="group" aria-label="Cuerpo ante la puerta de 6B"><button type="button" data-show="before" aria-pressed="false">Antes</button><button type="button" data-show="after" aria-pressed="true">Después</button></div><span class="state" aria-live="polite">Después · captura del recorrido</span></div>
+        <img data-before hidden loading="lazy" src="editor-full/characters/campaign-21-Echo-at-6B-before.png" alt="Cuerpo anterior llegando al umbral de 6B">
+        <img data-after loading="lazy" src="editor-full/characters/campaign-21-Echo-at-6B-after.png" alt="Echo nuevo con rostro cercano en la puerta de 6B">
+      </div>
+      <figcaption>Captura de llegada, antes de conservar el original y devolver la llave. La campaña macOS verificó también esos pasos posteriores. La comprensión espontánea del jugador requiere una partida humana.</figcaption>
+    </figure>
+  </section>
+
+  <section id="movimiento" aria-labelledby="video">
+    <div class="eyebrow">04 / Movimiento</div>
+    <h2 id="video">Quieto, girando y caminando.</h2>
+    <figure>
+      <video class="media" controls playsinline preload="metadata" poster="motion-decoded.png" aria-label="Movimiento del Echo en la cámara real del recorrido">
+        <source src="motion.mp4" type="video/mp4">
+        <a href="motion.mp4">Abrir la muestra de movimiento</a>
+      </video>
+      <figcaption>Muestra silenciosa de unos 7,7 segundos: 84 cuadros de la cámara real del recorrido de Editor, a 960×540. Tres cortes omiten tramos sin captura; dentro de cada fragmento se conserva el tiempo observado. La expresión facial y la carrera siguen teniendo actuación limitada.</figcaption>
+    </figure>
+  </section>
+
+  <section aria-labelledby="amenaza">
+    <div class="eyebrow">05 / Presente</div>
+    <h2 id="amenaza">Quien se aproxima.</h2>
+    <figure>
+      <img class="media" loading="lazy" src="editor-coverage-retry-fixed/character-motion/00002.png" alt="Nathan acercándose al Player junto al quiebre del pasillo, camiseta y brazos descubiertos">
+      <figcaption>Fotograma real del encuentro y reintento comprobados en Editor. Nathan tiene otra cara, ropa, postura y silueta. Esta imagen permite juzgar su presencia; no demuestra que la embestida produzca miedo. Probá «Jugar · La máquina que te cubre» para evaluar la aproximación y su sonido.</figcaption>
+    </figure>
+  </section>
+
+  <section aria-labelledby="eleccion">
+    <div class="eyebrow">06 / Elección</div>
+    <h2 id="eleccion">Dos estrategias dentro de Unity.</h2>
+    <p>Se probó mejorar la base existente y se comparó con un adulto escaneado. Eric fue elegido por rostro, pelo, manos y ropa. Estas dos imágenes son estudios de Editor con la cámara del Player y las mismas luces del Hub.</p>
+    <div class="grid">
+      <figure><img loading="lazy" src="alternatives/worked-base-face.png" alt="Alternativa de mejorar la base humana anterior con material iluminado"><figcaption>Base existente con materiales URP/Lit. Seguía mostrando rostro simplificado y pelo macizo.</figcaption></figure>
+      <figure><img loading="lazy" src="alternatives/Eric-face.png" alt="Alternativa Eric escaneado, rostro bajo la misma iluminación"><figcaption>Eric, Renderpeople. Opción elegida y luego refinada para el recorrido. Modelo gratuito con licencia para el juego compilado.</figcaption></figure>
+    </div>
+    <details>
+      <summary>Los ocho pares, estudios y resultados</summary>
+      <ul>
+        <li>P1, lector A: <a href="editor-full/characters/campaign-P1-reader-A-playback-before.png">antes</a> · <a href="editor-full/characters/campaign-P1-reader-A-playback-after.png">después</a>.</li>
+        <li>P1, cooperación: <a href="editor-full/characters/campaign-01-P1-before.png">antes</a> · <a href="editor-full/characters/campaign-01-P1-after.png">después</a>.</li>
+        <li>SE3, entrada: <a href="editor-full/characters/campaign-SE3-entry-before.png">antes</a> · <a href="editor-full/characters/campaign-SE3-entry-after.png">después</a>.</li>
+        <li>SE3, codo: <a href="editor-full/characters/campaign-SE3-codo-before.png">antes</a> · <a href="editor-full/characters/campaign-SE3-codo-after.png">después</a>.</li>
+        <li>P3, primera presencia: <a href="editor-full/characters/campaign-Contraprueba-first-presence-before.png">antes</a> · <a href="editor-full/characters/campaign-Contraprueba-first-presence-after.png">después</a>.</li>
+        <li>P3, regreso cercano: <a href="editor-full/characters/campaign-Contraprueba-close-return-before.png">antes</a> · <a href="editor-full/characters/campaign-Contraprueba-close-return-after.png">después</a>.</li>
+        <li>6B, llegada: <a href="editor-full/characters/campaign-21-Echo-at-6B-before.png">antes</a> · <a href="editor-full/characters/campaign-21-Echo-at-6B-after.png">después</a>.</li>
+        <li>6B, encuentro aceptado: <a href="editor-full/characters/campaign-22-witnessed-before.png">antes</a> · <a href="editor-full/characters/campaign-22-witnessed-after.png">después</a>.</li>
+        <li><a href="alternatives/comparison.json">Condiciones de las alternativas</a> · <a href="contact-study/contact.json">Estudio explícito de contacto del mando</a>.</li>
+        <li><a href="native-full/campaign-full.result.json">Campaña macOS PASS545</a> · <a href="native-full/character-result.json">Pose y pausa</a> · <a href="native-full/survey.json">Rendimiento M3</a> · <a href="package.json">Paquete</a>.</li>
+      </ul>
+    </details>
+  </section>
+
+  <footer>
+    <p>Coverage y las versiones previas se conservan. Modelos Renderpeople bajo licencia del proveedor, no CC0; originales y derivados quedan fuera del Git público. <a href="../../CREDITS.md">Créditos y derechos</a>.</p>
+    <p>Para juzgar el resultado, jugá con iluminación suficiente y escuchá a volumen cómodo. Auriculares opcionales; el juego conserva parlantes, mono y dinámica reducida.</p>
+  </footer>
+</main>
+<script>
+  document.querySelectorAll('.compare').forEach(function(panel){
+    panel.querySelectorAll('button[data-show]').forEach(function(button){
+      button.addEventListener('click',function(){
+        var before=button.dataset.show==='before';
+        panel.querySelector('[data-before]').hidden=!before;
+        panel.querySelector('[data-after]').hidden=before;
+        panel.querySelectorAll('button[data-show]').forEach(function(choice){choice.setAttribute('aria-pressed',String(choice===button));});
+        panel.querySelector('.state').textContent=before?'Antes · cuerpo anterior en el mismo encuadre':'Después · captura del recorrido';
+      });
+    });
+  });
+</script>
+</body>
+</html>

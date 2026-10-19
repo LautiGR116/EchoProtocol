@@ -1,0 +1,42 @@
+[
+  {
+    "id": "556499",
+    "author": "cookies+policy",
+    "title": "Rotary Phone Ring loopable",
+    "source_page": "https://freesound.org/people/cookies%2Bpolicy/sounds/556499/",
+    "description_paraphrase": "An actual rotary telephone ring; uploader also supplies matching handset contacts.",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "reviewed_date": "2026-10-01",
+    "download_url": "https://cdn.freesound.org/previews/556/556499_10713160-hq.mp3",
+    "local_file": "Source/556499_10713160-hq.mp3",
+    "source_kind": "public HQ MP3 preview; not original lossless master",
+    "bytes": 130560,
+    "sha256": "778fbaf0cd51180332547dbbf4baad03f03ca859ce5e788de4967b3d310ab306",
+    "attribution": "Rotary Phone Ring loopable by cookies+policy (Freesound), CC0 1.0.",
+    "human_audition": "NOT PERFORMED; agent cannot receive audio in this session",
+    "selection_state": "Imported in Offhook; objective file checks only, human audition pending",
+    "evidence_file": "Evidence/556499.json",
+    "evidence_sha256": "0f2cab83589e26f8afe64ba0e56976fec6ddfc311b3f33324119d779aed18689"
+  },
+  {
+    "id": "556496",
+    "author": "cookies+policy",
+    "title": "Rotary Phone Handpiece Soft",
+    "source_page": "https://freesound.org/people/cookies%2Bpolicy/sounds/556496/",
+    "description_paraphrase": "Picking up and then hanging up softly on the same old rotary telephone.",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "reviewed_date": "2026-10-01",
+    "download_url": "https://cdn.freesound.org/previews/556/556496_10713160-hq.mp3",
+    "local_file": "Source/556496_10713160-hq.mp3",
+    "source_kind": "public HQ MP3 preview; not original lossless master",
+    "bytes": 136368,
+    "sha256": "a368b83362e0160fb5841688b3bfda971770cbcdf951fa6b45acf4b3059f2399",
+    "attribution": "Rotary Phone Handpiece Soft by cookies+policy (Freesound), CC0 1.0.",
+    "human_audition": "NOT PERFORMED; agent cannot receive audio in this session",
+    "selection_state": "Imported in Offhook; objective file checks only, human audition pending",
+    "evidence_file": "Evidence/556496.json",
+    "evidence_sha256": "c0bf3f58c4f65ec5676691f18409a7af320b9f065fc4e76c75429183c82cb1a0"
+  }
+]

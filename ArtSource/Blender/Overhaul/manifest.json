@@ -1,0 +1,533 @@
+{
+  "date": "2026-10-01",
+  "authorship": "Original project geometry; no external assets or generative voices",
+  "axis_contract": "Blender X width, -Y front, Z up. FBX -Z forward / +Y up, source importer axis correction must be retained. Nominal front Unity +Z.",
+  "materials": {
+    "OV_Walnut": {
+      "color": [
+        0.105,
+        0.049,
+        0.023,
+        1
+      ],
+      "rough": 0.34,
+      "metal": 0
+    },
+    "OV_WalnutEdge": {
+      "color": [
+        0.16,
+        0.081,
+        0.037,
+        1
+      ],
+      "rough": 0.32,
+      "metal": 0
+    },
+    "OV_PaintedTimber": {
+      "color": [
+        0.225,
+        0.254,
+        0.217,
+        1
+      ],
+      "rough": 0.47,
+      "metal": 0
+    },
+    "OV_Linen": {
+      "color": [
+        0.54,
+        0.49,
+        0.37,
+        1
+      ],
+      "rough": 0.93,
+      "metal": 0
+    },
+    "OV_ChairFabric": {
+      "color": [
+        0.18,
+        0.23,
+        0.2,
+        1
+      ],
+      "rough": 0.91,
+      "metal": 0
+    },
+    "OV_Piping": {
+      "color": [
+        0.075,
+        0.105,
+        0.085,
+        1
+      ],
+      "rough": 0.78,
+      "metal": 0
+    },
+    "OV_DullBrass": {
+      "color": [
+        0.32,
+        0.22,
+        0.1,
+        1
+      ],
+      "rough": 0.34,
+      "metal": 0.72
+    },
+    "OV_BlackenedSteel": {
+      "color": [
+        0.033,
+        0.039,
+        0.037,
+        1
+      ],
+      "rough": 0.47,
+      "metal": 0.72
+    },
+    "OV_Porcelain": {
+      "color": [
+        0.7,
+        0.67,
+        0.57,
+        1
+      ],
+      "rough": 0.27,
+      "metal": 0
+    },
+    "OV_Glass": {
+      "color": [
+        0.045,
+        0.083,
+        0.087,
+        1
+      ],
+      "rough": 0.15,
+      "metal": 0.1
+    },
+    "OV_Leather": {
+      "color": [
+        0.12,
+        0.055,
+        0.026,
+        1
+      ],
+      "rough": 0.58,
+      "metal": 0
+    },
+    "OV_ClothingBlue": {
+      "color": [
+        0.13,
+        0.19,
+        0.24,
+        1
+      ],
+      "rough": 0.94,
+      "metal": 0
+    },
+    "OV_ClothingCream": {
+      "color": [
+        0.52,
+        0.48,
+        0.38,
+        1
+      ],
+      "rough": 0.92,
+      "metal": 0
+    },
+    "OV_Paper": {
+      "color": [
+        0.61,
+        0.59,
+        0.47,
+        1
+      ],
+      "rough": 0.84,
+      "metal": 0
+    },
+    "OV_Rubber": {
+      "color": [
+        0.009,
+        0.012,
+        0.011,
+        1
+      ],
+      "rough": 0.73,
+      "metal": 0
+    }
+  },
+  "assets": {
+    "ReceptionCounter": {
+      "file": "exports/EP_OV_ReceptionCounter.fbx",
+      "source_front": "-Y",
+      "unity_front": "+Z with importer axis transform retained",
+      "bounds_blender_xyz": [
+        [
+          -1.2000000476837158,
+          1.2000001668930054
+        ],
+        [
+          -0.6150000095367432,
+          1.3005000352859497
+        ],
+        [
+          0.0,
+          1.1365000009536743
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        2.400000214576721,
+        1.9155000448226929,
+        1.1365000009536743
+      ],
+      "materials": [
+        "OV_BlackenedSteel",
+        "OV_DullBrass",
+        "OV_PaintedTimber",
+        "OV_Paper",
+        "OV_Rubber",
+        "OV_Walnut",
+        "OV_WalnutEdge"
+      ],
+      "mesh_objects": [
+        {
+          "name": "ReceptionCounter_Geometry",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 3720,
+          "triangles": 7264
+        }
+      ],
+      "notes": "Static L counter; customer side +UnityZ. Root at floor center of front. Staff side open. Simple box colliders for front/return only. Letter placement top height 1.07 m or writing ledge 0.95 m."
+    },
+    "KeyMailCabinet": {
+      "file": "exports/EP_OV_KeyMailCabinet.fbx",
+      "source_front": "-Y",
+      "unity_front": "+Z with importer axis transform retained",
+      "bounds_blender_xyz": [
+        [
+          -0.6024999618530273,
+          0.6024999618530273
+        ],
+        [
+          -0.1599999964237213,
+          0.07199999690055847
+        ],
+        [
+          -0.025000005960464478,
+          0.9249999523162842
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        1.2049999237060547,
+        0.23199999332427979,
+        0.9499999582767487
+      ],
+      "materials": [
+        "OV_DullBrass",
+        "OV_Paper",
+        "OV_Walnut",
+        "OV_WalnutEdge"
+      ],
+      "mesh_objects": [
+        {
+          "name": "KeyMailCabinet_Geometry",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 2560,
+          "triangles": 4916
+        }
+      ],
+      "notes": "Wall mounted. Root at lower midpoint. Back at source Y +0.07 / Unity -Z; front +Z. No collision needed unless reachable."
+    },
+    "DressedWindow": {
+      "file": "exports/EP_OV_DressedWindow.fbx",
+      "source_front": "-Y",
+      "unity_front": "+Z with importer axis transform retained",
+      "bounds_blender_xyz": [
+        [
+          -1.0950000286102295,
+          1.1050000190734863
+        ],
+        [
+          -0.4419932961463928,
+          0.0949999988079071
+        ],
+        [
+          0.03999999165534973,
+          2.5829999446868896
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        2.200000047683716,
+        0.5369932949542999,
+        2.54299995303154
+      ],
+      "materials": [
+        "OV_BlackenedSteel",
+        "OV_DullBrass",
+        "OV_Glass",
+        "OV_Linen",
+        "OV_PaintedTimber",
+        "OV_Piping",
+        "OV_Porcelain",
+        "OV_WalnutEdge"
+      ],
+      "mesh_objects": [
+        {
+          "name": "Curtains",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 11524,
+          "triangles": 22976
+        },
+        {
+          "name": "Radiator",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 1920,
+          "triangles": 3760
+        },
+        {
+          "name": "WindowFrame",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 1920,
+          "triangles": 3752
+        }
+      ],
+      "notes": "Floor-origin window assembly, sill 0.75 m, pole 2.55 m. Wall front source Y=+0.09 behind window. Keep glass opaque blue-black until integrator provides exterior; no false transparency into void. Curtain geometry is double-sided solid fabric. Radiator separate mesh."
+    },
+    "DomesticDoor": {
+      "file": "exports/EP_OV_DomesticDoor.fbx",
+      "source_front": "-Y",
+      "unity_front": "+Z with importer axis transform retained",
+      "bounds_blender_xyz": [
+        [
+          -0.5799999833106995,
+          0.5800000429153442
+        ],
+        [
+          -0.15699999034404755,
+          0.140500009059906
+        ],
+        [
+          0.0,
+          2.2260000705718994
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        1.1600000262260437,
+        0.29749999940395355,
+        2.2260000705718994
+      ],
+      "materials": [
+        "OV_DullBrass",
+        "OV_PaintedTimber",
+        "OV_Rubber",
+        "OV_WalnutEdge"
+      ],
+      "mesh_objects": [
+        {
+          "name": "DoorFrame",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 1344,
+          "triangles": 2632
+        },
+        {
+          "name": "DoorLeafPivot",
+          "pivot_blender_xyz": [
+            -0.44749999046325684,
+            0.0,
+            0.0
+          ],
+          "vertices": 2496,
+          "triangles": 4840
+        }
+      ],
+      "notes": "Clear frame opening 0.920 m \u00d7 2.107 m (before threshold). Leaf width 0.895 m. DoorLeafPivot mesh at Blender (-0.4475,0,0), maps to Unity (-0.4475,0,0); rotate local vertical axis through importer-correct transform. Leaf includes both handles/hinges; frame static. No colliders authored."
+    },
+    "Armchair": {
+      "file": "exports/EP_OV_Armchair.fbx",
+      "source_front": "-Y",
+      "unity_front": "+Z with importer axis transform retained",
+      "bounds_blender_xyz": [
+        [
+          -0.46950000524520874,
+          0.4779941737651825
+        ],
+        [
+          -0.4310528635978699,
+          0.4510928690433502
+        ],
+        [
+          0.02500000037252903,
+          1.1079813241958618
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.9474941790103912,
+        0.8821457326412201,
+        1.0829813238233328
+      ],
+      "materials": [
+        "OV_ChairFabric",
+        "OV_Linen",
+        "OV_Piping",
+        "OV_Walnut",
+        "OV_WalnutEdge"
+      ],
+      "mesh_objects": [
+        {
+          "name": "Armchair_Geometry",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 11810,
+          "triangles": 22696
+        }
+      ],
+      "notes": "Adult-scale armchair, front +UnityZ. Seat top approx 0.565 m, total height approx 1.1 m. Cloth folds are modeled geometry; shader microtexture is preview-only. Simplified collider recommended: one box on base/back, not every curve."
+    },
+    "OpenSuitcase": {
+      "file": "exports/EP_OV_OpenSuitcase.fbx",
+      "source_front": "-Y",
+      "unity_front": "+Z with importer axis transform retained",
+      "bounds_blender_xyz": [
+        [
+          -0.38100001215934753,
+          0.38100001215934753
+        ],
+        [
+          -0.3613818287849426,
+          0.2644999921321869
+        ],
+        [
+          0.02250000089406967,
+          0.7599999904632568
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.7620000243186951,
+        0.6258818209171295,
+        0.7374999895691872
+      ],
+      "materials": [
+        "OV_ClothingBlue",
+        "OV_ClothingCream",
+        "OV_DullBrass",
+        "OV_Leather",
+        "OV_Linen",
+        "OV_Piping",
+        "OV_Porcelain",
+        "OV_WalnutEdge"
+      ],
+      "mesh_objects": [
+        {
+          "name": "SuitcaseBase",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 1288,
+          "triangles": 2508
+        },
+        {
+          "name": "SuitcaseClothing",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 3834,
+          "triangles": 7288
+        },
+        {
+          "name": "SuitcaseLidPivot",
+          "pivot_blender_xyz": [
+            0.0,
+            0.23499999940395355,
+            0.25200000405311584
+          ],
+          "vertices": 1872,
+          "triangles": 3624
+        }
+      ],
+      "notes": "Floor root. SuitcaseLidPivot is at Blender (0,+0.235,+0.252), maps Unity (0,+0.252,-0.235). Lid modeled open upright; rotate only if needed, current pose is open. Clothes separate removable mesh; no narrative interaction built in."
+    },
+    "KeyConsole": {
+      "file": "exports/EP_OV_KeyConsole.fbx",
+      "source_front": "-Y",
+      "unity_front": "+Z with importer axis transform retained",
+      "bounds_blender_xyz": [
+        [
+          -0.39500001072883606,
+          0.39500001072883606
+        ],
+        [
+          -0.19699999690055847,
+          0.1850000023841858
+        ],
+        [
+          0.019999980926513672,
+          0.8294999599456787
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.7900000214576721,
+        0.38199999928474426,
+        0.809499979019165
+      ],
+      "materials": [
+        "OV_DullBrass",
+        "OV_Paper",
+        "OV_Porcelain",
+        "OV_Walnut",
+        "OV_WalnutEdge"
+      ],
+      "mesh_objects": [
+        {
+          "name": "ConsoleAndTray",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 1176,
+          "triangles": 2300
+        },
+        {
+          "name": "Key",
+          "pivot_blender_xyz": [
+            -0.1850000023841858,
+            -0.02500000037252903,
+            0.8259999752044678
+          ],
+          "vertices": 400,
+          "triangles": 792
+        }
+      ],
+      "notes": "Shallow 0.79 \u00d7 0.37 m table, top 0.786 m. Key mesh isolated for optional interaction/removal; root pivot of Key is at key ring centre. Tray/receipt static."
+    }
+  }
+}

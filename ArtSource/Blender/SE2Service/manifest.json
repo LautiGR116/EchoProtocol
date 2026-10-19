@@ -1,0 +1,59 @@
+{
+  "authorship": "Original project geometry, no external assets",
+  "axis_contract": "X width, -Y front, Z up; retain importer rotation, reflect imported root X once, then apply scene yaw. Floor-centred root.",
+  "assets": {
+    "ServiceCase": {
+      "file": "exports/EP_SE2_ServiceCase.fbx",
+      "triangles": 8584,
+      "bounds_blender_xyz": [
+        [
+          -0.5,
+          0.5000000596046448
+        ],
+        [
+          -0.5,
+          0.5
+        ],
+        [
+          0.0,
+          1.1200000047683716
+        ]
+      ],
+      "materials": [
+        "PP_Rubber",
+        "PP_ServiceEnamel",
+        "PP_Recess",
+        "PP_PlateIvory",
+        "PP_MachinedSteel"
+      ],
+      "notes": "1.00 x1.00 x1.12m fixed occupied footprint corresponding to the domestic chair. Two-sided louvers, removable lid, fasteners and rubber feet. No function, motor, emission or sound.",
+      "sha256": "a60d1f9b63578e371df3984b50e8b83bec14fa3e18a980043f1033d3cfe9cb23"
+    },
+    "ServiceTable": {
+      "file": "exports/EP_SE2_ServiceTable.fbx",
+      "triangles": 2820,
+      "bounds_blender_xyz": [
+        [
+          -0.4099999964237213,
+          0.4099999964237213
+        ],
+        [
+          -0.20999999344348907,
+          0.21000000834465027
+        ],
+        [
+          0.0,
+          0.8680000305175781
+        ]
+      ],
+      "materials": [
+        "PP_MachinedSteel",
+        "PP_Rubber",
+        "PP_ServiceEnamel",
+        "PP_PlateIvory"
+      ],
+      "notes": "0.82 x0.42 x0.868m; open steel table, lower shelf, rubber feet and empty tray. Current Player contact only, no interaction.",
+      "sha256": "7fbc12c9a0cdcdf930f443a254336e56e047288422b656f1f0d70e1e3e123ec6"
+    }
+  }
+}

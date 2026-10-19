@@ -1,0 +1,14 @@
+{
+  "buildId": "build_f94da6cff01a",
+  "result": "Succeeded",
+  "platform": "StandaloneOSX",
+  "outputPath": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Candidate-20261001/EchoProtocol.app",
+  "totalSizeBytes": 206854641,
+  "buildTimeMs": 20453,
+  "totalWarnings": 346,
+  "totalErrors": 0,
+  "architecture": "x86_64 + arm64; file command verified",
+  "signature": "codesign --verify --deep --strict passed",
+  "native": "Prueba breve de la app exacta: título/créditos, movimiento y toma12.4s, RECALL, H, C/Enter bloqueados detrás de notas, retorno a pausa, reanudación y salida comprobados. No campaña nativa completa ni audición.",
+  "scope": "Campaña PASS522 y Continue PASS341. El cierre modal posterior de C/Enter se comprobó en esta app exacta; no cambia reglas ni mundo."
+}

@@ -1,0 +1,5 @@
+using UnityEngine;using EchoProtocol.Campaign;using System.Reflection;
+public static class EncounterProbeFinal {public static void Main(){
+ if(!Application.isPlaying||UnityEditor.EditorApplication.isCompiling||UnityEditor.EditorApplication.isUpdating)throw new System.Exception("Stable fresh Play required");
+ foreach(var f in Object.FindObjectsByType<StationFeedback>(FindObjectsInactive.Include,FindObjectsSortMode.None))if(f.isActiveAndEnabled&&typeof(StationFeedback).GetField("block",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(f)==null)throw new System.Exception("Wait for real Awake before starting input");
+ const string path="Docs/VisualEvidence/2026-10-02-EncounterArt/final/";ThresholdCampaignProbe.OutputDirectoryOverride=path;EncounterArtObserver.Begin(path);ThresholdCampaignProbe.Run();}}

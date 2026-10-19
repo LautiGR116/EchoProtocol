@@ -1,0 +1,157 @@
+{
+  "status": "PASS",
+  "rate": 48000,
+  "channels": 2,
+  "samples": 11339776,
+  "frames": 862,
+  "marks": [
+    {
+      "step": "title",
+      "seconds": 0.021333333333333333,
+      "realtime": 14.1951056,
+      "listenerVolume": 0.6984127,
+      "reduced": false,
+      "mono": false
+    },
+    {
+      "step": "coverage_enter",
+      "seconds": 1.3866666666666667,
+      "realtime": 15.5559263,
+      "listenerVolume": 0.6984127,
+      "reduced": false,
+      "mono": false
+    },
+    {
+      "step": "coverage_record_first_noise",
+      "seconds": 4.9706666666666663,
+      "realtime": 19.1416378,
+      "listenerVolume": 0.6984127,
+      "reduced": false,
+      "mono": false
+    },
+    {
+      "step": "coverage_record_silence",
+      "seconds": 17.152,
+      "realtime": 31.3250961,
+      "listenerVolume": 0.6984127,
+      "reduced": false,
+      "mono": false
+    },
+    {
+      "step": "coverage_record_return_noise",
+      "seconds": 23.978666666666665,
+      "realtime": 38.1471,
+      "listenerVolume": 0.6984127,
+      "reduced": false,
+      "mono": false
+    },
+    {
+      "step": "coverage_playback_pause",
+      "seconds": 44.501333333333335,
+      "realtime": 58.6720161,
+      "listenerVolume": 0.6984127,
+      "reduced": false,
+      "mono": false
+    },
+    {
+      "step": "coverage_cross_to_crank",
+      "seconds": 46.250666666666667,
+      "realtime": 60.431324,
+      "listenerVolume": 0.6984127,
+      "reduced": false,
+      "mono": false
+    },
+    {
+      "step": "coverage_hold_crank",
+      "seconds": 50.730666666666664,
+      "realtime": 64.90593,
+      "listenerVolume": 0.6984127,
+      "reduced": false,
+      "mono": false
+    },
+    {
+      "step": "coverage_enter_service",
+      "seconds": 64.298666666666662,
+      "realtime": 78.4704742,
+      "listenerVolume": 0.6984127,
+      "reduced": false,
+      "mono": false
+    },
+    {
+      "step": "coverage_hold_release",
+      "seconds": 66.944,
+      "realtime": 81.11078,
+      "listenerVolume": 0.6984127,
+      "reduced": false,
+      "mono": false
+    },
+    {
+      "step": "coverage_deliberate_failure",
+      "seconds": 69.952,
+      "realtime": 84.11953,
+      "listenerVolume": 0.6984127,
+      "reduced": false,
+      "mono": false
+    },
+    {
+      "step": "coverage_cross_to_crank",
+      "seconds": 72.810666666666663,
+      "realtime": 86.98749,
+      "listenerVolume": 0.6984127,
+      "reduced": true,
+      "mono": true
+    },
+    {
+      "step": "coverage_hold_crank",
+      "seconds": 77.824,
+      "realtime": 91.9914856,
+      "listenerVolume": 0.6984127,
+      "reduced": true,
+      "mono": true
+    },
+    {
+      "step": "coverage_enter_service",
+      "seconds": 91.456,
+      "realtime": 105.632179,
+      "listenerVolume": 0.6984127,
+      "reduced": true,
+      "mono": true
+    },
+    {
+      "step": "coverage_hold_release",
+      "seconds": 93.99466666666666,
+      "realtime": 108.169388,
+      "listenerVolume": 0.6984127,
+      "reduced": true,
+      "mono": true
+    },
+    {
+      "step": "coverage_prepared_return",
+      "seconds": 96.981333333333339,
+      "realtime": 111.161964,
+      "listenerVolume": 0.6984127,
+      "reduced": true,
+      "mono": true
+    },
+    {
+      "step": "coverage_natural_recorded_release",
+      "seconds": 104.02133333333333,
+      "realtime": 118.186852,
+      "listenerVolume": 0.6984127,
+      "reduced": true,
+      "mono": true
+    },
+    {
+      "step": "coverage-done",
+      "seconds": 118.12266666666666,
+      "realtime": 132.290421,
+      "listenerVolume": 0.6984127,
+      "reduced": true,
+      "mono": true
+    }
+  ],
+  "listenerVolume": 0.6984127,
+  "reduced": true,
+  "mono": true,
+  "scope": "Actual post-SessionAudio stereo signal and composited Player view; normal input route. Device SPL, performance with capture disabled, comfort and fear require separate assessment."
+}

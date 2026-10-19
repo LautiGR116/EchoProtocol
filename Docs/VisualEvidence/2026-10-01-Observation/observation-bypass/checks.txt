@@ -1,0 +1,18 @@
+PASS initial fixture restores completed first-act lighting
+PASS real camera ray reaches R1 station
+PASS real E commits R1 and starts an empty take
+PASS both recording stations occupy the east lane
+PASS both actual readers require west-facing body yaw
+PASS both mechanisms begin closed and silent
+PASS wrong-facing Player at A does not preview the door
+PASS A Player preview opens only temporarily, without authorization
+PASS fastest surveyed return around divider cannot cross A on Player preview
+PASS A sealed glazing physically blocks lateral passage
+PASS opaque central body physically separates the lanes
+PASS B Player preview never fabricates A authorization
+PASS B sealed glazing physically blocks lateral bypass
+PASS east terminal wall prevents walking behind B or reaching R3
+PASS negative route used no Echo, RECALL or later fixture
+PASS mechanism sources stay fixed to physical headers
+PASS no gameplay errors during focused input route
+PASS

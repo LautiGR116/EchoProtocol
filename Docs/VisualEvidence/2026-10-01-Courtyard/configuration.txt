@@ -1,0 +1,2 @@
+Actual raw CombineMeshes with original imported tile and negative determinant=-999999.9: positive108, negative0. Current author avoids duplicate manual flip.
+Source=Courtyard / outside air clip=Assets/_Game/Audio/Clips/Courtyard/AMB_CourtyardNight_LP.wav channels=1 frequency=48000 seconds=38.039 mixer=Ambience gain=0.16

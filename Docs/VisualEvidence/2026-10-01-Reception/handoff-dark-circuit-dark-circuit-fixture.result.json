@@ -1,0 +1,23 @@
+{
+    "status": "PASS",
+    "error": "",
+    "mode": "dark-circuit-fixture",
+    "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Reception.unity",
+    "evidenceScope": "Two-second Pressure snapshot or explicitly labelled twelve-light fixture after independently established handoff. No full-blackout-route, Echo playback, listening, timbre or human fear claim. Probe never changes recordings, chapter, Player pose, audio source values, timeScale, AudioListener settings or preferences.",
+    "checks": 11,
+    "frames": 202,
+    "settledFrames": 66,
+    "fixtureLightCount": 12,
+    "firstActWritesBefore": 6644,
+    "firstActWritesAfter": 6644,
+    "campaignWriteDelta": 202,
+    "releaseCount": 1,
+    "scaledSecondsObserved": 2.0059046745300295,
+    "elapsedRealtime": 1.9599609375,
+    "initialFluorescentGain": 0.017500000074505807,
+    "fluorescentGain": 0.0,
+    "machineryGain": 0.0279999990016222,
+    "poweredFraction": 0.0,
+    "fullBlackoutRouteClaim": false,
+    "fixtureRestored": true
+}

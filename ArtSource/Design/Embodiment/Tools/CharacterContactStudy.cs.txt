@@ -1,0 +1,44 @@
+using System;
+using System.IO;
+using System.Linq;
+using UnityEngine;
+using UnityEditor;
+using EchoProtocol.Echo;
+using EchoProtocol.Campaign;
+using EchoProtocol.Player;
+public static class CharacterContactStudy
+{
+ const string Out="Docs/VisualEvidence/2026-10-09-Embodiment/contact-study";
+ static void Shot(Camera c,string label,Vector3 position,Vector3 look)
+ {
+  var old=c.targetTexture;var active=RenderTexture.active;var rt=new RenderTexture(1280,720,24);var tex=new Texture2D(1280,720,TextureFormat.RGB24,false);
+  try {c.transform.SetPositionAndRotation(position,Quaternion.LookRotation(look-position));c.targetTexture=rt;c.Render();RenderTexture.active=rt;tex.ReadPixels(new Rect(0,0,1280,720),0,0);tex.Apply();File.WriteAllBytes(Out+"/"+label+".png",tex.EncodeToPNG());}
+  finally {c.targetTexture=old;RenderTexture.active=active;UnityEngine.Object.DestroyImmediate(rt);UnityEngine.Object.DestroyImmediate(tex);}
+ }
+ public static object Main()
+ {
+  if(EditorApplication.isPlaying)throw new Exception("Stopped Editor required");Directory.CreateDirectory(Out);
+  var player=UnityEngine.Object.FindFirstObjectByType<FirstPersonController>();var camera=player.GetComponentInChildren<Camera>();var cp=camera.transform.position;var cr=camera.transform.rotation;
+  var g=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Game/Prefabs/Embodiment/EchoEmbodiment.prefab"));
+  foreach(var r in g.GetComponentsInChildren<SkinnedMeshRenderer>())r.forceMatrixRecalculationPerRender=true;
+  try
+  {
+   var rig=g.GetComponent<EchoBodyRig>();var m=rig.CharacterMotion;
+   var machine=UnityEngine.Object.FindFirstObjectByType<MachineCoverEncounter>().Machine;
+   var grip=(Transform)new SerializedObject(machine).FindProperty("grip").objectReferenceValue;
+   Vector3 standing=new Vector3(4.6f,.02f,-35.9f),d=grip.position-standing;
+   g.transform.SetPositionAndRotation(standing,Quaternion.Euler(0,Mathf.Atan2(d.x,d.z)*Mathf.Rad2Deg,0));
+   rig.Apply(new RecordedBodyPose(0,1.1f,0,Vector2.zero,machineGripTarget:g.transform.InverseTransformPoint(grip.position)));rig.ApplyMachineGrip(true);
+   var hand=(Transform)new SerializedObject(m).FindProperty("rightHand").objectReferenceValue;
+   Shot(camera,"pump-grip-side",new Vector3(2.9f,1.6f,-36.2f),new Vector3(4.6f,1.2f,-36.5f));
+   Shot(camera,"pump-grip-replay",new Vector3(3.65f,1.6f,-38.4f),g.transform.position+Vector3.up*1.25f);
+   var contact=new{hand=hand.position.ToString("F4"),grip=grip.position.ToString("F4"),wristDistance=Vector3.Distance(hand.position,grip.position)};
+   g.transform.SetPositionAndRotation(new Vector3(0,.03f,-8),Quaternion.Euler(0,180,0));
+   rig.Apply(new RecordedBodyPose(0,.9825f*Mathf.PI*2,0,Vector2.zero));
+   Shot(camera,"echo-blink",new Vector3(.2f,1.66f,-8.95f),new Vector3(0,1.68f,-8));
+   var report=new{status="STUDIED",scope="Explicit Editor pose fixtures, actual Player camera and scene lighting; pump position is authored route standing point, no input route claim.",contact};
+   File.WriteAllText(Out+"/contact.json",Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented));return report;
+  }
+  finally {camera.transform.SetPositionAndRotation(cp,cr);UnityEngine.Object.DestroyImmediate(g);}
+ }
+}

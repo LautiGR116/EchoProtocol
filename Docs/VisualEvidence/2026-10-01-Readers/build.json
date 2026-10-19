@@ -1,0 +1,20 @@
+{
+  "status": "completed",
+  "buildId": "build_50312345f761",
+  "result": "Succeeded",
+  "outputPath": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Readers-20261001/EchoProtocol.app",
+  "totalSizeBytes": 198119837,
+  "buildTimeMs": 7827,
+  "totalWarnings": 1,
+  "totalErrors": 0,
+  "warnings": [
+    {
+      "message": "Pipeline: No RuntimePipelineConfig asset found (Project Settings > Pipeline > Runtime). Pipeline will be disabled in Player builds."
+    }
+  ],
+  "signature": "codesign --verify --deep --strict passed",
+  "architectures": [
+    "x86_64",
+    "arm64"
+  ]
+}

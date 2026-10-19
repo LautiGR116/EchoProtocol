@@ -1,0 +1,10 @@
+{
+  "buildId": "build_3059a1ad9417",
+  "startViaReturn": true,
+  "movement": "24 native W key pulses, brief displacement",
+  "recallDisplayedSeconds": 1.8,
+  "pauseAndResume": true,
+  "quitConfirmedByProcessCheck": true,
+  "runtimeErrorMatches": 0,
+  "limits": "Native startup/movement/RECALL/pause only; not full native gameplay, mouse comfort, listening, fear or first-use clarity."
+}

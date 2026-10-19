@@ -1,0 +1,164 @@
+PRESSURE ISOLATION — STAGING SPECIFICATION / 2026-10-01
+
+Status: approved direction; runtime drafts only. No Assets changed, Unity run,
+compilation, human playthrough or listening approval in this preparation.
+Root integrates only after the recoverable Recovery checkpoint.
+
+PLAYER CONTRACT
+
+One hand-operated isolation control at the existing first pump, approximately
+(5.9,1.5,-36.5), approached at x4.5. The center ray starts the interaction;
+holding E rotates its visible lever through 70 degrees over 1.8 seconds.
+The Player remains free to look around. There is no requirement to keep the
+control inside the camera frame, no HUD progress bar, and no unseen gaze timer.
+Physical proximity and an unobstructed reach to gripPoint remain necessary.
+
+Before the detent, releasing E or moving out of reach releases the mechanism;
+it springs back over .45 seconds. A fresh press is needed to grab again once
+it has returned. At the detent the lever stays at its new stop. The Player can
+release E immediately and walk. This is one continuous manual operation.
+
+The manual assembly cuts the motor and its service work lights. The second
+assembly is an automatic pressure relief: different silhouette/guard, no E
+prompt, two gauges showing the same real pressure. The automatic outlet hisses
+locally while pressure falls for about three seconds; the motor coasts down
+over 2.2 seconds. Zero pressure releases the south bulkhead. No remote manual
+wheel secretly rotates and no second control must be activated.
+
+Both work lights go out together; retain authored emergency/residual light,
+floor edges and the exit's small pilot. Do not repeat SE1's sequential blackout.
+After A the route passes along the eastern side of the opaque service cabinet
+and turns south toward the door at z=-48, roughly 13 metres of normal walking.
+The pressure falls during that movement. The Player's footsteps and the real
+door remain audible in the stopped machinery. No new scare, phantom source,
+camera motion or manufactured Echo action is part of this change.
+
+Two short physical labels are enough: A "AISLAR / MANTENER E", positions
+"MARCHA / SERVICIO"; B "PURGA AUTOMÁTICA". The gauge, falling motor, stable
+lever and pressure door establish causality. House supply, telephone behavior,
+reserve, key and choices remain unchanged.
+
+FILES / OWNERSHIP
+
+1. New Campaign/PressureIsolation.cs, from PressureIsolation.cs.txt.
+   Owns manual hold, real lever/needle transforms, latched/draining state,
+   work-light circuit and bulkhead. Implements IInteractable. Owns no audio
+   playback, PlayerPrefs, Echo frames, camera or player placement.
+
+2. New Audio/PressureIsolationAudio.cs from the sound agent's separate draft.
+   Owns four explicitly assigned local sources; see AUDIO_STAGING.md. Do not
+   assign the same source to CampaignRoomTone or the old PressureWorkAudio.
+
+3. CampaignDirector integration is opt-in through pressureIsolation=null by
+   default. It starts Pressure from the authored entry volume, saves progress,
+   reads the isolated door condition, and delegates Pressure completely.
+   Existing PressureOrigin/ValveA/ValveB never become callable in this mode.
+   Legacy Use/UpdatePressure/UpdateWork remain available to preserved scenes.
+   HouseOrigin enters the existing house without creating another recording
+   origin in this mode. FinalDoorMemory remains unchanged.
+
+4. GameSession adds the specific hold prompt before and during grip; looking
+   away does not erase the active-hold hint. Help distinguishes suspended
+   recording, real 6B review, and preservation. Legacy help is unchanged.
+
+5. ReturnRecordingBoundary adds a serialized followupObjective, defaulting
+   exactly to its old text. New-scene value:
+   "Volvé al vestíbulo. Bajá al subsuelo."
+
+6. SlidingDoor adds SetOpenImmediately(bool), used only for a canonical chapter
+   restore. PressureIsolation then calls its explicitly referenced door audio's
+   existing ResetLoopState so a restored open door creates no movement cue.
+
+7. Optional CampaignRoomTone hook can scale only explicitly assigned motor beds
+   by MotorLevel01. Its default list is empty. Do NOT assign Distant Machinery
+   Bed solely because of its name: its actual source is in the first facility,
+   not the pressure plant. The local plant motor belongs only to the new audio
+   adapter. No mixer/listener/master-setting writes are introduced.
+
+integration.patch includes items 3–7. It does not add the two new components or
+author the scene. Five complete integration source drafts accompany it for
+review, with base-sha256.json. prepare_integration.py regenerates these drafts
+against current files and fails if an expected anchor changed; it never edits
+Assets. The patch passed git apply --check against the inspected sources.
+
+AUTHORING
+
+- New scene and new chapter-save key; retain FirstAct/Recovery as recovery points.
+- Add the controller to a root owning ALL colliders of its actual panel/control.
+  Remove or disable the old ray target; a disabled old IInteractable on the same
+  ancestry can still win GetComponentInParent. Prefer a separate new root.
+- Explicit refs: director, session, player, playerInput, view, loop, recorder,
+  entryZone, manualControl, gripPoint, continuationOrigin, pressureNeedles,
+  exitDoor, exitDoorAudio; assign pressureIsolation on Director.
+- entryZone: trigger across real descent arrival, suggested center (0,1,-29.2),
+  size (2.8,2.2,1.5). continuationOrigin: safe walkable entrance near (0,.03,-29),
+  facing into the plant. No live traversal pose reset.
+- manualControl is only the moving lever/pivot, authored in MARCHA.
+  restLocalRotation is captured before motion. Set controlLocalAxis/travel sign
+  explicitly; do not infer forward from reflected FBX axes.
+- New gauge exports its needle in HIGH. Set highNeedleAngle=0,
+  lowNeedleAngle=-270 around the converted source +Y axis (or invert both axis
+  and sign consistently). Code interpolates a scalar, then AngleAxis, so the
+  needle traverses the intended upper 270-degree arc, not a short 90-degree arc.
+- workLights contains only the two plant service lights. workLampEmissions may
+  stay empty if PracticalEmission already follows those lights; one writer per
+  renderer. Emergency, domestic and route lights never belong to this circuit.
+- Disable old PressureWorkAudio, old valve StationFeedback, old E targets,
+  reader lens/floor hold cue, "30 s" instructions and PressureOrigin station.
+  Recast the blue bay as decommissioned service equipment, no inactive puzzle cue.
+- B must read as automatic relief, not as a second identical manual objective.
+
+PAUSE, RECALL, CONTINUE
+
+The component progresses the hand in LateUpdate, after PlayerInteractor can
+open a document. Pausing cancels grip and requires release before a fresh E.
+While paused nothing moves, drains or commits. On resume a released control
+returns visibly to rest; an E still held cannot restart it. Once latched, pause
+freezes the genuine coast-down/drain and resumes that consequence normally.
+
+R stays inert from the real R3 boundary through the plant and house. LastRecording
+remains the exact P3 object. No CompleteLoop, SetRecallCheckpoint, invented frames,
+new Echo or live ResetPose occurs in this stretch. The component also guards R
+after a fresh Continue, where R3's transient boundary never fired. That guard
+releases only when a later real checkpoint changes CheckpointRevision; normal
+BeginReview at 6B does exactly that. Final 6B recording/witness rules are untouched.
+
+Use a fresh checkpointKey for the new edition. The Director persists only the
+chapter and one extra bit, checkpointKey + ".isolated". Save once on physical
+entry and once on actual detent, honoring SuppressSaves. Never serialize handle
+fraction, draining seconds, current pressure, audio cursor or a recording.
+
+Continue Pressure before detent => lever MARCHA, pressure1, motor1, door closed.
+Continue Pressure after detent => lever at stop, pressure0, motor0, door open.
+Both place the Player at the explicit safe entrance; no shutdown performance
+replays. House/Archive imply completed isolation and restore that settled state.
+Existing domestic answered/light fields and genuine 6B origin rules remain.
+New mode never saves or accepts the removed Gallery chapter. RestoreState does
+not increment commit/drain counters or emit their events; RestoreRevision informs
+audio to rebaseline without a latch/purge cue. Restore is a recovery fixture/API,
+not evidence that the Player performed the action in that run.
+
+Recommended key: EP.CampaignCheckpoint.Isolation.v1. Keep it on the new scene's
+Director only; no migration or deletion of saved chapters from older editions.
+PrepareHouseProbe explicitly restores isolated state in this opt-in mode so
+older isolated house/final fixtures remain usable and honestly labelled.
+
+VERIFY AFTER ROOT INTEGRATES
+
+- Actual continuous input: enter volume, short tap, partial release, fresh hold,
+  free look while held, walk past B and reach the house. Four actual takes now:
+  P1/P2/P3/6B, rather than the legacy five.
+- Pause while E held; release during pause; resume still held; document opening
+  during a partial hold. No silent resumed grip or latent completion.
+- Move out of reach / behind obstruction; Echo or wrong actor cannot operate it.
+- Physical lever stops, gauge arc, matched outlet sound, motor silence, residual
+  navigation light and bulkhead geometry from the Player camera.
+- R and >60 s leave P3 reference/sample data untouched through plant/house;
+  real 6B origin rearms an empty recorder and the final route still completes.
+- Save/restore false and true, including restoring during a live partial turn
+  or drain; save suppression and every previous owned save key restored by probes.
+- Existing scenes without reference retain old pressure operation, save format,
+  hold/gaze UI, return directive and audio.
+
+Human interpretation, the perceived weight of commitment, ability to follow
+the dim route and comfortable-volume mechanical timbre remain EN PRUEBA.

@@ -1,0 +1,18 @@
+{
+    "label": "house-Bedroom-bedroom-return",
+    "position": {
+        "x": 3.5,
+        "y": 1.6299999952316285,
+        "z": -53.0
+    },
+    "target": {
+        "x": 0.0,
+        "y": 1.100000023841858,
+        "z": -53.29999923706055
+    },
+    "chapter": "Archive",
+    "power": "Bedroom",
+    "answered": true,
+    "latched": true,
+    "drained": true
+}

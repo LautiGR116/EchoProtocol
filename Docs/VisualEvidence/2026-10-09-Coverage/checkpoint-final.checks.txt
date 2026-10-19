@@ -1,0 +1,53 @@
+EXPLICIT SAVE/LOAD FIXTURES: canonical incomplete/prepared/threat/complete states. Public encounter and Continue APIs, actual preferences and fresh scene reloads. No continuous-play claim.
+PASS authored preview entry saves pressure chapter
+PASS state 0 persists only committed exit completion
+PASS fresh title offers actual Continue for state 0
+PASS public Continue reloads state 0
+PASS Continue safely resets partial work or preserves the earned exit
+PASS Continue fabricates no held command or present threat
+PASS fresh recording is armed only for incomplete attempt; no fabricated saved Echo
+PASS safe authored continuation origin
+PASS actual serviceGate agrees with the saved result
+PASS actual returnGate agrees with the saved result
+PASS actual exitDoor agrees with the saved result
+PASS Continue does not replay the machine or discharge cue
+PASS canonical load never sounds a gate teleport as movement
+PASS authored preview entry saves pressure chapter
+PASS state 1 persists only committed exit completion
+PASS fresh title offers actual Continue for state 1
+PASS public Continue reloads state 1
+PASS Continue safely resets partial work or preserves the earned exit
+PASS Continue fabricates no held command or present threat
+PASS fresh recording is armed only for incomplete attempt; no fabricated saved Echo
+PASS safe authored continuation origin
+PASS actual serviceGate agrees with the saved result
+PASS actual returnGate agrees with the saved result
+PASS actual exitDoor agrees with the saved result
+PASS Continue does not replay the machine or discharge cue
+PASS canonical load never sounds a gate teleport as movement
+PASS authored preview entry saves pressure chapter
+PASS state 2 persists only committed exit completion
+PASS fresh title offers actual Continue for state 2
+PASS public Continue reloads state 2
+PASS Continue safely resets partial work or preserves the earned exit
+PASS Continue fabricates no held command or present threat
+PASS fresh recording is armed only for incomplete attempt; no fabricated saved Echo
+PASS safe authored continuation origin
+PASS actual serviceGate agrees with the saved result
+PASS actual returnGate agrees with the saved result
+PASS actual exitDoor agrees with the saved result
+PASS Continue does not replay the machine or discharge cue
+PASS canonical load never sounds a gate teleport as movement
+PASS authored preview entry saves pressure chapter
+PASS state 3 persists only committed exit completion
+PASS fresh title offers actual Continue for state 3
+PASS public Continue reloads state 3
+PASS Continue safely resets partial work or preserves the earned exit
+PASS Continue fabricates no held command or present threat
+PASS fresh recording is armed only for incomplete attempt; no fabricated saved Echo
+PASS safe authored continuation origin
+PASS actual serviceGate agrees with the saved result
+PASS actual returnGate agrees with the saved result
+PASS actual exitDoor agrees with the saved result
+PASS Continue does not replay the machine or discharge cue
+PASS canonical load never sounds a gate teleport as movement

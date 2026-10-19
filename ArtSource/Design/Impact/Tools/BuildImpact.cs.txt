@@ -1,0 +1,18 @@
+using System;using System.IO;using UnityEditor;using UnityEditor.Build.Reporting;
+public static class BuildImpact
+{
+ public static string QA()=>Queue(true);public static string Delivery()=>Queue(false);
+ static string Queue(bool qa)
+ {
+  if(EditorApplication.isPlaying||EditorApplication.isCompiling)throw new Exception("Stopped compiled Editor required");
+  string path="Builds/EchoProtocol-Impact-"+(qa?"QA-":"")+"20261011/EchoProtocol.app";
+  if(Directory.Exists(path))throw new Exception("Preserve existing build "+path);
+  // Invoke synchronously from a stopped Editor with a sufficient command timeout.
+   {
+   string output="Docs/VisualEvidence/2026-10-11-Impact";Directory.CreateDirectory(output);
+   try{var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{"Assets/_Game/Scenes/Production/EchoProtocol_Impact.unity"},locationPathName=path,target=BuildTarget.StandaloneOSX,options=BuildOptions.DetailedBuildReport,extraScriptingDefines=qa?new[]{"ECHO_NATIVE_VERIFY"}:new string[0]});
+    File.WriteAllText(output+"/"+(qa?"qa-build":"delivery-build")+".json",Newtonsoft.Json.JsonConvert.SerializeObject(new{result=report.summary.result.ToString(),errors=report.summary.totalErrors,warnings=report.summary.totalWarnings,bytes=report.summary.totalSize,seconds=report.summary.totalTime.TotalSeconds,output=report.summary.outputPath,qa,development=false,steps=report.steps.Length},Newtonsoft.Json.Formatting.Indented));}
+   catch(Exception e){File.WriteAllText(output+"/"+(qa?"qa-build":"delivery-build")+"-exception.txt",e.ToString());throw;}
+  }return "Build complete: "+path;
+ }
+}

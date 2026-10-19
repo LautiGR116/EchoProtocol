@@ -1,0 +1,50 @@
+{
+  "candidate": "RecordedPresence-03",
+  "date": "2026-10-01",
+  "status": "Unity-compiled; selected camera comparisons, full route436 and universal build/signature pass; native launch pending Mac unlock",
+  "shader": "EchoProtocol/RecordedPresence",
+  "material_name": "M_RecordedPresence",
+  "color_assignment": "Use these exact Material.SetColor values, as in the existing production scripts; do not apply an additional .linear conversion.",
+  "colors": {
+    "_Color": [
+      0.14,
+      0.68,
+      0.64,
+      1
+    ]
+  },
+  "floats": {
+    "_BodyOpacity": 0.9,
+    "_EdgeOpacity": 0.03,
+    "_WorldLightGain": 0.65,
+    "_RecordLevel": 0.32,
+    "_NearFadeStart": 0.35,
+    "_NearFadeEnd": 0.95
+  },
+  "render_queue": 3000,
+  "scope": "One shared material in all material slots of the enabled recorded body on the optional candidate Echo prefab, from P1 through final 6B. Leave the disabled historical visuals disabled. No change to current-world SE2/house figures or Player hand/reserve.",
+  "renderer": {
+    "shadowCastingMode": "Off",
+    "receiveShadows": true
+  },
+  "preserved": [
+    "Recorded position and body yaw",
+    "Unchanged static model and root",
+    "Camera proximity fade",
+    "Opaque-world depth occlusion",
+    "Fog",
+    "No new audio, hand, load or gesture channel"
+  ],
+  "self_depth": {
+    "shader": "EchoProtocol/RecordedSelfDepth",
+    "material": "M_RecordedSelfDepth",
+    "render_queue": 2990,
+    "sameMesh": true,
+    "sameTransform": true,
+    "colorMask": 0,
+    "zWrite": true,
+    "castsShadows": false,
+    "fadeStart": 0.35,
+    "fadeEnd": 0.95
+  }
+}

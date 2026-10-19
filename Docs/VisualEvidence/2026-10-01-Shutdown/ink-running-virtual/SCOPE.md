@@ -1,0 +1,1 @@
+Stationary cloned gameplay camera after the completed checkpoint test, with one explicit RestoreState(false) visual fixture while paused. Same camera pose as the stopped capture, original work lights enabled by their owner. No Player input or new route claim; this pair selects incident-light response of planar ink, not motor motion.

@@ -1,0 +1,104 @@
+{
+  "all_pass": true,
+  "scope": "Blender FBX roundtrip only: finite vertices/UV/materials, bounds/anchors/pivots, 8000triangle budget, one closed skin surface, no armature/animation/pack geometry, and sampled clearance around the supplied .010m-radius handle. This does not certify anatomical realism, every mesh intersection, Unity view/clipping, shadow or interaction settings, or human visual approval.",
+  "total_triangles": 7686,
+  "result": {
+    "asset": "ReserveGrip",
+    "file": "exports/EP_ReserveGrip.fbx",
+    "bytes": 263116,
+    "sha256": "4ef952389c1986f81eb4b3f3566d910eb212556c399cfebe737bc8b2aaa4eecd",
+    "pass": true,
+    "failures": [],
+    "mesh_count": 3,
+    "triangles": 7686,
+    "finite_vertices": true,
+    "bounds_blender_xyz": [
+      [
+        -0.18310776352882385,
+        0.055364061146974564
+      ],
+      [
+        -0.24697889387607574,
+        0.03896767646074295
+      ],
+      [
+        0.17550179362297058,
+        0.2667568325996399
+      ]
+    ],
+    "bounds_error_m": 3.725290298461914e-08,
+    "missing_materials": [],
+    "unexpected_materials": [],
+    "anchor_errors_m": {
+      "ReserveGrip__ROOT": 0.0,
+      "ReserveGrip__AXIS_X": 1.4901161138336505e-09,
+      "ReserveGrip__AXIS_Y": 1.6292068139023286e-08,
+      "ReserveGrip__AXIS_Z": 1.6292068139023286e-08,
+      "ReserveGrip__HANDLE_CENTRE": 3.2747056621929005e-08,
+      "ReserveGrip__WRIST_CENTRE": 3.361701965409747e-08,
+      "ReserveGrip__SLEEVE_EXIT": 3.612041474254646e-08
+    },
+    "meshes": [
+      {
+        "name": "ReserveJacketSleeve",
+        "vertices": 1204,
+        "triangles": 2404,
+        "triangles_match_manifest": true,
+        "finite_uvs": true,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "material_slots_valid": true,
+        "material_indices_valid": true,
+        "finite_materials": true,
+        "pivot_error_m": 0.0
+      },
+      {
+        "name": "ReserveRightHand",
+        "vertices": 2551,
+        "triangles": 5098,
+        "triangles_match_manifest": true,
+        "finite_uvs": true,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "material_slots_valid": true,
+        "material_indices_valid": true,
+        "finite_materials": true,
+        "pivot_error_m": 0.0
+      },
+      {
+        "name": "ReserveThumbNail",
+        "vertices": 94,
+        "triangles": 184,
+        "triangles_match_manifest": true,
+        "finite_uvs": true,
+        "uv_layers": [
+          "UVMap"
+        ],
+        "material_slots_valid": true,
+        "material_indices_valid": true,
+        "finite_materials": true,
+        "pivot_error_m": 2.4277071763886783e-15
+      }
+    ],
+    "checks": {
+      "explicit_root_anchor_present": true,
+      "root_origin_error_m": 0.0,
+      "skin_connected_components": 1,
+      "skin_is_one_closed_surface": true,
+      "armatures": 0,
+      "animation_data_present": false,
+      "all_mesh_pivots_at_common_origin": true,
+      "handle_axis_sample_count": 4687,
+      "handle_min_skin_radius_m": 0.01111670659816378,
+      "skin_samples_deeper_than_half_mm_in_handle": 0,
+      "skin_min_z_m": 0.17550179362297058,
+      "sleeve_exit_has_negative_source_x_and_y": true,
+      "nail_min_distance_to_skin_m": 2.0467210561037064e-05,
+      "nail_max_distance_to_skin_m": 0.004220893140882254,
+      "nail_remains_in_contact_with_skin": true,
+      "no_pack_mesh_exported": true
+    }
+  }
+}

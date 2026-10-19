@@ -79,7 +79,7 @@ namespace EchoProtocol.Horror
             roomToneSource.volume = Mathf.MoveTowards(
                 roomToneSource.volume,
                 0f,
-                fadeSpeed * Time.unscaledDeltaTime);
+                fadeSpeed * Time.deltaTime);
 
             if (roomToneSource.volume > Mathf.Epsilon)
             {

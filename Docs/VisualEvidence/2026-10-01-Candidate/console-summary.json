@@ -1,0 +1,5 @@
+{
+  "counts": {},
+  "errors": [],
+  "scope": "Console queried after final successful recompile; zero retained entries. Separate continuous/checkpoint probes fail on runtime errors and both passed."
+}

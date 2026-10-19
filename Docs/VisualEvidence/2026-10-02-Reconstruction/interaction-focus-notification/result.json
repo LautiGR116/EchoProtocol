@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "error": "",
+  "phase": "declared focus notification boundary",
+  "scope": "Isolated real movement/mouse/E/Enter with one explicit Unity OnApplicationFocus false/true notification fixture. Verifies callback/input boundary, NOT operating-system focus transitions or human feel.",
+  "fixtureCount": 1,
+  "assertFixes": true,
+  "checks": [
+    "Fresh real title",
+    "Enter starts actual controls",
+    "Real approach reaches reception document",
+    "focus-loss notification pauses the session and clears physical focus",
+    "E during lost focus cannot open the document",
+    "real Enter resumes but E held across focus gain cannot dispatch",
+    "released key permits the same visible document to regain focus",
+    "fresh E after focus recovery opens the actual selected document"
+  ],
+  "measurements": []
+}

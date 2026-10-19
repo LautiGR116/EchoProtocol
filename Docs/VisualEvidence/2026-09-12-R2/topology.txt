@@ -1,0 +1,4 @@
+PASS pre-anchor gallery access closed
+PASS recording lane reachable; closed A blocks alternative and payoff
+PASS open A permits alternative; closed B prevents payoff and lane bypass
+PASS open A+B permits full payoff route

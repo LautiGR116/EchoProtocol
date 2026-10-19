@@ -1,0 +1,8 @@
+realtime,time,step,x,y,z,yaw,pitch,chapter,recalls,echoTime,se1,se2,se3,r3,housePower,key,witnessed,preserved,keyReturned,fade,paused,returnSuspended,recording,checkpoint,returnGuide
+10.711,0.000,title,0.000,0.000,-9.600,0.00,0.00,Protocol,0,-1.000,AwaitingRelay,AwaitingCrossing,AwaitingSE2,False,Hall,False,False,False,False,0.000,True,False,False,0,False
+10.828,0.000,title,0.000,0.000,-9.600,0.00,0.00,Protocol,0,-1.000,AwaitingRelay,AwaitingCrossing,AwaitingSE2,False,Hall,False,False,False,False,0.000,True,False,False,0,False
+11.017,0.000,title,0.000,0.000,-9.600,0.00,0.00,Protocol,0,-1.000,AwaitingRelay,AwaitingCrossing,AwaitingSE2,False,Hall,False,False,False,False,0.000,True,False,False,0,False
+11.118,0.000,title,0.000,0.000,-9.600,0.00,0.00,Protocol,0,-1.000,AwaitingRelay,AwaitingCrossing,AwaitingSE2,False,Hall,False,False,False,False,0.000,True,False,False,0,False
+11.227,0.000,title,0.000,0.000,-9.600,0.00,0.00,Protocol,0,-1.000,AwaitingRelay,AwaitingCrossing,AwaitingSE2,False,Hall,False,False,False,False,0.000,True,False,False,0,False
+11.327,0.000,title,0.000,0.000,-9.600,0.00,0.00,Protocol,0,-1.000,AwaitingRelay,AwaitingCrossing,AwaitingSE2,False,Hall,False,False,False,False,0.000,True,False,False,0,False
+11.462,0.000,title,0.000,0.000,-9.600,0.00,0.00,Protocol,0,-1.000,AwaitingRelay,AwaitingCrossing,AwaitingSE2,False,Hall,False,False,False,False,0.000,True,False,False,0,False

@@ -1,0 +1,5 @@
+positive_01_before position=(-2.750, 1.630, 28.938) euler=(0.00, 270.00, 0.00) FOV=60
+positive_02_after position=(-2.679, 1.630, 28.965) euler=(0.00, 270.00, 0.00) FOV=60
+R1_03_hub position=(-5.408, 1.630, 28.965) euler=(0.00, 240.00, 0.00) FOV=60
+R1_04_residual position=(-9.388, 1.630, 27.616) euler=(0.00, 270.00, 0.00) FOV=60
+R1_05_exit position=(-5.471, 1.630, 26.056) euler=(0.00, 45.00, 0.00) FOV=60

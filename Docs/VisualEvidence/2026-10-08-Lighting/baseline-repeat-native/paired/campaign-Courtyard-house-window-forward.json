@@ -1,0 +1,16 @@
+{
+    "label": "campaign-Courtyard-house-window-forward",
+    "state": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+    "position": {
+        "x": -6.792222023010254,
+        "y": 1.630000114440918,
+        "z": -54.255523681640628
+    },
+    "rotation": {
+        "x": -1.7271003912097553e-15,
+        "y": -4.219792515414156e-9,
+        "z": 7.28800506885467e-24,
+        "w": -1.0
+    },
+    "fov": 60.0
+}

@@ -1,0 +1,177 @@
+{
+  "status": "PASS",
+  "error": "",
+  "scope": "Passive observer on input-driven campaign; displayed owner must equal each actual E dispatch. No interactions, poses or state changes injected by this observer. Pause clears usable focus. No human feel claim.",
+  "pausedFrames": 533,
+  "accepted": 24,
+  "receipts": [
+    {
+      "frame": 6254,
+      "type": "VS1RecallAnchor",
+      "kind": "VS1RecallAnchor",
+      "owner": "R1 Central observation station",
+      "prompt": "E  ·  Fijar el origen de registro"
+    },
+    {
+      "frame": 7350,
+      "type": "TemporalRelayTerminal",
+      "kind": "TemporalRelayTerminal",
+      "owner": "P3 receiver A",
+      "prompt": "E  ·  Confirmar enlace A"
+    },
+    {
+      "frame": 7793,
+      "type": "TemporalRelayTerminal",
+      "kind": "TemporalRelayTerminal",
+      "owner": "P3 receiver B",
+      "prompt": "E  ·  Confirmar transferencia B"
+    },
+    {
+      "frame": 9651,
+      "type": "CampaignStation",
+      "kind": "Descent",
+      "owner": "Station / Descent",
+      "prompt": "E  ·  Habilitar paso al subsuelo"
+    },
+    {
+      "frame": 10309,
+      "type": "PressureIsolation",
+      "kind": "PressureIsolation",
+      "owner": "Isolation / physical service shutdown",
+      "prompt": "MANTENER E  ·  Aislar la instalación"
+    },
+    {
+      "frame": 10349,
+      "type": "PressureIsolation",
+      "kind": "PressureIsolation",
+      "owner": "Isolation / physical service shutdown",
+      "prompt": "MANTENER E  ·  Aislar la instalación"
+    },
+    {
+      "frame": 10460,
+      "type": "PressureIsolation",
+      "kind": "PressureIsolation",
+      "owner": "Isolation / physical service shutdown",
+      "prompt": "MANTENER E  ·  Aislar la instalación"
+    },
+    {
+      "frame": 10937,
+      "type": "CampaignStation",
+      "kind": "HouseOrigin",
+      "owner": "Station / HouseOrigin",
+      "prompt": "E  ·  Activar estación"
+    },
+    {
+      "frame": 11087,
+      "type": "HouseInteraction",
+      "kind": "Document",
+      "owner": "House interaction / Document",
+      "prompt": "E  ·  Leer"
+    },
+    {
+      "frame": 11226,
+      "type": "HouseInteraction",
+      "kind": "Telephone",
+      "owner": "House interaction / Telephone",
+      "prompt": "E  ·  Descolgar el teléfono"
+    },
+    {
+      "frame": 11273,
+      "type": "HouseInteraction",
+      "kind": "Telephone",
+      "owner": "House interaction / Telephone",
+      "prompt": "E  ·  Colgar el teléfono"
+    },
+    {
+      "frame": 11490,
+      "type": "HouseInteraction",
+      "kind": "HallSocket",
+      "owner": "Reserve socket / RECIBIDOR",
+      "prompt": "E  ·  Retirar la reserva de luz"
+    },
+    {
+      "frame": 11680,
+      "type": "HouseInteraction",
+      "kind": "KitchenSocket",
+      "owner": "Reserve socket / COCINA",
+      "prompt": "E  ·  Colocar la reserva en cocina"
+    },
+    {
+      "frame": 11708,
+      "type": "HouseInteraction",
+      "kind": "KitchenSocket",
+      "owner": "Reserve socket / COCINA",
+      "prompt": "E  ·  Retirar la reserva de luz"
+    },
+    {
+      "frame": 11848,
+      "type": "HouseInteraction",
+      "kind": "ExitDoor",
+      "owner": "6B exit / left hinge",
+      "prompt": "E  ·  Probar la puerta"
+    },
+    {
+      "frame": 12119,
+      "type": "HouseInteraction",
+      "kind": "BedroomSocket",
+      "owner": "Reserve socket / DORMITORIO",
+      "prompt": "E  ·  Colocar la reserva en dormitorio"
+    },
+    {
+      "frame": 12231,
+      "type": "HouseInteraction",
+      "kind": "Key",
+      "owner": "House interaction / Key",
+      "prompt": "E  ·  Tomar la llave de 6B"
+    },
+    {
+      "frame": 12341,
+      "type": "HouseInteraction",
+      "kind": "BedroomSocket",
+      "owner": "Reserve socket / DORMITORIO",
+      "prompt": "E  ·  Retirar la reserva de luz"
+    },
+    {
+      "frame": 12715,
+      "type": "HouseInteraction",
+      "kind": "HallSocket",
+      "owner": "Reserve socket / RECIBIDOR",
+      "prompt": "E  ·  Colocar la reserva en recibidor"
+    },
+    {
+      "frame": 12858,
+      "type": "HouseInteraction",
+      "kind": "ExitDoor",
+      "owner": "6B exit / left hinge",
+      "prompt": "E  ·  Abrir con la llave"
+    },
+    {
+      "frame": 13394,
+      "type": "FinalDoorInteraction",
+      "kind": "BeginReview",
+      "owner": "Review origin instrument",
+      "prompt": "E  ·  Fijar origen interior"
+    },
+    {
+      "frame": 13903,
+      "type": "FinalDoorInteraction",
+      "kind": "OpenDoor",
+      "owner": "6B review door / hinge",
+      "prompt": "E  ·  Abrir 6B"
+    },
+    {
+      "frame": 14250,
+      "type": "FinalDoorInteraction",
+      "kind": "Preserve",
+      "owner": "Original conservation terminal",
+      "prompt": "E  ·  Conservar este original"
+    },
+    {
+      "frame": 14334,
+      "type": "FinalDoorInteraction",
+      "kind": "ReturnKey",
+      "owner": "Return key to porter's tray",
+      "prompt": "E  ·  Devolver la llave"
+    }
+  ]
+}

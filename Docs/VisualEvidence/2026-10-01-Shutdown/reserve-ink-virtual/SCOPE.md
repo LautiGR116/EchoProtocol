@@ -1,0 +1,1 @@
+Stationary cloned gameplay camera at deliberately authored hall eye position after fresh pressure Continue; unit remains on its initial hall dock. Confirms the shared planar printed-text shader on existing Reserve labels under their actual lighting. No pickup, carry, interaction, house route or discovery claim.

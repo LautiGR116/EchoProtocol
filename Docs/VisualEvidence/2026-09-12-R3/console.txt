@@ -1,0 +1,1 @@
+Final Unity MCP Console query after fresh Play without probes: 0 errors, 0 warnings. Unity 6000.3.21f1. Play stopped; VS1_ParallelReturn_Blockout active, loaded and isDirty=false.

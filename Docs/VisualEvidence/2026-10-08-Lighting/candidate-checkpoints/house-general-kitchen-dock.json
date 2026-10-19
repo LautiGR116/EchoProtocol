@@ -1,0 +1,18 @@
+{
+    "label": "house-general-kitchen-dock",
+    "position": {
+        "x": -3.799999952316284,
+        "y": 1.6299999952316285,
+        "z": -57.5
+    },
+    "target": {
+        "x": -5.242000102996826,
+        "y": 1.2999999523162842,
+        "z": -57.5
+    },
+    "chapter": "Archive",
+    "power": "Hall",
+    "answered": false,
+    "latched": true,
+    "drained": true
+}

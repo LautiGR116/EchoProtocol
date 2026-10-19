@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "command": "command get_console_logs",
+  "data": {
+    "command": "get_console_logs",
+    "parameters": {
+      "limit": "30"
+    },
+    "result": {
+      "total": 1,
+      "returned": 1,
+      "logs": [
+        {
+          "type": "Warning",
+          "message": "Account API did not become accessible within 30 seconds. This may be due to network issues or editor focus.",
+          "stackTrace": "UnityEngine.Debug:LogWarning (object)\nUnity.AI.Toolkit.Accounts.Services.States.ApiAccessibleState/<WaitForCloudProjectSettings>d__4:MoveNext () (at ./Library/PackageCache/com.unity.ai.assistant@284c75a8d208/Modules/Unity.AI.Toolkit.Accounts/Services/States/ApiAccessibleState.cs:46)\nSystem.Threading.Tasks.TaskCompletionSource`1<bool>:TrySetResult (bool)\nUnity.AI.Toolkit.EditorTask/<>c__DisplayClass22_0:<WaitForCondition>b__0 () (at ./Library/PackageCache/com.unity.ai.assistant@284c75a8d208/Modules/Unity.AI.Toolkit.Async/EditorTask.cs:420)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions () (at /Users/bokken/build/output/unity/unity/Editor/Mono/EditorApplication.cs:392)\n",
+          "timestampUtc": "2026-09-30T18:40:38.5831590Z"
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/lautigr116/EchoProtocol"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

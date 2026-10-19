@@ -1,0 +1,16 @@
+{
+    "label": "campaign-orientation-6B-pause-ready",
+    "state": "Archive|house:False/True/Hall|pressure:True/True|P3:0.00",
+    "position": {
+        "x": -14.727385520935059,
+        "y": 1.6299999952316285,
+        "z": -52.34161376953125
+    },
+    "rotation": {
+        "x": -6.426994758612637e-8,
+        "y": -0.7071068286895752,
+        "z": 6.426994758612637e-8,
+        "w": -0.7071068286895752
+    },
+    "fov": 60.0
+}

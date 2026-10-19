@@ -1,0 +1,3 @@
+PASS fresh real Player blocked by original-Hub exit leaf
+PASS fresh real Player cannot bypass P1 via glass lane north boundary
+PASS fresh session retains original checkpoint baseline

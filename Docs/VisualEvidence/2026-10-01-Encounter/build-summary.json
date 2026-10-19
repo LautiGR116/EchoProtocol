@@ -1,0 +1,19 @@
+{
+  "status": "completed",
+  "buildId": "build_d0cd27a3e7aa",
+  "result": "Succeeded",
+  "platform": "StandaloneOSX",
+  "outputPath": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Encounter-20261001/EchoProtocol.app",
+  "totalSizeBytes": 197325757,
+  "buildTimeMs": 16186,
+  "buildStartedAt": "2026-10-01T16:08:06.7076560Z",
+  "buildEndedAt": "2026-10-01T16:08:22.8941400Z",
+  "totalWarnings": 346,
+  "totalErrors": 0,
+  "nativeInput": "Pending: CUA getApp reported Mac locked; no native launch/input claim.",
+  "signature": "codesign --verify --deep --strict: exit0",
+  "architectures": [
+    "x86_64",
+    "arm64"
+  ]
+}

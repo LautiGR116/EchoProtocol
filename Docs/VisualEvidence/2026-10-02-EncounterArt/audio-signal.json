@@ -1,0 +1,25 @@
+{
+  "scope": "Unmodified existing mono PCM masters. Finite/peak checks do not establish device loudness, listening comfort or timbre. Existing limiter and mono/reduced paths retained.",
+  "files": [
+    {
+      "asset": "Assets/_Game/Audio/Clips/Overhaul/DomesticFridge_LP.wav",
+      "channels": 1,
+      "rate": 48000,
+      "peak": 0.12000000476837158,
+      "rms": 0.02837879263913965,
+      "clippingSamples": 0,
+      "finite": true,
+      "sha256": "e64ea619897077575b0bd2f5eacbfe7ceef037b6e059f72f73cfdfa48cf8ba62"
+    },
+    {
+      "asset": "Assets/_Game/Audio/Clips/Overhaul/FloorboardWeight.wav",
+      "channels": 1,
+      "rate": 48000,
+      "peak": 0.2200000286102295,
+      "rms": 0.03404944119427526,
+      "clippingSamples": 0,
+      "finite": true,
+      "sha256": "94b8d4f4105d6ef5eec982af81bef2b2625dbdc1418e404a519f8c9b880be46b"
+    }
+  ]
+}

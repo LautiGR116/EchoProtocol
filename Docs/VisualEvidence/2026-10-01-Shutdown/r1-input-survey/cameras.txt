@@ -1,0 +1,8 @@
+One initial room/lighting/Player pose fixture. Subsequent input physical; camera directions authored for survey, not first-use evidence.
+00-corner position=(-2.70, 1.63, 27.02) rotation=(0.00, 270.00, 0.00)
+01-entry-west position=(-4.22, 1.63, 26.99) rotation=(0.00, 270.00, 0.00)
+02-entry-northwest position=(-4.22, 1.63, 26.99) rotation=(0.00, 315.00, 0.00)
+03-ready position=(-5.63, 1.63, 27.74) rotation=(5.12, 271.98, 0.00)
+04-confirmed position=(-5.63, 1.63, 27.74) rotation=(5.12, 271.98, 0.00)
+05-turn-to-gallery position=(-5.63, 1.63, 27.74) rotation=(0.00, 0.00, 0.00)
+06-gallery-entry position=(-5.55, 1.63, 32.41) rotation=(0.00, 0.00, 0.00)

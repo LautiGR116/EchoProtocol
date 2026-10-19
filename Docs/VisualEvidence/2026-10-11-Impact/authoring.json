@@ -1,0 +1,50 @@
+{
+  "status": "AUTHORED",
+  "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Impact.unity",
+  "sources": [
+    {
+      "name": "Threat / audible intake",
+      "clip": "Assets/_Game/Audio/Clips/Impact/Threat_DirectCry.wav",
+      "volume": 0.43,
+      "minDistance": 3.3,
+      "maxDistance": 19.0,
+      "spatialBlend": 1.0
+    },
+    {
+      "name": "Threat / present movement",
+      "clip": "Assets/_Game/Audio/Clips/Impact/Threat_Step0.wav",
+      "volume": 0.26,
+      "minDistance": 2.7,
+      "maxDistance": 18.0,
+      "spatialBlend": 1.0
+    },
+    {
+      "name": "Presence / contact behind the baffle",
+      "clip": "Assets/_Game/Audio/Clips/Impact/Threat_FrameContact.wav",
+      "volume": 0.29,
+      "minDistance": 4.4,
+      "maxDistance": 19.0,
+      "spatialBlend": 1.0
+    },
+    {
+      "name": "Presence / real frame contact",
+      "clip": "Assets/_Game/Audio/Clips/Impact/Threat_FrameContact.wav",
+      "volume": 0.29,
+      "minDistance": 3.3,
+      "maxDistance": 19.0,
+      "spatialBlend": 1.0
+    },
+    {
+      "name": "Presence / moving body grain",
+      "clip": "Assets/_Game/Audio/Clips/Impact/Threat_MovingFriction.wav",
+      "volume": 0.22,
+      "minDistance": 2.7,
+      "maxDistance": 19.0,
+      "spatialBlend": 1.0
+    }
+  ],
+  "controllerRadius": 0.4,
+  "routePoints": 14,
+  "rights": "Existing CC0 sources; original adult voice pitch; licensed Embodiment models remain private",
+  "changes": "Near source edits and custom attenuation; authored warning/rush/pulse; longer physical sight-breaking retreat; Player yields to unchanged recorded torso."
+}

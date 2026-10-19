@@ -1,0 +1,209 @@
+{
+    "status": "FAIL",
+    "error": "System.Exception: native screenshot 1440x810-hud\n  at FolioPresentationProbe.Check (System.Boolean value, System.String label) [0x00040] in <3de8ce86da7f475fa1778a384fc7988f>:0 \n  at FolioPresentationProbe+<ShotAt>d__25.MoveNext () [0x000d0] in <3de8ce86da7f475fa1778a384fc7988f>:0 \n  at FolioPresentationProbe+<Guarded>d__27.MoveNext () [0x0004b] in <3de8ce86da7f475fa1778a384fc7988f>:0 ",
+    "scope": "Native UI keyboard and resolution verification. Explicit document, saved-menu, HUD placement and ending fixtures; not a continuous gameplay run. Before views use the unchanged legacy renderer in equivalent state.",
+    "checks": 81,
+    "screenshots": [
+        {
+            "file": "1280x800-title.png",
+            "page": "title",
+            "width": 1280,
+            "height": 800,
+            "frame": 6276,
+            "time": 49.831886291503909
+        },
+        {
+            "file": "1280x800-settings.png",
+            "page": "settings",
+            "width": 1280,
+            "height": 800,
+            "frame": 6419,
+            "time": 51.02486038208008
+        },
+        {
+            "file": "1280x800-credits.png",
+            "page": "credits",
+            "width": 1280,
+            "height": 800,
+            "frame": 6499,
+            "time": 51.739540100097659
+        },
+        {
+            "file": "1280x800-pause.png",
+            "page": "pause",
+            "width": 1280,
+            "height": 800,
+            "frame": 6594,
+            "time": 52.50865936279297
+        },
+        {
+            "file": "1280x800-restart.png",
+            "page": "restart",
+            "width": 1280,
+            "height": 800,
+            "frame": 6659,
+            "time": 53.172523498535159
+        },
+        {
+            "file": "1280x800-letter.png",
+            "page": "document",
+            "width": 1280,
+            "height": 800,
+            "frame": 6725,
+            "time": 53.814598083496097
+        },
+        {
+            "file": "1280x800-letter-end.png",
+            "page": "document",
+            "width": 1280,
+            "height": 800,
+            "frame": 6850,
+            "time": 54.6823616027832
+        },
+        {
+            "file": "1280x800-consent.png",
+            "page": "document",
+            "width": 1280,
+            "height": 800,
+            "frame": 6920,
+            "time": 55.27338409423828
+        },
+        {
+            "file": "1280x800-consent-end.png",
+            "page": "document",
+            "width": 1280,
+            "height": 800,
+            "frame": 6997,
+            "time": 55.877784729003909
+        },
+        {
+            "file": "1280x800-stress-begin.png",
+            "page": "document",
+            "width": 1280,
+            "height": 800,
+            "frame": 7057,
+            "time": 56.471099853515628
+        },
+        {
+            "file": "1280x800-stress-end.png",
+            "page": "document",
+            "width": 1280,
+            "height": 800,
+            "frame": 7128,
+            "time": 57.05352020263672
+        },
+        {
+            "file": "1280x800-notes.png",
+            "page": "notes",
+            "width": 1280,
+            "height": 800,
+            "frame": 7216,
+            "time": 57.78099060058594
+        },
+        {
+            "file": "1280x800-hud.png",
+            "page": "HUD",
+            "width": 1280,
+            "height": 800,
+            "frame": 7341,
+            "time": 58.7999153137207
+        },
+        {
+            "file": "1440x810-title.png",
+            "page": "title",
+            "width": 1440,
+            "height": 810,
+            "frame": 7541,
+            "time": 60.820003509521487
+        },
+        {
+            "file": "1440x810-settings.png",
+            "page": "settings",
+            "width": 1440,
+            "height": 810,
+            "frame": 7646,
+            "time": 62.14146041870117
+        },
+        {
+            "file": "1440x810-credits.png",
+            "page": "credits",
+            "width": 1440,
+            "height": 810,
+            "frame": 7717,
+            "time": 62.854042053222659
+        },
+        {
+            "file": "1440x810-pause.png",
+            "page": "pause",
+            "width": 1440,
+            "height": 810,
+            "frame": 7796,
+            "time": 63.48641586303711
+        },
+        {
+            "file": "1440x810-restart.png",
+            "page": "restart",
+            "width": 1440,
+            "height": 810,
+            "frame": 7861,
+            "time": 64.10173797607422
+        },
+        {
+            "file": "1440x810-letter.png",
+            "page": "document",
+            "width": 1440,
+            "height": 810,
+            "frame": 7925,
+            "time": 64.73037719726563
+        },
+        {
+            "file": "1440x810-letter-end.png",
+            "page": "document",
+            "width": 1440,
+            "height": 810,
+            "frame": 8012,
+            "time": 65.62543487548828
+        },
+        {
+            "file": "1440x810-consent.png",
+            "page": "document",
+            "width": 1440,
+            "height": 810,
+            "frame": 8081,
+            "time": 66.26215362548828
+        },
+        {
+            "file": "1440x810-consent-end.png",
+            "page": "document",
+            "width": 1440,
+            "height": 810,
+            "frame": 8153,
+            "time": 66.87325286865235
+        },
+        {
+            "file": "1440x810-stress-begin.png",
+            "page": "document",
+            "width": 1440,
+            "height": 810,
+            "frame": 8210,
+            "time": 67.51986694335938
+        },
+        {
+            "file": "1440x810-stress-end.png",
+            "page": "document",
+            "width": 1440,
+            "height": 810,
+            "frame": 8261,
+            "time": 68.12042236328125
+        },
+        {
+            "file": "1440x810-notes.png",
+            "page": "notes",
+            "width": 1440,
+            "height": 810,
+            "frame": 8341,
+            "time": 68.82878112792969
+        }
+    ],
+    "preferencesRestored": true
+}

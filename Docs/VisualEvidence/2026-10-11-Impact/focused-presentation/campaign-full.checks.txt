@@ -1,0 +1,21 @@
+CONTINUOUS TITLE TO ENDING. Zero fixtures or direct gameplay mutations. Input System keyboard/mouse only. Unexpected pauses fail rather than being resumed.
+PASS [title] Threshold systems exist
+PASS [title] all original-act, new house and new final references exist
+PASS [title] optional recording boundary shares the actual campaign, R3 and loop
+PASS [title] boundary starts unused and its actual Hub arrival guidance is authored
+PASS [title] physical descent guide starts hidden with an explicit Hub arrival volume
+PASS [title] contextual notes reference the actual gameplay systems, excluding inactive legacy studies
+PASS [title] run begins at the actual paused title, before gameplay
+PASS [title] title has no earned progress, saved restoration or prior recording
+PASS [title] Threshold replaces D1 with actual R3 availability
+PASS [title] real look sensitivity is nonzero
+PASS [title] actual title button starts the authored segment
+PASS [coverage_contact_record] normal camera reach selects the pump for the contact check
+PASS [coverage_contact_record] RECALL has actual movement frames to finish
+PASS [coverage_contact_record] one real R completes exactly one actual take
+PASS [coverage_contact_record] RECALL placement creates no physical footstep
+PASS [coverage_contact_approach] explicit Player clearance is active
+PASS [coverage_contact_approach] actual sustained movement into the recorded torso stops beside it and keeps the live camera outside
+PASS [coverage_contact_approach] body contact leaves the complete recorded take unchanged
+PASS [coverage_hud_fixture] countdown and objective occupy separate HUD columns at 1280 by 720
+PASS [coverage_hud_fixture] focused verification ends at an actual pause

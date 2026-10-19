@@ -1,0 +1,407 @@
+{
+  "date": "2026-10-01",
+  "authorship": "Original project meshes and geometric clock numerals. No downloads, external textures/fonts or paid services. Preview micro-weave is not baked/exported.",
+  "axis_contract": "Blender X width, -Y front, Z up. FBX -Z/+Y; current Unity importer maps (-X,Z,-Y). Negate imported root localScale.x once, retain imported rotation/scale magnitudes, then placementRotation * importedRotation. Corrected assembly map (X,Z,-Y), front +UnityZ. Check FRONT_TIP - FRONT_BASE and clock hand/axis anchors.",
+  "materials": {
+    "RL_ChairCloth": {
+      "color": [
+        0.22,
+        0.155,
+        0.088,
+        1
+      ],
+      "roughness": 0.9,
+      "metallic": 0
+    },
+    "RL_ChairWelt": {
+      "color": [
+        0.104,
+        0.084,
+        0.049,
+        1
+      ],
+      "roughness": 0.84,
+      "metallic": 0
+    },
+    "RL_Armrest": {
+      "color": [
+        0.047,
+        0.041,
+        0.025,
+        1
+      ],
+      "roughness": 0.58,
+      "metallic": 0
+    },
+    "RL_BlackSteel": {
+      "color": [
+        0.035,
+        0.044,
+        0.035,
+        1
+      ],
+      "roughness": 0.48,
+      "metallic": 0.6
+    },
+    "RL_WornSteel": {
+      "color": [
+        0.205,
+        0.225,
+        0.202,
+        1
+      ],
+      "roughness": 0.45,
+      "metallic": 0.76
+    },
+    "RL_Rubber": {
+      "color": [
+        0.011,
+        0.016,
+        0.012,
+        1
+      ],
+      "roughness": 0.83,
+      "metallic": 0
+    },
+    "RL_JacketWool": {
+      "color": [
+        0.104,
+        0.125,
+        0.104,
+        1
+      ],
+      "roughness": 0.93,
+      "metallic": 0
+    },
+    "RL_JacketLining": {
+      "color": [
+        0.035,
+        0.046,
+        0.036,
+        1
+      ],
+      "roughness": 0.61,
+      "metallic": 0
+    },
+    "RL_JacketEdge": {
+      "color": [
+        0.058,
+        0.072,
+        0.056,
+        1
+      ],
+      "roughness": 0.92,
+      "metallic": 0
+    },
+    "RL_HornButton": {
+      "color": [
+        0.034,
+        0.029,
+        0.018,
+        1
+      ],
+      "roughness": 0.4,
+      "metallic": 0
+    },
+    "RL_HangerWood": {
+      "color": [
+        0.17,
+        0.088,
+        0.034,
+        1
+      ],
+      "roughness": 0.48,
+      "metallic": 0
+    },
+    "RL_ClockEnamel": {
+      "color": [
+        0.214,
+        0.247,
+        0.207,
+        1
+      ],
+      "roughness": 0.44,
+      "metallic": 0.18
+    },
+    "RL_ClockDial": {
+      "color": [
+        0.61,
+        0.598,
+        0.476,
+        1
+      ],
+      "roughness": 0.71,
+      "metallic": 0
+    },
+    "RL_ClockInk": {
+      "color": [
+        0.014,
+        0.02,
+        0.015,
+        1
+      ],
+      "roughness": 0.6,
+      "metallic": 0
+    }
+  },
+  "assets": {
+    "ClericalChair": {
+      "file": "exports/EP_RL_ClericalChair.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.33249998092651367,
+          0.33249998092651367
+        ],
+        [
+          -0.2978096604347229,
+          0.3268240988254547
+        ],
+        [
+          -3.725290298461914e-09,
+          0.9390000104904175
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.6649999618530273,
+        0.6246337592601776,
+        0.9390000142157078
+      ],
+      "materials": [
+        "RL_Armrest",
+        "RL_BlackSteel",
+        "RL_ChairCloth",
+        "RL_ChairWelt",
+        "RL_Rubber",
+        "RL_WornSteel"
+      ],
+      "mesh_objects": [
+        {
+          "name": "Chair",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 8214,
+          "triangles": 15936,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "anchors_blender_xyz": {
+        "ClericalChair__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "ClericalChair__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "ClericalChair__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "ClericalChair__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "ClericalChair__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ],
+        "ClericalChair__SEAT_CENTRE": [
+          0,
+          -0.02,
+          0.49
+        ]
+      },
+      "notes": "Floor centre root. Original adult-scale low-back fabric swivel chair, metal tubular arms, five paired castors. Seat around .49 m, arm pads .674 m. Static; no sitting/rolling interaction or animation. Use as a slightly pulled-back staff chair; leave genuine knee and seat clearance."
+    },
+    "CoatRackAndJacket": {
+      "file": "exports/EP_RL_CoatRackAndJacket.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.3540814518928528,
+          0.3973900377750397
+        ],
+        [
+          -0.37672170996665955,
+          0.2954180836677551
+        ],
+        [
+          0.0,
+          1.8309999704360962
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.7514714896678925,
+        0.6721397936344147,
+        1.8309999704360962
+      ],
+      "materials": [
+        "RL_Armrest",
+        "RL_BlackSteel",
+        "RL_HangerWood",
+        "RL_HornButton",
+        "RL_JacketEdge",
+        "RL_JacketLining",
+        "RL_JacketWool",
+        "RL_Rubber",
+        "RL_WornSteel"
+      ],
+      "mesh_objects": [
+        {
+          "name": "Rack",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 3710,
+          "triangles": 7248,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        {
+          "name": "HangingAdultJacket",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 8334,
+          "triangles": 16508,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "anchors_blender_xyz": {
+        "CoatRackAndJacket__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "CoatRackAndJacket__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "CoatRackAndJacket__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "CoatRackAndJacket__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "CoatRackAndJacket__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ],
+        "CoatRackAndJacket__HANGER_CONTACT": [
+          0,
+          -0.27,
+          1.73
+        ]
+      },
+      "notes": "Floor root. Empty adult blazer hangs from an actual wooden hanger/wire hook on the front rack arm. Rack and garment are separate meshes for reuse or removal. The garment is a static furnishing, no person, recording or new scare behavior. Front -Y includes jacket lapels; intended corrected Unity +Z."
+    },
+    "WallClock0317": {
+      "file": "exports/EP_RL_WallClock0317.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.18700000643730164,
+          0.18700000643730164
+        ],
+        [
+          -0.05049999803304672,
+          0.036000028252601624
+        ],
+        [
+          -0.18700000643730164,
+          0.18700000643730164
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.37400001287460327,
+        0.08650002628564835,
+        0.37400001287460327
+      ],
+      "materials": [
+        "RL_BlackSteel",
+        "RL_ClockDial",
+        "RL_ClockEnamel",
+        "RL_ClockInk"
+      ],
+      "mesh_objects": [
+        {
+          "name": "ClockFixed0317",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 2880,
+          "triangles": 5440,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "anchors_blender_xyz": {
+        "WallClock0317__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "WallClock0317__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "WallClock0317__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "WallClock0317__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "WallClock0317__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ],
+        "WallClock0317__CLOCK_CENTRE": [
+          0,
+          0,
+          0
+        ],
+        "WallClock0317__HOUR_TIP": [
+          0.09593454003334045,
+          -0.04100000113248825,
+          -0.014337513595819473
+        ],
+        "WallClock0317__MINUTE_TIP": [
+          0.13791881501674652,
+          -0.04399999976158142,
+          -0.02931554801762104
+        ]
+      },
+      "notes": "Wall clock diameter .374 m, root at dial centre. Permanently set to 03:17: hour 98.5 deg, minute 102 deg clockwise from twelve. No second hand, ticking sound, glass shader or animation. Original geometric stroke numerals at 12/3/6/9. Correct imported X mirror or the apparent time will reverse."
+    }
+  }
+}

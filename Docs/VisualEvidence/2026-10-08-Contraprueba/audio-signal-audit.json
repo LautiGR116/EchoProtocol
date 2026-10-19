@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "scope": "Captured actual listener PCM16 during automated chapter routes. Stereo differs and mono channels agree sample-for-sample; bounded peaks only. No hardware loudness, listening comfort, localization or fear judgment. Earlier stereo capture precedes restored exit enclosure; final mono path and chapter route use current geometry.",
+  "signals": [
+    {
+      "variant": "candidate-p3",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 94.93333333333334,
+      "peak": 0.1617431640625,
+      "rms": 0.008762952310822773,
+      "maxChannelDifference": 0.0985107421875,
+      "channelDifferenceRMS": 0.004518604719012261,
+      "passThreshold": true
+    },
+    {
+      "variant": "speakers-p3",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 101.632,
+      "peak": 0.15020751953125,
+      "rms": 0.008373549434576896,
+      "maxChannelDifference": 0.0,
+      "channelDifferenceRMS": 0.0,
+      "passThreshold": true
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+GUI frame=1613 code=None flags=Shift shift=True
+Input frame=1613 shift=False left=False right=False pressed=False/False
+GUI frame=5797 code=None flags=None shift=False
+GUI frame=1386 code=None flags=Shift shift=True
+Input frame=1386 shift=False left=False right=False pressed=False/False
+GUI frame=1935 code=None flags=Shift shift=True
+Input frame=1935 shift=False left=False right=False pressed=False/False
+GUI frame=3117 code=None flags=None shift=False
+Input frame=3117 shift=False left=False right=False pressed=False/False
+GUI frame=4097 code=None flags=Shift shift=True
+Input frame=4097 shift=False left=False right=False pressed=False/False
+GUI frame=4109 code=None flags=None shift=False

@@ -1,0 +1,22 @@
+using System;
+using System.Linq;
+using System.IO;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using EchoProtocol.Presentation;
+using EchoProtocol.Campaign;
+using EchoProtocol.Puzzle;
+public static class LegibilityConfiguredAudit {
+ public static void Main(){var scene=SceneManager.GetActiveScene();if(UnityEditor.EditorApplication.isPlaying||scene.isDirty)throw new Exception("Saved edit scene required");
+ var lines=new System.Collections.Generic.List<string>();lines.Add(scene.path+" saved; dirty=false");
+ var notes=UnityEngine.Object.FindFirstObjectByType<ProtocolGuidance>();var ns=new SerializedObject(notes);foreach(var n in new[]{"firstRelay","firstEvent","domesticCheckpoint","alignmentRelay","passage","returnPassage","recoveryOrigin","returnRelay","campaign","house","finalReview","hubReturn"}){var o=ns.FindProperty(n).objectReferenceValue;if(!o)throw new Exception("Missing "+n);lines.Add("guidance "+n+" = "+o.name);}
+ var feedback=UnityEngine.Object.FindFirstObjectByType<OrientationFeedback>();var fs=new SerializedObject(feedback);foreach(var n in new[]{"relay","readerA","readerB","statusA","statusB","statusC","review","interiorStatus","exteriorStatus","receivedDoor","doorStatus"}){var o=fs.FindProperty(n).objectReferenceValue;if(!o)throw new Exception("Missing "+n);lines.Add("feedback "+n+" = "+o.name);}
+ foreach(var linked in UnityEngine.Object.FindObjectsByType<LinkedTaskLight>(FindObjectsSortMode.None)){var s=new SerializedObject(linked);var circuit=(Light)s.FindProperty("circuitSource").objectReferenceValue;var light=(Light)s.FindProperty("taskLight").objectReferenceValue;if(!circuit||!light)throw new Exception("Broken circuit");lines.Add("task "+linked.name+" <- "+circuit.name+" nominal="+s.FindProperty("sourceNominalIntensity").floatValue+" gain="+s.FindProperty("taskIntensity").floatValue);}
+ var director=UnityEngine.Object.FindFirstObjectByType<CampaignDirector>();lines.Add("save="+new SerializedObject(director).FindProperty("checkpointKey").stringValue);
+ lines.Add("lights="+UnityEngine.Object.FindObjectsByType<Light>(FindObjectsInactive.Include,FindObjectsSortMode.None).Length+" audio="+UnityEngine.Object.FindObjectsByType<AudioSource>(FindObjectsInactive.Include,FindObjectsSortMode.None).Length);
+ int missing=scene.GetRootGameObjects().Sum(g=>g.GetComponentsInChildren<Transform>(true).Sum(t=>GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(t.gameObject)));if(missing!=0)throw new Exception("Missing scripts");lines.Add("missingScripts=0");
+ var scenes=EditorBuildSettings.scenes.Where(s=>s.enabled).ToArray();if(scenes.Length!=1||scenes[0].path!=scene.path)throw new Exception("Build scenes mismatch");lines.Add("sole enabled build scene matches");
+ File.WriteAllLines("Docs/VisualEvidence/2026-10-02-Legibility/configuration.txt",lines);
+ }
+}

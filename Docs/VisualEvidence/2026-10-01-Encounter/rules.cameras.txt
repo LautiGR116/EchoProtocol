@@ -1,0 +1,12 @@
+Actual Player camera; offscreen Camera renders omit OnGUI.
+rules-00-origin position=(0.000, 1.630, -75.000) euler=(4.20, 106.59, 0.00) FOV=60 paused=False step=commit_final_origin
+rules-wrong_facing_take-rejected position=(0.000, 1.630, -78.056) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=wrong_facing_take
+rules-short_take-rejected position=(0.000, 1.630, -78.073) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=short_take
+rules-01-closed-glass-rejected position=(0.000, 1.630, -78.071) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=authentic_approach
+rules-02-witnessed-from-inside position=(0.000, 1.630, -78.071) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=authentic_approach
+rules-03-pause-menu position=(0.000, 1.630, -78.071) euler=(0.00, 180.00, 0.00) FOV=60 paused=True step=keyboard_pause
+rules-01-recording-at-door position=(0.000, 1.630, -78.077) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=replacement_authentic_take
+rules-02-witnessed-from-inside position=(0.000, 1.630, -78.077) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=replacement_authentic_take
+rules-05-original-preserved position=(0.000, 1.630, -81.715) euler=(0.74, 112.27, 0.00) FOV=60 paused=False step=cross_beside_recording
+rules-06-key-returned position=(0.000, 1.630, -82.606) euler=(22.05, 234.09, 0.00) FOV=60 paused=False step=return_physical_key
+rules-07-ending-menu position=(0.000, 1.630, -87.908) euler=(0.00, 180.00, 0.00) FOV=60 paused=True step=physical_departure

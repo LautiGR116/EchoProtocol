@@ -1,0 +1,19 @@
+{
+  "status": "completed",
+  "buildId": "build_eb12e7f68c8f",
+  "result": "Succeeded",
+  "platform": "StandaloneOSX",
+  "outputPath": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Records-20261001/EchoProtocol.app",
+  "totalSizeBytes": 197349341,
+  "buildTimeMs": 17288,
+  "buildStartedAt": "2026-10-01T16:34:08.0376500Z",
+  "buildEndedAt": "2026-10-01T16:34:25.3265680Z",
+  "totalWarnings": 346,
+  "totalErrors": 0,
+  "signature": "codesign --verify --deep --strict exit0",
+  "architectures": [
+    "x86_64",
+    "arm64"
+  ],
+  "nativeInput": "Pending: CUA getApp reported Mac locked before launch; no Player.log claim."
+}

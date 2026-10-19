@@ -1,0 +1,3 @@
+Standalone native smoke test: launched, entered gameplay, recorded movement, H opened/closed help, Escape paused, listening toggles changed state and were restored, credits displayed, restart returned to title, Exit terminated the process.
+Player log scan: zero Exception/Error/Missing candidate lines. Raw local log retained at /tmp/echo-production-player.log.
+Help background overlap found during inspection and corrected before final rebuild.

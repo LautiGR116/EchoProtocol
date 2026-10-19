@@ -1,0 +1,16 @@
+{
+    "label": "campaign-records-exit-approach",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+    "position": {
+        "x": -21.099658966064454,
+        "y": 1.630000114440918,
+        "z": 18.08256721496582
+    },
+    "rotation": {
+        "x": 7.84234186708084e-25,
+        "y": -1.0,
+        "z": 6.57863399967354e-18,
+        "w": 1.1920927533992654e-7
+    },
+    "fov": 60.0
+}

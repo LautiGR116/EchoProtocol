@@ -1,0 +1,20 @@
+Explicit initial pose/completed-lighting/suspended-recording fixture; synthetic physical input thereafter. No P3 solve, whole campaign, audibility or human experience claim. Camera renders omit OnGUI.
+PASS isolated route uses the authored Records successor
+PASS explicit fixture restores the completed first-act lighting consequence
+PASS two sources exist at the actual archive luminaires
+PASS fixture hum uses real mono looping world source and existing ambience bus
+PASS fixture hum uses real mono looping world source and existing ambience bus
+PASS the two reused physical luminaires exist
+PASS hum source 0 is anchored at its real opal diffuser
+PASS hum source 1 is anchored at its real opal diffuser
+PASS stopping and turning makes no footstep or involuntary movement
+PASS physical walking through the archive produces actual Player contacts
+PASS turning leaves fixture source 0 playing at its authored anchor
+PASS turning leaves fixture source 1 playing at its authored anchor
+PASS first forward traversal keeps physical floor support
+PASS both apertures allow genuine backtracking without resets
+PASS visible gallery partition physically blocks the obsolete shortcut
+PASS repeated forward traversal remains supported and open
+PASS source anchor 0 survives every traversal
+PASS source anchor 1 survives every traversal
+PASS

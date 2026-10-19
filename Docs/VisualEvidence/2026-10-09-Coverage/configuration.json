@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "explicitObjectRefs": 72,
+  "recordedControls": 1,
+  "checkpointKey": "EP.CampaignCheckpoint.Coverage.v1",
+  "sources": [
+    {
+      "name": "Service / ratchet and jammed bolt / physical work contact",
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Contact_Closed.wav",
+      "spatial": 1.0,
+      "volume": 0.045,
+      "routed": "WorldSFX",
+      "playOnAwake": false
+    },
+    {
+      "name": "Service / exit release and grille catch / physical work contact",
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Contact_Closed.wav",
+      "spatial": 1.0,
+      "volume": 0.045,
+      "routed": "WorldSFX",
+      "playOnAwake": false
+    },
+    {
+      "name": "Coverage / physical pump motor",
+      "clip": "Assets/_Game/Audio/Clips/Finish/PressureBed.wav",
+      "spatial": 1.0,
+      "volume": 0.23,
+      "routed": "WorldSFX",
+      "playOnAwake": false
+    },
+    {
+      "name": "Coverage / pressure leaving the manifold",
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Pipe_Air_LP.wav",
+      "spatial": 1.0,
+      "volume": 0.12,
+      "routed": "WorldSFX",
+      "playOnAwake": false
+    },
+    {
+      "name": "Coverage / actual detent",
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Latch_Release.wav",
+      "spatial": 1.0,
+      "volume": 0.16,
+      "routed": "WorldSFX",
+      "playOnAwake": false
+    },
+    {
+      "name": "Threat / audible intake",
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Shaft_DistantCry.wav",
+      "spatial": 1.0,
+      "volume": 0.18,
+      "routed": "WorldSFX",
+      "playOnAwake": false
+    },
+    {
+      "name": "Threat / present movement",
+      "clip": "Assets/_Game/Audio/Clips/Finish/FootVinyl1.wav",
+      "spatial": 1.0,
+      "volume": 0.065,
+      "routed": "WorldSFX",
+      "playOnAwake": false
+    },
+    {
+      "name": "Threat / close contact",
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Contact_Closed.wav",
+      "spatial": 1.0,
+      "volume": 0.12,
+      "routed": "WorldSFX",
+      "playOnAwake": false
+    },
+    {
+      "name": "Service / pressure held grille / real mechanism sound",
+      "clip": "Assets/_Game/Audio/Clips/Mechanisms/SFX_DoorMovement_LP.wav",
+      "spatial": 1.0,
+      "volume": 0.12,
+      "routed": "WorldSFX",
+      "playOnAwake": false
+    },
+    {
+      "name": "Service / manual lateral return / real mechanism sound",
+      "clip": "Assets/_Game/Audio/Clips/Mechanisms/SFX_DoorMovement_LP.wav",
+      "spatial": 1.0,
+      "volume": 0.12,
+      "routed": "WorldSFX",
+      "playOnAwake": false
+    }
+  ],
+  "scope": "Actual configured candidate scene and explicit references. Perceptual credibility remains human playtest work."
+}

@@ -1,0 +1,2 @@
+PASS
+checks=19 elapsed=17.695 fixtures=1 laterPoseResets=0

@@ -1,0 +1,7 @@
+{
+  "test": "staged real-camera rendering; no gameplay pose changes",
+  "near_distance_m": 0.08,
+  "far_distance_m": 1.6,
+  "near_mean_absolute_pixel_difference": 0.4075408709490741,
+  "far_mean_absolute_pixel_difference": 2.668213252314815
+}

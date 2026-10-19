@@ -1,0 +1,9 @@
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "VS1_VT1_GlobalVolume",
+        "m_EditorClassIdentifier": "Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile",
+        "components": []
+    }
+}

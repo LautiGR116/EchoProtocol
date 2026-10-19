@@ -1,0 +1,169 @@
+{
+  "status": "PASS",
+  "scope": "Existing transforms, light intensity/color/range, enabled state, render materials, colliders and shadow-budget memberships compared. Instantaneous Light.shadows is camera-owned and excluded from serialized design equality.",
+  "baselineObjects": 2415,
+  "lights": 151,
+  "colliders": 606,
+  "renderers": 1657,
+  "changedExistingVisualOrPhysicsObjects": [],
+  "newTriggerOnly": true,
+  "sources": [
+    {
+      "name": "Telephone / live line at actual receiver",
+      "clip": "Line_Unanswered",
+      "channels": 1,
+      "group": "WorldSFX",
+      "blend": 1.0,
+      "loop": false
+    },
+    {
+      "name": "P3 / metal beyond the transfer wall",
+      "clip": "Wall_ThreeStrains",
+      "channels": 1,
+      "group": "WorldSFX",
+      "blend": 1.0,
+      "loop": false
+    },
+    {
+      "name": "Records / moving friction beyond the back wall",
+      "clip": "Archive_Approach",
+      "channels": 1,
+      "group": "WorldSFX",
+      "blend": 1.0,
+      "loop": false
+    },
+    {
+      "name": "Plant / contracting upper pipe",
+      "clip": "Wall_ThreeStrains",
+      "channels": 1,
+      "group": "WorldSFX",
+      "blend": 1.0,
+      "loop": false
+    },
+    {
+      "name": "Plant / distant voice beyond the shaft grille",
+      "clip": "Shaft_DistantCry",
+      "channels": 1,
+      "group": "WorldSFX",
+      "blend": 1.0,
+      "loop": false
+    },
+    {
+      "name": "Internal score / recognition",
+      "clip": "Score_Recognition",
+      "channels": 1,
+      "group": "Ambience",
+      "blend": 0.0,
+      "loop": false
+    },
+    {
+      "name": "Internal score / release",
+      "clip": "Score_Release",
+      "channels": 1,
+      "group": "Ambience",
+      "blend": 0.0,
+      "loop": false
+    },
+    {
+      "name": "Plant / air in fixed riser",
+      "clip": "Pipe_Air_LP",
+      "channels": 1,
+      "group": "Ambience",
+      "blend": 1.0,
+      "loop": true
+    }
+  ],
+  "clips": [
+    {
+      "name": "Archive_Approach",
+      "length": 7.799979,
+      "channels": 1,
+      "frequency": 48000,
+      "load": "DecompressOnLoad"
+    },
+    {
+      "name": "Contact_Closed",
+      "length": 0.631479144,
+      "channels": 1,
+      "frequency": 48000,
+      "load": "DecompressOnLoad"
+    },
+    {
+      "name": "Key_Tray",
+      "length": 1.19997919,
+      "channels": 1,
+      "frequency": 48000,
+      "load": "DecompressOnLoad"
+    },
+    {
+      "name": "Latch_Release",
+      "length": 0.65,
+      "channels": 1,
+      "frequency": 48000,
+      "load": "DecompressOnLoad"
+    },
+    {
+      "name": "Line_Unanswered",
+      "length": 15.2,
+      "channels": 1,
+      "frequency": 48000,
+      "load": "CompressedInMemory"
+    },
+    {
+      "name": "Passage_RearContact",
+      "length": 5.34995842,
+      "channels": 1,
+      "frequency": 48000,
+      "load": "DecompressOnLoad"
+    },
+    {
+      "name": "Pipe_Air_LP",
+      "length": 23.6,
+      "channels": 1,
+      "frequency": 48000,
+      "load": "CompressedInMemory"
+    },
+    {
+      "name": "Relay_Strain",
+      "length": 0.7,
+      "channels": 1,
+      "frequency": 48000,
+      "load": "DecompressOnLoad"
+    },
+    {
+      "name": "Score_Recognition",
+      "length": 19.0,
+      "channels": 1,
+      "frequency": 48000,
+      "load": "CompressedInMemory"
+    },
+    {
+      "name": "Score_Release",
+      "length": 22.6190414,
+      "channels": 1,
+      "frequency": 48000,
+      "load": "CompressedInMemory"
+    },
+    {
+      "name": "Shaft_DistantCry",
+      "length": 4.42995834,
+      "channels": 1,
+      "frequency": 48000,
+      "load": "DecompressOnLoad"
+    },
+    {
+      "name": "Transfer_Seat",
+      "length": 1.7,
+      "channels": 1,
+      "frequency": 48000,
+      "load": "DecompressOnLoad"
+    },
+    {
+      "name": "Wall_ThreeStrains",
+      "length": 9.949959,
+      "channels": 1,
+      "frequency": 48000,
+      "load": "CompressedInMemory"
+    }
+  ]
+}

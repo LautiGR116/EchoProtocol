@@ -1,0 +1,6 @@
+PASS Fresh Hub cannot bypass P1 or enter R3/late route
+PASS unlocked R3 receiving phase blocks Hub reverse entry
+PASS R1 with R3 retained cannot bypass closed P3 A/B
+PASS releasing phase permits vestibule only; rear prevents all late-route entry
+PASS A open B closed still blocks P3 payoff and R3
+PASS valid A/B route reaches full R3 spine and arrival vestibule

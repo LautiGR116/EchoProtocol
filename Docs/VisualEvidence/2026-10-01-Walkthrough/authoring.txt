@@ -1,0 +1,1 @@
+SE2 physical room candidate saved through Editor API. P2/resetTargets/SE3 references preserved. AudioSources=57 Lights=140. First camera and input route pending.

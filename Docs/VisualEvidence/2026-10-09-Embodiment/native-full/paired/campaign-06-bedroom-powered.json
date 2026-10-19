@@ -1,0 +1,16 @@
+{
+    "label": "campaign-06-bedroom-powered",
+    "state": "House|house:True/True/Bedroom|pressure:False/False|P3:1.00",
+    "position": {
+        "x": 4.560397148132324,
+        "y": 1.6299999952316285,
+        "z": -52.91594314575195
+    },
+    "rotation": {
+        "x": 0.07941091805696488,
+        "y": 0.8889455199241638,
+        "z": -0.16875040531158448,
+        "w": 0.4183218479156494
+    },
+    "fov": 60.0
+}

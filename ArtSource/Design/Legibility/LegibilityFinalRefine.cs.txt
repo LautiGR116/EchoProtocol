@@ -1,0 +1,23 @@
+using System;
+using System.Linq;
+using System.IO;
+using UnityEngine;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using EchoProtocol.Campaign;
+using EchoProtocol.Presentation;
+using Object=UnityEngine.Object;
+public static class LegibilityFinalRefine {
+ static Transform root;static Material metal;
+ static Transform Named(string n)=>Object.FindObjectsByType<Transform>(FindObjectsInactive.Include,FindObjectsSortMode.None).Single(t=>t.name==n);
+ static void Ref(Object o,string n,Object v){var s=new SerializedObject(o);s.FindProperty(n).objectReferenceValue=v;s.ApplyModifiedPropertiesWithoutUndo();}
+ static TextMesh Plate(string n,string words,Vector3 p,float yaw,float width,float height,bool screen=false){var q=Quaternion.Euler(0,yaw,0);var box=GameObject.CreatePrimitive(PrimitiveType.Cube);box.name=n+" / backing";box.transform.SetParent(root);box.transform.SetPositionAndRotation(p+q*Vector3.forward*.014f,q);box.transform.localScale=new Vector3(width+.06f,height+.04f,.024f);box.GetComponent<Renderer>().sharedMaterial=metal;Object.DestroyImmediate(box.GetComponent<Collider>());
+  var g=Object.Instantiate(Named("P2 hold instruction").gameObject,root);g.name=n;g.transform.SetPositionAndRotation(p,q);g.transform.localScale=Vector3.one;var t=g.GetComponent<TextMesh>();t.text=words;t.characterSize=.01f;t.color=new Color(.85f,.85f,.73f);t.fontSize=72;t.anchor=TextAnchor.MiddleCenter;float w=t.GetComponent<Renderer>().localBounds.size.x;if(w>width)t.characterSize*=width/w;Ref(t.GetComponent<DiegeticText>(),"depthTestedShader",Shader.Find(screen?"EchoProtocol/DiegeticText":"EchoProtocol/PrintedText"));return t;}
+ public static void Main(){var s=UnityEngine.SceneManagement.SceneManager.GetActiveScene();if(EditorApplication.isPlaying||s.path!="Assets/_Game/Scenes/Production/EchoProtocol_Legibility.unity")throw new Exception("Legibility edit scene");root=Named("Legibility / physical orientation and truthful feedback");metal=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Readers/M_Bezel.mat");
+  Plate("6B / origin direction","ORIGEN  <",new Vector3(-13.27f,1.85f,-53.62f),270,.88f,.18f);
+  var button=Plate("6B / actual door state","ORIGEN REQUERIDO",new Vector3(-13.27f,1.12f,-51.05f),270,.68f,.14f,true);
+  var review=Object.FindFirstObjectByType<FinalDoorMemory>();var feedback=Object.FindFirstObjectByType<OrientationFeedback>();Ref(feedback,"doorStatus",button);Ref(feedback,"receivedDoor",new SerializedObject(review).FindProperty("domesticDoor").objectReferenceValue);
+  var outside=Named("Outside pause instruction").GetComponent<TextMesh>();outside.transform.position=new Vector3(-13.51f,1.35f,-51.25f);outside.characterSize=.01f;float width=outside.GetComponent<Renderer>().localBounds.size.x;if(width>.78f)outside.characterSize*=.78f/width;
+  var lateral=Named("Lateral passage practical").GetComponent<Light>();lateral.type=LightType.Point;lateral.intensity=5f;lateral.range=6.8f;
+  EditorSceneManager.MarkSceneDirty(s);EditorSceneManager.SaveScene(s);AssetDatabase.SaveAssets();File.AppendAllText("Docs/VisualEvidence/2026-10-02-Legibility/authoring.txt","6B camera correction: original lateral practical spreads into the real entrance as a point light; pause caption clears the door trim. Arrival sees origin-left/arrival-right; the real door state reports origin required, E/open or already open without owning any interaction.\n");}
+}

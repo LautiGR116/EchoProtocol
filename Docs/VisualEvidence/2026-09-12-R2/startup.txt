@@ -1,0 +1,1 @@
+PASS clean startup: revision=0 hub=False P3active=False anchor=False P1/P2/SE1=True/True/True SE2=AwaitingCrossing SE3=AwaitingSE2

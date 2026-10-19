@@ -1,0 +1,22 @@
+{
+    "status": "PASS",
+    "mode": "all",
+    "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Contraprueba.unity",
+    "lastStep": "restore_original_preferences",
+    "error": "",
+    "scope": "Isolated checkpoint verification: public APIs earn each saved domestic state; fresh scene reloads exercise the real Continue APIs using PlayerPrefs. The four reserve locations and optional unanswered/general control are separate fixtures. Synthetic movement/R verifies resumed recording. No prior campaign play, final-route completion, human fear, visual quality or listening claim. Original preferences are restored; the last fixture is left paused.",
+    "completedCases": [
+        "general",
+        "hall",
+        "kitchen",
+        "bedroom",
+        "carried"
+    ],
+    "checks": 341,
+    "sceneReloads": 10,
+    "explicitFixturePlacements": 5,
+    "unexpectedFocusResumes": 0,
+    "elapsedRealtime": 19.472238540649415,
+    "preferencesRestored": true,
+    "suppressSavesRestored": true
+}

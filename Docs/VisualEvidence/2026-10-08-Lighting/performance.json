@@ -1,0 +1,83 @@
+{
+  "status": "PASS scoped to observed Apple M3 frame cadence",
+  "scope": "End-to-end real-route cadence at1280x720, paused/capture windows excluded; no GPU-only benchmark or other hardware promise. Repeated baseline followed by the identical final QA app. All runs retained; the slower final2 run is not hidden or causally attributed.",
+  "runs": [
+    {
+      "run": "baseline-native",
+      "status": "PASS",
+      "device": "Apple M3",
+      "width": 1280,
+      "height": 720,
+      "frames": 48654,
+      "p50": 4.101998329162598,
+      "p95": 9.668119430541992,
+      "p99": 15.039916038513184,
+      "mean": 4.897874355316162
+    },
+    {
+      "run": "pass1-native",
+      "status": "PASS",
+      "device": "Apple M3",
+      "width": 1280,
+      "height": 720,
+      "frames": 38606,
+      "p50": 5.309332847595215,
+      "p95": 12.051494598388672,
+      "p99": 19.067291259765625,
+      "mean": 6.273500919342041
+    },
+    {
+      "run": "final-native",
+      "status": "PASS",
+      "device": "Apple M3",
+      "width": 1280,
+      "height": 720,
+      "frames": 42461,
+      "p50": 4.503833770751953,
+      "p95": 11.359545707702637,
+      "p99": 13.9315824508667,
+      "mean": 5.551748275756836
+    },
+    {
+      "run": "final2-native",
+      "status": "PASS",
+      "device": "Apple M3",
+      "width": 1280,
+      "height": 720,
+      "frames": 32429,
+      "p50": 6.9952521324157715,
+      "p95": 13.728124618530273,
+      "p99": 16.976211547851562,
+      "mean": 7.319573879241943
+    },
+    {
+      "run": "baseline-repeat-native",
+      "status": "PASS",
+      "device": "Apple M3",
+      "width": 1280,
+      "height": 720,
+      "frames": 49871,
+      "p50": 4.1827521324157715,
+      "p95": 8.897661209106445,
+      "p99": 12.400495529174805,
+      "mean": 4.757472038269043
+    },
+    {
+      "run": "final3-native",
+      "status": "PASS",
+      "device": "Apple M3",
+      "width": 1280,
+      "height": 720,
+      "frames": 42844,
+      "p50": 5.0078301429748535,
+      "p95": 10.117460250854492,
+      "p99": 14.337996482849121,
+      "mean": 5.533512592315674
+    }
+  ],
+  "adjacentMeanIncreasePercent": 16.312036052007684,
+  "adjacentP95IncreaseMs": 1.2197990417480469,
+  "finalRepeatedP95Below16_7ms": true,
+  "slowFinalP99Ms": 16.976211547851562,
+  "remaining": "First-run/thermal/background variance cause unresolved; real hardware/display experience requires human review."
+}

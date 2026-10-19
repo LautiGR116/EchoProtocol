@@ -1,0 +1,24 @@
+{
+    "mode": "house",
+    "status": "FAIL",
+    "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Residence.unity",
+    "lastStep": "phone_and_reserve",
+    "evidenceScope": "Isolated previous-chapter fixture, then real CharacterController/raycast/keyboard/mouse through Input System. Game captures include UI; Camera captures omit it. No human play, listening, fear or full-campaign claim.",
+    "error": "Physical route blocked at (-3.58, 0.03, -51.95) toward -3.7,-51.9",
+    "checks": 27,
+    "initialPoseFixtures": 1,
+    "unexpectedPauseResumes": 0,
+    "elapsedRealtime": 28.530899047851564,
+    "hasKey": false,
+    "answeredPhone": false,
+    "unlockedExit": false,
+    "presenceSeen": false,
+    "presenceRetired": false,
+    "powerLocation": "Hall",
+    "screenshots": [
+        "house-00-entry-Game.png",
+        "house-00-entry-Camera.png",
+        "house-01-document-game-Game.png",
+        "house-01-document-game-Camera.png"
+    ]
+}

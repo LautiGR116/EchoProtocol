@@ -1,0 +1,6 @@
+Actual Player camera; Camera captures omit OnGUI, Game captures include it.
+campaign-00-title position=(0.000, 1.600, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title
+campaign-notes-initial position=(0.000, 1.630, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title/session_notes_initial
+campaign-orientation-P1-entry position=(-2.716, 1.630, -5.304) euler=(0.00, 0.00, 0.00) FOV=60 paused=False step=P1_record
+campaign-orientation-P1-A-arrival position=(-2.716, 1.630, 1.329) euler=(0.00, 0.00, 0.00) FOV=60 paused=False step=P1_record
+campaign-orientation-P1-A-preview position=(-2.716, 1.630, 2.920) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=P1_record

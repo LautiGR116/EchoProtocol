@@ -1,0 +1,16 @@
+{
+    "label": "campaign-Courtyard-rainwater-approach",
+    "state": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+    "position": {
+        "x": -6.792222499847412,
+        "y": 1.6299999952316285,
+        "z": -62.04954528808594
+    },
+    "rotation": {
+        "x": -1.7271003912097553e-15,
+        "y": -4.219792515414156e-9,
+        "z": 7.28800506885467e-24,
+        "w": -1.0
+    },
+    "fov": 60.0
+}

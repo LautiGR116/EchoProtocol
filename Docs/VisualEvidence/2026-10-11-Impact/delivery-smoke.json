@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "Actual delivery without QA classes, operated through native keyboard. Title Tab/Enter enters pump encounter; sustained A/D/W moves the camera; Escape visibly pauses; Command-Q exits with code 0. Final opaque HUD inspected in native window. This is a bounded control/presentation check, not a second complete route or human fear approval.",
+  "size": [
+    1280,
+    720
+  ],
+  "nativeLog": "Temp/Impact/delivery-player.log",
+  "afterRouteChange": "HUD panel alpha .97 to 1 only; route/audio/actors unchanged from native PASS43",
+  "persistentTestCleanup": "Removed only the new Impact checkpoint key created by this delivery smoke test, after process exit. Existing candidates and saved audio settings untouched."
+}

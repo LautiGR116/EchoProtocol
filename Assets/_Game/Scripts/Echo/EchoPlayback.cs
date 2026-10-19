@@ -8,6 +8,8 @@ namespace EchoProtocol.Echo
     {
         private Rigidbody echoBody;
         private float playbackStartTime;
+        [SerializeField] private EchoBodyRig bodyRig;
+        private RecordedMachineControl[] machineControls;
 
         public EchoRecording Recording { get; private set; }
 
@@ -31,6 +33,8 @@ namespace EchoProtocol.Echo
 
             ElapsedTime = Mathf.Min(Time.time - playbackStartTime, Recording.Duration);
             Recording.Sample(ElapsedTime, out Vector3 position, out Quaternion rotation);
+            if(bodyRig)bodyRig.Apply(Recording.SampleBodyPose(ElapsedTime));
+            ApplyMachineGrips(ElapsedTime, ElapsedTime < Recording.Duration);
 
             if (ElapsedTime < Recording.Duration)
             {
@@ -43,7 +47,7 @@ namespace EchoProtocol.Echo
             gameObject.SetActive(false);
         }
 
-        public bool Initialize(EchoRecording recording)
+        public bool Initialize(EchoRecording recording, RecordedMachineControl[] controls = null)
         {
             if (recording == null)
             {
@@ -53,11 +57,14 @@ namespace EchoProtocol.Echo
             }
 
             Recording = recording;
+            machineControls = controls;
             playbackStartTime = Time.time;
             ElapsedTime = 0f;
             IsComplete = recording.Duration <= 0f;
 
             recording.Sample(0f, out Vector3 position, out Quaternion rotation);
+            if(bodyRig)bodyRig.Apply(recording.SampleBodyPose(0));
+            ApplyMachineGrips(0, !IsComplete);
             ApplyPoseImmediately(position, rotation);
 
             if (IsComplete)
@@ -67,6 +74,23 @@ namespace EchoProtocol.Echo
 
             enabled = true;
             return true;
+        }
+
+        private void ApplyMachineGrips(float time, bool active)
+        {
+            bool any = false;
+            if (machineControls != null) foreach (var control in machineControls)
+                if (control)
+                {
+                    bool held = active && Recording.SampleMachineGrip(time, control.TargetId);
+                    control.ApplyReplay(this, held); any |= held;
+                }
+            if (bodyRig) bodyRig.ApplyMachineGrip(any);
+        }
+        private void OnDisable()
+        {
+            if (machineControls != null) foreach (var control in machineControls)
+                if (control) control.ReleaseReplay(this);
         }
 
         private void ApplyPose(Vector3 position, Quaternion rotation)

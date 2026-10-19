@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "checks": [
+    "explicit acoustic wait has not silently lost focus",
+    "explicit acoustic wait has not silently lost focus",
+    "explicit acoustic wait has not silently lost focus",
+    "shaft stays in world space in stereo-right",
+    "real plant perimeter filters distant shaft in stereo-right",
+    "explicit acoustic wait has not silently lost focus",
+    "explicit acoustic wait has not silently lost focus",
+    "shaft stays in world space in stereo-left",
+    "real plant perimeter filters distant shaft in stereo-left",
+    "explicit acoustic wait has not silently lost focus",
+    "explicit acoustic wait has not silently lost focus",
+    "shaft stays in world space in mono",
+    "real plant perimeter filters distant shaft in mono",
+    "explicit acoustic wait has not silently lost focus",
+    "explicit acoustic wait has not silently lost focus",
+    "shaft stays in world space in reduced",
+    "real plant perimeter filters distant shaft in reduced",
+    "explicit acoustic wait has not silently lost focus",
+    "pause freezes sample position and cannot replay the voice",
+    "explicit acoustic wait has not silently lost focus",
+    "resume continues the original voice position",
+    "explicit acoustic wait has not silently lost focus",
+    "fixture enters a fresh unanswered house",
+    "explicit acoustic wait has not silently lost focus",
+    "answer schedules exactly one live line at the physical receiver",
+    "explicit acoustic wait has not silently lost focus",
+    "hanging up fades and stops the line without a hard cut",
+    "explicit acoustic wait has not silently lost focus",
+    "lifting again does not loop or repeat the performance",
+    "voice is at the actual moving handset, never at the camera or Echo"
+  ],
+  "marks": [
+    {
+      "name": "stereo-right",
+      "seconds": 0.34133333333333332
+    },
+    {
+      "name": "stereo-left",
+      "seconds": 5.3546666666666667
+    },
+    {
+      "name": "mono",
+      "seconds": 10.368
+    },
+    {
+      "name": "reduced",
+      "seconds": 15.36
+    },
+    {
+      "name": "pause-playing-source",
+      "seconds": 20.074666666666666
+    },
+    {
+      "name": "answer-live-line",
+      "seconds": 22.250666666666667
+    },
+    {
+      "name": "hang-up",
+      "seconds": 26.261333333333333
+    },
+    {
+      "name": "lift-dead-line",
+      "seconds": 27.157333333333334
+    }
+  ],
+  "scope": "Four explicit Player pose/orientation fixtures, direct source playback, public house chapter fixture and telephone API. Real renderer/mixer/listener and physical walls; no human listening or continuous-route claim. User mix and save-suppression restored."
+}

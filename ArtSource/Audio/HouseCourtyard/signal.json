@@ -1,0 +1,11 @@
+{
+  "frames": 1873872,
+  "sampleRate": 48000,
+  "channels": 1,
+  "seconds": 39.039,
+  "finite": true,
+  "peakDBFS": -33.671603213584326,
+  "rmsDBFS": -52.40069206541129,
+  "dcOffset": -3.194320791930092e-06,
+  "scope": "Decoded public preview through afconvert to 48k/16-bit PCM. File/signal checks only, no human listening. Source remains outside Assets."
+}

@@ -1,0 +1,33 @@
+CONTINUOUS TITLE TO ENDING. Zero fixtures or direct gameplay mutations. Input System keyboard/mouse only. Unexpected pauses fail rather than being resumed.
+PASS [title] Threshold systems exist
+PASS [title] all original-act, new house and new final references exist
+PASS [title] optional recording boundary shares the actual campaign, R3 and loop
+PASS [title] boundary starts unused and its actual Hub arrival guidance is authored
+PASS [title] physical descent guide starts hidden with an explicit Hub arrival volume
+PASS [title] contextual notes reference the actual gameplay systems, excluding inactive legacy studies
+PASS [title] run begins at the actual paused title, before gameplay
+PASS [title] title has no earned progress, saved restoration or prior recording
+PASS [title] Threshold replaces D1 with actual R3 availability
+PASS [title] real look sensitivity is nonzero
+PASS [title] actual title button starts the authored segment
+PASS [coverage_enter] physical basement entry begins a fresh recording contract
+PASS [coverage_enter] the rule can be explored before danger
+PASS [coverage_enter] camera ray and physical reach select the recorded pump control
+PASS [coverage_record_first_noise] safe first start and release captured as two actual grip events
+PASS [coverage_record_return_noise] two starts and two releases explicitly captured
+PASS [coverage_record_return_noise] RECALL has actual movement frames to finish
+PASS [coverage_record_return_noise] one real R completes exactly one actual take
+PASS [coverage_record_return_noise] RECALL placement creates no physical footstep
+PASS [coverage_record_return_noise] immutable take contains the actual on/off/on/off sequence
+PASS [coverage_playback_pause] real pause freezes playback, pressure and the recorded grip
+PASS [coverage_playback_pause] real Escape resumes the segment
+PASS [coverage_cross_to_crank] real motor covers work while the pressurized grille stays closed
+PASS [coverage_hold_crank] held real E frees only the jammed bolt
+PASS [coverage_hold_crank] faithful recorded silence releases the pressure obstruction
+PASS [coverage_hold_release] manual exit release secures the return and releases a present-time threat
+PASS [coverage_prepared_return] normal route secures the physical exit and suspends recording for the house
+PASS [coverage_prepared_return] live machine sound diverted the present threat during the prepared return
+PASS [coverage_prepared_return] machine take root and body frames remain unchanged
+PASS [coverage_prepared_return] every recorded machine event remains unchanged through work, pause, threat and retry
+PASS [coverage_prepared_return] machine take root and body frames remain unchanged
+PASS [coverage_prepared_return] every recorded machine event remains unchanged through work, pause, threat and retry

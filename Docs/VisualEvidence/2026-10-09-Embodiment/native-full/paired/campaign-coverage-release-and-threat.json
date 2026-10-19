@@ -1,0 +1,16 @@
+{
+    "label": "campaign-coverage-release-and-threat",
+    "state": "Pressure|house:False/False/Hall|pressure:False/False|P3:1.00",
+    "position": {
+        "x": -3.941906690597534,
+        "y": 1.6299999952316285,
+        "z": -43.1812629699707
+    },
+    "rotation": {
+        "x": 0.010128729976713658,
+        "y": 0.9829404354095459,
+        "z": -0.1745648831129074,
+        "w": 0.057032883167266849
+    },
+    "fov": 60.0
+}

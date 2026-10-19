@@ -1,0 +1,22 @@
+using System;using System.Linq;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;
+using EchoProtocol.Echo;using EchoProtocol.Campaign;
+public static class FinishEmbodimentSetup
+{
+ public static object Main()
+ {
+  if(EditorApplication.isPlaying)throw new Exception("Stopped Editor required");
+  var s=UnityEngine.SceneManagement.SceneManager.GetActiveScene();if(!s.path.EndsWith("Embodiment.unity"))throw new Exception("Candidate required");
+  var source=new SerializedObject(UnityEngine.Object.FindFirstObjectByType<PlayerBodyPoseSource>());
+  source.FindProperty("adaptiveStride").boolValue=true;
+  source.FindProperty("recordedMachine").objectReferenceValue=UnityEngine.Object.FindFirstObjectByType<MachineCoverEncounter>().Machine;
+  source.ApplyModifiedPropertiesWithoutUndo();
+  var all=UnityEngine.Object.FindObjectsByType<Transform>(FindObjectsInactive.Include,FindObjectsSortMode.None);
+  foreach(string name in new[]{"P1 A rule","P1 A rule / physical instruction plaque","P1 A actual state","P1 A actual state / enamel plate"})
+  {
+   var t=all.Single(x=>x.name==name);float expected=name.Contains("actual")?1.73f:1.99f;
+   if(Mathf.Abs(t.position.y-expected)<.01f)t.position-=Vector3.up*.54f;
+   else if(Mathf.Abs(t.position.y-(expected-.54f))>.01f)throw new Exception("Inspect altered label "+name);
+  }
+  EditorSceneManager.MarkSceneDirty(s);EditorSceneManager.SaveScene(s);return "Candidate capture/contact/face visibility configured";
+ }
+}

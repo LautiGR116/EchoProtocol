@@ -1,0 +1,51 @@
+ISOLATED PERSISTENCE: explicit chapter and pose fixtures. Not continuous play or human acceptance.
+PASS [] opt-in Isolation scene and checkpoint namespace are configured
+PASS [] fresh title starts the test
+PASS [running save] opt-in Isolation scene and checkpoint namespace are configured
+PASS [running save] scene reload starts at a fresh title
+PASS [running save] explicit prior-act fixture enters the actual isolation API
+PASS [running save] physical entry owner writes running pressure checkpoint
+PASS [running save] writing the new edition leaves legacy checkpoint namespaces untouched
+PASS [running save] opt-in Isolation scene and checkpoint namespace are configured
+PASS [running save] scene reload starts at a fresh title
+PASS [running Continue] fresh title recognizes the actual persisted checkpoint
+PASS [running Continue] the public Continue restoration API succeeds
+PASS [running Continue] Continue enters active pressure gameplay
+PASS [running Continue] fresh continuation settles to running or fully drained canonical state
+PASS [running Continue] physical passage and work circuit match the restored detent
+PASS [running Continue] continuation uses the safe authored entry location
+PASS [running Continue] fresh continuation fabricates no saved Echo and leaves recording suspended
+PASS [running Continue] Continue does not replay latch, purge or live completion events
+PASS [running Continue] settled restored audio is silent when isolated or running when powered
+PASS [running Continue] Resonance Continue treats restored shutdown as baseline
+PASS [running Continue] restored plant never repeats dramatic voices or structural transients
+PASS [running Continue] fresh Continue restores the real motor presentation without a replayed coast
+PASS [running Continue] actual R after Continue cannot teleport or fabricate a take
+PASS [running Continue] pause and resume preserve suspension and do not replay shutdown
+PASS [running Continue] Continue and paused input preserve the saved result
+PASS [latched save] opt-in Isolation scene and checkpoint namespace are configured
+PASS [latched save] scene reload starts at a fresh title
+PASS [latched save] explicit prior-act fixture enters the actual isolation API
+PASS [latched save] physical entry owner writes running pressure checkpoint
+PASS [latched save] actual sustained E commits while the pressure is still draining
+PASS [latched save] live detent writes the latched save before drainage ends
+PASS [latched save] live save was accompanied by exactly one physical latch and purge
+PASS [latched save] writing the new edition leaves legacy checkpoint namespaces untouched
+PASS [latched save] opt-in Isolation scene and checkpoint namespace are configured
+PASS [latched save] scene reload starts at a fresh title
+PASS [latched Continue] fresh title recognizes the actual persisted checkpoint
+PASS [latched Continue] the public Continue restoration API succeeds
+PASS [latched Continue] Continue enters active pressure gameplay
+PASS [latched Continue] fresh continuation settles to running or fully drained canonical state
+PASS [latched Continue] physical passage and work circuit match the restored detent
+PASS [latched Continue] continuation uses the safe authored entry location
+PASS [latched Continue] fresh continuation fabricates no saved Echo and leaves recording suspended
+PASS [latched Continue] Continue does not replay latch, purge or live completion events
+PASS [latched Continue] settled restored audio is silent when isolated or running when powered
+PASS [latched Continue] Resonance Continue treats restored shutdown as baseline
+PASS [latched Continue] restored plant never repeats dramatic voices or structural transients
+PASS [latched Continue] fresh Continue restores the real motor presentation without a replayed coast
+PASS [latched Continue] actual R after Continue cannot teleport or fabricate a take
+PASS [latched Continue] pause and resume preserve suspension and do not replay shutdown
+PASS [latched Continue] Continue and paused input preserve the saved result
+PASS

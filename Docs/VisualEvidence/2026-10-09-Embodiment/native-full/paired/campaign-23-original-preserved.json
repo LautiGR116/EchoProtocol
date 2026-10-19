@@ -1,0 +1,16 @@
+{
+    "label": "campaign-23-original-preserved",
+    "state": "Archive|house:False/True/Hall|pressure:False/False|P3:1.00",
+    "position": {
+        "x": -16.108943939208986,
+        "y": 1.6299999952316285,
+        "z": -52.400001525878909
+    },
+    "rotation": {
+        "x": 0.001247801468707621,
+        "y": -0.9809054732322693,
+        "z": 0.006296833511441946,
+        "w": 0.19437949359416963
+    },
+    "fov": 60.0
+}

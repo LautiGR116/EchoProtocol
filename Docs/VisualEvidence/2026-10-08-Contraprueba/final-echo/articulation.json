@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "maximumVertexDeformationMetres": 0.144490391,
+  "maximumTriangleEdgeGrowthMetres": 0.00354264025,
+  "phaseBefore": 44.22035,
+  "phaseAfter": 47.2148743,
+  "scope": "Actual input take and baked live skinned mesh; root translation/rotation removed from both samples. Not a human gait-quality judgment."
+}

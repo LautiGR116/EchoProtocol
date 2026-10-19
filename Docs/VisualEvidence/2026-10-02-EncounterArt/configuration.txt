@@ -1,0 +1,54 @@
+Assets/_Game/Scenes/Production/EchoProtocol_EncounterArt.unity saved; dirty=false
+guidance firstRelay = Relay State
+guidance firstEvent = VS1 Strong Event 1 - Occupied Lane
+guidance domesticCheckpoint = Domestic Checkpoint Trigger
+guidance alignmentRelay = P2 Blind Alignment Relay
+guidance passage = SE2 Architectural Discrepancy Event
+guidance returnPassage = SE3 Return Crossing (+Z toward return)
+guidance recoveryOrigin = R1 Central observation station
+guidance returnRelay = P3 Recombination Relay
+guidance campaign = Campaign / authored expansion
+guidance house = Residence / habitable reconstruction
+guidance finalReview = Threshold / del otro lado
+guidance hubReturn = R3 actual Player final crossing
+feedback relay = Relay State
+feedback readerA = Lane Optical Reader A
+feedback readerB = Lane Optical Reader B
+feedback statusA = P1 A actual state
+feedback statusB = P1 B actual state
+feedback statusC = P1 C actual state
+feedback review = Threshold / del otro lado
+feedback interiorStatus = Interior revision instructions
+feedback exteriorStatus = Outside pause instruction
+feedback receivedDoor = 6B review door / hinge
+feedback doorStatus = 6B / actual door state
+task Reader 0 / linked task pool <- Panel Light - Cold Ceiling Panel Lane 2 nominal=3.2 gain=3.4
+task Reader 1 / linked task pool <- Panel Light - Cold Ceiling Panel Lane 3 nominal=3.2 gain=3.4
+task Reader 2 / linked task pool <- Panel Light - Service Ceiling Panel 3 nominal=2.9 gain=3.4
+save=EP.CampaignCheckpoint.EncounterArt.v1
+lights=149 audio=60
+missingScripts=0
+sole enabled build scene matches
+atmosphere session = Complete Edition - presentation and exit
+atmosphere listener = Main Camera
+atmosphere passage = SE2 Architectural Discrepancy Event
+atmosphere review = Threshold / del otro lado
+atmosphere passageRegion = SE2 authored acoustic region
+atmosphere finalRegion = 6B authored acoustic region
+atmosphere passageVent = SE2 fixed ventilation motor
+atmosphere finalVent = 6B fixed ventilation motor
+atmosphere frameContact = SE2 rear doorway frame strain
+atmosphere passageContact = FloorboardWeight
+atmosphere passageRotor = SE2 wall ventilation visible rotor
+atmosphere finalRotor = 6B ceiling ventilation visible rotor
+passageVent pos=(7.520, 2.200, 30.400) blend=1 min=2.6 max=12 pitch=0.9 loop=True group=Ambience lowpass=2200
+finalVent pos=(-15.180, 2.200, -53.420) blend=1 min=2.4 max=9 pitch=0.82 loop=True group=Ambience lowpass=1800
+frameContact pos=(7.660, 1.400, 28.750) blend=1 min=1.6 max=9 pitch=1 loop=False group=WorldSFX lowpass=0
+passageGain=0.22 finalGain=0.14
+passageRegion acoustic-only trigger
+finalRegion acoustic-only trigger
+VS1 Strong Event 1 - Occupied Lane owns its gain; treatment assigned
+Finish / materiality and inhabited detail owns its gain; treatment assigned
+witness prefab=Assets/_Game/Prefabs/EncounterArt/EchoWitness.prefab shared self-depth mesh=Assets/_Game/Art/Models/EncounterArt/EP_WitnessSurface.fbx vertices=42498 slots=8 AudioSource=0 Animator=0 shaderSupported=True shaderMessages=0
+direct witness skin slot=M_Record_FIG_Skin; pass RecordedPresenceForward=0
+SE2 same body yaw=90 shadow casting=Off

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scope": "Delivery app launched directly, controlled through CUA native keyboard/clicks and inspected in screenshots. Separate from the full synthetic QA run. No human first-play, listening or fear claim.",
+  "observed": [
+    "Enter starts the actual title",
+    "A/W move the camera and recording advances",
+    "R returns to origin; actual HUD shows Echo 1.3 / 25.6 s",
+    "H opens paused notes; J advances help; H returns and Esc pauses",
+    "C shows credits with adult and generated-wallpaper provenance",
+    "Native clicks enable reduced dynamics and mono, then restore both initial off values",
+    "Exit chosen using the actual Salir button"
+  ],
+  "unexpectedLogErrors": [],
+  "audioPreferencesRestored": true,
+  "processExitCode": 0
+}

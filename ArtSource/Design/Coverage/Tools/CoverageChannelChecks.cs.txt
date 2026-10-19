@@ -1,0 +1,13 @@
+using System;using System.IO;using UnityEngine;using EchoProtocol.Echo;
+public static class CoverageChannelChecks {
+static int checks;static void Check(bool b,string n){if(!b)throw new Exception(n);checks++;}
+public static string Main(){
+var frames=new[]{new EchoFrame(0,Vector3.zero,Quaternion.identity),new EchoFrame(3,Vector3.one,Quaternion.identity)};
+var grips=new[]{new RecordedMachineGrip(.5f,101,true),new RecordedMachineGrip(1,202,true),new RecordedMachineGrip(2,101,false)};
+var r=new EchoRecording(frames,grips);frames[0]=new EchoFrame(0,Vector3.up*7,Quaternion.identity);grips[0]=new RecordedMachineGrip(0,101,false);
+Check(r[0].Position==Vector3.zero&&r.MachineGrip(0).Held&&r.MachineGrip(0).Timestamp==.5f,"caller arrays cannot change a completed take");
+Check(!r.SampleMachineGrip(.499f,101)&&r.SampleMachineGrip(.5f,101)&&r.SampleMachineGrip(1.999f,101)&&!r.SampleMachineGrip(2,101),"command starts and releases at its exact recorded boundary");
+Check(!r.SampleMachineGrip(.5f,202)&&r.SampleMachineGrip(2.5f,202)&&!r.SampleMachineGrip(2.5f,303),"one concrete target cannot fabricate commands for another channel");
+foreach(float invalid in new[]{float.NaN,float.PositiveInfinity,-1,4}){bool rejected=false;try{new EchoRecording(new[]{new EchoFrame(0,Vector3.zero,Quaternion.identity),new EchoFrame(3,Vector3.zero,Quaternion.identity)},new[]{new RecordedMachineGrip(invalid,101,true)});}catch(ArgumentException){rejected=true;}Check(rejected,"reject invalid event time");}
+Directory.CreateDirectory("Docs/VisualEvidence/2026-10-09-Coverage");File.WriteAllText("Docs/VisualEvidence/2026-10-09-Coverage/channel-contract.json",Newtonsoft.Json.JsonConvert.SerializeObject(new{status="PASS",checks,scope="Pure bounded recording contract: defensive copy, exact event boundaries, target isolation and invalid-time rejection. Actual playback separately tested through physical controls."},Newtonsoft.Json.Formatting.Indented));return "PASS "+checks+" channel contract checks";
+}}

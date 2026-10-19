@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Impact.unity",
+  "activeLoop": "Temporal Loop VS1 Foundation",
+  "referenceFields": 10,
+  "spatialSources": 5,
+  "steps": 3,
+  "normalCeiling": 0.5,
+  "pursuitSpeed": 3.2,
+  "captureDistance": 1.08,
+  "navigationClearance": 0.39,
+  "colliderRadius": 0.4,
+  "assets": [
+    {
+      "path": "Assets/_Game/Audio/Clips/Impact/Pursuit_Pulse.wav",
+      "channels": 1,
+      "frequency": 48000,
+      "length": 8.0,
+      "forceToMono": false,
+      "loadType": "DecompressOnLoad",
+      "compression": "Vorbis",
+      "normalize": null
+    },
+    {
+      "path": "Assets/_Game/Audio/Clips/Impact/Threat_DirectCry.wav",
+      "channels": 1,
+      "frequency": 48000,
+      "length": 2.56,
+      "forceToMono": false,
+      "loadType": "DecompressOnLoad",
+      "compression": "Vorbis",
+      "normalize": null
+    },
+    {
+      "path": "Assets/_Game/Audio/Clips/Impact/Threat_FrameContact.wav",
+      "channels": 1,
+      "frequency": 48000,
+      "length": 0.78,
+      "forceToMono": false,
+      "loadType": "DecompressOnLoad",
+      "compression": "Vorbis",
+      "normalize": null
+    },
+    {
+      "path": "Assets/_Game/Audio/Clips/Impact/Threat_MovingFriction.wav",
+      "channels": 1,
+      "frequency": 48000,
+      "length": 2.16,
+      "forceToMono": false,
+      "loadType": "DecompressOnLoad",
+      "compression": "Vorbis",
+      "normalize": null
+    },
+    {
+      "path": "Assets/_Game/Audio/Clips/Impact/Threat_Step0.wav",
+      "channels": 1,
+      "frequency": 48000,
+      "length": 0.34,
+      "forceToMono": false,
+      "loadType": "DecompressOnLoad",
+      "compression": "Vorbis",
+      "normalize": null
+    },
+    {
+      "path": "Assets/_Game/Audio/Clips/Impact/Threat_Step1.wav",
+      "channels": 1,
+      "frequency": 48000,
+      "length": 0.34,
+      "forceToMono": false,
+      "loadType": "DecompressOnLoad",
+      "compression": "Vorbis",
+      "normalize": null
+    },
+    {
+      "path": "Assets/_Game/Audio/Clips/Impact/Threat_Step2.wav",
+      "channels": 1,
+      "frequency": 48000,
+      "length": 0.34,
+      "forceToMono": false,
+      "loadType": "DecompressOnLoad",
+      "compression": "Vorbis",
+      "normalize": null
+    }
+  ]
+}

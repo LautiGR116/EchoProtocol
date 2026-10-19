@@ -1,0 +1,16 @@
+{
+    "label": "campaign-pause-SE1_empty_lane",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+    "position": {
+        "x": 3.2984743118286135,
+        "y": 1.6299998760223389,
+        "z": 9.924198150634766
+    },
+    "rotation": {
+        "x": 2.0260521704778868e-24,
+        "y": -0.4539903998374939,
+        "z": 1.0323248770318834e-24,
+        "w": 0.891006588935852
+    },
+    "fov": 60.0
+}

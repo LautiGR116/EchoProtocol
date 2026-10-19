@@ -1,0 +1,13 @@
+using System;using System.IO;using System.Linq;using System.Collections.Generic;using UnityEngine;using UnityEditor;
+public static class CalibrateWalk {
+ public static object Main(){
+  const string B="Assets/_Game/Art/Embodiment/RenderpeoplePrivate/";
+  var s=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(B+"Nathan/rp_nathan_animated_003_walking.fbx"));var t=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(B+"Eric/rp_eric_rigged_001_u3d.fbx"));
+  try{var st=s.GetComponentsInChildren<Transform>().ToDictionary(x=>x.name.Replace("rp_nathan_animated_003_walking_",""));var tt=t.GetComponentsInChildren<Transform>().ToDictionary(x=>x.name);var sc=AssetDatabase.LoadAssetAtPath<AnimationClip>(B+"Nathan/RecordedWalk.anim");var tc=AssetDatabase.LoadAssetAtPath<AnimationClip>(B+"Eric/RecordedWalk.anim");
+   var bind=st.Where(k=>new[]{"hip","upperarm_l","upperarm_r","lowerarm_l","foot_l","foot_r","head","eye_l","eyelid_l_up"}.Contains(k.Key)).Select(k=>new{name=k.Key,p=k.Value.position.ToString("F4"),rot=k.Value.localEulerAngles.ToString("F2")}).ToArray();
+   var frames=new List<object>();var rotations=new List<Quaternion[]>();var positions=new List<Vector3[]>();var keys=new[]{"hip","upperleg_l","lowerleg_l","foot_l","upperleg_r","lowerleg_r","foot_r","upperarm_l","upperarm_r"};
+   for(int f=0;f<=68;f++){float time=f/30f;sc.SampleAnimation(s,time);tc.SampleAnimation(t,time);frames.Add(new{f,time,z=st["root"].position.z,L=new[]{st["foot_l"].position.x,st["foot_l"].position.y,st["foot_l"].position.z},R=new[]{st["foot_r"].position.x,st["foot_r"].position.y,st["foot_r"].position.z},ericL=new[]{tt["foot_l"].position.x,tt["foot_l"].position.y,tt["foot_l"].position.z},ericR=new[]{tt["foot_r"].position.x,tt["foot_r"].position.y,tt["foot_r"].position.z}});rotations.Add(keys.Select(k=>st[k].localRotation).ToArray());positions.Add(keys.Select(k=>st[k].localPosition).ToArray());}
+   var pairs=new List<object>();for(int a=6;a<32;a++)for(int b=a+25;b<=Mathf.Min(a+40,68);b++){float score=0;for(int k=0;k<keys.Length;k++)score+=Quaternion.Angle(rotations[a][k],rotations[b][k]);pairs.Add(new{a,b,score});}var data=new{bind,frames,pairs=pairs.OrderBy(p=>(float)p.GetType().GetProperty("score").GetValue(p)).Take(12).ToArray()};File.WriteAllText("/Users/lautigr116/EchoProtocol-licensed/Renderpeople-20261009/walk-calibration.json",Newtonsoft.Json.JsonConvert.SerializeObject(data,Newtonsoft.Json.Formatting.Indented));return new{status="CALIBRATED",bind,best=pairs.OrderBy(p=>(float)p.GetType().GetProperty("score").GetValue(p)).Take(5).ToArray()};
+  }finally{UnityEngine.Object.DestroyImmediate(s);UnityEngine.Object.DestroyImmediate(t);}
+ }
+}

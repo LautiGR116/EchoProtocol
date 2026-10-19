@@ -1,0 +1,20 @@
+{
+  "branch": "unanswered",
+  "firstExposure": {
+    "frame": "11353",
+    "time": "7.3121",
+    "eye_z": "-54.7312",
+    "bounds_height_px": "330.2224"
+  },
+  "lastExposure": {
+    "frame": "11475",
+    "time": "7.9405",
+    "eye_z": "-57.2448",
+    "bounds_height_px": "483.8950"
+  },
+  "visibleFrames": 123,
+  "measuredFrames": 394,
+  "cueLeadSeconds": 0.0953,
+  "maxDeltaSeconds": 0.0101,
+  "note": "Bounds height is geometric projection, including occluded parts; not visible-pixel count."
+}

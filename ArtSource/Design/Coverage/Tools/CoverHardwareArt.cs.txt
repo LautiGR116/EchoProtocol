@@ -1,0 +1,29 @@
+using System;using System.Linq;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using EchoProtocol.Campaign;
+public static class CoverHardwareArt {
+static Transform root;static Material metal,brass,enamel;
+static void R(UnityEngine.Object o,string f,UnityEngine.Object v){var so=new SerializedObject(o);so.FindProperty(f).objectReferenceValue=v;so.ApplyModifiedPropertiesWithoutUndo();}
+static GameObject Shape(string n,PrimitiveType type,Vector3 p,Vector3 scale,Material mat,Transform parent=null){var g=GameObject.CreatePrimitive(type);g.name=n;g.transform.SetParent(parent?parent:root);g.transform.position=p;g.transform.localScale=scale;g.GetComponent<Renderer>().sharedMaterial=mat;UnityEngine.Object.DestroyImmediate(g.GetComponent<Collider>());return g;}
+static Mesh Ring(){
+var m=new Mesh{name="Coverage machined handwheel ring"};var v=new Vector3[48*10];var uv=new Vector2[v.Length];var tr=new int[v.Length*6];int k=0;
+for(int i=0;i<48;i++)for(int j=0;j<10;j++){float a=i*Mathf.PI*2/48,b=j*Mathf.PI*2/10,r=.175f+.018f*Mathf.Cos(b);v[i*10+j]=new Vector3(r*Mathf.Cos(a),r*Mathf.Sin(a),.018f*Mathf.Sin(b));uv[i*10+j]=new Vector2(i/48f,j/10f);int c=i*10+j,d=((i+1)%48)*10+j,e=((i+1)%48)*10+(j+1)%10,f=i*10+(j+1)%10;tr[k++]=c;tr[k++]=d;tr[k++]=e;tr[k++]=c;tr[k++]=e;tr[k++]=f;}
+m.vertices=v;m.uv=uv;m.triangles=tr;m.RecalculateNormals();m.RecalculateBounds();AssetDatabase.CreateAsset(m,"Assets/_Game/Art/Coverage/Handwheel.asset");return m;}
+public static string Main(){
+if(EditorApplication.isPlaying)throw new Exception("Stopped scene required");root=GameObject.Find("Coverage / the machine covers your work").transform;
+metal=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Isolation/M_IC_DarkMetal.mat");brass=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Isolation/M_IC_Brass.mat");enamel=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Isolation/M_IC_Enamel.mat");
+if(!AssetDatabase.IsValidFolder("Assets/_Game/Art/Coverage"))AssetDatabase.CreateFolder("Assets/_Game/Art","Coverage");
+var crank=GameObject.Find("Service / ratchet and jammed bolt").GetComponent<MachineCoverInteraction>();crank.GetComponent<Renderer>().enabled=false;GameObject.Find(crank.name+" handle").SetActive(false);
+Shape("Crank / bolted steel backplate",PrimitiveType.Cube,new Vector3(-3.45f,1.26f,-39.73f),new Vector3(.49f,.53f,.05f),enamel);
+foreach(float x in new[]{-.2f,.2f})foreach(float y in new[]{-.215f,.215f}){var b=Shape("Crank / mounting bolt",PrimitiveType.Cylinder,new Vector3(-3.45f+x,1.26f+y,-39.688f),new Vector3(.025f,.008f,.025f),metal);b.transform.rotation=Quaternion.Euler(90,0,0);}
+var wheel=new GameObject("Crank / moving handwheel");wheel.transform.SetParent(root);wheel.transform.position=new Vector3(-3.45f,1.26f,-39.5f);var mf=wheel.AddComponent<MeshFilter>();mf.sharedMesh=Ring();wheel.AddComponent<MeshRenderer>().sharedMaterial=brass;
+for(int i=0;i<3;i++){var g=Shape("Crank / wheel spoke",PrimitiveType.Cube,wheel.transform.position,new Vector3(.31f,.018f,.018f),brass,wheel.transform);g.transform.localRotation=Quaternion.Euler(0,0,i*60);}
+var hub=Shape("Crank / steel hub",PrimitiveType.Cylinder,wheel.transform.position,new Vector3(.075f,.025f,.075f),metal,wheel.transform);hub.transform.localRotation=Quaternion.Euler(90,0,0);R(crank,"handle",wheel.transform);
+var release=GameObject.Find("Service / exit release and grille catch").GetComponent<MachineCoverInteraction>();release.GetComponent<Renderer>().enabled=false;GameObject.Find(release.name+" handle").SetActive(false);GameObject.Find("Release / enamel housing").GetComponent<Renderer>().enabled=false;
+var housing=UnityEngine.Object.FindObjectsByType<MeshRenderer>(FindObjectsSortMode.None).Single(t=>t.name=="IsolationHousing");var lever=UnityEngine.Object.FindObjectsByType<MeshRenderer>(FindObjectsSortMode.None).Single(t=>t.name=="IsolationLever");
+var h=UnityEngine.Object.Instantiate(housing.gameObject,root);h.name="Release / original machined enclosure";h.transform.SetPositionAndRotation(new Vector3(-3.8f,1.35f,-44.53f),Quaternion.Euler(270,0,0));h.transform.localScale=housing.transform.lossyScale;
+var l=UnityEngine.Object.Instantiate(lever.gameObject,root);l.name="Release / actual moving bakelite lever";l.transform.SetPositionAndRotation(new Vector3(-3.725f,1.27f,-44.38f),Quaternion.identity);l.transform.localScale=lever.transform.lossyScale;R(release,"handle",l.transform);
+var trim=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Isolation/M_ServiceSteel.mat");
+foreach(string name in new[]{"Service / maintained work light","Service / last practical","Return / maintained side passage light"}){var lamp=GameObject.Find(name);Shape(name+" / shielded housing",PrimitiveType.Cube,lamp.transform.position+Vector3.up*.08f,new Vector3(.46f,.16f,.19f),trim);Shape(name+" / opal diffuser",PrimitiveType.Cube,lamp.transform.position+Vector3.down*.012f,new Vector3(.35f,.035f,.12f),AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Isolation/M_EmergencyOpal.mat"));}
+// One physical cable links the latch to the now-visible side-door mechanism.
+Shape("Release / cable along frame",PrimitiveType.Cube,new Vector3(-3.28f,2.61f,-44.33f),new Vector3(1.2f,.022f,.022f),brass);
+var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();return "Machined release, moving handwheel, bolts, real cable and shielded practicals fitted. Existing model/material authorship reused.";
+}}

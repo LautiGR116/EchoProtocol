@@ -1,0 +1,130 @@
+PASS explicit scene identity and campaign
+PASS actual native viewport (1280, 800)
+PASS native window stays focused
+PASS native screenshot 1280x800-title
+PASS title keyboard focus moves once
+PASS settings Enter opens without starting
+PASS keyboard volume step
+PASS reduced dynamics toggles exactly once
+PASS speaker toggle via Space
+PASS automatic hints toggle
+PASS native screenshot 1280x800-settings
+PASS settings Esc keeps title paused
+PASS credits shortcut
+PASS native screenshot 1280x800-credits
+PASS title Enter starts once
+PASS actual pause
+PASS native screenshot 1280x800-pause
+PASS reverse Tab wraps to restart
+PASS restart confirmation
+PASS native screenshot 1280x800-restart
+PASS restart cancel stays paused
+PASS native screenshot 1280x800-letter
+PASS document pauses time player and audio
+PASS letter completely fits or ending reachable through End
+PASS native screenshot 1280x800-letter-end
+PASS Home returns to letter beginning
+PASS document Esc resumes
+PASS native screenshot 1280x800-consent
+PASS institutional PageDown clamps to content
+PASS last institutional line reachable
+PASS native screenshot 1280x800-consent-end
+PASS document Enter closes once
+PASS native screenshot 1280x800-stress-begin
+PASS multi-page fixture scroll reaches final paragraph
+PASS native screenshot 1280x800-stress-end
+PASS H opens session notes
+PASS native screenshot 1280x800-notes
+PASS removed more-note control transfers focus to close; Enter resumes
+PASS notes can reopen at final hint level
+PASS H closes notes and resumes
+PASS native screenshot 1280x800-hud
+PASS actual native viewport (1440, 810)
+PASS native window stays focused
+PASS native screenshot 1440x810-title
+PASS title keyboard focus moves once
+PASS settings Enter opens without starting
+PASS keyboard volume step
+PASS reduced dynamics toggles exactly once
+PASS speaker toggle via Space
+PASS automatic hints toggle
+PASS native screenshot 1440x810-settings
+PASS settings Esc keeps title paused
+PASS credits shortcut
+PASS native screenshot 1440x810-credits
+PASS title Enter starts once
+PASS actual pause
+PASS native screenshot 1440x810-pause
+PASS reverse Tab wraps to restart
+PASS restart confirmation
+PASS native screenshot 1440x810-restart
+PASS restart cancel stays paused
+PASS native screenshot 1440x810-letter
+PASS document pauses time player and audio
+PASS letter completely fits or ending reachable through End
+PASS native screenshot 1440x810-letter-end
+PASS Home returns to letter beginning
+PASS document Esc resumes
+PASS native screenshot 1440x810-consent
+PASS institutional PageDown clamps to content
+PASS last institutional line reachable
+PASS native screenshot 1440x810-consent-end
+PASS document Enter closes once
+PASS native screenshot 1440x810-stress-begin
+PASS multi-page fixture scroll reaches final paragraph
+PASS native screenshot 1440x810-stress-end
+PASS H opens session notes
+PASS native screenshot 1440x810-notes
+PASS removed more-note control transfers focus to close; Enter resumes
+PASS notes can reopen at final hint level
+PASS H closes notes and resumes
+PASS native screenshot 1440x810-hud
+PASS actual native viewport (1280, 720)
+PASS native window stays focused
+PASS native screenshot 1280x720-title
+PASS native screenshot before-title
+PASS native screenshot title-saved-checkpoint
+PASS saved continuation visible
+PASS title keyboard focus moves once
+PASS settings Enter opens without starting
+PASS keyboard volume step
+PASS reduced dynamics toggles exactly once
+PASS speaker toggle via Space
+PASS automatic hints toggle
+PASS native screenshot 1280x720-settings
+PASS native screenshot before-settings
+PASS settings Esc keeps title paused
+PASS credits shortcut
+PASS native screenshot 1280x720-credits
+PASS title Enter starts once
+PASS actual pause
+PASS native screenshot 1280x720-pause
+PASS native screenshot before-pause
+PASS reverse Tab wraps to restart
+PASS restart confirmation
+PASS native screenshot 1280x720-restart
+PASS restart cancel stays paused
+PASS native screenshot 1280x720-letter
+PASS native screenshot before-letter
+PASS document pauses time player and audio
+PASS letter completely fits or ending reachable through End
+PASS native screenshot 1280x720-letter-end
+PASS Home returns to letter beginning
+PASS document Esc resumes
+PASS native screenshot 1280x720-consent
+PASS institutional PageDown clamps to content
+PASS last institutional line reachable
+PASS native screenshot 1280x720-consent-end
+PASS document Enter closes once
+PASS native screenshot 1280x720-stress-begin
+PASS multi-page fixture scroll reaches final paragraph
+PASS native screenshot 1280x720-stress-end
+PASS H opens session notes
+PASS native screenshot 1280x720-notes
+PASS removed more-note control transfers focus to close; Enter resumes
+PASS notes can reopen at final hint level
+PASS H closes notes and resumes
+PASS native screenshot 1280x720-hud
+PASS native screenshot before-hud
+PASS native screenshot 1280x720-ending
+PASS ending UI fixture displayed

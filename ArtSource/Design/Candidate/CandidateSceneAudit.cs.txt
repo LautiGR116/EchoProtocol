@@ -1,0 +1,16 @@
+using System;using System.IO;using System.Linq;using UnityEngine;using UnityEditor;using UnityEngine.SceneManagement;
+public static class CandidateSceneAudit {
+ public static object Main(){
+  var scene=SceneManager.GetActiveScene();
+  if(Application.isPlaying || scene.path!=CandidateProduction.ScenePath)throw new Exception("Open Candidate in edit mode.");
+  var all=scene.GetRootGameObjects().SelectMany(r=>r.GetComponentsInChildren<Transform>(true)).ToArray();
+  int missing=all.Sum(t=>GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(t.gameObject));
+  var notes=UnityEngine.Object.FindFirstObjectByType<EchoProtocol.Presentation.ProtocolGuidance>();
+  var so=new SerializedObject(notes);var names=new[]{"firstRelay","firstEvent","domesticCheckpoint","alignmentRelay","passage","returnPassage","recoveryOrigin","returnRelay"};
+  var rows=names.Select(n=>{var c=(Component)so.FindProperty(n).objectReferenceValue;return n+"\t"+(c?c.name:"MISSING")+"\t"+(c?c.gameObject.activeInHierarchy.ToString():"false");}).ToArray();
+  var e=(EchoProtocol.Horror.VS1ParallelFigureEvent)so.FindProperty("passage").objectReferenceValue;
+  if(missing!=0||!e.UsesPhysicalTraversal||!e.isActiveAndEnabled)throw new Exception("Candidate configuration failed.");
+  string report="scene="+scene.path+"\nmissingScripts="+missing+"\nsceneDirty="+scene.isDirty+"\nlights="+all.Sum(t=>t.GetComponents<Light>().Length)+"\naudioSources="+all.Sum(t=>t.GetComponents<AudioSource>().Length)+"\n"+string.Join("\n",rows)+"\n";
+  Directory.CreateDirectory("Docs/VisualEvidence/2026-10-01-Candidate");File.WriteAllText("Docs/VisualEvidence/2026-10-01-Candidate/configuration.txt",report);return report;
+ }
+}

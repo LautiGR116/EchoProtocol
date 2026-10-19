@@ -1,0 +1,16 @@
+Actual Player camera; Camera captures omit OnGUI, Game captures include it.
+initial-protocol-00-title position=(0.000, 1.600, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title
+initial-protocol-notes-initial position=(0.000, 1.630, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title/session_notes_initial
+initial-protocol-reception-arrival position=(0.323, 1.630, -5.573) euler=(0.00, 0.00, 0.00) FOV=60 paused=False step=registration_letter_approach
+initial-protocol-reception-document position=(0.323, 1.630, -5.573) euler=(24.04, 1.32, 0.00) FOV=60 paused=True step=registration_letter_document
+initial-protocol-orientation-P1-entry position=(-2.675, 1.630, -5.350) euler=(0.00, 0.00, 0.00) FOV=60 paused=False step=P1_record
+initial-protocol-orientation-P1-A-arrival position=(-2.697, 1.630, 1.347) euler=(0.00, 0.00, 0.00) FOV=60 paused=False step=P1_record
+initial-protocol-reader-A-approach-idle position=(-2.697, 1.630, 1.347) euler=(7.50, 55.05, 0.00) FOV=60 paused=False step=P1_record
+initial-protocol-reader-A-aligned position=(-2.697, 1.630, 2.933) euler=(9.12, 88.38, 0.00) FOV=60 paused=False step=P1_record
+initial-protocol-orientation-P1-A-preview position=(-2.697, 1.630, 2.933) euler=(9.12, 88.38, 0.00) FOV=60 paused=False step=P1_record
+initial-protocol-reader-B-approach-idle position=(-2.697, 1.630, 9.332) euler=(7.48, 54.82, 0.00) FOV=60 paused=False step=P1_record
+initial-protocol-reader-B-aligned position=(-2.697, 1.630, 10.942) euler=(9.12, 88.60, 0.00) FOV=60 paused=False step=P1_record
+initial-protocol-reader-C-approach-idle position=(3.403, 1.630, 8.554) euler=(12.63, 31.50, 0.00) FOV=60 paused=False step=P1_cooperate
+initial-protocol-reader-C-aligned position=(3.403, 1.630, 9.965) euler=(23.19, 87.73, 0.00) FOV=60 paused=False step=P1_cooperate
+initial-protocol-01-P1 position=(3.403, 1.630, 9.965) euler=(23.19, 87.73, 0.00) FOV=60 paused=False step=P1_cooperate
+initial-protocol-P1-complete-paused position=(3.403, 1.630, 9.965) euler=(23.19, 87.73, 0.00) FOV=60 paused=True step=initial_protocol_complete_pause

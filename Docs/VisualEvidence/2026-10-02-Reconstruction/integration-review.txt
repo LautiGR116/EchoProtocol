@@ -1,0 +1,28 @@
+RECONSTRUCTION INTEGRATION REVIEW — 2026-10-02
+
+The continuous input-driven title-to-ending route passed on the mature adult
+model, both revised puzzles, focus HUD and progressive guidance. The passive
+interaction observer confirmed 24 dispatches; the environmental observer passed.
+
+Two issues were caught before build:
+- Visual inspection of the P1 A preview: the existing dynamic backplate retained
+  its original 90-degree rotation while receiving world-oriented dimensions.
+  The plate looked edge-on and hid part of its own status. Corrected its rotation
+  and dimensions together through Editor API. No collider or gameplay change.
+- The configured-object audit initially included preserved inactive prototype
+  loops. After restricting ownership checks to enabled scene owners, it exposed
+  a real bad reference: ContextualHints.loop pointed to inactive M4 instead of
+  the enabled VS1 loop. Corrected the serialized reference through Editor API.
+  First/next time hints and explicit help had worked; actual RECALL attempts had
+  not reduced their delays through that reference. The final hint test now uses
+  production 45/65-second defaults and actual R attempts rather than shortened
+  test thresholds. Earlier fixture evidence is preserved separately.
+
+Configured audit passes after both corrections: explicit references, two
+receivers, 10 materials, shared depth geometry, shader without errors, no missing
+scripts, no Echo animation/audio and independent Reconstruction checkpoint.
+Final targeted visual/hint checks and save/build evidence are separate files.
+
+The first production-delay hint probe attempted R without ever moving. It correctly produced no take because the existing recorder is armed until movement. That harness failure is retained in puzzle-hints-unarmed-test. The corrected route moves physically before each R and passes with no gameplay fixtures.
+
+No automated result is recorded as new human playtest evidence.

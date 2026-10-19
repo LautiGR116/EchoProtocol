@@ -1,0 +1,1 @@
+Post rules PASS in actual PlayMode: 0 Console errors, exit SlidingDoorAudio MotorStartCount=1, EndpointCueCount=1, SessionAudio.targetFinalGain=0 at ending. Root read via Editor API. Actual hearing, timbre, comfort and perceptual effect remain untested.

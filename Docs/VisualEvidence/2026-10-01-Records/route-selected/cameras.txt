@@ -1,0 +1,10 @@
+Actual Player camera after one initial fixture; input-only poses thereafter.
+00-approach position=(-18.60, 1.63, 30.00) rotation=(0.00, 180.00, 0.00)
+01-entry-aperture position=(-18.60, 1.63, 27.09) rotation=(0.00, 270.00, 0.00)
+02-interior-aisle position=(-21.09, 1.63, 24.57) rotation=(0.00, 180.00, 0.00)
+03-north-gallery-view position=(-21.09, 1.63, 24.57) rotation=(0.00, 60.00, 0.00)
+04-gallery-through-glass position=(-21.09, 1.63, 21.08) rotation=(0.00, 145.00, 0.00)
+05-exit-approach position=(-21.09, 1.63, 18.08) rotation=(0.00, 180.00, 0.00)
+05-south-exit position=(-21.09, 1.63, 15.07) rotation=(0.00, 90.00, 0.00)
+06-return-to-gallery position=(-18.66, 1.63, 13.08) rotation=(0.00, 180.00, 0.00)
+07-solid-partition position=(-18.65, 1.63, 25.85) rotation=(0.00, 180.00, 0.00)

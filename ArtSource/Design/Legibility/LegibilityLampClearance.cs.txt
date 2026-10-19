@@ -1,0 +1,14 @@
+using System;
+using System.Linq;
+using System.IO;
+using UnityEngine;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using EchoProtocol.Presentation;
+public static class LegibilityLampClearance {
+ public static void Main(){var s=UnityEngine.SceneManagement.SceneManager.GetActiveScene();if(EditorApplication.isPlaying||s.path!="Assets/_Game/Scenes/Production/EchoProtocol_Legibility.unity")throw new Exception("Legibility edit scene required");
+ var root=GameObject.Find("Legibility / reader task lamps").transform;
+ foreach(Transform t in root){if(!t.name.StartsWith("Reader "))continue;t.position+=Vector3.up*.32f;}
+ foreach(var l in root.GetComponentsInChildren<LinkedTaskLight>()){var so=new SerializedObject(l);so.FindProperty("taskIntensity").floatValue=3.4f;so.ApplyModifiedPropertiesWithoutUndo();l.GetComponent<Light>().intensity=3.4f;l.GetComponent<Light>().range=2.5f;l.transform.LookAt(new Vector3(l.transform.position.x+.64f,1.18f,l.transform.position.z));}
+ EditorSceneManager.MarkSceneDirty(s);EditorSceneManager.SaveScene(s);AssetDatabase.SaveAssets();File.AppendAllText("Docs/VisualEvidence/2026-10-02-Legibility/authoring.txt","Final P1 camera correction: reader canopies raised .32m to clear existing letter markers from the ordinary alignment view; task gain3.4/range2.5 retains the same circuit ratio. Focused P1 input review required after this visual-only correction.\n");}
+}

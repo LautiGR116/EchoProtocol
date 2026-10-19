@@ -1,0 +1,7 @@
+Actual Player camera; Camera captures omit OnGUI, Game captures include it.
+campaign-00-title position=(0.000, 1.600, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title
+campaign-01-P1 position=(3.300, 1.630, 9.919) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=P1_cooperate
+campaign-pause-SE1_empty_lane position=(3.300, 1.630, 9.919) euler=(0.00, 306.00, 0.00) FOV=60 paused=True step=SE1_empty_lane/keyboard_pause
+campaign-02-SE1 position=(3.300, 1.630, 9.919) euler=(0.00, 306.00, 0.00) FOV=60 paused=False step=SE1_consequence
+campaign-reader-P2-aligned position=(-2.696, 1.630, 22.999) euler=(10.55, 87.15, 0.00) FOV=60 paused=False step=P2_record
+campaign-SE2-cold-approach position=(2.214, 1.630, 29.059) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=SE2_physical_cold_approach

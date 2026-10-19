@@ -1,0 +1,41 @@
+Original serialized objects: 2279; retained: 2279; changed: 3; added: 302; removed: 0.
+Only hierarchy changes: original west-wall parent and two child lists.
+--- before 242501451
++++ after 242501451
+@@ -13,7 +13,6 @@
+   m_Children:
+   - {fileID: 1847093537}
+   - {fileID: 1980805435}
+-  - {fileID: 2078603825}
+   - {fileID: 1685098391}
+   - {fileID: 1025816223}
+   - {fileID: 315880796}
+--- before 1784062526
++++ after 1784062526
+@@ -15,5 +15,6 @@
+   - {fileID: 1776974357}
+   - {fileID: 820959453}
+   - {fileID: 2023597561}
++  - {fileID: 1715160585}
+   m_Father: {fileID: 0}
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- before 2078603825
++++ after 2078603825
+@@ -11,5 +11,5 @@
+   m_LocalScale: {x: 0.2, y: 3.2, z: 5.1}
+   m_ConstrainProportionsScale: 0
+   m_Children: []
+-  m_Father: {fileID: 242501451}
++  m_Father: {fileID: 254099324}
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+LoopController.cs: byte-identical to task-start state.
+--- SE3 before
++++ SE3 after
+@@ -25,6 +25,7 @@
+ 
+         public EventPhase CurrentPhase { get; private set; }
+         public int RevealCount { get; private set; }
++        public bool IsComplete => CurrentPhase == EventPhase.Revealed;
+         public bool IsOverlayVisible => domesticOverlayRoot != null
+             && domesticOverlayRoot.activeInHierarchy;
+         public bool IsClinicalVisible => clinicalBaselineRoot != null

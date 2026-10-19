@@ -1,0 +1,10 @@
+{
+  "result": "Succeeded",
+  "errors": 0,
+  "warnings": 346,
+  "bytes": 223932133,
+  "seconds": 16.374363,
+  "output": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Resonance-QA-20261008/EchoProtocol.app",
+  "development": false,
+  "qa": true
+}

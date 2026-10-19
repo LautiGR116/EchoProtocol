@@ -1,0 +1,14 @@
+Static CAMERA-only fixtures after input-driven R1 completion, Time.timeScale=0. Player/Echo/progression unchanged. Each cold/warm pair renders in the same frame through actual camera/shadow budget; no human visibility claim.
+pose	hidden	changedPixels	meanRGBAbsoluteDifference	maximumChannelDifference	solidContactStable
+south-0	True	295525	0.482733	14	True
+south-90	True	271623	0.441913	2	True
+south-180	True	270463	0.442746	2	True
+south-270	True	265712	0.419061	2	True
+north-0	True	287117	0.479327	2	True
+north-90	False	270949	0.428564	2	True
+north-180	False	264535	0.495926	18	True
+north-270	True	275304	0.466640	2	True
+approach-0	True	286850	0.470310	2	True
+approach-90	False	314768	3.617847	200	True
+approach-180	True	256079	0.407618	2	True
+approach-270	True	274784	0.447854	2	True

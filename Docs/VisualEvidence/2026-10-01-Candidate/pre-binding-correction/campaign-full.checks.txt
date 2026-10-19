@@ -1,0 +1,175 @@
+CONTINUOUS TITLE TO ENDING. Zero fixtures or direct gameplay mutations. Input System keyboard/mouse only. Unexpected pauses fail rather than being resumed.
+PASS [title] Threshold systems exist
+PASS [title] all original-act, new house and new final references exist
+PASS [title] optional isolation has its single configured physical audio owner
+PASS [title] isolation begins untouched at the real title without a restored fixture
+PASS [title] optional recording boundary shares the actual campaign, R3 and loop
+PASS [title] boundary starts unused and its actual Hub arrival guidance is authored
+PASS [title] physical descent guide starts hidden with an explicit Hub arrival volume
+PASS [title] run begins at the actual paused title, before gameplay
+PASS [title] title has no earned progress, saved restoration or prior recording
+PASS [title] Threshold replaces D1 with actual R3 availability
+PASS [title] real look sensitivity is nonzero
+PASS [title] Enter starts the actual title session through input
+PASS [title/session_notes_initial] H opens contextual notes through real input and pauses world/audio
+PASS [title/session_notes_initial] notes resolve the actual configured stage
+PASS [title/session_notes_initial] reading notes with movement/R held leaves the actual recording, Echo, Player and event unchanged
+PASS [title/session_notes_initial] H/Escape closes notes and restores exactly the prior controls
+PASS [title/session_notes_initial] notes can also be requested from the real pause menu
+PASS [title/session_notes_initial] closing notes requested from pause returns to pause without resuming the world
+PASS [title/session_notes_initial] explicit Escape resumes after returning from notes to pause
+PASS [P1_record] first-act gates start sealed
+PASS [P1_record] P1 A previews from the actual Player
+PASS [P1_record] RECALL has actual movement frames to finish
+PASS [P1_record] one real R completes exactly one actual take
+PASS [P1_record] RECALL placement creates no physical footstep
+PASS [P1_cooperate] P1 completes through real Echo A/B and Player cooperation
+PASS [SE1_empty_lane/keyboard_pause] Escape opens the actual pause menu
+PASS [SE1_empty_lane/keyboard_pause] real paused movement and R input leave clock, Player and loop unchanged
+PASS [SE1_empty_lane/keyboard_pause] real menu pause freezes recording, Echo playback and the authored strong event
+PASS [SE1_empty_lane/keyboard_pause] Escape restores actual Player control
+PASS [SE1_consequence] SE1 follows the actual empty-lane check
+PASS [SE1_consequence] all three reaimed reader fixtures still extinguish through the original SE1 circuit
+PASS [domestic_checkpoint] real domestic crossing establishes the first checkpoint and slam
+PASS [P2_record] Player previews P2 while recording the genuine hold
+PASS [P2_record] P2-aligned: actual trigger/facing owns indicator; survey uses only keyboard/mouse
+PASS [P2_record/session_notes_P2] H opens contextual notes through real input and pauses world/audio
+PASS [P2_record/session_notes_P2] notes resolve the actual configured stage
+PASS [P2_record/session_notes_P2] reading notes with movement/R held leaves the actual recording, Echo, Player and event unchanged
+PASS [P2_record/session_notes_P2] H/Escape closes notes and restores exactly the prior controls
+PASS [P2_record] RECALL has actual movement frames to finish
+PASS [P2_record] one real R completes exactly one actual take
+PASS [P2_record] RECALL placement creates no physical footstep
+PASS [P2_record] actual Echo holds P2
+PASS [P2_record] R1 remains sealed before SE3
+PASS [SE2_physical_approach] genuine P2 crossing admits the physical room and preserves its earned presentation state
+PASS [SE2_physical_approach/session_notes_passage] H opens contextual notes through real input and pauses world/audio
+PASS [SE2_physical_approach/session_notes_passage] notes resolve the actual configured stage
+PASS [SE2_physical_approach/session_notes_passage] reading notes with movement/R held leaves the actual recording, Echo, Player and event unchanged
+PASS [SE2_physical_approach/session_notes_passage] H/Escape closes notes and restores exactly the prior controls
+PASS [SE2_south_refuge] whole-envelope occlusion presents the room before visiting it; reveal alone earns no completion
+PASS [SE2_south_refuge/keyboard_pause] Escape opens the actual pause menu
+PASS [SE2_south_refuge/keyboard_pause] real paused movement and R input leave clock, Player and loop unchanged
+PASS [SE2_south_refuge/keyboard_pause] real menu pause freezes recording, Echo playback and the authored strong event
+PASS [SE2_south_refuge/keyboard_pause] Escape restores actual Player control
+PASS [SE2_south_refuge] real pause at the refuge preserves presentation and earns no visit or traversal
+PASS [SE2_south_refuge] actual movement enters the domestic floor; no timer or forced gaze completes it
+PASS [SE2_physical_return] physical return completes SE2 once; the original SE3 return still owns R1 opening
+PASS [SE2_physical_return] actual SE2 entry and return complete without a gaze timer
+PASS [SE3_return] genuine SE3 return opens R1
+PASS [R1_anchor] R1 Central observation station is within the actual interaction range
+PASS [R1_anchor] center-camera ray reaches R1 Central observation station
+PASS [R1_anchor] R1 Central observation station accepts the actual Player in the current chapter
+PASS [R1_anchor] real anchor E establishes R1 without teleport or RECALL
+PASS [R1_anchor] R1 anchor discards the old take and arms an empty recorder
+PASS [P3_record/session_notes_P3] H opens contextual notes through real input and pauses world/audio
+PASS [P3_record/session_notes_P3] notes resolve the actual configured stage
+PASS [P3_record/session_notes_P3] reading notes with movement/R held leaves the actual recording, Echo, Player and event unchanged
+PASS [P3_record/session_notes_P3] H/Escape closes notes and restores exactly the prior controls
+PASS [P3_record] P3 Player A preview does not authorize the route
+PASS [P3_record] P3-A-aligned: actual trigger/facing owns indicator; survey uses only keyboard/mouse
+PASS [P3_record] P3 B hold is actually recorded
+PASS [P3_record] P3-B-aligned: actual trigger/facing owns indicator; survey uses only keyboard/mouse
+PASS [P3_record] RECALL has actual movement frames to finish
+PASS [P3_record] one real R completes exactly one actual take
+PASS [P3_record] RECALL placement creates no physical footstep
+PASS [P3_record] RECALL clears P3 authorization while retaining earned spatial consequences
+PASS [P3_cooperate] real Echo A authorizes P3
+PASS [P3_cooperate] real B hold opens the final puzzle gate, while R3 still requires Player crossing
+PASS [P3_cooperate] R3 remains locked before the final crossing plane
+PASS [P3_cooperate] recording stays live until the actual P3 exit crossing
+PASS [P3_cooperate] physical Player crossing unlocks R3 once
+PASS [P3_cooperate] the real R3 boundary suspends only the unfinished take throughout the return
+PASS [P3_cooperate] the return retains the exact P3 take and Echo without committing a recall or checkpoint
+PASS [P3_cooperate] every sample of the original P3 recording remains unchanged across the physical return
+PASS [P3_cooperate] the authored end-of-recording signal is active after the real crossing
+PASS [P3_cooperate] the actual return HUD explains why R is inactive
+PASS [P3_cooperate] the real R3 boundary suspends only the unfinished take throughout the return
+PASS [P3_cooperate] the return retains the exact P3 take and Echo without committing a recall or checkpoint
+PASS [P3_cooperate] every sample of the original P3 recording remains unchanged across the physical return
+PASS [P3_cooperate] R after the real R3 crossing neither teleports nor creates a new attempt
+PASS [P3_cooperate] distant R3 unlock does not announce the descent at the wrong location
+PASS [R3_continuous_return] the real R3 boundary suspends only the unfinished take throughout the return
+PASS [R3_continuous_return] the return retains the exact P3 take and Echo without committing a recall or checkpoint
+PASS [R3_continuous_return] every sample of the original P3 recording remains unchanged across the physical return
+PASS [R3_continuous_return] the actual R3 return physically traverses both archive openings with floor support
+PASS [R3_continuous_return] arrival interlock seals the rear before opening the Hub side
+PASS [R3_continuous_return] descent guide remains off throughout the gallery and receiving interlock
+PASS [R3_continuous_return] actual Hub arrival seals behind the Player and keeps legacy D1 disabled
+PASS [R3_continuous_return] physical Hub arrival, rather than remote R3 availability, reveals the local descent guide
+PASS [R3_continuous_return] the real R3 boundary suspends only the unfinished take throughout the return
+PASS [R3_continuous_return] the return retains the exact P3 take and Echo without committing a recall or checkpoint
+PASS [R3_continuous_return] every sample of the original P3 recording remains unchanged across the physical return
+PASS [R3_to_descent] Station / Descent is within the actual interaction range
+PASS [R3_to_descent] center-camera ray reaches Station / Descent
+PASS [R3_to_descent] Station / Descent accepts the actual Player in the current chapter
+PASS [R3_to_descent] real E proceeds directly from earned R3 to Descent without D1
+PASS [R3_to_descent] accepting Descent removes the completed local guide
+PASS [R3_to_descent] the real R3 boundary suspends only the unfinished take throughout the return
+PASS [R3_to_descent] the return retains the exact P3 take and Echo without committing a recall or checkpoint
+PASS [R3_to_descent] every sample of the original P3 recording remains unchanged across the physical return
+PASS [isolation_physical_entry] isolation approach begins in the earned Descent with P3 already suspended by the real return boundary
+PASS [isolation_physical_entry] the real R3 boundary suspends only the unfinished take throughout the return
+PASS [isolation_physical_entry] the return retains the exact P3 take and Echo without committing a recall or checkpoint
+PASS [isolation_physical_entry] every sample of the original P3 recording remains unchanged across the physical return
+PASS [isolation_physical_entry] four distinct local sources use authored spatial playback and respect listener pause
+PASS [isolation_physical_entry] the operating plant is audible-source-ready before entry with no fabricated latch or purge
+PASS [isolation_physical_entry] physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL
+PASS [isolation_physical_entry] isolation never changes the deterministic recording cap or cadence
+PASS [isolation_physical_entry] R at physical basement entry cannot move the Player
+PASS [isolation_physical_entry] physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL
+PASS [isolation_physical_entry] isolation never changes the deterministic recording cap or cadence
+PASS [isolation_physical_entry] the opt-in chapter exposes no legacy recorder/valve callbacks
+PASS [isolation_physical_entry] two separate pressure needles, live work lights and the closed mechanical exit are explicitly authored
+PASS [isolation_short_tap] the physical approach reaches the authored grip without pose placement
+PASS [isolation_short_tap] the real camera ray resolves the isolation control and accepts a new physical grip
+PASS [isolation_short_tap] a real short E tap returns the handle and stops friction without a latch, purge or progression
+PASS [isolation_pause_while_held] the physical approach reaches the authored grip without pose placement
+PASS [isolation_pause_while_held] the real camera ray resolves the isolation control and accepts a new physical grip
+PASS [isolation_pause_while_held] the real held action physically rotates a partial, unlatched control
+PASS [isolation_pause_while_held] real handle motion drives its own local friction source
+PASS [isolation_pause_while_held] real Escape cancels grip and pauses listener playback while E remains held
+PASS [isolation_pause_while_held] paused held input freezes the physical state and produces no new machine audio trigger
+PASS [isolation_pause_while_held] real held-action pause freezes the visible pump rotor
+PASS [isolation_pause_while_held] resuming with E still held cannot automatically regrip or latch
+PASS [isolation_pause_while_held] releasing the real key allows a complete physical return before a new action
+PASS [isolation_live_commit] the physical approach reaches the authored grip without pose placement
+PASS [isolation_live_commit] the real camera ray resolves the isolation control and accepts a new physical grip
+PASS [isolation_live_commit] one fresh sustained E mechanically latches and starts an autonomous pressure and motor decay
+PASS [isolation_live_commit] the actual work lights cut at commit while the pressurized exit stays closed
+PASS [isolation_live_commit] the live commit produces one stop impulse and one localized purge while the motor coasts down
+PASS [isolation_live_commit] physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL
+PASS [isolation_live_commit] isolation never changes the deterministic recording cap or cadence
+PASS [isolation_walk_past_purge] walking to valve B completes one autonomous drain with pressure, motor and work lighting off
+PASS [isolation_walk_past_purge] pressure needle 0 physically reaches its authored zero angle
+PASS [isolation_walk_past_purge] pressure needle 1 physically reaches its authored zero angle
+PASS [isolation_walk_past_purge] the passed machine has no local loop or impulse still playing after drainage; no new trigger occurred
+PASS [isolation_walk_past_purge] machine silence does not change listener gain or disable the actual Player and footsteps
+PASS [isolation_walk_past_purge] actual visible rotor remains stopped after its owning motor reaches zero
+PASS [isolation_walk_past_purge] physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL
+PASS [isolation_walk_past_purge] isolation never changes the deterministic recording cap or cadence
+PASS [isolation_walk_past_purge] machine audio source 0 remains at its authored physical anchor
+PASS [isolation_walk_past_purge] machine audio source 1 remains at its authored physical anchor
+PASS [isolation_walk_past_purge] machine audio source 2 remains at its authored physical anchor
+PASS [isolation_walk_past_purge] machine audio source 3 remains at its authored physical anchor
+PASS [isolation_walk_past_purge] passing through the open exit cannot restart the isolated plant
+PASS [house_entry] Station / HouseOrigin is within the actual interaction range
+PASS [house_entry] center-camera ray reaches Station / HouseOrigin
+PASS [house_entry] Station / HouseOrigin accepts the actual Player in the current chapter
+PASS [house_entry] earned pressure access and real E enter the house with recording suspended
+PASS [house_entry] physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL
+PASS [house_entry] isolation never changes the deterministic recording cap or cadence
+PASS [house_entry] entering the house does not restart the isolated plant
+PASS [house_entry] house begins without fabricated domestic progress
+PASS [house_entry] authored fuse representation exists: hallFuse
+PASS [house_entry] hallFuse agrees with the single reserve state
+PASS [house_entry] authored fuse representation exists: kitchenFuse
+PASS [house_entry] kitchenFuse agrees with the single reserve state
+PASS [house_entry] authored fuse representation exists: bedroomFuse
+PASS [house_entry] bedroomFuse agrees with the single reserve state
+PASS [house_entry] carried mesh agrees with reserve state
+PASS [house_entry] reserve never has duplicate physical representations
+PASS [house_entry] real R input cannot reset or record the house
+PASS [house_entry] physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL
+PASS [house_entry] isolation never changes the deterministic recording cap or cadence
+PASS [house_entry] R leaves the reserve and key unchanged

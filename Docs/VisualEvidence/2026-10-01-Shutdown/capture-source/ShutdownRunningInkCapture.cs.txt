@@ -1,0 +1,25 @@
+using System;
+using System.IO;
+using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEditor;
+using EchoProtocol.Player;
+public static class ShutdownRunningInkCapture
+{
+ public static object Main()
+ {
+  UnityEngine.Object.FindFirstObjectByType<EchoProtocol.Campaign.PressureIsolation>().RestoreState(false);
+  var source=UnityEngine.Object.FindFirstObjectByType<FirstPersonController>().GetComponentInChildren<Camera>();
+  var go=new GameObject("Temporary restored-pressure ink survey");var c=go.AddComponent<Camera>();c.CopyFrom(source);c.enabled=false;
+  var data=go.AddComponent<UniversalAdditionalCameraData>();EditorUtility.CopySerialized(source.GetComponent<UniversalAdditionalCameraData>(),data);
+  string output="Docs/VisualEvidence/2026-10-01-Shutdown/ink-running-virtual";Directory.CreateDirectory(output);
+  var positions=new[]{new Vector3(4.36f,1.63f,-35.361f)};
+  var angles=new[]{new Vector3(8.02f,106.53f,0)};
+  string[] names={"control-running"};
+  var rt=new RenderTexture(1280,720,24);var tex=new Texture2D(1280,720,TextureFormat.RGB24,false);var active=RenderTexture.active;
+  try{for(int i=0;i<positions.Length;i++){c.transform.SetPositionAndRotation(positions[i],Quaternion.Euler(angles[i]));c.targetTexture=rt;c.Render();RenderTexture.active=rt;tex.ReadPixels(new Rect(0,0,1280,720),0,0);tex.Apply();File.WriteAllBytes(output+"/"+names[i]+".png",tex.EncodeToPNG());}}
+  finally{c.targetTexture=null;RenderTexture.active=active;UnityEngine.Object.Destroy(go);UnityEngine.Object.Destroy(rt);UnityEngine.Object.Destroy(tex);}
+  File.WriteAllText(output+"/SCOPE.md","Stationary cloned gameplay camera after the completed checkpoint test, with one explicit RestoreState(false) visual fixture while paused. Same camera pose as the stopped capture, original work lights enabled by their owner. No Player input or new route claim; this pair selects incident-light response of planar ink, not motor motion.\n");
+  return new{output,captures=1,scope="Virtual planning views, not actual Player input"};
+ }
+}

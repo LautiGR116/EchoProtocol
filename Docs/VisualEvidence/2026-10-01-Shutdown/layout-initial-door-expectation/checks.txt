@@ -1,0 +1,13 @@
+One explicit initial chapter/lighting/pose fixture; synthetic physical input thereafter. No whole campaign, human perception/listening or performance claim.
+PASS authored Shutdown successor selected
+PASS sole initial fixture restores completed first-act lighting
+PASS real physical entry activates isolation and its chapter
+PASS new oblique control can be gripped through the actual interaction ray
+PASS short real E does not latch and the handle returns
+PASS one real sustained E owns one detent and purge
+PASS the actual motor/pressure owners settle to stopped without synthetic state writes
+PASS the work circuit is dark after the detent
+FAIL System.Exception: actual drainage opens the physical exit
+  at ShutdownPresentationProbe.Check (System.Boolean ok, System.String text) [0x00020] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ShutdownPresentationProbe.cs:35 
+  at ShutdownPresentationProbe+<Execute>d__35.MoveNext () [0x00527] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ShutdownPresentationProbe.cs:60 
+  at ShutdownPresentationProbe+<Guarded>d__34.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ShutdownPresentationProbe.cs:36 

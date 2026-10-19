@@ -1,0 +1,36 @@
+using System;using System.Linq;using System.IO;using System.Collections;using System.Collections.Generic;using System.Reflection;using UnityEngine;using UnityEngine.SceneManagement;using EchoProtocol.Campaign;using EchoProtocol.Echo;using EchoProtocol.Player;using EchoProtocol.Presentation;using EchoProtocol.Puzzle;
+public sealed class CoverageCheckpointChecks:MonoBehaviour {
+static BindingFlags privateFlags=BindingFlags.Instance|BindingFlags.NonPublic;
+const string output="Docs/VisualEvidence/2026-10-09-Coverage/checkpoint-final";
+string scene,key;int checks,reloads,fixtures;bool done;string status="running";
+CampaignDirector campaign;MachineCoverEncounter cover;GameSession session;LoopController loop;EchoRecorder recorder;FirstPersonController player;
+readonly List<Tuple<string,bool,int>> old=new List<Tuple<string,bool,int>>();
+public static string Main(){if(!Application.isPlaying)throw new Exception("Fresh Play Mode required");var g=new GameObject("Explicit Coverage save/load fixtures");DontDestroyOnLoad(g);var p=g.AddComponent<CoverageCheckpointChecks>();p.StartCoroutine(p.Guarded(p.Run()));return "started explicit fixture checks, separate from normal route";}
+static T Field<T>(object o,string n)=>(T)o.GetType().GetField(n,privateFlags).GetValue(o);
+void Check(bool b,string message){if(!b)throw new Exception(message);checks++;File.AppendAllText(output+".checks.txt","PASS "+message+"\n");}
+void Resolve(){campaign=FindFirstObjectByType<CampaignDirector>();cover=campaign.CoverEncounter;session=FindFirstObjectByType<GameSession>();loop=cover.Loop;player=FindFirstObjectByType<FirstPersonController>();recorder=player.GetComponent<EchoRecorder>();}
+IEnumerator Guarded(IEnumerator r){var s=new Stack<IEnumerator>();s.Push(r);while(s.Count>0){object n;try{if(!s.Peek().MoveNext()){s.Pop();continue;}n=s.Peek().Current;}catch(Exception e){Finish(false,e.ToString());yield break;}if(n is IEnumerator i)s.Push(i);else yield return n;}}
+IEnumerator Reload(){if(session)session.SetPaused(true);var a=SceneManager.LoadSceneAsync(scene);while(!a.isDone)yield return null;yield return null;Resolve();reloads++;}
+IEnumerator Run(){
+yield return null;scene=SceneManager.GetActiveScene().path;Resolve();key=Field<string>(campaign,"checkpointKey");Directory.CreateDirectory(Path.GetDirectoryName(output));File.WriteAllText(output+".checks.txt","EXPLICIT SAVE/LOAD FIXTURES: canonical incomplete/prepared/threat/complete states. Public encounter and Continue APIs, actual preferences and fresh scene reloads. No continuous-play claim.\n");
+foreach(string s in new[]{"",".covered",".answered",".light"})old.Add(Tuple.Create(key+s,PlayerPrefs.HasKey(key+s),PlayerPrefs.GetInt(key+s)));
+foreach(int state in new[]{0,1,2,3}){
+yield return Reload();session.BeginOrResume();campaign.SuppressSaves=false;Check(campaign.BeginCoverPreview(),"authored preview entry saves pressure chapter");fixtures++;
+if(state>=1){cover.AcceptWork(MachineCoverInteraction.Kind.Crank);fixtures++;}
+if(state>=2){cover.AcceptWork(MachineCoverInteraction.Kind.Release);fixtures++;}
+if(state==3){cover.RestoreState(true);campaign.CommitMachineCover();fixtures++;}
+Check(PlayerPrefs.GetInt(key,-1)==(int)CampaignChapter.Pressure&&PlayerPrefs.GetInt(key+".covered",-1)==(state==3?1:0),"state "+state+" persists only committed exit completion");
+yield return Reload();Check(session.IsPaused&&!session.HasStarted&&campaign.HasSavedCheckpoint,"fresh title offers actual Continue for state "+state);
+session.BeginOrResume();Check(campaign.RestoreCheckpoint(),"public Continue reloads state "+state);yield return new WaitForSecondsRealtime(.2f);
+Check(cover.Active&&cover.Complete==(state==3)&&!cover.Failed&&cover.BoltReleased==(state==3)&&cover.ExitReleased==(state==3),"Continue safely resets partial work or preserves the earned exit");
+Check(!cover.Machine.PlayerHeld&&!cover.Machine.ReplayHeld&&cover.Pressure01==0&&!Field<MachineCoverThreat>(cover,"threat").Released,"Continue fabricates no held command or present threat");
+Check(loop.LastRecording==null&&loop.ActiveEcho==null&&loop.enabled==(state!=3)&&recorder.IsRecording==(state!=3),"fresh recording is armed only for incomplete attempt; no fabricated saved Echo");
+Check(Vector3.Distance(player.transform.position,cover.Origin.position)<.06f,"safe authored continuation origin");
+foreach(string gate in new[]{"serviceGate","returnGate","exitDoor"})Check(state==3?Field<SlidingDoor>(cover,gate).IsFullyOpen:Field<SlidingDoor>(cover,gate).IsFullyClosed,"actual "+gate+" agrees with the saved result");
+Check(!Field<AudioSource>(cover,"motor").isPlaying&&!Field<AudioSource>(cover,"purge").isPlaying,"Continue does not replay the machine or discharge cue");
+Check(Field<EchoProtocol.Audio.SlidingDoorAudio[]>(cover,"gateAudio").All(a=>a.MotorStartCount==0&&a.EndpointCueCount==0),"canonical load never sounds a gate teleport as movement");
+}
+Finish(true,"");}
+void Finish(bool pass,string error){if(done)return;done=true;foreach(var p in old){if(p.Item2)PlayerPrefs.SetInt(p.Item1,p.Item3);else PlayerPrefs.DeleteKey(p.Item1);}PlayerPrefs.Save();status=pass?"PASS":"FAIL";File.WriteAllText(output+".json",Newtonsoft.Json.JsonConvert.SerializeObject(new{status,error,checks,reloads,explicitFixtures=fixtures,preferencesRestored=true,scope="Explicit public API state fixtures, actual save/load and fresh scenes; separate from normal controls route."},Newtonsoft.Json.Formatting.Indented));Debug.Log("Coverage checkpoint "+status+" "+error);}
+void OnDestroy(){if(!done)Finish(false,"interrupted");}
+}

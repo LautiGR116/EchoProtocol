@@ -1,0 +1,43 @@
+VS1-R2 verification — 2026-09-12, Unity 6000.3.21f1 / URP
+
+The complete evidence method, limitations and human procedure are documented
+in Docs/ARCHITECTURE.md and Docs/ROADMAP.md (R2 sections).
+
+positive.checks.txt: 66 assertions passed, 12 actual Input System R presses.
+positive.csv: approximately 10 Hz trace; successful R count ends at 12.
+geometry.txt: 6,402 support samples, 4,470 boundary rays, both gate cross sections,
+explicit references and 29 reset targets; 85 assertions passed.
+topology.txt: four 0.15 m capsule-grid flood-fill cases passed; capsule radius
+0.29 m is a conservative clearance check, supplemented by actual Player movement.
+preservation.txt: no original serialized objects removed, only seven changed.
+cameras.txt: real Player-camera poses. The six delivered PNGs are unedited.
+
+The harness seeds the domestic checkpoint and approximates SE1's completed
+blackout once. The domestic door remains closed. No later Player pose writes,
+SE2/SE3 force-completion or synthetic Echo recording occurs. Full P1/SE1 was
+not replayed; saved objects and original gameplay scripts were preserved.
+
+The first visual pass had mirrored/overlay text and lacked an enclosed lightwell.
+The final suite was repeated after these corrections. Two Editor label commands
+partially failed on null default font material; explicit font assignment fixed
+the authoring problem. An MCP attempt to delete the temporary probe reported
+unsupported user interaction; only the task-created C# source/meta were then
+removed directly from disk and reimported. No scene YAML was hand-edited.
+
+Source/ preserves the successful runtime harness and principal Editor build/audit
+commands. BuildR2.cs and FinishGeometry.cs are staged authoring commands, not a
+one-click recreation of every later label/reference correction. The saved scene
+is the authoritative final configuration. Reimport R2ValidationProbe.cs temporarily,
+enter Play and call R2ValidationProbe.Run("positive") to repeat the route suite;
+remove it afterward. The test uses virtual keyboard/mouse devices and allows
+Editor-unfocused input; these are test accommodations, not game features.
+
+Human clarity, tension, timing comfort, orientation and recovery remain EN PRUEBA.
+R1's creator approval covers visual/spatial direction and legibility only.
+
+Final deliverable check: runtime probe removed; clean startup passes with original
+spawn revision 0, closed R1, inactive P3, neutral anchor, SE2 AwaitingCrossing,
+SE3 AwaitingSE2 and P1/P2/SE1 enabled. Final Unity Console query contains zero
+errors and zero warnings. Scene saved and Play Mode stopped. No commit created.
+Repository-wide whitespace checking reports pre-existing Unity-serialized empty
+fields in EchoPrototype.unity; task-owned documentation and C# are clean.

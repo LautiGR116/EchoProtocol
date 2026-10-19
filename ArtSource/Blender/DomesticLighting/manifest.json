@@ -1,0 +1,284 @@
+{
+  "date": "2026-10-01",
+  "authorship": "Original project model and source. No external models/images/fonts/textures/services. Procedural linen preview bump is not baked or exported.",
+  "axis_contract": "Source X width,-Y front,Z up. Current Unity importer maps (-X,Z,-Y). Negate imported root localScale.x once; preserve imported magnitudes/rotation; then placementRotation * importedRotation. Corrected map (X,Z,-Y). Direction comes from marker position differences.",
+  "materials": {
+    "DL_BaseEnamel": {
+      "color": [
+        0.052,
+        0.067,
+        0.052,
+        1
+      ],
+      "roughness": 0.49,
+      "metallic": 0.36
+    },
+    "DL_Brass": {
+      "color": [
+        0.27,
+        0.188,
+        0.088,
+        1
+      ],
+      "roughness": 0.42,
+      "metallic": 0.75
+    },
+    "DL_Walnut": {
+      "color": [
+        0.1,
+        0.052,
+        0.024,
+        1
+      ],
+      "roughness": 0.5,
+      "metallic": 0
+    },
+    "DL_ShadeLinen": {
+      "color": [
+        0.49,
+        0.425,
+        0.306,
+        1
+      ],
+      "roughness": 0.88,
+      "metallic": 0
+    },
+    "DL_ShadeBinding": {
+      "color": [
+        0.285,
+        0.248,
+        0.18,
+        1
+      ],
+      "roughness": 0.84,
+      "metallic": 0
+    },
+    "DL_InnerDiffuser": {
+      "color": [
+        0.69,
+        0.64,
+        0.5,
+        1
+      ],
+      "roughness": 0.83,
+      "metallic": 0
+    },
+    "DL_OpalBulb": {
+      "color": [
+        0.79,
+        0.735,
+        0.58,
+        1
+      ],
+      "roughness": 0.36,
+      "metallic": 0
+    },
+    "DL_Rubber": {
+      "color": [
+        0.012,
+        0.016,
+        0.012,
+        1
+      ],
+      "roughness": 0.77,
+      "metallic": 0
+    },
+    "DL_Bakelite": {
+      "color": [
+        0.047,
+        0.037,
+        0.022,
+        1
+      ],
+      "roughness": 0.39,
+      "metallic": 0
+    },
+    "DL_SocketIvory": {
+      "color": [
+        0.38,
+        0.385,
+        0.295,
+        1
+      ],
+      "roughness": 0.49,
+      "metallic": 0
+    }
+  },
+  "emission_contract": {
+    "exported_emission": "off; no FBX light objects",
+    "suggested_light_anchor": "FloorLamp__BULB_SOURCE",
+    "separate_surfaces": [
+      "ShadeOuter",
+      "ShadeInner",
+      "OpalBulb"
+    ],
+    "note": "DL_InnerDiffuser and DL_OpalBulb may track actual Light enabled/intensity. DL_ShadeLinen may use restrained linked emission to suggest transmitted light. Never leave any surface lit when practical is off. Shader/strength/shadow response must be set and viewed in Unity. Opaque shade can block a point light: use excluded shade shadow casting or authored aperture pools while body retains contact shadows."
+  },
+  "assets": {
+    "FloorLamp": {
+      "file": "exports/EP_DL_FloorLamp.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.23440000414848328,
+          0.23440000414848328
+        ],
+        [
+          -0.23440000414848328,
+          0.9000000357627869
+        ],
+        [
+          0.0,
+          1.6160000562667847
+        ]
+      ],
+      "lamp_only_bounds_blender_xyz": [
+        [
+          -0.23440000414848328,
+          0.23440000414848328
+        ],
+        [
+          -0.23440000414848328,
+          0.23440000414848328
+        ],
+        [
+          0.0,
+          1.6160000562667847
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.46880000829696655,
+        1.1344000399112701,
+        1.6160000562667847
+      ],
+      "lamp_only_dimensions_width_depth_height": [
+        0.46880000829696655,
+        0.46880000829696655,
+        1.6160000562667847
+      ],
+      "materials": [
+        "DL_Bakelite",
+        "DL_BaseEnamel",
+        "DL_Brass",
+        "DL_InnerDiffuser",
+        "DL_OpalBulb",
+        "DL_Rubber",
+        "DL_ShadeBinding",
+        "DL_ShadeLinen",
+        "DL_SocketIvory",
+        "DL_Walnut"
+      ],
+      "mesh_objects": [
+        {
+          "name": "LampBody",
+          "vertices": 3430,
+          "triangles": 6768,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        {
+          "name": "ShadeOuter",
+          "vertices": 2022,
+          "triangles": 3840,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        {
+          "name": "ShadeInner",
+          "vertices": 672,
+          "triangles": 1152,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        {
+          "name": "OpalBulb",
+          "vertices": 362,
+          "triangles": 716,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        {
+          "name": "CordToRearWall",
+          "vertices": 582,
+          "triangles": 1144,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        {
+          "name": "WallSocket",
+          "vertices": 336,
+          "triangles": 652,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "anchors_blender_xyz": {
+        "FloorLamp__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "FloorLamp__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "FloorLamp__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "FloorLamp__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "FloorLamp__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ],
+        "FloorLamp__FLOOR_CONTACT": [
+          0,
+          0,
+          0
+        ],
+        "FloorLamp__BULB_SOURCE": [
+          0,
+          0,
+          1.451
+        ],
+        "FloorLamp__SHADE_CENTRE": [
+          0,
+          0,
+          1.435
+        ],
+        "FloorLamp__LIGHT_DOWN_TIP": [
+          0,
+          0,
+          1.251
+        ],
+        "FloorLamp__CORD_EXIT": [
+          0,
+          0.158,
+          0.037
+        ],
+        "FloorLamp__WALL_CONTACT": [
+          0,
+          0.9,
+          0.272
+        ],
+        "FloorLamp__WALL_NORMAL_TIP": [
+          0,
+          0.8,
+          0.272
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "label": "house-Kitchen-parlor-return",
+    "position": {
+        "x": -4.5,
+        "y": 1.6299999952316285,
+        "z": -53.599998474121097
+    },
+    "target": {
+        "x": -0.20000000298023225,
+        "y": 1.2000000476837159,
+        "z": -52.29999923706055
+    },
+    "chapter": "Archive",
+    "power": "Kitchen",
+    "answered": true,
+    "latched": true,
+    "drained": true
+}

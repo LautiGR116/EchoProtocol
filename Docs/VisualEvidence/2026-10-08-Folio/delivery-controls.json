@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "dateUTC": "2026-10-09T00:45:12.701470+00:00",
+  "method": "Actual native keyboard and coordinate mouse actions through CUA; screenshots inspected in tool transcript. Delivery app, no QA bootstrap. Not human play or complete campaign.",
+  "checks": [
+    "Shift+Tab selects exit from initial title; Tab returns to start",
+    "Enter starts; H/J/J/Enter closes final-help state and resumes",
+    "W held produces visible movement and recording timer",
+    "R resets actual player to origin and shows Echo 00.6 / 09.1 s",
+    "Esc pauses; Up/Enter restart confirmation; Esc cancels without resuming",
+    "Mouse opens settings and toggles reduced dynamics; restored original state",
+    "Esc returns to pause; C opens credited fonts; Esc returns",
+    "Mouse exit quits app"
+  ],
+  "initialSettingsRestored": true,
+  "limits": [
+    "Scoped reception/UI smoke only",
+    "Human mouse feel, sustained reading, listening and full first play pending",
+    "Earlier initial coordinate attempts failed noWindowsAvailable; subsequent actual clicks succeeded after keyboard activation"
+  ]
+}

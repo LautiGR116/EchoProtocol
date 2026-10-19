@@ -1,0 +1,5 @@
+Actual Player camera after the one initial fixture; Camera renders omit OnGUI.
+alternate-00-entry actual camera position=(0.000, 1.630, -49.500) rotation=(16.30, 97.31, 0.00) FOV=60.0 paused=False power=Hall step=enter_house
+alternate-alternate-key-before-phone actual camera position=(3.122, 1.630, -50.824) rotation=(31.33, 21.34, 0.00) FOV=60.0 paused=False power=Hall step=alternate_key_without_phone
+alternate-10-mechanical-door-open actual camera position=(0.021, 1.630, -61.004) rotation=(21.52, 180.81, 0.00) FOV=60.0 paused=False power=Hall step=unlock_and_cross_exit
+alternate-11-outside-house actual camera position=(0.021, 1.630, -63.518) rotation=(0.00, 180.00, 0.00) FOV=60.0 paused=False power=Hall step=unlock_and_cross_exit

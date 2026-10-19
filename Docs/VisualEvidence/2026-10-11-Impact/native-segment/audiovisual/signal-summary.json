@@ -1,0 +1,285 @@
+{
+  "scope": "Actual PCM after SessionAudio. Each stage names its listener volume and mono/reduced mode; compare only matched settings. RMS/peaks measure digital presence, not ear comfort or fear.",
+  "rate": 48000,
+  "channels": 2,
+  "seconds": 118.12266666666666,
+  "peakDb": -8.96,
+  "rmsDb": -31.81,
+  "samplesAtFullScale": 0,
+  "tenMsBlocksAtCeiling": 0,
+  "totalBlocks": 11812,
+  "rows": [
+    {
+      "step": "coverage_enter",
+      "start": 1.3866666666666667,
+      "end": 4.970645833333333,
+      "seconds": 3.58,
+      "peakDb": -25.4,
+      "rmsDb": -43.44,
+      "shortRms95Db": -36.91,
+      "stereoRms": [
+        -43.27,
+        -43.61
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "maxChannelDifference": 0.01385498046875
+    },
+    {
+      "step": "coverage_record_first_noise",
+      "start": 4.970666666666666,
+      "end": 17.152,
+      "seconds": 12.18,
+      "peakDb": -19.22,
+      "rmsDb": -29.26,
+      "shortRms95Db": -28.29,
+      "stereoRms": [
+        -29.61,
+        -28.94
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "maxChannelDifference": 0.009185791015625
+    },
+    {
+      "step": "coverage_record_silence",
+      "start": 17.152,
+      "end": 23.978666666666665,
+      "seconds": 6.83,
+      "peakDb": -29.44,
+      "rmsDb": -54.62,
+      "shortRms95Db": -47.98,
+      "stereoRms": [
+        -56.47,
+        -53.33
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "maxChannelDifference": 0.008819580078125
+    },
+    {
+      "step": "coverage_record_return_noise",
+      "start": 23.978666666666665,
+      "end": 44.501333333333335,
+      "seconds": 20.52,
+      "peakDb": -19.19,
+      "rmsDb": -29.3,
+      "shortRms95Db": -28.19,
+      "stereoRms": [
+        -29.65,
+        -28.98
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "maxChannelDifference": 0.00885009765625
+    },
+    {
+      "step": "coverage_playback_pause",
+      "start": 44.501333333333335,
+      "end": 46.25066666666667,
+      "seconds": 1.75,
+      "peakDb": -19.71,
+      "rmsDb": -42.23,
+      "shortRms95Db": -36.33,
+      "stereoRms": [
+        -42.24,
+        -42.23
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "maxChannelDifference": 0.0029296875
+    },
+    {
+      "step": "coverage_cross_to_crank",
+      "start": 46.25066666666667,
+      "end": 50.730666666666664,
+      "seconds": 4.48,
+      "peakDb": -20.67,
+      "rmsDb": -38.06,
+      "shortRms95Db": -31.69,
+      "stereoRms": [
+        -35.72,
+        -43.44
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "maxChannelDifference": 0.090240478515625
+    },
+    {
+      "step": "coverage_hold_crank",
+      "start": 50.730666666666664,
+      "end": 64.29866666666666,
+      "seconds": 13.57,
+      "peakDb": -15.09,
+      "rmsDb": -33.39,
+      "shortRms95Db": -31.96,
+      "stereoRms": [
+        -30.75,
+        -41.18
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "maxChannelDifference": 0.09356689453125
+    },
+    {
+      "step": "coverage_enter_service",
+      "start": 64.29866666666666,
+      "end": 66.944,
+      "seconds": 2.65,
+      "peakDb": -22.56,
+      "rmsDb": -42.49,
+      "shortRms95Db": -35.15,
+      "stereoRms": [
+        -41.69,
+        -43.48
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "maxChannelDifference": 0.061553955078125
+    },
+    {
+      "step": "coverage_hold_release",
+      "start": 66.944,
+      "end": 69.952,
+      "seconds": 3.01,
+      "peakDb": -12.93,
+      "rmsDb": -34.64,
+      "shortRms95Db": -29.16,
+      "stereoRms": [
+        -33.14,
+        -36.96
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "maxChannelDifference": 0.22357177734375
+    },
+    {
+      "step": "coverage_deliberate_failure",
+      "start": 69.952,
+      "end": 72.81066666666666,
+      "seconds": 2.86,
+      "peakDb": -8.96,
+      "rmsDb": -23.3,
+      "shortRms95Db": -18.64,
+      "stereoRms": [
+        -23.67,
+        -22.97
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "maxChannelDifference": 0.144561767578125
+    },
+    {
+      "step": "coverage_cross_to_crank",
+      "start": 72.81066666666666,
+      "end": 77.824,
+      "seconds": 5.01,
+      "peakDb": -19.66,
+      "rmsDb": -39.61,
+      "shortRms95Db": -33.84,
+      "stereoRms": [
+        -39.61,
+        -39.61
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": true,
+      "reduced": true,
+      "maxChannelDifference": 0.0
+    },
+    {
+      "step": "coverage_hold_crank",
+      "start": 77.824,
+      "end": 91.456,
+      "seconds": 13.63,
+      "peakDb": -16.1,
+      "rmsDb": -36.0,
+      "shortRms95Db": -34.38,
+      "stereoRms": [
+        -36.0,
+        -36.0
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": true,
+      "reduced": true,
+      "maxChannelDifference": 0.0
+    },
+    {
+      "step": "coverage_enter_service",
+      "start": 91.456,
+      "end": 93.99466666666666,
+      "seconds": 2.54,
+      "peakDb": -25.36,
+      "rmsDb": -42.64,
+      "shortRms95Db": -34.78,
+      "stereoRms": [
+        -42.64,
+        -42.64
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": true,
+      "reduced": true,
+      "maxChannelDifference": 0.0
+    },
+    {
+      "step": "coverage_hold_release",
+      "start": 93.99466666666666,
+      "end": 96.98133333333334,
+      "seconds": 2.99,
+      "peakDb": -16.99,
+      "rmsDb": -36.54,
+      "shortRms95Db": -30.42,
+      "stereoRms": [
+        -36.54,
+        -36.54
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": true,
+      "reduced": true,
+      "maxChannelDifference": 0.0
+    },
+    {
+      "step": "coverage_prepared_return",
+      "start": 96.98133333333334,
+      "end": 104.02133333333333,
+      "seconds": 7.04,
+      "peakDb": -14.9,
+      "rmsDb": -28.38,
+      "shortRms95Db": -23.36,
+      "stereoRms": [
+        -28.38,
+        -28.38
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": true,
+      "reduced": true,
+      "maxChannelDifference": 0.0
+    },
+    {
+      "step": "coverage_natural_recorded_release",
+      "start": 104.02133333333333,
+      "end": 118.12266666666666,
+      "seconds": 14.1,
+      "peakDb": -26.66,
+      "rmsDb": -37.32,
+      "shortRms95Db": -35.6,
+      "stereoRms": [
+        -37.32,
+        -37.32
+      ],
+      "listenerVolume": 0.6984127,
+      "mono": true,
+      "reduced": true,
+      "maxChannelDifference": 0.0
+    }
+  ]
+}

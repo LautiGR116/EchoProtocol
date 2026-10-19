@@ -1,0 +1,16 @@
+{
+    "label": "campaign-coverage-return-covered",
+    "state": "Pressure|house:False/False/Hall|pressure:False/False|P3:1.00",
+    "position": {
+        "x": -0.0806363895535469,
+        "y": 1.6299999952316285,
+        "z": -43.55342102050781
+    },
+    "rotation": {
+        "x": 2.3431150353303566e-8,
+        "y": 0.7071067690849304,
+        "z": -2.3431146800589887e-8,
+        "w": 0.7071068286895752
+    },
+    "fov": 60.0
+}

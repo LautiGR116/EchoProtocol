@@ -1,0 +1,16 @@
+using System;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using EchoProtocol.Presentation;
+public static class RefineCoverageArt{
+static void Mount(string name,Vector3 position,float yaw,float size,Vector2 panel){var o=GameObject.Find(name);var t=o.GetComponent<TextMesh>();t.transform.SetPositionAndRotation(position,Quaternion.Euler(0,yaw,0));t.characterSize=size;var b=GameObject.CreatePrimitive(PrimitiveType.Cube);b.name=name+" / physical enamel plate";b.transform.SetParent(GameObject.Find("Coverage / the machine covers your work").transform);b.transform.SetPositionAndRotation(position+t.transform.forward*.015f,t.transform.rotation);b.transform.localScale=new Vector3(panel.x,panel.y,.025f);b.GetComponent<Renderer>().sharedMaterial=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Materials/VS1/M_VS1_Service.mat");UnityEngine.Object.DestroyImmediate(b.GetComponent<Collider>());}
+public static string Main(){
+if(EditorApplication.isPlaying)throw new Exception("Stopped scene required");
+Mount("Coverage / pump and pressure explanation",new Vector3(5.47f,1.89f,-35.95f),105,.0051f,new Vector2(.49f,.22f));
+Mount("Coverage / live control plate",new Vector3(5.41f,2.25f,-35.97f),105,.006f,new Vector2(.53f,.30f));
+Mount("Coverage / live gate plate",new Vector3(-4.65f,2.66f,-39.85f),180,.008f,new Vector2(.98f,.30f));
+Mount("Coverage / crank instruction",new Vector3(-3.46f,1.84f,-39.68f),180,.007f,new Vector2(.66f,.26f));
+Mount("Coverage / live exit plate",new Vector3(-3.8f,1.96f,-44.40f),180,.008f,new Vector2(.73f,.28f));
+Mount("Coverage / exit release contract",new Vector3(-3.8f,2.3f,-44.40f),180,.007f,new Vector2(.65f,.24f));
+var s=GameObject.Find("Threat / present movement").GetComponent<AudioSource>();s.clip=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Finish/FootVinyl1.wav");s.volume=.065f;
+var rotor=GameObject.Find("Coverage / exposed pump belt");rotor.SetActive(false);
+var lower=GameObject.Find("Isolation lower detent").GetComponent<TextMesh>();lower.text="DESCARGA";
+var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);return "Mounted plates, short present footsteps, no exposed placeholder rotor.";
+}}

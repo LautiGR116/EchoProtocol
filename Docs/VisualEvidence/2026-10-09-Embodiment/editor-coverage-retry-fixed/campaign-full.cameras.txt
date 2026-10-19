@@ -1,0 +1,15 @@
+Actual Player camera; Camera captures omit OnGUI, Game captures include it.
+campaign-00-title position=(0.000, 1.600, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title
+campaign-coverage-control position=(4.564, 1.630, -35.822) euler=(26.29, 85.60, 0.00) FOV=60 paused=False step=coverage_enter
+campaign-coverage-paused position=(0.000, 1.630, -29.000) euler=(26.29, 85.60, 0.00) FOV=60 paused=True step=coverage_playback_pause
+campaign-coverage-work-before-release position=(-3.552, 1.630, -38.499) euler=(20.48, 175.13, 0.00) FOV=60 paused=False step=coverage_cross_to_crank
+campaign-coverage-grille-open position=(-3.552, 1.630, -38.499) euler=(20.48, 175.13, 0.00) FOV=60 paused=False step=coverage_hold_crank
+campaign-coverage-release-and-threat position=(-4.048, 1.630, -43.176) euler=(19.82, 168.55, 0.00) FOV=60 paused=False step=coverage_hold_release
+campaign-coverage-present-rush position=(-4.048, 1.630, -43.176) euler=(5.51, 269.47, 0.00) FOV=60 paused=False step=coverage_deliberate_failure
+campaign-coverage-failure position=(-4.048, 1.630, -43.176) euler=(9.56, 279.86, 0.00) FOV=60 paused=True step=coverage_deliberate_failure
+campaign-coverage-work-before-release position=(-3.566, 1.630, -38.460) euler=(19.86, 174.64, 0.00) FOV=60 paused=False step=coverage_cross_to_crank
+campaign-coverage-grille-open position=(-3.566, 1.630, -38.460) euler=(19.86, 174.64, 0.00) FOV=60 paused=False step=coverage_hold_crank
+campaign-coverage-release-and-threat position=(-4.028, 1.630, -43.130) euler=(19.22, 169.82, 0.00) FOV=60 paused=False step=coverage_hold_release
+campaign-coverage-return-covered position=(-0.084, 1.630, -43.621) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=coverage_prepared_return
+campaign-coverage-natural-silence position=(-0.057, 1.630, -49.467) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=coverage_natural_recorded_release
+campaign-coverage-complete position=(-0.057, 1.630, -49.467) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=coverage_natural_recorded_release

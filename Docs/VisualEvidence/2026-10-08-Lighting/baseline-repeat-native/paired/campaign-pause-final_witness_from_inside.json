@@ -1,0 +1,16 @@
+{
+    "label": "campaign-pause-final_witness_from_inside",
+    "state": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00",
+    "position": {
+        "x": -12.462226867675782,
+        "y": 1.6299999952316285,
+        "z": -52.400001525878909
+    },
+    "rotation": {
+        "x": 3.7700996312688108e-39,
+        "y": -0.7071067094802856,
+        "z": 3.7700996312688108e-39,
+        "w": 0.7071068286895752
+    },
+    "fov": 60.0
+}

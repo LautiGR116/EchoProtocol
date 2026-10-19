@@ -1,0 +1,16 @@
+{
+    "label": "campaign-Contraprueba-close-return",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+    "position": {
+        "x": -6.99901819229126,
+        "y": 1.6299999952316285,
+        "z": 35.3619384765625
+    },
+    "rotation": {
+        "x": 0.00789523683488369,
+        "y": -0.7229673266410828,
+        "z": -0.008263027295470238,
+        "w": -0.6907878518104553
+    },
+    "fov": 60.0
+}

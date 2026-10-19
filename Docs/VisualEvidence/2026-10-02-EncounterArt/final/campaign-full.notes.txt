@@ -1,0 +1,22 @@
+initial
+Los lectores responden a tu orientación, no a E.
+Su aro cian confirma una lectura. Observá qué puerta cambia y qué se ve tras el vidrio.
+
+P2
+La señal se apaga cuando se retira la mirada. La apertura dura lo que dura esa presencia.
+
+passage
+El vidrio del frente está cerrado. Los dos accesos laterales comunican la estancia con el pasillo.
+
+P3
+A autoriza un paso; B lo sostiene mientras haya mirada.
+El vidrio permite reconocer el mismo recorrido desde sus dos lados.
+
+Hub
+El registro del corredor terminó. El retorno pasa por el archivo y lleva a recepción.
+La siguiente estación está junto al paso marcado SUBSUELO.
+
+6B-origin
+El origen de la revisión está adentro; la llegada se registra afuera.
+El corredor lateral comunica ambos lados de 6B.
+

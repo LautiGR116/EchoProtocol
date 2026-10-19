@@ -1,0 +1,9 @@
+{
+  "executable": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Finish-20260930/EchoProtocol.app/Contents/MacOS/EchoProtocol",
+  "mode": "batchmode nographics; process test, no native visual inspection",
+  "alive_after_8_seconds": true,
+  "exit_after_requested_termination": 0,
+  "log_bytes": 1750,
+  "error_lines": [],
+  "log_sha256": "5bc5c1f579c756d1e7bf5b19b8b20275ab45dcf516d2b581cb5e48e382aa1307"
+}

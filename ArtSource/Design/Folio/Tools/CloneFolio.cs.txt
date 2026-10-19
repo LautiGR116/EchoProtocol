@@ -1,0 +1,9 @@
+using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using EchoProtocol.Campaign;
+public static class CloneFolio{public static string Main(){
+var source="Assets/_Game/Scenes/Production/EchoProtocol_Resonance.unity";var dest="Assets/_Game/Scenes/Production/EchoProtocol_Folio.unity";
+if(EditorApplication.isPlaying||UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty)throw new System.Exception("Editor must be stopped with a clean baseline");
+if(AssetDatabase.LoadAssetAtPath<SceneAsset>(dest))throw new System.Exception("Candidate already exists");
+if(!AssetDatabase.CopyAsset(source,dest))throw new System.Exception("Copy failed");var scene=EditorSceneManager.OpenScene(dest);
+var d=Object.FindFirstObjectByType<CampaignDirector>();var so=new SerializedObject(d);so.FindProperty("checkpointKey").stringValue="EP.CampaignCheckpoint.Folio.v1";so.ApplyModifiedPropertiesWithoutUndo();
+EditorSceneManager.SaveScene(scene);EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(dest,true)};
+return scene.path;}}

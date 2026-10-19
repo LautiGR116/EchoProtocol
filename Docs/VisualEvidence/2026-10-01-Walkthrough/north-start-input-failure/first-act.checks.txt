@@ -1,0 +1,16 @@
+CONTINUOUS TITLE TO R1 THROUGH THE PHYSICAL SE2 ROOM. Zero fixtures or direct gameplay mutations. Input System keyboard/mouse only. Unexpected pauses fail rather than being resumed.
+PASS [title] Threshold systems exist
+PASS [title] all original-act, new house and new final references exist
+PASS [title] optional isolation has its single configured physical audio owner
+PASS [title] isolation begins untouched at the real title without a restored fixture
+PASS [title] optional recording boundary shares the actual campaign, R3 and loop
+PASS [title] boundary starts unused and its actual Hub arrival guidance is authored
+PASS [title] physical descent guide starts hidden with an explicit Hub arrival volume
+PASS [title] run begins at the actual paused title, before gameplay
+PASS [title] title has no earned progress, saved restoration or prior recording
+PASS [title] Threshold replaces D1 with actual R3 availability
+PASS [title] real look sensitivity is nonzero
+FAIL title: System.InvalidOperationException: title: Enter starts the actual title session through input
+  at ThresholdCampaignProbe.Check (System.Boolean condition, System.String message) [0x00068] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:1282 
+  at ThresholdCampaignProbe+<Execute>d__135.MoveNext () [0x009a1] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:195 
+  at ThresholdCampaignProbe+<Guarded>d__134.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:113 

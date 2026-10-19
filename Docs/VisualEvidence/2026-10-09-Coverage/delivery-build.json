@@ -1,0 +1,10 @@
+{
+  "result": "Succeeded",
+  "errors": 0,
+  "warnings": 1,
+  "bytes": 228100633,
+  "seconds": 56.569356,
+  "output": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Coverage-20261009/EchoProtocol.app",
+  "qa": false,
+  "development": false
+}

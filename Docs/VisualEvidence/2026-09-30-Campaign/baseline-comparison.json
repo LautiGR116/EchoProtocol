@@ -1,0 +1,19 @@
+{
+  "baseline": "campaign-expansion-start-20260930",
+  "unchanged": 506,
+  "changed": [
+    "Assets/_Game/Shaders/DiegeticText.shader",
+    "Assets/_Game/Shaders/OneSidedText.shader",
+    "Assets/_Game/Scripts/Presentation/GameSession.cs",
+    "Assets/_Game/Scripts/Player/FirstPersonController.cs",
+    "ProjectSettings/EditorBuildSettings.asset",
+    "Docs/ARCHITECTURE.md",
+    "Docs/CREDITS.md",
+    "Docs/ROADMAP.md",
+    "Docs/AUDIO_ASSET_LEDGER.md",
+    "Docs/HORROR_DESIGN.md",
+    "Docs/AUDIO_DESIGN.md",
+    "README.md"
+  ],
+  "missing": []
+}

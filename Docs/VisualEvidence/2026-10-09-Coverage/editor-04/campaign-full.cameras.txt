@@ -1,0 +1,1 @@
+Actual Player camera; Camera captures omit OnGUI, Game captures include it.

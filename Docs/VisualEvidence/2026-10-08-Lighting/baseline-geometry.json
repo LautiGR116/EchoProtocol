@@ -1,0 +1,842 @@
+[
+  {
+    "name": "Pressure bulkhead track",
+    "pos": "(-1.330, 1.450, -48.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "PressureGauge__BACK_MOUNT",
+    "pos": "(5.918, 1.750, -44.000)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Pressure north lintel",
+    "pos": "(0.000, 3.000, -28.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "PressureGauge__UNIT_LABEL",
+    "pos": "(5.568, 1.507, -35.976)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Pressure chamber skirting",
+    "pos": "(7.970, 0.130, -38.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Pressure valve discharge",
+    "pos": "(6.000, 1.500, -36.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Pressure chamber ceiling",
+    "pos": "(0.000, 3.160, -38.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(2.750, 2.950, 6.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "PressureGauge__AXIS_Z",
+    "pos": "(5.918, 1.850, -44.000)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(2.750, 2.950, 18.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Window parapet",
+    "pos": "(-5.400, 0.430, -52.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "RotaryTelephone__FRONT_TIP",
+    "pos": "(-4.300, 0.760, -51.900)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Offhook original rotary telephone"
+  },
+  {
+    "name": "PressureGauge__NEEDLE_TIP_HIGH",
+    "pos": "(5.845, 1.701, -43.951)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Pressure recall origin",
+    "pos": "(0.000, 0.030, -29.000)",
+    "rot": "(0.00, 180.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Telephone at window",
+    "pos": "(-4.450, 0.821, -51.756)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "KeyConsole collision",
+    "pos": "(3.415, 0.425, -49.606)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Residence Fluorescent",
+    "pos": "(-7.150, 2.600, -57.600)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Pressure chamber perimeter",
+    "pos": "(-8.100, 1.500, -38.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(0.000, 2.900, -29.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "PressureGaugeHousing",
+    "pos": "(5.918, 1.750, -44.000)",
+    "rot": "(0.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(-2.750, 2.950, 14.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "PressureGauge__AXIS_Z",
+    "pos": "(5.636, 1.653, -35.994)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "RotaryTelephone__AXIS_Z",
+    "pos": "(-4.400, 0.860, -51.900)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Offhook original rotary telephone"
+  },
+  {
+    "name": "Hall reserve light",
+    "pos": "(0.680, 2.050, -50.500)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Pressure bulkhead shutter rib",
+    "pos": "(0.000, 0.700, -48.105)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Pressure bulkhead steel shutter"
+  },
+  {
+    "name": "House interaction / Telephone",
+    "pos": "(-4.400, 0.900, -51.840)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Pressure bulkhead shutter rib",
+    "pos": "(0.000, 1.780, -48.105)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Pressure bulkhead steel shutter"
+  },
+  {
+    "name": "PressureGauge__FACE_CENTRE",
+    "pos": "(5.570, 1.553, -35.976)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Residence original / DressedWindow",
+    "pos": "(5.400, 0.000, -52.000)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "PressureGauge__NEEDLE_TIP_ZERO",
+    "pos": "(5.553, 1.504, -36.023)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Window parapet",
+    "pos": "(5.400, 0.430, -52.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "PressureGauge__BACK_MOUNT",
+    "pos": "(5.636, 1.553, -35.994)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(3.000, 2.900, -43.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Pressure chamber skirting",
+    "pos": "(-7.970, 0.130, -38.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "PressureNeedle",
+    "pos": "(5.565, 1.553, -35.975)",
+    "rot": "(0.00, 15.00, 270.00)",
+    "parent": "Isolation live PressureNeedle"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(-2.750, 2.950, 18.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Kitchen reserve fixture",
+    "pos": "(-3.400, 2.300, -58.500)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Window head",
+    "pos": "(-5.400, 2.590, -52.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Residence Fluorescent",
+    "pos": "(-3.400, 2.520, -58.500)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Pressure reader bezel",
+    "pos": "(-7.770, 1.600, -34.000)",
+    "rot": "(0.00, 0.00, 90.00)",
+    "parent": "Finish / materiality and inhabited detail"
+  },
+  {
+    "name": "PressureGauge__ROOT",
+    "pos": "(5.636, 1.553, -35.994)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Window head",
+    "pos": "(5.400, 2.590, -52.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(-2.750, 2.950, 2.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "RotaryTelephone__FRONT_BASE",
+    "pos": "(-4.400, 0.760, -51.900)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Offhook original rotary telephone"
+  },
+  {
+    "name": "Exterior plaster / Window parapet",
+    "pos": "(-5.522, 0.430, -52.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Visible courtyard"
+  },
+  {
+    "name": "Pressure valve working flow",
+    "pos": "(6.000, 1.500, -36.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Pressure north",
+    "pos": "(4.800, 1.500, -28.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "PressureGauge__NEEDLE_TIP_ZERO",
+    "pos": "(5.845, 1.701, -44.050)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(-5.700, 2.900, -34.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Isolation reserve instrument light",
+    "pos": "(5.320, 1.723, -35.785)",
+    "rot": "(48.93, 105.00, 0.00)",
+    "parent": "Shutdown / oblique isolation assembly"
+  },
+  {
+    "name": "RotaryTelephone__AXIS_X",
+    "pos": "(-4.400, 0.760, -52.000)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Offhook original rotary telephone"
+  },
+  {
+    "name": "Window sill",
+    "pos": "(5.400, 0.850, -52.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Pressure reader enamel body",
+    "pos": "(-7.870, 1.600, -34.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Finish / materiality and inhabited detail"
+  },
+  {
+    "name": "PressureGauge__FRONT_BASE",
+    "pos": "(5.636, 1.553, -35.994)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "PressureGaugeHousing",
+    "pos": "(5.636, 1.553, -35.994)",
+    "rot": "(0.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "PressureGauge__NEEDLE_AXIS_POS",
+    "pos": "(5.945, 1.750, -44.000)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Residence TelephoneTable",
+    "pos": "(-4.400, 0.000, -51.900)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Threshold original / KeyConsole",
+    "pos": "(-18.020, 0.100, -51.000)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Threshold / del otro lado"
+  },
+  {
+    "name": "WindowFrame",
+    "pos": "(5.400, 0.000, -52.000)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Residence original / DressedWindow"
+  },
+  {
+    "name": "Pressure chamber mid rail",
+    "pos": "(-7.945, 1.050, -38.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Pressure alignment lens",
+    "pos": "(-7.738, 1.600, -34.000)",
+    "rot": "(0.00, 0.00, 90.00)",
+    "parent": "Finish / materiality and inhabited detail"
+  },
+  {
+    "name": "Pressure north",
+    "pos": "(-4.800, 1.500, -28.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(2.750, 2.950, -2.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Pressure bulkhead shutter rib",
+    "pos": "(0.000, 2.320, -48.105)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Pressure bulkhead steel shutter"
+  },
+  {
+    "name": "RotaryTelephone__CORD_HANDSET_REST",
+    "pos": "(-4.465, 0.941, -51.749)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Offhook original rotary telephone"
+  },
+  {
+    "name": "Pressure chamber perimeter",
+    "pos": "(8.100, 1.500, -38.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "PressureGauge__AXIS_Y",
+    "pos": "(5.732, 1.553, -36.020)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "TelephoneTable simple collision",
+    "pos": "(-3.300, 0.375, -56.394)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Fluorescent Bed",
+    "pos": "(0.000, 1.500, 2.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Facility Ambience AD2"
+  },
+  {
+    "name": "RotaryTelephone__HANDSET_OFFHOOK",
+    "pos": "(-4.382, 0.823, -51.668)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Offhook original rotary telephone"
+  },
+  {
+    "name": "PressureGauge__PRESSURE_PORT",
+    "pos": "(5.657, 1.393, -35.999)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Exterior plaster / Window head",
+    "pos": "(-5.522, 2.590, -52.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Visible courtyard"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(-2.750, 2.950, 6.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Pressure bulkhead shutter rib",
+    "pos": "(0.000, 2.590, -48.105)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Pressure bulkhead steel shutter"
+  },
+  {
+    "name": "PressureNeedle",
+    "pos": "(5.845, 1.750, -44.000)",
+    "rot": "(0.00, 0.00, 270.00)",
+    "parent": "Isolation live PressureNeedle"
+  },
+  {
+    "name": "Isolation reserve instrument light",
+    "pos": "(5.455, 1.873, -44.000)",
+    "rot": "(23.75, 90.00, 0.00)",
+    "parent": "Isolation / physical service shutdown"
+  },
+  {
+    "name": "Pressure chamber mid rail",
+    "pos": "(7.945, 1.050, -38.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Pressure control identifier",
+    "pos": "(-7.720, 1.910, -34.000)",
+    "rot": "(0.00, 270.00, 0.00)",
+    "parent": "Finish / materiality and inhabited detail"
+  },
+  {
+    "name": "PressureGauge__NEEDLE_PIVOT",
+    "pos": "(5.845, 1.750, -44.000)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Pressure south",
+    "pos": "(4.625, 1.500, -48.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "PressureGauge__PRESSURE_PORT",
+    "pos": "(5.940, 1.590, -44.000)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "RotaryTelephone__ROOT",
+    "pos": "(-4.400, 0.760, -51.900)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Offhook original rotary telephone"
+  },
+  {
+    "name": "Residence original / DressedWindow",
+    "pos": "(-5.400, 0.000, -52.000)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "PressureGauge__NEEDLE_AXIS_POS",
+    "pos": "(5.662, 1.553, -36.001)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "PressureGauge__AXIS_X",
+    "pos": "(5.918, 1.750, -43.900)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "PressureGauge__NEEDLE_TIP_HIGH",
+    "pos": "(5.578, 1.504, -35.927)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Pressure south",
+    "pos": "(-4.625, 1.500, -48.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(2.750, 2.950, 10.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Pressure bulkhead shutter rib",
+    "pos": "(0.000, 1.510, -48.105)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Pressure bulkhead steel shutter"
+  },
+  {
+    "name": "PressureGauge__FRONT_BASE",
+    "pos": "(5.918, 1.750, -44.000)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "TelephoneHandset",
+    "pos": "(-4.465, 0.954, -51.900)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Offhook original rotary telephone"
+  },
+  {
+    "name": "WindowFrame",
+    "pos": "(-5.400, 0.000, -52.000)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Residence original / DressedWindow"
+  },
+  {
+    "name": "Pressure bulkhead steel shutter",
+    "pos": "(0.000, 1.400, -48.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Pressure bulkhead"
+  },
+  {
+    "name": "Isolation original / PressureGauge",
+    "pos": "(5.918, 1.750, -44.000)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation / physical service shutdown"
+  },
+  {
+    "name": "Pressure bulkhead shutter rib",
+    "pos": "(0.000, 0.160, -48.105)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Pressure bulkhead steel shutter"
+  },
+  {
+    "name": "Residence original / KeyConsole",
+    "pos": "(3.415, 0.000, -49.600)",
+    "rot": "(270.02, 180.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "PressureGauge__FACE_CENTRE",
+    "pos": "(5.850, 1.750, -44.000)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Pressure bulkhead shutter rib",
+    "pos": "(0.000, 1.240, -48.105)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Pressure bulkhead steel shutter"
+  },
+  {
+    "name": "Central pressure baffle",
+    "pos": "(2.750, 1.350, -39.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Reserve socket / COCINA",
+    "pos": "(-5.242, 1.300, -57.500)",
+    "rot": "(0.00, 270.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Pressure bulkhead",
+    "pos": "(0.000, 0.000, -48.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "PressureGauge__AXIS_Y",
+    "pos": "(6.018, 1.750, -44.000)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Station / HouseOrigin",
+    "pos": "(0.780, 1.400, -49.600)",
+    "rot": "(0.00, 90.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Bedroom reserve lamp",
+    "pos": "(4.700, 1.220, -50.400)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Window sill",
+    "pos": "(-5.400, 0.850, -52.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Pressure Echo volume",
+    "pos": "(-5.700, 1.000, -34.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Reserve socket / RECIBIDOR",
+    "pos": "(0.880, 1.300, -50.800)",
+    "rot": "(0.00, 90.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Residence TelephoneTable",
+    "pos": "(-3.300, 0.000, -56.400)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "PressureGauge__FRONT_TIP",
+    "pos": "(5.818, 1.750, -44.000)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "PressureGauge__AXIS_X",
+    "pos": "(5.662, 1.553, -35.897)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Pressure bulkhead shutter rib",
+    "pos": "(0.000, 0.970, -48.105)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Pressure bulkhead steel shutter"
+  },
+  {
+    "name": "Isolation original / PressureGauge",
+    "pos": "(5.636, 1.553, -35.994)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Shutdown / oblique isolation assembly"
+  },
+  {
+    "name": "PressureGauge__FRONT_TIP",
+    "pos": "(5.539, 1.553, -35.968)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Residence WallSconce",
+    "pos": "(0.860, 2.050, -50.500)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "Pressure bulkhead track",
+    "pos": "(1.330, 1.450, -48.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "TelephoneBody",
+    "pos": "(-4.400, 0.760, -51.900)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Offhook original rotary telephone"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(-2.750, 2.950, -2.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "PressureGauge__NEEDLE_PIVOT",
+    "pos": "(5.565, 1.553, -35.975)",
+    "rot": "(270.00, 285.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Shutdown reserve cabinet bracket",
+    "pos": "(3.620, 1.080, -36.150)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Shutdown / machine and operator"
+  },
+  {
+    "name": "Pressure bulkhead shutter rib",
+    "pos": "(0.000, 0.430, -48.105)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Pressure bulkhead steel shutter"
+  },
+  {
+    "name": "RotaryTelephone__CORD_BASE",
+    "pos": "(-4.450, 0.821, -51.756)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Offhook original rotary telephone"
+  },
+  {
+    "name": "Pressure south lintel",
+    "pos": "(0.000, 3.000, -48.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "RotaryTelephone__HANDSET_REST",
+    "pos": "(-4.465, 0.954, -51.900)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Offhook original rotary telephone"
+  },
+  {
+    "name": "PressureGauge__UNIT_LABEL",
+    "pos": "(5.848, 1.704, -44.000)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(2.750, 2.950, 2.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(3.000, 2.900, -35.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(2.750, 2.950, 14.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Campaign Fluorescent",
+    "pos": "(-2.750, 2.950, 10.000)",
+    "rot": "(270.02, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Pressure chamber floor",
+    "pos": "(0.000, -0.120, -38.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Isolation live PressureNeedle",
+    "pos": "(5.845, 1.750, -44.000)",
+    "rot": "(90.00, 0.00, 0.00)",
+    "parent": "Isolation / physical service shutdown"
+  },
+  {
+    "name": "Isolation live PressureNeedle",
+    "pos": "(5.565, 1.553, -35.975)",
+    "rot": "(90.00, 15.00, 0.00)",
+    "parent": "Shutdown / oblique isolation assembly"
+  },
+  {
+    "name": "Reserve socket / DORMITORIO",
+    "pos": "(5.242, 1.300, -53.450)",
+    "rot": "(0.00, 90.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "TelephoneTable simple collision",
+    "pos": "(-4.400, 0.375, -51.894)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Residence / habitable reconstruction"
+  },
+  {
+    "name": "RotaryTelephone__AXIS_Y",
+    "pos": "(-4.500, 0.760, -51.900)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Offhook original rotary telephone"
+  },
+  {
+    "name": "Pressure machinery",
+    "pos": "(6.890, 0.550, -36.500)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "Pressure bulkhead shutter rib",
+    "pos": "(0.000, 2.050, -48.105)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Pressure bulkhead steel shutter"
+  },
+  {
+    "name": "Sealed Observation Window",
+    "pos": "(4.000, 0.000, 29.100)",
+    "rot": "(0.00, 90.00, 0.00)",
+    "parent": "VS1 SE2 Impossible Domestic Chamber"
+  },
+  {
+    "name": "Pressure bulkhead transom",
+    "pos": "(0.000, 2.920, -48.000)",
+    "rot": "(0.00, 0.00, 0.00)",
+    "parent": "Campaign / authored expansion"
+  },
+  {
+    "name": "PressureGauge__ROOT",
+    "pos": "(5.918, 1.750, -44.000)",
+    "rot": "(270.00, 270.00, 0.00)",
+    "parent": "Isolation original / PressureGauge"
+  },
+  {
+    "name": "RotaryTelephone__TABLE_CONTACT",
+    "pos": "(-4.400, 0.760, -51.900)",
+    "rot": "(270.00, 90.00, 0.00)",
+    "parent": "Offhook original rotary telephone"
+  }
+]

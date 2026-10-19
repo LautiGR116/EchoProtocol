@@ -1,0 +1,18 @@
+{
+    "status": "PASS",
+    "error": "",
+    "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Threshold.unity",
+    "lastStep": "done",
+    "evidenceScope": "One BeginExpansionProbe and initial Player pose; subsequent gameplay uses Input System keyboard/mouse, actual collision, recording and station rays. Source state/cursors/positions and recorded pose immutability only. Physical discharge may continue after leaving pressure, fixed at the valve with authored seven-metre linear falloff; the result separately records whether the route actually observed that tail after exit. No mix, listening, comfort, fear, human play or checkpoint-restore coverage.",
+    "checks": 109,
+    "initialPoseFixtures": 1,
+    "unexpectedPauseResumes": 0,
+    "echoPoseSamples": 8214,
+    "immutableRecordings": 3,
+    "completedValves": 2,
+    "discharges": 2,
+    "recalls": 3,
+    "elapsedRealtime": 136.3729248046875,
+    "dischargeTailObservedAfterExit": true,
+    "finalDischargeEndedNaturally": true
+}

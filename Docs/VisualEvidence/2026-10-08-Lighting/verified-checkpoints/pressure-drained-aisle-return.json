@@ -1,0 +1,18 @@
+{
+    "label": "pressure-drained-aisle-return",
+    "position": {
+        "x": 4.599999904632568,
+        "y": 1.6299999952316285,
+        "z": -42.79999923706055
+    },
+    "target": {
+        "x": 4.599999904632568,
+        "y": 1.0,
+        "z": -36.5
+    },
+    "chapter": "Pressure",
+    "power": "Hall",
+    "answered": false,
+    "latched": true,
+    "drained": true
+}

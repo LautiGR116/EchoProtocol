@@ -1,0 +1,45 @@
+using System;using System.IO;using System.Linq;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine.Audio;
+using EchoProtocol.Audio;using EchoProtocol.Campaign;using EchoProtocol.Horror;using EchoProtocol.Echo;using EchoProtocol.Presentation;using EchoProtocol.Puzzle;
+public static class IntegrateResonance {
+static T One<T>() where T:UnityEngine.Object => UnityEngine.Object.FindFirstObjectByType<T>();
+static void Set(UnityEngine.Object o,string field,UnityEngine.Object v){var s=new SerializedObject(o);var p=s.FindProperty(field);if(p==null)throw new Exception(o.name+" missing "+field);p.objectReferenceValue=v;s.ApplyModifiedPropertiesWithoutUndo();}
+static void Num(UnityEngine.Object o,string f,float v){var s=new SerializedObject(o);s.FindProperty(f).floatValue=v;s.ApplyModifiedPropertiesWithoutUndo();}
+static void Flag(UnityEngine.Object o,string f,bool v){var s=new SerializedObject(o);s.FindProperty(f).boolValue=v;s.ApplyModifiedPropertiesWithoutUndo();}
+static void Refs(UnityEngine.Object o,string f,UnityEngine.Object[] v){var s=new SerializedObject(o);var p=s.FindProperty(f);p.arraySize=v.Length;for(int i=0;i<v.Length;i++)p.GetArrayElementAtIndex(i).objectReferenceValue=v[i];s.ApplyModifiedPropertiesWithoutUndo();}
+static T Read<T>(UnityEngine.Object o,string f) where T:UnityEngine.Object => new SerializedObject(o).FindProperty(f).objectReferenceValue as T;
+static AudioClip Clip(string n)=>AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Resonance/"+n+".wav")??throw new Exception(n);
+public static string Main(){
+if(EditorApplication.isPlaying||!UnityEngine.SceneManagement.SceneManager.GetActiveScene().path.EndsWith("EchoProtocol_Resonance.unity"))throw new Exception("Stopped Resonance scene required");
+if(GameObject.Find("Resonance / authored sonic consequences"))throw new Exception("Already integrated");
+foreach(var guid in AssetDatabase.FindAssets("t:AudioClip",new[]{"Assets/_Game/Audio/Clips/Resonance"})){
+var path=AssetDatabase.GUIDToAssetPath(guid);var importer=(AudioImporter)AssetImporter.GetAtPath(path);var clip=AssetDatabase.LoadAssetAtPath<AudioClip>(path);var settings=importer.defaultSampleSettings;
+settings.loadType=clip.length>8?AudioClipLoadType.CompressedInMemory:AudioClipLoadType.DecompressOnLoad;settings.compressionFormat=clip.length>8?AudioCompressionFormat.Vorbis:AudioCompressionFormat.PCM;settings.quality=.85f;settings.sampleRateSetting=AudioSampleRateSetting.PreserveSampleRate;settings.preloadAudioData=true;importer.forceToMono=false;importer.loadInBackground=false;importer.defaultSampleSettings=settings;importer.SaveAndReimport();}
+var root=new GameObject("Resonance / authored sonic consequences");var session=One<GameSession>();var listener=One<AudioListener>().transform;var mixer=AssetDatabase.LoadAssetAtPath<AudioMixer>("Assets/_Game/Audio/MX_Main.mixer");var world=mixer.FindMatchingGroups("WorldSFX").Single();var ambience=mixer.FindMatchingGroups("Ambience").Single();
+var boundaries=UnityEngine.Object.FindObjectsByType<Collider>(FindObjectsInactive.Include,FindObjectsSortMode.None).Where(c=>!c.isTrigger && (c.name.IndexOf("wall",StringComparison.OrdinalIgnoreCase)>=0||c.name.IndexOf("partition",StringComparison.OrdinalIgnoreCase)>=0||c.name.IndexOf("glaz",StringComparison.OrdinalIgnoreCase)>=0||c.name.IndexOf("solid leaf",StringComparison.OrdinalIgnoreCase)>=0||c.name.IndexOf("ceiling",StringComparison.OrdinalIgnoreCase)>=0)).ToArray();
+ResonanceEmitter Make(string name,string clip,Vector3 pos,float gain,float near,float far,bool score=false,bool loop=false,Transform parent=null){
+var g=new GameObject(name);g.transform.SetParent(parent?parent:root.transform,false);g.transform.position=pos;var a=g.AddComponent<AudioSource>();a.clip=Clip(clip);a.playOnAwake=false;a.loop=loop;a.spatialBlend=score?0:1;a.dopplerLevel=0;a.rolloffMode=AudioRolloffMode.Linear;a.minDistance=near;a.maxDistance=far;a.priority=score?190:110;a.outputAudioMixerGroup=score||loop?ambience:world;a.volume=0;
+AudioLowPassFilter filter=null;if(!score){filter=g.AddComponent<AudioLowPassFilter>();filter.cutoffFrequency=13000;filter.lowpassResonanceQ=1;}
+var e=g.AddComponent<ResonanceEmitter>();Set(e,"source",a);Set(e,"session",session);Set(e,"listener",listener);Set(e,"spectralBoundary",filter);Refs(e,"partitions",boundaries);Num(e,"authoredGain",gain);Flag(e,"internalScore",score);return e;}
+var p3=Make("P3 / metal beyond the transfer wall","Wall_ThreeStrains",new Vector3(-12.75f,1.8f,38.55f),.4f,2.2f,12);
+var archive=Make("Records / moving friction beyond the back wall","Archive_Approach",new Vector3(-24.35f,1.15f,26.2f),.6f,2.6f,12);
+var pipe=Make("Plant / contracting upper pipe","Wall_ThreeStrains",new Vector3(6.7f,2.65f,-41.4f),.34f,3,18);
+var cry=Make("Plant / distant voice beyond the shaft grille","Shaft_DistantCry",new Vector3(7.4f,2.5f,-40.1f),.42f,3,24);
+var phone=One<HouseTelephone>();var handset=Read<Transform>(phone,"handset");var line=Make("Telephone / live line at actual receiver","Line_Unanswered",handset.position,.62f,1.1f,6,false,false,handset);
+var score=Make("Internal score / recognition","Score_Recognition",Vector3.zero,.14f,1,500,true);
+var release=Make("Internal score / release","Score_Release",Vector3.zero,.13f,1,500,true);
+var air=Make("Plant / air in fixed riser","Pipe_Air_LP",new Vector3(6.6f,2.55f,-42.6f),.15f,3,18,false,true);
+var from=new GameObject("Drag start / far end").transform;from.SetParent(root.transform);from.position=new Vector3(-24.35f,1.15f,26.2f);var to=new GameObject("Drag end / approaching return").transform;to.SetParent(root.transform);to.position=new Vector3(-24.35f,1.15f,21.8f);
+var region=new GameObject("Records return listening region");region.transform.SetParent(root.transform);region.transform.position=new Vector3(-22,1.6f,24);var box=region.AddComponent<BoxCollider>();box.isTrigger=true;box.size=new Vector3(4,3.2f,7.3f);
+var director=root.AddComponent<ResonanceSequence>();Set(director,"session",session);Set(director,"listener",listener);Set(director,"campaign",One<CampaignDirector>());Set(director,"loop",One<LoopController>());Set(director,"passage",One<VS1ParallelFigureEvent>());Set(director,"transfer",One<RecombinationRelay>());Set(director,"isolation",One<PressureIsolation>());Set(director,"house",One<HouseMemory>());Set(director,"telephone",phone);Set(director,"review",One<FinalDoorMemory>());
+Set(director,"transferStrain",p3);Set(director,"archiveDrag",archive);Set(director,"pipeContraction",pipe);Set(director,"shaftCry",cry);Set(director,"phoneLine",line);Set(director,"recognitionScore",score);Set(director,"releaseScore",release);Set(director,"serviceAir",air);Set(director,"archiveFrom",from);Set(director,"archiveTo",to);Set(director,"archiveRegion",box);
+var first=One<VS1StrongEventOne>();Read<AudioSource>(first,"laneRelaySource").clip=Clip("Relay_Strain");
+Set(One<VS1DomesticThresholdCheckpoint>(),"authoredSlam",AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Mechanisms/SFX_DoorEndpoint.wav"));Num(One<VS1DomesticThresholdCheckpoint>(),"slamVolume",.62f);
+foreach(var a in UnityEngine.Object.FindObjectsByType<OpticalReaderAudio>(FindObjectsInactive.Include,FindObjectsSortMode.None)){Set(a,"alignedClip",Clip("Contact_Closed"));Set(a,"releasedClip",Clip("Latch_Release"));Num(a,"cueVolume",.27f);}
+var encounter=One<EncounterAtmosphere>();Set(encounter,"passageContact",Clip("Passage_RearContact"));Read<AudioSource>(encounter,"frameContact").volume=.43f;
+var cp=One<ContrapruebaAtmosphere>();Read<AudioSource>(cp,"relayContact").clip=Clip("Transfer_Seat");Read<AudioSource>(cp,"relayContact").volume=.32f;
+var isolationAudio=One<PressureIsolationAudio>();Set(isolationAudio,"latchClip",Clip("Transfer_Seat"));Num(isolationAudio,"latchGain",.31f);
+var house=One<HouseMemory>();Set(house,"fuseRemoval",Clip("Latch_Release"));Set(house,"fuseInsertion",Clip("Contact_Closed"));Set(house,"keyPickup",Clip("Key_Tray"));Read<AudioSource>(house,"objectAudio").volume=.29f;
+var final=One<FinalDoorMemory>();Set(final,"enterClip",Clip("Contact_Closed"));Set(final,"preserveClip",Clip("Transfer_Seat"));Set(final,"keyReturnClip",Clip("Key_Tray"));Read<AudioSource>(final,"audioSource").volume=.3f;
+EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());EditorSceneManager.SaveOpenScenes();AssetDatabase.SaveAssets();
+File.WriteAllText("Docs/AudioEvidence/2026-10-08-Resonance/integration.json",Newtonsoft.Json.JsonConvert.SerializeObject(new{newSources=8,boundaries=boundaries.Length,clips=13,scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path},Newtonsoft.Json.Formatting.Indented));
+return "Saved Resonance: 8 new sources, 13 masters, "+boundaries.Length+" explicit existing acoustic partitions";}}

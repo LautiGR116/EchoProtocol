@@ -1,0 +1,12 @@
+Actual Player camera; Camera captures omit OnGUI, Game captures include it.
+initial-protocol-00-title position=(0.000, 1.600, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title
+initial-protocol-notes-initial position=(0.000, 1.630, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title/session_notes_initial
+initial-protocol-reception-arrival position=(0.312, 1.630, -5.582) euler=(0.00, 0.00, 0.00) FOV=60 paused=False step=registration_letter_approach
+initial-protocol-reception-document position=(0.312, 1.630, -5.582) euler=(23.88, 1.85, 0.00) FOV=60 paused=True step=registration_letter_document
+initial-protocol-orientation-P1-entry position=(-2.685, 1.630, -5.351) euler=(0.00, 0.00, 0.00) FOV=60 paused=False step=P1_record
+initial-protocol-orientation-P1-A-arrival position=(-2.704, 1.630, 1.314) euler=(0.00, 0.00, 0.00) FOV=60 paused=False step=P1_record
+initial-protocol-orientation-P1-A-preview position=(-2.704, 1.630, 2.947) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=P1_record
+initial-protocol-P1-visible position=(3.295, 1.630, 1.721) euler=(2.78, 220.22, 0.00) FOV=60 paused=False step=P1_cooperate
+initial-protocol-P1-reader-A-playback position=(3.295, 1.630, 1.721) euler=(4.24, 278.78, 0.00) FOV=60 paused=False step=P1_cooperate
+initial-protocol-01-P1 position=(3.295, 1.630, 9.940) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=P1_cooperate
+initial-protocol-P1-complete-paused position=(3.295, 1.630, 9.940) euler=(0.00, 90.00, 0.00) FOV=60 paused=True step=initial_protocol_complete_pause

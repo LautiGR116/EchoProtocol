@@ -1,0 +1,91 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using EchoProtocol.Puzzle;
+using EchoProtocol.Campaign;
+using EchoProtocol.Presentation;
+using Object=UnityEngine.Object;
+public static class LegibilityAuthor
+{
+ public const string ScenePath="Assets/_Game/Scenes/Production/EchoProtocol_Legibility.unity";
+ static Transform root; static Material steel; static TextMesh template;
+ static T[] All<T>() where T:Component => Object.FindObjectsByType<T>(FindObjectsInactive.Include,FindObjectsSortMode.None);
+ static Transform Named(string n)=>All<Transform>().Single(t=>t.name==n);
+ static void Ref(Object o,string n,Object v){if(!v)throw new Exception("Missing "+n);var s=new SerializedObject(o);s.FindProperty(n).objectReferenceValue=v;s.ApplyModifiedPropertiesWithoutUndo();}
+ static T Get<T>(Object o,string n) where T:Object => (T)new SerializedObject(o).FindProperty(n).objectReferenceValue;
+ static GameObject Box(string n,Transform parent,Vector3 p,Vector3 size,Quaternion q){var g=GameObject.CreatePrimitive(PrimitiveType.Cube);g.name=n;g.transform.SetParent(parent);g.transform.SetPositionAndRotation(p,q);g.transform.localScale=size;g.GetComponent<Renderer>().sharedMaterial=steel;Object.DestroyImmediate(g.GetComponent<Collider>());return g;}
+ static TextMesh Plate(string n,string text,Vector3 p,float yaw,float width,float height,bool display=false,Transform parent=null)
+ {
+  parent=parent?parent:root;var q=Quaternion.Euler(0,yaw,0);
+  Box(n+" / enamel plate",parent,p+q*Vector3.forward*.018f,new Vector3(width+.08f,height+.06f,.035f),q);
+  var t=Object.Instantiate(template,parent);t.name=n;t.gameObject.SetActive(true);t.transform.SetPositionAndRotation(p,q);t.transform.localScale=Vector3.one;
+  t.text=text;t.fontSize=72;t.characterSize=.01f;t.anchor=TextAnchor.MiddleCenter;t.alignment=TextAlignment.Center;t.color=display?new Color(.57f,.77f,.69f):new Color(.87f,.85f,.73f);
+  var shader=Shader.Find(display?"EchoProtocol/DiegeticText":"EchoProtocol/PrintedText"); if(!shader)throw new Exception("Missing text shader");
+  Ref(t.GetComponent<DiegeticText>(),"depthTestedShader",shader);
+  float w=t.GetComponent<Renderer>().localBounds.size.x;if(w>width)t.characterSize*=width/w;
+  return t;
+ }
+ static void Fit(string n,string words,float width){var t=Named(n).GetComponent<TextMesh>();t.text=words;t.characterSize=.014f;float w=t.GetComponent<Renderer>().localBounds.size.x;if(w>width)t.characterSize*=width/w;}
+ static Light Spot(string n,Transform parent,Vector3 p,Vector3 aim,float gain,float range){var g=new GameObject(n);g.transform.SetParent(parent);g.transform.position=p;g.transform.LookAt(aim);var l=g.AddComponent<Light>();l.type=LightType.Spot;l.color=new Color(.80f,.86f,.77f);l.intensity=gain;l.range=range;l.spotAngle=100;l.innerSpotAngle=68;l.shadows=LightShadows.Soft;l.shadowBias=.02f;l.shadowNormalBias=.05f;Box(n+" / task housing",parent,p+Vector3.up*.035f,new Vector3(.30f,.07f,.16f),Quaternion.identity);return l;}
+ static void Aim(string n,Vector3 p,float gain,float range){var l=Named(n).GetComponent<Light>();l.transform.LookAt(p);l.intensity=gain;l.range=range;l.spotAngle=110;l.innerSpotAngle=80;}
+ public static void Main()
+ {
+  if(EditorApplication.isPlayingOrWillChangePlaymode)throw new Exception("Stop Play");
+  if(File.Exists(ScenePath))throw new Exception("Preserve existing Legibility");
+  var scene=EditorSceneManager.OpenScene(CandidateProduction.ScenePath);if(scene.isDirty)throw new Exception("Dirty source");
+  var exact=All<MonoBehaviour>().Where(m=>m is OpticalReader||m is ParallelObservationRelay||m is RecombinationRelay||m is BlindAlignmentRelay||m is FinalDoorMemory||m is EchoProtocol.Echo.LoopController||m is EchoProtocol.Echo.EchoRecorder).Cast<Object>().Concat(All<Collider>()).Concat(All<AudioSource>()).ToDictionary(o=>o,EditorJsonUtility.ToJson);
+  var poses=All<Collider>().ToDictionary(c=>c,c=>c.transform.localToWorldMatrix);
+  if(!EditorSceneManager.SaveScene(scene,ScenePath))throw new Exception("Save failed");
+  root=new GameObject("Legibility / physical orientation and truthful feedback").transform;
+  steel=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Readers/M_Bezel.mat");if(!steel)throw new Exception("Missing existing enamel");
+  template=Named("P2 hold instruction").GetComponent<TextMesh>();
+  var relay=Object.FindFirstObjectByType<ParallelObservationRelay>();var review=Object.FindFirstObjectByType<FinalDoorMemory>();var campaign=Object.FindFirstObjectByType<CampaignDirector>();
+  var feedback=root.gameObject.AddComponent<OrientationFeedback>();Ref(feedback,"relay",relay);Ref(feedback,"readerA",Get<OpticalReader>(relay,"echoReaderA"));Ref(feedback,"readerB",Get<OpticalReader>(relay,"echoReaderB"));Ref(feedback,"review",review);
+  Fit("Start recording instruction","01 / REGISTRO\nLECTORES A · B",1.75f);Fit("Cooperate after recall instruction","01 / ACCESO\nLECTOR C",1.75f);
+  var flag=Plate("P1 approach identity","A / REGISTRO",new Vector3(-.70f,1.88f,2.55f),0,.60f,.16f);
+  Box("P1 flag / glass-post bracket",root,new Vector3(-.51f,1.88f,2.60f),new Vector3(.31f,.04f,.04f),Quaternion.identity);
+  Ref(feedback,"statusA",Plate("P1 A actual state","A / LECTOR DE MIRADA\nCIAN = LECTURA",new Vector3(-.395f,.86f,3),90,1.15f,.23f,true));
+  Ref(feedback,"statusB",Plate("P1 B actual state","B / LECTOR DE MIRADA",new Vector3(-.395f,.92f,11),90,1.02f,.14f,true));
+  Ref(feedback,"statusC",Plate("P1 C actual state","C / ACCESO\nREQUIERE A + B EN LA TOMA",new Vector3(4.235f,.83f,10),90,1.32f,.23f,true));
+  Fit("At B recall instruction","R / VOLVER\nEL RECORRIDO SE REPRODUCE",1.30f);
+  foreach(string n in new[]{"At B recall instruction","At B recall instruction backing"}){var t=Named(n);var p=t.position;p.y=.53f;t.position=p;}
+  Aim("Panel Light - Cold Ceiling Panel Lane 2",new Vector3(-.4f,1.05f,3),3.2f,5.8f);
+  Aim("Panel Light - Cold Ceiling Panel Lane 3",new Vector3(-.4f,1.05f,11),3.2f,5.8f);
+  Aim("Panel Light - Service Ceiling Panel 3",new Vector3(4.24f,1.05f,10),2.9f,5.8f);
+  // Keep the same first-act circuit: no new persistent light in P1.
+  var guide=Get<GameObject>(campaign,"returnDescentGuide").transform;
+  Plate("Return / reception continuation","CONTINUACIÓN / 02\nSUBSUELO  >",new Vector3(-.95f,1.80f,-4.28f),0,1.28f,.35f,false,guide);
+  Fit("Actual return destination","02 / SUBSUELO",1.20f);
+  var newLights=new[]{Spot("Return / reception direction pool",guide,new Vector3(-.9f,2.7f,-5.6f),new Vector3(-.95f,1.8f,-4.28f),1.7f,3.4f),
+   Spot("Return / terminal task pool",guide,new Vector3(2.1f,2.72f,-10.75f),new Vector3(2.25f,1.35f,-11.78f),3.1f,4.6f)};
+  var station=All<CampaignStation>().Single(s=>s.Kind==StationKind.Descent);station.SetCaption("02 / SUBSUELO\nE / HABILITAR PASO");
+  var r=Get<Transform>(review,"origin");
+  Fit("Review origin text","6B / ORIGEN INTERIOR",.95f);
+  var interior=Named("Interior revision instructions").GetComponent<TextMesh>();
+  interior.text="ORIGEN INTERIOR\nE / FIJAR PUNTO";Ref(feedback,"interiorStatus",interior);
+  var exterior=Named("Outside pause instruction").GetComponent<TextMesh>();exterior.text="LECTURA DE LLEGADA\nPERMANECER MIRANDO 6B";Ref(feedback,"exteriorStatus",exterior);
+  Fit("Outside pause instruction",exterior.text,1.0f);
+  Plate("6B / received-door identity","6B / RECEPCIÓN",new Vector3(-13.27f,2.28f,-52.4f),270,1.0f,.20f);
+  Plate("6B / lateral arrival route","LLEGADA  >\nCORREDOR LATERAL",new Vector3(-13.27f,1.85f,-51.25f),270,1.0f,.26f);
+  Plate("6B / lateral route turn","6B  <",new Vector3(-16.67f,1.8f,-48.93f),270,.65f,.18f);
+  // Light the instrument, door plane and real route rather than lift ambient exposure.
+  Aim("Inside final practical",new Vector3(-13.2f,1.15f,-52.4f),4.0f,6.0f);
+  Aim("Review instrument task light",new Vector3(-10.1f,1.45f,-54.68f),2.2f,3.6f);
+  Aim("Lateral passage practical",new Vector3(-14.7f,.7f,-48.9f),2.7f,6.2f);
+  Aim("Arrival exterior practical",new Vector3(-13.55f,1.35f,-52.4f),3.3f,5.8f);
+  var notes=Object.FindFirstObjectByType<ProtocolGuidance>();Ref(notes,"campaign",campaign);Ref(notes,"house",Object.FindFirstObjectByType<HouseMemory>());Ref(notes,"finalReview",review);Ref(notes,"hubReturn",Object.FindFirstObjectByType<EchoProtocol.Horror.VS1HubReturnGate>());
+  var shadow=new SerializedObject(Object.FindFirstObjectByType<LightShadowBudget>());var ls=shadow.FindProperty("lights");int count=ls.arraySize;ls.arraySize+=newLights.Length;for(int i=0;i<newLights.Length;i++)ls.GetArrayElementAtIndex(count+i).objectReferenceValue=newLights[i];shadow.ApplyModifiedPropertiesWithoutUndo();
+  var cs=new SerializedObject(campaign);cs.FindProperty("checkpointKey").stringValue="EP.CampaignCheckpoint.Legibility.v1";cs.ApplyModifiedPropertiesWithoutUndo();
+  foreach(var item in exact)if(EditorJsonUtility.ToJson(item.Key)!=item.Value)throw new Exception("Gameplay/collider/audio contract changed: "+item.Key.name);
+  foreach(var item in poses)if(item.Key.transform.localToWorldMatrix!=item.Value)throw new Exception("Collider pose changed: "+item.Key.name);
+  int missing=scene.GetRootGameObjects().Sum(g=>g.GetComponentsInChildren<Transform>(true).Sum(t=>GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(t.gameObject)));
+  if(missing!=0)throw new Exception("Missing scripts");
+  EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(ScenePath,true)};
+  Directory.CreateDirectory("Docs/VisualEvidence/2026-10-02-Legibility");
+  File.WriteAllText("Docs/VisualEvidence/2026-10-02-Legibility/authoring.txt","Derived from Candidate through Editor API. Same "+exact.Count+" serialized puzzle/loop/collider/audio contracts and "+poses.Count+" collider poses; zero new colliders and missing scripts. Three existing P1 fixtures keep their circuit; four final practicals reaimed. Two Hub guide-owned task pools start inactive. Physical signs and passive state feedback added. Save namespace isolated. Needs camera/input/build verification.\n");
+ }
+}

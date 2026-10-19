@@ -1,0 +1,7 @@
+Actual Player camera; Camera captures omit OnGUI, Game captures include it.
+campaign-00-title position=(0.000, 1.600, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title
+campaign-coverage-control position=(4.600, 1.630, -35.906) euler=(10.14, 80.91, 0.00) FOV=60 paused=False step=coverage_enter
+campaign-coverage-paused position=(0.000, 1.630, -29.000) euler=(10.14, 120.00, 0.00) FOV=60 paused=True step=coverage_playback_pause
+campaign-coverage-work-before-release position=(-3.556, 1.630, -38.582) euler=(21.84, 174.58, 0.00) FOV=60 paused=False step=coverage_cross_to_crank
+campaign-coverage-grille-open position=(-3.556, 1.630, -38.582) euler=(21.84, 174.58, 0.00) FOV=60 paused=False step=coverage_hold_crank
+campaign-coverage-release-and-threat position=(-4.041, 1.630, -43.115) euler=(18.99, 169.40, 0.00) FOV=60 paused=False step=coverage_hold_release

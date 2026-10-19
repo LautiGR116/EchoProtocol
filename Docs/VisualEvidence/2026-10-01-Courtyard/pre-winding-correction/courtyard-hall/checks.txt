@@ -1,0 +1,28 @@
+PASS initial fixture restores completed first-act lighting
+PASS real courtyard successor is active
+PASS actual ray authorizes Station / HouseOrigin
+PASS actual E enters the house before review
+PASS dedicated outside air is silent inside the real house
+PASS actual ray authorizes House interaction / Telephone
+PASS actual E answers and removes the general supply
+PASS actual ray authorizes House interaction / Key
+PASS actual E takes the original key
+PASS actual ray authorizes 6B exit / left hinge
+PASS departure preserves the real chosen room and light state
+PASS one actual outside source has clear path and full regional gain after the corner
+PASS actual pause freezes exterior gain and audio cursor
+PASS turning the real Player does not move or repan an artificial source anchor
+PASS outside view retains the actual house circuit and has no new gaze gate
+PASS real north boundary prevents leaving the courtyard floor
+PASS free return to the original house remains possible before review
+PASS free return mutes exterior source inside the house without changing house owners
+PASS actual ray authorizes Review origin instrument
+PASS actual moved porter station begins review without Player placement
+PASS actual moved final origin lies in authored local-frame ambience volume
+PASS moved review preserves the institutional level for Distant Machinery Bed
+PASS at least one actual institutional room-air source was measured
+PASS review commits the same real domestic light consequence
+PASS moved review is outside the exterior source region
+PASS no pose reset after initial fixture
+PASS no gameplay error in courtyard route
+PASS

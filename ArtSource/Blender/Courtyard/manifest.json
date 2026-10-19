@@ -1,0 +1,411 @@
+{
+  "date": "2026-10-01",
+  "authorship": "Original project geometry authored procedurally in Blender with standard primitives and original mesh/tube construction. No external assets, images, purchases or generative service.",
+  "axis_contract": "Metric X length, Z up, -Y away from wall. FBX -Z/+Y. Prior project Unity import maps(-X,Z,-Y); preserve importer basis and correct root X reflection as for other original kits. Corrected assembly maps(X,Z,-Y). Axis/root anchors are authoritative; Unity not checked here.",
+  "materials": {
+    "CY_DullSteel": {
+      "color": [
+        0.14,
+        0.165,
+        0.15,
+        1
+      ],
+      "roughness": 0.66,
+      "metallic": 0.6
+    },
+    "CY_Mineral": {
+      "color": [
+        0.31,
+        0.33,
+        0.305,
+        1
+      ],
+      "roughness": 0.88,
+      "metallic": 0
+    }
+  },
+  "assets": {
+    "Downpipe27": {
+      "file": "exports/EP_CY_Downpipe27.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.054999999701976776,
+          0.054999999701976776
+        ],
+        [
+          -0.30000001192092896,
+          0.0
+        ],
+        [
+          0.02800000086426735,
+          2.700000047683716
+        ]
+      ],
+      "mesh_objects": [
+        {
+          "name": "Downpipe27Mesh",
+          "vertices": 1464,
+          "triangles": 2880,
+          "pivot_blender_xyz": [
+            0,
+            0,
+            0
+          ],
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "materials": [
+        "CY_DullSteel"
+      ],
+      "anchors_blender_xyz": {
+        "Downpipe27__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "Downpipe27__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "Downpipe27__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "Downpipe27__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "Downpipe27__INLET": [
+          0,
+          -0.11,
+          2.7
+        ],
+        "Downpipe27__OUTLET": [
+          0,
+          -0.3,
+          0.07
+        ],
+        "Downpipe27__WALL": [
+          0,
+          0,
+          1.35
+        ]
+      },
+      "notes": "84mm OD/78mm bore. Overall inlet height2.7m above root floor. Outlet faces-Y, centre70mm above floor. Wall backing atY0; outside is-Y. Three actual standoffs. No collider/audio.",
+      "sha256": "d3e7b06f5abf9a8d3dea0ff11cfceae2d9c57670098a5baa427e7d4737a52fde"
+    },
+    "GutterStraight1m": {
+      "file": "exports/EP_CY_GutterStraight1m.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.5,
+          0.5
+        ],
+        [
+          -0.1835000216960907,
+          0.0
+        ],
+        [
+          0.0,
+          0.07950000464916229
+        ]
+      ],
+      "mesh_objects": [
+        {
+          "name": "GutterStraight1mMesh",
+          "vertices": 364,
+          "triangles": 692,
+          "pivot_blender_xyz": [
+            0,
+            0,
+            0
+          ],
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "materials": [
+        "CY_DullSteel"
+      ],
+      "anchors_blender_xyz": {
+        "GutterStraight1m__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "GutterStraight1m__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "GutterStraight1m__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "GutterStraight1m__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "GutterStraight1m__JOIN_LEFT": [
+          -0.5,
+          -0.11,
+          0
+        ],
+        "GutterStraight1m__JOIN_RIGHT": [
+          0.5,
+          -0.11,
+          0
+        ],
+        "GutterStraight1m__BOTTOM": [
+          0,
+          -0.11,
+          0
+        ],
+        "GutterStraight1m__WALL": [
+          0,
+          0,
+          0.05
+        ]
+      },
+      "notes": "1m module alongX. Root at gutter bottom height; open channel above0 to.0735. Wall isY0. No outlet. Ends are open for repeated segments. End caps are not included.",
+      "sha256": "8340ff6620a4abed3a875b96d09300b17dbb2a98d1dcbd037bac80733eb3ce26"
+    },
+    "GutterOutlet1m": {
+      "file": "exports/EP_CY_GutterOutlet1m.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.5,
+          0.5
+        ],
+        [
+          -0.1835000216960907,
+          0.0
+        ],
+        [
+          -0.05000000074505806,
+          0.07950000464916229
+        ]
+      ],
+      "mesh_objects": [
+        {
+          "name": "GutterOutlet1mMesh",
+          "vertices": 548,
+          "triangles": 1064,
+          "pivot_blender_xyz": [
+            0,
+            0,
+            0
+          ],
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "materials": [
+        "CY_DullSteel"
+      ],
+      "anchors_blender_xyz": {
+        "GutterOutlet1m__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "GutterOutlet1m__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "GutterOutlet1m__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "GutterOutlet1m__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "GutterOutlet1m__JOIN_LEFT": [
+          -0.5,
+          -0.11,
+          0
+        ],
+        "GutterOutlet1m__JOIN_RIGHT": [
+          0.5,
+          -0.11,
+          0
+        ],
+        "GutterOutlet1m__BOTTOM": [
+          0,
+          -0.11,
+          0
+        ],
+        "GutterOutlet1m__WALL": [
+          0,
+          0,
+          0.05
+        ]
+      },
+      "notes": "1m module alongX. Root at gutter bottom height; open channel above0 to.0735. Wall isY0. One actual87mm opening and open downward socket: place root atZ2.7 over Downpipe27.",
+      "sha256": "1d9b84d364847998b566aafbc245ef60a2edacbb4ef4a7cee7138fb4f556f0ce"
+    },
+    "MineralTile0744": {
+      "file": "exports/EP_CY_MineralTile0744.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.3720000088214874,
+          0.3720000088214874
+        ],
+        [
+          -0.3720000088214874,
+          0.3720000088214874
+        ],
+        [
+          -0.03999999910593033,
+          0.0
+        ]
+      ],
+      "mesh_objects": [
+        {
+          "name": "MineralTile0744Mesh",
+          "vertices": 56,
+          "triangles": 108,
+          "pivot_blender_xyz": [
+            0,
+            0,
+            0
+          ],
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "materials": [
+        "CY_Mineral"
+      ],
+      "anchors_blender_xyz": {
+        "MineralTile0744__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "MineralTile0744__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "MineralTile0744__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "MineralTile0744__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "MineralTile0744__SURFACE": [
+          0,
+          0,
+          0
+        ],
+        "MineralTile0744__MODULE_RIGHT": [
+          0.75,
+          0,
+          0
+        ],
+        "MineralTile0744__MODULE_BACK": [
+          0,
+          0.75,
+          0
+        ]
+      },
+      "notes": ".744x.744x.04m;6mm bevel; top/rootZ0, bottom-.04. Repeat at.750m for6mm joints. Original simple mineral form; no photographic/generated textures.",
+      "sha256": "b98b724c102a8d8f589efc1279c39f39a6c562bb5c985a1625e2e9640b269a81"
+    },
+    "Drain1m": {
+      "file": "exports/EP_CY_Drain1m.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.5,
+          0.5
+        ],
+        [
+          -0.05999999865889549,
+          0.05999999865889549
+        ],
+        [
+          -0.035999998450279236,
+          0.0
+        ]
+      ],
+      "mesh_objects": [
+        {
+          "name": "Drain1mMesh",
+          "vertices": 1512,
+          "triangles": 2916,
+          "pivot_blender_xyz": [
+            0,
+            0,
+            0
+          ],
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "materials": [
+        "CY_DullSteel"
+      ],
+      "anchors_blender_xyz": {
+        "Drain1m__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "Drain1m__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "Drain1m__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "Drain1m__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "Drain1m__SURFACE": [
+          0,
+          0,
+          0
+        ],
+        "Drain1m__JOIN_LEFT": [
+          -0.5,
+          0,
+          0
+        ],
+        "Drain1m__JOIN_RIGHT": [
+          0.5,
+          0,
+          0
+        ]
+      },
+      "notes": "1m long alongX,120mm wide,36mm deep; top/rootZ0. True slots above a real channel. Recess floor rather than raising a threshold. No exported collider.",
+      "sha256": "4bdad8ebacf9e542964570ec2b017fcab4386302b4eea565d817ce2ef84dceb9"
+    }
+  },
+  "total_triangles": 7660,
+  "verification_limit": "Blender source/roundtrip/previews only. No Unity, placement, lighting or human experience claim."
+}

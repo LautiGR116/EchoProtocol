@@ -1,0 +1,15 @@
+Build build_8317d27c09c9; macOS native, 1280x720, Metal.
+PASS title identifies CAMPAÑA / REGISTROS 01–05.
+PASS reduced dynamics and mono toggle on/off; volume slider changes; original settings restored.
+PASS Enter starts in clinical hub; textured surfaces and text render.
+PASS repeated native W/D keypresses move, recording begins.
+PASS H opens/closes help.
+PASS R returns and creates visible cyan human Echo with playback timer.
+PASS Escape pauses; credits open/return.
+PASS New session confirmation; confirm returns clean title.
+PASS Salir closes process; pgrep confirms no campaign process.
+PASS native Player log contains no errors/exceptions.
+PASS universal x86_64/arm64; codesign --verify --deep --strict exit 0.
+LIMIT: full route was tested in Editor with real input/physics, not repeated manually in native app.
+LIMIT: native mouse-look comfort, sound quality, fear and performance across hardware are not human-approved.
+Screenshots were inspected through CUA during the native smoke; no screenshot file is claimed here.

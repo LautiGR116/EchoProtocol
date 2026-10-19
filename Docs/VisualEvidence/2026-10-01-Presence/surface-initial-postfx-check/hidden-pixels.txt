@@ -1,0 +1,1 @@
+Same paused camera, postprocessed RGB24 readback. enabled invisible surfaces vs disabled. Changed=450335 maximum RGB sum=6 mean RGB sum=1.27706163194444

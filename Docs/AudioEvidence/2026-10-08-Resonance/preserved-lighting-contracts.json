@@ -1,0 +1,197 @@
+{
+  "status": "PASS",
+  "reference": "/Users/lautigr116/EchoProtocol-backups/lighting-checkpoint-20261008/manifest.json",
+  "scope": "Exact bytes of preserved Lighting scene, renderer settings, Echo implementation, shadow ownership, mixer and AudioManager.",
+  "files": [
+    {
+      "path": "Assets/Settings/DefaultVolumeProfile.asset",
+      "sha256": "463776c51ae49d4fef980e8fd268081b2f505610d79315003faae1acff8f4115",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Settings/DefaultVolumeProfile.asset.meta",
+      "sha256": "efbcb026cee6b8e32fdf27018c06b0515296a6ccbb43969e792fea270310700a",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Settings/Mobile_RPAsset.asset",
+      "sha256": "2d5182d2b8884ac88bc6ed033a0a722c23cfb15a7bc8b7daa38db37227bafd09",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Settings/Mobile_RPAsset.asset.meta",
+      "sha256": "53ea46647712c615fd1a3f2e0dddfa8559eeedc649e9a1dbf93ff913de28544c",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Settings/Mobile_Renderer.asset",
+      "sha256": "aa93274c9521fa941170becec9e87c5fa36b8587eefd5eeb5c0eed0d1d4b1dbe",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Settings/Mobile_Renderer.asset.meta",
+      "sha256": "a148ee2b4987b05b8ff7ae5f9bf84916184f77aefddc821dceb551f5a69f8179",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Settings/PC_RPAsset.asset",
+      "sha256": "4ac8a1945f908fa3112a7e4574a73b7d427375a97a85fe119d6f46a8c5c36a7f",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Settings/PC_RPAsset.asset.meta",
+      "sha256": "bb469b9b6f318e9e9bed29c3b2e73e79371c04743c6f95dd6603941f1cd3e53e",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Settings/PC_Renderer.asset",
+      "sha256": "3d0b01d8ded3327263b6690be128a3de58d17c514943ae42fe743a3e084a9c79",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Settings/PC_Renderer.asset.meta",
+      "sha256": "b5df8ddb2708c6ed4c133a5ff9ee95a75cc20e4ee3ed6181366a61aedbaf31ec",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Settings/SampleSceneProfile.asset",
+      "sha256": "a8677d4bac051d24caa11cd622e39f968155ee277bfce132274f1de225692fe9",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Settings/SampleSceneProfile.asset.meta",
+      "sha256": "2e23abc214069f0adbf2b2207f1db54be7876629ec2a3681d0f4aa5b61622ef0",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset",
+      "sha256": "dc7ad4271a7abc0c06279874be2302955e8df85d84d9b71fd23c99708391c476",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset.meta",
+      "sha256": "f61661d8bc8dbe531daf09f6211ef978c7ba145c9207c8e76524396ae0722d7c",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Audio/MX_Main.mixer",
+      "sha256": "a9c634db1d1089fe39c90d11918ec3c23a9d4ebc15501165c13ed8f1e109b293",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scenes/Production/EchoProtocol_Lighting.unity",
+      "sha256": "4c99b6e60c411350b5397186d34643953dc13d30a332ea14cf7c0c5d8da2939b",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/EchoBodyRig.cs",
+      "sha256": "a435e322f79a380d411d1e7ecd9f497f3c960161ec66fd780312f421f6074bcd",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/EchoBodyRig.cs.meta",
+      "sha256": "5b0681a528c954eacefeb5d8cbe2f8829c7d35db7f9d6c9e3149d967ba92bad7",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/EchoFrame.cs",
+      "sha256": "68613b98f764a80367a4483dba104e7cb2dab84e3a961ab652f428cb003dca5a",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/EchoFrame.cs.meta",
+      "sha256": "336b4686fa84603b0f8d1e1eb6135227252569c931b5f608e38cfad59c05a338",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/EchoPlayback.cs",
+      "sha256": "4cf660f546479615857f328cd057324fbafa685ff69fe128ae5ae6f2949970f9",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/EchoPlayback.cs.meta",
+      "sha256": "812479ba7caec81f328062331b87ef2ed7e7f8d3b7e8cd86d7993169cc6d9163",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/EchoRecorder.cs",
+      "sha256": "394e3615672717d8a7354d6103ed2ae7030d0826dd3557202dc68f5fe98ae9df",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/EchoRecorder.cs.meta",
+      "sha256": "7a08637edc49c3ba4f36f2e8ed7b48758ee5ad88cab704cdd5c55398b7362c6b",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/EchoRecording.cs",
+      "sha256": "6e6acd6383bda6db8038bcbfd215eb34d1fe73a8b6168aca68907b25538f2a2e",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/EchoRecording.cs.meta",
+      "sha256": "ec0bf8e0455b4689ffa33621830fcc1ecf69dc658c8ee1afb83682eb1ce2dd8b",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/ILoopResettable.cs",
+      "sha256": "04f68abe443c1198e3f473ae54dc62653b4ffb35d5109d29265f9c571d0a5a1e",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/ILoopResettable.cs.meta",
+      "sha256": "74814a5dbeaf0623bb9c029e84826c87f864687c08cb854a078708f624cc838c",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/LoopActor.cs",
+      "sha256": "e247e9dd6caafcbcb7da9cf55047c7cfc1afadf46a9fd28d6d8a4295cd935588",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/LoopActor.cs.meta",
+      "sha256": "164ab3ce0a37427fbbb48e9e949e28545c33ed22cf7b4e4d2cece29bdd60015e",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/LoopController.cs",
+      "sha256": "0966e1c4c12178e91f628ebcc870aa9b0313378bf659eede45c94d654c52d431",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/LoopController.cs.meta",
+      "sha256": "bbdb3f1c47ca937a8d5d567aa593d546222dc01b37472380c036e2ac03bd651d",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/PlayerBodyPoseSource.cs",
+      "sha256": "5d408ddcc5f6c6447cb1ea9db53ee3d12c7a31614c6dfbec7f132c6008b7fc5b",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/PlayerBodyPoseSource.cs.meta",
+      "sha256": "6f67e8e9a1957633c0606f3f1a5200cb1b2a710d6ae74063efc7aea6443c12b9",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/RecordedBodyPose.cs",
+      "sha256": "549651046c5d7697a2f72100035174bdd796ac822d6a43545bc24990b96e58bd",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Echo/RecordedBodyPose.cs.meta",
+      "sha256": "255cb936a4c923ed54fbcbcb9773c96657b6e5edebed8678caec75a824b089bc",
+      "unchanged": true
+    },
+    {
+      "path": "Assets/_Game/Scripts/Presentation/LightShadowBudget.cs",
+      "sha256": "07f2adf51bbc7c39813c59d68da7ba22b550f0574ce1a723f3f8d00d3207a693",
+      "unchanged": true
+    },
+    {
+      "path": "ProjectSettings/AudioManager.asset",
+      "sha256": "aeedeb3243f07b61dbbe854aa08b5ef6f0b5274dd9852ad9f6129dde3e105a31",
+      "unchanged": true
+    }
+  ]
+}

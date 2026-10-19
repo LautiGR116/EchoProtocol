@@ -1,0 +1,16 @@
+{
+    "label": "campaign-04-hall-without-reserve",
+    "state": "House|house:True/True/Carried|pressure:True/True|P3:0.00",
+    "position": {
+        "x": -0.05843972787261009,
+        "y": 1.6299999952316285,
+        "z": -50.84381103515625
+    },
+    "rotation": {
+        "x": 0.1261308491230011,
+        "y": 0.6792033314704895,
+        "z": -0.12015599012374878,
+        "w": 0.7129772901535034
+    },
+    "fov": 60.0
+}

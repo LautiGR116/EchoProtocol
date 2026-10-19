@@ -1,0 +1,142 @@
+{
+  "date": "2026-10-01",
+  "authorship": "Original deterministic procedural fields authored for Echo Protocol; no external image or texture source.",
+  "source_kit_reference": "ArtSource/Blender/Overhaul/EchoOverhaulKit.blend",
+  "source_kit_sha256_before": "1a68521bcac67838ee4dd96c1368f7fea9b69e5863d08dab15d4a141fdc04b62",
+  "source_kit_use": "Read-only palette and Blender preview reference; original kit not changed.",
+  "bake_method": "Periodic quintic lattice fields and explicit thread geometry sampled mathematically to PNG; tangent normal derived analytically by centered periodic differences.",
+  "normal_convention": "Tangent-space OpenGL +Y; image-down derivative inverted. Unity import as Normal Map, no Flip Green.",
+  "packing": "MetalSmooth: RGB=0 dielectric, alpha=1-roughness. Import non-sRGB. Roughness is non-sRGB. Diffuse is sRGB encoded without lighting.",
+  "assets": {
+    "WalnutContinuous": {
+      "width": 1024,
+      "height": 1024,
+      "tile_metres": 0.6,
+      "physical_relief_metres": 0.00018,
+      "roughness_min": 0.3687174727128711,
+      "roughness_max": 0.489980767432731,
+      "maps": [
+        {
+          "map": "Diffuse",
+          "file": "WalnutContinuous_Diffuse.png",
+          "bytes": 248534,
+          "sha256": "5a30c1d576f36cb2219b7a15043b783f94fa52388881c0d37bff8ad717f5dfcf",
+          "min": 0.20121466781322322,
+          "max": 0.4253955609224799,
+          "finite": true
+        },
+        {
+          "map": "Roughness",
+          "file": "WalnutContinuous_Roughness.png",
+          "bytes": 159082,
+          "sha256": "0b3994806519b5c73bf2114fdf4209ec5ec252e9ad5c7a965412d60b29eea4bf",
+          "min": 0.3687174727128711,
+          "max": 0.489980767432731,
+          "finite": true
+        },
+        {
+          "map": "NormalGL",
+          "file": "WalnutContinuous_NormalGL.png",
+          "bytes": 129365,
+          "sha256": "350277f38b65a8b733310e87c0374d71030019760df944014642e49d65e36c50",
+          "min": 0.48657497289674634,
+          "max": 0.9999999999999429,
+          "finite": true
+        },
+        {
+          "map": "MetalSmooth",
+          "file": "WalnutContinuous_MetalSmooth.png",
+          "bytes": 201654,
+          "sha256": "28886265c5388df3616eed2d838299351bb8e24174fad16b03e5cf74f2d2f991",
+          "min": 0.0,
+          "max": 0.631282527287129,
+          "finite": true
+        },
+        {
+          "map": "Height",
+          "file": "WalnutContinuous_Height.png",
+          "bytes": 479900,
+          "sha256": "00f9d641ba32c8fe557e23e325a505993e36baf29ee617d2b4fc0ba6b06d026c",
+          "min": 0.2609261876454422,
+          "max": 0.5843760426639517,
+          "finite": true
+        }
+      ],
+      "linear_base_color_mean": [
+        0.1345279834490448,
+        0.07975587590193857,
+        0.045162965872182194
+      ],
+      "boundary_height_step_x": 0.012976536824763504,
+      "boundary_height_step_y": 0.00113033477058673,
+      "interior_height_step_x": 0.017496584288239247,
+      "interior_height_step_y": 0.0011813049267030014
+    },
+    "LinenPlain": {
+      "width": 1024,
+      "height": 1024,
+      "tile_metres": 0.18,
+      "physical_relief_metres": 5.5e-05,
+      "roughness_min": 0.9064743468937717,
+      "roughness_max": 0.9772609325721988,
+      "maps": [
+        {
+          "map": "Diffuse",
+          "file": "LinenPlain_Diffuse.png",
+          "bytes": 159446,
+          "sha256": "8f0d774a363dda7f181e2314309f5d07cfa7839578a5848085efde7dabe4318f",
+          "min": 0.681566988675146,
+          "max": 0.7354675794508256,
+          "finite": true
+        },
+        {
+          "map": "Roughness",
+          "file": "LinenPlain_Roughness.png",
+          "bytes": 203542,
+          "sha256": "6144bfcebb0084917e18e3420945d987ec7e4647d469a4eb453d436e88d3d0ca",
+          "min": 0.9064743468937717,
+          "max": 0.9772609325721988,
+          "finite": true
+        },
+        {
+          "map": "NormalGL",
+          "file": "LinenPlain_NormalGL.png",
+          "bytes": 34264,
+          "sha256": "57ec3b92c9aab6ebb0ba55948c40117c6f63267315eb9a05548ce9bdcaf6fc71",
+          "min": 0.49708234249185584,
+          "max": 0.999999999968803,
+          "finite": true
+        },
+        {
+          "map": "MetalSmooth",
+          "file": "LinenPlain_MetalSmooth.png",
+          "bytes": 299779,
+          "sha256": "e11acf330bb1938e7c45eda751512b8e72571fafc730df8e3c1dad00cb165d8e",
+          "min": 0.0,
+          "max": 0.09352565310622829,
+          "finite": true
+        },
+        {
+          "map": "Height",
+          "file": "LinenPlain_Height.png",
+          "bytes": 244871,
+          "sha256": "3f13c06c3ca720f7b7b6167a709c49e532f6575371850f34d07b9db71e12ce31",
+          "min": 0.2939559258475297,
+          "max": 0.4142468083596798,
+          "finite": true
+        }
+      ],
+      "linear_base_color_mean": [
+        0.48980917007721947,
+        0.470216803274133,
+        0.43103206966792007
+      ],
+      "boundary_height_step_x": 0.0021762776009986696,
+      "boundary_height_step_y": 0.0018746889129319234,
+      "interior_height_step_x": 0.01010034129097632,
+      "interior_height_step_y": 0.010099460105594895
+    }
+  },
+  "source_kit_sha256_after": "1a68521bcac67838ee4dd96c1368f7fea9b69e5863d08dab15d4a141fdc04b62",
+  "preview_status": "Blender neutral presentation, not Unity integration or Game-view verification."
+}

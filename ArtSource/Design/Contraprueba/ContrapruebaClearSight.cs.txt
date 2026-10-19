@@ -1,0 +1,6 @@
+using System;using System.Linq;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using Object=UnityEngine.Object;
+public static class ContrapruebaClearSight{
+ public static object Main(){var root=Object.FindObjectsByType<Transform>(FindObjectsInactive.Include,FindObjectsSortMode.None).Single(t=>t.name=="Contraprueba / authored chapter");if(EditorApplication.isPlaying)throw new Exception("Edit required");foreach(string id in new[]{"A","B"}){foreach(string n in new[]{" recessed optical instrument"," dark optic"," actual reader pilot"})root.GetComponentsInChildren<Transform>(true).Single(t=>t.name==id+n).position+=Vector3.down*.45f;foreach(string n in new[]{" subject plate"," subject plate / physical plate"})root.GetComponentsInChildren<Transform>(true).Single(t=>t.name==id+n).position+=Vector3.up*.84f;}
+ EditorSceneManager.MarkSceneDirty(root.gameObject.scene);EditorSceneManager.SaveScene(root.gameObject.scene);return "The recording optics sit at the sill; identity plates attach to the fixed header";
+ }
+}

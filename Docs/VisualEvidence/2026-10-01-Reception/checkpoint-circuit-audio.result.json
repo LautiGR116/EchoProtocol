@@ -1,0 +1,44 @@
+{
+    "status": "PASS",
+    "error": "",
+    "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Registration.unity",
+    "evidenceScope": "Three labelled API/pose fixtures reproduce powered initial first-act lights at Pressure, House and final-review entry. Live CampaignRoomTone updates are observed; no preferences, global volume, timeScale, source values or scene assets are written. Save/Continue round trip, full route, Echo fidelity and listening are not tested. Runtime is left in the final fixture; stop Play afterward.",
+    "checks": 17,
+    "fixturePlacements": 3,
+    "elapsedRealtime": 6.227409362792969,
+    "preferencesUnchanged": true,
+    "suppressionRestored": true,
+    "actualSavedGameRestoreTested": false,
+    "cases": [
+        {
+            "chapter": "Pressure",
+            "observedSeconds": 2.001155376434326,
+            "fluorescentGain": 0.0,
+            "poweredFraction": 1.0,
+            "machineryGain": 0.0279999990016222,
+            "campaignWrites": 252,
+            "unchangedFirstActWrites": 1397,
+            "releaseCount": 1
+        },
+        {
+            "chapter": "House",
+            "observedSeconds": 2.0058252811431886,
+            "fluorescentGain": 0.0,
+            "poweredFraction": 1.0,
+            "machineryGain": 0.004399999976158142,
+            "campaignWrites": 247,
+            "unchangedFirstActWrites": 1397,
+            "releaseCount": 1
+        },
+        {
+            "chapter": "Archive",
+            "observedSeconds": 2.0038836002349855,
+            "fluorescentGain": 0.0,
+            "poweredFraction": 1.0,
+            "machineryGain": 0.01600000075995922,
+            "campaignWrites": 261,
+            "unchangedFirstActWrites": 1397,
+            "releaseCount": 1
+        }
+    ]
+}

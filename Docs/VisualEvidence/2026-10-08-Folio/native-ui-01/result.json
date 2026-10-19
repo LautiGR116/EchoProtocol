@@ -1,0 +1,57 @@
+{
+    "status": "FAIL",
+    "error": "System.Exception: letter ending reachable through End\n  at FolioPresentationProbe.Check (System.Boolean value, System.String label) [0x00040] in <4444b999420d4444a512f36c6ee89215>:0 \n  at FolioPresentationProbe+<Execute>d__28.MoveNext () [0x00bdf] in <4444b999420d4444a512f36c6ee89215>:0 \n  at FolioPresentationProbe+<Guarded>d__27.MoveNext () [0x0004b] in <4444b999420d4444a512f36c6ee89215>:0 ",
+    "scope": "Native UI keyboard and resolution verification. Explicit document, saved-menu, HUD placement and ending fixtures; not a continuous gameplay run. Before views use the unchanged legacy renderer in equivalent state.",
+    "checks": 24,
+    "screenshots": [
+        {
+            "file": "1280x800-title.png",
+            "page": "title",
+            "width": 1280,
+            "height": 800,
+            "frame": 4611,
+            "time": 18.67658805847168
+        },
+        {
+            "file": "1280x800-settings.png",
+            "page": "settings",
+            "width": 1280,
+            "height": 800,
+            "frame": 4802,
+            "time": 19.455429077148439
+        },
+        {
+            "file": "1280x800-credits.png",
+            "page": "credits",
+            "width": 1280,
+            "height": 800,
+            "frame": 4952,
+            "time": 20.070344924926759
+        },
+        {
+            "file": "1280x800-pause.png",
+            "page": "pause",
+            "width": 1280,
+            "height": 800,
+            "frame": 5100,
+            "time": 20.72333526611328
+        },
+        {
+            "file": "1280x800-restart.png",
+            "page": "restart",
+            "width": 1280,
+            "height": 800,
+            "frame": 5245,
+            "time": 21.28091812133789
+        },
+        {
+            "file": "1280x800-letter.png",
+            "page": "document",
+            "width": 1280,
+            "height": 800,
+            "frame": 5373,
+            "time": 21.844919204711915
+        }
+    ],
+    "preferencesRestored": true
+}

@@ -1,0 +1,311 @@
+{
+  "scope": "Active physical lettering only; measured font advance keeps inherited authored width. Same transforms, panels, collision and state owners.",
+  "labels": [
+    {
+      "path": "Isolation control contract",
+      "text": "AISLAMIENTO",
+      "ratio": 1.00414944,
+      "characterSize": 0.00803319551
+    },
+    {
+      "path": "At B recall instruction",
+      "text": "R / VOLVER\nEL RECORRIDO SE REPRODUCE",
+      "ratio": 1.091603,
+      "characterSize": 0.01240458
+    },
+    {
+      "path": "6B / lateral arrival route",
+      "text": "LLEGADA  >\nCORREDOR LATERAL",
+      "ratio": 1.08571434,
+      "characterSize": 0.0108571434
+    },
+    {
+      "path": "Registration institutional identity",
+      "text": "E C H O  /  REVISIÓN",
+      "ratio": 1.04705882,
+      "characterSize": 0.03664706
+    },
+    {
+      "path": "Porter take action",
+      "text": "",
+      "ratio": 1.0,
+      "characterSize": 0.0062
+    },
+    {
+      "path": "Terminal engraving",
+      "text": "02 / SUBSUELO",
+      "ratio": 1.0390625,
+      "characterSize": 0.00644531241
+    },
+    {
+      "path": "Isolation automatic relief identity",
+      "text": "PURGA\nAUTOMÁTICA",
+      "ratio": 1.01943839,
+      "characterSize": 0.008155507
+    },
+    {
+      "path": "P1 B rule",
+      "text": "B / PRESENCIA CONTINUA\nLA PAUSA GRABADA DA TIEMPO",
+      "ratio": 1.05383027,
+      "characterSize": 0.010662524
+    },
+    {
+      "path": "R3 Hub reverse marking",
+      "text": "RETORNO · SOLO SALIDA",
+      "ratio": 1.06382978,
+      "characterSize": 0.0158706531
+    },
+    {
+      "path": "P1 service rule",
+      "text": "C / COINCIDENCIA\nTU MIRADA + PRESENCIA EN B",
+      "ratio": 1.04668844,
+      "characterSize": 0.0111834938
+    },
+    {
+      "path": "Porter archive identity",
+      "text": "SESIONES / ARCHIVO",
+      "ratio": 1.037037,
+      "characterSize": 0.011407407
+    },
+    {
+      "path": "6B / origin direction",
+      "text": "ORIGEN  <",
+      "ratio": 1.04571426,
+      "characterSize": 0.0104571423
+    },
+    {
+      "path": "Reserve room / DORMITORIO",
+      "text": "DORMITORIO",
+      "ratio": 1.02407,
+      "characterSize": 0.00301918644
+    },
+    {
+      "path": "6B entry identity",
+      "text": "6B",
+      "ratio": 0.9875,
+      "characterSize": 0.01625
+    },
+    {
+      "path": "R3 physical south turn",
+      "text": "<  HUB",
+      "ratio": 1.04,
+      "characterSize": 0.02288
+    },
+    {
+      "path": "Cooperate after recall instruction",
+      "text": "SERVICIO / TRAS RECALL\nRECIBIR LA PRESENCIA",
+      "ratio": 1.04918027,
+      "characterSize": 0.0146885244
+    },
+    {
+      "path": "P1 C actual state",
+      "text": "C / ACCESO\nREQUIERE A + B EN LA TOMA",
+      "ratio": 1.05967081,
+      "characterSize": 0.0072057615
+    },
+    {
+      "path": "P2 hold instruction",
+      "text": "LA PUERTA NECESITA\nUNA MIRADA CONTINUA",
+      "ratio": 1.01891887,
+      "characterSize": 0.0130014038
+    },
+    {
+      "path": "Isolation gauge unit",
+      "text": "bar",
+      "ratio": 0.9369369,
+      "characterSize": 0.00168648642
+    },
+    {
+      "path": "6B / actual door state",
+      "text": "ORIGEN REQUERIDO",
+      "ratio": 1.05714285,
+      "characterSize": 0.009714286
+    },
+    {
+      "path": "Porter conservation identity",
+      "text": "CONSERVACIÓN / 6B",
+      "ratio": 1.03682721,
+      "characterSize": 0.0124419266
+    },
+    {
+      "path": "Reserve room / COCINA",
+      "text": "COCINA",
+      "ratio": 1.02941179,
+      "characterSize": 0.004946973
+    },
+    {
+      "path": "Isolation route destination",
+      "text": "PASO / 6B",
+      "ratio": 1.02052784,
+      "characterSize": 0.04694428
+    },
+    {
+      "path": "Porter take status",
+      "text": "REGISTRO DE SESIÓN",
+      "ratio": 1.06342781,
+      "characterSize": 0.007124966
+    },
+    {
+      "path": "6B / received-door identity",
+      "text": "6B / RECEPCIÓN",
+      "ratio": 1.03597116,
+      "characterSize": 0.010359711
+    },
+    {
+      "path": "Reserve unit identity",
+      "text": "RESERVA",
+      "ratio": 1.08860755,
+      "characterSize": 0.00243433518
+    },
+    {
+      "path": "Isolation upper detent",
+      "text": "MARCHA",
+      "ratio": 1.04347825,
+      "characterSize": 0.00344347814
+    },
+    {
+      "path": "Paper records identity",
+      "text": "ARCHIVO EN PAPEL\nCONSULTA EN RECEPCIÓN",
+      "ratio": 1.07023406,
+      "characterSize": 0.0121516157
+    },
+    {
+      "path": "Isolation gauge zero",
+      "text": "0",
+      "ratio": 0.9302326,
+      "characterSize": 0.00167441857
+    },
+    {
+      "path": "Porter take duration",
+      "text": "6B / POSICIÓN Y ORIENTACIÓN",
+      "ratio": 1.01777363,
+      "characterSize": 0.004987091
+    },
+    {
+      "path": "Receiver maintenance identity",
+      "text": "P—02",
+      "ratio": 1.07831323,
+      "characterSize": 0.0194096379
+    },
+    {
+      "path": "Descent threshold identity",
+      "text": "REGISTRO 02 / PRESIÓN",
+      "ratio": 1.03783786,
+      "characterSize": 0.03424865
+    },
+    {
+      "path": "Pressure control identifier",
+      "text": "P—02",
+      "ratio": 1.06951869,
+      "characterSize": 0.012299465
+    },
+    {
+      "path": "P1 A actual state",
+      "text": "A / LECTOR DE MIRADA\nCIAN = LECTURA",
+      "ratio": 1.044586,
+      "characterSize": 0.0071031847
+    },
+    {
+      "path": "Review origin text",
+      "text": "6B / ORIGEN INTERIOR",
+      "ratio": 1.01401269,
+      "characterSize": 0.01210191
+    },
+    {
+      "path": "P1 / suspended A arrival flag",
+      "text": "A",
+      "ratio": 1.0,
+      "characterSize": 0.018
+    },
+    {
+      "path": "Isolation lower detent",
+      "text": "AISLADO",
+      "ratio": 1.0196079,
+      "characterSize": 0.003364706
+    },
+    {
+      "path": "6B / lateral route turn",
+      "text": "6B  <",
+      "ratio": 1.01796412,
+      "characterSize": 0.0101796407
+    },
+    {
+      "path": "Start recording instruction",
+      "text": "01 / REGISTRO\nLECTORES A · B",
+      "ratio": 1.08396947,
+      "characterSize": 0.0151755735
+    },
+    {
+      "path": "Reserve room / RECIBIDOR",
+      "text": "RECIBIDOR",
+      "ratio": 1.02564108,
+      "characterSize": 0.00351929059
+    },
+    {
+      "path": "Isolation gauge zero",
+      "text": "0",
+      "ratio": 0.9302326,
+      "characterSize": 0.00167441857
+    },
+    {
+      "path": "P1 B actual state",
+      "text": "B / LECTOR DE MIRADA",
+      "ratio": 1.04591835,
+      "characterSize": 0.007112245
+    },
+    {
+      "path": "Outside pause instruction",
+      "text": "6B / MIRADA\nMANTENER MIRADA",
+      "ratio": 1.032258,
+      "characterSize": 0.007916089
+    },
+    {
+      "path": "Interior revision instructions",
+      "text": "ORIGEN INTERIOR\nE / FIJAR PUNTO",
+      "ratio": 1.02694142,
+      "characterSize": 0.009581511
+    },
+    {
+      "path": "P1 A rule",
+      "text": "A / AUTORIZACIÓN\nUNA LECTURA QUEDA ACEPTADA",
+      "ratio": 1.06841052,
+      "characterSize": 0.0103621725
+    },
+    {
+      "path": "Exit identity",
+      "text": "SUBSUELO",
+      "ratio": 1.08359134,
+      "characterSize": 0.03861248
+    },
+    {
+      "path": "Key return identification",
+      "text": "PORTERÍA / DEVOLUCIÓN",
+      "ratio": 1.04027617,
+      "characterSize": 0.007710011
+    },
+    {
+      "path": "Return end of recording",
+      "text": "FIN DE REGISTRO\nR INACTIVO / ORIGEN EN SUBSUELO",
+      "ratio": 1.04376018,
+      "characterSize": 0.009967586
+    },
+    {
+      "path": "Office glazing identity",
+      "text": "RECEPCIÓN",
+      "ratio": 1.06467664,
+      "characterSize": 0.0191542283
+    },
+    {
+      "path": "6B outside identity",
+      "text": "6B",
+      "ratio": 0.9777778,
+      "characterSize": 0.0200000014
+    },
+    {
+      "path": "Isolation gauge unit",
+      "text": "bar",
+      "ratio": 0.9369369,
+      "characterSize": 0.00168648642
+    }
+  ]
+}

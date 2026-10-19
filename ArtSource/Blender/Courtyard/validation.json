@@ -1,0 +1,151 @@
+{
+  "pass": true,
+  "errors": [],
+  "scope": "Blender reimport numeric geometry/UV/material/anchors and short physical bore/slot rays. No Unity or human visual approval.",
+  "assets": {
+    "Downpipe27": {
+      "triangles": 2880,
+      "bounds_blender_xyz": [
+        [
+          -0.054999999701976776,
+          0.054999999701976776
+        ],
+        [
+          -0.30000001192092896,
+          3.864478230752866e-07
+        ],
+        [
+          0.02800004929304123,
+          2.700000047683716
+        ]
+      ],
+      "bounds_error": 3.864478230752866e-07,
+      "anchor_error": 4.401803016668149e-07,
+      "finite_uvs": true,
+      "finite_materials": true,
+      "rays": {
+        "upper bore genuinely open": {
+          "hit": false,
+          "distance": null
+        },
+        "outlet genuinely open": {
+          "hit": false,
+          "distance": null
+        }
+      },
+      "sha256": "d3e7b06f5abf9a8d3dea0ff11cfceae2d9c57670098a5baa427e7d4737a52fde"
+    },
+    "GutterStraight1m": {
+      "triangles": 692,
+      "bounds_blender_xyz": [
+        [
+          -0.5,
+          0.5
+        ],
+        [
+          -0.1835000067949295,
+          1.2707812580003974e-08
+        ],
+        [
+          1.792127335420446e-08,
+          0.07950000464916229
+        ]
+      ],
+      "bounds_error": 1.792127335420446e-08,
+      "anchor_error": 1.792127335420446e-08,
+      "finite_uvs": true,
+      "finite_materials": true,
+      "rays": {
+        "trough has floor": {
+          "hit": true,
+          "distance": 0.19699998199939728
+        }
+      },
+      "sha256": "8340ff6620a4abed3a875b96d09300b17dbb2a98d1dcbd037bac80733eb3ce26"
+    },
+    "GutterOutlet1m": {
+      "triangles": 1064,
+      "bounds_blender_xyz": [
+        [
+          -0.5,
+          0.5
+        ],
+        [
+          -0.1835000067949295,
+          1.2707812580003974e-08
+        ],
+        [
+          -0.049999989569187164,
+          0.07950000464916229
+        ]
+      ],
+      "bounds_error": 1.4901161193847656e-08,
+      "anchor_error": 1.792127335420446e-08,
+      "finite_uvs": true,
+      "finite_materials": true,
+      "rays": {
+        "outlet passes through floor": {
+          "hit": false,
+          "distance": null
+        }
+      },
+      "sha256": "1d9b84d364847998b566aafbc245ef60a2edacbb4ef4a7cee7138fb4f556f0ce"
+    },
+    "MineralTile0744": {
+      "triangles": 108,
+      "bounds_blender_xyz": [
+        [
+          -0.3720000088214874,
+          0.3720000088214874
+        ],
+        [
+          -0.3720000088214874,
+          0.3720000088214874
+        ],
+        [
+          -0.040000058710575104,
+          5.962896665323569e-08
+        ]
+      ],
+      "bounds_error": 5.962896665323569e-08,
+      "anchor_error": 1.221904994963552e-07,
+      "finite_uvs": true,
+      "finite_materials": true,
+      "rays": {},
+      "sha256": "b98b724c102a8d8f589efc1279c39f39a6c562bb5c985a1625e2e9640b269a81"
+    },
+    "Drain1m": {
+      "triangles": 2916,
+      "bounds_blender_xyz": [
+        [
+          -0.5,
+          0.5
+        ],
+        [
+          -0.06000000610947609,
+          0.05999999865889549
+        ],
+        [
+          -0.03600000962615013,
+          8.47187475727651e-09
+        ]
+      ],
+      "bounds_error": 1.1175870895385742e-08,
+      "anchor_error": 1.6292068139023286e-08,
+      "finite_uvs": true,
+      "finite_materials": true,
+      "rays": {
+        "grate slot open": {
+          "hit": false,
+          "distance": null
+        },
+        "actual channel below slot": {
+          "hit": true,
+          "distance": 0.08000000566244125
+        }
+      },
+      "sha256": "4bdad8ebacf9e542964570ec2b017fcab4386302b4eea565d817ce2ef84dceb9"
+    }
+  },
+  "total_triangles": 7660
+}

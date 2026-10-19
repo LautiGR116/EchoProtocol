@@ -1,0 +1,11 @@
+{
+  "status": "INTEGRATED",
+  "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Embodiment.unity",
+  "prefab": "Assets/_Game/Prefabs/Embodiment/EchoEmbodiment.prefab",
+  "echoJoints": 88,
+  "pursuerJoints": 90,
+  "pursuerScale": "(1.04, 1.04, 1.04)",
+  "se2Joints": 88,
+  "autonomousAnimators": 0,
+  "gameplay": "Coverage controls, route, speeds, sight/hearing, catch distance and release timing retained. Present acting and contact cadence are presentation changes."
+}

@@ -1,0 +1,1 @@
+scene=EchoProtocol_Finish missingScripts=0 opticalReaders=6 stations=17 playing=False

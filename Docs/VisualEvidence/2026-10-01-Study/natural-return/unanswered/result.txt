@@ -1,0 +1,6 @@
+PASS
+branch=unanswered-hall-general checks=17 fixtures=1 laterPoseResets=0 capturedFrames=4
+centreSeconds=0.6344 headSeconds=0.6344 eitherSeconds=0.6344 longestContinuousSeconds=0.6344
+returnAt=6.9407 activationAt=4.5022 cueCommittedAt=7.2168 firstGeometricExposureAt=7.3121
+maxReturnDelta=0.0101 PresenceSeen=True PresenceRetired=True
+All exposure durations use actual Time.deltaTime; centre/head rays and projected bounds are geometric opportunity, not measured visible pixels or spontaneous recognition.

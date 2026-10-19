@@ -1,0 +1,15 @@
+Native UI smoke on RC2 build_392c6a7c22ae via CUA:
+PASS launch and title
+PASS both speaker/mono and reduced-dynamics toggles change and restore
+PASS credits and back
+PASS Enter starts session, WASD triggers actual recording
+PASS H opens/closes complete first-act help
+PASS R returns to origin and Echo timer/figure appear (02.0 / 51.5 s observed)
+PASS Escape shows pause
+PASS normal quit; process closed
+Mouse drag did not establish a measurable native yaw response through this automation tool; physical mouse comfort remains human verification.
+Detected near-camera Echo mesh intersection and background bleed through paused menu.
+Both corrected in final build_2da095c64a76; final UI rerun blocked by locked macOS session.
+Final native process boot/shutdown passed in batchmode/nographics; see native-headless.json.
+Final shader appearance compared with the actual camera in Editor; see near-echo-*; not native UI proof.
+RC2 native log error lines: []

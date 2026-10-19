@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "videoSize": [
+    960,
+    540
+  ],
+  "videoTracks": 1,
+  "audioTracks": 1,
+  "previewFrameInspected": true,
+  "encoding": "H264 and AAC, original gain, eight-millisecond cut fades",
+  "decodedAudio": [
+    {
+      "name": "before",
+      "channels": 2,
+      "rate": 48000,
+      "seconds": 10.566666666666666,
+      "peakDb": -11.678824261862008,
+      "rmsDb": -33.44578006516662,
+      "fullScaleSamples": 0
+    },
+    {
+      "name": "after",
+      "channels": 2,
+      "rate": 48000,
+      "seconds": 14.766666666666667,
+      "peakDb": -5.800745241875271,
+      "rmsDb": -23.24132175024261,
+      "fullScaleSamples": 0
+    }
+  ]
+}

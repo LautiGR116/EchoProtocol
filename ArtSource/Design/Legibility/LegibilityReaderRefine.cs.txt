@@ -1,0 +1,37 @@
+using System;
+using System.Linq;
+using System.IO;
+using UnityEngine;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using EchoProtocol.Presentation;
+using Object=UnityEngine.Object;
+public static class LegibilityReaderRefine {
+ static Transform Named(string n)=>Object.FindObjectsByType<Transform>(FindObjectsInactive.Include,FindObjectsSortMode.None).Single(t=>t.name==n);
+ static void Ref(Object o,string n,Object v){var s=new SerializedObject(o);s.FindProperty(n).objectReferenceValue=v;s.ApplyModifiedPropertiesWithoutUndo();}
+ static GameObject Part(Transform parent,string n,Vector3 p,Vector3 size,Material material){var g=GameObject.CreatePrimitive(PrimitiveType.Cube);g.name=n;g.transform.SetParent(parent);g.transform.position=p;g.transform.localScale=size;g.GetComponent<Renderer>().sharedMaterial=material;Object.DestroyImmediate(g.GetComponent<Collider>());return g;}
+ public static void Main(){
+  var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();if(EditorApplication.isPlaying||scene.path!="Assets/_Game/Scenes/Production/EchoProtocol_Legibility.unity")throw new Exception("Fresh Legibility edit scene");
+  if(GameObject.Find("Legibility / reader task lamps"))throw new Exception("Already refined");
+  var root=new GameObject("Legibility / reader task lamps").transform;var metal=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Readers/M_Bezel.mat");var enamel=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Readers/M_Enamel.mat");
+  var budget=new SerializedObject(Object.FindFirstObjectByType<LightShadowBudget>());var arr=budget.FindProperty("lights");int first=arr.arraySize;arr.arraySize+=3;
+  var wallX=new[]{-.40f,-.40f,4.24f};var z=new[]{3f,11f,10f};var owners=new[]{"Panel Light - Cold Ceiling Panel Lane 2","Panel Light - Cold Ceiling Panel Lane 3","Panel Light - Service Ceiling Panel 3"};
+  for(int i=0;i<3;i++){
+   var p=new Vector3(wallX[i]-.64f,1.98f,z[i]);
+   Part(root,"Reader "+i+" / task bracket",new Vector3(wallX[i]-.32f,2.04f,z[i]),new Vector3(.64f,.045f,.065f),metal);
+   Part(root,"Reader "+i+" / task canopy",p+Vector3.up*.05f,new Vector3(.24f,.075f,.30f),metal);
+   var surface=Part(root,"Reader "+i+" / task diffuser",p+Vector3.up*.011f,new Vector3(.20f,.013f,.25f),enamel).GetComponent<Renderer>();surface.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off;
+   var g=new GameObject("Reader "+i+" / linked task pool");g.transform.SetParent(root);g.transform.position=p;g.transform.LookAt(new Vector3(wallX[i],1.18f,z[i]));var light=g.AddComponent<Light>();light.type=LightType.Spot;light.color=new Color(.88f,.94f,.88f);light.intensity=2.8f;light.range=2.3f;light.spotAngle=100;light.innerSpotAngle=70;light.shadows=LightShadows.Soft;light.shadowBias=.015f;light.shadowNormalBias=.04f;
+   var linked=g.AddComponent<LinkedTaskLight>();var owner=Named(owners[i]).GetComponent<Light>();Ref(linked,"circuitSource",owner);Ref(linked,"taskLight",light);var so=new SerializedObject(linked);so.FindProperty("sourceNominalIntensity").floatValue=owner.intensity;so.FindProperty("taskIntensity").floatValue=2.8f;so.ApplyModifiedPropertiesWithoutUndo();
+   var pe=surface.gameObject.AddComponent<PracticalEmission>();Ref(pe,"surface",surface);Ref(pe,"source",light);
+   arr.GetArrayElementAtIndex(first+i).objectReferenceValue=light;
+  }
+  budget.ApplyModifiedPropertiesWithoutUndo();
+  foreach(var n in new[]{"P1 approach identity","P1 approach identity / enamel plate","P1 flag / glass-post bracket"})Named(n).gameObject.SetActive(false);
+  var text=Object.Instantiate(Named("P2 hold instruction").gameObject,root);text.name="P1 / suspended A arrival flag";text.transform.SetPositionAndRotation(new Vector3(-2.75f,2.15f,2.15f),Quaternion.identity);text.transform.localScale=Vector3.one;var tm=text.GetComponent<TextMesh>();tm.text="A";tm.fontSize=72;tm.characterSize=.018f;tm.color=new Color(.86f,.85f,.76f);tm.anchor=TextAnchor.MiddleCenter;
+  Part(root,"P1 / A flag backplate",new Vector3(-2.75f,2.15f,2.18f),new Vector3(.32f,.30f,.035f),metal);
+  Part(root,"P1 / A flag ceiling hanger",new Vector3(-2.75f,2.62f,2.18f),new Vector3(.018f,.65f,.018f),metal);
+  EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();
+  File.AppendAllText("Docs/VisualEvidence/2026-10-02-Legibility/authoring.txt","Camera refinement: three original circuit-following reader task lamps with physical brackets/canopies; no new collider. Rejected side flag retained inactive; suspended A flag sits in the forward arrival view. New lamps must extinguish/fade with their explicit original circuit sources.\n");
+ }
+}

@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "checks": 19,
+  "elapsedSeconds": 17.695,
+  "initialFixtures": 1,
+  "laterPoseResets": 0,
+  "lightIntensity": 1.1,
+  "selection": "Initial integrated rotor/layout. Machine light subsequently raised to2.4 for camera review in continuous run.",
+  "console": "No runtime error during route. One Pipeline main-thread timeout logged before route initialization; inspected and distinguished from gameplay.",
+  "limits": "Static camera and actual-input/state evidence. Rotor motion legibility, listening, comfort and first-use comprehension require human play."
+}

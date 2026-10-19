@@ -1,0 +1,8 @@
+using System;using System.IO;using System.Linq;using UnityEngine;using UnityEditor.Build.Reporting;
+public static class LegibilityBuildReportAudit {
+ public static object Main(){var r=BuildReport.GetLatestReport();if(r==null)throw new Exception("No build report.");
+ var warnings=r.steps.SelectMany(s=>s.messages).Where(m=>m.type==LogType.Warning).Select(m=>m.content).ToArray();
+ var groups=warnings.GroupBy(x=>x).OrderByDescending(x=>x.Count()).Select(x=>x.Count()+"x "+x.Key).ToArray();
+ File.WriteAllText("Docs/VisualEvidence/2026-10-02-Legibility/build-warnings.txt",string.Join("\n\n",groups)+"\n");
+ return new{result=r.summary.result.ToString(),errors=r.summary.totalErrors,warnings=r.summary.totalWarnings,messageWarnings=warnings.Length,distinctWarnings=groups.Length};}
+}

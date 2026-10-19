@@ -1,0 +1,4 @@
+PASS native Input System Escape pauses
+PASS recording freezes
+PASS second Escape resumes controller
+PASS focus regain retains locked cursor preference

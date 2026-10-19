@@ -1,0 +1,6 @@
+Actual Player camera; Camera captures omit OnGUI, Game captures include it.
+initial-protocol-00-title position=(0.000, 1.600, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title
+initial-protocol-reception-arrival position=(0.309, 1.630, -5.565) euler=(0.00, 0.00, 0.00) FOV=60 paused=False step=registration_letter_approach
+initial-protocol-reception-document position=(0.309, 1.630, -5.565) euler=(24.18, 2.02, 0.00) FOV=60 paused=True step=registration_letter_document
+initial-protocol-01-P1 position=(3.294, 1.630, 9.921) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=P1_cooperate
+initial-protocol-P1-complete-paused position=(3.294, 1.630, 9.921) euler=(0.00, 90.00, 0.00) FOV=60 paused=True step=initial_protocol_complete_pause

@@ -1,0 +1,16 @@
+{
+    "label": "campaign-Resonance-phone-listened",
+    "state": "House|house:True/True/Hall|pressure:False/False|P3:1.00",
+    "position": {
+        "x": -3.3803374767303469,
+        "y": 1.6299999952316285,
+        "z": -51.94039535522461
+    },
+    "rotation": {
+        "x": -0.23247654736042024,
+        "y": 0.6559561491012573,
+        "z": -0.22344931960105897,
+        "w": -0.682456374168396
+    },
+    "fov": 60.0
+}

@@ -1,0 +1,18 @@
+{
+    "status": "PASS",
+    "error": "",
+    "lastStep": "done",
+    "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Reception.unity",
+    "scope": "Isolated recording-boundary mechanics: an explicit editor fixture bypasses only physical R3 eligibility after an authentic input-generated take. No P3/full-route proof. Wait uses real advancing simulation beyond the unchanged recording limit. Optional PressureOrigin verification uses one labelled chapter/pose fixture, then actual mouse/E/movement/R. No fabricated snapshot, hidden pause resume or human play/listening claim.",
+    "checks": 36,
+    "playbackFramesChecked": 171,
+    "immutableFrames": 30,
+    "fixturePlacements": 1,
+    "bypassedBoundaryFixtures": 1,
+    "elapsedRealtime": 69.10055541992188,
+    "originalLimit": 60.0,
+    "requestedWait": 65.0,
+    "actualSimulationWait": 65.00311279296875,
+    "pressureRearmChecked": true,
+    "priorSaveSuppressionRestored": true
+}

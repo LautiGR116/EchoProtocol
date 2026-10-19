@@ -1,0 +1,17 @@
+using System;using System.Linq;using UnityEngine;using UnityEditor;using EchoProtocol.Echo;using EchoProtocol.Campaign;using EchoProtocol.Horror;using Object=UnityEngine.Object;
+public static class EncounterInspect {
+ static string P(Transform t){return t.parent?P(t.parent)+"/"+t.name:t.name;}
+ static object V(Vector3 v)=>new{x=v.x,y=v.y,z=v.z};
+ static bool Region(Transform t)=>t.position.z>23&&t.position.z<34&&t.position.x>1 || t.position.z>-62&&t.position.z<-42&&t.position.x<-8;
+ public static object Main(){
+ var e=Object.FindFirstObjectByType<VS1ParallelFigureEvent>();var es=new SerializedObject(e);var fr=(GameObject)es.FindProperty("figureRoot").objectReferenceValue;
+ var loop=Object.FindFirstObjectByType<LoopController>();var prefab=(EchoPlayback)new SerializedObject(loop).FindProperty("echoPrefab").objectReferenceValue;
+ var review=Object.FindFirstObjectByType<FinalDoorMemory>();var rs=new SerializedObject(review);
+ var result=new{figureRoot=P(fr.transform),figurePos=V(fr.transform.position),figureRot=V(fr.transform.eulerAngles),figureMeshes=fr.GetComponentsInChildren<MeshFilter>(true).Select(m=>new{path=P(m.transform),asset=AssetDatabase.GetAssetPath(m.sharedMesh),vertices=m.sharedMesh?m.sharedMesh.vertexCount:0,mats=m.GetComponent<Renderer>()?m.GetComponent<Renderer>().sharedMaterials.Select(mat=>mat?mat.name:"null").ToArray():new string[0]}).ToArray(),
+ prefab=AssetDatabase.GetAssetPath(prefab),prefabMeshes=prefab.GetComponentsInChildren<MeshFilter>(true).Select(m=>new{path=P(m.transform),asset=AssetDatabase.GetAssetPath(m.sharedMesh),local=V(m.transform.localPosition),scale=V(m.transform.localScale),rot=V(m.transform.localEulerAngles),mats=m.GetComponent<Renderer>().sharedMaterials.Select(mat=>new{name=mat.name,asset=AssetDatabase.GetAssetPath(mat)}).ToArray()}).ToArray(),
+ reviewRefs=new[]{"origin","outsideZone","insideWitnessZone","domesticDoor","outsideFacingTransform"}.Select(n=>new{name=n,path=P(((Component)rs.FindProperty(n).objectReferenceValue).transform),pos=V(((Component)rs.FindProperty(n).objectReferenceValue).transform.position)}).ToArray(),
+ lights=Object.FindObjectsByType<Light>(FindObjectsInactive.Include,FindObjectsSortMode.None).Where(l=>Region(l.transform)).Select(l=>new{path=P(l.transform),pos=V(l.transform.position),rot=V(l.transform.eulerAngles),type=l.type.ToString(),intensity=l.intensity,range=l.range,angle=l.spotAngle,color=new{r=l.color.r,g=l.color.g,b=l.color.b},active=l.gameObject.activeInHierarchy,enabled=l.enabled}).ToArray(),
+ audio=Object.FindObjectsByType<AudioSource>(FindObjectsInactive.Include,FindObjectsSortMode.None).Where(l=>Region(l.transform)||l.spatialBlend<.5f).Select(l=>new{path=P(l.transform),pos=V(l.transform.position),clip=l.clip?AssetDatabase.GetAssetPath(l.clip):"none",volume=l.volume,spatial=l.spatialBlend,min=l.minDistance,max=l.maxDistance,loop=l.loop,group=l.outputAudioMixerGroup?l.outputAudioMixerGroup.name:"none"}).ToArray(),
+ renderers=Object.FindObjectsByType<Renderer>(FindObjectsInactive.Include,FindObjectsSortMode.None).Where(l=>Region(l.transform)&&l.enabled&&l.gameObject.activeSelf).Select(l=>new{path=P(l.transform),pos=V(l.transform.position),size=V(l.bounds.size)}).ToArray()};
+ System.IO.File.WriteAllText("/tmp/encounter-inspect-data.json",Newtonsoft.Json.JsonConvert.SerializeObject(result,Newtonsoft.Json.Formatting.Indented,new Newtonsoft.Json.JsonSerializerSettings{ReferenceLoopHandling=Newtonsoft.Json.ReferenceLoopHandling.Ignore}));return "Inventory saved"; }
+}

@@ -1,0 +1,38 @@
+{
+  "status": "REVIEWED",
+  "qaBuildWarningGroups": {
+    "Pipeline disabled in Player": 1,
+    "warning CS0252: Possible unintended reference comparison; to get a value comparison, cast the left hand side to type 'Object'": 2,
+    "Unity AI Inference shader": 185,
+    "Shader warning in 'ConvGeneric': \"TRANSPOSE_OUTPUT variants not supported with NON_UNIFORM_CONVGROUP_PER_OC, make sure this varian": 160
+  },
+  "deliveryBuildWarningGroups": {
+    "Pipeline disabled in Player": 1,
+    "Unity AI Inference shader": 185,
+    "Shader warning in 'ConvGeneric': \"TRANSPOSE_OUTPUT variants not supported with NON_UNIFORM_CONVGROUP_PER_OC, make sure this varian": 160
+  },
+  "nativeGameplayErrors": 0,
+  "inheritedNativeWarnings": [
+    "Negative-scale handset BoxCollider outside pump encounter",
+    "Shadow atlas reduces additional-light resolution; new Impact practicals cast no shadows"
+  ],
+  "editorErrorsSince824": [
+    {
+      "sequence": 827,
+      "classification": "Unity Pipeline main-thread timeout"
+    },
+    {
+      "sequence": 872,
+      "classification": "Verification capture outside Play Mode during stop; guard added and subsequent runs clean"
+    },
+    {
+      "sequence": 873,
+      "classification": "Null texture consequence of 872; fixed by same guard"
+    },
+    {
+      "sequence": 1312,
+      "classification": "Premature build during script compilation; retried after compilation and both builds succeeded"
+    }
+  ],
+  "scope": "Actual build warning messages reviewed. Four retained Editor errors are tool/verification/build-timing errors; no clean-Console claim. QA and delivery native logs have no gameplay exception/error/assertion."
+}

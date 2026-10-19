@@ -1,0 +1,10 @@
+One initial R1/lighting/Player pose fixture, then real input. Survey directions authored; no first-use or listening claim.
+00-entry-forward position=(-5.56, 1.63, 32.43) rotation=(0.00, 0.00, 0.00)
+01-recording-approach position=(-5.10, 1.63, 33.22) rotation=(0.00, 0.00, 0.00)
+02-A-forward position=(-5.10, 1.63, 35.13) rotation=(0.00, 0.00, 0.00)
+03-A-reading position=(-5.10, 1.63, 35.13) rotation=(0.00, 270.00, 0.00)
+04-B-forward position=(-5.10, 1.63, 42.92) rotation=(0.00, 0.00, 0.00)
+05-B-reading position=(-5.10, 1.63, 42.92) rotation=(0.00, 270.00, 0.00)
+06-Echo-A-through-window position=(-7.75, 1.63, 34.12) rotation=(5.05, 69.11, 0.00)
+07-Echo-hidden-by-core position=(-7.75, 1.63, 39.13) rotation=(2.99, 146.53, 0.00)
+08-Echo-B-through-window position=(-7.75, 1.63, 41.97) rotation=(5.09, 70.23, 0.00)

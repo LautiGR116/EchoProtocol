@@ -1,0 +1,67 @@
+Scope: explicit prior house/answer/key/exit/final-review API fixtures and 6 pose fixtures. Actual E/W/R Input System actions; not a continuous playthrough, human acceptance or listening evidence.
+PASS actual camera has the explicit carried representation and presenter
+PASS carried model starts hidden and contains no collider
+PASS carried unit adds no free light or transport audio source
+PASS carried surfaces cast no giant shadow and remain on Ignore Raycast layer
+PASS actual center ray reaches HallSocket
+PASS real Player can use HallSocket
+PASS reserve state is Carried
+PASS hallFuse follows the single owner
+PASS kitchenFuse follows the single owner
+PASS bedroomFuse follows the single owner
+PASS carriedFuse follows the single owner
+PASS exactly one physical reserve exists
+PASS pause preserves the held reserve and its presentation pose
+PASS clear view permits the authored carrying pose
+PASS nearby solid wall lowers the grip without changing reserve state
+PASS reserve state is Carried
+PASS hallFuse follows the single owner
+PASS kitchenFuse follows the single owner
+PASS bedroomFuse follows the single owner
+PASS carriedFuse follows the single owner
+PASS exactly one physical reserve exists
+PASS actual center ray reaches KitchenSocket
+PASS real Player can use KitchenSocket
+PASS reserve state is Kitchen
+PASS hallFuse follows the single owner
+PASS kitchenFuse follows the single owner
+PASS bedroomFuse follows the single owner
+PASS carriedFuse follows the single owner
+PASS exactly one physical reserve exists
+PASS actual center ray reaches KitchenSocket
+PASS real Player can use KitchenSocket
+PASS reserve state is Carried
+PASS hallFuse follows the single owner
+PASS kitchenFuse follows the single owner
+PASS bedroomFuse follows the single owner
+PASS carriedFuse follows the single owner
+PASS exactly one physical reserve exists
+PASS actual center ray reaches BedroomSocket
+PASS real Player can use BedroomSocket
+PASS reserve state is Bedroom
+PASS hallFuse follows the single owner
+PASS kitchenFuse follows the single owner
+PASS bedroomFuse follows the single owner
+PASS carriedFuse follows the single owner
+PASS exactly one physical reserve exists
+PASS actual center ray reaches BedroomSocket
+PASS real Player can use BedroomSocket
+PASS reserve state is Carried
+PASS hallFuse follows the single owner
+PASS kitchenFuse follows the single owner
+PASS bedroomFuse follows the single owner
+PASS carriedFuse follows the single owner
+PASS exactly one physical reserve exists
+PASS leaving the house keeps ownership and carried representation
+PASS reserve state is Carried
+PASS hallFuse follows the single owner
+PASS kitchenFuse follows the single owner
+PASS bedroomFuse follows the single owner
+PASS carriedFuse follows the single owner
+PASS exactly one physical reserve exists
+PASS review restoration preserves earned state while the house remains inactive
+PASS explicit final origin fixture accepts the earned key
+PASS actual W/R makes an ordinary real take while carrying
+PASS real final RECALL preserves current Player reserve ownership
+PASS Echo does not duplicate the present Player carried reserve or hand
+PASS

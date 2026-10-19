@@ -1,0 +1,16 @@
+{
+    "label": "campaign-Contraprueba-first-presence",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00",
+    "position": {
+        "x": -7.300244331359863,
+        "y": 1.6299999952316285,
+        "z": 34.17747116088867
+    },
+    "rotation": {
+        "x": -0.018645107746124269,
+        "y": -0.5382552742958069,
+        "z": 0.011912083253264428,
+        "w": -0.8424913883209229
+    },
+    "fov": 60.0
+}

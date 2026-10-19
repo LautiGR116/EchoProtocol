@@ -1,0 +1,30 @@
+PASS actual chapter-entry interaction writes the continuation checkpoint
+PASS out-of-range saved checkpoint rejected
+PASS restored checkpoint 2
+PASS chapter state matches saved checkpoint 2
+PASS Player and recall origin agree 2
+PASS continuation invents no past Echo 2
+PASS teleport into continuation is not recorded 2
+PASS recording availability restored 2
+PASS restored checkpoint 3
+PASS chapter state matches saved checkpoint 3
+PASS Player and recall origin agree 3
+PASS continuation invents no past Echo 3
+PASS teleport into continuation is not recorded 3
+PASS recording availability restored 3
+PASS restored checkpoint 4
+PASS chapter state matches saved checkpoint 4
+PASS Player and recall origin agree 4
+PASS continuation invents no past Echo 4
+PASS teleport into continuation is not recorded 4
+PASS recording availability restored 4
+PASS completed house prerequisites restored 4
+PASS restored checkpoint 5
+PASS chapter state matches saved checkpoint 5
+PASS Player and recall origin agree 5
+PASS continuation invents no past Echo 5
+PASS teleport into continuation is not recorded 5
+PASS recording availability restored 5
+PASS completed house prerequisites restored 5
+PASS archive keeps gallery progress but requires a fresh witness
+PASS saved user preference restored after test

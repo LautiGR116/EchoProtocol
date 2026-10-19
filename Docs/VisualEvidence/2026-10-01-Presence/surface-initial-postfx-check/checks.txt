@@ -1,0 +1,12 @@
+Scope: cold and warm initial pose/checkpoint fixtures, actual W/hold/R in each, authored completed-lighting restore for warm, then paused camera pose fixtures (total 8). No fabricated recording. Camera.Render excludes OnGUI. Visual/occlusion evidence only; not human approval.
+PASS explicit initial fixture starts a genuine empty recorder
+PASS actual W/hold/R produces the live immutable take
+PASS color and self-depth use the same rigid mesh and world transform
+PASS self depth precedes color in the transparent queue
+PASS depth proxy creates no gameplay collider, light or sound
+PASS depth proxy casts no physical shadow
+PASS both surfaces share the original near-fade distances
+FAIL System.Exception: fully faded surfaces match disabled surfaces within 1 RGB step per channel
+  at PresenceSurfaceProbe.Check (System.Boolean ok, System.String message) [0x00020] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/PresenceSurfaceProbe.cs:28 
+  at PresenceSurfaceProbe+<Execute>d__26.MoveNext () [0x00711] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/PresenceSurfaceProbe.cs:62 
+  at PresenceSurfaceProbe+<Guarded>d__25.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/PresenceSurfaceProbe.cs:29 

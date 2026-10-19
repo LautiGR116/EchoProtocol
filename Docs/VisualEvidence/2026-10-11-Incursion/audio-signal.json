@@ -1,0 +1,33 @@
+{
+  "scope": "Actual post-SessionAudio native PCM; first cut saved stereo/normal, second cut nonpersistent mono/reduced retry. Same saved volume .6984127. Not equal-settings A/B, device SPL, comfort or human casting approval.",
+  "rate": 48000,
+  "channels": 2,
+  "cuts": [
+    {
+      "label": "Primera irrupci\u00f3n y captura: est\u00e9reo, din\u00e1mica normal",
+      "start": 68.85733333333333,
+      "end": 76.49866666666667,
+      "rmsDb": -27.789835004728126,
+      "peakDb": -6.020599913262252,
+      "fullScaleSamples": 0,
+      "maxChannelDifference": 0.223541259765625
+    },
+    {
+      "label": "Escape tras Enter: mono y din\u00e1mica reducida",
+      "start": 100.55666666666667,
+      "end": 108.226,
+      "rmsDb": -30.091947636317208,
+      "peakDb": -15.12168626602625,
+      "fullScaleSamples": 0,
+      "maxChannelDifference": 0.0
+    }
+  ],
+  "whole": {
+    "start": 0,
+    "end": 121.64266666666667,
+    "rmsDb": -32.158456332436394,
+    "peakDb": -6.020599913262252,
+    "fullScaleSamples": 0,
+    "maxChannelDifference": 0.223541259765625
+  }
+}

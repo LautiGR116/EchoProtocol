@@ -1,0 +1,18 @@
+{
+    "label": "house-Carried-hall-dock-approach",
+    "position": {
+        "x": -0.30000001192092898,
+        "y": 1.6299999952316285,
+        "z": -52.0
+    },
+    "target": {
+        "x": 0.8799999952316284,
+        "y": 1.2999999523162842,
+        "z": -50.79999923706055
+    },
+    "chapter": "Archive",
+    "power": "Carried",
+    "answered": true,
+    "latched": true,
+    "drained": true
+}

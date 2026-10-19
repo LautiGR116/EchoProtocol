@@ -1,0 +1,1 @@
+Normal startup=True hub=False wall=True SE3=AwaitingSE2 SE2=AwaitingCrossing checkpoint=0

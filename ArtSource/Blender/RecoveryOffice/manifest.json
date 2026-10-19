@@ -1,0 +1,487 @@
+{
+  "date": "2026-10-01",
+  "authorship": "Original project geometry and material values. No external models/images/textures/fonts/services. Procedural timber preview noise is not baked/exported. No new recorded data or gameplay.",
+  "axis_contract": "Source Xwidth,-Yfront,Zup. FBX -Z/+Y. Observed Unity importer maps(-X,Z,-Y): negate imported root localScale.x once, retain imported magnitude/rotation, then placementRotation*importedRotation. Corrected map(X,Z,-Y), nominalfrontUnity+Z. Use marker position differences for directions.",
+  "materials": {
+    "RO_Wood": {
+      "color": [
+        0.16,
+        0.091,
+        0.043,
+        1
+      ],
+      "roughness": 0.56,
+      "metallic": 0
+    },
+    "RO_WoodEdge": {
+      "color": [
+        0.105,
+        0.063,
+        0.032,
+        1
+      ],
+      "roughness": 0.55,
+      "metallic": 0
+    },
+    "RO_Enamel": {
+      "color": [
+        0.075,
+        0.098,
+        0.08,
+        1
+      ],
+      "roughness": 0.5,
+      "metallic": 0.32
+    },
+    "RO_WornMetal": {
+      "color": [
+        0.2,
+        0.22,
+        0.197,
+        1
+      ],
+      "roughness": 0.43,
+      "metallic": 0.76
+    },
+    "RO_DrawerFace": {
+      "color": [
+        0.235,
+        0.252,
+        0.211,
+        1
+      ],
+      "roughness": 0.6,
+      "metallic": 0.12
+    },
+    "RO_DarkRubber": {
+      "color": [
+        0.012,
+        0.016,
+        0.012,
+        1
+      ],
+      "roughness": 0.78,
+      "metallic": 0
+    },
+    "RO_Bakelite": {
+      "color": [
+        0.039,
+        0.034,
+        0.023,
+        1
+      ],
+      "roughness": 0.43,
+      "metallic": 0
+    },
+    "RO_MonitorEnamel": {
+      "color": [
+        0.23,
+        0.26,
+        0.224,
+        1
+      ],
+      "roughness": 0.53,
+      "metallic": 0.15
+    },
+    "RO_BezelDark": {
+      "color": [
+        0.025,
+        0.034,
+        0.029,
+        1
+      ],
+      "roughness": 0.59,
+      "metallic": 0
+    },
+    "RO_LabelBlank": {
+      "color": [
+        0.47,
+        0.448,
+        0.348,
+        1
+      ],
+      "roughness": 0.86,
+      "metallic": 0
+    },
+    "RO_LampDiffuser": {
+      "color": [
+        0.7,
+        0.652,
+        0.49,
+        1
+      ],
+      "roughness": 0.78,
+      "metallic": 0
+    },
+    "RO_Brass": {
+      "color": [
+        0.26,
+        0.182,
+        0.085,
+        1
+      ],
+      "roughness": 0.44,
+      "metallic": 0.73
+    }
+  },
+  "total_triangles": 12496,
+  "assets": {
+    "ReviewDesk": {
+      "file": "exports/EP_RO_ReviewDesk.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.824999988079071,
+          0.824999988079071
+        ],
+        [
+          -0.3920000195503235,
+          0.4197212755680084
+        ],
+        [
+          0.0,
+          0.7706135511398315
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        1.649999976158142,
+        0.8117212951183319,
+        0.7706135511398315
+      ],
+      "materials": [
+        "RO_Bakelite",
+        "RO_BezelDark",
+        "RO_DarkRubber",
+        "RO_DrawerFace",
+        "RO_Enamel",
+        "RO_LabelBlank",
+        "RO_Wood",
+        "RO_WoodEdge",
+        "RO_WornMetal"
+      ],
+      "mesh_objects": [
+        {
+          "name": "DeskStructure",
+          "vertices": 2472,
+          "triangles": 4752,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        {
+          "name": "DeskRearCable",
+          "vertices": 414,
+          "triangles": 804,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "anchors_blender_xyz": {
+        "ReviewDesk__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "ReviewDesk__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "ReviewDesk__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "ReviewDesk__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "ReviewDesk__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "ReviewDesk__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ],
+        "ReviewDesk__FLOOR_CONTACT": [
+          0,
+          0,
+          0
+        ],
+        "ReviewDesk__DESKTOP_CENTRE": [
+          0,
+          0,
+          0.76
+        ],
+        "ReviewDesk__REAR_EDGE": [
+          0,
+          0.39,
+          0.76
+        ],
+        "ReviewDesk__KNEE_FRONT_LEFT": [
+          -0.71,
+          -0.39,
+          0.7
+        ],
+        "ReviewDesk__KNEE_REAR_RIGHT": [
+          0.345,
+          0.248,
+          0.7
+        ],
+        "ReviewDesk__MONITOR_PLACEMENT": [
+          -0.12,
+          0.12,
+          0.76
+        ],
+        "ReviewDesk__TASKLAMP_PLACEMENT": [
+          -0.59,
+          0.03,
+          0.76
+        ]
+      },
+      "notes": "Floor centre root. Top 1.65x.78m, .760m high (grommet/cable rise to .769). Knee bay X approximately -.710..+.345; rear panel front Y.268. Two side frames plus a suspended right drawer pedestal. Static drawers, no interaction. DeskRearCable separate. No assets imported from outside project."
+    },
+    "TaskLamp": {
+      "file": "exports/EP_RO_TaskLamp.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.0811687484383583,
+          0.12269674986600876
+        ],
+        [
+          -0.2455374151468277,
+          0.4224967360496521
+        ],
+        [
+          -0.09605921804904938,
+          0.4694253206253052
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.20386549830436707,
+        0.6680341511964798,
+        0.5654845386743546
+      ],
+      "materials": [
+        "RO_Bakelite",
+        "RO_DarkRubber",
+        "RO_Enamel",
+        "RO_LampDiffuser",
+        "RO_WornMetal"
+      ],
+      "mesh_objects": [
+        {
+          "name": "TaskLightBody",
+          "vertices": 1464,
+          "triangles": 2806,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        {
+          "name": "TaskLightDiffuser",
+          "vertices": 49,
+          "triangles": 48,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        {
+          "name": "TaskLightCable",
+          "vertices": 372,
+          "triangles": 720,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "anchors_blender_xyz": {
+        "TaskLamp__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "TaskLamp__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "TaskLamp__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "TaskLamp__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "TaskLamp__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "TaskLamp__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ],
+        "TaskLamp__TABLE_CONTACT": [
+          0,
+          0,
+          0
+        ],
+        "TaskLamp__LIGHT_SOURCE": [
+          0.0,
+          -0.17042231559753418,
+          0.3848530054092407
+        ],
+        "TaskLamp__LIGHT_AIM_TIP": [
+          0.0,
+          -0.25176963210105896,
+          0.20214390754699707
+        ],
+        "TaskLamp__DIFFUSER_CENTRE": [
+          0.0,
+          -0.16920210421085358,
+          0.3875936269760132
+        ],
+        "TaskLamp__TABLE_BACK_EDGE": [
+          0,
+          0.36,
+          0
+        ],
+        "TaskLamp__CORD_END": [
+          0.12,
+          0.42,
+          -0.095
+        ]
+      },
+      "notes": "Table-contact origin. Cord bends over table back plane localY+.36; at the suggested desktop source Y+.03 it meets the .39m desk rear edge. End falls below table, so whole model minZ is intentionally negative. Static jointed lamp, body/diffuser/cable separate. No FBX light; emission initially off."
+    },
+    "ReviewMonitor": {
+      "file": "exports/EP_RO_ReviewMonitor.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.42899999022483826,
+          0.42899999022483826
+        ],
+        [
+          -0.05800000578165054,
+          0.2240000069141388
+        ],
+        [
+          -0.7199999690055847,
+          0.26899999380111694
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.8579999804496765,
+        0.28200001269578934,
+        0.9889999628067017
+      ],
+      "materials": [
+        "RO_BezelDark",
+        "RO_DarkRubber",
+        "RO_Enamel",
+        "RO_LabelBlank",
+        "RO_MonitorEnamel",
+        "RO_WornMetal"
+      ],
+      "mesh_objects": [
+        {
+          "name": "MonitorShellOpen",
+          "vertices": 1136,
+          "triangles": 2174,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        {
+          "name": "MonitorStand",
+          "vertices": 400,
+          "triangles": 772,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        {
+          "name": "MonitorCable",
+          "vertices": 216,
+          "triangles": 420,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "anchors_blender_xyz": {
+        "ReviewMonitor__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "ReviewMonitor__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "ReviewMonitor__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "ReviewMonitor__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "ReviewMonitor__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "ReviewMonitor__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ],
+        "ReviewMonitor__SCREEN_CENTRE": [
+          0,
+          0,
+          0
+        ],
+        "ReviewMonitor__SCREEN_TOP_RIGHT": [
+          0.345,
+          0,
+          0.19
+        ],
+        "ReviewMonitor__SCREEN_BOTTOM_LEFT": [
+          -0.345,
+          0,
+          -0.19
+        ],
+        "ReviewMonitor__DESKTOP_CONTACT": [
+          0,
+          0,
+          -0.72
+        ],
+        "ReviewMonitor__BASE_CENTRE": [
+          0,
+          0.083,
+          -0.72
+        ],
+        "ReviewMonitor__REAR_CABLE_END": [
+          0.22,
+          0.193,
+          -0.717
+        ]
+      },
+      "notes": "Root at existing screen centre. Front -Y. Display .690x.380m sits in planeY0 inside true open aperture; no exported display/text plane. Bottom of stand Z-.720 meets desktop .760 when screen is worldY1.480. Orient corrected Unity nominalfront+Z toward world+X using yaw90. Source chassis behind+Y; adapt placement/stand only if screen height changes."
+    }
+  },
+  "lamp_emission": "RO_LampDiffuser starts off. Track actual Light enabled/intensity; use TaskLamp__LIGHT_SOURCE and LIGHT_AIM_TIP to place an actual downward spot. No light object is exported. Shade/body can cast shadows; diffuser should not block its source."
+}

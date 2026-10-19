@@ -1,0 +1,26 @@
+using System;using System.Linq;using System.Collections.Generic;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using EchoProtocol.Presentation;using Object=UnityEngine.Object;
+public static class ContrapruebaCompose {
+ static Transform root;static Transform F(string n)=>root.GetComponentsInChildren<Transform>(true).Single(t=>t.name==n);
+ static void PlaceLabel(string n,Vector3 p,float yaw){var t=F(n);t.position=p;t.rotation=Quaternion.Euler(0,yaw,0);var b=F(n+" / physical plate");b.position=p+t.forward*.02f;b.rotation=t.rotation;}
+ static void Cube(string n,Vector3 p,Vector3 s,Material m){var g=GameObject.CreatePrimitive(PrimitiveType.Cube);g.name=n;g.transform.SetParent(root,true);g.transform.position=p;g.transform.localScale=s;g.GetComponent<Renderer>().sharedMaterial=m;Object.DestroyImmediate(g.GetComponent<Collider>());}
+ static void MoveProp(string n,Vector3 delta){F(n).position+=delta;F(n+" / solid footprint").position+=delta;}
+ public static object Main(){if(EditorApplication.isPlaying)throw new Exception("Edit required");root=Object.FindObjectsByType<Transform>(FindObjectsInactive.Include,FindObjectsSortMode.None).Single(t=>t.name=="Contraprueba / authored chapter");
+ PlaceLabel("Entry circuit diagram",new Vector3(-9.17f,1.72f,31.0f),270);
+ PlaceLabel("Circuit rule plate",new Vector3(-11.2f,1.63f,32.125f),180);
+ PlaceLabel("Chapter threshold",new Vector3(-7.8f,2.75f,31.98f),0);
+ PlaceLabel("Recording route identity",new Vector3(-5.05f,2.75f,31.98f),0);
+ PlaceLabel("Receiving route identity",new Vector3(-8.43f,1.46f,36.99f),0);
+ var trim=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Contraprueba/M_Trim.mat");var white=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Contraprueba/M_OldIvory.mat");
+ Cube("Reception entry lintel",new Vector3(-7.8f,2.84f,32.15f),new Vector3(3.05f,.7f,.24f),white);Cube("Record entry lintel",new Vector3(-5.05f,2.84f,32.15f),new Vector3(2.50f,.7f,.24f),white);
+ Cube("Reception entry reveal",new Vector3(-9.12f,1.3f,32.12f),new Vector3(.07f,2.6f,.15f),trim);
+ foreach(var terminal in root.parent.GetComponentsInChildren<EchoProtocol.Puzzle.TemporalRelayTerminal>(true)){
+ var dz=terminal.FinalReceiver?42.02f:34.15f;var label=root.GetComponentsInChildren<TextMesh>(true).Single(t=>t.name=="Receiver station"&&Mathf.Abs(t.transform.position.z-dz)<.1f);label.transform.position+=Vector3.up*.52f;var backing=root.GetComponentsInChildren<Transform>(true).Single(t=>t.name=="Receiver station / physical plate"&&Mathf.Abs(t.position.z-dz)<.1f);backing.position+=Vector3.up*.52f;
+ }
+ MoveProp("Transfer cabinet",new Vector3(0,0,1.78f));
+ // Diffuse bounce is local to the active chapter and follows the same circuit.
+ var atmosphere=root.GetComponent<EchoProtocol.Horror.ContrapruebaAtmosphere>();var so=new SerializedObject(atmosphere);var list=so.FindProperty("clinicalLights");var lights=Enumerable.Range(0,list.arraySize).Select(i=>(Light)list.GetArrayElementAtIndex(i).objectReferenceValue).ToList();
+ foreach(var p in new[]{new Vector3(-9.9f,2.05f,34.65f),new Vector3(-8.8f,2.05f,42.4f),new Vector3(-14.6f,1.8f,38.8f),new Vector3(-7.55f,2.05f,31.35f)}) {var g=new GameObject("Clinical bounced light");g.transform.SetParent(root,true);g.transform.position=p;var l=g.AddComponent<Light>();l.type=LightType.Point;l.color=new Color(.74f,.80f,.73f);l.intensity=1.8f;l.range=4.8f;l.shadows=LightShadows.None;lights.Add(l);}
+ list.arraySize=lights.Count;for(int i=0;i<lights.Count;i++)list.GetArrayElementAtIndex(i).objectReferenceValue=lights[i];so.ApplyModifiedPropertiesWithoutUndo();
+ Physics.SyncTransforms();EditorSceneManager.MarkSceneDirty(root.gameObject.scene);EditorSceneManager.SaveScene(root.gameObject.scene);AssetDatabase.SaveAssets();return "Physical signs, clear passage and local bounce saved";
+ }
+}

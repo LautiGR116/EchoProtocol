@@ -1,0 +1,18 @@
+{
+  "preservedFolioSha256": "ca6b0676b3a1ecafd765d290f767e450444e3b065290b9693e3e1aa2d979d12f",
+  "status": "PASS",
+  "dateUTC": "2026-10-09T22:15:38.321862+00:00",
+  "zip": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Coverage-20261009.zip",
+  "sha256": "5e36228a8457253ef66abc22ec5dd292dc9615b2dd7b968f008b52ccb2025f88",
+  "bytes": 90997769,
+  "regularFilesMatched": 205,
+  "zipCRC": "all entries pass",
+  "executablePermissionRetained": true,
+  "strictAdHocSignature": "PASS original and ZIP-extracted app",
+  "architectures": [
+    "x86_64",
+    "arm64"
+  ],
+  "notarized": false,
+  "preservedResonanceSha256": "37211b901446a162419b9ca9b934149cea5d107625bb6ea9b941a679f865de3f"
+}

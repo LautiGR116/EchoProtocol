@@ -47,6 +47,17 @@ namespace EchoProtocol.Puzzle
             IsOpenRequested = shouldOpen;
         }
 
+        // Explicit chapter restoration; normal play still uses animated SetOpen.
+        public void SetOpenImmediately(bool shouldOpen)
+        {
+            IsOpenRequested = shouldOpen;
+            if (doorBody == null) return;
+            Vector3 local = shouldOpen ? openLocalPosition : closedLocalPosition;
+            doorBody.position = GetWorldPosition(local);
+            doorBody.transform.localPosition = local;
+            Physics.SyncTransforms();
+        }
+
         public void ResetLoopState()
         {
             IsOpenRequested = false;

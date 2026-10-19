@@ -31,6 +31,10 @@ namespace EchoProtocol.Player
         private bool cursorIsLocked;
         private bool wantsCursorLocked;
 
+        // A production session menu owns Escape; prototype scenes retain release-only behavior.
+        public bool UsesSessionPause { get; set; }
+        public event System.Action PoseReset;
+
         private void Awake()
         {
             characterController = GetComponent<CharacterController>();
@@ -101,8 +105,12 @@ namespace EchoProtocol.Player
             ApplyCursorState(hasFocus && wantsCursorLocked);
         }
 
+        // Only a present physical capture owns these temporary presentation locks.
+        public bool MovementSuppressed { get; set; }
+        public bool LookSuppressed { get; set; }
         private void ApplyMovement()
         {
+            if (MovementSuppressed) return;
             Vector2 moveInput = moveAction.ReadValue<Vector2>();
             Vector3 horizontalVelocity = transform.right * moveInput.x
                 + transform.forward * moveInput.y;
@@ -126,6 +134,7 @@ namespace EchoProtocol.Player
 
         private void ApplyLook()
         {
+            if (LookSuppressed) return;
             if (!cursorIsLocked)
             {
                 return;
@@ -143,7 +152,8 @@ namespace EchoProtocol.Player
 
         private void UpdateCursorPreference()
         {
-            if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
+            if (!UsesSessionPause && Keyboard.current != null
+                && Keyboard.current.escapeKey.wasPressedThisFrame)
             {
                 SetCursorPreference(false);
                 return;
@@ -180,6 +190,7 @@ namespace EchoProtocol.Player
             verticalVelocity = 0f;
             pitch = 0f;
             viewCamera.transform.localRotation = Quaternion.identity;
+            PoseReset?.Invoke();
         }
 
         private void OnValidate()

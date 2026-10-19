@@ -1,0 +1,9 @@
+One initial prior-house/lighting/Player pose fixture. Then actual input. Both branches answer phone, get key and choose the actual reserve location. View directions authored for survey, not spontaneous recognition.
+00-exit-forward position=(0.04, 1.63, -63.82) rotation=(0.00, 180.00, 0.00)
+01-south-turn position=(0.04, 1.63, -63.82) rotation=(0.00, 270.00, 0.00)
+02-west-approach position=(-6.80, 1.63, -60.06) rotation=(0.00, 0.00, 0.00)
+03-window-enters-forward position=(-6.80, 1.63, -54.27) rotation=(0.00, 0.00, 0.00)
+04-real-hall-through-window position=(-6.80, 1.63, -52.66) rotation=(5.03, 87.09, 0.00)
+05-north-boundary position=(-6.80, 1.63, -50.94) rotation=(0.00, 0.00, 0.00)
+06-porter-approach position=(-6.80, 1.63, -52.67) rotation=(0.00, 270.00, 0.00)
+07-relocated-review-origin position=(-10.03, 1.63, -52.45) rotation=(4.48, 181.76, 0.00)

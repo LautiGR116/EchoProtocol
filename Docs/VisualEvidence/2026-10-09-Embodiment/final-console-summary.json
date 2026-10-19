@@ -1,0 +1,19 @@
+{
+  "status": "CLASSIFIED",
+  "capturedEntries": 383,
+  "entriesRead": 383,
+  "capturedErrorEntries": 28,
+  "pipelineTransportErrors": 28,
+  "unclassifiedErrors": 0,
+  "currentConsoleCounts": {
+    "errors": 28,
+    "warnings": 1,
+    "logs": 3
+  },
+  "editorStopped": true,
+  "editorCompiling": false,
+  "editorUpdating": false,
+  "activeScene": "Assets/_Game/Scenes/Production/EchoProtocol_Embodiment.unity",
+  "restoredGameViewSizeIndex": 6,
+  "scope": "Structured captured Console history plus actual current Editor counts. Errors are Unity Pipeline GET /api/commands transport failures, fourteen connection resets and fourteen status/header failures. This is not a clean-Console claim. Earlier encounter failure is preserved in a separate result."
+}

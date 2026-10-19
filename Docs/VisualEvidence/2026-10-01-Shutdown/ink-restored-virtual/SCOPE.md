@@ -1,0 +1,1 @@
+Stationary cloned gameplay camera after completed fresh Shutdown checkpoint restoration test, stopped motor state. Poses/FOV taken from actual full-route captures; Player not moved. Only physical ink/material visibility evidence, no new input/wayfinding/Echo claim. P2 remains idle, not reconstructed as an active recording.

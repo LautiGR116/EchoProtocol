@@ -1,0 +1,8 @@
+{
+  "status": "REFINED",
+  "faces": 3,
+  "voice": "Actual articulated throat; original .18 source level/clip/mixer retained",
+  "contact": "Present chest; original .12 source level/clip/mixer retained",
+  "eyelids": "Authored pulse from captured body phase, no live gaze/clock",
+  "sleeve": "Original first-person hand/sleeve geometry, cotton color now coherent with Echo shirt"
+}

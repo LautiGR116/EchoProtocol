@@ -1,0 +1,16 @@
+{
+    "label": "campaign-arrival-interior-forward",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+    "position": {
+        "x": -6.419576168060303,
+        "y": 1.6299998760223389,
+        "z": -10.737348556518555
+    },
+    "rotation": {
+        "x": -3.1874253236807706e-11,
+        "y": -0.3826834559440613,
+        "z": 1.3202748790075436e-11,
+        "w": -0.9238795042037964
+    },
+    "fov": 60.0
+}

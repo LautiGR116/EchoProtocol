@@ -112,6 +112,35 @@ InitTestScene*.unity*
 
 # Local IDE state
 .idea/
+*.iml
+
+# Local recovery scenes and import scratch files are not production sources.
+/Assets/_Recovery/
+/Assets/_Recovery.meta
+/Assets/Temp/
+/Assets/Temp.meta
+__pycache__/
+*.pyc
+
+# Raw playtest media stays local; retain concise reports and provenance.
+/Docs/VisualEvidence/**/*.png
+/Docs/VisualEvidence/**/*.jpg
+/Docs/VisualEvidence/**/*.jpeg
+/Docs/VisualEvidence/**/*.wav
+/Docs/VisualEvidence/**/*.mp4
+/Docs/VisualEvidence/**/*.mov
+/Docs/VisualEvidence/**/*.webm
+/Docs/AudioEvidence/**/*.png
+/Docs/AudioEvidence/**/*.jpg
+/Docs/AudioEvidence/**/*.jpeg
+/Docs/AudioEvidence/**/*.wav
+/Docs/AudioEvidence/**/*.mp4
+/Docs/AudioEvidence/**/*.mov
+/Docs/AudioEvidence/**/*.webm
+
+# Raw provider HTML embeds third-party map access tokens. Keep local evidence;
+# source URLs, licenses and audio hashes are retained in sources.json.
+/ArtSource/Audio/Intruder/Sources/*-page.html
 
 # Local environment and credentials (the repository is public)
 .env
@@ -126,3 +155,23 @@ InitTestScene*.unity*
 *.jks
 *.keystore
 **/[Ss]ecrets/**
+
+# Renderpeople permits distribution inside games, not public source asset files.
+# Imported licensed models/maps and Blender derivatives remain local only.
+/Assets/_Game/Art/Embodiment/RenderpeoplePrivate/
+/Assets/_Game/Art/Embodiment/RenderpeoplePrivate.meta
+/ArtSource/Blender/Embodiment/RenderpeoplePrivate/
+/Assets/_Game/Prefabs/Embodiment/
+/Assets/_Game/Prefabs/Embodiment.meta
+/Assets/_Game/Scenes/Production/EchoProtocol_Embodiment.unity
+/Assets/_Game/Scenes/Production/EchoProtocol_Embodiment.unity.meta
+
+# Impact inherits the privately licensed Embodiment bodies.
+/Assets/_Game/Scenes/Production/EchoProtocol_Impact.unity
+/Assets/_Game/Scenes/Production/EchoProtocol_Impact.unity.meta
+/Assets/_Game/Prefabs/Impact/
+/Assets/_Game/Prefabs/Impact.meta
+
+# Incursion inherits privately licensed Embodiment models.
+/Assets/_Game/Scenes/Production/EchoProtocol_Incursion.unity
+/Assets/_Game/Scenes/Production/EchoProtocol_Incursion.unity.meta

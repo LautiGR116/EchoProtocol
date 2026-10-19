@@ -1,0 +1,782 @@
+{
+  "date": "2026-10-01",
+  "authorship": "Original project-authored mesh and optional paint maps. No external sources or paid dependencies. Motor uses the design vocabulary of prior project Campaign kit, newly constructed.",
+  "axis_contract": "Source Blender X width, -Y front, +Z up; FBX -Z/+Y convention. Current Unity importer without baking maps (-X,Z,-Y), including X reflection. Negate imported root localScale.x once, preserve imported rotation and scale magnitudes, then apply placementRotation * importedRotation to obtain the assembly contract (X,Z,-Y). No mesh/FBX re-export for the correction. See README and axis-diagnosis.json.",
+  "materials": {
+    "PP_ServiceEnamel": {
+      "color": [
+        0.285,
+        0.305,
+        0.271,
+        1
+      ],
+      "roughness": 0.57,
+      "metallic": 0.12,
+      "optional_maps": {
+        "base_color": "textures/PP_Enamel_BaseColor.png",
+        "roughness": "textures/PP_Enamel_Roughness.png",
+        "resolution": 512,
+        "note": "Original tileable paint maps. Roughness is linear; invert for Unity smoothness. Optional, not connected to exported FBX shader."
+      }
+    },
+    "PP_ReplacementPanel": {
+      "color": [
+        0.31,
+        0.321,
+        0.291,
+        1
+      ],
+      "roughness": 0.63,
+      "metallic": 0.1
+    },
+    "PP_ReceiverPaint": {
+      "color": [
+        0.15,
+        0.209,
+        0.219,
+        1
+      ],
+      "roughness": 0.54,
+      "metallic": 0.13
+    },
+    "PP_MotorPaint": {
+      "color": [
+        0.095,
+        0.137,
+        0.143,
+        1
+      ],
+      "roughness": 0.51,
+      "metallic": 0.15
+    },
+    "PP_PipePaint": {
+      "color": [
+        0.048,
+        0.061,
+        0.056,
+        1
+      ],
+      "roughness": 0.56,
+      "metallic": 0.24
+    },
+    "PP_CastIron": {
+      "color": [
+        0.078,
+        0.094,
+        0.086,
+        1
+      ],
+      "roughness": 0.6,
+      "metallic": 0.7
+    },
+    "PP_MachinedSteel": {
+      "color": [
+        0.25,
+        0.28,
+        0.26,
+        1
+      ],
+      "roughness": 0.39,
+      "metallic": 0.8
+    },
+    "PP_FastenerZinc": {
+      "color": [
+        0.39,
+        0.405,
+        0.37,
+        1
+      ],
+      "roughness": 0.38,
+      "metallic": 0.82
+    },
+    "PP_Rubber": {
+      "color": [
+        0.016,
+        0.021,
+        0.018,
+        1
+      ],
+      "roughness": 0.87,
+      "metallic": 0
+    },
+    "PP_Recess": {
+      "color": [
+        0.021,
+        0.027,
+        0.024,
+        1
+      ],
+      "roughness": 0.89,
+      "metallic": 0
+    },
+    "PP_Oxidation": {
+      "color": [
+        0.17,
+        0.079,
+        0.034,
+        1
+      ],
+      "roughness": 0.87,
+      "metallic": 0.05
+    },
+    "PP_PlateIvory": {
+      "color": [
+        0.49,
+        0.477,
+        0.373,
+        1
+      ],
+      "roughness": 0.67,
+      "metallic": 0.05
+    }
+  },
+  "assets": {
+    "Receiver": {
+      "file": "exports/EP_PP_Receiver.fbx",
+      "root": "floor centre",
+      "bounds_blender_xyz": [
+        [
+          -0.6039999723434448,
+          0.7599999904632568
+        ],
+        [
+          -0.7210000157356262,
+          0.6039999723434448
+        ],
+        [
+          0.0,
+          2.3499999046325684
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        1.3639999628067017,
+        1.324999988079071,
+        2.3499999046325684
+      ],
+      "materials": [
+        "PP_CastIron",
+        "PP_FastenerZinc",
+        "PP_MachinedSteel",
+        "PP_Oxidation",
+        "PP_PlateIvory",
+        "PP_ReceiverPaint",
+        "PP_Rubber"
+      ],
+      "mesh_objects": [
+        {
+          "name": "Receiver_Geometry",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 7140,
+          "triangles": 13996,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "ports_blender_xyz": [
+        {
+          "name": "inlet",
+          "position": [
+            0.76,
+            0,
+            0.84
+          ],
+          "outward": [
+            1,
+            0,
+            0
+          ],
+          "bore_diameter": 0.16
+        },
+        {
+          "name": "outlet",
+          "position": [
+            0,
+            0,
+            2.35
+          ],
+          "outward": [
+            0,
+            0,
+            1
+          ],
+          "bore_diameter": 0.16
+        }
+      ],
+      "collider_recommendation": "Simple vertical capsule/body plus feet ignored; side nozzle box only if reachable. Root floor Z=0.",
+      "notes": "Main pressure shell diameter 1.20 m. Total height 2.35 m; side nozzle and access cover enlarge envelope. Front inspection cover is -Y/+UnityZ. No decorative handwheel. No moving parts."
+    },
+    "ServiceCabinet": {
+      "file": "exports/EP_PP_ServiceCabinet.fbx",
+      "root": "floor centre",
+      "bounds_blender_xyz": [
+        [
+          -0.8500000238418579,
+          0.8500000238418579
+        ],
+        [
+          -3.0,
+          3.0
+        ],
+        [
+          -1.1920928955078125e-07,
+          2.6999998092651367
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        1.7000000476837158,
+        6.0,
+        2.6999999284744263
+      ],
+      "materials": [
+        "PP_CastIron",
+        "PP_MachinedSteel",
+        "PP_Oxidation",
+        "PP_PlateIvory",
+        "PP_Recess",
+        "PP_ReplacementPanel",
+        "PP_Rubber",
+        "PP_ServiceEnamel"
+      ],
+      "mesh_objects": [
+        {
+          "name": "ServiceCabinet_Geometry",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 5008,
+          "triangles": 9528,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "ports_blender_xyz": [],
+      "collider_recommendation": "Existing baffle box: Unity centre (0,1.35,0), size (1.7,2.7,6).",
+      "notes": "Closed replacement skin for existing pressure baffle. Exact axis-aligned envelope width 1.70 m, long depth 6.00 m, height 2.70 m. Floor-centred root; grille/front at Blender Y=-3, intended Unity Z=+3. All sides and interior core are opaque. No ventilation opening provides a through sightline. Can retain existing 1.7x2.7x6 box collider. Remove/disable old visible baffle to avoid z-fighting; keep collision only."
+    },
+    "PipeStraight2m": {
+      "file": "exports/EP_PP_PipeStraight2m.fbx",
+      "root": "see ports and notes",
+      "bounds_blender_xyz": [
+        [
+          -1.0,
+          1.0
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        2.0,
+        0.28999999165534973,
+        0.28999999165534973
+      ],
+      "materials": [
+        "PP_FastenerZinc",
+        "PP_MachinedSteel",
+        "PP_PipePaint"
+      ],
+      "mesh_objects": [
+        {
+          "name": "PipeStraight2m_Geometry",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 1744,
+          "triangles": 3392,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "ports_blender_xyz": [
+        {
+          "name": "A",
+          "position": [
+            -1,
+            0,
+            0
+          ],
+          "outward": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "B",
+          "position": [
+            1,
+            0,
+            0
+          ],
+          "outward": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "collider_recommendation": null,
+      "notes": "Main collector: pipe OD 0.18 m, bore 0.164 m. Root at centre; mate at +/-1 m X. Hex fasteners remain inside mating planes. Hollow ends; assemble to another flange or wall connection, never leave hanging in space."
+    },
+    "PipeElbow90": {
+      "file": "exports/EP_PP_PipeElbow90.fbx",
+      "root": "see ports and notes",
+      "bounds_blender_xyz": [
+        [
+          0.0,
+          0.6449999809265137
+        ],
+        [
+          -0.14499999582767487,
+          0.5
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.6449999809265137,
+        0.6449999958276749,
+        0.28999999165534973
+      ],
+      "materials": [
+        "PP_FastenerZinc",
+        "PP_MachinedSteel",
+        "PP_PipePaint"
+      ],
+      "mesh_objects": [
+        {
+          "name": "PipeElbow90_Geometry",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 2560,
+          "triangles": 5024,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "ports_blender_xyz": [
+        {
+          "name": "A",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "outward": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "B",
+          "position": [
+            0.5,
+            0.5,
+            0
+          ],
+          "outward": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "collider_recommendation": null,
+      "notes": "Origin is first port. 0.32 m centreline bend radius. Source inlet outward -X, outlet +Y; centreline mating ports (0,0,0) and (0.5,0.5,0). Rotate module as required; straight pipe/flange dimensions match."
+    },
+    "PipeTee": {
+      "file": "exports/EP_PP_PipeTee.fbx",
+      "root": "see ports and notes",
+      "bounds_blender_xyz": [
+        [
+          -0.5,
+          0.5
+        ],
+        [
+          -0.14499999582767487,
+          0.5
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        1.0,
+        0.6449999958276749,
+        0.28999999165534973
+      ],
+      "materials": [
+        "PP_CastIron",
+        "PP_FastenerZinc",
+        "PP_MachinedSteel",
+        "PP_Recess"
+      ],
+      "mesh_objects": [
+        {
+          "name": "PipeTee_Geometry",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 2748,
+          "triangles": 5356,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "ports_blender_xyz": [
+        {
+          "name": "A",
+          "position": [
+            -0.5,
+            0,
+            0
+          ],
+          "outward": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "B",
+          "position": [
+            0.5,
+            0,
+            0
+          ],
+          "outward": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "C",
+          "position": [
+            0,
+            0.5,
+            0
+          ],
+          "outward": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "collider_recommendation": null,
+      "notes": "Cast collector tee with three open connected bores. Source main axis X, branch +Y. Root at branch intersection; main mating planes +/-0.5 X, branch +0.5 Y."
+    },
+    "PipeWallSupport": {
+      "file": "exports/EP_PP_PipeWallSupport.fbx",
+      "root": "see ports and notes",
+      "bounds_blender_xyz": [
+        [
+          -0.09000000357627869,
+          0.09000000357627869
+        ],
+        [
+          -0.10700000077486038,
+          0.27699998021125793
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.18000000715255737,
+        0.3839999809861183,
+        0.28999999165534973
+      ],
+      "materials": [
+        "PP_CastIron",
+        "PP_FastenerZinc",
+        "PP_MachinedSteel"
+      ],
+      "mesh_objects": [
+        {
+          "name": "PipeWallSupport_Geometry",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 700,
+          "triangles": 1360,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "ports_blender_xyz": [
+        {
+          "name": "pipe axis",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "outward": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "wall plane",
+          "position": [
+            0,
+            0.277,
+            0
+          ],
+          "outward": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "collider_recommendation": null,
+      "notes": "Pipe axis X through root. Mount wall plane at Blender Y=+0.277 (behind pipe); source up Z. Collar fits OD0.18 with a small assembly gap. No collision necessary."
+    },
+    "PipeAdaptor300": {
+      "file": "exports/EP_PP_PipeAdaptor300.fbx",
+      "root": "see ports and notes",
+      "bounds_blender_xyz": [
+        [
+          -0.15000000596046448,
+          0.15000000596046448
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.30000001192092896,
+        0.28999999165534973,
+        0.28999999165534973
+      ],
+      "materials": [
+        "PP_FastenerZinc",
+        "PP_MachinedSteel",
+        "PP_PipePaint"
+      ],
+      "mesh_objects": [
+        {
+          "name": "PipeAdaptor300_Geometry",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 1744,
+          "triangles": 3392,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "ports_blender_xyz": [
+        {
+          "name": "A",
+          "position": [
+            -0.15,
+            0,
+            0
+          ],
+          "outward": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "B",
+          "position": [
+            0.15,
+            0,
+            0
+          ],
+          "outward": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "collider_recommendation": null,
+      "notes": "0.30 m mating-plane length, axis X. Use as a short visible connection; no decorative wheel."
+    },
+    "PipeBlindCap": {
+      "file": "exports/EP_PP_PipeBlindCap.fbx",
+      "root": "see ports and notes",
+      "bounds_blender_xyz": [
+        [
+          -8.715034027773072e-09,
+          0.06300000101327896
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.06300000972831299,
+        0.28999999165534973,
+        0.28999999165534973
+      ],
+      "materials": [
+        "PP_FastenerZinc",
+        "PP_MachinedSteel"
+      ],
+      "mesh_objects": [
+        {
+          "name": "PipeBlindCap_Geometry",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 972,
+          "triangles": 1888,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "ports_blender_xyz": [
+        {
+          "name": "A",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "outward": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "collider_recommendation": null,
+      "notes": "Mating plane at X=0. Cap occupies +X; mating outward -X. Fits collector flange, closes unused branch. No wheel or operable detail."
+    },
+    "MotorSkid": {
+      "file": "exports/EP_PP_MotorSkid.fbx",
+      "root": "floor centre",
+      "bounds_blender_xyz": [
+        [
+          -0.7599999904632568,
+          0.7900000214576721
+        ],
+        [
+          -0.4000000059604645,
+          0.4000000059604645
+        ],
+        [
+          0.0,
+          1.0099999904632568
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        1.550000011920929,
+        0.800000011920929,
+        1.0099999904632568
+      ],
+      "materials": [
+        "PP_CastIron",
+        "PP_FastenerZinc",
+        "PP_MachinedSteel",
+        "PP_MotorPaint",
+        "PP_PlateIvory",
+        "PP_Recess",
+        "PP_Rubber"
+      ],
+      "mesh_objects": [
+        {
+          "name": "MotorSkid_Geometry",
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "vertices": 7976,
+          "triangles": 15524,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "ports_blender_xyz": [
+        {
+          "name": "axial inlet",
+          "position": [
+            0.79,
+            0,
+            0.535
+          ],
+          "outward": [
+            1,
+            0,
+            0
+          ],
+          "bore_diameter": 0.164
+        },
+        {
+          "name": "upper discharge",
+          "position": [
+            0.41,
+            0,
+            1.01
+          ],
+          "outward": [
+            0,
+            0,
+            1
+          ],
+          "bore_diameter": 0.164
+        }
+      ],
+      "collider_recommendation": "Single box on skid/body about Unity (1.52,0.78,0.80), plus outlet if necessary. Never use triangle colliders on fins.",
+      "notes": "Floor-centred compact pump and finned motor. No wheel, gauge, dial or light to compete with functional Finish control. Front is -Y/+UnityZ; motor shaft runs X. Externally connected suction and discharge are hollow. Electrical conduit terminates at skid frame. Use existing Finish control separately."
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "status": "SURVEYED",
+  "scope": "Editor visual/deformation fixtures with actual Player camera and authored scene light. No live recording claimed.",
+  "poses": [
+    {
+      "name": "Echo",
+      "label": "idle",
+      "meshMinY": 0.0264834464,
+      "left": "(0.094, 0.158, -7.982)",
+      "right": "(-0.094, 0.162, -7.977)",
+      "finite": true
+    },
+    {
+      "name": "Echo",
+      "label": "walk",
+      "meshMinY": 0.02752788,
+      "left": "(0.094, 0.311, -7.873)",
+      "right": "(-0.094, 0.163, -8.026)",
+      "finite": true
+    },
+    {
+      "name": "Echo",
+      "label": "run",
+      "meshMinY": 0.029926246,
+      "left": "(0.094, 0.397, -8.142)",
+      "right": "(-0.094, 0.190, -7.800)",
+      "finite": true
+    },
+    {
+      "name": "Echo",
+      "label": "strafe",
+      "meshMinY": 0.0862629041,
+      "left": "(-0.312, 0.253, -7.982)",
+      "right": "(0.333, 0.221, -7.977)",
+      "finite": true
+    },
+    {
+      "name": "Echo",
+      "label": "back",
+      "meshMinY": 0.0862624,
+      "left": "(0.094, 0.253, -7.576)",
+      "right": "(-0.094, 0.221, -8.404)",
+      "finite": true
+    },
+    {
+      "name": "Echo",
+      "label": "turn",
+      "meshMinY": 0.0289717279,
+      "left": "(0.094, 0.210, -8.025)",
+      "right": "(-0.094, 0.164, -7.935)",
+      "finite": true
+    },
+    {
+      "name": "Echo",
+      "label": "grip",
+      "meshMinY": 0.0264834464,
+      "left": "(0.094, 0.158, -7.982)",
+      "right": "(-0.094, 0.162, -7.977)",
+      "finite": true
+    },
+    {
+      "name": "Pursuer",
+      "label": "idle",
+      "meshMinY": 0.0297643151,
+      "left": "(0.109, 0.127, -7.981)",
+      "right": "(-0.110, 0.137, -7.982)",
+      "finite": true
+    },
+    {
+      "name": "Pursuer",
+      "label": "walk",
+      "meshMinY": 0.0303630847,
+      "left": "(0.109, 0.285, -7.869)",
+      "right": "(-0.110, 0.137, -8.032)",
+      "finite": true
+    },
+    {
+      "name": "Pursuer",
+      "label": "run",
+      "meshMinY": 0.0338961966,
+      "left": "(0.109, 0.374, -8.147)",
+      "right": "(-0.110, 0.165, -7.798)",
+      "finite": true
+    },
+    {
+      "name": "Pursuer",
+      "label": "strafe",
+      "meshMinY": 0.0920316,
+      "left": "(-0.311, 0.225, -7.981)",
+      "right": "(0.332, 0.198, -7.982)",
+      "finite": true
+    },
+    {
+      "name": "Pursuer",
+      "label": "back",
+      "meshMinY": 0.09203154,
+      "left": "(0.109, 0.225, -7.561)",
+      "right": "(-0.110, 0.198, -8.424)",
+      "finite": true
+    },
+    {
+      "name": "Pursuer",
+      "label": "turn",
+      "meshMinY": 0.0297643021,
+      "left": "(0.109, 0.181, -8.026)",
+      "right": "(-0.110, 0.137, -7.938)",
+      "finite": true
+    },
+    {
+      "name": "Pursuer",
+      "label": "grip",
+      "meshMinY": 0.0297643151,
+      "left": "(0.109, 0.127, -7.981)",
+      "right": "(-0.110, 0.137, -7.982)",
+      "finite": true
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+One initial R1/lighting/Player pose fixture, then real input. Survey directions authored; no first-use or listening claim.
+00-entry-forward position=(-5.55, 1.63, 32.42) rotation=(0.00, 0.00, 0.00)
+01-recording-approach position=(-5.11, 1.63, 33.23) rotation=(0.00, 0.00, 0.00)
+02-A-forward position=(-5.11, 1.63, 35.13) rotation=(0.00, 0.00, 0.00)
+03-A-reading position=(-5.11, 1.63, 35.13) rotation=(0.00, 270.00, 0.00)
+04-preview-race-blocked position=(-7.73, 1.63, 34.74) rotation=(0.00, 0.00, 0.00)
+05-core-blocked position=(-5.68, 1.63, 39.42) rotation=(0.00, 270.00, 0.00)
+06-terminal-blocked position=(-5.12, 1.63, 44.15) rotation=(0.00, 0.00, 0.00)

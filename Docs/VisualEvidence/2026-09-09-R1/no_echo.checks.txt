@@ -1,0 +1,6 @@
+PASS fresh baseline sealed
+PASS closed P2 gate physically blocks Player
+PASS incomplete P2 SE2 SE3 cannot open hub
+PASS real R completed once
+PASS domestic checkpoint unchanged
+PASS incomplete recall retains clinical baseline

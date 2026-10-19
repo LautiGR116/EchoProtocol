@@ -1,0 +1,18 @@
+{
+    "label": "pressure-drained-entry",
+    "position": {
+        "x": 0.0,
+        "y": 1.6299999952316285,
+        "z": -29.0
+    },
+    "target": {
+        "x": 3.0,
+        "y": 1.149999976158142,
+        "z": -35.70000076293945
+    },
+    "chapter": "Pressure",
+    "power": "Hall",
+    "answered": false,
+    "latched": true,
+    "drained": true
+}

@@ -1,0 +1,3 @@
+PASS correct Player facing previews alignment
+PASS wrong Player facing rejected
+PASS preview never supplies pressure

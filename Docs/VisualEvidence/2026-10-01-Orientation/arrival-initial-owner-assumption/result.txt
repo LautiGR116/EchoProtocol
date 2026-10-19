@@ -1,0 +1,5 @@
+FAIL System.Exception: both moved doors retain their physical movement-audio owners
+  at ReturnArrivalProbe.Check (System.Boolean ok, System.String text) [0x00020] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ReturnArrivalProbe.cs:37 
+  at ReturnArrivalProbe+<Execute>d__40.MoveNext () [0x00377] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ReturnArrivalProbe.cs:56 
+  at ReturnArrivalProbe+<Guarded>d__39.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ReturnArrivalProbe.cs:38 
+checks=1 elapsed=0.001 initialFixtures=1 laterPoseResets=0

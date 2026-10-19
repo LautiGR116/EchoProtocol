@@ -1,0 +1,1 @@
+Editor API: telephone owner collider fitted to visible static body. Handset mesh-local collider follows actual articulated receiver with explicit same-owner InteractionSurface. Stable focus HUD has explicit session/interactor/camera/campaign/hold references. Focus radius .075m with1.6deg angular bound and8cm release margin; direct physical sightline mandatory. Scene saved.

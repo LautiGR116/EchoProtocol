@@ -1,0 +1,70 @@
+PASS fresh D1 unavailable and hidden
+PASS revision sign hidden before R3
+PASS fresh R3 and Hub reverse gate solid and closed
+PASS fresh session menu pauses time
+PASS finale rejects early exit
+PASS fresh baseline sealed, P3 inactive and anchor rejects Player
+PASS P1 A previews from actual Player
+PASS real R completed once
+PASS P1 complete through genuine Echo A B and Player C
+PASS pause freezes game clock and recording
+PASS SE1 complete after genuine empty lane check
+PASS actual domestic crossing commits checkpoint and slams door
+PASS P2 Player preview preserved
+PASS real R completed once
+PASS real Echo holds P2
+PASS R1 remains sealed before SE3
+PASS real SE2 visible reading complete
+PASS genuine SE3 return opens R1
+PASS actual Player can activate anchor after valid return
+PASS existing E ray activates physical station
+PASS anchor activation neither teleports nor performs RECALL
+PASS anchor discards old Echo and history and immediately rearms empty recorder
+PASS repeat E cannot recommit
+PASS A Player preview does not latch
+PASS B Player preview acquired
+PASS real R completed once
+PASS R clears both P3 gates and authorization
+PASS R1 checkpoint persists
+PASS SE2 SE3 R1 and anchor persist
+PASS Echo begins with actual R1 recording pose
+PASS genuine Echo A authorizes route
+PASS genuine B hold after A
+PASS A plus B alone never opens R3 before Player crossing
+PASS Echo collider rejected even while genuine A/B are qualified
+PASS Player has not crossed final plane
+PASS real Player final crossing unlocks R3 once
+PASS P3 unlock alone does not activate D1 sign
+PASS arrival opens Hub only after solid rear closes
+PASS Hub side closes behind Player
+PASS actual Hub arrival enables D1 sign but retains R1 origin
+PASS real E ray commits D1 station
+PASS D1 E neither teleports nor recalls
+PASS D1 E clears old recording and Echo
+PASS D1 repeat E cannot recommit
+PASS empty R retains existing no-recording behavior
+PASS real R completed once
+PASS premature moving R cannot deliver denial
+PASS R returns to D1 service origin
+PASS real R completed once
+PASS stationary wrong body orientation rejected
+PASS real R completed once
+PASS crossing without sustained pause rejected
+PASS real R completed once
+PASS genuine immutable pause qualifies
+PASS look away lets Echo end without denial and restores ambience
+PASS real R completed once
+PASS visible real approach subtracts ambience before denial
+PASS real R completed once
+PASS R during approach clears review and restores ambience
+PASS real R completed once
+PASS positive R reviews current immutable pause
+PASS recording begins at actual D1 origin
+PASS visible reproduced real pause delivers thought exactly once
+PASS ambience subtracted during visible close reproduction
+PASS D1 unlocks playable finale instead of demo menu
+PASS final terminal accepts actual Player only after evidence
+PASS real E conserves evidence and ends recording
+PASS final acceptance preserves immutable recorded evidence
+PASS final physical door opens after commitment
+PASS physical exit delivers final closure and menu

@@ -1,0 +1,15 @@
+PASS fresh D1 unavailable and hidden
+PASS revision sign hidden before R3
+PASS fresh R3 and Hub reverse gate solid and closed
+PASS fresh session menu pauses time
+PASS campaign begins in protocol act
+PASS fresh baseline sealed, P3 inactive and anchor rejects Player
+PASS ray reaches ArchiveOrigin
+PASS station available ArchiveOrigin
+PASS archive activated
+PASS real R completed once
+PASS final immutable Echo witnessed at the opposing mark
+PASS ray reaches Preserve
+PASS station available Preserve
+PASS preservation keeps the exact original recording
+PASS expanded campaign reaches ending menu

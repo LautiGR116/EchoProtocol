@@ -1,0 +1,16 @@
+{
+    "label": "campaign-orientation-6B-recall-door",
+    "state": "Archive|house:False/True/Hall|pressure:False/False|P3:1.00",
+    "position": {
+        "x": -10.399999618530274,
+        "y": 1.6299999952316285,
+        "z": -52.400001525878909
+    },
+    "rotation": {
+        "x": 0.0,
+        "y": -0.7071067094802856,
+        "z": 0.0,
+        "w": 0.7071068286895752
+    },
+    "fov": 60.0
+}

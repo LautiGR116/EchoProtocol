@@ -1,0 +1,30 @@
+{
+  "scope": "Explicit close inspection cameras and activation of five initially hidden signs in live Play mode. Same production font, material shader, text, placement and lights; not normal Player approach or campaign completion. No scene save.",
+  "labels": [
+    {
+      "path": "Player/Main Camera/Reserve carried by current Player/Reserve original / ReservePack/Carried reserve identity",
+      "text": "RESERVA",
+      "font": "IBMPlexSans-Medium"
+    },
+    {
+      "path": "Reserve / physical portable power/Reserve unit / COCINA/Reserve unit identity",
+      "text": "RESERVA",
+      "font": "IBMPlexSans-Medium"
+    },
+    {
+      "path": "Plant / connected pressure machinery/Return / illuminated subsuelo direction/Actual return destination",
+      "text": "02 / SUBSUELO",
+      "font": "IBMPlexSans-Medium"
+    },
+    {
+      "path": "Plant / connected pressure machinery/Return / illuminated subsuelo direction/Return / reception continuation",
+      "text": "SUBSUELO  >\nREGISTRO 02",
+      "font": "IBMPlexSans-Medium"
+    },
+    {
+      "path": "Reserve / physical portable power/Reserve unit / DORMITORIO/Reserve unit identity",
+      "text": "RESERVA",
+      "font": "IBMPlexSans-Medium"
+    }
+  ]
+}

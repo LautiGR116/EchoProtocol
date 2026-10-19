@@ -1,0 +1,10 @@
+PASS fresh D1 unavailable and hidden
+PASS revision sign hidden before R3
+PASS fresh R3 and Hub reverse gate solid and closed
+PASS fresh session menu pauses time
+PASS campaign begins in protocol act
+PASS fresh baseline sealed, P3 inactive and anchor rejects Player
+PASS ray reaches IntroLetter
+PASS station available IntroLetter
+PASS document pauses simulation IntroLetter
+PASS optional Mara letter retains first-act state

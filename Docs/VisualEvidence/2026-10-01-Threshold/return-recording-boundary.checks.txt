@@ -1,0 +1,38 @@
+ISOLATED FIXTURE: boundary's physical-R3 guard is explicitly bypassed after a genuine input recording. No completed P3 or full-route claim.
+PASS [fixture] the authored real Player exists
+PASS [fixture] authored boundary and recording systems exist
+PASS [fixture] boundary and campaign share the explicit real R3 and loop references
+PASS [fixture] fresh title contains no prior R3 or boundary completion
+PASS [fixture] real Enter starts the fresh session
+PASS [fixture] before R3, ordinary movement still records normally
+PASS [fixture] ordinary R still creates a real immutable take before the boundary
+PASS [fixture] there is an unfinished new attempt to cancel at the boundary
+PASS [explicit_boundary_fixture] labelled editor fixture invokes the real suspension operation without opening or claiming R3
+PASS [explicit_boundary_fixture] fixture bypass is visible and bounded to the recording boundary
+PASS [explicit_boundary_fixture] suspension neither teleports, commits a checkpoint nor performs RECALL
+PASS [explicit_boundary_fixture] boundary preserves both the original recording and its actual Echo object
+PASS [explicit_boundary_fixture] only the unfinished new attempt is discarded and R is explicitly suspended
+PASS [explicit_boundary_fixture] optional physical recording-boundary signal is visible
+PASS [explicit_boundary_fixture] help exposes the inactive R and the next explicit recording origin
+PASS [explicit_boundary_fixture] walking outside the recording area cannot silently start a new take
+PASS [explicit_boundary_fixture] manual R and elapsed time cannot create another attempt outside the recording area
+PASS [explicit_boundary_fixture] suspended return retains exact LastRecording and ActiveEcho references
+PASS [pause_at_boundary] Escape pauses the suspended return
+PASS [pause_at_boundary] paused R advances neither clock nor return
+PASS [pause_at_boundary] Escape resumes normally
+PASS [pause_at_boundary] manual R and elapsed time cannot create another attempt outside the recording area
+PASS [pause_at_boundary] suspended return retains exact LastRecording and ActiveEcho references
+PASS [wait_beyond_original_limit] more than the original recording limit elapsed in live simulation without a recall teleport
+PASS [wait_beyond_original_limit] manual R and elapsed time cannot create another attempt outside the recording area
+PASS [wait_beyond_original_limit] suspended return retains exact LastRecording and ActiveEcho references
+PASS [wait_beyond_original_limit] original Echo finishes at its own recorded duration without being destroyed or prolonged by suspension
+PASS [wait_beyond_original_limit] recording cap and sample cadence were never modified
+PASS [wait_beyond_original_limit] every original timestamp, position and rotation remains immutable
+PASS [explicit_pressure_fixture] actual camera ray reaches the real pressure origin in the labelled fixture
+PASS [explicit_pressure_fixture] real E at PressureOrigin owns rearming and the boundary cannot suspend it again
+PASS [explicit_pressure_fixture] only the explicit new checkpoint clears the old take through its existing deterministic contract
+PASS [explicit_pressure_fixture] old boundary signal releases on the new checkpoint
+PASS [explicit_pressure_fixture] actual movement starts the new pressure recording
+PASS [explicit_pressure_fixture] ordinary R works again with a newly recorded pressure take
+PASS [explicit_pressure_fixture] every original timestamp, position and rotation remains immutable
+PASS

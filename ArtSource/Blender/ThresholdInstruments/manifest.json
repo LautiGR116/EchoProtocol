@@ -1,0 +1,359 @@
+{
+  "date": "2026-10-01",
+  "authorship": "Original project-authored meshes; no external models/textures/fonts/downloads/paid services. Preview labels are not exported.",
+  "axis_contract": "Source X width, -Y front, Z up. Current Unity importer (bakeAxisConversion 0) maps (-X,Z,-Y). Negate imported root localScale.x once, retain imported rotation and scale magnitudes, then apply placementRotation * importedRotation; corrected assembly map (X,Z,-Y). Both instruments use placement yaw270 to face -UnityX. Check FRONT_TIP - FRONT_BASE using TransformPoint positions, not transform.forward under a mirrored parent.",
+  "materials": {
+    "TI_Enamel": {
+      "color": [
+        0.264,
+        0.299,
+        0.264,
+        1
+      ],
+      "roughness": 0.55,
+      "metallic": 0.12
+    },
+    "TI_DarkFace": {
+      "color": [
+        0.035,
+        0.049,
+        0.042,
+        1
+      ],
+      "roughness": 0.42,
+      "metallic": 0.2
+    },
+    "TI_Rubber": {
+      "color": [
+        0.014,
+        0.02,
+        0.016,
+        1
+      ],
+      "roughness": 0.87,
+      "metallic": 0
+    },
+    "TI_FoldedSteel": {
+      "color": [
+        0.17,
+        0.204,
+        0.177,
+        1
+      ],
+      "roughness": 0.48,
+      "metallic": 0.68
+    },
+    "TI_Fastener": {
+      "color": [
+        0.32,
+        0.343,
+        0.3,
+        1
+      ],
+      "roughness": 0.4,
+      "metallic": 0.8
+    },
+    "TI_ExposedEdge": {
+      "color": [
+        0.2,
+        0.229,
+        0.2,
+        1
+      ],
+      "roughness": 0.55,
+      "metallic": 0.65
+    },
+    "TI_UseMark": {
+      "color": [
+        0.09,
+        0.098,
+        0.075,
+        1
+      ],
+      "roughness": 0.76,
+      "metallic": 0.1
+    }
+  },
+  "assets": {
+    "WallReviewHousing": {
+      "file": "exports/EP_TI_WallReviewHousing.fbx",
+      "root": "Existing instrument body centre, not floor",
+      "bounds_blender_xyz": [
+        [
+          -0.4399999976158142,
+          0.4399999976158142
+        ],
+        [
+          -0.05000000074505806,
+          0.05000000074505806
+        ],
+        [
+          -0.3400000035762787,
+          0.3400000035762787
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.8799999952316284,
+        0.10000000149011612,
+        0.6800000071525574
+      ],
+      "meshes": [
+        {
+          "name": "WallHousing",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "bounds_blender_xyz": [
+            [
+              -0.4399999976158142,
+              0.4399999976158142
+            ],
+            [
+              -0.05000000074505806,
+              0.05000000074505806
+            ],
+            [
+              -0.3400000035762787,
+              0.3400000035762787
+            ]
+          ],
+          "dimensions_width_depth_height": [
+            0.8799999952316284,
+            0.10000000149011612,
+            0.6800000071525574
+          ],
+          "vertices": 1548,
+          "triangles": 3016,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "materials": [
+        "TI_DarkFace",
+        "TI_Enamel",
+        "TI_ExposedEdge",
+        "TI_Fastener",
+        "TI_Rubber",
+        "TI_UseMark"
+      ],
+      "anchor_aliases": {
+        "ANCHOR_EXISTING_TITLE": "WallReviewHousing__ANCHOR_EXISTING_TITLE",
+        "ANCHOR_EXISTING_INSTRUCTIONS": "WallReviewHousing__ANCHOR_EXISTING_INSTRUCTIONS",
+        "ANCHOR_FRONT_PLANE": "WallReviewHousing__ANCHOR_FRONT_PLANE",
+        "AXIS_X": "WallReviewHousing__AXIS_X",
+        "AXIS_Y": "WallReviewHousing__AXIS_Y",
+        "AXIS_Z": "WallReviewHousing__AXIS_Z",
+        "FRONT_BASE": "WallReviewHousing__FRONT_BASE",
+        "FRONT_TIP": "WallReviewHousing__FRONT_TIP"
+      },
+      "anchors_blender_xyz": {
+        "WallReviewHousing__ANCHOR_EXISTING_TITLE": [
+          0,
+          -0.061,
+          0.2
+        ],
+        "WallReviewHousing__ANCHOR_EXISTING_INSTRUCTIONS": [
+          0,
+          -0.061,
+          -0.07
+        ],
+        "WallReviewHousing__ANCHOR_FRONT_PLANE": [
+          0,
+          -0.05,
+          0
+        ],
+        "WallReviewHousing__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "WallReviewHousing__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "WallReviewHousing__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "WallReviewHousing__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "WallReviewHousing__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ]
+      },
+      "notes": "Wall body matches existing Unity .10 depth x .68 high x .88 wide. Entire central face stays clear for current title and instruction labels. No new pilot, button or screen. Root aligns to (2.35,1.45,-75.7); corrected importer X plus placement yaw270 faces -UnityX."
+    },
+    "DeskPreserveHousing": {
+      "file": "exports/EP_TI_DeskPreserveHousing.fbx",
+      "root": "Existing instrument body centre, not floor",
+      "bounds_blender_xyz": [
+        [
+          -0.1899999976158142,
+          0.1899999976158142
+        ],
+        [
+          -0.06000000238418579,
+          0.3199999928474426
+        ],
+        [
+          -0.22400003671646118,
+          0.17000000178813934
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.3799999952316284,
+        0.3799999952316284,
+        0.3940000385046005
+      ],
+      "meshes": [
+        {
+          "name": "DeskHousing",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "bounds_blender_xyz": [
+            [
+              -0.1899999976158142,
+              0.1899999976158142
+            ],
+            [
+              -0.06000000238418579,
+              0.06000000238418579
+            ],
+            [
+              -0.17000000178813934,
+              0.17000000178813934
+            ]
+          ],
+          "dimensions_width_depth_height": [
+            0.3799999952316284,
+            0.12000000476837158,
+            0.3400000035762787
+          ],
+          "vertices": 2122,
+          "triangles": 4144,
+          "uv_layers": [
+            "UVMap"
+          ]
+        },
+        {
+          "name": "OptionalRearStand",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "bounds_blender_xyz": [
+            [
+              -0.1599999964237213,
+              0.1599999964237213
+            ],
+            [
+              0.052855927497148514,
+              0.3199999928474426
+            ],
+            [
+              -0.22400003671646118,
+              -0.06749999523162842
+            ]
+          ],
+          "dimensions_width_depth_height": [
+            0.3199999928474426,
+            0.2671440653502941,
+            0.15650004148483276
+          ],
+          "vertices": 992,
+          "triangles": 1932,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "materials": [
+        "TI_DarkFace",
+        "TI_Enamel",
+        "TI_ExposedEdge",
+        "TI_Fastener",
+        "TI_FoldedSteel",
+        "TI_Rubber"
+      ],
+      "anchor_aliases": {
+        "ANCHOR_EXISTING_TITLE": "DeskPreserveHousing__ANCHOR_EXISTING_TITLE",
+        "ANCHOR_EXISTING_PILOT": "DeskPreserveHousing__ANCHOR_EXISTING_PILOT",
+        "ANCHOR_PILOT_FRONT": "DeskPreserveHousing__ANCHOR_PILOT_FRONT",
+        "ANCHOR_TABLE_CONTACT": "DeskPreserveHousing__ANCHOR_TABLE_CONTACT",
+        "ANCHOR_FRONT_PLANE": "DeskPreserveHousing__ANCHOR_FRONT_PLANE",
+        "AXIS_X": "DeskPreserveHousing__AXIS_X",
+        "AXIS_Y": "DeskPreserveHousing__AXIS_Y",
+        "AXIS_Z": "DeskPreserveHousing__AXIS_Z",
+        "FRONT_BASE": "DeskPreserveHousing__FRONT_BASE",
+        "FRONT_TIP": "DeskPreserveHousing__FRONT_TIP"
+      },
+      "anchors_blender_xyz": {
+        "DeskPreserveHousing__ANCHOR_EXISTING_TITLE": [
+          0,
+          -0.071,
+          0.05
+        ],
+        "DeskPreserveHousing__ANCHOR_EXISTING_PILOT": [
+          0,
+          -0.072,
+          -0.07
+        ],
+        "DeskPreserveHousing__ANCHOR_PILOT_FRONT": [
+          0,
+          -0.079,
+          -0.07
+        ],
+        "DeskPreserveHousing__ANCHOR_TABLE_CONTACT": [
+          0,
+          0.235,
+          -0.224
+        ],
+        "DeskPreserveHousing__ANCHOR_FRONT_PLANE": [
+          0,
+          -0.06,
+          0
+        ],
+        "DeskPreserveHousing__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "DeskPreserveHousing__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "DeskPreserveHousing__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "DeskPreserveHousing__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "DeskPreserveHousing__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ]
+      },
+      "notes": "DeskHousing body matches old .12 depth x .34 high x .38 wide. Root aligns to (2.12,1.08,-82.6), corrected import X then yaw270. Existing ORIGINAL title and pilot remain entirely in front of all new geometry. OptionalRearStand extends rearwards +Y and to Z=-.224: contact would be world (2.355,.856,-82.6), matching the nominal main counter height. Verify the actual tabletop; remove/adjust only this mesh if needed. No exported indicator, screen or additional interaction."
+    }
+  }
+}

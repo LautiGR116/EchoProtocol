@@ -1,0 +1,63 @@
+using System;using System.Linq;using System.IO;using System.Collections.Generic;
+using UnityEngine;using UnityEditor;
+public static class PrepareCharacters {
+ const string Base="Assets/_Game/Art/Embodiment/RenderpeoplePrivate/";
+ static void Save(UnityEngine.Object x,string path){if(AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(path))throw new Exception("Preserve existing asset: "+path);AssetDatabase.CreateAsset(x,path);}
+ static string Canon(string n)=>n.Replace("rp_nathan_animated_003_walking_","");
+ static T Load<T>(string p)where T:UnityEngine.Object {var x=AssetDatabase.LoadAssetAtPath<T>(p);if(!x)throw new Exception("Missing "+p);return x;}
+ static void Texture(string p,bool normal=false,int max=4096,bool readable=false){var i=(TextureImporter)AssetImporter.GetAtPath(p);i.maxTextureSize=max;i.textureType=normal?TextureImporterType.NormalMap:TextureImporterType.Default;i.sRGBTexture=!normal;i.isReadable=readable;i.textureCompression=TextureImporterCompression.CompressedHQ;i.mipmapEnabled=true;i.anisoLevel=4;if(normal)i.flipGreenChannel=false;i.SaveAndReimport();}
+ static string P(Transform t,Transform root)=>AnimationUtility.CalculateTransformPath(t,root);
+ static Material Material(string who,string stem){
+  string dir=Base+who+"/tex/";
+  Texture(dir+stem+"_dif.jpg");Texture(dir+stem+"_norm.jpg",true);Texture(dir+stem+"_gloss.jpg",false,2048,true);
+  var gi=(TextureImporter)AssetImporter.GetAtPath(dir+stem+"_gloss.jpg");gi.sRGBTexture=false;gi.SaveAndReimport();
+  var gloss=Load<Texture2D>(dir+stem+"_gloss.jpg");var data=gloss.GetPixels();
+  for(int i=0;i<data.Length;i++)data[i]=new Color(0,0,0,Mathf.Lerp(.16f,.64f,data[i].r));
+  var packed=new Texture2D(gloss.width,gloss.height,TextureFormat.RGBA32,false,true);packed.SetPixels(data);packed.Apply();
+  string pp=Base+who+"/SurfaceResponse.png";File.WriteAllBytes(pp,packed.EncodeToPNG());UnityEngine.Object.DestroyImmediate(packed);AssetDatabase.ImportAsset(pp);
+  var pi=(TextureImporter)AssetImporter.GetAtPath(pp);pi.sRGBTexture=false;pi.textureCompression=TextureImporterCompression.CompressedHQ;pi.mipmapEnabled=true;pi.SaveAndReimport();
+  var m=new Material(Shader.Find("Universal Render Pipeline/Lit"));m.name=who+" / scanned cloth and skin";
+  m.SetTexture("_BaseMap",Load<Texture2D>(dir+stem+"_dif.jpg"));m.SetColor("_BaseColor",Color.white);m.SetTexture("_BumpMap",Load<Texture2D>(dir+stem+"_norm.jpg"));m.SetFloat("_BumpScale",.65f);m.EnableKeyword("_NORMALMAP");
+  m.SetTexture("_MetallicGlossMap",Load<Texture2D>(pp));m.SetFloat("_Metallic",0);m.SetFloat("_Smoothness",1);m.EnableKeyword("_METALLICSPECGLOSSMAP");m.SetFloat("_Cull",2);
+  Save(m,Base+who+"/M_"+who+".mat");return m;
+ }
+ public static object Main(){
+  if(EditorApplication.isPlaying)throw new Exception("Stopped Editor required");
+  var em=Material("Eric","rp_eric_rigged_001");var nm=Material("Nathan","rp_nathan_animated_003");
+  string ep=Base+"Eric/rp_eric_rigged_001_u3d.fbx",np=Base+"Nathan/rp_nathan_animated_003_walking.fbx";
+  foreach(string p in new[]{ep,np}){var i=(ModelImporter)AssetImporter.GetAtPath(p);i.animationType=ModelImporterAnimationType.Generic;i.addCollider=false;i.importCameras=false;i.importLights=false;i.materialImportMode=ModelImporterMaterialImportMode.None;i.skinWeights=ModelImporterSkinWeights.Custom;i.maxBonesPerVertex=4;i.SaveAndReimport();}
+  var source=UnityEngine.Object.Instantiate(Load<GameObject>(np));source.name="Motion source";
+  var target=UnityEngine.Object.Instantiate(Load<GameObject>(ep));target.name="Retarget destination";
+  try {
+   foreach(var a in source.GetComponentsInChildren<Animator>(true))UnityEngine.Object.DestroyImmediate(a);
+   foreach(var a in target.GetComponentsInChildren<Animator>(true))UnityEngine.Object.DestroyImmediate(a);
+   var clip=AssetDatabase.LoadAllAssetsAtPath(np).OfType<AnimationClip>().Single(c=>!c.name.StartsWith("__preview__"));
+   var st=source.GetComponentsInChildren<Transform>(true).GroupBy(t=>Canon(t.name)).ToDictionary(g=>g.Key,g=>g.Last());
+   var tt=target.GetComponentsInChildren<Transform>(true).GroupBy(t=>Canon(t.name)).ToDictionary(g=>g.Key,g=>g.Last());
+   var sr=st.ToDictionary(k=>k.Key,k=>k.Value.localRotation);var tp=tt.ToDictionary(k=>k.Key,k=>k.Value.localPosition);var tr=tt.ToDictionary(k=>k.Key,k=>k.Value.localRotation);
+   var dest=new AnimationClip{name="Captured-phase walk",legacy=true,frameRate=30,wrapMode=WrapMode.Loop};
+   var sam=new List<object>();var tracks=tt.Keys.Where(k=>st.ContainsKey(k)&&k!="root").ToArray();
+   var keys=tracks.ToDictionary(k=>k,k=>new List<Quaternion>());var hipKeys=new List<Vector3>();var roots=new List<Vector3>();var feet=new List<Vector3[]>();
+   int count=Mathf.RoundToInt(clip.length*30)+1;
+   for(int f=0;f<count;f++){
+    float time=Mathf.Min(f/30f,clip.length);clip.SampleAnimation(source,time);
+    foreach(var k in tracks){var q=tr[k]*Quaternion.Inverse(sr[k])*st[k].localRotation;if(keys[k].Count>0&&Quaternion.Dot(keys[k].Last(),q)<0)q=new Quaternion(-q.x,-q.y,-q.z,-q.w);keys[k].Add(q);}
+    hipKeys.Add(st["hip"].localPosition);roots.Add(st["root"].position);feet.Add(new[]{st["foot_l"].position,st["foot_r"].position});
+    if(f%17==0)sam.Add(new{time,root=st["root"].position.ToString("F4"),hip=st["hip"].localPosition.ToString("F4"),left=st["foot_l"].position.ToString("F4"),right=st["foot_r"].position.ToString("F4")});
+   }
+   foreach(var k in tracks)for(int axis=0;axis<4;axis++){
+    var curve=new AnimationCurve();for(int f=0;f<count;f++)curve.AddKey(new Keyframe(Mathf.Min(f/30f,clip.length),keys[k][f][axis]));
+    for(int i=0;i<curve.length;i++){AnimationUtility.SetKeyLeftTangentMode(curve,i,AnimationUtility.TangentMode.Linear);AnimationUtility.SetKeyRightTangentMode(curve,i,AnimationUtility.TangentMode.Linear);}
+    AnimationUtility.SetEditorCurve(dest,EditorCurveBinding.FloatCurve(P(tt[k],target.transform),typeof(Transform),"m_LocalRotation."+"xyzw"[axis]),curve);
+   }
+   for(int axis=0;axis<3;axis++){
+    var curve=new AnimationCurve();for(int f=0;f<count;f++){float delta=hipKeys[f][axis]-hipKeys[0][axis];curve.AddKey(Mathf.Min(f/30f,clip.length),tp["hip"][axis]+delta);}
+    AnimationUtility.SetEditorCurve(dest,EditorCurveBinding.FloatCurve(P(tt["hip"],target.transform),typeof(Transform),"m_LocalPosition."+"xyz"[axis]),curve);
+   }
+   dest.EnsureQuaternionContinuity();Save(dest,Base+"Eric/RecordedWalk.anim");
+   var adapted=UnityEngine.Object.Instantiate(clip);adapted.name="Captured-phase original walk";adapted.legacy=true;Save(adapted,Base+"Nathan/RecordedWalk.anim");
+   var r=new{status="PREPARED",sourceClip=clip.name,clip.length,sourceSamples=sam,matchedBones=tracks.Length,sourceRootDisplacement=(roots.Last()-roots.First()).ToString("F4"),sourceBones=st.Count,targetBones=tt.Count,scope="In-place retarget: local rotations relative to each rig's bind, hip delta only; source model root trajectory is not copied. Runtime must sample from captured phase, with no autonomous Animator."};
+   Directory.CreateDirectory("ArtSource/Design/Embodiment");File.WriteAllText("/Users/lautigr116/EchoProtocol-licensed/Renderpeople-20261009/motion-preparation.json",Newtonsoft.Json.JsonConvert.SerializeObject(r,Newtonsoft.Json.Formatting.Indented));AssetDatabase.SaveAssets();return r;
+  }finally {UnityEngine.Object.DestroyImmediate(source);UnityEngine.Object.DestroyImmediate(target);}
+ }
+}

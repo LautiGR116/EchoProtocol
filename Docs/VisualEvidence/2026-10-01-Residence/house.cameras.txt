@@ -1,0 +1,14 @@
+Actual Player camera after the one initial fixture; Camera renders omit OnGUI.
+house-00-entry actual camera position=(0.000, 1.630, -49.500) rotation=(16.30, 97.31, 0.00) FOV=60.0 paused=False power=Hall step=enter_house
+house-01-document-game actual camera position=(-2.357, 1.630, -50.527) rotation=(5.68, 358.11, 0.00) FOV=60.0 paused=True power=Hall step=parlor_document
+house-02-phone-before actual camera position=(-3.397, 1.630, -51.951) rotation=(32.10, 272.90, 0.00) FOV=60.0 paused=False power=Hall step=phone_and_reserve
+house-03-phone-reserve actual camera position=(-3.397, 1.630, -51.951) rotation=(32.10, 272.90, 0.00) FOV=60.0 paused=False power=Hall step=phone_and_reserve
+house-pause-menu actual camera position=(-3.397, 1.630, -51.951) rotation=(32.10, 272.90, 0.00) FOV=60.0 paused=True power=Hall step=keyboard_pause
+house-04-hall-without-reserve actual camera position=(-0.026, 1.630, -50.812) rotation=(20.01, 89.25, 0.00) FOV=60.0 paused=False power=Carried step=remove_hall_reserve
+house-05-kitchen-powered actual camera position=(-4.161, 1.630, -57.559) rotation=(18.42, 273.39, 0.00) FOV=60.0 paused=False power=Kitchen step=reserve_to_kitchen
+house-06-bedroom-powered actual camera position=(4.567, 1.630, -52.911) rotation=(29.22, 98.68, 0.00) FOV=60.0 paused=False power=Bedroom step=reserve_to_bedroom
+house-07-key-taken actual camera position=(3.228, 1.630, -50.848) rotation=(31.56, 16.62, 0.00) FOV=60.0 paused=False power=Bedroom step=physical_key
+house-08-presence-held-in-view actual camera position=(0.016, 1.630, -57.625) rotation=(12.91, 115.31, 0.00) FOV=60.0 paused=False power=Carried step=presence_through_actual_glass
+house-09-hall-light-returned actual camera position=(0.016, 1.630, -50.863) rotation=(20.85, 85.81, 0.00) FOV=60.0 paused=False power=Hall step=leave_hall_lit
+house-10-mechanical-door-open actual camera position=(0.016, 1.630, -61.021) rotation=(21.74, 180.62, 0.00) FOV=60.0 paused=False power=Hall step=unlock_and_cross_exit
+house-11-outside-house actual camera position=(0.016, 1.630, -63.516) rotation=(0.00, 180.00, 0.00) FOV=60.0 paused=False power=Hall step=unlock_and_cross_exit

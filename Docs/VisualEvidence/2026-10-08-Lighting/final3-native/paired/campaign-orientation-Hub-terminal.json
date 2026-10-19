@@ -1,0 +1,16 @@
+{
+    "label": "campaign-orientation-Hub-terminal",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+    "position": {
+        "x": 2.201552629470825,
+        "y": 1.6299998760223389,
+        "z": -9.943671226501465
+    },
+    "rotation": {
+        "x": -0.0005975794629193842,
+        "y": -0.9988123774528503,
+        "z": 0.04703529179096222,
+        "w": -0.012689828872680664
+    },
+    "fov": 60.0
+}

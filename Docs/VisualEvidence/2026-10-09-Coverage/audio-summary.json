@@ -1,0 +1,41 @@
+{
+  "scope": "Actual post-SessionAudio native PCM. No normalization; neither hardware SPL, comfort nor human fear is proved.",
+  "routes": [
+    {
+      "route": "native-final-02",
+      "status": "PASS",
+      "rate": 48000,
+      "channels": 2,
+      "peak": 0.12417981505783257,
+      "peakDBFS": -18.118979825768275,
+      "rms": 0.01457596048306686,
+      "clippedSamples": 0,
+      "maxLRDifference": 0,
+      "dropped": 0,
+      "shapeMismatch": 0,
+      "bufferStarved": 0,
+      "meanFrameMs": 11.0829849,
+      "p95FrameMs": 19.92746,
+      "allStatesMono": true,
+      "allStatesReduced": true
+    },
+    {
+      "route": "native-campaign-final",
+      "status": "PASS",
+      "rate": 48000,
+      "channels": 2,
+      "peak": 0.5576342051454207,
+      "peakDBFS": -5.073011891518898,
+      "rms": 0.01478588282007656,
+      "clippedSamples": 0,
+      "maxLRDifference": 0.45222327341532637,
+      "dropped": 0,
+      "shapeMismatch": 0,
+      "bufferStarved": 0,
+      "meanFrameMs": 8.320507,
+      "p95FrameMs": 16.76629,
+      "allStatesMono": false,
+      "allStatesReduced": false
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "dateUTC": "2026-10-09T22:44:19.063905+00:00",
+  "provider": "Renderpeople GmbH",
+  "selectionPage": "https://renderpeople.com/free-3d-people/",
+  "terms": "https://renderpeople.com/general-terms-and-conditions/",
+  "termsSha256": "097bf6b61130a15efcf50de9a1a1910f89cf75e7d2a4dc19fd28a1e474be6724",
+  "termsVersion": "2024-12-13",
+  "costUSD": 0,
+  "license": "Provider free license; same terms as paid models. Not CC0. 2.5 grants free use; 4.1(b) permits computer/video games; 4.3(b) excludes public standalone raw/derived assets. No ML/CV or third-party AI upload.",
+  "distribution": "Compiled game only. Raw models, textures and Blender derivatives remain local, excluded from public Git. No purchase, account creation, plugin or package installed.",
+  "files": [
+    {
+      "file": "/Users/lautigr116/EchoProtocol-licensed/Renderpeople-20261009/Eric/rp_eric_rigged_001_u3d.fbx",
+      "outerURL": "https://renderpeople.com/sample/free/renderpeople_free_rigged_people_FBX.zip",
+      "innerArchive": "rp_eric_rigged_001_FBX.zip",
+      "member": "rp_eric_rigged_001_u3d.fbx",
+      "bytes": 1025696,
+      "sha256": "077ac01d17b78ce99fc1be2f383268ba1733ae71eec6d1ff4577b84968c7b9c7"
+    },
+    {
+      "file": "/Users/lautigr116/EchoProtocol-licensed/Renderpeople-20261009/Eric/tex/rp_eric_rigged_001_dif.jpg",
+      "outerURL": "https://renderpeople.com/sample/free/renderpeople_free_rigged_people_FBX.zip",
+      "innerArchive": "rp_eric_rigged_001_FBX.zip",
+      "member": "tex/rp_eric_rigged_001_dif.jpg",
+      "bytes": 5494792,
+      "sha256": "586ca7aa7acdd4a66258045553d434d9cb52f45c6f49a992d897c3fd4705ac2e"
+    },
+    {
+      "file": "/Users/lautigr116/EchoProtocol-licensed/Renderpeople-20261009/Eric/tex/rp_eric_rigged_001_norm.jpg",
+      "outerURL": "https://renderpeople.com/sample/free/renderpeople_free_rigged_people_FBX.zip",
+      "innerArchive": "rp_eric_rigged_001_FBX.zip",
+      "member": "tex/rp_eric_rigged_001_norm.jpg",
+      "bytes": 12880171,
+      "sha256": "9ebc1c277550ead990b62f1c9ea4ba84e79a1a771ece642d2af0fb5c09e47c8f"
+    },
+    {
+      "file": "/Users/lautigr116/EchoProtocol-licensed/Renderpeople-20261009/Eric/tex/rp_eric_rigged_001_gloss.jpg",
+      "outerURL": "https://renderpeople.com/sample/free/renderpeople_free_rigged_people_FBX.zip",
+      "innerArchive": "rp_eric_rigged_001_FBX.zip",
+      "member": "tex/rp_eric_rigged_001_gloss.jpg",
+      "bytes": 5062610,
+      "sha256": "73bf1d7c419557b4794897abbf1dbe14db81d650cd6374acae423b5b98832c27"
+    },
+    {
+      "file": "/Users/lautigr116/EchoProtocol-licensed/Renderpeople-20261009/Eric/tex/rp_eric_rigged_001_mask01.jpg",
+      "outerURL": "https://renderpeople.com/sample/free/renderpeople_free_rigged_people_FBX.zip",
+      "innerArchive": "rp_eric_rigged_001_FBX.zip",
+      "member": "tex/rp_eric_rigged_001_mask01.jpg",
+      "bytes": 2315050,
+      "sha256": "a90f702c33cabba892276821fbc5049595a10e6d3ca29e0ffd955e6c34a6cc21"
+    },
+    {
+      "file": "/Users/lautigr116/EchoProtocol-licensed/Renderpeople-20261009/Eric/tex/rp_eric_rigged_001_mask02.jpg",
+      "outerURL": "https://renderpeople.com/sample/free/renderpeople_free_rigged_people_FBX.zip",
+      "innerArchive": "rp_eric_rigged_001_FBX.zip",
+      "member": "tex/rp_eric_rigged_001_mask02.jpg",
+      "bytes": 2243825,
+      "sha256": "704b7a16f97bb5a833986fa790e08127b892a90eebcd9ca8ffe01cad75b5cdf6"
+    },
+    {
+      "file": "/Users/lautigr116/EchoProtocol-licensed/Renderpeople-20261009/Nathan/rp_nathan_animated_003_walking.fbx",
+      "outerURL": "https://renderpeople.com/sample/free/renderpeople_free_animated_people_FBX.zip",
+      "innerArchive": "rp_nathan_animated_003_walking_FBX.zip",
+      "member": "rp_nathan_animated_003_walking.fbx",
+      "bytes": 24646304,
+      "sha256": "7a7a65df5a382049dd6bbb2d0ecbeba260702191916fbca97de537cf952f97ec"
+    },
+    {
+      "file": "/Users/lautigr116/EchoProtocol-licensed/Renderpeople-20261009/Nathan/tex/rp_nathan_animated_003_dif.jpg",
+      "outerURL": "https://renderpeople.com/sample/free/renderpeople_free_animated_people_FBX.zip",
+      "innerArchive": "rp_nathan_animated_003_walking_FBX.zip",
+      "member": "tex\\rp_nathan_animated_003_dif.jpg",
+      "bytes": 22825089,
+      "sha256": "93e1541cd8f8cd8ec6dcab96c86c9eb3b11d5da8ee5cc3e86ba58448faf0a6eb"
+    },
+    {
+      "file": "/Users/lautigr116/EchoProtocol-licensed/Renderpeople-20261009/Nathan/tex/rp_nathan_animated_003_norm.jpg",
+      "outerURL": "https://renderpeople.com/sample/free/renderpeople_free_animated_people_FBX.zip",
+      "innerArchive": "rp_nathan_animated_003_walking_FBX.zip",
+      "member": "tex\\rp_nathan_animated_003_norm.jpg",
+      "bytes": 61112038,
+      "sha256": "d79cc668b0c6cf7acc3a84dc3210553d6f8e354a28fb290169866277add08a70"
+    },
+    {
+      "file": "/Users/lautigr116/EchoProtocol-licensed/Renderpeople-20261009/Nathan/tex/rp_nathan_animated_003_gloss.jpg",
+      "outerURL": "https://renderpeople.com/sample/free/renderpeople_free_animated_people_FBX.zip",
+      "innerArchive": "rp_nathan_animated_003_walking_FBX.zip",
+      "member": "tex\\rp_nathan_animated_003_gloss.jpg",
+      "bytes": 13314171,
+      "sha256": "47e3b42b61e962ad875c0b1bd46f57749e572db573a3c7f8150de5edce39ccbe"
+    },
+    {
+      "file": "/Users/lautigr116/EchoProtocol-licensed/Renderpeople-20261009/Nathan/tex/rp_nathan_animated_003_mask01.jpg",
+      "outerURL": "https://renderpeople.com/sample/free/renderpeople_free_animated_people_FBX.zip",
+      "innerArchive": "rp_nathan_animated_003_walking_FBX.zip",
+      "member": "tex\\rp_nathan_animated_003_mask01.jpg",
+      "bytes": 2205648,
+      "sha256": "6b61c6a336c16362f2ae3d64221da339b315647872a117da3168e2d538bfa15a"
+    },
+    {
+      "file": "/Users/lautigr116/EchoProtocol-licensed/Renderpeople-20261009/Nathan/tex/rp_nathan_animated_003_mask02.jpg",
+      "outerURL": "https://renderpeople.com/sample/free/renderpeople_free_animated_people_FBX.zip",
+      "innerArchive": "rp_nathan_animated_003_walking_FBX.zip",
+      "member": "tex\\rp_nathan_animated_003_mask02.jpg",
+      "bytes": 201922,
+      "sha256": "71def3bb622b4febb8f016599cc690412673d82e7f861c1a26971fc7b8e00d5e"
+    }
+  ]
+}

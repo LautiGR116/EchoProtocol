@@ -1,0 +1,15 @@
+{
+    "status": "PASS",
+    "scope": "Passive real Player camera motion at 1 Hz. Paired renders use exact baseline camera poses plus declared supplementary camera turns; simulation does not advance during those renders. Frame times exclude paused gameplay and 0.25/0.5 seconds around capture work. This is end-to-end frame cadence, not an isolated GPU benchmark or human display approval.",
+    "device": "Apple M3",
+    "frames": 42844,
+    "shadowSelectionsVerified": 662,
+    "motionViews": 354,
+    "pairedViews": 77,
+    "width": 1280,
+    "height": 720,
+    "p50": 5.0078301429748539,
+    "p95": 10.117460250854493,
+    "p99": 14.337996482849121,
+    "mean": 5.533512592315674
+}

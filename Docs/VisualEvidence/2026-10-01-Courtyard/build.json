@@ -1,0 +1,14 @@
+{
+  "buildId": "build_399e7e7f4ac5",
+  "result": "Succeeded",
+  "platform": "StandaloneOSX",
+  "outputPath": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Courtyard-20261001/EchoProtocol.app",
+  "totalSizeBytes": 206439729,
+  "buildTimeMs": 24176,
+  "totalWarnings": 346,
+  "totalErrors": 0,
+  "architecture": "x86_64 + arm64; file command verified",
+  "signature": "codesign --verify --deep --strict passed",
+  "native": "Prueba breve en la app exacta: título, créditos completos con ahriik/CREDITS.txt, entrada WASD que inicia el registro, RECALL de 7.0 s, pausa Escape, retorno y salida Cmd-Q comprobados en la interfaz. No se recorrió la campaña completa en nativo ni se juzgó la mezcla por oído.",
+  "scope": "Full campaign PASS480 before only in-game credit text update; final build compiles the added ahriik credit and correct CREDITS.txt filename."
+}

@@ -1,0 +1,18 @@
+{
+  "total": 2,
+  "returned": 2,
+  "logs": [
+    {
+      "type": "Error",
+      "message": "Pipeline: unhandled error serving GET /api/commands: System.InvalidOperationException: Cannot be changed after headers are sent.\n  at System.Net.HttpListenerResponse.set_StatusCode (System.Int32 value) [0x00021] in <e312637755254ec3aaf4851c4dc24af6>:0 \n  at Unity.Pipeline.BasePipelineServer.HandleCommandsRequest (System.Net.HttpListenerRequest request, System.Net.HttpListenerResponse response) [0x00780] in ./Library/PackageCache/com.unity.pipeline@9bb4172c603c/Runtime/Common/BasePipelineServer.cs:992 \n  at Unity.Pipeline.BasePipelineServer.ProcessRequest (System.Net.HttpListenerContext context) [0x00615] in ./Library/PackageCache/com.unity.pipeline@9bb4172c603c/Runtime/Common/BasePipelineServer.cs:592 ",
+      "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<ProcessRequest>d__77:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@9bb4172c603c/Runtime/Common/BasePipelineServer.cs:629)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<HandleCommandsRequest>d__85:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@9bb4172c603c/Runtime/Common/BasePipelineServer.cs:1001)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+      "timestampUtc": "2026-10-08T19:28:38.3803460Z"
+    },
+    {
+      "type": "Error",
+      "message": "Failed to handle /api/commands request: Unable to write data to the transport connection: Connection reset by peer.",
+      "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleCommandsRequest>d__85:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@9bb4172c603c/Runtime/Common/BasePipelineServer.cs:989)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+      "timestampUtc": "2026-10-08T19:28:37.8875770Z"
+    }
+  ]
+}

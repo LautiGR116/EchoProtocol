@@ -1,0 +1,14 @@
+{
+  "buildId": "build_2da095c64a76",
+  "result": "Succeeded",
+  "platform": "StandaloneOSX",
+  "outputPath": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Finish-20260930/EchoProtocol.app",
+  "totalSizeBytes": 175819537,
+  "buildTimeMs": 14306,
+  "totalWarnings": 346,
+  "totalErrors": 0,
+  "warning_classes": {
+    "Unity inference package shaders": 345,
+    "runtime pipeline deliberately disabled": 1
+  }
+}

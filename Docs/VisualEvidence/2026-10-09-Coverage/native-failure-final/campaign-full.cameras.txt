@@ -1,0 +1,13 @@
+Actual Player camera; Camera captures omit OnGUI, Game captures include it.
+campaign-00-title position=(0.000, 1.600, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title
+campaign-coverage-control position=(4.547, 1.630, -35.826) euler=(25.93, 85.47, 0.00) FOV=60 paused=False step=coverage_enter
+campaign-coverage-paused position=(0.000, 1.630, -29.000) euler=(25.93, 85.47, 0.00) FOV=60 paused=True step=coverage_playback_pause
+campaign-coverage-work-before-release position=(-3.558, 1.630, -38.478) euler=(20.14, 174.94, 0.00) FOV=60 paused=False step=coverage_cross_to_crank
+campaign-coverage-grille-open position=(-3.558, 1.630, -38.478) euler=(20.14, 174.94, 0.00) FOV=60 paused=False step=coverage_hold_crank
+campaign-coverage-release-and-threat position=(-3.970, 1.630, -43.201) euler=(20.39, 171.91, 0.00) FOV=60 paused=False step=coverage_hold_release
+campaign-coverage-present-rush position=(-3.970, 1.630, -43.201) euler=(4.34, 260.34, 0.00) FOV=60 paused=False step=coverage_deliberate_failure
+campaign-coverage-failure position=(-3.970, 1.630, -43.201) euler=(4.34, 277.50, 0.00) FOV=60 paused=True step=coverage_deliberate_failure
+campaign-coverage-work-before-release position=(-3.583, 1.630, -38.570) euler=(21.59, 173.28, 0.00) FOV=60 paused=False step=coverage_cross_to_crank
+campaign-coverage-grille-open position=(-3.583, 1.630, -38.570) euler=(21.59, 173.28, 0.00) FOV=60 paused=False step=coverage_hold_crank
+campaign-coverage-release-and-threat position=(-4.050, 1.630, -43.141) euler=(19.32, 168.76, 0.00) FOV=60 paused=False step=coverage_hold_release
+campaign-coverage-return-covered position=(0.005, 1.630, -43.541) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=coverage_prepared_return

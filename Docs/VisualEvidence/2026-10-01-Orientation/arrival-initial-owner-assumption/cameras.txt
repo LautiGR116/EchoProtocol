@@ -1,0 +1,1 @@
+One initial earned-return/lighting/pose fixture; no solved P3 claim. Subsequent input physical; viewpoints follow movement direction. Camera renders omit OnGUI.

@@ -1,0 +1,18 @@
+{
+    "label": "house-Hall-kitchen-approach",
+    "position": {
+        "x": -0.550000011920929,
+        "y": 1.6299999952316285,
+        "z": -57.29999923706055
+    },
+    "target": {
+        "x": -3.299999952316284,
+        "y": 1.2000000476837159,
+        "z": -58.29999923706055
+    },
+    "chapter": "Archive",
+    "power": "Hall",
+    "answered": true,
+    "latched": true,
+    "drained": true
+}

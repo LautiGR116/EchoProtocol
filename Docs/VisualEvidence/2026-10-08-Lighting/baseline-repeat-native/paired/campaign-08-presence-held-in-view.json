@@ -1,0 +1,16 @@
+{
+    "label": "campaign-08-presence-held-in-view",
+    "state": "House|house:True/True/Carried|pressure:True/True|P3:0.00",
+    "position": {
+        "x": 0.053499747067689899,
+        "y": 1.6299999952316285,
+        "z": -57.62416458129883
+    },
+    "rotation": {
+        "x": 0.07216406613588333,
+        "y": 0.8809812664985657,
+        "z": -0.14277367293834687,
+        "w": 0.4452865421772003
+    },
+    "fov": 60.0
+}

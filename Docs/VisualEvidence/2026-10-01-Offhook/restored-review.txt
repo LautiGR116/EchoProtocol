@@ -1,0 +1,3 @@
+Fresh Play, one explicit public HouseMemory.RestoreAtReview fixture; no saved preferences changed.
+Answered/key/exited state restored, house inactive, bedroom reserve, handset in cradle, no motion/ring/contact, no interaction: True
+No claim of full Continue UI traversal or a human playthrough.

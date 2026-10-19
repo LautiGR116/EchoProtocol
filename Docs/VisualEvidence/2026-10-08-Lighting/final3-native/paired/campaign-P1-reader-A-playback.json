@@ -1,0 +1,16 @@
+{
+    "label": "campaign-P1-reader-A-playback",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+    "position": {
+        "x": 3.308336019515991,
+        "y": 1.6299998760223389,
+        "z": 1.722476601600647
+    },
+    "rotation": {
+        "x": 0.028065647929906846,
+        "y": -0.6486349105834961,
+        "z": 0.023946646600961686,
+        "w": 0.7602049708366394
+    },
+    "fov": 60.0
+}

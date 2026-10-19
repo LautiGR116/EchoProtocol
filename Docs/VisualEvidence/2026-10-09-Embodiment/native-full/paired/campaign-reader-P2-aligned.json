@@ -1,0 +1,16 @@
+{
+    "label": "campaign-reader-P2-aligned",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+    "position": {
+        "x": -2.6991543769836427,
+        "y": 1.6299998760223389,
+        "z": 22.984235763549806
+    },
+    "rotation": {
+        "x": 0.06672655791044235,
+        "y": 0.6838852763175964,
+        "z": -0.0630476325750351,
+        "w": 0.7237910628318787
+    },
+    "fov": 60.0
+}

@@ -1,0 +1,422 @@
+CONTINUOUS TITLE TO ENDING. Zero fixtures or direct gameplay mutations. Input System keyboard/mouse only. Unexpected pauses fail rather than being resumed.
+PASS [title] Threshold systems exist
+PASS [title] all original-act, new house and new final references exist
+PASS [title] optional isolation has its single configured physical audio owner
+PASS [title] isolation begins untouched at the real title without a restored fixture
+PASS [title] optional recording boundary shares the actual campaign, R3 and loop
+PASS [title] boundary starts unused and its actual Hub arrival guidance is authored
+PASS [title] physical descent guide starts hidden with an explicit Hub arrival volume
+PASS [title] run begins at the actual paused title, before gameplay
+PASS [title] title has no earned progress, saved restoration or prior recording
+PASS [title] Threshold replaces D1 with actual R3 availability
+PASS [title] First Act authors the optional SE2 observation limit at 3.5 meters from the physical glass
+PASS [title] real look sensitivity is nonzero
+PASS [title] Enter starts the actual title session through input
+PASS [P1_record] first-act gates start sealed
+PASS [P1_record] P1 A previews from the actual Player
+PASS [P1_record] RECALL has actual movement frames to finish
+PASS [P1_record] one real R completes exactly one actual take
+PASS [P1_record] RECALL placement creates no physical footstep
+PASS [P1_cooperate] P1 completes through real Echo A/B and Player cooperation
+PASS [SE1_empty_lane/keyboard_pause] Escape opens the actual pause menu
+PASS [SE1_empty_lane/keyboard_pause] real paused movement and R input leave clock, Player and loop unchanged
+PASS [SE1_empty_lane/keyboard_pause] real menu pause freezes recording, Echo playback and the authored strong event
+PASS [SE1_empty_lane/keyboard_pause] Escape restores actual Player control
+PASS [SE1_consequence] SE1 follows the actual empty-lane check
+PASS [domestic_checkpoint] real domestic crossing establishes the first checkpoint and slam
+PASS [P2_record] Player previews P2 while recording the genuine hold
+PASS [P2_record] RECALL has actual movement frames to finish
+PASS [P2_record] one real R completes exactly one actual take
+PASS [P2_record] RECALL placement creates no physical footstep
+PASS [P2_record] actual Echo holds P2
+PASS [P2_record] R1 remains sealed before SE3
+PASS [SE2_cold_approach] the authentic P2 crossing arms SE2 but its distant natural view still contains the cold room
+PASS [SE2_cold_approach] live simulation passes the qualification time while the distant natural view remains cold
+PASS [SE2_close_read] real forward input approaches within the authored glass distance without freezing time or placing the Player
+PASS [SE2_close_read] one natural close reading reveals the domestic room and figure and completes SE2 once
+PASS [SE2_close_read] real SE2 visible reading completes
+PASS [SE3_return] genuine SE3 return opens R1
+PASS [R1_anchor] R1 Central observation station is within the actual interaction range
+PASS [R1_anchor] center-camera ray reaches R1 Central observation station
+PASS [R1_anchor] R1 Central observation station accepts the actual Player in the current chapter
+PASS [R1_anchor] real anchor E establishes R1 without teleport or RECALL
+PASS [R1_anchor] R1 anchor discards the old take and arms an empty recorder
+PASS [P3_record] P3 Player A preview does not authorize the route
+PASS [P3_record] P3 B hold is actually recorded
+PASS [P3_record] RECALL has actual movement frames to finish
+PASS [P3_record] one real R completes exactly one actual take
+PASS [P3_record] RECALL placement creates no physical footstep
+PASS [P3_record] RECALL clears P3 authorization while retaining earned spatial consequences
+PASS [P3_cooperate] real Echo A authorizes P3
+PASS [P3_cooperate] real B hold opens the final puzzle gate, while R3 still requires Player crossing
+PASS [P3_cooperate] R3 remains locked before the final crossing plane
+PASS [P3_cooperate] recording stays live until the actual P3 exit crossing
+PASS [P3_cooperate] physical Player crossing unlocks R3 once
+PASS [P3_cooperate] the real R3 boundary suspends only the unfinished take throughout the return
+PASS [P3_cooperate] the return retains the exact P3 take and Echo without committing a recall or checkpoint
+PASS [P3_cooperate] every sample of the original P3 recording remains unchanged across the physical return
+PASS [P3_cooperate] the authored end-of-recording signal is active after the real crossing
+PASS [P3_cooperate] the actual return HUD explains why R is inactive
+PASS [P3_cooperate] the real R3 boundary suspends only the unfinished take throughout the return
+PASS [P3_cooperate] the return retains the exact P3 take and Echo without committing a recall or checkpoint
+PASS [P3_cooperate] every sample of the original P3 recording remains unchanged across the physical return
+PASS [P3_cooperate] R after the real R3 crossing neither teleports nor creates a new attempt
+PASS [P3_cooperate] distant R3 unlock does not announce the descent at the wrong location
+PASS [R3_continuous_return] arrival interlock seals the rear before opening the Hub side
+PASS [R3_continuous_return] descent guide remains off throughout the gallery and receiving interlock
+PASS [R3_continuous_return] actual Hub arrival seals behind the Player and keeps legacy D1 disabled
+PASS [R3_continuous_return] physical Hub arrival, rather than remote R3 availability, reveals the local descent guide
+PASS [R3_continuous_return] the real R3 boundary suspends only the unfinished take throughout the return
+PASS [R3_continuous_return] the return retains the exact P3 take and Echo without committing a recall or checkpoint
+PASS [R3_continuous_return] every sample of the original P3 recording remains unchanged across the physical return
+PASS [R3_to_descent] Station / Descent is within the actual interaction range
+PASS [R3_to_descent] center-camera ray reaches Station / Descent
+PASS [R3_to_descent] Station / Descent accepts the actual Player in the current chapter
+PASS [R3_to_descent] real E proceeds directly from earned R3 to Descent without D1
+PASS [R3_to_descent] accepting Descent removes the completed local guide
+PASS [R3_to_descent] the real R3 boundary suspends only the unfinished take throughout the return
+PASS [R3_to_descent] the return retains the exact P3 take and Echo without committing a recall or checkpoint
+PASS [R3_to_descent] every sample of the original P3 recording remains unchanged across the physical return
+PASS [isolation_physical_entry] isolation approach begins in the earned Descent with P3 already suspended by the real return boundary
+PASS [isolation_physical_entry] the real R3 boundary suspends only the unfinished take throughout the return
+PASS [isolation_physical_entry] the return retains the exact P3 take and Echo without committing a recall or checkpoint
+PASS [isolation_physical_entry] every sample of the original P3 recording remains unchanged across the physical return
+PASS [isolation_physical_entry] four distinct local sources use authored spatial playback and respect listener pause
+PASS [isolation_physical_entry] the operating plant is audible-source-ready before entry with no fabricated latch or purge
+PASS [isolation_physical_entry] physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL
+PASS [isolation_physical_entry] isolation never changes the deterministic recording cap or cadence
+PASS [isolation_physical_entry] R at physical basement entry cannot move the Player
+PASS [isolation_physical_entry] physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL
+PASS [isolation_physical_entry] isolation never changes the deterministic recording cap or cadence
+PASS [isolation_physical_entry] the opt-in chapter exposes no legacy recorder/valve callbacks
+PASS [isolation_physical_entry] two separate pressure needles, live work lights and the closed mechanical exit are explicitly authored
+PASS [isolation_short_tap] the physical approach reaches the authored grip without pose placement
+PASS [isolation_short_tap] the real camera ray resolves the isolation control and accepts a new physical grip
+PASS [isolation_short_tap] a real short E tap returns the handle and stops friction without a latch, purge or progression
+PASS [isolation_pause_while_held] the physical approach reaches the authored grip without pose placement
+PASS [isolation_pause_while_held] the real camera ray resolves the isolation control and accepts a new physical grip
+PASS [isolation_pause_while_held] the real held action physically rotates a partial, unlatched control
+PASS [isolation_pause_while_held] real handle motion drives its own local friction source
+PASS [isolation_pause_while_held] real Escape cancels grip and pauses listener playback while E remains held
+PASS [isolation_pause_while_held] paused held input freezes the physical state and produces no new machine audio trigger
+PASS [isolation_pause_while_held] resuming with E still held cannot automatically regrip or latch
+PASS [isolation_pause_while_held] releasing the real key allows a complete physical return before a new action
+PASS [isolation_live_commit] the physical approach reaches the authored grip without pose placement
+PASS [isolation_live_commit] the real camera ray resolves the isolation control and accepts a new physical grip
+PASS [isolation_live_commit] one fresh sustained E mechanically latches and starts an autonomous pressure and motor decay
+PASS [isolation_live_commit] the actual work lights cut at commit while the pressurized exit stays closed
+PASS [isolation_live_commit] the live commit produces one stop impulse and one localized purge while the motor coasts down
+PASS [isolation_live_commit] physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL
+PASS [isolation_live_commit] isolation never changes the deterministic recording cap or cadence
+PASS [isolation_walk_past_purge] walking to valve B completes one autonomous drain with pressure, motor and work lighting off
+PASS [isolation_walk_past_purge] pressure needle 0 physically reaches its authored zero angle
+PASS [isolation_walk_past_purge] pressure needle 1 physically reaches its authored zero angle
+PASS [isolation_walk_past_purge] the passed machine has no local loop or impulse still playing after drainage; no new trigger occurred
+PASS [isolation_walk_past_purge] machine silence does not change listener gain or disable the actual Player and footsteps
+PASS [isolation_walk_past_purge] physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL
+PASS [isolation_walk_past_purge] isolation never changes the deterministic recording cap or cadence
+PASS [isolation_walk_past_purge] machine audio source 0 remains at its authored physical anchor
+PASS [isolation_walk_past_purge] machine audio source 1 remains at its authored physical anchor
+PASS [isolation_walk_past_purge] machine audio source 2 remains at its authored physical anchor
+PASS [isolation_walk_past_purge] machine audio source 3 remains at its authored physical anchor
+PASS [isolation_walk_past_purge] passing through the open exit cannot restart the isolated plant
+PASS [house_entry] Station / HouseOrigin is within the actual interaction range
+PASS [house_entry] center-camera ray reaches Station / HouseOrigin
+PASS [house_entry] Station / HouseOrigin accepts the actual Player in the current chapter
+PASS [house_entry] earned pressure access and real E enter the house with recording suspended
+PASS [house_entry] physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL
+PASS [house_entry] isolation never changes the deterministic recording cap or cadence
+PASS [house_entry] entering the house does not restart the isolated plant
+PASS [house_entry] house begins without fabricated domestic progress
+PASS [house_entry] authored fuse representation exists: hallFuse
+PASS [house_entry] hallFuse agrees with the single reserve state
+PASS [house_entry] authored fuse representation exists: kitchenFuse
+PASS [house_entry] kitchenFuse agrees with the single reserve state
+PASS [house_entry] authored fuse representation exists: bedroomFuse
+PASS [house_entry] bedroomFuse agrees with the single reserve state
+PASS [house_entry] reserve never has duplicate physical representations
+PASS [house_entry] real R input cannot reset or record the house
+PASS [house_entry] physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL
+PASS [house_entry] isolation never changes the deterministic recording cap or cadence
+PASS [house_entry] R leaves the reserve and key unchanged
+PASS [parlor_document] an optional physical house document exists
+PASS [parlor_document] House interaction / Document is within the actual interaction range
+PASS [parlor_document] center-camera ray reaches House interaction / Document
+PASS [parlor_document] House interaction / Document accepts the actual Player in the current chapter
+PASS [parlor_document] E opens a real document and pauses simulation
+PASS [parlor_document] document pause preserves clock and pose despite R input
+PASS [parlor_document] Escape closes the document through keyboard input
+PASS [parlor_document] document reading changes no progression flags
+PASS [phone_and_reserve] House interaction / Telephone is within the actual interaction range
+PASS [phone_and_reserve] center-camera ray reaches House interaction / Telephone
+PASS [phone_and_reserve] House interaction / Telephone accepts the actual Player in the current chapter
+PASS [phone_and_reserve] phone removes mains and retains the hall reserve
+PASS [phone_and_reserve] authored fuse representation exists: hallFuse
+PASS [phone_and_reserve] hallFuse agrees with the single reserve state
+PASS [phone_and_reserve] authored fuse representation exists: kitchenFuse
+PASS [phone_and_reserve] kitchenFuse agrees with the single reserve state
+PASS [phone_and_reserve] authored fuse representation exists: bedroomFuse
+PASS [phone_and_reserve] bedroomFuse agrees with the single reserve state
+PASS [phone_and_reserve] reserve never has duplicate physical representations
+PASS [phone_and_reserve] reserve lighting is checked after mains removal
+PASS [phone_and_reserve] hallLights has explicit live references
+PASS [phone_and_reserve] Hall reserve light follows its actual reserve circuit
+PASS [phone_and_reserve] kitchenLights has explicit live references
+PASS [phone_and_reserve] Kitchen reserve fixture follows its actual reserve circuit
+PASS [phone_and_reserve] bedroomLights has explicit live references
+PASS [phone_and_reserve] Bedroom reserve lamp follows its actual reserve circuit
+PASS [phone_and_reserve] general supply removed from Parlor table lamp
+PASS [phone_and_reserve] appliance playback state follows kitchen power; this is not listening evidence
+PASS [phone_and_reserve/keyboard_pause] Escape opens the actual pause menu
+PASS [phone_and_reserve/keyboard_pause] real paused movement and R input leave clock, Player and loop unchanged
+PASS [phone_and_reserve/keyboard_pause] real menu pause freezes recording, Echo playback and the authored strong event
+PASS [phone_and_reserve/keyboard_pause] Escape restores actual Player control
+PASS [remove_hall_reserve] Reserve socket / RECIBIDOR is within the actual interaction range
+PASS [remove_hall_reserve] center-camera ray reaches Reserve socket / RECIBIDOR
+PASS [remove_hall_reserve] Reserve socket / RECIBIDOR accepts the actual Player in the current chapter
+PASS [remove_hall_reserve] E physically removes the sole hall reserve
+PASS [remove_hall_reserve] authored fuse representation exists: hallFuse
+PASS [remove_hall_reserve] hallFuse agrees with the single reserve state
+PASS [remove_hall_reserve] authored fuse representation exists: kitchenFuse
+PASS [remove_hall_reserve] kitchenFuse agrees with the single reserve state
+PASS [remove_hall_reserve] authored fuse representation exists: bedroomFuse
+PASS [remove_hall_reserve] bedroomFuse agrees with the single reserve state
+PASS [remove_hall_reserve] reserve never has duplicate physical representations
+PASS [remove_hall_reserve] reserve lighting is checked after mains removal
+PASS [remove_hall_reserve] hallLights has explicit live references
+PASS [remove_hall_reserve] Hall reserve light follows its actual reserve circuit
+PASS [remove_hall_reserve] kitchenLights has explicit live references
+PASS [remove_hall_reserve] Kitchen reserve fixture follows its actual reserve circuit
+PASS [remove_hall_reserve] bedroomLights has explicit live references
+PASS [remove_hall_reserve] Bedroom reserve lamp follows its actual reserve circuit
+PASS [remove_hall_reserve] general supply removed from Parlor table lamp
+PASS [remove_hall_reserve] appliance playback state follows kitchen power; this is not listening evidence
+PASS [reserve_to_kitchen] Reserve socket / COCINA is within the actual interaction range
+PASS [reserve_to_kitchen] center-camera ray reaches Reserve socket / COCINA
+PASS [reserve_to_kitchen] Reserve socket / COCINA accepts the actual Player in the current chapter
+PASS [reserve_to_kitchen] reserve can be placed directly in the kitchen
+PASS [reserve_to_kitchen] authored fuse representation exists: hallFuse
+PASS [reserve_to_kitchen] hallFuse agrees with the single reserve state
+PASS [reserve_to_kitchen] authored fuse representation exists: kitchenFuse
+PASS [reserve_to_kitchen] kitchenFuse agrees with the single reserve state
+PASS [reserve_to_kitchen] authored fuse representation exists: bedroomFuse
+PASS [reserve_to_kitchen] bedroomFuse agrees with the single reserve state
+PASS [reserve_to_kitchen] reserve never has duplicate physical representations
+PASS [reserve_to_kitchen] reserve lighting is checked after mains removal
+PASS [reserve_to_kitchen] hallLights has explicit live references
+PASS [reserve_to_kitchen] Hall reserve light follows its actual reserve circuit
+PASS [reserve_to_kitchen] kitchenLights has explicit live references
+PASS [reserve_to_kitchen] Kitchen reserve fixture follows its actual reserve circuit
+PASS [reserve_to_kitchen] bedroomLights has explicit live references
+PASS [reserve_to_kitchen] Bedroom reserve lamp follows its actual reserve circuit
+PASS [reserve_to_kitchen] general supply removed from Parlor table lamp
+PASS [reserve_to_kitchen] appliance playback state follows kitchen power; this is not listening evidence
+PASS [reserve_to_kitchen] Reserve socket / COCINA is within the actual interaction range
+PASS [reserve_to_kitchen] center-camera ray reaches Reserve socket / COCINA
+PASS [reserve_to_kitchen] Reserve socket / COCINA accepts the actual Player in the current chapter
+PASS [reserve_to_kitchen] kitchen reserve is removable without a completion sequence
+PASS [reserve_to_kitchen] authored fuse representation exists: hallFuse
+PASS [reserve_to_kitchen] hallFuse agrees with the single reserve state
+PASS [reserve_to_kitchen] authored fuse representation exists: kitchenFuse
+PASS [reserve_to_kitchen] kitchenFuse agrees with the single reserve state
+PASS [reserve_to_kitchen] authored fuse representation exists: bedroomFuse
+PASS [reserve_to_kitchen] bedroomFuse agrees with the single reserve state
+PASS [reserve_to_kitchen] reserve never has duplicate physical representations
+PASS [reserve_to_kitchen] reserve lighting is checked after mains removal
+PASS [reserve_to_kitchen] hallLights has explicit live references
+PASS [reserve_to_kitchen] Hall reserve light follows its actual reserve circuit
+PASS [reserve_to_kitchen] kitchenLights has explicit live references
+PASS [reserve_to_kitchen] Kitchen reserve fixture follows its actual reserve circuit
+PASS [reserve_to_kitchen] bedroomLights has explicit live references
+PASS [reserve_to_kitchen] Bedroom reserve lamp follows its actual reserve circuit
+PASS [reserve_to_kitchen] general supply removed from Parlor table lamp
+PASS [reserve_to_kitchen] appliance playback state follows kitchen power; this is not listening evidence
+PASS [locked_door_without_key] 6B exit / left hinge is within the actual interaction range
+PASS [locked_door_without_key] center-camera ray reaches 6B exit / left hinge
+PASS [locked_door_without_key] 6B exit / left hinge accepts the actual Player in the current chapter
+PASS [locked_door_without_key] a real E attempt without the key cannot open the mechanical exit
+PASS [reserve_to_bedroom] Reserve socket / DORMITORIO is within the actual interaction range
+PASS [reserve_to_bedroom] center-camera ray reaches Reserve socket / DORMITORIO
+PASS [reserve_to_bedroom] Reserve socket / DORMITORIO accepts the actual Player in the current chapter
+PASS [reserve_to_bedroom] reserve transfers from kitchen to bedroom through actual carried state
+PASS [reserve_to_bedroom] authored fuse representation exists: hallFuse
+PASS [reserve_to_bedroom] hallFuse agrees with the single reserve state
+PASS [reserve_to_bedroom] authored fuse representation exists: kitchenFuse
+PASS [reserve_to_bedroom] kitchenFuse agrees with the single reserve state
+PASS [reserve_to_bedroom] authored fuse representation exists: bedroomFuse
+PASS [reserve_to_bedroom] bedroomFuse agrees with the single reserve state
+PASS [reserve_to_bedroom] reserve never has duplicate physical representations
+PASS [reserve_to_bedroom] reserve lighting is checked after mains removal
+PASS [reserve_to_bedroom] hallLights has explicit live references
+PASS [reserve_to_bedroom] Hall reserve light follows its actual reserve circuit
+PASS [reserve_to_bedroom] kitchenLights has explicit live references
+PASS [reserve_to_bedroom] Kitchen reserve fixture follows its actual reserve circuit
+PASS [reserve_to_bedroom] bedroomLights has explicit live references
+PASS [reserve_to_bedroom] Bedroom reserve lamp follows its actual reserve circuit
+PASS [reserve_to_bedroom] general supply removed from Parlor table lamp
+PASS [reserve_to_bedroom] appliance playback state follows kitchen power; this is not listening evidence
+PASS [physical_key] House interaction / Key is within the actual interaction range
+PASS [physical_key] center-camera ray reaches House interaction / Key
+PASS [physical_key] House interaction / Key accepts the actual Player in the current chapter
+PASS [physical_key] E collects the physical key and removes its world representation
+PASS [physical_key] real R input cannot reset or record the house
+PASS [physical_key] physical isolation retains P3 and its actual Echo without a new take, checkpoint or RECALL
+PASS [physical_key] isolation never changes the deterministic recording cap or cadence
+PASS [physical_key] R leaves the reserve and key unchanged
+PASS [remove_bedroom_reserve] Reserve socket / DORMITORIO is within the actual interaction range
+PASS [remove_bedroom_reserve] center-camera ray reaches Reserve socket / DORMITORIO
+PASS [remove_bedroom_reserve] Reserve socket / DORMITORIO accepts the actual Player in the current chapter
+PASS [remove_bedroom_reserve] the key does not lock the reserve in the bedroom
+PASS [remove_bedroom_reserve] authored fuse representation exists: hallFuse
+PASS [remove_bedroom_reserve] hallFuse agrees with the single reserve state
+PASS [remove_bedroom_reserve] authored fuse representation exists: kitchenFuse
+PASS [remove_bedroom_reserve] kitchenFuse agrees with the single reserve state
+PASS [remove_bedroom_reserve] authored fuse representation exists: bedroomFuse
+PASS [remove_bedroom_reserve] bedroomFuse agrees with the single reserve state
+PASS [remove_bedroom_reserve] reserve never has duplicate physical representations
+PASS [remove_bedroom_reserve] reserve lighting is checked after mains removal
+PASS [remove_bedroom_reserve] hallLights has explicit live references
+PASS [remove_bedroom_reserve] Hall reserve light follows its actual reserve circuit
+PASS [remove_bedroom_reserve] kitchenLights has explicit live references
+PASS [remove_bedroom_reserve] Kitchen reserve fixture follows its actual reserve circuit
+PASS [remove_bedroom_reserve] bedroomLights has explicit live references
+PASS [remove_bedroom_reserve] Bedroom reserve lamp follows its actual reserve circuit
+PASS [remove_bedroom_reserve] general supply removed from Parlor table lamp
+PASS [remove_bedroom_reserve] appliance playback state follows kitchen power; this is not listening evidence
+PASS [presence_through_actual_glass] the house has a configured contained presence
+PASS [presence_through_actual_glass] unobstructed Player view actually sees the persistent presence
+PASS [presence_through_actual_glass] turning away without physical occlusion does not remove the presence
+PASS [presence_through_actual_glass] a genuine opaque return corner retires the already seen presence
+PASS [leave_hall_lit] Reserve socket / RECIBIDOR is within the actual interaction range
+PASS [leave_hall_lit] center-camera ray reaches Reserve socket / RECIBIDOR
+PASS [leave_hall_lit] Reserve socket / RECIBIDOR accepts the actual Player in the current chapter
+PASS [leave_hall_lit] the Player can answer Mara's request by restoring the hall light
+PASS [leave_hall_lit] authored fuse representation exists: hallFuse
+PASS [leave_hall_lit] hallFuse agrees with the single reserve state
+PASS [leave_hall_lit] authored fuse representation exists: kitchenFuse
+PASS [leave_hall_lit] kitchenFuse agrees with the single reserve state
+PASS [leave_hall_lit] authored fuse representation exists: bedroomFuse
+PASS [leave_hall_lit] bedroomFuse agrees with the single reserve state
+PASS [leave_hall_lit] reserve never has duplicate physical representations
+PASS [leave_hall_lit] reserve lighting is checked after mains removal
+PASS [leave_hall_lit] hallLights has explicit live references
+PASS [leave_hall_lit] Hall reserve light follows its actual reserve circuit
+PASS [leave_hall_lit] kitchenLights has explicit live references
+PASS [leave_hall_lit] Kitchen reserve fixture follows its actual reserve circuit
+PASS [leave_hall_lit] bedroomLights has explicit live references
+PASS [leave_hall_lit] Bedroom reserve lamp follows its actual reserve circuit
+PASS [leave_hall_lit] general supply removed from Parlor table lamp
+PASS [leave_hall_lit] appliance playback state follows kitchen power; this is not listening evidence
+PASS [unlock_and_cross_exit] 6B exit / left hinge is within the actual interaction range
+PASS [unlock_and_cross_exit] center-camera ray reaches 6B exit / left hinge
+PASS [unlock_and_cross_exit] 6B exit / left hinge accepts the actual Player in the current chapter
+PASS [unlock_and_cross_exit] the key unlocks the physical hinged door with real E input
+PASS [unlock_and_cross_exit] hinged leaf reaches its authored open rotation
+PASS [unlock_and_cross_exit] the real CharacterController crosses the opened exit
+PASS [unlock_and_cross_exit] normal exit preserves the chosen hall light
+PASS [house_to_final_service] Review origin instrument is within the actual interaction range
+PASS [house_to_final_service] center-camera ray reaches Review origin instrument
+PASS [house_to_final_service] Review origin instrument accepts the actual Player in the current chapter
+PASS [house_to_final_service] physical service walk reaches final origin and real E rearms recording
+PASS [house_to_final_service] final origin commits without teleporting or fabricating a take
+PASS [house_to_final_service] earned final arrival still requires the new approach, witness and physical completion
+PASS [final_actual_approach] real exterior pause lights the current-recording guide
+PASS [final_actual_approach] RECALL has actual movement frames to finish
+PASS [final_actual_approach] one real R completes exactly one actual take
+PASS [final_actual_approach] RECALL placement creates no physical footstep
+PASS [final_actual_approach] RECALL reviews the actual exterior pause and restores only the final door
+PASS [final_witness_from_inside] 6B review door / hinge is within the actual interaction range
+PASS [final_witness_from_inside] center-camera ray reaches 6B review door / hinge
+PASS [final_witness_from_inside] 6B review door / hinge accepts the actual Player in the current chapter
+PASS [final_witness_from_inside] final witness stores the exact actual playback reference
+PASS [final_witness_from_inside/keyboard_pause] Escape opens the actual pause menu
+PASS [final_witness_from_inside/keyboard_pause] real paused movement and R input leave clock, Player and loop unchanged
+PASS [final_witness_from_inside/keyboard_pause] real menu pause freezes recording, Echo playback and the authored strong event
+PASS [final_witness_from_inside/keyboard_pause] Escape restores actual Player control
+PASS [final_witness_from_inside] completed final witness survives a real menu pause for the same take
+PASS [preserve_original] Original conservation terminal is within the actual interaction range
+PASS [preserve_original] center-camera ray reaches Original conservation terminal
+PASS [preserve_original] Original conservation terminal accepts the actual Player in the current chapter
+PASS [preserve_original] real conservation terminal preserves the exact witnessed original and stops new recording
+PASS [preserve_original] R cannot replace the preserved original or teleport the Player
+PASS [return_key] Return key to porter's tray is within the actual interaction range
+PASS [return_key] center-camera ray reaches Return key to porter's tray
+PASS [return_key] Return key to porter's tray accepts the actual Player in the current chapter
+PASS [return_key] real tray interaction returns the physical key and opens exit without prematurely finishing
+PASS [physical_departure] actual final crossing begins the authored fade while control remains available
+PASS [physical_departure] continuous title-to-ending run reaches the real ending with the same original
+PASS [immutable_archive_audit] every observed Player pose reset belongs to a real RECALL; there were zero fixture placements
+PASS [immutable_archive_audit] all timestamps, positions and rotations remain identical in each saved snapshot
+PASS [immutable_archive_audit] all timestamps, positions and rotations remain identical in each saved snapshot
+PASS [immutable_archive_audit] all timestamps, positions and rotations remain identical in each saved snapshot
+PASS [immutable_archive_audit] all timestamps, positions and rotations remain identical in each saved snapshot
+PASS [immutable_archive_audit] full campaign audited actual playback across multiple real takes
+PASS [immutable_archive_audit] the actual route uses only its expected real RECALLs (one initial, four with isolation, five legacy)
+PASS [immutable_archive_audit] capture exists: campaign-00-title-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-00-title-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-01-P1-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-01-P1-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-pause-SE1_empty_lane-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-pause-SE1_empty_lane-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-02-SE1-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-02-SE1-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-SE2-cold-approach-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-SE2-cold-approach-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-03-SE2-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-03-SE2-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-SE3-entry-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-SE3-entry-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-SE3-codo-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-SE3-codo-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-04-R1-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-04-R1-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-05-R3-unlocked-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-05-R3-unlocked-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-return-archive-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-return-archive-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-return-reception-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-return-reception-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-06-Hub-return-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-06-Hub-return-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-07-pressure-isolation-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-07-pressure-isolation-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-07-pressure-drained-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-07-pressure-drained-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-08-house-entry-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-08-house-entry-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-01-document-game-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-01-document-game-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-02-phone-before-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-02-phone-before-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-03-phone-reserve-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-03-phone-reserve-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-pause-phone_and_reserve-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-pause-phone_and_reserve-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-04-hall-without-reserve-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-04-hall-without-reserve-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-05-kitchen-powered-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-05-kitchen-powered-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-06-bedroom-powered-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-06-bedroom-powered-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-07-key-taken-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-07-key-taken-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-08-presence-held-in-view-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-08-presence-held-in-view-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-09-hall-light-returned-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-09-hall-light-returned-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-10-mechanical-door-open-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-10-mechanical-door-open-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-11-outside-house-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-11-outside-house-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-20-final-origin-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-20-final-origin-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-21-Echo-at-6B-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-21-Echo-at-6B-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-22-witnessed-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-22-witnessed-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-pause-final_witness_from_inside-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-pause-final_witness_from_inside-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-23-original-preserved-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-23-original-preserved-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-24-ending-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-24-ending-Camera.png

@@ -1,0 +1,15 @@
+{
+  "checkpoint": "Reconstruction",
+  "backupDirectory": "/Users/lautigr116/EchoProtocol-backups/reconstruction-checkpoint-20261002",
+  "archive": "source-overlay.tar.gz",
+  "manifest": "manifest.json",
+  "verification": "verification.json",
+  "recoveryInstructions": "RECOVER.txt",
+  "order": [
+    "Candidate source.tar.gz",
+    "Legibility source-overlay.tar.gz",
+    "EncounterArt source-overlay.tar.gz",
+    "Reconstruction source-overlay.tar.gz"
+  ],
+  "note": "See external verification for final archive hashes and full restored-manifest validation. Avoid self-referential archive hashes in archived source."
+}

@@ -1,0 +1,14 @@
+{
+  "status": "FAIL",
+  "error": "System.Exception: Mouse focus/aim failed\n  at ContrapruebaProbe+<Face>d__64.MoveNext () [0x0006c] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ContrapruebaProbe.cs:95 \n  at ContrapruebaProbe+<Guarded>d__46.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ContrapruebaProbe.cs:22 ",
+  "phase": "actual adult display recording",
+  "mode": "echo",
+  "speakerReduced": false,
+  "fixtureCount": 0,
+  "scope": "Input System actual WASD/mouse/E/R/H. P3/retry declare one initial R1 prior-state/pose fixture; other modes start at the real title without placements. The named mode and checks define coverage; captures use the actual Player camera. Saves are suppressed. Not human comprehension, comfort, listening or fear evidence.",
+  "takeCount": 0,
+  "checks": [
+    "fresh real title",
+    "Enter starts controls"
+  ]
+}

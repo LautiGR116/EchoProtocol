@@ -1,0 +1,25 @@
+// PROPOSED AUTHORING RECIPE ONLY. Not imported, compiled or executed.
+// Returns one transient material. No asset writes, texture, scene access or assignment.
+using System;
+using UnityEngine;
+
+public static class StudyGlassMaterialRecipe
+{
+    public static Material CreateCandidate(Material observationGlass)
+    {
+        if (!observationGlass || observationGlass.shader.name != "Universal Render Pipeline/Lit")
+            throw new ArgumentException("Expected the current URP Lit observation-glass material");
+        if (observationGlass.GetFloat("_Surface") != 1f || observationGlass.GetFloat("_WorkflowMode") != 1f)
+            throw new ArgumentException("Review changed surface/workflow before using this recipe");
+
+        var candidate = new Material(observationGlass) { name = "M_StudySealedGlass_PROPOSED" };
+        candidate.SetFloat("_SpecularHighlights", 1f);
+        candidate.DisableKeyword("_SPECULARHIGHLIGHTS_OFF");
+        candidate.SetFloat("_Smoothness", .78f);
+        // Everything else stays inherited for this first comparison: tint/alpha,
+        // metallic workflow, environmental reflection, blend and depth settings,
+        // culling, no maps/emission, and the disabled ShadowCaster pass.
+        // PreserveSpecular is on: alpha is NOT a highlight-gain control.
+        return candidate;
+    }
+}

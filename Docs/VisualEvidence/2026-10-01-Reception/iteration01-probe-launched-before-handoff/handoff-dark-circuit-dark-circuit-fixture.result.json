@@ -1,0 +1,23 @@
+{
+    "status": "FAIL: independent route or checkpoint already reached Pressure beyond the first-act region",
+    "error": "independent route or checkpoint already reached Pressure beyond the first-act region",
+    "mode": "dark-circuit-fixture",
+    "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Reception.unity",
+    "evidenceScope": "Two-second Pressure snapshot or explicitly labelled twelve-light fixture after independently established handoff. No full-blackout-route, Echo playback, listening, timbre or human fear claim. Probe never changes recordings, chapter, Player pose, audio source values, timeScale, AudioListener settings or preferences.",
+    "checks": 1,
+    "frames": 0,
+    "settledFrames": 0,
+    "fixtureLightCount": 0,
+    "firstActWritesBefore": 0,
+    "firstActWritesAfter": 5874,
+    "campaignWriteDelta": 0,
+    "releaseCount": 0,
+    "scaledSecondsObserved": 0.0,
+    "elapsedRealtime": 0.008392333984375,
+    "initialFluorescentGain": 0.0,
+    "fluorescentGain": -1.0,
+    "machineryGain": -1.0,
+    "poweredFraction": 1.0,
+    "fullBlackoutRouteClaim": false,
+    "fixtureRestored": true
+}

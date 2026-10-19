@@ -1,0 +1,1 @@
+PASS real EchoPlayback crossed final trigger using unmodified frames captured from actual Player return; contacts=1

@@ -1,0 +1,16 @@
+{
+    "label": "campaign-SE3-entry",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:1.00",
+    "position": {
+        "x": -2.6908650398254396,
+        "y": 1.630000114440918,
+        "z": 28.91400146484375
+    },
+    "rotation": {
+        "x": 4.963232753116883e-15,
+        "y": -1.0,
+        "z": 4.163461753137199e-8,
+        "w": 1.1920927533992654e-7
+    },
+    "fov": 60.0
+}

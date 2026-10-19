@@ -1,0 +1,29 @@
+PASS fresh D1 unavailable and hidden
+PASS revision sign hidden before R3
+PASS fresh R3 and Hub reverse gate solid and closed
+PASS fresh session menu pauses time
+PASS campaign begins in protocol act
+PASS fresh baseline sealed, P3 inactive and anchor rejects Player
+PASS ray reaches HouseOrigin
+PASS station available HouseOrigin
+PASS house exploration suspends automatic recall
+PASS house begins with no optional document read
+PASS ray reaches Telephone
+PASS station available Telephone
+PASS ray reaches CircuitHall
+PASS station available CircuitHall
+PASS out-of-order circuit rejected
+PASS ray reaches CircuitKitchen
+PASS station available CircuitKitchen
+PASS kitchen circuit restored
+PASS ray reaches CircuitBedroom
+PASS station available CircuitBedroom
+PASS bedroom circuit moves house consequence
+PASS visible physical presence resolves after sustained real sight
+PASS ray reaches CircuitHall
+PASS station available CircuitHall
+PASS hall completes spatial restoration
+PASS ray reaches GalleryOrigin
+PASS station available GalleryOrigin
+PASS gallery re-arms recording
+PASS house exits through real circuits with zero optional documents

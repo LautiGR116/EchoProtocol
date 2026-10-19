@@ -31,9 +31,39 @@
   serialized references. Do not normally hand-edit `.unity` or `.prefab` YAML.
 - Preserve existing worktree changes. Inspect before changing project-wide
   settings or deleting assets.
-- A script on disk is not a completed feature: compile, inspect the Console,
-  inspect configured objects, test objective behavior, and name any required
-  human playtest.
+- Current production workflow is **Unity Editor only**. Unless the user explicitly
+  requests otherwise, do not build, package, sign, or launch standalone versions
+  of the game. Older build-delivery instructions in Docs are historical and do
+  not override this rule. Deliver saved scripts/assets/scenes for Editor play.
+- Keep verification small and tied to the change: check compilation/Console,
+  inspect the affected configuration, and use the shortest relevant Editor check
+  when behavior or presentation needs it. Reuse existing evidence and checkpoints.
+  Repeat a check only after a relevant edit or a concrete failure; do not repeat
+  successful routes or equivalent cases by routine.
+- Full-campaign runs, broad regression suites, exhaustive capture/comparison
+  rounds, and profiling campaigns are not default delivery requirements. Reserve
+  them for an explicit user request. Investigate a concrete regression with
+  focused Editor checks; do not turn a local fix into a general audit.
+- Prioritize visible implementation and fast handoff to the user's playtest.
+  Do not create new test harnesses or lengthy reports for routine polish. Report
+  the changes, the small checks actually performed, and any remaining human
+  judgment briefly. Automated checks cannot approve fear, acting, or comfort.
+- Stop task-owned capture/profiling helpers after use. Do not leave game copies
+  or auxiliary tools consuming CPU, and preserve the user's Editor session.
+
+## Generative audio workflow
+
+- When ElevenLabs could materially help, brief the user before generation:
+  explain the narrative purpose, whether the need is a new voice or a new take,
+  identify the exact saved voice/model/text/settings, and define what the user
+  should listen for. The user generates and judges performance by ear; objective
+  file and signal checks do not replace that human casting decision.
+- Keep generated voices and takes traceable. Record plan/usage rights, model,
+  voice identity, prompt or performance text, settings, date, and selected master
+  before importing an accepted file. Treat unclear rights as prototype-only.
+- Never upload, clone, or imitate a minor's voice, and never work around a
+  provider safety block. Use consenting adult performers or policy-compliant
+  synthetic adult voices when youthful characterization is required.
 
 ## Source control and security
 
@@ -59,3 +89,15 @@ the fear arc, `AUDIO_DESIGN.md` for sonic rules, `ARCHITECTURE.md` for implement
 systems, and `PLAYTEST_LOG.md` for human evidence. Keep these states distinct:
 implemented, objectively verified, human-approved, approved direction,
 planned, `TBD`, `EN PRUEBA`, and `NO MVP`.
+
+## Codex task recommendation
+
+- In every user-facing response, explicitly recommend whether to continue in
+  the current Codex chat or open a new one, and name the recommended Codex model
+  and reasoning effort.
+- Re-evaluate this recommendation for each request. Prefer the current chat for
+  work that depends on the active milestone, scene, decisions, or test evidence;
+  recommend a new chat for a large independent task whose separate context would
+  materially improve clarity or reduce risk.
+- Keep the recommendation concise and visible using the labels `Chat`, `Model`,
+  and `Effort`, even when no chat or model change is needed.

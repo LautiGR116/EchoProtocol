@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "buildId": "build_2664e8d1c23e",
+  "result": "Succeeded",
+  "outputPath": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Arrival-20261001/EchoProtocol.app",
+  "totalSizeBytes": 198783585,
+  "buildTimeMs": 19108,
+  "totalWarnings": 346,
+  "totalErrors": 0,
+  "signature": "codesign --verify --deep --strict passed",
+  "architectures": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Arrival-20261001/EchoProtocol.app/Contents/MacOS/EchoProtocol: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64:Mach-O 64-bit executable arm64]\n/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Arrival-20261001/EchoProtocol.app/Contents/MacOS/EchoProtocol (for architecture x86_64):\tMach-O 64-bit executable x86_64\n/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Arrival-20261001/EchoProtocol.app/Contents/MacOS/EchoProtocol (for architecture arm64):\tMach-O 64-bit executable arm64",
+  "native": "Pendiente: CUA intent\u00f3 abrir esta ruta exacta y devolvi\u00f3 Mac locked antes del arranque. No se afirma prueba nativa de Arrival; Reserve conserva la \u00faltima prueba nativa breve.",
+  "warningSummary": "1 Pipeline runtime config absent (editor integration disabled in Player), 345 Sentis Metal shader warnings from installed AI package; no build error."
+}

@@ -1,0 +1,39 @@
+{
+  "status": "RESTORED",
+  "report": [
+    {
+      "field": "cry",
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Shaft_DistantCry.wav",
+      "volume": 0.18,
+      "spatialBlend": 1.0,
+      "local": "(0.000, 0.000, 0.000)",
+      "sourceComponents": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "field": "movement",
+      "clip": "Assets/_Game/Audio/Clips/Finish/FootVinyl1.wav",
+      "volume": 0.065,
+      "spatialBlend": 1.0,
+      "local": "(0.000, 0.000, 0.000)",
+      "sourceComponents": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "field": "strike",
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Contact_Closed.wav",
+      "volume": 0.12,
+      "spatialBlend": 1.0,
+      "local": "(0.000, 0.000, 0.000)",
+      "sourceComponents": [
+        "Transform",
+        "AudioSource"
+      ]
+    }
+  ],
+  "scope": "Copies original Coverage emitters, clips, mixer groups and safe source settings. No new vocal asset and no puzzle/chase-rule change."
+}

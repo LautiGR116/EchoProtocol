@@ -1,0 +1,6 @@
+Actual continuous-route cameras and live Echo, with no pose fixture. A synchronous material-only swap compares the legacy shader to the candidate on the same enabled body renderers. Geometry, transforms, gameplay, time, recording and scene lights are unchanged. Camera.Render excludes OnGUI; original renderer assignments are restored in finally. No human approval.
+campaign-01-P1 camera=(3.295, 1.630, 9.919) euler=(0.00, 90.00, 0.00) Echo=(-2.700, 0.030, 10.926) enabledRenderers=0 unchangedPoseAndTake=true
+campaign-SE3-entry camera=(-2.692, 1.630, 28.928) euler=(0.00, 180.00, 0.00) Echo=(-2.699, 0.030, 22.974) enabledRenderers=1 unchangedPoseAndTake=true
+campaign-SE3-codo camera=(-2.692, 1.630, 27.015) euler=(0.00, 180.00, 0.00) Echo=(-2.699, 0.030, 22.974) enabledRenderers=1 unchangedPoseAndTake=true
+campaign-21-Echo-at-6B camera=(0.000, 1.630, -77.245) euler=(0.00, 180.00, 0.00) Echo=(-0.055, 0.030, -80.794) enabledRenderers=1 unchangedPoseAndTake=true
+campaign-22-witnessed camera=(0.000, 1.630, -77.245) euler=(0.00, 180.00, 0.00) Echo=(-0.055, 0.030, -80.315) enabledRenderers=1 unchangedPoseAndTake=true

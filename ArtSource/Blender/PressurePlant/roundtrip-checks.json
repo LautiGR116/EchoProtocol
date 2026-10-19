@@ -1,0 +1,308 @@
+{
+  "scope": "Reimport in Blender 5.2; checks metric data, UVs, material slots, floor roots. Does not establish Unity facing, collision, light, oclusion, performance, playtest or engineering certification.",
+  "all_pass": true,
+  "results": [
+    {
+      "asset": "Receiver",
+      "file_sha256": "70c722d42872886f4370136613ee1ee9054028d35868c47a417ab6e36ce3ba38",
+      "bytes": 323404,
+      "mesh_count": 1,
+      "triangles": 13996,
+      "bounds_blender_xyz": [
+        [
+          -0.6039999723434448,
+          0.7599999904632568
+        ],
+        [
+          -0.7209998369216919,
+          0.6040002703666687
+        ],
+        [
+          -5.099417066389833e-08,
+          2.3499999046325684
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        1.3639999628067017,
+        1.3250001072883606,
+        2.349999955626739
+      ],
+      "bounds_roundtrip_error_m": 1.1920928955078125e-07,
+      "root_error_m": 0.0,
+      "finite_vertices": true,
+      "finite_populated_uvs": true,
+      "missing_materials": [],
+      "checks": {
+        "height_error_m": 4.437326106554451e-08
+      },
+      "pass": true
+    },
+    {
+      "asset": "ServiceCabinet",
+      "file_sha256": "cf6f597b6096817c88567fa9efb8f003a89430cd29555741ac8fe70297bfb0c3",
+      "bytes": 228764,
+      "mesh_count": 1,
+      "triangles": 9528,
+      "bounds_blender_xyz": [
+        [
+          -0.8500000238418579,
+          0.8500000238418579
+        ],
+        [
+          -3.0,
+          3.000000476837158
+        ],
+        [
+          -6.066679247851425e-07,
+          2.700000286102295
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        1.7000000476837158,
+        6.000000476837158,
+        2.7000008927702197
+      ],
+      "bounds_roundtrip_error_m": 9.642957934374863e-07,
+      "root_error_m": 0.0,
+      "finite_vertices": true,
+      "finite_populated_uvs": true,
+      "missing_materials": [],
+      "checks": {
+        "exact_gameplay_envelope_error_m": 8.927702195293818e-07,
+        "lateral_occlusion_misses_9_rays": 0
+      },
+      "pass": true
+    },
+    {
+      "asset": "PipeStraight2m",
+      "file_sha256": "2ae70741fe561677875fea086c003e7421de8fbda14c2ac7931aabc976f2553c",
+      "bytes": 82684,
+      "mesh_count": 1,
+      "triangles": 3392,
+      "bounds_blender_xyz": [
+        [
+          -1.0,
+          1.0
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        2.0,
+        0.28999999165534973,
+        0.28999999165534973
+      ],
+      "bounds_roundtrip_error_m": 0.0,
+      "root_error_m": 0.0,
+      "finite_vertices": true,
+      "finite_populated_uvs": true,
+      "missing_materials": [],
+      "checks": {},
+      "pass": true
+    },
+    {
+      "asset": "PipeElbow90",
+      "file_sha256": "0e7f476363272f8d8fec7e28b45bb5ba2c1da2a608c79d1b0e02b1248a2409dd",
+      "bytes": 134396,
+      "mesh_count": 1,
+      "triangles": 5024,
+      "bounds_blender_xyz": [
+        [
+          0.0,
+          0.6449999809265137
+        ],
+        [
+          -0.14499999582767487,
+          0.5
+        ],
+        [
+          -0.14500007033348083,
+          0.14499999582767487
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.6449999809265137,
+        0.6449999958276749,
+        0.2900000661611557
+      ],
+      "bounds_roundtrip_error_m": 7.450580596923828e-08,
+      "root_error_m": 0.0,
+      "finite_vertices": true,
+      "finite_populated_uvs": true,
+      "missing_materials": [],
+      "checks": {},
+      "pass": true
+    },
+    {
+      "asset": "PipeTee",
+      "file_sha256": "0e11f0ec100c261f87fe17152bb80cc93d390637ec0920af2a1ef2f2c0002e34",
+      "bytes": 131500,
+      "mesh_count": 1,
+      "triangles": 5356,
+      "bounds_blender_xyz": [
+        [
+          -0.5,
+          0.5
+        ],
+        [
+          -0.14499999582767487,
+          0.5
+        ],
+        [
+          -0.14500007033348083,
+          0.14499999582767487
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        1.0,
+        0.6449999958276749,
+        0.2900000661611557
+      ],
+      "bounds_roundtrip_error_m": 7.450580596923828e-08,
+      "root_error_m": 0.0,
+      "finite_vertices": true,
+      "finite_populated_uvs": true,
+      "missing_materials": [],
+      "checks": {},
+      "pass": true
+    },
+    {
+      "asset": "PipeWallSupport",
+      "file_sha256": "e8767049151e6b2346be0cba7bc73da25a4b271e7ae5a142b6f2a70a45a5ddd5",
+      "bytes": 47996,
+      "mesh_count": 1,
+      "triangles": 1360,
+      "bounds_blender_xyz": [
+        [
+          -0.09000000357627869,
+          0.09000000357627869
+        ],
+        [
+          -0.10700000077486038,
+          0.2770000100135803
+        ],
+        [
+          -0.14500004053115845,
+          0.14499995112419128
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.18000000715255737,
+        0.3840000107884407,
+        0.28999999165534973
+      ],
+      "bounds_roundtrip_error_m": 2.9802322387695312e-08,
+      "root_error_m": 0.0,
+      "finite_vertices": true,
+      "finite_populated_uvs": true,
+      "missing_materials": [],
+      "checks": {},
+      "pass": true
+    },
+    {
+      "asset": "PipeAdaptor300",
+      "file_sha256": "0860609719d71c3b856e5db02421f4eaa74272de560dfdc007c7626bef42e103",
+      "bytes": 84844,
+      "mesh_count": 1,
+      "triangles": 3392,
+      "bounds_blender_xyz": [
+        [
+          -0.15000000596046448,
+          0.15000000596046448
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.30000001192092896,
+        0.28999999165534973,
+        0.28999999165534973
+      ],
+      "bounds_roundtrip_error_m": 0.0,
+      "root_error_m": 0.0,
+      "finite_vertices": true,
+      "finite_populated_uvs": true,
+      "missing_materials": [],
+      "checks": {},
+      "pass": true
+    },
+    {
+      "asset": "PipeBlindCap",
+      "file_sha256": "2240f5ec7d975f0682a7a42d4ad2d362bcbf9e172d4c2e67c25b4bdbc45d0764",
+      "bytes": 57724,
+      "mesh_count": 1,
+      "triangles": 1888,
+      "bounds_blender_xyz": [
+        [
+          -8.715034027773072e-09,
+          0.06300000101327896
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ],
+        [
+          -0.14499999582767487,
+          0.14499999582767487
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.06300000972831299,
+        0.28999999165534973,
+        0.28999999165534973
+      ],
+      "bounds_roundtrip_error_m": 0.0,
+      "root_error_m": 0.0,
+      "finite_vertices": true,
+      "finite_populated_uvs": true,
+      "missing_materials": [],
+      "checks": {},
+      "pass": true
+    },
+    {
+      "asset": "MotorSkid",
+      "file_sha256": "e2fad86ef44e243cb1fde3aa954c7680eaaefd2924ac930fccfa45c796d39d84",
+      "bytes": 367020,
+      "mesh_count": 1,
+      "triangles": 15524,
+      "bounds_blender_xyz": [
+        [
+          -0.7599999904632568,
+          0.7900000214576721
+        ],
+        [
+          -0.4000000059604645,
+          0.40000003576278687
+        ],
+        [
+          -6.321322132407659e-08,
+          1.0099999904632568
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        1.550000011920929,
+        0.8000000417232513,
+        1.0100000536764782
+      ],
+      "bounds_roundtrip_error_m": 6.321322132407659e-08,
+      "root_error_m": 0.0,
+      "finite_vertices": true,
+      "finite_populated_uvs": true,
+      "missing_materials": [],
+      "checks": {},
+      "pass": true
+    }
+  ]
+}

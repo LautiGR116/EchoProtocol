@@ -1,5 +1,77 @@
 # Decisions
 
+## 2026-10-01 — Raise ambition and authorize sustained use
+
+The user considers the game insufficiently ambitious and explicitly wants many
+hours of autonomous work, with authorization to use all available quota. The
+current Finish build is a recoverable checkpoint, not the final quality bar or
+a scope ceiling. The [short goal](OVERNIGHT_GOAL.md) now requests substantial
+creative production and reconstruction with exacting self-defined outcomes;
+earlier prompts aimed at a single finish pass are superseded. The agent remains
+free to choose design, narrative, assets and implementation order. Preserve a
+working delivery while pursuing the larger result. Reasoning effort does not
+guarantee wall-clock runtime; neither token burning nor repeated sufficient tests
+count as product progress. No services or monetary spending are authorized.
+The goal was prepared for the user to activate, not dispatched from this chat.
+
+## 2026-09-30 — Finish the campaign's player experience
+
+The expanded campaign is implemented and objectively verified. The user still
+wants a finished visual, sonic and psychological-horror experience and reports
+substantial remaining usage. Continue autonomous production; the creative
+freedom remains. The revised [short goal](OVERNIGHT_GOAL.md) focuses on finishing
+the experience, including replacing weak work, rather than satisfying more
+asset or puzzle counts. Human fear and comfort evidence remains unavailable;
+this does not block autonomous improvements or justify claiming those effects
+verified. Recommended next execution: Astra Extra High in Standard. The prompt
+was prepared, not dispatched to the execution chat.
+
+## 2026-09-30 — Clarify the full-game goal after its first delivery
+
+The first autonomous run delivered a brief edition with session UX and a physical
+ending. The user reports that this did not match the intended goal. Treat that
+build as a recoverable checkpoint, not fulfillment of the intended substantial
+full-game development. The revised [short goal](OVERNIGHT_GOAL.md) clarifies the
+outcome: an expanded campaign with new playable challenges and situations,
+developed horror/narrative and substantial audiovisual improvement. Design,
+content choices and implementation order remain delegated. No detailed puzzle
+recipe or routine review gate is introduced. The continuation was not dispatched
+to the execution chat by this documentation change.
+
+**Further user clarification:** be ambitious. Aim for the moodboard's atmosphere
+and production quality when achievable; otherwise choose an equally ambitious
+independent direction. The moodboard is aspirational rather than a prerequisite
+or a reason to halt. A deliverable build alone does not justify shrinking the
+intended campaign. This is creative authorization, not a claim that the target
+quality has been achieved or visually validated.
+
+## 2026-09-30 — Delegate autonomous full-game production
+
+**Direct user authorization:** prepare an overnight goal and let the agent make
+all creative and implementation decisions, including new puzzles, controls,
+scenes, Blender assets, downloaded audio and generated images. The user explicitly
+expanded this beyond the short demo to the full game, or the most substantial
+complete experience the agent can build and verify. See
+[the execution contract](OVERNIGHT_GOAL.md).
+
+**Latest clarification:** the user explicitly allows questioning what already
+exists and wants a short goal, not a detailed prescribed plan. Previously approved
+product decisions, content, puzzles, controls, narrative, ending and systems can
+be reconsidered, redesigned, replaced or removed. The agent chooses its direction,
+scope and execution order. The earlier detailed overnight contract is superseded;
+the current brief specifies the desired outcome and delegates the means.
+
+**Retained:** psychological horror as the intended experience, safe listening
+levels, a recoverable copy of prior work, public-repository asset rights and
+Editor-authored scenes. Design history is context, not a creative prohibition.
+No authorization for spending, external publication, messaging third parties,
+destroying the recovery copy or rewriting Git history. Local content and systems
+may be replaced or deleted after preserving that copy.
+
+**Evidence boundary:** this authorizes future work; it does not implement or
+human-approve it. The goal has not been started in this preparation. New agent
+selections and unobserved emotional effects remain EN PRUEBA.
+
 ## 2026-08-07 — Greybox before content
 
 **Decision:** Validate movement and the Echo proof before final art or horror.
@@ -417,3 +489,273 @@ remain open. The consequence is confirmed as subtle, but its exact visual form
 remains open. A guided delivery pass is insufficient; perceptual and emotional
 claims require an unannounced human checkpoint and separate headphones,
 speakers, mono, and reduced-dynamics evidence.
+
+## 2026-08-12 — Keep itch.io on the source radar; gate Mixamo behind distribution needs
+
+**Decision:** Treat itch.io primarily as a discovery channel, not as one blanket
+asset license. Every external asset and service used by the project must have
+zero monetary cost. Free tiers, included credits, promotional credits, and
+time-limited trials are allowed when they require no charge, do not create an
+automatic paid dependency, and grant adequate rights for the intended prototype
+use. Do not make purchases, require donations, activate paid tiers, or accept
+later license fees. Search itch.io only when a defined production role needs a
+prop, texture, font, audio source, or small modular pack. Prefer a specific asset
+page that declares `CC0 1.0`, `No AI`, useful source formats, and credible
+first-party authorship; retain dated license evidence and hashes before import.
+A `free`, `royalty-free`, or platform-level label alone is insufficient for raw
+redistribution in this public repository.
+
+Keep Mixamo as a conditional prototyping tool for a future owned humanoid,
+auto-rig, or in-place body-animation study. Do not use it for SD1, add a stock
+character merely to exploit the library, or commit Mixamo character/animation
+source files to the public repository. Revisit only when a concrete humanoid
+feature exists and its asset-storage/distribution path is compatible with the
+then-current Adobe terms.
+
+**Why:** There is no current goal to publish or commercialize the game, so paid
+production dependencies add no justified value to this prototype. itch.io
+exposes useful CC0/No-AI filters and has plausible clinical, office, domestic,
+audio, and typography candidates, but each publisher controls the actual asset
+terms and style quality varies sharply. Mixamo is free and royalty-free for
+finished games, but its strongest value begins only when the game needs a
+bipedal body; restrictions on redistributing raw character and animation files
+remain relevant because this repository itself is public.
+
+**Tradeoff:** Conservative review reduces the speed advantage of asset stores,
+and a future Mixamo prototype may need private team storage or a replacement
+pipeline before public release. This avoids style drift, unused package weight,
+unclear provenance, and accidental publication of restricted source content.
+
+## 2026-08-12 — Freeze SD1 and map one reusable production route
+
+**Decision:** Freeze SD1 as a partial technical sandbox rather than finish its
+breathing, whisper, visual consequence, pacing, or room-specific cue polish.
+Move to `EM1`: propose the full five-chapter pressure map first, then approve one
+continuous 8–10 minute vertical slice built from reusable production-intent
+spaces close to the moodboard.
+
+The initial `EM1 v0.1` proposal uses a recognizable observation hub, a
+glass-sided test lane, a parallel service return, and one domestic insert across
+the complete route. Its candidate slice pairs a non-plate optical Echo relay
+with a return through familiar space, directional presence, one persistent
+domestic threshold, and recovery. These specifics remain proposed until the
+human scope checkpoint.
+
+**Why:** SD1 proved useful authored-audio and mixer contracts, but its disposable
+room is too far from the visual target to support reliable production-content
+decisions. Refining every cue there would have low transfer value. A small
+reused route tests environment production, Echo puzzle design, backtracking,
+visual progression, audio, and horror together while avoiding another isolated
+prototype.
+
+**Tradeoff:** Directional fear, breathing, whisper, device mix, and the SD1
+visual consequence remain emotionally incomplete. The map now carries more
+design assumptions, so the spatial spine, first puzzle, first strong event, and
+slice budget must be approved before scene production begins.
+
+## 2026-08-14 — Authorize the VS1 spatial blockout before content production
+
+**Decision:** Build a separate, low-cost ProBuilder blockout of VS1 Parallel
+Return now, without waiting to lock the full experience map. Reuse the existing
+Player and exact-Echo foundation, but implement only the observation hub, glass
+test lane, parallel service return, north connector, shallow domestic threshold,
+collision, and provisional lighting. Do not implement P1, Strong Event 1,
+production dressing, final materials, or new audio in this pass.
+
+**Why:** The disposable SD1 room is too far from the moodboard, but refining a
+final scene before testing scale and circulation would also be wasteful. A
+separate modular layout makes the route, spatial contrast, backtracking, and
+domestic intrusion cheap to evaluate while preserving the original prototype.
+
+**Tradeoff:** The blockout can validate dimensions and navigation but cannot
+validate puzzle comprehension, fear, atmosphere, final art cohesion, or the
+8–10 minute pacing target. Those claims remain pending a human walkthrough and
+later content-specific checkpoints.
+
+## 2026-08-14 — Authorize P1 as a deterministic parallel observation relay
+
+**Decision:** Implement P1 in the approved VS1 blockout with two directional
+Echo readers in the glass lane, one Player-only reader on the service wall, and
+two staged gates. Echo authorizations A and B latch for the current attempt.
+Gate A opens on A; Gate B opens only after A, B, and the Player faces the service
+reader away from the glass. Reader A may open Gate A temporarily while the Player
+is aligned to demonstrate causality, but this preview never latches A; only the
+Echo authorization holds the gate open for the attempt. Use visible reader/relay
+indicators, generous facing qualification, no hidden race, and full RECALL reset.
+Add no horror event, production dressing, or new audio in this pass.
+
+**Why:** This is the lowest-cost test of whether the accepted parallel layout
+creates useful Echo cooperation, divided attention, and deliberate vulnerability
+before mood, scare, and production assets obscure mechanical comprehension.
+
+**Tradeoff:** Objective correctness cannot establish discoverability or feel.
+Those remain a human checkpoint, and Strong Event 1 stays unapproved until P1
+is understood without interpreting failure as altered Echo behavior.
+
+## 2026-08-14 — Build a minimal VS1 visual/audio target before Strong Event 1
+
+**Decision:** Preserve the approved VS1 layout and P1 behavior, then add only the
+minimum context needed to judge the slice closer to its moodboard: scene-local
+clinical/service/domestic material variants, restrained post-processing, a few
+silhouette-readable domestic forms, and truthful functional feedback for P1's
+readers and gates. Do not implement Strong Event 1 in the same pass.
+
+**Why:** The blockout already answers circulation and mechanic questions, but a
+horror-event judgment made in flat grey geometry with silent puzzle devices
+would conflate event quality with missing presentation. This target raises the
+context enough for a useful human review while keeping the work cheap and
+replaceable.
+
+**Tradeoff:** VT1 can establish coherence, eye guidance, and causal feedback; it
+cannot validate fear, final art, production timbre, final mix, or the complete
+8–10 minute pacing. Those claims require separate human checkpoints.
+
+## 2026-08-14 — Author Strong Event 1 as an occupied empty lane
+
+**Decision:** After P1 completes and the Echo ends, deliver one world-locked
+domestic knock from the threshold. Require the Player to look into the empty
+glass lane, then continue north before one independent environmental footstep
+source travels along that lane toward the threshold. Briefly subtract the stable
+facility beds, restore them in recovery, and leave the threshold lighting more
+fully revealed across RECALL. Never attach footsteps to the Echo or imply that
+it reproduced an unrecorded audio channel.
+
+**Why:** The sequence uses the accepted puzzle vulnerability and known space,
+creates an authored check before the approach, and makes exact Echo absence part
+of the evidence. It can be evaluated before Blender production and without new
+narrative facts, voice, breathing, an enemy, or a generic scare framework.
+
+**Tradeoff:** Existing CC0 prototypes and primitive visuals can test ordering,
+direction, attribution, and recovery but not production timbre or final moodboard
+quality. Objective delivery is insufficient; human fear and comfort evidence
+determine whether the event survives.
+
+## 2026-08-14 — Model event sources before replacing the rejected knock
+
+**Decision:** Build one small, editable Blender kit for the environmental sources
+Strong Event 1 actually depends on: a domestic threshold door, radiator, floor
+transition, and perimeter-only observation frame. Anchor the knock emitter to the
+door, preserve every existing collider and P1 sightline, and defer broader
+dressing and replacement audio until the visual source is human-reviewed.
+
+**Why:** The first human event review proved that correct delivery was not enough:
+the prominent cue read like an unexplained door sound because the environment had
+no credible door. A selective kit tests attribution and establishes reusable
+source geometry at low cost without committing the whole slice to detailed art.
+
+**Tradeoff:** The new geometry can make the intended cause legible, but it cannot
+rescue the rejected clip, validate fear, or establish final moodboard quality.
+Those still require a visual checkpoint and a later headphone listening session.
+
+## 2026-08-14 — Replace standalone footsteps with lane contraction
+
+**Decision:** Remove the rejected moving-footstep beat from Strong Event 1. After
+the Player checks the empty lane and continues north, extinguish three opposed
+lane/service fixture pairs from far to near, then extinguish every remaining
+clinical/service practical on the final stage. Reduce flat ambient fill to a low
+residual blue level and play one short localized frame/relay strain at each lane
+source. Keep the camera free, preserve the domestic knock and audio-bed
+subtraction, and leave the full blackout as part of the persistent consequence.
+
+**Why:** Human headphone review heard the isolated footsteps as background rather
+than a nearby presence. Repeating the event across known physical fixtures gives
+the Player three attributable spatial changes and makes the environment contract
+without inventing an enemy, corrupting Echo playback, or relying on louder gain.
+
+**Tradeoff:** The construction and persistence are objectively verified, but the
+procedural cue is a prototype. A human headphone pass must decide whether the
+far-to-near sequence causes a natural turn and discomfort before its timing or
+timbre is polished.
+
+## 2026-08-14 — End the first checkpoint with the domestic door opening
+
+**Decision:** Treat the full facility blackout as a failure state, hold a short
+period of residual darkness, then open the modeled domestic door slowly inward
+with its collider attached to the leaf. Tie warm-light reveal to the aperture and
+finish Strong Event 1 only when the door reaches its endpoint. Preserve the open
+door and blackout through RECALL.
+
+**Why:** Darkness alone changed exposure but did not create a decisive endpoint.
+The slow movement gives the Player one legible source to watch and transforms the
+domestic threshold from background dressing into the route forward without
+forcing the camera or adding an enemy.
+
+**Tradeoff:** The existing domestic movement loop is pitch-treated as a temporary
+creak so timing and attribution can be judged now. Final hinge/friction timbre,
+fear, darkness comfort, and the content beyond the door require human approval.
+
+## 2026-08-21 — Make each lighting failure remove a visible layer
+
+**Decision:** Replace the single long ambient fade with three short exposure
+steps (`0.55/0.20/0.025`) synchronized to the `z=4/9/14` failures. Extinguish
+facility practicals cumulatively (`8/12`, `10/12`, `12/12` dark), then keep both
+domestic lights at zero through the dark hold and grow them only with the opening
+aperture.
+
+**Why:** The complete blackout and opening-door idea reads, but the intermediate
+failures still looked too similar. Removing the already-passed zone at the first
+failure and sharply reducing flat fill at every step makes each break perceptible
+without louder audio or forced camera motion; the final image is consequently
+modeled almost entirely by light coming through the domestic threshold.
+
+**Tradeoff:** `0.025` retains a small navigation floor rather than literal black.
+Darkness comfort, step readability in motion, and whether the door spill
+dominates from normal play positions remain human visual checkpoints.
+
+## 2026-08-30 — Commit the first checkpoint by closing the door behind the Player
+
+**Decision:** Crossing into the domestic insert updates the runtime RECALL origin
+to an interior point. After `1.1 s`, the modeled leaf closes rapidly and produces
+one hinge-localized provisional portazo. The checkpoint, closed door, and
+single-fire state persist through later RECALLs.
+
+**Why:** The approved warm aperture should become a real commitment rather than
+only a visual endpoint. Closing the solved facility behind the Player gives the
+first slice a clean boundary and lets the next puzzle start from a stable new
+origin without replaying P1.
+
+**Tradeoff:** The procedural impact proves timing, direction, collision, and
+reset behavior but not production timbre or fear. Its level is deliberately
+bounded; headphones, speakers, reduced dynamics, surprise, and comfort still
+require human listening evidence.
+
+## 2026-09-12 — H1.1: approved scope and evaluation gate
+
+**Approved direction (user's strategic-audit approval):** target a complete,
+polished 20–25 minute first delivery with one Echo throughout. Preserve the
+temporal core and P1/P2/P3. First observe new players on the continuous current
+route through R3; only afterward develop a scene where a correct recording is
+evidence of what the protagonist denies, followed by Final C. Recorded data
+remains exact; do not imply playback of uncaptured channels.
+
+Prioritize existing Unity, Blender and local audio editing. Tripo is deferred
+until a separately authorized pilot; Higgsfield is not incorporated. No filler
+puzzles, multiple Echoes, general semantic capture, chases or frameworks. This
+supersedes the earlier first-delivery duration and multi-Echo direction; older
+decision entries and GDD artifacts remain historical.
+
+**Evidence boundary:** direction approval does not approve fear, comprehension,
+recovery or pacing. These remain EN PRUEBA where no human evidence exists. H1.1
+freezes content for a named local standalone evaluation and separate player/
+observer instructions. No H1.2 or new content is authorized at this checkpoint.
+
+## 2026-09-16 — Proceed with creator judgment; defer external playtesting
+
+**Decision:** The user explicitly chooses intuition and their own creative
+judgment because there is no time for playtesting. External/unprimed-player
+sessions are deferred and are no longer a prerequisite for further work. This
+supersedes H1.1's evaluation-first gate and the subsequent request to establish
+whether new players participated. Do not repeatedly request that gate.
+
+**Next direction:** proceed to designing the scene where an exact recording
+becomes evidence of what the protagonist denies, then Final C. Its concrete
+narrative claim and staging still need definition; neither scene is implemented
+or complete. Preserve the 20–25 minute scope, one Echo, P1/P2/P3, captured-channel
+fidelity and existing pipeline/exclusions.
+
+**Evidence boundary:** creator judgment authorizes creative progress; it is not
+an observed independent-player result. Fear, comprehension, recovery and pacing
+without specific evidence remain EN PRUEBA, without blocking development. Keep
+objective compilation, Console, reference, reset and build checks. Preserve the
+H1.1 build/snapshot and optional evaluation guides; no new gameplay change is
+implied by this documentation update.

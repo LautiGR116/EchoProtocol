@@ -1,0 +1,16 @@
+{
+  "capture": "/Users/lautigr116/EchoProtocol/Temp/Impact/before720",
+  "output": "/Users/lautigr116/EchoProtocol/Docs/VisualEvidence/2026-10-11-Impact/before.mp4",
+  "cuts": [
+    {
+      "start": 65.87066666666668,
+      "end": 71.52066666666667,
+      "label": "Anticipaci\u00f3n e irrupci\u00f3n anteriores"
+    },
+    {
+      "start": 94.08933333333334,
+      "end": 98.98933333333333,
+      "label": "Retirada anterior"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "scope": "Blender FBX reimport; metric data, UV/material slots, separated coat and rack, source roots, clock hands and anchors. Not Unity integration, game-view readability, collision or human approval.",
+  "all_pass": true,
+  "results": [
+    {
+      "asset": "ClericalChair",
+      "bytes": 430380,
+      "sha256": "c439a79c5e430f740ad3350e0c0629917100f8add36fb55d06a3af80e7de1245",
+      "mesh_count": 1,
+      "triangles": 15936,
+      "finite_vertices": true,
+      "finite_uvs": true,
+      "missing_materials": [],
+      "bounds_error_m": 5.960464477539063e-08,
+      "max_anchor_error_m": 8.054077625316292e-08,
+      "checks": {
+        "floor_error_m": 4.8221821202787396e-08
+      },
+      "pass": true
+    },
+    {
+      "asset": "CoatRackAndJacket",
+      "bytes": 676428,
+      "sha256": "ec9f79b25760c456db0cc4d1a53ac925a9973d9c0f3e616200261473a4a21579",
+      "mesh_count": 2,
+      "triangles": 23756,
+      "finite_vertices": true,
+      "finite_uvs": true,
+      "missing_materials": [],
+      "bounds_error_m": 2.086162567138672e-07,
+      "max_anchor_error_m": 2.5749206544745107e-07,
+      "checks": {
+        "floor_error_m": 4.438253498051381e-08
+      },
+      "pass": true
+    },
+    {
+      "asset": "WallClock0317",
+      "bytes": 154844,
+      "sha256": "f5ea25fa1ac40b5453fa7d22d5ea4d2dbf56eeaa196d6f6901bd5d02e89e1b4e",
+      "mesh_count": 1,
+      "triangles": 5440,
+      "finite_vertices": true,
+      "finite_uvs": true,
+      "missing_materials": [],
+      "bounds_error_m": 7.450580596923828e-09,
+      "max_anchor_error_m": 1.6292068139023286e-08,
+      "checks": {
+        "HOUR_TIP_angle_error_deg": 3.5024467308630847e-06,
+        "HOUR_TIP_nearest_geometry_m": 5.963374150388733e-09,
+        "MINUTE_TIP_angle_error_deg": 3.395424400309821e-06,
+        "MINUTE_TIP_nearest_geometry_m": 9.313225746154785e-09
+      },
+      "pass": true
+    }
+  ]
+}

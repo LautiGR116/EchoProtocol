@@ -1,0 +1,17 @@
+{
+  "app": "Builds/EchoProtocol-Reserve-20261001/EchoProtocol.app",
+  "result": "PASS",
+  "scope": "Native CUA launch by exact app path, Raise, title, C credits with cookies+policy visible, Escape, Enter, 24 W pulses, actual 2.0-second RECALL, Escape pause and resume, Command-Q. Process absence verified. No full native route, mouse comfort or audio audition.",
+  "recallSecondsShown": 2.0,
+  "processAbsent": true,
+  "playerLogErrorPatterns": {
+    "NullReferenceException": 0,
+    "MissingReferenceException": 0,
+    "IndexOutOfRangeException": 0,
+    "InvalidOperationException": 0,
+    "Shader error": 0,
+    "Failed to": 0,
+    "Error:": 0
+  },
+  "humanApproval": false
+}

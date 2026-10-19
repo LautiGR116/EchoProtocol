@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "var s=UnityEngine.SceneManagement.SceneManager.GetActiveScene();var b=UnityEngine.Object.FindFirstObjectByType<EchoProtocol.Presentation.LightShadowBudget>();var so=new UnityEditor.SerializedObject(b);return Newtonsoft.Json.JsonConvert.SerializeObject(new {scene=s.path,dirty=s.isDirty,colliders=UnityEngine.Object.FindObjectsByType<UnityEngine.Collider>(UnityEngine.FindObjectsInactive.Include,UnityEngine.FindObjectsSortMode.None).Length,incremental=so.FindProperty(\"incrementalShadowChanges\").boolValue,lights=so.FindProperty(\"lights\").arraySize,residence=so.FindProperty(\"residenceLights\").arraySize,dependencyHash=UnityEditor.AssetDatabase.GetAssetDependencyHash(s.path).ToString(),buildScenes=System.Linq.Enumerable.Select(UnityEditor.EditorBuildSettings.scenes,x=>new {path=x.path,enabled=x.enabled})});"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": "{\"scene\":\"Assets/_Game/Scenes/Production/EchoProtocol_Lighting.unity\",\"dirty\":false,\"colliders\":729,\"incremental\":true,\"lights\":136,\"residence\":28,\"dependencyHash\":\"9b647c3edbdfc7c21e0934b3cb63db8b\",\"buildScenes\":[{\"path\":\"Assets/_Game/Scenes/Production/EchoProtocol_Lighting.unity\",\"enabled\":true}]}"
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/lautigr116/EchoProtocol"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

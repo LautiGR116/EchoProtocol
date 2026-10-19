@@ -1,0 +1,6 @@
+PASS normal stereo bound 0.65
+PASS reduced bound 0.18
+PASS linked-channel processing
+PASS mono agreement
+PASS no upward gain
+These checks exercise the actual sample processor; they do not measure device loudness or human comfort.

@@ -1,0 +1,17 @@
+{
+    "status": "PASS",
+    "mode": "watch",
+    "scene": "Assets/_Game/Scenes/Production/EchoProtocol_FirstAct.unity",
+    "error": "",
+    "evidenceScope": "Passive observation of actual light/source states and per-frame mix writes during an independently driven route. No fixture, playback injection, source mutation, listening, timbre or human fear evidence. Snapshot modes cover only their named phase.",
+    "checks": 8,
+    "monitoredFrames": 31697,
+    "firstActWrites": 31368,
+    "campaignWrites": 116,
+    "releaseCount": 1,
+    "blackoutObserved": true,
+    "handoffObserved": true,
+    "fluorescentGain": 0.0,
+    "poweredFraction": 0.0,
+    "elapsedRealtime": 177.45956420898438
+}

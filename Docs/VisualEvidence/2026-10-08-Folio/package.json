@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "dateUTC": "2026-10-09T00:45:20.523945+00:00",
+  "zip": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Folio-20261008.zip",
+  "sha256": "ca6b0676b3a1ecafd765d290f767e450444e3b065290b9693e3e1aa2d979d12f",
+  "bytes": 90965959,
+  "regularFilesMatched": 205,
+  "zipCRC": "all entries pass",
+  "executablePermissionRetained": true,
+  "strictAdHocSignature": "PASS original and ZIP-extracted app",
+  "architectures": [
+    "x86_64",
+    "arm64"
+  ],
+  "notarized": false,
+  "preservedResonanceSha256": "37211b901446a162419b9ca9b934149cea5d107625bb6ea9b941a679f865de3f"
+}

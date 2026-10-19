@@ -1,0 +1,20 @@
+{
+  "dateUTC": "2026-10-02T23:06:37.973252+00:00",
+  "status": "PASS scoped native smoke; OS focus transition unverified",
+  "app": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Reconstruction-20261002/EchoProtocol.app",
+  "method": "CUA exact app path, native keyboard and native app menus; no game state injection",
+  "checked": [
+    "Reconstruction title and comfortable-volume/speaker/reduced-dynamics and automatic-hint option visible",
+    "Return begins session; 12 W pulses move and start recording",
+    "R produces displayed actual 37.6-second take and returns to origin",
+    "H pauses notes; two deliberate J requests reach explicit steps; H returns to the same take",
+    "Escape pauses and resumes; C shows new MakeHuman CC0 credits",
+    "Native app Quit succeeds; exact Reconstruction process absent; earlier EncounterArt process untouched"
+  ],
+  "actualTakeSecondsDisplayed": 37.6,
+  "settingsChanged": false,
+  "logRuntimeErrorMatches": [],
+  "playerLogSha256": "35a2786d82ec8b43f0d60f6b5cdea2840a1217333e9689a340eb0e062bc06882",
+  "focusLimitation": "CUA delivered background-targeted keystrokes. Cmd-Tab/Editor Raise did not establish an actual focus transition; Hide caused noWindowsAvailable for pointer actions and could still expose background render captures. These attempts do not establish OS focus-loss pause or native checkbox clicks. Separate explicit focus-notification/input test and human OS switching check are distinguished.",
+  "limits": "No native full campaign, native target E interaction, listening, comfort, first-use, fear or OS focus-transition acceptance. CUA images inspected in conversation, not exported. Expected procNotFound after Quit."
+}

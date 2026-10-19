@@ -1,0 +1,7 @@
+PASS
+scene=Assets/_Game/Scenes/Production/EchoProtocol_Pane.unity
+branch=unanswered-hall-general checks=17 fixtures=1 laterPoseResets=0 capturedFrames=4
+centreSeconds=0.6377 headSeconds=0.6377 eitherSeconds=0.6377 longestContinuousSeconds=0.6377
+returnAt=7.0722 activationAt=4.5758 cueCommittedAt=7.3488 firstGeometricExposureAt=7.4434
+maxReturnDelta=0.0132 PresenceSeen=True PresenceRetired=True
+All exposure durations use actual Time.deltaTime; centre/head rays and projected bounds are geometric opportunity, not measured visible pixels or spontaneous recognition.

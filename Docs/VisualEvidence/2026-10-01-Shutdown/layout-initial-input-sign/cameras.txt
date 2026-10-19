@@ -1,0 +1,3 @@
+One initial prior-act/lighting/pose fixture; actual physical input thereafter. Camera.Render while stopped; no human discovery, listening or frame-time claim.
+00-entry position=(0.00, 1.63, -26.00) rotation=(0.00, 180.00, 0.00)
+01-approach position=(4.35, 1.63, -32.93) rotation=(0.00, 180.00, 0.00)

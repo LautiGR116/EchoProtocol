@@ -1,0 +1,9 @@
+Read-only circuit and ownership observer. No gameplay fixtures or listening evidence.
+PASS both actual mix owners exist
+PASS explicit fluorescent circuit and separate recovering machinery bed exist
+PASS campaign mix explicitly references this first act and its chapter director
+PASS visible diffusers explicitly follow the blackout circuit
+PASS watch begins before the one-way handoff
+PASS all twelve lights and their diffusers are dark, fluorescent gain is zero and distant machinery recovered
+PASS one-way handoff reached the campaign owner
+PASS observed frames contain no overlapping mix writers

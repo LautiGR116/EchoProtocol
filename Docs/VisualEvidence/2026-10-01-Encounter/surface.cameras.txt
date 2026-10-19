@@ -1,0 +1,9 @@
+Actual Player camera; offscreen Camera renders omit OnGUI.
+surface-00-origin position=(0.000, 1.630, -75.000) euler=(4.20, 106.59, 0.00) FOV=60 paused=False step=commit_final_origin
+surface-surface-depth-only-rejected position=(0.000, 1.630, -78.061) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=authentic_approach
+surface-01-recording-at-door position=(0.000, 1.630, -78.061) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=authentic_approach
+surface-02-witnessed-from-inside position=(0.000, 1.630, -78.061) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=authentic_approach
+surface-03-pause-menu position=(0.000, 1.630, -78.061) euler=(0.00, 180.00, 0.00) FOV=60 paused=True step=keyboard_pause
+surface-05-original-preserved position=(0.000, 1.630, -81.703) euler=(0.73, 112.54, 0.00) FOV=60 paused=False step=cross_beside_recording
+surface-06-key-returned position=(0.000, 1.630, -82.608) euler=(22.06, 234.14, 0.00) FOV=60 paused=False step=return_physical_key
+surface-07-ending-menu position=(0.000, 1.630, -87.912) euler=(0.00, 180.00, 0.00) FOV=60 paused=True step=physical_departure

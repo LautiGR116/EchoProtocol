@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "error": "",
+  "phase": "reserve normal approach",
+  "scope": "Input System E/R/H/Escape and physical WASD/mouse approaches; one prior-house API/start-pose fixture, one temporary obstruction. No direct interaction callback. Measurements diagnose baseline failures; PASS means route ran, not every measurement was accepted.",
+  "fixtureCount": 2,
+  "assertFixes": true,
+  "checks": [
+    "Fresh real title",
+    "Enter starts actual controls",
+    "Real approach reaches reception document",
+    "E opens actual reception letter",
+    "Held E cannot reopen a document when controls resume",
+    "Release and explicit Escape recover controls",
+    "H pauses from document recovery",
+    "H restores controls",
+    "RECALL wins the R+E chord; no ghost document action",
+    "Visible phone part 0 resolves to the real telephone owner",
+    "Visible phone part 1 resolves to the real telephone owner",
+    "Visible phone part 2 resolves to the real telephone owner",
+    "Small natural aim movement stays on visible handset",
+    "Original phone interaction centre is physically reachable",
+    "Held E lifts phone exactly once",
+    "Solid obstruction hides phone target",
+    "E cannot operate through obstruction",
+    "New E release/press hangs up once",
+    "Hall reserve selected after physical approach",
+    "Held E takes one reserve without duplicate toggle",
+    "Separate E returns reserve"
+  ],
+  "measurements": [
+    {
+      "caseName": "document-close-while-E-held",
+      "paused": false,
+      "document": null
+    },
+    {
+      "caseName": "simultaneous-R-E",
+      "paused": false,
+      "recalls": 1,
+      "document": null
+    },
+    {
+      "caseName": "visible-phone-part-0",
+      "found": true,
+      "canInteract": true,
+      "point": "(-4.400, 0.919, -51.900)",
+      "distance": 1.241056
+    },
+    {
+      "caseName": "visible-phone-part-1",
+      "found": true,
+      "canInteract": true,
+      "point": "(-4.465, 0.971, -51.795)",
+      "distance": 1.27088869
+    },
+    {
+      "caseName": "visible-phone-part-2",
+      "found": true,
+      "canInteract": true,
+      "point": "(-4.465, 0.971, -52.003)",
+      "distance": 1.27176356
+    },
+    {
+      "caseName": "handset-small-look-motion",
+      "totalFrames": 26,
+      "lostFrames": 0
+    }
+  ]
+}

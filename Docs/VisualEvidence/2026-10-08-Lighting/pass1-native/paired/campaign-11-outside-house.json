@@ -1,0 +1,16 @@
+{
+    "label": "campaign-11-outside-house",
+    "state": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+    "position": {
+        "x": 0.058142125606536868,
+        "y": 1.6299998760223389,
+        "z": -63.52817916870117
+    },
+    "rotation": {
+        "x": 2.0204099013937904e-15,
+        "y": -1.0,
+        "z": 8.343842239355581e-8,
+        "w": 2.4214383387288764e-8
+    },
+    "fov": 60.0
+}

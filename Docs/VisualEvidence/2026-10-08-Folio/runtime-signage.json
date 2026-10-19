@@ -1,0 +1,35 @@
+{
+  "scope": "Five initially hidden signs enabled by actual reserve/return progression. Existing atlas owners; same supports, positions and state references.",
+  "labels": [
+    {
+      "path": "Reserve / physical portable power/Reserve unit / COCINA/Reserve unit identity",
+      "text": "RESERVA",
+      "ratio": 1.08860755,
+      "characterSize": 0.00243433518
+    },
+    {
+      "path": "Reserve / physical portable power/Reserve unit / DORMITORIO/Reserve unit identity",
+      "text": "RESERVA",
+      "ratio": 1.08860755,
+      "characterSize": 0.00243433518
+    },
+    {
+      "path": "Plant / connected pressure machinery/Return / illuminated subsuelo direction/Actual return destination",
+      "text": "02 / SUBSUELO",
+      "ratio": 1.0438596,
+      "characterSize": 0.0146140344
+    },
+    {
+      "path": "Player/Main Camera/Reserve carried by current Player/Reserve original / ReservePack/Carried reserve identity",
+      "text": "RESERVA",
+      "ratio": 1.08860755,
+      "characterSize": 0.00230038
+    },
+    {
+      "path": "Plant / connected pressure machinery/Return / illuminated subsuelo direction/Return / reception continuation",
+      "text": "SUBSUELO  >\nREGISTRO 02",
+      "ratio": 1.04157555,
+      "characterSize": 0.0145820584
+    }
+  ]
+}

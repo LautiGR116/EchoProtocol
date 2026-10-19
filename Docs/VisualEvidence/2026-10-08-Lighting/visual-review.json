@@ -1,0 +1,11 @@
+{
+  "status": "SELECTED visually from render review; human display approval pending",
+  "scene": "EchoProtocol_Lighting",
+  "selectedRun": "final2-native",
+  "normalMotionViewsInspected": 355,
+  "cameraAndDiscreteStateComparisonPairsValidated": 74,
+  "savedStateViewsValidated": 112,
+  "lastCorrection": "Actual tray approach/action and exit before fade now recognizable, confirmed in real native camera captures",
+  "sourcesUnchangedElsewhere": "Refinement4 changes only two local final-sector lights and one collider-free fitting",
+  "remainingHumanEvidence": "Real monitor black reproduction, spontaneous orientation, listening, comfort and fear; no human approval claimed"
+}

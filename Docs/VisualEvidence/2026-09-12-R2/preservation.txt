@@ -1,0 +1,10 @@
+Original records: 2568; retained: 2568; removed: 0; changed: 7; new: 412
+Changed 286518252: R1 North wall
+Changed 454009406: Transform:
+Changed 477084954: Transform:
+Changed 1395094614: R1 Central observation station
+Changed 1395094615: Transform:
+Changed 1728635137: 
+Changed 2109186125: R1 Monitor housing
+LoopController byte-identical to task start: True
+Changed existing MonoBehaviours: ['1728635137']

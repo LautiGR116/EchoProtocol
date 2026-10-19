@@ -1,0 +1,5 @@
+Actual Game view copied into retained RenderTextures at frame end while W remains held. No extra Camera.Render, PNG encoding or ReadPixels during return. UI may appear. CPU readback/encoding occurs after the exit. Copy is prewarmed before house entry; GPU copy overhead remains possible and deltaTime is logged. Saved diagnostics normalize top-origin textures after the route.
+z54.5 actualFrame=3550 time=17.4574 eye=(0.054, 1.630, -54.513) euler=(0.00, 180.00, 0.00) delta=0.0049
+z55.5 actualFrame=3602 time=17.7078 eye=(0.054, 1.630, -55.515) euler=(0.00, 180.00, 0.00) delta=0.0048
+z56.5 actualFrame=3659 time=17.9552 eye=(0.054, 1.630, -56.505) euler=(0.00, 180.00, 0.00) delta=0.0040
+z57.5 actualFrame=3721 time=18.2045 eye=(0.054, 1.630, -57.502) euler=(0.00, 180.00, 0.00) delta=0.0037

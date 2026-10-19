@@ -1,0 +1,10 @@
+using System;using System.Linq;using System.IO;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using EchoProtocol.Audio;
+public static class RefineResonance{
+public static string Main(){if(EditorApplication.isPlaying)throw new Exception("Edit only");AssetDatabase.Refresh();
+var words=new[]{"wall","partition","glaz","glass","solid leaf","ceiling","perimeter","baffle","pressure south"};
+var boundaries=UnityEngine.Object.FindObjectsByType<Collider>(FindObjectsInactive.Include,FindObjectsSortMode.None).Where(c=>!c.isTrigger&&words.Any(w=>c.name.IndexOf(w,StringComparison.OrdinalIgnoreCase)>=0)).ToArray();
+var emitters=UnityEngine.Object.FindObjectsByType<ResonanceEmitter>(FindObjectsInactive.Include,FindObjectsSortMode.None);
+foreach(var e in emitters){var s=new SerializedObject(e);var p=s.FindProperty("partitions");p.arraySize=boundaries.Length;for(int i=0;i<boundaries.Length;i++)p.GetArrayElementAtIndex(i).objectReferenceValue=boundaries[i];s.ApplyModifiedPropertiesWithoutUndo();if(e.name.Contains("distant voice"))e.transform.position=new Vector3(8.45f,2.5f,-40.1f);}
+var sequence=UnityEngine.Object.FindFirstObjectByType<ResonanceSequence>();var so=new SerializedObject(sequence);so.FindProperty("passage").objectReferenceValue=UnityEngine.Object.FindFirstObjectByType<EchoProtocol.Horror.VS1ParallelFigureEvent>();so.FindProperty("loop").objectReferenceValue=new SerializedObject(UnityEngine.Object.FindFirstObjectByType<EchoProtocol.Presentation.GameSession>()).FindProperty("loop").objectReferenceValue;so.ApplyModifiedPropertiesWithoutUndo();
+EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());EditorSceneManager.SaveOpenScenes();
+File.WriteAllText("Docs/AudioEvidence/2026-10-08-Resonance/pass2-refinement.json",Newtonsoft.Json.JsonConvert.SerializeObject(new{partitions=boundaries.Length,change="Include actual plant perimeter/baffle, fixed adult voice now beyond east wall; corrected periodic air seam on disk"},Newtonsoft.Json.Formatting.Indented));return boundaries.Length+" actual partitions";}}

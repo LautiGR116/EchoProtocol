@@ -1,0 +1,7 @@
+{
+  "reason": "Review of actual 1Hz final motion found the key-return tray and exit approach unreadable; a nearby desk capture did not cover either",
+  "collidersPreserved": 729,
+  "keyReturn": "shielded fixed task fitting intensity1.6/range3.1",
+  "departure": "existing practical reflected approach intensity1.35/range4.1",
+  "scope": "Only local light and collider-free fitting; original exit trigger, fade, key logic and Echo unchanged"
+}

@@ -1,0 +1,3382 @@
+[
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 lane west boundary",
+    "position": [
+      -9.2,
+      1.6,
+      39.3
+    ],
+    "scale": [
+      0.2,
+      3.2,
+      10.6
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -9.2,
+        1.6,
+        39.3
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader B mounted assembly/P3 Reader B neutral lens",
+    "position": [
+      -6.07,
+      1.55,
+      43.35
+    ],
+    "scale": [
+      0.025,
+      0.29,
+      0.3
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_P1_ReaderIdle",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 observation mullion",
+    "position": [
+      -12.0,
+      1.6,
+      44.68
+    ],
+    "scale": [
+      0.06,
+      3.2,
+      0.09
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_VT1_Trim",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Technical core / lower plinth",
+    "position": [
+      -6.0090003,
+      0.16,
+      39.65
+    ],
+    "scale": [
+      0.03,
+      0.32,
+      5.3
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Gate A alternative route/P3 Gate A alternative route solid panel/P3 Gate A alternative route / pressed inset",
+    "position": [
+      -7.8,
+      1.52,
+      35.084
+    ],
+    "scale": [
+      2.02,
+      2.4,
+      0.016
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_DoorInset",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Technical core / recessed access face",
+    "position": [
+      -6.583,
+      1.65,
+      39.65
+    ],
+    "scale": [
+      0.016,
+      2.35,
+      4.8
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_DoorEnamel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Physical architecture/P3 Gate A alternative route / west jamb / solid",
+    "position": [
+      -9.1325,
+      1.6,
+      35.2
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider"
+    ],
+    "material": null,
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -9.1325,
+        1.6,
+        35.2
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 panel-owned cool light",
+    "position": [
+      -7.8,
+      2.95,
+      36.5
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 panel-owned cool light",
+    "position": [
+      -7.8,
+      2.95,
+      40.5
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/P3 Gate B final hold / east jamb",
+    "position": [
+      -6.4175,
+      1.6,
+      43.35
+    ],
+    "scale": [
+      0.435,
+      3.2,
+      0.44
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation B / fixed clear pane",
+    "position": [
+      -6.3,
+      1.73,
+      43.4499969
+    ],
+    "scale": [
+      0.035,
+      1.9,
+      2.29999924
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_SE2_ClearBarrier",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/P3 Gate B final hold / west jamb",
+    "position": [
+      -9.1325,
+      1.6,
+      43.35
+    ],
+    "scale": [
+      0.335,
+      3.2,
+      0.44
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Gate B final hold/P3 Gate B final hold solid panel/P3 Gate B final hold / foot rail",
+    "position": [
+      -7.8,
+      0.180000067,
+      43.2279968
+    ],
+    "scale": [
+      2.21999979,
+      0.2,
+      0.02
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 distant hub sealed glazing",
+    "position": [
+      -13.2,
+      1.6,
+      44.6
+    ],
+    "scale": [
+      8.0,
+      3.2,
+      0.12
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ],
+    "material": "M_SE2_ClearBarrier",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -13.2,
+        1.6,
+        44.6
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader A mounted assembly/P3 Reader A neutral lens",
+    "position": [
+      -6.07,
+      1.55,
+      35.2
+    ],
+    "scale": [
+      0.025,
+      0.29,
+      0.3
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_P1_ReaderIdle",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader A mounted assembly/P3 Reader A aligned lens",
+    "position": [
+      -6.04100037,
+      1.55,
+      35.2
+    ],
+    "scale": [
+      0.170000017,
+      0.007000002,
+      0.170000046
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_OpticalAligned",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader A mounted assembly/P3 A identifier",
+    "position": [
+      -6.176,
+      2.1,
+      35.2
+    ],
+    "scale": [
+      0.9999999,
+      1.0,
+      0.9999999
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ],
+    "material": "M_ObservationInk",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/P3 Gate B final hold physical motor",
+    "position": [
+      -7.8,
+      3.05,
+      43.35
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "AudioSource",
+      "SlidingDoorAudio"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation / mounted B",
+    "position": [
+      -6.19,
+      2.1,
+      43.35
+    ],
+    "scale": [
+      0.024,
+      0.27,
+      0.32
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader B mounted assembly/P3 Reader B aligned lens",
+    "position": [
+      -6.04100037,
+      1.55,
+      43.35
+    ],
+    "scale": [
+      0.170000017,
+      0.007000002,
+      0.170000046
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_OpticalAligned",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Gate A alternative route/P3 Gate A alternative route solid panel",
+    "position": [
+      -7.8,
+      1.45,
+      35.2
+    ],
+    "scale": [
+      2.3,
+      2.9,
+      0.22
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "Rigidbody"
+    ],
+    "material": "M_DoorEnamel",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -7.8,
+        1.45,
+        35.2
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 lanes ceiling",
+    "position": [
+      -6.5,
+      3.3,
+      39.3
+    ],
+    "scale": [
+      5.6,
+      0.2,
+      10.8
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -6.5,
+        3.3,
+        39.3
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 panel housing",
+    "position": [
+      -7.8,
+      3.16,
+      36.5
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_VT1_Trim",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver A/Receiver task light 0",
+    "position": [
+      -6.65,
+      2.45,
+      34.5
+    ],
+    "scale": [
+      0.99999994,
+      1.0,
+      0.99999994
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Closed technical core",
+    "position": [
+      -6.3,
+      1.6,
+      39.65
+    ],
+    "scale": [
+      0.55,
+      3.2,
+      5.3
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 recording lane terminal wall",
+    "position": [
+      -5.05,
+      1.6,
+      44.6
+    ],
+    "scale": [
+      2.5,
+      3.2,
+      0.2
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -5.05,
+        1.6,
+        44.6
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 recording explanation A",
+    "position": [
+      -6.178,
+      1.01,
+      35.2
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ],
+    "material": "M_P2PrintedInstruction",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 vestibule ceiling",
+    "position": [
+      -6.5,
+      3.3,
+      32.1
+    ],
+    "scale": [
+      5.6,
+      0.2,
+      4.2
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -6.5,
+        3.3,
+        32.1
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/Receiving edge inlay",
+    "position": [
+      -8.62,
+      0.012,
+      39.0
+    ],
+    "scale": [
+      0.035,
+      0.015,
+      1.45
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverLabel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Gate A alternative route/P3 Gate A alternative route solid panel/P3 Gate A alternative route / foot rail",
+    "position": [
+      -7.8,
+      0.180000067,
+      35.3220024
+    ],
+    "scale": [
+      2.21999979,
+      0.2,
+      0.02
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader B mounted assembly/Optical case fastener",
+    "position": [
+      -6.0800004,
+      1.39,
+      43.225
+    ],
+    "scale": [
+      0.0120000048,
+      0.00500000035,
+      0.0120000029
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_BoneEnamel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 lanes floor",
+    "position": [
+      -6.5,
+      -0.1,
+      39.3
+    ],
+    "scale": [
+      5.4,
+      0.2,
+      10.6
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_Linoleum",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -6.5,
+        -0.1,
+        39.3
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 observation mullion",
+    "position": [
+      -14.4,
+      1.6,
+      44.68
+    ],
+    "scale": [
+      0.06,
+      3.2,
+      0.09
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_VT1_Trim",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation A / masonry base",
+    "position": [
+      -6.3,
+      0.39,
+      35.5
+    ],
+    "scale": [
+      0.2,
+      0.78,
+      3.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation B / masonry base",
+    "position": [
+      -6.3,
+      0.39,
+      43.4499969
+    ],
+    "scale": [
+      0.2,
+      0.78,
+      2.29999924
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 distant glazing base",
+    "position": [
+      -13.2,
+      0.3,
+      44.7
+    ],
+    "scale": [
+      8.0,
+      0.6,
+      0.18
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -13.2,
+        0.3,
+        44.7
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver B/Actual relay pilot",
+    "position": [
+      -6.591,
+      1.235,
+      42.91
+    ],
+    "scale": [
+      0.013,
+      0.018,
+      0.34
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverPilot",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation B / side jamb",
+    "position": [
+      -6.3,
+      1.73,
+      44.5599976
+    ],
+    "scale": [
+      0.22,
+      1.9,
+      0.08
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver A/Present player confirmation button",
+    "position": [
+      -6.605,
+      1.11,
+      34.74
+    ],
+    "scale": [
+      0.105000027,
+      0.0210000034,
+      0.105
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverButton",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver A/Receiver metal enclosure",
+    "position": [
+      -6.51,
+      1.27,
+      34.74
+    ],
+    "scale": [
+      0.12,
+      0.63,
+      0.6
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverHousing",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader B mounted assembly/Optical bezel",
+    "position": [
+      -6.06800032,
+      1.55,
+      43.35
+    ],
+    "scale": [
+      0.255000055,
+      0.0275000073,
+      0.255000055
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Bezel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader A mounted assembly/Optical case fastener",
+    "position": [
+      -6.0800004,
+      1.70999992,
+      35.325
+    ],
+    "scale": [
+      0.0120000048,
+      0.00500000035,
+      0.0120000029
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_BoneEnamel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader A mounted assembly/Optical bezel",
+    "position": [
+      -6.06800032,
+      1.55,
+      35.2
+    ],
+    "scale": [
+      0.255000055,
+      0.0275000073,
+      0.255000055
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Bezel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/P3 Gate A alternative route / fixed guide",
+    "position": [
+      -6.626,
+      1.48,
+      35.2
+    ],
+    "scale": [
+      0.045,
+      2.96,
+      0.29
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver A/P3 receiver A actual state",
+    "position": [
+      -6.5880003,
+      1.405,
+      34.74
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ],
+    "material": "M_P2PrintedInstruction",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiving path identity",
+    "position": [
+      -7.8,
+      2.1,
+      33.8
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ],
+    "material": "M_P2PrintedInstruction",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/Receiving first turn",
+    "position": [
+      -8.7,
+      2.55,
+      32.6
+    ],
+    "scale": [
+      1.0,
+      1.00000012,
+      1.00000012
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation B / sealed sill",
+    "position": [
+      -6.3,
+      0.795,
+      43.4499969
+    ],
+    "scale": [
+      0.25,
+      0.055,
+      2.29999924
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation / mounted A",
+    "position": [
+      -6.19,
+      2.1,
+      35.2
+    ],
+    "scale": [
+      0.024,
+      0.27,
+      0.32
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation A / fixed clear pane",
+    "position": [
+      -6.3,
+      1.73,
+      35.5
+    ],
+    "scale": [
+      0.035,
+      1.9,
+      3.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_SE2_ClearBarrier",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 A authorization retained",
+    "position": [
+      -7.8,
+      3.07,
+      34.96
+    ],
+    "scale": [
+      0.8,
+      0.1,
+      0.035
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_P1_ReaderActive",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver B/Receiver inset label",
+    "position": [
+      -6.577,
+      1.395,
+      42.91
+    ],
+    "scale": [
+      0.012,
+      0.3,
+      0.56
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverLabel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 vestibule west",
+    "position": [
+      -9.2,
+      1.6,
+      32.1
+    ],
+    "scale": [
+      0.2,
+      3.2,
+      4.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ],
+    "material": "M_SE2_ClearBarrier",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -9.2,
+        1.6,
+        32.1
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Gate A alternative route",
+    "position": [
+      -7.8,
+      0.0,
+      35.2
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "SlidingDoor"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 R3 Hub Return/R3 actual Player final crossing",
+    "position": [
+      -7.8,
+      0.0,
+      43.7
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "BoxCollider",
+      "VS1HubReturnGate"
+    ],
+    "material": null,
+    "collider": {
+      "size": [
+        2.29999971,
+        2.6,
+        1.199997
+      ],
+      "center": [
+        -7.8,
+        1.0,
+        43.7
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 stable diffuser",
+    "position": [
+      -5.05,
+      3.075,
+      35.5
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_LightPanel_Cool",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/Receiving edge inlay",
+    "position": [
+      -8.62,
+      0.012,
+      41.0
+    ],
+    "scale": [
+      0.035,
+      0.015,
+      1.45
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverLabel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver A",
+    "position": [
+      -6.51,
+      1.27,
+      34.74
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider",
+      "TemporalRelayTerminal",
+      "AudioSource"
+    ],
+    "material": null,
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -6.51,
+        1.27,
+        34.74
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader A mounted assembly/Optical case fastener",
+    "position": [
+      -6.0800004,
+      1.70999992,
+      35.075
+    ],
+    "scale": [
+      0.0120000048,
+      0.00500000035,
+      0.0120000029
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_BoneEnamel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 panel housing",
+    "position": [
+      -7.8,
+      3.16,
+      40.5
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_VT1_Trim",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver A/Actual relay pilot",
+    "position": [
+      -6.591,
+      1.235,
+      34.74
+    ],
+    "scale": [
+      0.013,
+      0.018,
+      0.34
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverPilot",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 opaque separation",
+    "position": [
+      -6.3,
+      1.6,
+      39.65
+    ],
+    "scale": [
+      0.2,
+      3.2,
+      5.3
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -6.3,
+        1.6,
+        39.65
+      ],
+      "enabled": false
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader B mounted assembly/Optical case fastener",
+    "position": [
+      -6.0800004,
+      1.39,
+      43.475
+    ],
+    "scale": [
+      0.0120000048,
+      0.00500000035,
+      0.0120000029
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_BoneEnamel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Gate B final hold header",
+    "position": [
+      -7.8,
+      3.1,
+      43.35
+    ],
+    "scale": [
+      3.1,
+      0.4,
+      0.4
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -7.8,
+        3.1,
+        43.35
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader A mounted assembly/P3 Reader A housing",
+    "position": [
+      -6.17000055,
+      1.55,
+      35.2
+    ],
+    "scale": [
+      0.16,
+      0.55,
+      0.5
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_VT1_Trim",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 stable diffuser",
+    "position": [
+      -5.5,
+      3.075,
+      32.1
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_LightPanel_Cool",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 panel housing",
+    "position": [
+      -7.8,
+      3.16,
+      43.7
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_VT1_Trim",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Gate A alternative route/P3 Gate A alternative route solid panel/P3 Gate A alternative route / foot rail",
+    "position": [
+      -7.8,
+      0.180000067,
+      35.078
+    ],
+    "scale": [
+      2.21999979,
+      0.2,
+      0.02
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader A mounted assembly",
+    "position": [
+      -6.3,
+      0.0,
+      35.2
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation B / lintel",
+    "position": [
+      -6.3,
+      2.94,
+      43.4499969
+    ],
+    "scale": [
+      0.22,
+      0.52,
+      2.29999924
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Gate B final hold",
+    "position": [
+      -7.8,
+      0.0,
+      43.35
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "SlidingDoor"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Reader A",
+    "position": [
+      -5.05,
+      0.0,
+      35.2
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider",
+      "OpticalReader"
+    ],
+    "material": null,
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -5.05,
+        0.0,
+        35.2
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 stable diffuser",
+    "position": [
+      -7.8,
+      3.075,
+      36.5
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_LightPanel_Cool",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader B mounted assembly/P3 B identifier",
+    "position": [
+      -6.176,
+      2.1,
+      43.35
+    ],
+    "scale": [
+      0.9999999,
+      1.0,
+      0.9999999
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ],
+    "material": "M_ObservationInk",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/Receiving edge inlay",
+    "position": [
+      -8.62,
+      0.012,
+      37.0
+    ],
+    "scale": [
+      0.035,
+      0.015,
+      1.45
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverLabel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/P3 Gate A alternative route / west jamb",
+    "position": [
+      -9.1325,
+      1.6,
+      35.2
+    ],
+    "scale": [
+      0.335,
+      3.2,
+      0.44
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 panel-owned cool light",
+    "position": [
+      -5.05,
+      2.95,
+      43.15
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver B/Receiver metal enclosure",
+    "position": [
+      -6.51,
+      1.27,
+      42.91
+    ],
+    "scale": [
+      0.12,
+      0.63,
+      0.6
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverHousing",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation B / instrument pier",
+    "position": [
+      -6.3,
+      1.73,
+      43.35
+    ],
+    "scale": [
+      0.2,
+      1.9,
+      0.46
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_DoorEnamel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 sealed lightwell ceiling",
+    "position": [
+      -13.2,
+      3.3,
+      37.4
+    ],
+    "scale": [
+      8.2,
+      0.2,
+      14.6
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -13.2,
+        3.3,
+        37.4
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader B mounted assembly/Optical case fastener",
+    "position": [
+      -6.0800004,
+      1.70999992,
+      43.225
+    ],
+    "scale": [
+      0.0120000048,
+      0.00500000035,
+      0.0120000029
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_BoneEnamel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation A / sealed sill",
+    "position": [
+      -6.3,
+      0.795,
+      35.5
+    ],
+    "scale": [
+      0.25,
+      0.055,
+      3.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader B mounted assembly/Optical neutral lens",
+    "position": [
+      -6.05,
+      1.55,
+      43.35
+    ],
+    "scale": [
+      0.184000015,
+      0.00500000035,
+      0.184000045
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_FixedOptic",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 stable diffuser",
+    "position": [
+      -5.05,
+      3.075,
+      43.15
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_LightPanel_Cool",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader A mounted assembly/Optical case fastener",
+    "position": [
+      -6.0800004,
+      1.39,
+      35.325
+    ],
+    "scale": [
+      0.0120000048,
+      0.00500000035,
+      0.0120000029
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_BoneEnamel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 panel-owned cool light",
+    "position": [
+      -5.5,
+      2.95,
+      32.1
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Gate B final hold/P3 Gate B final hold solid panel/P3 Gate B final hold / pressed inset",
+    "position": [
+      -7.8,
+      1.52,
+      43.466
+    ],
+    "scale": [
+      2.02,
+      2.4,
+      0.016
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_DoorInset",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Physical architecture/P3 Gate A alternative route / east jamb / solid",
+    "position": [
+      -6.4175,
+      1.6,
+      35.2
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider"
+    ],
+    "material": null,
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -6.4175,
+        1.6,
+        35.2
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver A/Receiver practical housing",
+    "position": [
+      -6.47,
+      2.45,
+      34.5
+    ],
+    "scale": [
+      0.22,
+      0.06,
+      0.27
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverHousing",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver B/P3 receiver B actual state",
+    "position": [
+      -6.5880003,
+      1.405,
+      42.91
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ],
+    "material": "M_P2PrintedInstruction",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader B mounted assembly",
+    "position": [
+      -6.3,
+      0.0,
+      43.35
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation B / side jamb",
+    "position": [
+      -6.3,
+      1.73,
+      42.34
+    ],
+    "scale": [
+      0.22,
+      1.9,
+      0.08
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation A / side jamb",
+    "position": [
+      -6.3,
+      1.73,
+      36.96
+    ],
+    "scale": [
+      0.22,
+      1.9,
+      0.08
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader A mounted assembly/Optical enamel body",
+    "position": [
+      -6.17,
+      1.55,
+      35.2
+    ],
+    "scale": [
+      0.17,
+      0.4,
+      0.34
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Enamel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver B/Receiver practical housing",
+    "position": [
+      -6.47,
+      2.45,
+      42.67
+    ],
+    "scale": [
+      0.22,
+      0.06,
+      0.27
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverHousing",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/P3 Gate A alternative route / fixed guide",
+    "position": [
+      -8.974,
+      1.48,
+      35.2
+    ],
+    "scale": [
+      0.045,
+      2.96,
+      0.29
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Gate B final hold/P3 Gate B final hold solid panel",
+    "position": [
+      -7.8,
+      1.45,
+      43.35
+    ],
+    "scale": [
+      2.3,
+      2.9,
+      0.22
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "Rigidbody"
+    ],
+    "material": "M_DoorEnamel",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -7.8,
+        1.45,
+        43.35
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver B",
+    "position": [
+      -6.51,
+      1.27,
+      42.91
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider",
+      "TemporalRelayTerminal",
+      "AudioSource"
+    ],
+    "material": null,
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -6.51,
+        1.27,
+        42.91
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation A / instrument pier",
+    "position": [
+      -6.3,
+      1.73,
+      35.2
+    ],
+    "scale": [
+      0.2,
+      1.9,
+      0.46
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_DoorEnamel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/P3 Gate B final hold / fixed guide",
+    "position": [
+      -8.974,
+      1.48,
+      43.35
+    ],
+    "scale": [
+      0.045,
+      2.96,
+      0.29
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader B mounted assembly/Optical case fastener",
+    "position": [
+      -6.0800004,
+      1.70999992,
+      43.475
+    ],
+    "scale": [
+      0.0120000048,
+      0.00500000035,
+      0.0120000029
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_BoneEnamel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Gate A alternative route header",
+    "position": [
+      -7.8,
+      3.1,
+      35.2
+    ],
+    "scale": [
+      3.1,
+      0.4,
+      0.4
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -7.8,
+        3.1,
+        35.2
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver B/Receiver task light 1",
+    "position": [
+      -6.65,
+      2.45,
+      42.67
+    ],
+    "scale": [
+      0.99999994,
+      1.0,
+      0.99999994
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/P3 Gate A alternative route physical motor",
+    "position": [
+      -7.8,
+      3.05,
+      35.2
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "AudioSource",
+      "SlidingDoorAudio"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Gate B final hold/P3 Gate B final hold solid panel/P3 Gate B final hold / pressed inset",
+    "position": [
+      -7.8,
+      1.52,
+      43.2339973
+    ],
+    "scale": [
+      2.02,
+      2.4,
+      0.016
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_DoorInset",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation A / lintel",
+    "position": [
+      -6.3,
+      2.94,
+      35.5
+    ],
+    "scale": [
+      0.22,
+      0.52,
+      3.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/Receiving edge inlay",
+    "position": [
+      -8.62,
+      0.012,
+      43.0
+    ],
+    "scale": [
+      0.035,
+      0.015,
+      1.45
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverLabel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 sealed lightwell floor",
+    "position": [
+      -13.2,
+      -0.18,
+      37.4
+    ],
+    "scale": [
+      8.0,
+      0.2,
+      14.4
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_Linoleum",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -13.2,
+        -0.18,
+        37.4
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver A/Receiver inset label",
+    "position": [
+      -6.577,
+      1.395,
+      34.74
+    ],
+    "scale": [
+      0.012,
+      0.3,
+      0.56
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverLabel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Technical core / recessed access face",
+    "position": [
+      -6.017,
+      1.65,
+      39.65
+    ],
+    "scale": [
+      0.016,
+      2.35,
+      4.8
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_DoorEnamel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 vestibule floor",
+    "position": [
+      -6.5,
+      -0.1,
+      32.1
+    ],
+    "scale": [
+      5.4,
+      0.2,
+      4.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_Linoleum",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -6.5,
+        -0.1,
+        32.1
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 vestibule east",
+    "position": [
+      -3.8,
+      1.6,
+      32.1
+    ],
+    "scale": [
+      0.2,
+      3.2,
+      4.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -3.8,
+        1.6,
+        32.1
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Technical core / lower plinth",
+    "position": [
+      -6.591,
+      0.16,
+      39.65
+    ],
+    "scale": [
+      0.03,
+      0.32,
+      5.3
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 panel housing",
+    "position": [
+      -5.05,
+      3.16,
+      43.15
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_VT1_Trim",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 observation mullion",
+    "position": [
+      -9.6,
+      1.6,
+      44.68
+    ],
+    "scale": [
+      0.06,
+      3.2,
+      0.09
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_VT1_Trim",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/P3 Gate B final hold / fixed guide",
+    "position": [
+      -6.626,
+      1.48,
+      43.35
+    ],
+    "scale": [
+      0.045,
+      2.96,
+      0.29
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 panel housing",
+    "position": [
+      -5.5,
+      3.16,
+      32.1
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_VT1_Trim",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Gate A alternative route/P3 Gate A alternative route solid panel/P3 Gate A alternative route / pressed inset",
+    "position": [
+      -7.8,
+      1.52,
+      35.316
+    ],
+    "scale": [
+      2.02,
+      2.4,
+      0.016
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_DoorInset",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader A mounted assembly/Optical case fastener",
+    "position": [
+      -6.0800004,
+      1.39,
+      35.075
+    ],
+    "scale": [
+      0.0120000048,
+      0.00500000035,
+      0.0120000029
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_BoneEnamel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 A observation glass",
+    "position": [
+      -6.3,
+      1.6,
+      35.5
+    ],
+    "scale": [
+      0.12,
+      3.2,
+      3.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ],
+    "material": "M_SE2_ClearBarrier",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -6.3,
+        1.6,
+        35.5
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Physical architecture/P3 Gate B final hold / west jamb / solid",
+    "position": [
+      -9.1325,
+      1.6,
+      43.35
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider"
+    ],
+    "material": null,
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -9.1325,
+        1.6,
+        43.35
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/Receiving edge inlay",
+    "position": [
+      -8.62,
+      0.012,
+      35.0
+    ],
+    "scale": [
+      0.035,
+      0.015,
+      1.45
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverLabel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 panel-owned cool light",
+    "position": [
+      -5.05,
+      2.95,
+      35.5
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 panel-owned cool light",
+    "position": [
+      -7.8,
+      2.95,
+      43.7
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ],
+    "material": null,
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Gate B final hold/P3 Gate B final hold solid panel/P3 Gate B final hold / foot rail",
+    "position": [
+      -7.8,
+      0.180000067,
+      43.472
+    ],
+    "scale": [
+      2.21999979,
+      0.2,
+      0.02
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/Observation A / side jamb",
+    "position": [
+      -6.3,
+      1.73,
+      34.04
+    ],
+    "scale": [
+      0.22,
+      1.9,
+      0.08
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Frame",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/Receiving edge inlay",
+    "position": [
+      -8.62,
+      0.012,
+      33.0
+    ],
+    "scale": [
+      0.035,
+      0.015,
+      1.45
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverLabel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 stable diffuser",
+    "position": [
+      -7.8,
+      3.075,
+      40.5
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_LightPanel_Cool",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 recording explanation B",
+    "position": [
+      -6.178,
+      1.01,
+      43.35
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ],
+    "material": "M_P2PrintedInstruction",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Reader B",
+    "position": [
+      -5.05,
+      0.0,
+      43.0
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider",
+      "OpticalReader"
+    ],
+    "material": null,
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -5.05,
+        0.0,
+        43.0
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 stable diffuser",
+    "position": [
+      -7.8,
+      3.075,
+      43.7
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_LightPanel_Cool",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Physical architecture/P3 Gate B final hold / east jamb / solid",
+    "position": [
+      -6.4175,
+      1.6,
+      43.35
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider"
+    ],
+    "material": null,
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -6.4175,
+        1.6,
+        43.35
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader B mounted assembly/Optical enamel body",
+    "position": [
+      -6.17,
+      1.55,
+      43.35
+    ],
+    "scale": [
+      0.17,
+      0.4,
+      0.34
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_Enamel",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Physical architecture/Closed technical core / solid",
+    "position": [
+      -6.3,
+      1.6,
+      39.65
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider"
+    ],
+    "material": null,
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -6.3,
+        1.6,
+        39.65
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader B mounted assembly/P3 Reader B housing",
+    "position": [
+      -6.17000055,
+      1.55,
+      43.35
+    ],
+    "scale": [
+      0.16,
+      0.55,
+      0.5
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_VT1_Trim",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 observation mullion",
+    "position": [
+      -16.8,
+      1.6,
+      44.68
+    ],
+    "scale": [
+      0.06,
+      3.2,
+      0.09
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_VT1_Trim",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 alternative east boundary",
+    "position": [
+      -3.8,
+      1.6,
+      39.3
+    ],
+    "scale": [
+      0.2,
+      3.2,
+      10.6
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -3.8,
+        1.6,
+        39.3
+      ],
+      "enabled": true
+    }
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 panel housing",
+    "position": [
+      -5.05,
+      3.16,
+      35.5
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_VS1_VT1_Trim",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / reader A mounted assembly/Optical neutral lens",
+    "position": [
+      -6.05,
+      1.55,
+      35.2
+    ],
+    "scale": [
+      0.184000015,
+      0.00500000035,
+      0.184000045
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_FixedOptic",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver B/Present player confirmation button",
+    "position": [
+      -6.605,
+      1.11,
+      42.91
+    ],
+    "scale": [
+      0.105000027,
+      0.0210000034,
+      0.105
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ],
+    "material": "M_ReceiverButton",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/Visible architecture/P3 Gate A alternative route / east jamb",
+    "position": [
+      -6.4175,
+      1.6,
+      35.2
+    ],
+    "scale": [
+      0.435,
+      3.2,
+      0.44
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ],
+    "material": "M_ClinicPaint",
+    "collider": null
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 B observation glass",
+    "position": [
+      -6.3,
+      1.6,
+      43.45
+    ],
+    "scale": [
+      0.12,
+      3.2,
+      2.3
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ],
+    "material": "M_SE2_ClearBarrier",
+    "collider": {
+      "size": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "center": [
+        -6.3,
+        1.6,
+        43.45
+      ],
+      "enabled": true
+    }
+  }
+]

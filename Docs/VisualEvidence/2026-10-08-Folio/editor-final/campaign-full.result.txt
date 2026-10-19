@@ -1,0 +1,1 @@
+FAIL Contraprueba_record: Unexpected pause. No auto-resume was performed; keep the Game view focused and rerun from a fresh title.

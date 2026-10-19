@@ -1,0 +1,49 @@
+Synthetic input route; one explicit initial pose fixture. No human evidence.
+PASS explicit campaign and residence systems exist
+PASS Player input, camera and solid door references exist
+PASS fresh house has not been played
+PASS isolated fixture prepares only the previous chapter
+PASS Station / HouseOrigin is within the actual interaction range
+PASS center-camera ray reaches Station / HouseOrigin
+PASS Station / HouseOrigin accepts the actual Player in the current chapter
+PASS real E ray commits the house chapter
+PASS house suspends recording and playback
+PASS reserve begins in the hall before the phone
+PASS authored fuse representation exists: hallFuse
+PASS hallFuse agrees with the single reserve state
+PASS authored fuse representation exists: kitchenFuse
+PASS kitchenFuse agrees with the single reserve state
+PASS authored fuse representation exists: bedroomFuse
+PASS bedroomFuse agrees with the single reserve state
+PASS reserve never has duplicate physical representations
+PASS real R input cannot reset or record the house
+PASS R leaves the reserve and key unchanged
+PASS House interaction / Key is within the actual interaction range
+PASS center-camera ray reaches House interaction / Key
+PASS House interaction / Key accepts the actual Player in the current chapter
+PASS the physical key is available before answering the phone
+PASS alternate route leaves the reserve where it began
+PASS authored fuse representation exists: hallFuse
+PASS hallFuse agrees with the single reserve state
+PASS authored fuse representation exists: kitchenFuse
+PASS kitchenFuse agrees with the single reserve state
+PASS authored fuse representation exists: bedroomFuse
+PASS bedroomFuse agrees with the single reserve state
+PASS reserve never has duplicate physical representations
+PASS real R input cannot reset or record the house
+PASS R leaves the reserve and key unchanged
+PASS 6B exit / left hinge is within the actual interaction range
+PASS center-camera ray reaches 6B exit / left hinge
+PASS 6B exit / left hinge accepts the actual Player in the current chapter
+PASS the key unlocks the physical hinged door with real E input
+PASS hinged leaf reaches its authored open rotation
+PASS the real CharacterController crosses the opened exit
+PASS mechanical exit permits completion without phone, circuit order or documents
+PASS capture written: alternate-00-entry-Game.png
+PASS capture written: alternate-00-entry-Camera.png
+PASS capture written: alternate-alternate-key-before-phone-Game.png
+PASS capture written: alternate-alternate-key-before-phone-Camera.png
+PASS capture written: alternate-10-mechanical-door-open-Game.png
+PASS capture written: alternate-10-mechanical-door-open-Camera.png
+PASS capture written: alternate-11-outside-house-Game.png
+PASS capture written: alternate-11-outside-house-Camera.png

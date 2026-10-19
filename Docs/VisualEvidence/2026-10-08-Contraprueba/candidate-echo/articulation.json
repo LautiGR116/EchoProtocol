@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "maximumVertexDeformationMetres": 0.618761659,
+  "phaseBefore": 43.0762978,
+  "phaseAfter": 45.8569756,
+  "scope": "Actual input take and baked live skinned mesh; root translation/rotation removed from both samples. Not a human gait-quality judgment."
+}

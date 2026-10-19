@@ -1,0 +1,50 @@
+using System;using System.IO;using System.Linq;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using EchoProtocol.Audio;using EchoProtocol.Campaign;using EchoProtocol.Echo;using EchoProtocol.Player;using EchoProtocol.Presentation;
+public static class BuildIncursionScene
+{
+ const string Scene="Assets/_Game/Scenes/Production/EchoProtocol_Incursion.unity";
+ static T Find<T>()where T:UnityEngine.Object=>UnityEngine.Object.FindFirstObjectByType<T>(FindObjectsInactive.Include);
+ static T Field<T>(UnityEngine.Object o,string field)where T:UnityEngine.Object=>(T)new SerializedObject(o).FindProperty(field).objectReferenceValue;
+ static void Set(UnityEngine.Object o,string field,UnityEngine.Object value){var s=new SerializedObject(o);s.FindProperty(field).objectReferenceValue=value;s.ApplyModifiedPropertiesWithoutUndo();}
+ static void Float(UnityEngine.Object o,string field,float value){var s=new SerializedObject(o);s.FindProperty(field).floatValue=value;s.ApplyModifiedPropertiesWithoutUndo();}
+ static void Array(UnityEngine.Object o,string field,UnityEngine.Object[] values){var s=new SerializedObject(o);var p=s.FindProperty(field);p.arraySize=values.Length;for(int i=0;i<values.Length;i++)p.GetArrayElementAtIndex(i).objectReferenceValue=values[i];s.ApplyModifiedPropertiesWithoutUndo();}
+ static AudioSource Source(string name,Transform parent,string clip,float volume){var g=new GameObject(name);g.transform.SetParent(parent,false);g.transform.localPosition=new Vector3(0,1.6f,0);var a=g.AddComponent<AudioSource>();a.clip=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Incursion/"+clip+".wav");a.playOnAwake=false;a.volume=volume;a.spatialBlend=1;a.dopplerLevel=0;a.priority=24;a.outputAudioMixerGroup=AssetDatabase.LoadAssetAtPath<UnityEngine.Audio.AudioMixer>("Assets/_Game/Audio/MX_Main.mixer").FindMatchingGroups("WorldSFX").Single();a.minDistance=3.5f;a.maxDistance=19;a.rolloffMode=AudioRolloffMode.Custom;a.SetCustomCurve(AudioSourceCurveType.CustomRolloff,new AnimationCurve(new Keyframe(0,1),new Keyframe(.18f,1),new Keyframe(.45f,.65f),new Keyframe(1,0)));return a;}
+ public static object Main()
+ {
+  if(EditorApplication.isPlaying||UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty)throw new Exception("Stopped clean Editor required");
+  if(AssetDatabase.LoadAssetAtPath<SceneAsset>(Scene))throw new Exception("Candidate exists; preserve it");
+  if(!AssetDatabase.CopyAsset("Assets/_Game/Scenes/Production/EchoProtocol_Impact.unity",Scene))throw new Exception("Copy failed");
+  var scene=EditorSceneManager.OpenScene(Scene);var threat=Find<MachineCoverThreat>();var cover=Find<MachineCoverEncounter>();var presence=Find<MachineCoverPresence>();var player=Find<FirstPersonController>();var body=threat.GetComponentInChildren<RecordedCharacterMotion>(true);
+  var director=new SerializedObject(Find<CampaignDirector>());director.FindProperty("checkpointKey").stringValue="EP.CampaignCheckpoint.Incursion.v1";director.ApplyModifiedPropertiesWithoutUndo();
+  var perf=threat.gameObject.AddComponent<MachineThreatPerformance>();Set(perf,"anatomy",body);
+  foreach(string f in new[]{"hips","spine","chest","neck","head","jaw","leftThigh","leftShin","leftFoot","rightThigh","rightShin","rightFoot","leftArm","leftForearm","leftHand","rightArm","rightForearm","rightHand"})Set(perf,f,Field<Transform>(body,f));
+  Set(threat,"performance",perf);Set(threat,"playerView",player.GetComponentInChildren<Camera>(true));
+  var start=Field<Transform>(threat,"start");start.position=new Vector3(-6.25f,.03f,-46.95f);start.rotation=Quaternion.Euler(0,90,0);threat.transform.SetPositionAndRotation(start.position,start.rotation);
+  var point=new GameObject("Threat / recognition before attack");point.transform.SetParent(cover.transform,true);point.transform.position=new Vector3(-4.15f,.03f,-45.65f);Set(threat,"recognitionPoint",point.transform);var corner=new GameObject("Threat / real baffle end");corner.transform.SetParent(cover.transform,true);corner.transform.position=new Vector3(-4.15f,.03f,-46.95f);Set(threat,"entryCorner",corner.transform);
+  var navObject=new SerializedObject(threat);var nav=navObject.FindProperty("navigationPoints");nav.GetArrayElementAtIndex(0).objectReferenceValue=start;navObject.ApplyModifiedPropertiesWithoutUndo();
+  // The remaining authored corridor graph stays physically connected.
+  var cry=Field<AudioSource>(threat,"cry");cry.clip=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Incursion/Threat_AttackVoice.wav");cry.volume=.60f;cry.priority=24;
+  var recognition=Source("Threat / close recognition strain",threat.transform,"Threat_RecognitionVoice",.32f);
+  var chase=Source("Threat / voiced pursuit effort",threat.transform,"Threat_PursuitVoice",.40f);Set(threat,"recognitionVoice",recognition);Set(threat,"chaseVoice",chase);
+  var ps=new SerializedObject(presence);var a=ps.FindProperty("spatialSources");var b=ps.FindProperty("boundaries");int n=a.arraySize;a.arraySize=b.arraySize=n+2;
+  for(int i=0;i<2;i++){var source=i==0?recognition:chase;a.GetArrayElementAtIndex(n+i).objectReferenceValue=source;b.GetArrayElementAtIndex(n+i).objectReferenceValue=source.gameObject.AddComponent<AudioLowPassFilter>();}ps.ApplyModifiedPropertiesWithoutUndo();
+  var strike=Field<AudioSource>(threat,"strike");strike.clip=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Incursion/Threat_CaptureContact.wav");strike.volume=.30f;
+  Float(threat,"pursuitSpeed",3.7f);Float(threat,"listeningSpeed",1.25f);Float(threat,"captureDistance",.94f);Float(threat,"initialRushSeconds",2.8f);
+  // Put the release to the right of the threat axis: face and escape fit one
+  // camera framing at the normal operated position, without steering the view.
+  var release=Field<MachineCoverInteraction>(cover,"release");Vector3 delta=new Vector3(.4f,0,-.12f);release.transform.position+=delta;
+  foreach(string name in new[]{"Release / enamel housing","Coverage / live exit plate","Coverage / exit release contract"}){var g=GameObject.Find(name);if(g)g.transform.position+=delta;}
+  Field<Light>(presence,"threatPractical").transform.position=new Vector3(-4.5f,2.4f,-45.9f);
+  var frame=Field<Transform>(presence,"frameContact");frame.position=new Vector3(-4.15f,.03f,-45.65f);Field<AudioSource>(presence,"rush").transform.position=frame.position+Vector3.up*1.4f;
+  Field<AudioSource>(presence,"warning").transform.position=new Vector3(-4.5f,1.4f,-46.65f);
+  var lamp=new GameObject("Return / immediate escape light");lamp.transform.SetParent(cover.transform,true);lamp.transform.position=new Vector3(-2.1f,2.35f,-43.45f);var light=lamp.AddComponent<Light>();light.type=LightType.Point;light.range=3.7f;light.intensity=.12f;light.color=new Color(.45f,1,.78f);light.shadows=LightShadows.None;Set(presence,"exitPractical",light);
+  var plate=GameObject.Find("Return / physical route plate").GetComponent<TextMesh>();plate.text="SALIDA  >";plate.transform.position=new Vector3(-2.83f,2.16f,-44.5f);plate.transform.rotation=Quaternion.Euler(0,180,0);plate.characterSize=.075f;plate.fontSize=60;plate.color=new Color(.68f,1,.82f);
+  foreach(string name in new[]{"Service / exit release and grille catch handle","Coverage / live exit plate / physical enamel plate","Coverage / exit release contract / physical enamel plate","Release / original machined enclosure","Release / actual moving bakelite lever","Release / cable along frame"}){var g=GameObject.Find(name);if(g)g.transform.position+=delta;}
+  var panel=GameObject.Find("Release / enamel housing");panel.transform.localScale=new Vector3(.40f,.54f,.16f);
+  plate.text="SALIDA";plate.characterSize=.018f;plate.transform.position=new Vector3(-2.83f,1.86f,-45.2f);plate.transform.rotation=Quaternion.Euler(0,90,0);
+  var backing=GameObject.CreatePrimitive(PrimitiveType.Cube);backing.name="Return / fixed exit enamel backing";backing.transform.SetParent(cover.transform,true);backing.transform.SetPositionAndRotation(new Vector3(-2.80f,1.86f,-45.2f),Quaternion.Euler(0,90,0));backing.transform.localScale=new Vector3(.50f,.18f,.025f);backing.GetComponent<Renderer>().sharedMaterial=panel.GetComponent<Renderer>().sharedMaterial;UnityEngine.Object.DestroyImmediate(backing.GetComponent<Collider>());
+  var launchContact=Field<AudioSource>(presence,"rush");launchContact.clip=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/Impact/Threat_Step0.wav");launchContact.volume=.30f;launchContact.transform.position=new Vector3(-4.15f,.12f,-45.65f);
+  foreach(var text in cover.GetComponentsInChildren<TextMesh>(true))text.text=text.text.Replace("\\n","\n");
+  foreach(string g in AssetDatabase.FindAssets("t:AudioClip",new[]{"Assets/_Game/Audio/Clips/Incursion"})){var importer=(AudioImporter)AssetImporter.GetAtPath(AssetDatabase.GUIDToAssetPath(g));importer.forceToMono=true;var settings=importer.defaultSampleSettings;settings.loadType=AudioClipLoadType.DecompressOnLoad;settings.compressionFormat=AudioCompressionFormat.Vorbis;settings.quality=.9f;settings.sampleRateSetting=AudioSampleRateSetting.PreserveSampleRate;importer.defaultSampleSettings=settings;importer.SaveAndReimport();}
+  EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();return new {scene=Scene,status="AUTHORED",entry=start.position.ToString(),recognition=point.transform.position.ToString(),release=release.transform.position.ToString(),actor="Present-only planted-foot performance; unchanged Echo"};
+ }
+}

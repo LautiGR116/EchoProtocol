@@ -1,0 +1,16 @@
+{
+    "label": "campaign-07-pressure-ready",
+    "state": "Pressure|house:False/False/Hall|pressure:False/False|P3:0.00",
+    "position": {
+        "x": 4.341745376586914,
+        "y": 1.6299998760223389,
+        "z": -35.38190460205078
+    },
+    "rotation": {
+        "x": -0.0420304499566555,
+        "y": -0.7937430739402771,
+        "z": 0.0552082359790802,
+        "w": -0.6042826771736145
+    },
+    "fov": 60.0
+}

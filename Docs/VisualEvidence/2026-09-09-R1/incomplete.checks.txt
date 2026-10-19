@@ -1,0 +1,12 @@
+PASS fresh baseline sealed
+PASS P2 Player preview
+PASS real R completed once
+PASS domestic checkpoint unchanged
+PASS truthful Echo holds P2
+PASS outbound route remains original wall
+PASS baseline west wall blocks access
+PASS SE2 reading still incomplete
+PASS incomplete return retains baseline
+PASS real R completed once
+PASS domestic checkpoint unchanged
+PASS incomplete recall restores cold SE2 and clinical return

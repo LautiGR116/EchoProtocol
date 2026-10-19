@@ -1,0 +1,4 @@
+Actual Player camera; Camera captures omit OnGUI, Game captures include it.
+campaign-00-title position=(0.000, 1.600, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title
+campaign-coverage-control position=(4.647, 1.630, -35.965) euler=(10.48, 77.20, 0.00) FOV=60 paused=False step=coverage_enter
+campaign-coverage-paused position=(0.000, 1.630, -29.000) euler=(10.48, 77.20, 0.00) FOV=60 paused=True step=coverage_playback_pause

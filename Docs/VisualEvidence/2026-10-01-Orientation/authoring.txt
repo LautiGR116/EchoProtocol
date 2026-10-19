@@ -1,0 +1,29 @@
+Orientation scene-authoring checks only; no Play/input/camera or human evaluation.
+Source: Assets/_Game/Scenes/Production/EchoProtocol_Shutdown.unity -> Assets/_Game/Scenes/Production/EchoProtocol_Orientation.unity
+anchor.recoveryHub = R1 Player return access trigger [instance 4529214]; preserved by serialization comparison.
+anchor.loop = Temporal Loop VS1 Foundation [instance 4530880]; preserved by serialization comparison.
+anchor.player = Player [instance 4525566]; preserved by serialization comparison.
+anchor.recallPoint = R2 R1 recall point [instance 4525518]; preserved by serialization comparison.
+anchor.activeDisplay = R2 stable anchor confirmation [instance 4534026]; preserved by serialization comparison.
+anchor.statusLabel = R2 station instruction [instance 4535422]; preserved by serialization comparison.
+anchor.galleryAccess = R2 Anchor gallery access [instance 4532412]; preserved by serialization comparison.
+Recall BEFORE (-5.700000, 0.030000, 27.800000) / (0.0000000, 0.3826835, 0.0000000, -0.9238795)
+R1 Central observation station: (0.000000, 0.000000, 0.000000) -> (-14.861510, 0.000000, 0.649494)
+Recovery original review desk: (-7.550000, 0.000000, 27.800000) -> (-7.500000, 0.000000, 28.500000)
+Recovery desk solid envelope: (-7.550000, 0.380000, 27.800000) -> (-7.500000, 0.380000, 28.500000)
+Recovery original monitor casing: (-7.230000, 1.480000, 27.800000) -> (-7.222872, 1.480000, 28.340000)
+Recovery original jointed lamp: (-7.580000, 0.760000, 28.390000) -> (-7.230981, 0.760000, 29.025960)
+Recovery desk task pool: (-7.409578, 1.144853, 28.390000) -> (-7.083391, 1.144853, 28.940740)
+Recovery desk pen: (-7.300000, 0.777000, 28.120000) -> (-7.123493, 0.777000, 28.652130)
+Recovery clerk chair: (-6.880000, 0.000000, 26.620000) -> (-7.509762, 0.000000, 27.143090)
+Recovery chair collision: (-6.880000, 0.480000, 26.620000) -> (-7.509762, 0.480000, 27.143090)
+Recovery reviewed form: (-7.360000, 0.770000, 28.310000) -> (-7.080455, 0.770000, 28.846670)
+Recovery reviewed form: (-7.360000, 0.766000, 28.310000) -> (-7.080455, 0.766000, 28.846670)
+Recovery reviewed form: (-7.360000, 0.768000, 28.310000) -> (-7.080455, 0.768000, 28.846670)
+Recall AFTER  (-5.700000, 0.030000, 27.800000) / (0.0000000, 0.3826835, 0.0000000, -0.9238796); same reference, pose within 10 micrometres / .01 degree.
+Counts BEFORE/AFTER: colliders 607/607; AudioSources 54/54; Lights 138/138.
+Preserved 859 component serializations; all collider interaction ancestry; 602 unrelated collider poses; all audio poses; all prior activeSelf states.
+Existing A/B lamps repositioned/aimed; existing indirect-return range 5.6 -> 4.2. No new light or source; PracticalEmission and shadow-budget references unchanged.
+P3 plate: (-5.5,3.035,29.989), size (1.75,.20,.026); PrintedText owner and atlas assigned. Text bounds (1.160901, 0.115000, 0.000000).
+Checkpoint namespace: EP.CampaignCheckpoint.Shutdown.v1 -> EP.CampaignCheckpoint.Orientation.v1; no PlayerPrefs written. Gameplay recall world pose unchanged.
+Pending: neutral/closed-door camera, actual approach/E/P3, physical plate illumination and recovery experience. Existing virtual views do not validate those outcomes.

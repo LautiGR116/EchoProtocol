@@ -1,0 +1,88 @@
+{
+  "asset": "RotaryTelephone",
+  "file": "exports/EP_PH_RotaryTelephone.fbx",
+  "bytes": 441996,
+  "sha256": "bd86fcda42bc2af127eec10f18a0959c135879b80287324f2fd0b6b81412dc43",
+  "pass": true,
+  "failures": [],
+  "mesh_count": 2,
+  "triangles": 17560,
+  "finite_vertices": true,
+  "bounds_blender_xyz": [
+    [
+      -0.14949999749660492,
+      0.14799998700618744
+    ],
+    [
+      -0.11760050058364868,
+      0.11760050058364868
+    ],
+    [
+      -1.4174099227659553e-08,
+      0.22999998927116394
+    ]
+  ],
+  "bounds_error_m": 1.4901161193847656e-08,
+  "missing_materials": [],
+  "unexpected_materials": [],
+  "anchor_errors_m": {
+    "RotaryTelephone__ROOT": 0.0,
+    "RotaryTelephone__AXIS_X": 1.4901161138336505e-09,
+    "RotaryTelephone__AXIS_Y": 1.6292068139023286e-08,
+    "RotaryTelephone__AXIS_Z": 1.6292068139023286e-08,
+    "RotaryTelephone__FRONT_BASE": 0.0,
+    "RotaryTelephone__FRONT_TIP": 1.6292068139023286e-08,
+    "RotaryTelephone__TABLE_CONTACT": 0.0,
+    "RotaryTelephone__HANDSET_REST": 2.9802322387695312e-08,
+    "RotaryTelephone__HANDSET_OFFHOOK": 1.1950731276105797e-08,
+    "RotaryTelephone__CORD_BASE": 1.1920928952302567e-08,
+    "RotaryTelephone__CORD_HANDSET_REST": 2.741813659445924e-08
+  },
+  "meshes": [
+    {
+      "name": "TelephoneBody",
+      "vertices": 7352,
+      "triangles": 14392,
+      "triangles_match_manifest": true,
+      "finite_uvs": true,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "material_slots_valid": true,
+      "material_indices_valid": true,
+      "finite_materials": true,
+      "pivot_error_m": null
+    },
+    {
+      "name": "TelephoneHandset",
+      "vertices": 1632,
+      "triangles": 3168,
+      "triangles_match_manifest": true,
+      "finite_uvs": true,
+      "uv_layers": [
+        "UVMap"
+      ],
+      "material_slots_valid": true,
+      "material_indices_valid": true,
+      "finite_materials": true,
+      "pivot_error_m": null
+    }
+  ],
+  "checks": {
+    "explicit_root_anchor_present": true,
+    "root_origin_error_m": 0.0
+  },
+  "handset": {
+    "pivot_error_m": 2.9802322387695312e-08,
+    "offhook_min_z": 0.001999959349632263,
+    "offhook_x": [
+      -0.27000004053115845,
+      -0.1940000057220459
+    ],
+    "offhook_y": [
+      -0.16750000417232513,
+      0.12999998033046722
+    ]
+  },
+  "physical_pass": true
+}

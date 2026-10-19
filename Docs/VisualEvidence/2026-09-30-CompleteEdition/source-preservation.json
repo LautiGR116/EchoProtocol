@@ -1,0 +1,15 @@
+{
+  "unchanged_baseline_files": 294,
+  "missing_baseline_files": [],
+  "changed_baseline_files": [
+    "Assets/_Game/Scripts/Horror/ClinicalRoomTone.cs",
+    "Assets/_Game/Scripts/Horror/VS1DomesticDoorReveal.cs",
+    "Assets/_Game/Scripts/Horror/VS1DomesticThresholdCheckpoint.cs",
+    "Assets/_Game/Scripts/Horror/SD1SubtitleDisplay.cs",
+    "Assets/_Game/Scripts/Horror/VS1StrongEventOne.cs",
+    "Assets/_Game/Scripts/Audio/SlidingDoorAudio.cs",
+    "Assets/_Game/Scripts/Player/FirstPersonController.cs",
+    "ProjectSettings/ProjectSettings.asset",
+    "ProjectSettings/EditorBuildSettings.asset"
+  ]
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "name": "TelephoneRing",
+    "file": "Masters/TelephoneRing.wav",
+    "source_id": "556499",
+    "source_page": "https://freesound.org/people/cookies%2Bpolicy/sounds/556499/",
+    "source_sha256": "778fbaf0cd51180332547dbbf4baad03f03ca859ce5e788de4967b3d310ab306",
+    "license": "CC0 1.0",
+    "attribution": "Rotary Phone Ring loopable by cookies+policy (Freesound), CC0 1.0.",
+    "role": "One actual rotary ring with natural decay; localized ringing every eight seconds before optional answer",
+    "source_interval_seconds": [
+      0.12,
+      4.5
+    ],
+    "edits": [
+      "decode public HQ MP3 preview via afconvert to 48 kHz 16-bit PCM",
+      "arithmetic stereo downmix where applicable",
+      "remove segment DC",
+      "0.02s attack, 0.2s release fades",
+      "linear normalization to 0.26 peak",
+      "export mono 48 kHz 24-bit PCM (does not restore MP3 or decode precision)"
+    ],
+    "duration_seconds": 4.38,
+    "loop": false,
+    "peak_linear": 0.26,
+    "peak_dbfs": -11.70053304058364,
+    "rms_dbfs": -28.317433206779757,
+    "dc": 9.381552339768716e-07,
+    "clipping_samples": 0,
+    "finite": true,
+    "loop_boundary_jump": 0.0,
+    "internal_step_p99": 0.1806496685086782,
+    "bytes": 630764,
+    "sha256": "b209947bbc18b26672a4d073a7a5e7ace464844c76d65da0a1653c55ac05c217",
+    "date": "2026-10-01",
+    "status": "Imported in Offhook; no human listening approval"
+  },
+  {
+    "name": "HandsetLift",
+    "file": "Masters/HandsetLift.wav",
+    "source_id": "556496",
+    "source_page": "https://freesound.org/people/cookies%2Bpolicy/sounds/556496/",
+    "source_sha256": "a368b83362e0160fb5841688b3bfda971770cbcdf951fa6b45acf4b3059f2399",
+    "license": "CC0 1.0",
+    "attribution": "Rotary Phone Handpiece Soft by cookies+policy (Freesound), CC0 1.0.",
+    "role": "First contact event in uploader-described pickup then soft hangup recording",
+    "source_interval_seconds": [
+      0.31,
+      2.2
+    ],
+    "edits": [
+      "decode public HQ MP3 preview via afconvert to 48 kHz 16-bit PCM",
+      "arithmetic stereo downmix where applicable",
+      "remove segment DC",
+      "0.006s attack, 0.15s release fades",
+      "linear normalization to 0.24 peak",
+      "export mono 48 kHz 24-bit PCM (does not restore MP3 or decode precision)"
+    ],
+    "duration_seconds": 1.89,
+    "loop": false,
+    "peak_linear": 0.24,
+    "peak_dbfs": -12.39577516576788,
+    "rms_dbfs": -39.00100668507098,
+    "dc": 8.247562876546033e-06,
+    "clipping_samples": 0,
+    "finite": true,
+    "loop_boundary_jump": 0.0,
+    "internal_step_p99": 0.016936243948301535,
+    "bytes": 272204,
+    "sha256": "900584158a8138c3d9b6262afa5f157f5564867cbbc2fe45eaed2100f5573411",
+    "date": "2026-10-01",
+    "status": "Imported in Offhook; no human listening approval"
+  },
+  {
+    "name": "HandsetSetDown",
+    "file": "Masters/HandsetSetDown.wav",
+    "source_id": "556496",
+    "source_page": "https://freesound.org/people/cookies%2Bpolicy/sounds/556496/",
+    "source_sha256": "a368b83362e0160fb5841688b3bfda971770cbcdf951fa6b45acf4b3059f2399",
+    "license": "CC0 1.0",
+    "attribution": "Rotary Phone Handpiece Soft by cookies+policy (Freesound), CC0 1.0.",
+    "role": "Second contact event in uploader-described pickup then soft hangup recording",
+    "source_interval_seconds": [
+      3.0,
+      4.7
+    ],
+    "edits": [
+      "decode public HQ MP3 preview via afconvert to 48 kHz 16-bit PCM",
+      "arithmetic stereo downmix where applicable",
+      "remove segment DC",
+      "0.006s attack, 0.15s release fades",
+      "linear normalization to 0.23 peak",
+      "export mono 48 kHz 24-bit PCM (does not restore MP3 or decode precision)"
+    ],
+    "duration_seconds": 1.7,
+    "loop": false,
+    "peak_linear": 0.23000000000000004,
+    "peak_dbfs": -12.76544327964814,
+    "rms_dbfs": -36.051807384617916,
+    "dc": -5.85987510387617e-06,
+    "clipping_samples": 0,
+    "finite": true,
+    "loop_boundary_jump": 0.0,
+    "internal_step_p99": 0.014092016106484459,
+    "bytes": 244844,
+    "sha256": "22fe69a2d6a1f01a2deb7cfc009c7a6e4efdd28e7706ac39d9d00e6da50d8c17",
+    "date": "2026-10-01",
+    "status": "Imported in Offhook; no human listening approval"
+  }
+]

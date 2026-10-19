@@ -1,0 +1,11 @@
+{
+  "status": "completed",
+  "result": "Succeeded",
+  "platform": "StandaloneOSX",
+  "outputPath": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Contraprueba-20261008/EchoProtocol.app",
+  "totalSizeBytes": 220990501,
+  "buildTimeMs": 42755,
+  "totalWarnings": 1,
+  "totalErrors": 0,
+  "scope": "Delivery build, no ECHO_NATIVE_VERIFY define; separate native verification Player covers full campaign."
+}

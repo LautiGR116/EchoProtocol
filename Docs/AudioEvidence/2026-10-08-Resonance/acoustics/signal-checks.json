@@ -1,0 +1,41 @@
+{
+  "rows": [
+    {
+      "mode": "stereo-right",
+      "peak": 0.24786376953125,
+      "rms": 0.025405882791188023,
+      "rightMinusLeftDb": 10.515061192161888,
+      "maxChannelDifference": 0.22119140625
+    },
+    {
+      "mode": "stereo-left",
+      "peak": 0.222808837890625,
+      "rms": 0.02531654767022428,
+      "rightMinusLeftDb": -10.561197530920865,
+      "maxChannelDifference": 0.20196533203125
+    },
+    {
+      "mode": "mono",
+      "peak": 0.129730224609375,
+      "rms": 0.020754290288573063,
+      "rightMinusLeftDb": 0.0,
+      "maxChannelDifference": 0.0
+    },
+    {
+      "mode": "reduced",
+      "peak": 0.17999267578125,
+      "rms": 0.025248921732014384,
+      "rightMinusLeftDb": 10.393040252065957,
+      "maxChannelDifference": 0.177642822265625
+    }
+  ],
+  "checks": {
+    "rightDominates": true,
+    "rotationReverses": true,
+    "monoIdentical": true,
+    "reducedPeakLower": true,
+    "reducedAtCeiling": true
+  },
+  "status": "PASS",
+  "scope": "Post-listener capture with actual fixture clip, world position, source filters and mix; no audio normalization. Stereo dominance, not perceptual HRTF/localization approval."
+}

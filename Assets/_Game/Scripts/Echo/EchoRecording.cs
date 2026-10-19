@@ -7,8 +7,11 @@ namespace EchoProtocol.Echo
     public sealed class EchoRecording
     {
         private readonly EchoFrame[] frames;
+        private readonly RecordedMachineGrip[] machineGrips;
 
-        public EchoRecording(IEnumerable<EchoFrame> sourceFrames)
+        public EchoRecording(IEnumerable<EchoFrame> sourceFrames) : this(sourceFrames, null) { }
+
+        public EchoRecording(IEnumerable<EchoFrame> sourceFrames, IEnumerable<RecordedMachineGrip> sourceGrips)
         {
             if (sourceFrames == null)
             {
@@ -43,6 +46,16 @@ namespace EchoProtocol.Echo
 
             frames = frameBuffer.ToArray();
             Duration = frames[frames.Length - 1].Timestamp;
+            var grips = new List<RecordedMachineGrip>();
+            float last = -1;
+            if (sourceGrips != null) foreach (var grip in sourceGrips)
+            {
+                if (float.IsNaN(grip.Timestamp) || float.IsInfinity(grip.Timestamp)
+                    || grip.Timestamp < 0 || grip.Timestamp < last || grip.Timestamp > Duration || grip.Target <= 0)
+                    throw new ArgumentException("Machine grip timestamps and target must belong to this take.", nameof(sourceGrips));
+                grips.Add(grip); last = grip.Timestamp;
+            }
+            machineGrips = grips.ToArray();
         }
 
         public int FrameCount => frames.Length;
@@ -50,6 +63,26 @@ namespace EchoProtocol.Echo
         public float Duration { get; }
 
         public EchoFrame this[int index] => frames[index];
+        public int MachineGripCount => machineGrips.Length;
+        public RecordedMachineGrip MachineGrip(int index) => machineGrips[index];
+        public bool SampleMachineGrip(float timestamp, int target)
+        {
+            bool held = false;
+            for (int i = 0; i < machineGrips.Length && machineGrips[i].Timestamp <= timestamp; i++)
+                if (machineGrips[i].Target == target) held = machineGrips[i].Held;
+            return held;
+        }
+
+        public RecordedBodyPose SampleBodyPose(float timestamp)
+        {
+            if(frames.Length==1||timestamp<=frames[0].Timestamp)return frames[0].BodyPose;
+            if(timestamp>=Duration)return frames[frames.Length-1].BodyPose;
+            int low=1,high=frames.Length-1;
+            while(low<high){int mid=(low+high)/2;if(frames[mid].Timestamp<timestamp)low=mid+1;else high=mid;}
+            var a=frames[low-1];var b=frames[low];
+            float t=b.Timestamp>a.Timestamp?Mathf.Clamp01((timestamp-a.Timestamp)/(b.Timestamp-a.Timestamp)):1;
+            return RecordedBodyPose.Lerp(a.BodyPose,b.BodyPose,t);
+        }
 
         public void Sample(float timestamp, out Vector3 position, out Quaternion rotation)
         {

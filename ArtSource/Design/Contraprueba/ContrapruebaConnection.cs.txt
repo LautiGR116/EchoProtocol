@@ -1,0 +1,18 @@
+using System;using System.Linq;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using EchoProtocol.Presentation;using EchoProtocol.Puzzle;using Object=UnityEngine.Object;
+public static class ContrapruebaConnection{
+ static T Ref<T>(Object o,string n)where T:Object=>(T)new SerializedObject(o).FindProperty(n).objectReferenceValue;
+ public static object Main(){if(EditorApplication.isPlaying)throw new Exception("Edit required");var root=Object.FindObjectsByType<Transform>(FindObjectsInactive.Include,FindObjectsSortMode.None).Single(t=>t.name=="VS1 R2 Return Gallery");var authored=root.GetComponentsInChildren<Transform>(true).Single(t=>t.name=="Contraprueba / authored chapter");var relay=root.GetComponentInChildren<RecombinationRelay>(true);
+ foreach(string n in new[]{"routeGate","finalGate"}){var gate=Ref<SlidingDoor>(relay,n);var body=Ref<Rigidbody>(gate,"doorBody");foreach(var r in body.GetComponentsInChildren<Renderer>(true))r.enabled=true;foreach(var c in body.GetComponentsInChildren<Collider>(true))c.enabled=true;}
+ var floor=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Contraprueba/M_MineralFloor.mat");var wall=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Contraprueba/M_OldIvory.mat");var ceiling=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Game/Art/Contraprueba/M_AcousticCeiling.mat");
+ foreach(var r in root.GetComponentsInChildren<Renderer>(true).Where(r=>r.name.StartsWith("P3 long return")&&r.name!="P3 long return west end")){r.enabled=true;var c=r.GetComponent<Collider>();if(c)c.enabled=true;r.sharedMaterial=r.name.EndsWith("floor")?floor:r.name.EndsWith("ceiling")?ceiling:wall;var map=r.GetComponent<SurfaceMapping>()??r.gameObject.AddComponent<SurfaceMapping>();map.Configure(r,new Vector2(6.8f,1.8f));}
+ var f=authored.Find("Continuous mineral floor");f.position=new Vector3(-9.9f,-.115f,37.25f);f.localScale=new Vector3(12.4f,.23f,14.7f);
+ var ceil=authored.Find("Ceiling");ceil.position=new Vector3(-9.9f,3.3f,37.25f);ceil.localScale=new Vector3(12.4f,.2f,14.7f);
+ foreach(var r in root.GetComponentsInChildren<Renderer>(true).Where(r=>(r.name=="P3 stable diffuser"||r.name=="P3 panel housing"||r.name=="P3 repeating north frame")&&r.transform.position.z>45))r.enabled=true;
+ foreach(var l in root.GetComponentsInChildren<Light>(true).Where(l=>l.transform.position.z>45&&!l.transform.IsChildOf(authored))){l.enabled=true;l.color=new Color(.75f,.82f,.75f);l.intensity=11;}
+ var gap=GameObject.CreatePrimitive(PrimitiveType.Cube);gap.name="Archive connection south closure";gap.transform.SetParent(authored,true);gap.transform.position=new Vector3(-16.65f,1.6f,44.65f);gap.transform.localScale=new Vector3(1.30f,3.2f,.2f);gap.GetComponent<Renderer>().sharedMaterial=wall;
+ var model=authored.Find("Receiving route identity");var sign=Object.Instantiate(model.gameObject,authored);sign.name="Archive turn direction";sign.transform.position=new Vector3(-7.8f,1.8f,48.08f);sign.transform.rotation=Quaternion.identity;sign.GetComponent<TextMesh>().text="ARCHIVO  ←";
+ var srcPlate=authored.GetComponentsInChildren<Transform>(true).Single(t=>t.name=="Receiving route identity / physical plate");var plate=Object.Instantiate(srcPlate.gameObject,authored);plate.name="Archive turn direction / physical plate";plate.transform.position=sign.transform.position+Vector3.forward*.02f;plate.transform.rotation=Quaternion.identity;
+ // The adjacent north wall supports the sign; passage lighting remains steady.
+ Physics.SyncTransforms();EditorSceneManager.MarkSceneDirty(root.gameObject.scene);EditorSceneManager.SaveScene(root.gameObject.scene);AssetDatabase.SaveAssets();return "Explicit door bodies/colliders restored; original enclosed R3 junction retained and rematerialled";
+ }
+}

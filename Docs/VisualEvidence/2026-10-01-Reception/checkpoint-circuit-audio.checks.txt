@@ -1,0 +1,18 @@
+ISOLATED CHECKPOINT-EQUIVALENT FIXTURES. No save/Continue round trip, full route or listening claim.
+PASS [initialization] configured campaign, audio owners and final-review systems exist
+PASS [initialization] fresh session was started independently; this probe never resumes or pauses it
+PASS [initialization] explicit sources, chapter director and all twelve lights match the production configuration
+PASS [initialization] positive control: initial first-act lights and fluorescent are powered before fixture placement
+PASS [Pressure fixture] FIXTURE: Player placed at authored origin 0; this is not a traversed route
+PASS [Pressure fixture] labelled prerequisite fixture permits actual station API PressureOrigin
+PASS [Pressure fixture] Pressure owns the beds after an actual Update handoff
+PASS [Pressure fixture] Pressure passed two seconds of live audio-state observation
+PASS [House fixture] FIXTURE: Player placed at authored origin 1; this is not a traversed route
+PASS [House fixture] labelled prerequisite fixture permits actual station API HouseOrigin
+PASS [House fixture] House owns the beds after an actual Update handoff
+PASS [House fixture] House passed two seconds of live audio-state observation
+PASS [Final-review fixture] FIXTURE: Player placed at authored origin 3; this is not a traversed route
+PASS [Final-review fixture] labelled domestic checkpoint fixture enters the actual final-review API
+PASS [Final-review fixture] Archive owns the beds after an actual Update handoff
+PASS [Final-review fixture] Archive passed two seconds of live audio-state observation
+PASS [Final-review fixture] checkpoint, volume, dynamics and speaker preferences were never changed

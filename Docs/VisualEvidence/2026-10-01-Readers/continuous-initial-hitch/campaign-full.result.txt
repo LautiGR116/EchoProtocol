@@ -1,0 +1,4 @@
+FAIL P3_cooperate: System.InvalidOperationException: P3_cooperate: R3 remains locked before the final crossing plane
+  at ThresholdCampaignProbe.Check (System.Boolean condition, System.String message) [0x00068] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:1126 
+  at ThresholdCampaignProbe+<FirstAct>d__126.MoveNext () [0x00e45] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:361 
+  at ThresholdCampaignProbe+<Guarded>d__121.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:101 

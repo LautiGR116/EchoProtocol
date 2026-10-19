@@ -1,0 +1,16 @@
+{
+    "label": "campaign-P1-visible",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+    "position": {
+        "x": 3.2920103073120119,
+        "y": 1.6299998760223389,
+        "z": 1.725691795349121
+    },
+    "rotation": {
+        "x": 0.01898246258497238,
+        "y": -0.8342512845993042,
+        "z": 0.0287769865244627,
+        "w": 0.5503058433532715
+    },
+    "fov": 60.0
+}

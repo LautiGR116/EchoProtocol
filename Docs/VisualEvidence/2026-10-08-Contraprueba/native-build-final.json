@@ -1,0 +1,9 @@
+{
+  "result": "Succeeded",
+  "errors": 0,
+  "warnings": 1,
+  "bytes": 221120701,
+  "seconds": 3.125278,
+  "output": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Contraprueba-Verification-Final-20261008/EchoProtocol.app",
+  "scope": "Separate instrumented release Player; additional compile define includes synthetic input observer only. Delivery build excludes it."
+}

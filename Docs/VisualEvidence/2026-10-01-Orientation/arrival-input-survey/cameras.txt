@@ -1,0 +1,11 @@
+One initial earned-return/lighting/pose fixture; no solved P3 claim. Subsequent input physical; viewpoints follow movement direction. Camera renders omit OnGUI.
+00-lower-return position=(-18.60, 1.63, 7.00) rotation=(0.00, 180.00, 0.00)
+01-approach-0 position=(-18.60, 1.63, -9.41) rotation=(0.00, 180.00, 0.00)
+01-approach-1 position=(-10.59, 1.63, -9.50) rotation=(0.00, 90.64, 0.00)
+02-receiving position=(-10.59, 1.63, -9.50) rotation=(0.00, 90.00, 0.00)
+03-rear-sealing position=(-6.94, 1.63, -9.50) rotation=(0.00, 90.00, 0.00)
+04-front-starts-opening position=(-6.94, 1.63, -9.50) rotation=(0.00, 90.00, 0.00)
+05-front-open-forward position=(-6.94, 1.63, -9.50) rotation=(0.00, 90.00, 0.00)
+06-hub-forward position=(-3.70, 1.63, -9.50) rotation=(0.00, 90.00, 0.00)
+07-closed-behind position=(-4.64, 1.63, -9.50) rotation=(0.00, 270.00, 0.00)
+08-return-facing-reception position=(-3.69, 1.63, -9.50) rotation=(0.00, 90.00, 0.00)

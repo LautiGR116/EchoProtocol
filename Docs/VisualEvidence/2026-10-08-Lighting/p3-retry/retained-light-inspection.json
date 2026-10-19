@@ -1,0 +1,4 @@
+{
+  "status": "PASS",
+  "scope": "Editor API read after retry PASS and before exiting Play; all five new P3 maintained/local lights enabled and active. No assertion of human visibility or listening."
+}

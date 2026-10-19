@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-02",
+  "source": "MakeHuman official CC0 base and graphical weights, pinned in ArtSource/ThirdParty/MakeHumanBase/provenance.json",
+  "authored": "Mature adult anatomy (65% young / 35% old male graphical deltas), static resting pose, narrow stance, craniofacial asymmetry, cropped hair, anatomical eyes, continuous clothed stand-collar surface and tailored details",
+  "model": "exports/EP_ReconstructedAdult.fbx",
+  "vertices": 72003,
+  "triangles": 142952,
+  "materials": [
+    "FIG_Skin",
+    "FIG_Jacket",
+    "FIG_Trousers",
+    "FIG_Eye",
+    "FIG_Iris",
+    "FIG_Hair",
+    "FIG_Shoe",
+    "FIG_Sole",
+    "FIG_Stitch",
+    "FIG_Metal"
+  ],
+  "bounds": [
+    [
+      -0.2896185517311096,
+      0.28950923681259155
+    ],
+    [
+      -0.23156985640525818,
+      0.11019090563058853
+    ],
+    [
+      0.0020000003278255463,
+      1.801104187965393
+    ]
+  ],
+  "rig": false,
+  "animations": false,
+  "recordedChannels": [
+    "root position",
+    "body yaw"
+  ],
+  "sha256": "46b9374226ecbd252e6db8c59fd7dd89e2d362511fd1004076e54de30c11a71b"
+}

@@ -1,0 +1,377 @@
+{
+    "status": "PASS",
+    "error": "",
+    "scope": "Native UI keyboard and resolution verification. Explicit document, saved-menu, HUD placement and ending fixtures; not a continuous gameplay run. Before views use the unchanged legacy renderer in equivalent state.",
+    "checks": 130,
+    "screenshots": [
+        {
+            "file": "1280x800-title.png",
+            "page": "title",
+            "width": 1280,
+            "height": 800,
+            "frame": 3007,
+            "time": 26.425159454345704
+        },
+        {
+            "file": "1280x800-settings.png",
+            "page": "settings",
+            "width": 1280,
+            "height": 800,
+            "frame": 3113,
+            "time": 27.608400344848634
+        },
+        {
+            "file": "1280x800-credits.png",
+            "page": "credits",
+            "width": 1280,
+            "height": 800,
+            "frame": 3179,
+            "time": 28.137269973754884
+        },
+        {
+            "file": "1280x800-pause.png",
+            "page": "pause",
+            "width": 1280,
+            "height": 800,
+            "frame": 3237,
+            "time": 28.710325241088868
+        },
+        {
+            "file": "1280x800-restart.png",
+            "page": "restart",
+            "width": 1280,
+            "height": 800,
+            "frame": 3291,
+            "time": 29.17580223083496
+        },
+        {
+            "file": "1280x800-letter.png",
+            "page": "document",
+            "width": 1280,
+            "height": 800,
+            "frame": 3333,
+            "time": 29.724374771118165
+        },
+        {
+            "file": "1280x800-letter-end.png",
+            "page": "document",
+            "width": 1280,
+            "height": 800,
+            "frame": 3408,
+            "time": 30.502336502075197
+        },
+        {
+            "file": "1280x800-consent.png",
+            "page": "document",
+            "width": 1280,
+            "height": 800,
+            "frame": 3454,
+            "time": 31.01932716369629
+        },
+        {
+            "file": "1280x800-consent-end.png",
+            "page": "document",
+            "width": 1280,
+            "height": 800,
+            "frame": 3516,
+            "time": 31.50407600402832
+        },
+        {
+            "file": "1280x800-stress-begin.png",
+            "page": "document",
+            "width": 1280,
+            "height": 800,
+            "frame": 3552,
+            "time": 31.986448287963868
+        },
+        {
+            "file": "1280x800-stress-end.png",
+            "page": "document",
+            "width": 1280,
+            "height": 800,
+            "frame": 3608,
+            "time": 32.408329010009769
+        },
+        {
+            "file": "1280x800-notes.png",
+            "page": "notes",
+            "width": 1280,
+            "height": 800,
+            "frame": 3669,
+            "time": 32.986114501953128
+        },
+        {
+            "file": "1280x800-hud.png",
+            "page": "HUD",
+            "width": 1280,
+            "height": 800,
+            "frame": 3778,
+            "time": 34.01347351074219
+        },
+        {
+            "file": "1440x810-title.png",
+            "page": "title",
+            "width": 1440,
+            "height": 810,
+            "frame": 3946,
+            "time": 35.93136978149414
+        },
+        {
+            "file": "1440x810-settings.png",
+            "page": "settings",
+            "width": 1440,
+            "height": 810,
+            "frame": 4047,
+            "time": 36.95005798339844
+        },
+        {
+            "file": "1440x810-credits.png",
+            "page": "credits",
+            "width": 1440,
+            "height": 810,
+            "frame": 4082,
+            "time": 37.80799865722656
+        },
+        {
+            "file": "1440x810-pause.png",
+            "page": "pause",
+            "width": 1440,
+            "height": 810,
+            "frame": 4141,
+            "time": 38.374759674072269
+        },
+        {
+            "file": "1440x810-restart.png",
+            "page": "restart",
+            "width": 1440,
+            "height": 810,
+            "frame": 4200,
+            "time": 38.93418884277344
+        },
+        {
+            "file": "1440x810-letter.png",
+            "page": "document",
+            "width": 1440,
+            "height": 810,
+            "frame": 4259,
+            "time": 39.469459533691409
+        },
+        {
+            "file": "1440x810-letter-end.png",
+            "page": "document",
+            "width": 1440,
+            "height": 810,
+            "frame": 4338,
+            "time": 40.27720642089844
+        },
+        {
+            "file": "1440x810-consent.png",
+            "page": "document",
+            "width": 1440,
+            "height": 810,
+            "frame": 4384,
+            "time": 40.95011520385742
+        },
+        {
+            "file": "1440x810-consent-end.png",
+            "page": "document",
+            "width": 1440,
+            "height": 810,
+            "frame": 4443,
+            "time": 41.53181076049805
+        },
+        {
+            "file": "1440x810-stress-begin.png",
+            "page": "document",
+            "width": 1440,
+            "height": 810,
+            "frame": 4497,
+            "time": 41.98990249633789
+        },
+        {
+            "file": "1440x810-stress-end.png",
+            "page": "document",
+            "width": 1440,
+            "height": 810,
+            "frame": 4544,
+            "time": 42.53458023071289
+        },
+        {
+            "file": "1440x810-notes.png",
+            "page": "notes",
+            "width": 1440,
+            "height": 810,
+            "frame": 4599,
+            "time": 43.132598876953128
+        },
+        {
+            "file": "1440x810-hud.png",
+            "page": "HUD",
+            "width": 1440,
+            "height": 810,
+            "frame": 4702,
+            "time": 44.28419876098633
+        },
+        {
+            "file": "1280x720-title.png",
+            "page": "title",
+            "width": 1280,
+            "height": 720,
+            "frame": 4874,
+            "time": 46.35856246948242
+        },
+        {
+            "file": "before-title.png",
+            "page": "title",
+            "width": 1280,
+            "height": 720,
+            "frame": 4884,
+            "time": 46.89111328125
+        },
+        {
+            "file": "title-saved-checkpoint.png",
+            "page": "title",
+            "width": 1280,
+            "height": 720,
+            "frame": 4928,
+            "time": 47.224857330322269
+        },
+        {
+            "file": "1280x720-settings.png",
+            "page": "settings",
+            "width": 1280,
+            "height": 720,
+            "frame": 5041,
+            "time": 48.054344177246097
+        },
+        {
+            "file": "before-settings.png",
+            "page": "settings",
+            "width": 1280,
+            "height": 720,
+            "frame": 5086,
+            "time": 48.382347106933597
+        },
+        {
+            "file": "1280x720-credits.png",
+            "page": "credits",
+            "width": 1280,
+            "height": 720,
+            "frame": 5134,
+            "time": 48.901344299316409
+        },
+        {
+            "file": "1280x720-pause.png",
+            "page": "pause",
+            "width": 1280,
+            "height": 720,
+            "frame": 5174,
+            "time": 49.68531036376953
+        },
+        {
+            "file": "before-pause.png",
+            "page": "pause",
+            "width": 1280,
+            "height": 720,
+            "frame": 5204,
+            "time": 50.06731414794922
+        },
+        {
+            "file": "1280x720-restart.png",
+            "page": "restart",
+            "width": 1280,
+            "height": 720,
+            "frame": 5255,
+            "time": 50.53433609008789
+        },
+        {
+            "file": "1280x720-letter.png",
+            "page": "document",
+            "width": 1280,
+            "height": 720,
+            "frame": 5313,
+            "time": 51.061622619628909
+        },
+        {
+            "file": "before-letter.png",
+            "page": "document",
+            "width": 1280,
+            "height": 720,
+            "frame": 5343,
+            "time": 51.37904739379883
+        },
+        {
+            "file": "1280x720-letter-end.png",
+            "page": "document",
+            "width": 1280,
+            "height": 720,
+            "frame": 5451,
+            "time": 52.09101486206055
+        },
+        {
+            "file": "1280x720-consent.png",
+            "page": "document",
+            "width": 1280,
+            "height": 720,
+            "frame": 5512,
+            "time": 52.58829879760742
+        },
+        {
+            "file": "1280x720-consent-end.png",
+            "page": "document",
+            "width": 1280,
+            "height": 720,
+            "frame": 5562,
+            "time": 53.21633529663086
+        },
+        {
+            "file": "1280x720-stress-begin.png",
+            "page": "document",
+            "width": 1280,
+            "height": 720,
+            "frame": 5604,
+            "time": 53.7540283203125
+        },
+        {
+            "file": "1280x720-stress-end.png",
+            "page": "document",
+            "width": 1280,
+            "height": 720,
+            "frame": 5652,
+            "time": 54.23685836791992
+        },
+        {
+            "file": "1280x720-notes.png",
+            "page": "notes",
+            "width": 1280,
+            "height": 720,
+            "frame": 5713,
+            "time": 54.727027893066409
+        },
+        {
+            "file": "1280x720-hud.png",
+            "page": "HUD",
+            "width": 1280,
+            "height": 720,
+            "frame": 5830,
+            "time": 55.60554122924805
+        },
+        {
+            "file": "before-hud.png",
+            "page": "HUD",
+            "width": 1280,
+            "height": 720,
+            "frame": 5884,
+            "time": 56.06648254394531
+        },
+        {
+            "file": "1280x720-ending.png",
+            "page": "ending",
+            "width": 1280,
+            "height": 720,
+            "frame": 5910,
+            "time": 56.411827087402347
+        }
+    ],
+    "preferencesRestored": true
+}

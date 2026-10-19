@@ -1,0 +1,142 @@
+PASS fresh D1 unavailable and hidden
+PASS revision sign hidden before R3
+PASS fresh R3 and Hub reverse gate solid and closed
+PASS fresh session menu pauses time
+PASS campaign begins in protocol act
+PASS fresh baseline sealed, P3 inactive and anchor rejects Player
+PASS P1 A previews from actual Player
+PASS real R completed once
+PASS RECALL placement creates no physical footstep
+PASS P1 complete through genuine Echo A B and Player C
+PASS pause freezes game clock and recording
+PASS SE1 complete after genuine empty lane check
+PASS actual domestic crossing commits checkpoint and slams door
+PASS P2 Player preview preserved
+PASS real R completed once
+PASS RECALL placement creates no physical footstep
+PASS real Echo holds P2
+PASS R1 remains sealed before SE3
+PASS real SE2 visible reading complete
+PASS genuine SE3 return opens R1
+PASS actual Player can activate anchor after valid return
+PASS existing E ray activates physical station
+PASS anchor activation neither teleports nor performs RECALL
+PASS anchor discards old Echo and history and immediately rearms empty recorder
+PASS repeat E cannot recommit
+PASS A Player preview does not latch
+PASS B Player preview acquired
+PASS real R completed once
+PASS RECALL placement creates no physical footstep
+PASS R clears both P3 gates and authorization
+PASS R1 checkpoint persists
+PASS SE2 SE3 R1 and anchor persist
+PASS Echo begins with actual R1 recording pose
+PASS genuine Echo A authorizes route
+PASS genuine B hold after A
+PASS A plus B alone never opens R3 before Player crossing
+PASS Echo collider rejected even while genuine A/B are qualified
+PASS Player has not crossed final plane
+PASS real Player final crossing unlocks R3 once
+PASS P3 unlock alone does not activate D1 sign
+PASS arrival opens Hub only after solid rear closes
+PASS Hub side closes behind Player
+PASS actual Hub arrival enables D1 sign but retains R1 origin
+PASS real E ray commits D1 station
+PASS D1 E neither teleports nor recalls
+PASS D1 E clears old recording and Echo
+PASS D1 repeat E cannot recommit
+PASS empty R retains existing no-recording behavior
+PASS real R completed once
+PASS RECALL placement creates no physical footstep
+PASS premature moving R cannot deliver denial
+PASS R returns to D1 service origin
+PASS real R completed once
+PASS RECALL placement creates no physical footstep
+PASS stationary wrong body orientation rejected
+PASS real R completed once
+PASS RECALL placement creates no physical footstep
+PASS crossing without sustained pause rejected
+PASS real R completed once
+PASS RECALL placement creates no physical footstep
+PASS genuine immutable pause qualifies
+PASS look away lets Echo end without denial and restores ambience
+PASS real R completed once
+PASS RECALL placement creates no physical footstep
+PASS visible real approach subtracts ambience before denial
+PASS real R completed once
+PASS RECALL placement creates no physical footstep
+PASS R during approach clears review and restores ambience
+PASS real R completed once
+PASS RECALL placement creates no physical footstep
+PASS positive R reviews current immutable pause
+PASS recording begins at actual D1 origin
+PASS visible reproduced real pause delivers thought exactly once
+PASS ambience subtracted during visible close reproduction
+PASS D1 opens campaign descent through actual E
+PASS ray reaches PressureOrigin
+PASS station available PressureOrigin
+PASS pressure chapter starts
+PASS Player alone cannot pressurize chamber
+PASS real R completed once
+PASS RECALL placement creates no physical footstep
+PASS short take cannot complete valves
+PASS real R completed once
+PASS RECALL placement creates no physical footstep
+PASS real Echo creates full pressure
+PASS ray reaches ValveA
+PASS station available ValveA
+PASS first sustained valve completes
+PASS ray reaches ValveB
+PASS station available ValveB
+PASS second sustained valve completes
+PASS ray reaches HouseOrigin
+PASS station available HouseOrigin
+PASS house exploration suspends automatic recall
+PASS ray reaches NoteArrival
+PASS station available NoteArrival
+PASS document pauses simulation NoteArrival
+PASS ray reaches NoteWorkOrder
+PASS station available NoteWorkOrder
+PASS document pauses simulation NoteWorkOrder
+PASS ray reaches NoteConsent
+PASS station available NoteConsent
+PASS document pauses simulation NoteConsent
+PASS three distinct evidence documents stored
+PASS documents alone cannot bypass house circuits
+PASS ray reaches Telephone
+PASS station available Telephone
+PASS ray reaches CircuitHall
+PASS station available CircuitHall
+PASS out-of-order circuit rejected
+PASS ray reaches CircuitKitchen
+PASS station available CircuitKitchen
+PASS kitchen circuit restored
+PASS ray reaches CircuitBedroom
+PASS station available CircuitBedroom
+PASS bedroom circuit moves house consequence
+PASS visible physical presence resolves after sustained real sight
+PASS ray reaches CircuitHall
+PASS station available CircuitHall
+PASS hall completes spatial restoration
+PASS ray reaches GalleryOrigin
+PASS station available GalleryOrigin
+PASS gallery re-arms recording
+PASS recording lane alone authorizes no companion shutter
+PASS real R completed once
+PASS RECALL placement creates no physical footstep
+PASS real concurrent pair 0
+PASS real concurrent pair 1
+PASS real concurrent pair 2
+PASS ray reaches ArchiveOrigin
+PASS station available ArchiveOrigin
+PASS archive activated
+PASS real R completed once
+PASS RECALL placement creates no physical footstep
+PASS final immutable Echo witnessed at the opposing mark
+PASS ray reaches ArchiveLetter
+PASS station available ArchiveLetter
+PASS document pauses simulation ArchiveLetter
+PASS ray reaches Preserve
+PASS station available Preserve
+PASS preservation keeps the exact original recording
+PASS expanded campaign reaches ending menu

@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "command": "command get_console_logs",
+  "data": {
+    "command": "get_console_logs",
+    "parameters": {
+      "severity": "error",
+      "limit": "20"
+    },
+    "result": {
+      "total": 1,
+      "returned": 1,
+      "logs": [
+        {
+          "type": "Error",
+          "message": "Could not load image /Applications/Unity/Hub/Editor/6000.3.21f1/Unity.app/Contents/Resources/BuildPipeline/Compilation/ApiUpdater/Mono.Cecil.dll due to Invalid data directory 3\nRun the peverify utility against this for more information.",
+          "stackTrace": "",
+          "timestampUtc": "2026-10-08T21:18:24.7535550Z"
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/lautigr116/EchoProtocol"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,41 @@
+using System;
+using System.IO;
+using System.Linq;
+using UnityEngine;
+using EchoProtocol.Echo;
+using EchoProtocol.Puzzle;
+public static class WarmPresenceVariants
+{
+ const string Output="Docs/VisualEvidence/2026-10-01-Presence/surface";
+ public static string Main()
+ {
+  var camera=Camera.main;var loop=UnityEngine.Object.FindFirstObjectByType<LoopController>();var echo=loop.ActiveEcho;
+  if(Time.timeScale!=0||!echo||!echo.gameObject.activeInHierarchy)throw new Exception("Requires paused live warm fixture");
+  var gate=UnityEngine.Object.FindObjectsByType<SlidingDoor>(FindObjectsSortMode.None).Single(d=>d.GetComponentsInChildren<Transform>(true).Any(t=>t.name=="P2 Blind Alignment Gate Body"));gate.SetOpenImmediately(true);
+  var body=echo.GetComponentsInChildren<Renderer>(true).Single(r=>r.enabled&&r.sharedMaterial.shader.name=="EchoProtocol/RecordedPresence");
+  var original=body.sharedMaterials;var variant=new Material(body.sharedMaterial);var take=loop.LastRecording;var pos=echo.transform.position;
+  try
+  {
+   body.sharedMaterials=original.Select(_=>variant).ToArray();Capture(camera,"warm-a62-relief24");
+   variant.SetFloat("_BodyOpacity",.78f);variant.SetFloat("_RecordLevel",.32f);Capture(camera,"warm-a78-relief32");
+   variant.SetFloat("_BodyOpacity",.86f);Capture(camera,"warm-a86-relief32");
+   variant.SetFloat("_BodyOpacity",.78f);variant.SetColor("_Color",new Color(.14f,.50f,.46f,1));Capture(camera,"warm-a78-relief32-cool");
+   variant.SetFloat("_BodyOpacity",1);variant.SetFloat("_RecordLevel",.5f);variant.SetColor("_Color",new Color(.05f,.8f,.8f,1));Capture(camera,"warm-diagnostic-full-teal");
+   variant.SetFloat("_BodyOpacity",0);variant.SetFloat("_EdgeOpacity",0);Capture(camera,"warm-diagnostic-zero-alpha");
+   variant.SetFloat("_BodyOpacity",.78f);variant.SetFloat("_EdgeOpacity",.03f);variant.SetFloat("_RecordLevel",.32f);variant.SetColor("_Color",new Color(.14f,.5f,.46f,1).gamma);Capture(camera,"warm-linear-tint-a78");
+   variant.SetFloat("_BodyOpacity",.78f);variant.SetFloat("_RecordLevel",.28f);variant.SetColor("_Color",new Color(.1f,.38f,.34f,1).gamma);Capture(camera,"warm-linear-muted-a78");
+   variant.SetFloat("_BodyOpacity",.84f);Capture(camera,"warm-linear-muted-a84");
+   variant.SetFloat("_BodyOpacity",.88f);variant.SetFloat("_RecordLevel",.36f);variant.SetColor("_Color",new Color(.14f,.68f,.64f,1));Capture(camera,"warm-teal-a88");
+   variant.SetFloat("_BodyOpacity",.94f);variant.SetFloat("_RecordLevel",.30f);Capture(camera,"warm-teal-a94");
+  }
+  finally{body.sharedMaterials=original;UnityEngine.Object.Destroy(variant);}
+  if(echo.transform.position!=pos||!ReferenceEquals(take,loop.LastRecording))throw new Exception("Comparison changed the take or pose");
+  File.WriteAllText(Output+"/warm-variants-scope.txt","Paused warm fixture from PresenceSurfaceProbe, actual input-generated take. The initial captures hit the closed P2 gate and are preserved separately; not visual evidence. This comparison explicitly opens only P2 Blind Alignment Gate via its public immediate restoration API. Same camera (-2.692,1.63,27.015), yaw180, body pose, take, lights and mesh for all four temporary material variants. Original assignments restored. Not a continuous-route or human playtest.\n");return "Four material variants captured with P2 gate explicitly open";
+ }
+ static void Capture(Camera camera,string name)
+ {
+  var old=camera.targetTexture;var active=RenderTexture.active;var rt=new RenderTexture(1280,720,24);var image=new Texture2D(1280,720,TextureFormat.RGB24,false);
+  try{camera.targetTexture=rt;camera.Render();RenderTexture.active=rt;image.ReadPixels(new Rect(0,0,1280,720),0,0);image.Apply();File.WriteAllBytes(Output+"/"+name+".png",image.EncodeToPNG());}
+  finally{camera.targetTexture=old;RenderTexture.active=active;UnityEngine.Object.Destroy(rt);UnityEngine.Object.Destroy(image);}
+ }
+}

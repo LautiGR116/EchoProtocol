@@ -1,0 +1,5 @@
+PASS explicit scene identity and campaign
+PASS actual native viewport (1280, 800)
+PASS native window stays focused
+PASS native screenshot 1280x800-title
+FAIL title keyboard focus moves once

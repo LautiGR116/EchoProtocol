@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-01",
+  "source": "481964_6657854-hq.mp3",
+  "sourceSHA256": "78da966dd6a876d9b53f148cdf9d443454f732bb6b9f82b8ffb59a8d22283e42",
+  "sourceRights": "CC0 1.0; see source.json. Public MP3 HQ preview, not original WAV.",
+  "output": "AMB_CourtyardNight_LP.wav",
+  "sha256": "e6bed2450e9a77fd6859a0c13d2bcd498978ab6916574037a1876282adadc0a5",
+  "sampleRate": 48000,
+  "channels": 1,
+  "frames": 1825872,
+  "seconds": 38.039,
+  "constantGainDB": 18,
+  "loopCrossfadeSeconds": 1,
+  "processing": "48k mono16 PCM decode; first/last1s linear overlap, steady gain+18dB; no EQ, compression or generated layer",
+  "peakDBFS": -20.691620225451,
+  "rmsDBFS": -34.703997272176444,
+  "loopBoundaryStep": 0.000701904296875,
+  "maxAdjacentStep": 0.0167236328125,
+  "humanAudition": false,
+  "status": "Provisional integration candidate; listening, timbre, audibility and comfort EN PRUEBA"
+}

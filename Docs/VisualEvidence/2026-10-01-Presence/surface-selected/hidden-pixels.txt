@@ -1,0 +1,1 @@
+Same paused camera, postprocessing disabled only for this numeric equivalence; RGB24 readback. enabled invisible surfaces vs disabled. Changed=0 maximum RGB sum=0 mean RGB sum=0

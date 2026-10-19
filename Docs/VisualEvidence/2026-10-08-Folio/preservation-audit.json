@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "method": "Read-only Unity serialized sections by retained local object ID. Allowed changes are TextMesh font/advance/leading, their renderer atlas material, checkpoint edition, session identity/edition, and one new graphic root. Every other serialized byte in original objects compared exactly. Project settings/audio/runtime-source bytes compared to recovered Resonance manifest.",
+  "sceneUnchangedObjects": 15105,
+  "sceneAllowedChanges": 115,
+  "changesByUnityClass": {
+    "102": 56,
+    "23": 56,
+    "114": 2,
+    "1660057539": 1
+  },
+  "newGraphicRootObjects": [
+    {
+      "id": "176972962",
+      "type": 1
+    },
+    {
+      "id": "176972964",
+      "type": 4
+    },
+    {
+      "id": "176972963",
+      "type": 114
+    }
+  ],
+  "unexpectedSceneChanges": [],
+  "unchangedScopedSourceAssets": 339,
+  "changedScopedSourceAssets": [
+    "Assets/_Game/Scripts/Campaign/CampaignDirector.cs",
+    "Assets/_Game/Scripts/Horror/SD1SubtitleDisplay.cs",
+    "Assets/_Game/Scripts/Presentation/ContextualHints.cs",
+    "Assets/_Game/Scripts/Presentation/GameSession.cs",
+    "Assets/_Game/Scripts/Presentation/InteractionFocusHUD.cs",
+    "ProjectSettings/EditorBuildSettings.asset"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "buildId": "build_5157a34cca1e",
+  "status": "PENDING",
+  "reason": "CUA: Mac locked; automatic unlock unsuccessful. User asked to unlock. No EchoProtocol native process remained running.",
+  "verified": "Universal x86_64/arm64, codesign strict/deep, Unity build success, isolated final route PASS61",
+  "notClaimed": "Native launch, native input, human play, listening or fear."
+}

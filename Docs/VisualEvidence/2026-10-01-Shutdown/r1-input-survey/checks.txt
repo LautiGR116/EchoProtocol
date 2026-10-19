@@ -1,0 +1,11 @@
+PASS initial fixture restores completed first-act lighting
+PASS survey starts with neutral station and physically closed gallery access
+PASS actual camera ray reaches the monitor and accepts E
+PASS actual E confirms the station and requests its existing gallery door
+PASS E commits exactly one origin without RECALL or Player placement
+PASS the authored recall Transform stays fixed throughout use
+PASS original gallery door finishes its physical travel before passage
+PASS existing P3 approach is physically reachable with no relocated floor
+PASS no pose reset after the initial room fixture
+PASS no runtime error during the input survey
+PASS

@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-12",
+  "direction": "La embestida: deteriorated adult maintenance worker; asymmetric compression, gaunt face and torn heavy rubber bib.",
+  "base": "Previously licensed Renderpeople Nathan, animated 003 walking; see Docs/CREDITS.md and ArtSource/Design/Embodiment/provenance.json.",
+  "assets": "Assets/_Game/Art/Embodiment/RenderpeoplePrivate/Embestida/ (excluded from public Git with existing license policy)",
+  "original_work": [
+    "Isolated mesh sculpt and spatial surface material",
+    "Weighted rubber bib, shoulder straps and asymmetric wrist wraps",
+    "Continuous physical entry/contact/recovery acting and authored audio edit"
+  ],
+  "authoring": "Assets/Editor/EmbestidaProduction.cs; explicit Editor asset creation and scene wiring.",
+  "rights": "Existing Renderpeople terms; derived mesh and skeleton data remain local/excluded. No external AI upload, purchases, downloads or packages.",
+  "echo": "No model, recording data or playback source edits in this task.",
+  "implementation_sha256": {
+    "Assets/Editor/EmbestidaProduction.cs": "43b163deb12ee3faacd2450358bbe0ba796af5ec7b58ad68c08b54058c226e3b",
+    "Assets/_Game/Scripts/Campaign/EmbestidaRush.cs": "ba1ef63b0757b57a44b2e52e8dd1b26249ee916cedf1ceca4007f76c8ff63ada",
+    "Assets/_Game/Shaders/EmbestidaSurface.shader": "6d37b493c96ef612087e7ef34bdd7b6145f0f062ebae50235a2a2a662004f3ec"
+  }
+}

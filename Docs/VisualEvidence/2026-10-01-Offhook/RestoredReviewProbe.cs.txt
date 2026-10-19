@@ -1,0 +1,17 @@
+using UnityEngine;
+using UnityEditor;
+using System.IO;
+using EchoProtocol.Campaign;
+using EchoProtocol.Presentation;
+using EchoProtocol.Player;
+public static class OffhookRestoreCheck {
+ public static object Main(){
+ if(!Application.isPlaying)throw new System.Exception("Fresh Play required");
+ var h=Object.FindFirstObjectByType<HouseMemory>();var t=Object.FindFirstObjectByType<HouseTelephone>();var session=Object.FindFirstObjectByType<GameSession>();var player=Object.FindFirstObjectByType<FirstPersonController>();
+ var s=new SerializedObject(t);var handset=(Transform)s.FindProperty("handset").objectReferenceValue;var rest=(Transform)s.FindProperty("rest").objectReferenceValue;var contact=(AudioSource)s.FindProperty("contactAudio").objectReferenceValue;var hs=new SerializedObject(h);var ring=(AudioSource)hs.FindProperty("telephoneAudio").objectReferenceValue;
+ if(h.HasAnswered||t.IsOffHook)throw new System.Exception("Fresh state needed");session.BeginOrResume();h.RestoreAtReview(true,HousePowerLocation.Bedroom);
+ bool pass=h.HasAnswered&&h.HasKey&&h.HasExited&&!h.Active&&h.PowerLocation==HousePowerLocation.Bedroom&&!t.IsOffHook&&!t.IsMoving&&!ring.isPlaying&&!contact.isPlaying&&!t.CanUse(player.gameObject)&&Vector3.Distance(handset.position,rest.position)<.0001f;
+ var text="Fresh Play, one explicit public HouseMemory.RestoreAtReview fixture; no saved preferences changed.\nAnswered/key/exited state restored, house inactive, bedroom reserve, handset in cradle, no motion/ring/contact, no interaction: "+pass+"\nNo claim of full Continue UI traversal or a human playthrough.\n";
+ File.WriteAllText("Docs/VisualEvidence/2026-10-01-Offhook/restored-review.txt",text);session.SetPaused(true);if(!pass)throw new System.Exception(text);return text;
+ }
+}

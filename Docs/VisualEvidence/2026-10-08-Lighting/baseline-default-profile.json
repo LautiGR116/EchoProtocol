@@ -1,0 +1,924 @@
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "LiftGammaGain",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "lift": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            }
+        },
+        "gamma": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            }
+        },
+        "gain": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            }
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "ColorLookup",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "texture": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "instanceID": 0
+            },
+            "dimension": 1
+        },
+        "contribution": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "ScreenSpaceLensFlare",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "intensity": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "tintColor": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        "bloomMip": {
+            "m_OverrideState": true,
+            "m_Value": 1
+        },
+        "firstFlareIntensity": {
+            "m_OverrideState": true,
+            "m_Value": 1.0
+        },
+        "secondaryFlareIntensity": {
+            "m_OverrideState": true,
+            "m_Value": 1.0
+        },
+        "warpedFlareIntensity": {
+            "m_OverrideState": true,
+            "m_Value": 1.0
+        },
+        "warpedFlareScale": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "x": 1.0,
+                "y": 1.0
+            }
+        },
+        "samples": {
+            "m_OverrideState": true,
+            "m_Value": 1
+        },
+        "sampleDimmer": {
+            "m_OverrideState": true,
+            "m_Value": 0.5
+        },
+        "vignetteEffect": {
+            "m_OverrideState": true,
+            "m_Value": 1.0
+        },
+        "startingPosition": {
+            "m_OverrideState": true,
+            "m_Value": 1.25
+        },
+        "scale": {
+            "m_OverrideState": true,
+            "m_Value": 1.5
+        },
+        "streaksIntensity": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "streaksLength": {
+            "m_OverrideState": true,
+            "m_Value": 0.5
+        },
+        "streaksOrientation": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "streaksThreshold": {
+            "m_OverrideState": true,
+            "m_Value": 0.25
+        },
+        "resolution": {
+            "m_OverrideState": true,
+            "m_Value": 4
+        },
+        "chromaticAbberationIntensity": {
+            "m_OverrideState": true,
+            "m_Value": 0.5
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "ShadowsMidtonesHighlights",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "shadows": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            }
+        },
+        "midtones": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            }
+        },
+        "highlights": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0,
+                "w": 0.0
+            }
+        },
+        "shadowsStart": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "shadowsEnd": {
+            "m_OverrideState": true,
+            "m_Value": 0.30000001192092898
+        },
+        "highlightsStart": {
+            "m_OverrideState": true,
+            "m_Value": 0.550000011920929
+        },
+        "highlightsEnd": {
+            "m_OverrideState": true,
+            "m_Value": 1.0
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "WhiteBalance",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "temperature": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "tint": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "SplitToning",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "shadows": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "r": 0.5,
+                "g": 0.5,
+                "b": 0.5,
+                "a": 1.0
+            }
+        },
+        "highlights": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "r": 0.5,
+                "g": 0.5,
+                "b": 0.5,
+                "a": 1.0
+            }
+        },
+        "balance": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "Tonemapping",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "mode": {
+            "m_OverrideState": true,
+            "m_Value": 0
+        },
+        "neutralHDRRangeReductionMode": {
+            "m_OverrideState": true,
+            "m_Value": 2
+        },
+        "acesPreset": {
+            "m_OverrideState": true,
+            "m_Value": 3
+        },
+        "hueShiftAmount": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "detectPaperWhite": {
+            "m_OverrideState": true,
+            "m_Value": false
+        },
+        "paperWhite": {
+            "m_OverrideState": true,
+            "m_Value": 300.0
+        },
+        "detectBrightnessLimits": {
+            "m_OverrideState": true,
+            "m_Value": true
+        },
+        "minNits": {
+            "m_OverrideState": true,
+            "m_Value": 0.004999999888241291
+        },
+        "maxNits": {
+            "m_OverrideState": true,
+            "m_Value": 1000.0
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "Vignette",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "color": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "r": 0.0,
+                "g": 0.0,
+                "b": 0.0,
+                "a": 1.0
+            }
+        },
+        "center": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "intensity": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "smoothness": {
+            "m_OverrideState": true,
+            "m_Value": 0.20000000298023225
+        },
+        "rounded": {
+            "m_OverrideState": true,
+            "m_Value": false
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "ColorCurves",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "master": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "<length>k__BackingField": 2,
+                "m_Loop": false,
+                "m_ZeroValue": 0.0,
+                "m_Range": 1.0,
+                "m_Curve": {
+                    "serializedVersion": "2",
+                    "m_Curve": [
+                        {
+                            "serializedVersion": "3",
+                            "time": 0.0,
+                            "value": 0.0,
+                            "inSlope": 1.0,
+                            "outSlope": 1.0,
+                            "tangentMode": 0,
+                            "weightedMode": 0,
+                            "inWeight": 0.0,
+                            "outWeight": 0.0
+                        },
+                        {
+                            "serializedVersion": "3",
+                            "time": 1.0,
+                            "value": 1.0,
+                            "inSlope": 1.0,
+                            "outSlope": 1.0,
+                            "tangentMode": 0,
+                            "weightedMode": 0,
+                            "inWeight": 0.0,
+                            "outWeight": 0.0
+                        }
+                    ],
+                    "m_PreInfinity": 2,
+                    "m_PostInfinity": 2,
+                    "m_RotationOrder": 4
+                }
+            }
+        },
+        "red": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "<length>k__BackingField": 2,
+                "m_Loop": false,
+                "m_ZeroValue": 0.0,
+                "m_Range": 1.0,
+                "m_Curve": {
+                    "serializedVersion": "2",
+                    "m_Curve": [
+                        {
+                            "serializedVersion": "3",
+                            "time": 0.0,
+                            "value": 0.0,
+                            "inSlope": 1.0,
+                            "outSlope": 1.0,
+                            "tangentMode": 0,
+                            "weightedMode": 0,
+                            "inWeight": 0.0,
+                            "outWeight": 0.0
+                        },
+                        {
+                            "serializedVersion": "3",
+                            "time": 1.0,
+                            "value": 1.0,
+                            "inSlope": 1.0,
+                            "outSlope": 1.0,
+                            "tangentMode": 0,
+                            "weightedMode": 0,
+                            "inWeight": 0.0,
+                            "outWeight": 0.0
+                        }
+                    ],
+                    "m_PreInfinity": 2,
+                    "m_PostInfinity": 2,
+                    "m_RotationOrder": 4
+                }
+            }
+        },
+        "green": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "<length>k__BackingField": 2,
+                "m_Loop": false,
+                "m_ZeroValue": 0.0,
+                "m_Range": 1.0,
+                "m_Curve": {
+                    "serializedVersion": "2",
+                    "m_Curve": [
+                        {
+                            "serializedVersion": "3",
+                            "time": 0.0,
+                            "value": 0.0,
+                            "inSlope": 1.0,
+                            "outSlope": 1.0,
+                            "tangentMode": 0,
+                            "weightedMode": 0,
+                            "inWeight": 0.0,
+                            "outWeight": 0.0
+                        },
+                        {
+                            "serializedVersion": "3",
+                            "time": 1.0,
+                            "value": 1.0,
+                            "inSlope": 1.0,
+                            "outSlope": 1.0,
+                            "tangentMode": 0,
+                            "weightedMode": 0,
+                            "inWeight": 0.0,
+                            "outWeight": 0.0
+                        }
+                    ],
+                    "m_PreInfinity": 2,
+                    "m_PostInfinity": 2,
+                    "m_RotationOrder": 4
+                }
+            }
+        },
+        "blue": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "<length>k__BackingField": 2,
+                "m_Loop": false,
+                "m_ZeroValue": 0.0,
+                "m_Range": 1.0,
+                "m_Curve": {
+                    "serializedVersion": "2",
+                    "m_Curve": [
+                        {
+                            "serializedVersion": "3",
+                            "time": 0.0,
+                            "value": 0.0,
+                            "inSlope": 1.0,
+                            "outSlope": 1.0,
+                            "tangentMode": 0,
+                            "weightedMode": 0,
+                            "inWeight": 0.0,
+                            "outWeight": 0.0
+                        },
+                        {
+                            "serializedVersion": "3",
+                            "time": 1.0,
+                            "value": 1.0,
+                            "inSlope": 1.0,
+                            "outSlope": 1.0,
+                            "tangentMode": 0,
+                            "weightedMode": 0,
+                            "inWeight": 0.0,
+                            "outWeight": 0.0
+                        }
+                    ],
+                    "m_PreInfinity": 2,
+                    "m_PostInfinity": 2,
+                    "m_RotationOrder": 4
+                }
+            }
+        },
+        "hueVsHue": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "<length>k__BackingField": 0,
+                "m_Loop": true,
+                "m_ZeroValue": 0.5,
+                "m_Range": 1.0,
+                "m_Curve": {
+                    "serializedVersion": "2",
+                    "m_Curve": [],
+                    "m_PreInfinity": 2,
+                    "m_PostInfinity": 2,
+                    "m_RotationOrder": 4
+                }
+            }
+        },
+        "hueVsSat": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "<length>k__BackingField": 0,
+                "m_Loop": true,
+                "m_ZeroValue": 0.5,
+                "m_Range": 1.0,
+                "m_Curve": {
+                    "serializedVersion": "2",
+                    "m_Curve": [],
+                    "m_PreInfinity": 2,
+                    "m_PostInfinity": 2,
+                    "m_RotationOrder": 4
+                }
+            }
+        },
+        "satVsSat": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "<length>k__BackingField": 0,
+                "m_Loop": false,
+                "m_ZeroValue": 0.5,
+                "m_Range": 1.0,
+                "m_Curve": {
+                    "serializedVersion": "2",
+                    "m_Curve": [],
+                    "m_PreInfinity": 2,
+                    "m_PostInfinity": 2,
+                    "m_RotationOrder": 4
+                }
+            }
+        },
+        "lumVsSat": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "<length>k__BackingField": 0,
+                "m_Loop": false,
+                "m_ZeroValue": 0.5,
+                "m_Range": 1.0,
+                "m_Curve": {
+                    "serializedVersion": "2",
+                    "m_Curve": [],
+                    "m_PreInfinity": 2,
+                    "m_PostInfinity": 2,
+                    "m_RotationOrder": 4
+                }
+            }
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "ChannelMixer",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "redOutRedIn": {
+            "m_OverrideState": true,
+            "m_Value": 100.0
+        },
+        "redOutGreenIn": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "redOutBlueIn": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "greenOutRedIn": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "greenOutGreenIn": {
+            "m_OverrideState": true,
+            "m_Value": 100.0
+        },
+        "greenOutBlueIn": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "blueOutRedIn": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "blueOutGreenIn": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "blueOutBlueIn": {
+            "m_OverrideState": true,
+            "m_Value": 100.0
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "ColorAdjustments",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "postExposure": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "contrast": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "colorFilter": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        "hueShift": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "saturation": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "Bloom",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "skipIterations": {
+            "m_OverrideState": true,
+            "m_Value": 1
+        },
+        "threshold": {
+            "m_OverrideState": true,
+            "m_Value": 0.8999999761581421
+        },
+        "intensity": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "scatter": {
+            "m_OverrideState": true,
+            "m_Value": 0.699999988079071
+        },
+        "clamp": {
+            "m_OverrideState": true,
+            "m_Value": 65472.0
+        },
+        "tint": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        "highQualityFiltering": {
+            "m_OverrideState": true,
+            "m_Value": false
+        },
+        "filter": {
+            "m_OverrideState": true,
+            "m_Value": 0
+        },
+        "downscale": {
+            "m_OverrideState": true,
+            "m_Value": 0
+        },
+        "maxIterations": {
+            "m_OverrideState": true,
+            "m_Value": 6
+        },
+        "dirtTexture": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "instanceID": 0
+            },
+            "dimension": 1
+        },
+        "dirtIntensity": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "DepthOfField",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "mode": {
+            "m_OverrideState": true,
+            "m_Value": 0
+        },
+        "gaussianStart": {
+            "m_OverrideState": true,
+            "m_Value": 10.0
+        },
+        "gaussianEnd": {
+            "m_OverrideState": true,
+            "m_Value": 30.0
+        },
+        "gaussianMaxRadius": {
+            "m_OverrideState": true,
+            "m_Value": 1.0
+        },
+        "highQualitySampling": {
+            "m_OverrideState": true,
+            "m_Value": false
+        },
+        "focusDistance": {
+            "m_OverrideState": true,
+            "m_Value": 10.0
+        },
+        "aperture": {
+            "m_OverrideState": true,
+            "m_Value": 5.599999904632568
+        },
+        "focalLength": {
+            "m_OverrideState": true,
+            "m_Value": 50.0
+        },
+        "bladeCount": {
+            "m_OverrideState": true,
+            "m_Value": 5
+        },
+        "bladeCurvature": {
+            "m_OverrideState": true,
+            "m_Value": 1.0
+        },
+        "bladeRotation": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "MotionBlur",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "mode": {
+            "m_OverrideState": true,
+            "m_Value": 0
+        },
+        "quality": {
+            "m_OverrideState": true,
+            "m_Value": 0
+        },
+        "intensity": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "clamp": {
+            "m_OverrideState": true,
+            "m_Value": 0.05000000074505806
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "ChromaticAberration",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "intensity": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "PaniniProjection",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "distance": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "cropToFit": {
+            "m_OverrideState": true,
+            "m_Value": 1.0
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "FilmGrain",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "type": {
+            "m_OverrideState": true,
+            "m_Value": 0
+        },
+        "intensity": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "response": {
+            "m_OverrideState": true,
+            "m_Value": 0.800000011920929
+        },
+        "texture": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "instanceID": 0
+            }
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "LensDistortion",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "intensity": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "xMultiplier": {
+            "m_OverrideState": true,
+            "m_Value": 1.0
+        },
+        "yMultiplier": {
+            "m_OverrideState": true,
+            "m_Value": 1.0
+        },
+        "center": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "scale": {
+            "m_OverrideState": true,
+            "m_Value": 1.0
+        }
+    }
+}
+{
+    "MonoBehaviour": {
+        "m_Enabled": true,
+        "m_EditorHideFlags": 0,
+        "m_Name": "ProbeVolumesOptions",
+        "m_EditorClassIdentifier": "",
+        "active": true,
+        "normalBias": {
+            "m_OverrideState": true,
+            "m_Value": 0.33000001311302187
+        },
+        "viewBias": {
+            "m_OverrideState": true,
+            "m_Value": 0.0
+        },
+        "scaleBiasWithMinProbeDistance": {
+            "m_OverrideState": true,
+            "m_Value": false
+        },
+        "samplingNoise": {
+            "m_OverrideState": true,
+            "m_Value": 0.10000000149011612
+        },
+        "animateSamplingNoise": {
+            "m_OverrideState": true,
+            "m_Value": true
+        },
+        "leakReductionMode": {
+            "m_OverrideState": true,
+            "m_Value": 1
+        },
+        "minValidDotProductValue": {
+            "m_OverrideState": true,
+            "m_Value": 0.10000000149011612
+        },
+        "occlusionOnlyReflectionNormalization": {
+            "m_OverrideState": true,
+            "m_Value": true
+        },
+        "intensityMultiplier": {
+            "m_OverrideState": true,
+            "m_Value": 1.0
+        },
+        "skyOcclusionIntensityMultiplier": {
+            "m_OverrideState": true,
+            "m_Value": 1.0
+        },
+        "worldOffset": {
+            "m_OverrideState": true,
+            "m_Value": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        }
+    }
+}

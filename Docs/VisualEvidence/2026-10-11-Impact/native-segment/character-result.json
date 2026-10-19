@@ -1,0 +1,14 @@
+{
+    "status": "PASS",
+    "scope": "Instrumented route; frame cadence includes video capture and reference work. Character matrix and pause checks are objective; human naturalness/fear are unapproved.",
+    "checkedFrames": 5664,
+    "pausedFrames": 206,
+    "pauses": 2,
+    "videoFrames": 0,
+    "comparisons": 0,
+    "maxPosition": 0.000003821399786829716,
+    "maxAngle": 0.0,
+    "pauseDrift": 0.0,
+    "frameMean": 7.48462438583374,
+    "frameP95": 31.309749603271486
+}

@@ -1,0 +1,1 @@
+PASS19 proves geometry/state, but camera inspection showed the intended printed material did not survive Awake. DiegeticText replaced it with its serialized OneSidedText shader. Subsequent authoring corrects that explicit shader reference; a new runtime assertion and final focal view verify the actual material. No claim of selected lit ink in this trial.

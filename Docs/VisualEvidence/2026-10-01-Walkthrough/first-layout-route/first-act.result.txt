@@ -1,0 +1,3 @@
+FAIL SE2_south_refuge: System.Exception: Physical route blocked at (2.29, 0.03, 27.44) toward 2.3,27.2
+  at ThresholdCampaignProbe+<Go>d__170.MoveNext () [0x00077] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:1174 
+  at ThresholdCampaignProbe+<Guarded>d__129.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:111 

@@ -1,0 +1,15 @@
+PASS fresh baseline sealed
+PASS P2 Player preview
+PASS real R completed once
+PASS domestic checkpoint unchanged
+PASS truthful Echo holds P2
+PASS outbound route remains original wall
+PASS baseline west wall blocks access
+PASS SE2 completed through actual visible reading
+PASS valid SE3 return opens hub once
+PASS observation glass blocks Player
+PASS two-way access remains open without retrigger
+PASS real R completed once
+PASS domestic checkpoint unchanged
+PASS completed R preserves hub SE3 SE2
+PASS P2 closes after R without reader hold; no hub bypass

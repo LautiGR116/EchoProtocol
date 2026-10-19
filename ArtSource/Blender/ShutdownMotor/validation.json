@@ -1,0 +1,328 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "exact separate static and rotor meshes",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "ShutdownMotorStatic finite vertices/normals",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "ShutdownMotorStatic finite UVs",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "ShutdownMotorStatic valid material assignments",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "ShutdownMotorStatic finite material values",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "ShutdownMotorStatic triangles/pivot roundtrip",
+      "pass": true,
+      "details": {
+        "triangles": 16824,
+        "pivot": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "name": "ShutdownRotor finite vertices/normals",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "ShutdownRotor finite UVs",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "ShutdownRotor valid material assignments",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "ShutdownRotor finite material values",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "ShutdownRotor triangles/pivot roundtrip",
+      "pass": true,
+      "details": {
+        "triangles": 952,
+        "pivot": [
+          -0.6819999814033508,
+          8.71625616127858e-08,
+          0.5350000262260437
+        ]
+      }
+    },
+    {
+      "name": "manifest bounds roundtrip",
+      "pass": true,
+      "details": [
+        [
+          -0.7599999904632568,
+          0.7900000214576721
+        ],
+        [
+          -0.4000000059604645,
+          0.40000003576278687
+        ],
+        [
+          -6.321322132407659e-08,
+          1.0099999904632568
+        ]
+      ]
+    },
+    {
+      "name": "same original external envelope",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "total triangles <= 20000",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "anchor MotorSkid__ROOT",
+      "pass": true,
+      "details": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "anchor MotorSkid__AXIS_X",
+      "pass": true,
+      "details": [
+        0.10000000149011612,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "anchor MotorSkid__AXIS_Y",
+      "pass": true,
+      "details": [
+        0.0,
+        0.10000000149011612,
+        -1.6292068139023286e-08
+      ]
+    },
+    {
+      "name": "anchor MotorSkid__AXIS_Z",
+      "pass": true,
+      "details": [
+        0.0,
+        1.6292068139023286e-08,
+        0.10000000149011612
+      ]
+    },
+    {
+      "name": "anchor MotorSkid__ROTOR_PIVOT",
+      "pass": true,
+      "details": [
+        -0.6819999814033508,
+        8.71625616127858e-08,
+        0.5350000262260437
+      ]
+    },
+    {
+      "name": "anchor MotorSkid__ROTOR_AXIS_POS",
+      "pass": true,
+      "details": [
+        -0.5820000171661377,
+        8.71625616127858e-08,
+        0.5350000262260437
+      ]
+    },
+    {
+      "name": "anchor MotorSkid__ROTOR_REFERENCE",
+      "pass": true,
+      "details": [
+        -0.6819999814033508,
+        0.16000008583068848,
+        0.5350000262260437
+      ]
+    },
+    {
+      "name": "anchor MotorSkid__AXIAL_INLET",
+      "pass": true,
+      "details": [
+        0.7900000214576721,
+        8.71625616127858e-08,
+        0.5350000262260437
+      ]
+    },
+    {
+      "name": "anchor MotorSkid__UPPER_DISCHARGE",
+      "pass": true,
+      "details": [
+        0.4099999964237213,
+        1.6454987417091615e-07,
+        1.0099999904632568
+      ]
+    },
+    {
+      "name": "wheel fits actual cavity",
+      "pass": true,
+      "details": [
+        [
+          -0.6985000371932983,
+          -0.6790000200271606
+        ],
+        [
+          -0.15999990701675415,
+          0.16000008583068848
+        ],
+        [
+          0.375,
+          0.6949999928474426
+        ]
+      ]
+    },
+    {
+      "name": "rotor closed surface / no wire edges",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "open guard gap ray 0.1000 0.5515",
+      "pass": true,
+      "details": [
+        0.41769630251497525,
+        "ShutdownRotor",
+        [
+          -0.6823037266731262,
+          0.10000000149011612,
+          0.5515000224113464
+        ]
+      ]
+    },
+    {
+      "name": "open guard gap ray -0.1000 0.5515",
+      "pass": true,
+      "details": [
+        0.41500001611479764,
+        "ShutdownRotor",
+        [
+          -0.6850000023841858,
+          -0.10000000149011612,
+          0.5515000224113464
+        ]
+      ]
+    },
+    {
+      "name": "open guard gap ray 0.0800 0.4855",
+      "pass": true,
+      "details": [
+        0.4154460392627155,
+        "ShutdownRotor",
+        [
+          -0.6845539808273315,
+          0.07999999821186066,
+          0.4855000078678131
+        ]
+      ]
+    },
+    {
+      "name": "open guard gap ray 0.0800 0.6175",
+      "pass": true,
+      "details": [
+        0.4186860284763779,
+        "ShutdownRotor",
+        [
+          -0.6813139915466309,
+          0.07999999821186066,
+          0.6175000071525574
+        ]
+      ]
+    },
+    {
+      "name": "fixed guard / hood ray 0.1000 0.5350",
+      "pass": true,
+      "details": [
+        0.3710000572384484,
+        "ShutdownMotorStatic",
+        [
+          -0.7289999723434448,
+          0.10000000149011612,
+          0.5350000262260437
+        ]
+      ]
+    },
+    {
+      "name": "fixed guard / hood ray 0.2180 0.5350",
+      "pass": true,
+      "details": [
+        0.37458563800027816,
+        "ShutdownMotorStatic",
+        [
+          -0.7254143953323364,
+          0.21799999475479126,
+          0.5350000262260437
+        ]
+      ]
+    },
+    {
+      "name": "rotated wheel remains exposed 0.1000 0.5515",
+      "pass": true,
+      "details": [
+        0.4150000161148019,
+        "ShutdownRotor",
+        [
+          -0.6850000023841858,
+          0.10000000149011612,
+          0.5514999628067017
+        ]
+      ]
+    },
+    {
+      "name": "rotated wheel remains exposed -0.1000 0.5515",
+      "pass": true,
+      "details": [
+        0.4171085954549223,
+        "ShutdownRotor",
+        [
+          -0.6828914284706116,
+          -0.09999998658895493,
+          0.5514999628067017
+        ]
+      ]
+    },
+    {
+      "name": "rotated wheel stays in envelope",
+      "pass": true,
+      "details": null
+    },
+    {
+      "name": "original construction outside rear cavity unchanged",
+      "pass": true,
+      "details": {
+        "original_unique_points": 7296,
+        "new_unique_points": 7296,
+        "missing": 0,
+        "added": 0
+      }
+    }
+  ],
+  "count": 35,
+  "fbx_sha256": "0203340677c0a89d72b20359ed2f4e2ff6a476a5b61a1e89ac94b8c2bb3c874d",
+  "scope": "Blender FBX roundtrip/geometry only; no Unity, rendered motion, audio or human playtest."
+}

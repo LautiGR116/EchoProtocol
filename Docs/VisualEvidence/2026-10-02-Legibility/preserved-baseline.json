@@ -1,0 +1,10 @@
+{
+  "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Candidate.unity",
+  "sceneSHA256": "db7313ee3cae7b5756fe7731fea9515539834d000b0df17f3556140107b0f3ee",
+  "sceneMatchesVerifiedSourceBackup": true,
+  "build": "Builds/EchoProtocol-Candidate-20261001.zip",
+  "buildBytes": 82721922,
+  "buildSHA256": "33b4954901154261f9fb76ddd3ab79d9f5760516384797c79161e6d6bfa221e1",
+  "buildUnchanged": true,
+  "baselineScope": "Fresh Candidate P1 input images in before/; interrupted at P3 by unexpected focus pause. Existing Candidate continuous Hub/final cameras remain valid source references because the original scene hash matches the verified checkpoint."
+}

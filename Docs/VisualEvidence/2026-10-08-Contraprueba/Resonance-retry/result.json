@@ -1,0 +1,32 @@
+{
+  "status": "FAIL",
+  "error": "unexpected real pause; no hidden resumption",
+  "phase": "R while holding return",
+  "mode": "retry",
+  "speakerReduced": false,
+  "fixtureCount": 1,
+  "scope": "Input System actual WASD/mouse/E/R/H. P3/retry declare one initial R1 prior-state/pose fixture; other modes start at the real title without placements. The named mode and checks define coverage; captures use the actual Player camera. Saves are suppressed. Not human comprehension, comfort, listening or fear evidence.",
+  "takeCount": 4,
+  "checks": [
+    "fresh real title",
+    "Enter starts controls",
+    "initial fixture restores prior lighting",
+    "real focus reaches R1 Central observation station",
+    "real E activates chapter origin and return circuit",
+    "one real R creates one take",
+    "real focus reaches P3 receiver A",
+    "real focus reaches P3 receiver B",
+    "a past B cannot be confirmed after its short window",
+    "one real R creates one take",
+    "R after A restores circuit, light and blind",
+    "one real R creates one take",
+    "real focus reaches P3 receiver A",
+    "real focus reaches P3 receiver B",
+    "B alone leaves a real solid exit door",
+    "A B without a return never fabricates the third presence or exit",
+    "H opens real notes after the failed plan",
+    "deliberate hint explains the actual return and held control",
+    "one real R creates one take",
+    "R after B restores all receiving and physical atmosphere state"
+  ]
+}

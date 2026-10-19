@@ -1,0 +1,9 @@
+{
+  "buildId": "build_12e60a723f7b",
+  "result": "Succeeded",
+  "totalSizeBytes": 198119837,
+  "buildTimeMs": 16197,
+  "totalWarnings": 347,
+  "totalErrors": 0,
+  "note": "One extra warning: uncompiled Editor-only comment/report changes were present. Recompiling before selected build; runtime scene/assets and gameplay scripts had passed the full route."
+}

@@ -1,0 +1,78 @@
+using System;using System.Linq;using System.IO;using System.Collections.Generic;using UnityEngine;using UnityEngine.Rendering;using UnityEngine.Rendering.Universal;using UnityEditor;using UnityEditor.SceneManagement;using EchoProtocol.Campaign;using EchoProtocol.Presentation;using Object=UnityEngine.Object;
+public static class LightingProduction
+{
+ const string Scene="Assets/_Game/Scenes/Production/EchoProtocol_Lighting.unity",Art="Assets/_Game/Art/Lighting";
+ static Transform root;static Material steel,opal;static readonly List<Light> added=new List<Light>();static readonly List<string> changes=new List<string>();
+ static Light[] AllLights()=>Object.FindObjectsByType<Light>(FindObjectsInactive.Include,FindObjectsSortMode.None);
+ static void Require(bool condition,string error){if(!condition)throw new Exception(error);}
+ static void Ref(Object owner,string field,Object value){var s=new SerializedObject(owner);s.FindProperty(field).objectReferenceValue=value;s.ApplyModifiedPropertiesWithoutUndo();}
+ static void Number(Object owner,string field,float value){var s=new SerializedObject(owner);s.FindProperty(field).floatValue=value;s.ApplyModifiedPropertiesWithoutUndo();}
+ static Light Source(string name,Vector3 p,Color color,float intensity,float range,Vector3? aim=null,float angle=110)
+ {var g=new GameObject(name);g.transform.SetParent(root);g.transform.position=p;var l=g.AddComponent<Light>();l.type=aim.HasValue?LightType.Spot:LightType.Point;l.color=color;l.intensity=intensity;l.range=range;if(aim.HasValue){g.transform.LookAt(aim.Value);l.spotAngle=angle;l.innerSpotAngle=angle*.65f;}l.shadows=LightShadows.Soft;l.shadowBias=.012f;l.shadowNormalBias=.07f;l.shadowCustomResolution=256;added.Add(l);changes.Add(name+" "+p+" I="+intensity+" R="+range);return l;}
+ static GameObject Box(string name,Vector3 p,Vector3 size,Material m,Quaternion rotation)
+ {var g=GameObject.CreatePrimitive(PrimitiveType.Cube);g.name=name;g.transform.SetParent(root);g.transform.SetPositionAndRotation(p,rotation);g.transform.localScale=size;g.GetComponent<Renderer>().sharedMaterial=m;Object.DestroyImmediate(g.GetComponent<Collider>());return g;}
+ static Light Reserve(string name,Vector3 p,Vector3 normal,Color color,float level,float range,Vector3? aim=null)
+ {var q=Quaternion.LookRotation(normal);Box(name+" / enclosure",p,new Vector3(.16f,.22f,.055f),steel,q);Box(name+" / recessed diffuser",p+normal*.031f,new Vector3(.095f,.135f,.008f),opal,q);Box(name+" / hood",p+Vector3.up*.12f+normal*.05f,new Vector3(.20f,.035f,.15f),steel,q);return Source(name+" / reserve light",p+normal*.07f,color,level,range,aim);}
+ static void Tune(string name,float multiplier,float rangeMultiplier=1){foreach(var l in AllLights().Where(l=>l.name==name&&l.gameObject.activeInHierarchy)){l.intensity*=multiplier;l.range*=rangeMultiplier;changes.Add("Tune "+name+" "+l.transform.position+" I="+l.intensity+" R="+l.range);}}
+ static void Append(Object owner,string field,IEnumerable<Light> lights){var s=new SerializedObject(owner);var a=s.FindProperty(field);var list=lights.ToArray();int n=a.arraySize;a.arraySize+=list.Length;for(int i=0;i<list.Length;i++)a.GetArrayElementAtIndex(n+i).objectReferenceValue=list[i];s.ApplyModifiedPropertiesWithoutUndo();}
+ public static object Main()
+ {
+  Require(!EditorApplication.isPlaying&&UnityEngine.SceneManagement.SceneManager.GetActiveScene().path==Scene,"Lighting Edit scene required");Require(!GameObject.Find("Lighting / maintained route and indirect light"),"Preserve existing authored pass");
+  var contracts=Object.FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include,FindObjectsSortMode.None).Where(c=>c&&!(c is LightShadowBudget)).ToDictionary(c=>c,EditorJsonUtility.ToJson);
+  int colliders=Object.FindObjectsByType<Collider>(FindObjectsInactive.Include,FindObjectsSortMode.None).Length;
+  Directory.CreateDirectory(Art);AssetDatabase.Refresh();root=new GameObject("Lighting / maintained route and indirect light").transform;added.Clear();changes.Clear();
+  steel=new Material(Shader.Find("Universal Render Pipeline/Lit"));steel.name="M_MaintainedEnamel";steel.SetColor("_BaseColor",new Color(.31f,.36f,.33f));steel.SetFloat("_Smoothness",.24f);AssetDatabase.CreateAsset(steel,Art+"/"+steel.name+".mat");
+  opal=new Material(Shader.Find("Universal Render Pipeline/Lit"));opal.name="M_ShieldedReserveOpal";opal.SetColor("_BaseColor",new Color(.66f,.77f,.68f));opal.EnableKeyword("_EMISSION");opal.SetColor("_EmissionColor",new Color(.20f,.29f,.22f));AssetDatabase.CreateAsset(opal,Art+"/"+opal.name+".mat");
+  Color reserve=new Color(.66f,.78f,.71f),sky=new Color(.58f,.68f,.79f),warm=new Color(.87f,.80f,.64f);
+  // First act: work-circuit indirect reflection follows the same authored outage.
+  foreach(var n in new[]{"Panel Light - Cold Ceiling Panel Lane 2","Panel Light - Cold Ceiling Panel Lane 3","Panel Light - Service Ceiling Panel 2","Panel Light - Service Ceiling Panel 3"})
+  {var circuit=AllLights().Single(l=>l.name==n);var p=circuit.transform.position+Vector3.down*.4f;var bounce=Source("Protocol / circuit ceiling reflection",p,circuit.color,1.25f,4.1f);var link=bounce.gameObject.AddComponent<LinkedTaskLight>();Ref(link,"circuitSource",circuit);Ref(link,"taskLight",bounce);Number(link,"sourceNominalIntensity",circuit.intensity);Number(link,"taskIntensity",1.25f);}
+  // Maintained low fittings reveal travel planes while upper lamps can still fail.
+  foreach(float z in new[]{.6f,6.8f,12.8f,17.3f})foreach(int side in new[]{-1,1}){float x=side<0?-3.90f:3.86f;var p=new Vector3(x,.58f,z);Reserve("Protocol / independent edge "+side+" / "+z,p,Vector3.right*-side,reserve,2.0f,3.8f,new Vector3(side<0?-2.55f:2.50f,.1f,z+1));}
+  // P2/SE2 are already lit. Restrained reflected light at crossings and refuge.
+  Source("SE2 / south refuge wall return",new Vector3(2.65f,1.65f,25.15f),warm,1.1f,3.0f);
+  Source("SE2 / north access reflected service light",new Vector3(4.85f,1.8f,32.4f),reserve,.9f,2.8f);
+  // Recovery and known route: indirect light, preserving the warm distant residue.
+  Tune("Recovery ceiling indirect return",1.25f);Tune("R1 fixture diffuse ceiling return",1.15f);
+  // Contraprueba maintained fittings stay outside both switched clinical/return arrays.
+  Reserve("P3 / maintained south service marker",new Vector3(-15.72f,.86f,36.5f),Vector3.right,warm,3.0f,4.2f,new Vector3(-14.2f,.35f,36.5f));
+  Reserve("P3 / maintained north service marker",new Vector3(-15.72f,.86f,40.4f),Vector3.right,warm,3.0f,4.2f,new Vector3(-14.2f,.35f,40.4f));
+  Source("P3 / reserve reflected lower plaster south",new Vector3(-14.75f,1.18f,36.8f),warm,1.5f,3.8f);
+  Source("P3 / reserve reflected lower plaster north",new Vector3(-14.75f,1.18f,40.4f),warm,1.5f,3.8f);
+  Source("P3 / returned alcove wall reflection",new Vector3(-6.3f,1.3f,35.65f),warm,1.25f,3.2f);
+  Tune("Low return pool",1.35f,1.12f);
+  // Archive shelves: bouncing fluorescent light reveals aisle ends and door leaves.
+  foreach(float z in new[]{29.3f,23.0f,17.6f})Source("Records / fixture reflected aisle "+z,new Vector3(-20.10f,1.8f,z),reserve,1.0f,3.8f);
+  // Oblique arrival and descent receive light from retained local practicals.
+  Source("Return / vestibule ceiling reflection",new Vector3(-4.45f,1.85f,-8.9f),reserve,1.1f,3.4f);
+  foreach(float z in new[]{-16f,-23.7f})Reserve("Descent / retained service edge "+z,new Vector3(.88f,.55f,z),Vector3.left,reserve,2.1f,4.2f,new Vector3(0,.08f,z-1));
+  // Isolated machinery keeps its work-light blackout and readable reserve path.
+  Tune("Isolation retained floor light",1.65f,1.15f);Tune("Isolation reserve instrument light",1.7f,1.2f);
+  Source("Pressure / maintained cabinet reflection",new Vector3(4.65f,1.15f,-36.55f),reserve,1.1f,3.1f);
+  Source("Pressure / maintained aisle reflection",new Vector3(4.6f,1.15f,-41.8f),reserve,1.25f,3.6f);
+  Reserve("Pressure / maintained exit frame",new Vector3(.90f,1.95f,-47.65f),Vector3.forward,reserve,2.0f,4.0f,new Vector3(0,.35f,-46.3f));
+  // House: real window light and reflected returns; reserve electrical ownership unchanged.
+  Tune("Courtyard reflected spill",1.6f,1.05f);Tune("Courtyard diffuse bounce at open return",3.0f,1.05f);Tune("Hall residual from service",3.1f,1.0f);
+  Source("House / parlor window reflected tabletop",new Vector3(-4.25f,1.45f,-52.1f),sky,1.4f,3.6f);
+  Source("House / bedroom window reflected wall",new Vector3(3.90f,1.85f,-51.95f),sky,1.65f,4.4f);
+  Source("House / window return at hall dock",new Vector3(.10f,1.45f,-50.65f),sky,.95f,2.9f);
+  Source("House / reflected kitchen threshold",new Vector3(-1.60f,1.6f,-58.20f),sky,.9f,3.5f);
+  // Separate retained service circuit, already an explicit exception to removed mains.
+  Reserve("House / retained rear service fitting",new Vector3(.82f,2.20f,-60.8f),Vector3.left,sky,1.8f,4.8f,new Vector3(0,.3f,-58.5f));
+  // Open courtyard night contribution; no exposure jump and no new powered house lamp.
+  Tune("Courtyard western sky contribution",1.5f);Tune("Courtyard southern sky contribution",1.7f);
+  Source("Courtyard / open south sky reflection",new Vector3(-.5f,2.6f,-63.5f),sky,2.0f,4.7f);
+  Source("Courtyard / open southwest sky reflection",new Vector3(-6.65f,2.8f,-61.15f),sky,2.4f,5.2f);
+  // 6B: keep face practicals and light the side approach, review desk and departure.
+  Source("6B / lateral practical wall return",new Vector3(-11.55f,1.65f,-48.9f),reserve,1.4f,3.8f);
+  Source("6B / interior practical wall return",new Vector3(-11.50f,1.65f,-54.2f),reserve,1.25f,3.3f);
+  Source("6B / porter task reflected desk",new Vector3(-15.75f,1.5f,-55.1f),warm,1.2f,3.3f);
+  Tune("Departure residual",1.6f,1.15f);
+  // All new sources are shadow-budgeted; enclosed house/courtyard sources retain real partition shadows.
+  var budget=Object.FindFirstObjectByType<LightShadowBudget>();Append(budget,"lights",added);Append(budget,"residenceLights",added.Where(l=>l.transform.position.z< -48&&l.transform.position.z> -65));
+  foreach(var l in added){var s=new SerializedObject(l.GetUniversalAdditionalLightData());s.FindProperty("m_AdditionalLightsShadowResolutionTier").intValue=0;s.ApplyModifiedPropertiesWithoutUndo();}
+  Require(Object.FindObjectsByType<Collider>(FindObjectsInactive.Include,FindObjectsSortMode.None).Length==colliders,"Lighting added collision");foreach(var entry in contracts)Require(EditorJsonUtility.ToJson(entry.Key)==entry.Value,"Lighting changed runtime contract: "+entry.Key.name);
+  EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());AssetDatabase.SaveAssets();EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+  File.WriteAllLines("Docs/VisualEvidence/2026-10-08-Lighting/authored-pass-1.txt",changes);return new{addedLights=added.Count,collidersPreserved=colliders,existingContractsPreserved=contracts.Count,exposure="unchanged; no global gain or animated exposure"};
+ }
+}

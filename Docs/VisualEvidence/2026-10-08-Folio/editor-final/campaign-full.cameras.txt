@@ -1,0 +1,23 @@
+Actual Player camera; Camera captures omit OnGUI, Game captures include it.
+campaign-00-title position=(0.000, 1.600, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title
+campaign-notes-initial position=(0.000, 1.630, -9.600) euler=(0.00, 0.00, 0.00) FOV=60 paused=True step=title/session_notes_initial
+campaign-orientation-P1-entry position=(-2.705, 1.630, -5.375) euler=(0.00, 0.00, 0.00) FOV=60 paused=False step=P1_record
+campaign-orientation-P1-A-arrival position=(-2.705, 1.630, 1.321) euler=(0.00, 0.00, 0.00) FOV=60 paused=False step=P1_record
+campaign-orientation-P1-A-preview position=(-2.705, 1.630, 2.982) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=P1_record
+campaign-01-P1 position=(3.296, 1.630, 9.924) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=P1_cooperate
+campaign-pause-SE1_empty_lane position=(3.296, 1.630, 9.924) euler=(0.00, 306.00, 0.00) FOV=60 paused=True step=SE1_empty_lane/keyboard_pause
+campaign-02-SE1 position=(3.296, 1.630, 9.924) euler=(0.00, 306.00, 0.00) FOV=60 paused=False step=SE1_consequence
+campaign-reader-P2-aligned position=(-2.698, 1.630, 22.970) euler=(10.54, 86.35, 0.00) FOV=60 paused=False step=P2_record
+campaign-notes-P2 position=(-2.698, 1.630, 22.970) euler=(10.54, 86.35, 0.00) FOV=60 paused=True step=P2_record/session_notes_P2
+campaign-SE2-approach-openings position=(0.512, 1.630, 29.053) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=SE2_physical_approach
+campaign-SE2-cold-approach position=(2.217, 1.630, 29.053) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=SE2_physical_approach
+campaign-notes-passage position=(2.217, 1.630, 29.053) euler=(0.00, 90.00, 0.00) FOV=60 paused=True step=SE2_physical_approach/session_notes_passage
+campaign-SE2-concealed-entry position=(2.977, 1.630, 25.670) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=SE2_south_refuge
+campaign-pause-SE2_south_refuge position=(2.977, 1.630, 25.670) euler=(0.00, 180.00, 0.00) FOV=60 paused=True step=SE2_south_refuge/keyboard_pause
+campaign-SE2-domestic-entry position=(4.841, 1.630, 28.629) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=SE2_south_refuge
+campaign-SE2-inside-room position=(6.424, 1.630, 28.842) euler=(0.00, 90.00, 0.00) FOV=60 paused=False step=SE2_south_refuge
+campaign-03-SE2 position=(2.344, 1.630, 29.180) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=SE2_physical_return
+campaign-SE3-entry position=(-2.695, 1.630, 28.926) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=SE3_return
+campaign-SE3-codo position=(-2.695, 1.630, 27.033) euler=(0.00, 180.00, 0.00) FOV=60 paused=False step=SE3_return
+campaign-04-R1 position=(-5.642, 1.630, 27.735) euler=(4.87, 291.30, 0.00) FOV=60 paused=False step=R1_anchor
+campaign-notes-P3 position=(-5.642, 1.630, 27.735) euler=(4.87, 291.30, 0.00) FOV=60 paused=True step=P3_record/session_notes_P3

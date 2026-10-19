@@ -1,0 +1,7 @@
+One explicit initial chapter/lighting/pose fixture; synthetic physical input thereafter. No whole campaign, human perception/listening or performance claim.
+PASS authored Shutdown successor selected
+PASS sole initial fixture restores completed first-act lighting
+PASS real physical entry activates isolation and its chapter
+FAIL System.Exception: Mouse failed to face target
+  at ShutdownPresentationProbe+<Face>d__40.MoveNext () [0x0006c] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ShutdownPresentationProbe.cs:80 
+  at ShutdownPresentationProbe+<Guarded>d__34.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ShutdownPresentationProbe.cs:36 

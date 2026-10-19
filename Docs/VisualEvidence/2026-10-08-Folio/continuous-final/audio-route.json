@@ -1,0 +1,8437 @@
+{
+  "status": "FAIL P1_record: Unexpected pause. No auto-resume was performed; keep the Game view focused and rerun from a fresh title.",
+  "rate": 48000,
+  "channels": 2,
+  "dropped": 0,
+  "shapeMismatch": 0,
+  "bufferStarved": 0,
+  "captureBufferBlocks": 512,
+  "writerJoined": true,
+  "error": null,
+  "sampleCount": 1368064,
+  "seconds": 14.250666666666667,
+  "scope": "Actual post-SessionAudio listener callback during declared route. No source soloing, gain normalization, camera placement or hidden resume. OS/hardware gain and subjective listening not established.",
+  "frameCount": 2550,
+  "meanMs": 4.741305,
+  "p95Ms": 7.344501,
+  "states": [
+    {
+      "seconds": 0.021333333333333333,
+      "gameTime": 0.0,
+      "step": "title",
+      "paused": true,
+      "started": false,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.6,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 0.27733333333333332,
+      "gameTime": 0.0,
+      "step": "title",
+      "paused": true,
+      "started": false,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.6,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 0.384,
+      "gameTime": 0.02710012,
+      "step": "title",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.6,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 0.59733333333333338,
+      "gameTime": 0.22550109,
+      "step": "title/session_notes_initial",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.62999988,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7265.74658,
+          "plays": 1,
+          "sample": 9216,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 0.66133333333333333,
+      "gameTime": 0.287622243,
+      "step": "title/session_notes_initial",
+      "paused": true,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.62999988,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": false,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7265.74658,
+          "plays": 1,
+          "sample": 12288,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 0.96,
+      "gameTime": 0.287622243,
+      "step": "title/session_notes_initial",
+      "paused": true,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.62999988,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": false,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7265.74658,
+          "plays": 1,
+          "sample": 12288,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 1.216,
+      "gameTime": 0.287622243,
+      "step": "title/session_notes_initial",
+      "paused": true,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.62999988,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": false,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7265.74658,
+          "plays": 1,
+          "sample": 12288,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 1.472,
+      "gameTime": 0.287622243,
+      "step": "title/session_notes_initial",
+      "paused": true,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.62999988,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": false,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7265.74658,
+          "plays": 1,
+          "sample": 12288,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 1.5573333333333332,
+      "gameTime": 0.287622243,
+      "step": "title/session_notes_initial",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.62999988,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7265.74658,
+          "plays": 1,
+          "sample": 12288,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 1.8133333333333332,
+      "gameTime": 0.5419055,
+      "step": "title/session_notes_initial",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.62999988,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7265.74658,
+          "plays": 1,
+          "sample": 24576,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 1.856,
+      "gameTime": 0.57411,
+      "step": "title/session_notes_initial",
+      "paused": true,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.62999988,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": false,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7265.74658,
+          "plays": 1,
+          "sample": 26624,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 2.112,
+      "gameTime": 0.57411,
+      "step": "title/session_notes_initial",
+      "paused": true,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.62999988,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": false,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7265.74658,
+          "plays": 1,
+          "sample": 26624,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 2.368,
+      "gameTime": 0.57411,
+      "step": "title/session_notes_initial",
+      "paused": true,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.62999988,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": false,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7265.74658,
+          "plays": 1,
+          "sample": 26624,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 2.624,
+      "gameTime": 0.57411,
+      "step": "title/session_notes_initial",
+      "paused": true,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.62999988,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": false,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7265.74658,
+          "plays": 1,
+          "sample": 26624,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 2.7093333333333334,
+      "gameTime": 0.57411,
+      "step": "title/session_notes_initial",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.62999988,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7265.74658,
+          "plays": 1,
+          "sample": 26624,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 2.944,
+      "gameTime": 0.801896632,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        0.0,
+        1.62999988,
+        -9.6
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7265.74658,
+          "plays": 1,
+          "sample": 37888,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 3.1786666666666665,
+      "gameTime": 1.05238628,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -0.364014447,
+        1.62999988,
+        -9.235986
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7275.50244,
+          "plays": 1,
+          "sample": 49152,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 3.4346666666666668,
+      "gameTime": 1.30598247,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -1.07813811,
+        1.62999988,
+        -8.521862
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7295.03955,
+          "plays": 1,
+          "sample": 61440,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 3.6906666666666665,
+      "gameTime": 1.55680561,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -1.786154,
+        1.62999988,
+        -7.813846
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7314.80371,
+          "plays": 1,
+          "sample": 73728,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 3.9466666666666668,
+      "gameTime": 1.80874026,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.497511,
+        1.62999988,
+        -7.10248947
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7334.929,
+          "plays": 1,
+          "sample": 86016,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 4.1813333333333329,
+      "gameTime": 2.05908465,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.63,
+        -6.18008471
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7333.663,
+          "plays": 1,
+          "sample": 97280,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 4.4373333333333331,
+      "gameTime": 2.31207752,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        -5.38554335
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7326.25342,
+          "plays": 1,
+          "sample": 109568,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 4.6933333333333334,
+      "gameTime": 2.56473851,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        -5.38554335
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7326.25342,
+          "plays": 1,
+          "sample": 121856,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 4.9493333333333336,
+      "gameTime": 2.816771,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        -5.15437
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7324.178,
+          "plays": 1,
+          "sample": 134144,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 5.2053333333333329,
+      "gameTime": 3.067113,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.63,
+        -4.157914
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7315.6416,
+          "plays": 1,
+          "sample": 146432,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 5.4613333333333332,
+      "gameTime": 3.3211925,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        -3.13957763
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7307.53857,
+          "plays": 1,
+          "sample": 158720,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 5.696,
+      "gameTime": 3.57198882,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.63,
+        -2.135481
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7300.11328,
+          "plays": 1,
+          "sample": 169984,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 5.952,
+      "gameTime": 3.82589674,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        -1.11838925
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7293.106,
+          "plays": 1,
+          "sample": 182272,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 6.208,
+      "gameTime": 4.079192,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.63,
+        -0.101965964
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7286.57764,
+          "plays": 1,
+          "sample": 194560,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 6.464,
+      "gameTime": 4.332799,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.63,
+        0.909688056
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7280.507,
+          "plays": 1,
+          "sample": 206848,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 6.784,
+      "gameTime": 4.65991735,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        1.31462967
+      ],
+      "forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 7278.18848,
+          "plays": 1,
+          "sample": 222208,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 7.04,
+      "gameTime": 4.910737,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        1.31462967
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 234496,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 7.296,
+      "gameTime": 5.162444,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        2.01810551
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 246784,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 7.552,
+      "gameTime": 5.41581,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        2.91562176
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 259072,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 7.808,
+      "gameTime": 5.66899824,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        2.91562176
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 271360,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 8.064,
+      "gameTime": 5.922183,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        2.91562176
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 283648,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 8.2986666666666675,
+      "gameTime": 6.17440462,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        2.91562176
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 294912,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 8.554666666666666,
+      "gameTime": 6.424942,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        2.91562176
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 307200,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 8.8106666666666662,
+      "gameTime": 6.677993,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        2.91562176
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 319488,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 9.0666666666666664,
+      "gameTime": 6.929078,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        3.81648469
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 331776,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 9.3226666666666667,
+      "gameTime": 7.17964745,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.702322,
+        1.62999988,
+        4.821484
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 344064,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 9.5573333333333341,
+      "gameTime": 7.431862,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232224,
+        1.62999988,
+        5.82818031
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 355328,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 9.8133333333333326,
+      "gameTime": 7.68163633,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232224,
+        1.62999988,
+        6.82751465
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 367616,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 10.069333333333333,
+      "gameTime": 7.93255,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232224,
+        1.63,
+        7.832698
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 379904,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 10.325333333333333,
+      "gameTime": 8.183215,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232224,
+        1.63,
+        8.83571148
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 392192,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 10.56,
+      "gameTime": 8.43842,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        9.843382
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 404480,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 10.816,
+      "gameTime": 8.69107151,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.8496037
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 415744,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 11.072,
+      "gameTime": 8.94319248,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.92064
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 428032,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 11.328,
+      "gameTime": 9.1960535,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.92064
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 440320,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 11.584,
+      "gameTime": 9.447278,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.92064
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 452608,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 11.84,
+      "gameTime": 9.697494,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.92064
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 464896,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 12.096,
+      "gameTime": 9.95344448,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.92064
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 477184,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 12.330666666666668,
+      "gameTime": 10.204258,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.92064
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 488448,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 12.586666666666666,
+      "gameTime": 10.4574413,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.92064
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 500736,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 12.842666666666666,
+      "gameTime": 10.7103872,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.92064
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 513024,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 13.098666666666666,
+      "gameTime": 10.9618483,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.92064
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 525312,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 13.354666666666667,
+      "gameTime": 11.2167892,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.92064
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 537600,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 13.610666666666667,
+      "gameTime": 11.4725628,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.92064
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 549888,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 13.845333333333333,
+      "gameTime": 11.7238779,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.92064
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 562176,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 14.101333333333333,
+      "gameTime": 11.97595,
+      "step": "P1_record",
+      "paused": false,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.92064
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": true,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 573440,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    },
+    {
+      "seconds": 14.229333333333333,
+      "gameTime": 12.0885391,
+      "step": "P1_record",
+      "paused": true,
+      "started": true,
+      "chapter": "Protocol",
+      "cue": "normality",
+      "cueCount": 0,
+      "recalls": 0,
+      "volume": 0.6984127,
+      "mono": false,
+      "reduced": false,
+      "position": [
+        -2.70232248,
+        1.62999988,
+        10.92064
+      ],
+      "forward": [
+        1.0,
+        0.0,
+        5.96046448E-08
+      ],
+      "emitters": [
+        {
+          "name": "Internal score / recognition",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "Internal score / release",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "P3 / metal beyond the transfer wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -12.75,
+            1.8,
+            38.55
+          ]
+        },
+        {
+          "name": "Plant / air in fixed riser",
+          "playing": false,
+          "gain": 0.120000005,
+          "obstructed": false,
+          "cutoff": 13000.0039,
+          "plays": 1,
+          "sample": 579584,
+          "position": [
+            6.6,
+            2.55,
+            -42.6
+          ]
+        },
+        {
+          "name": "Plant / contracting upper pipe",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            6.7,
+            2.65,
+            -41.4
+          ]
+        },
+        {
+          "name": "Plant / distant voice beyond the shaft grille",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            8.45,
+            2.5,
+            -40.1
+          ]
+        },
+        {
+          "name": "Records / moving friction beyond the back wall",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -24.35,
+            1.15,
+            26.2
+          ]
+        },
+        {
+          "name": "Telephone / live line at actual receiver",
+          "playing": false,
+          "gain": 0.0,
+          "obstructed": false,
+          "cutoff": 13000.0,
+          "plays": 0,
+          "sample": 0,
+          "position": [
+            -4.465,
+            0.954,
+            -51.9
+          ]
+        }
+      ]
+    }
+  ]
+}

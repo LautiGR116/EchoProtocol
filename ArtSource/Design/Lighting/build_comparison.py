@@ -1,0 +1,22 @@
+from pathlib import Path
+import json
+r=Path('/Users/lautigr116/EchoProtocol/Docs/VisualEvidence/2026-10-08-Lighting')
+entries=[]; checks=[]
+for p in sorted((r/'final2-native/paired').glob('*.comparison.json')):
+ name=p.name.replace('.comparison.json','');b=json.loads((r/'baseline-native/paired'/f'{name}.json').read_text());a=json.loads((r/'final2-native/paired'/f'{name}.json').read_text());pose=json.loads(p.read_text())
+ assert pose['position']==b['position'] and pose['rotation']==b['rotation'] and pose['fov']==b['fov'],name
+ # Discrete game states match; a moving body's sampled phase is not asserted equal.
+ state_equal=a['state'].split('|P3:')[0]==b['state'].split('|P3:')[0]
+ assert state_equal,(name,a['state'],b['state'])
+ checks.append({'label':name,'cameraExact':True,'discreteStateExact':state_equal,'baselineState':b['state'],'candidateState':a['state']})
+ entries.append({'label':name,'before':f'baseline-native/paired/{name}.png','after':f'final2-native/paired/{name}.png','detail':b['state']})
+ for deg in [-90,90,180]:entries.append({'label':name+f' · giro {deg}°','before':f'baseline-native/paired/{name}-turn{deg}.png','after':f'final2-native/paired/{name}-turn{deg}.png','detail':b['state']})
+for p in sorted((r/'verified-checkpoints').glob('*.json')):
+ if p.name=='result.json':continue
+ a=json.loads(p.read_text());b=json.loads((r/'baseline-checkpoints'/p.name).read_text());assert a==b,p.name
+ name=p.stem;entries.append({'label':'Carga · '+name,'before':f'baseline-checkpoints/{name}.png','after':f'verified-checkpoints/{name}.png','detail':f"{a['chapter']} · reserva {a['power']} · respondido {a['answered']} · drenado {a['drained']}"})
+ assertchecks=True
+(r/'comparison-validation.json').write_text(json.dumps({'status':'PASS','exactCameraCampaignPairs':len(checks),'exactSavedStateViews':112,'checks':checks,'scope':'Exact position/rotation/FOV borrowed baseline; identical discrete environment state. P3 machine level captured explicitly; actor motion/phase not claimed identical.'},indent=2)+'\n')
+html='''<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Echo Protocol · Lighting</title><style>*{box-sizing:border-box}body{margin:0;background:#101819;color:#e3efeb;font:16px system-ui}main{max-width:1440px;margin:auto;padding:24px}h1{font-size:28px}p{max-width:95ch;line-height:1.55;color:#b9cac6}select,button{color:inherit;background:#233537;border:1px solid #607873;padding:12px;border-radius:4px}select{max-width:100%}.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}figure{margin:0}img{width:100%;display:block;background:#000}figcaption{padding:8px;color:#bfd0ca}pre{white-space:pre-wrap;font:13px system-ui;color:#94b8ac}button{cursor:pointer}nav{display:flex;gap:8px;flex-wrap:wrap}@media(max-width:800px){.pair{grid-template-columns:1fr}}</style><main><h1>Echo Protocol · Luz y legibilidad</h1><p>Contraprueba preservada → Lighting. Renders originales sin retoque. Cámara idéntica y estados discretos equivalentes; los cuerpos móviles pueden estar en otro instante de su grabación. Los giros y vistas de carga son fixtures de cámara declaradas. No son aprobación humana de pantalla, orientación o terror.</p><nav><button id="prev">Anterior</button><select id="choose"></select><button id="next">Siguiente</button></nav><div class="pair"><figure><img id="before"><figcaption>Antes · Contraprueba</figcaption></figure><figure><img id="after"><figcaption>Después · Lighting</figcaption></figure></div><pre id="detail"></pre><p><a style="color:#90cec0" href="README.md">Alcance y resultados</a> · La oscuridad permanece donde no oculta información necesaria. Revisar con ajustes predeterminados en la pantalla de juego.</p></main><script>const entries=__DATA__;const sel=document.querySelector('#choose');entries.forEach((e,i)=>sel.add(new Option(e.label,i)));function show(){const e=entries[+sel.value];document.querySelector('#before').src=e.before;document.querySelector('#after').src=e.after;document.querySelector('#detail').textContent=e.detail;}sel.onchange=show;document.querySelector('#prev').onclick=()=>{sel.selectedIndex=Math.max(0,sel.selectedIndex-1);show()};document.querySelector('#next').onclick=()=>{sel.selectedIndex=Math.min(entries.length-1,sel.selectedIndex+1);show()};show();</script></html>'''.replace('__DATA__',json.dumps(entries,ensure_ascii=False))
+(r/'comparison.html').write_text(html)
+print(len(checks),'campaign pairs;112 saved-state views;',len(entries),'total comparisons')

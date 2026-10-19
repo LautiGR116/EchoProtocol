@@ -1,0 +1,295 @@
+{
+  "date": "2026-10-01",
+  "authorship": "Original project geometry/materials; no third-party model, texture, font or service.",
+  "axis_contract": "Source Xwidth,-Yfront,Zup. FBX -Z/+Y; Unity negate imported root X once, retain import scale/rotation, then placement rotation. Corrected(X,Z,-Y).",
+  "materials": {
+    "RU_Enamel": {
+      "color": [
+        0.14,
+        0.18,
+        0.145,
+        1
+      ],
+      "roughness": 0.54,
+      "metallic": 0.25
+    },
+    "RU_Edge": {
+      "color": [
+        0.075,
+        0.095,
+        0.07,
+        1
+      ],
+      "roughness": 0.5,
+      "metallic": 0.34
+    },
+    "RU_Bakelite": {
+      "color": [
+        0.027,
+        0.025,
+        0.019,
+        1
+      ],
+      "roughness": 0.42,
+      "metallic": 0
+    },
+    "RU_Rubber": {
+      "color": [
+        0.013,
+        0.016,
+        0.014,
+        1
+      ],
+      "roughness": 0.8,
+      "metallic": 0
+    },
+    "RU_Nickel": {
+      "color": [
+        0.27,
+        0.28,
+        0.23,
+        1
+      ],
+      "roughness": 0.41,
+      "metallic": 0.76
+    },
+    "RU_Porcelain": {
+      "color": [
+        0.59,
+        0.55,
+        0.42,
+        1
+      ],
+      "roughness": 0.41,
+      "metallic": 0
+    },
+    "RU_Label": {
+      "color": [
+        0.46,
+        0.43,
+        0.32,
+        1
+      ],
+      "roughness": 0.8,
+      "metallic": 0
+    },
+    "RU_Ink": {
+      "color": [
+        0.045,
+        0.055,
+        0.039,
+        1
+      ],
+      "roughness": 0.76,
+      "metallic": 0
+    },
+    "RU_Lens": {
+      "color": [
+        0.32,
+        0.13,
+        0.018,
+        1
+      ],
+      "roughness": 0.32,
+      "metallic": 0
+    }
+  },
+  "total_triangles": 5845,
+  "assets": {
+    "ReservePack": {
+      "file": "exports/EP_RU_ReservePack.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.06849999725818634,
+          0.06849999725818634
+        ],
+        [
+          -0.044499997049570084,
+          0.04529999941587448
+        ],
+        [
+          0.0,
+          0.2110000103712082
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.13699999451637268,
+        0.08979999646544456,
+        0.2110000103712082
+      ],
+      "materials": [
+        "RU_Bakelite",
+        "RU_Edge",
+        "RU_Enamel",
+        "RU_Ink",
+        "RU_Label",
+        "RU_Lens",
+        "RU_Nickel",
+        "RU_Porcelain",
+        "RU_Rubber"
+      ],
+      "mesh_objects": [
+        {
+          "name": "ReservePackBody",
+          "vertices": 1535,
+          "triangles": 2937,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "anchors_blender_xyz": {
+        "ReservePack__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "ReservePack__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "ReservePack__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "ReservePack__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "ReservePack__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "ReservePack__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ],
+        "ReservePack__BOTTOM": [
+          0,
+          0,
+          0
+        ],
+        "ReservePack__GRIP": [
+          0,
+          0,
+          0.201
+        ],
+        "ReservePack__LABEL_CENTRE": [
+          0,
+          -0.041,
+          0.108
+        ],
+        "ReservePack__READINESS_LENS": [
+          0,
+          -0.045,
+          0.063
+        ],
+        "ReservePack__REAR_CONNECTOR": [
+          0,
+          0.044,
+          0.104
+        ]
+      },
+      "notes": "Compact reserve accumulator with protective connector shrouds and carrying grip. Bottom root, source front-Y. .137m wide x .089m deep x .211m high. Insert into ReserveDock using DOCKED_PACK_BOTTOM; portable representation uses the same model. No actual light/voice or charge/drain mechanic."
+    },
+    "ReserveDock": {
+      "file": "exports/EP_RU_ReserveDock.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.10400000214576721,
+          0.10400000214576721
+        ],
+        [
+          -0.07900000363588333,
+          0.0
+        ],
+        [
+          -0.16200000047683716,
+          0.1420000046491623
+        ]
+      ],
+      "dimensions_width_depth_height": [
+        0.20800000429153442,
+        0.07900000363588333,
+        0.30400000512599945
+      ],
+      "materials": [
+        "RU_Bakelite",
+        "RU_Edge",
+        "RU_Ink",
+        "RU_Label",
+        "RU_Nickel",
+        "RU_Porcelain",
+        "RU_Rubber"
+      ],
+      "mesh_objects": [
+        {
+          "name": "ReserveDockBody",
+          "vertices": 1512,
+          "triangles": 2908,
+          "uv_layers": [
+            "UVMap"
+          ]
+        }
+      ],
+      "anchors_blender_xyz": {
+        "ReserveDock__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "ReserveDock__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "ReserveDock__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "ReserveDock__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "ReserveDock__FRONT_BASE": [
+          0,
+          0,
+          0
+        ],
+        "ReserveDock__FRONT_TIP": [
+          0,
+          -0.1,
+          0
+        ],
+        "ReserveDock__WALL_PLANE": [
+          0,
+          0,
+          0
+        ],
+        "ReserveDock__DOCKED_PACK_BOTTOM": [
+          0,
+          -0.081,
+          -0.1
+        ],
+        "ReserveDock__LABEL_CENTRE": [
+          0,
+          -0.02,
+          0.119
+        ],
+        "ReserveDock__EMPTY_SOCKET_CENTRE": [
+          0,
+          -0.035,
+          -0.016
+        ]
+      },
+      "notes": "Root at wall plane. All geometry extends toward source-Y/front, apart from flush wall gasket. Protected recess and guide rails; pack bottom at(0,-.081,-.100). Label blank intended for actual room name. No collider or active logic exported."
+    }
+  }
+}

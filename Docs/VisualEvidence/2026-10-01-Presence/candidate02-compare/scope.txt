@@ -1,0 +1,7 @@
+Actual continuous-route cameras and live Echo, with no pose fixture. A synchronous material swap compares the legacy shader to the candidate on the same enabled body renderers; the candidate's explicit self-depth proxy is disabled for legacy. Geometry, transforms, gameplay, time, recording and scene lights are unchanged. Camera.Render excludes OnGUI; original renderer assignments are restored in finally. No human approval.
+campaign-P1-visible camera=(3.293, 1.630, 1.722) euler=(4.25, 261.44, 0.00) Echo=(-2.694, 0.030, 1.444) enabledBodyRenderers=1 selfDepthRenderers=1 unchangedPoseAndTake=true
+campaign-01-P1 camera=(3.293, 1.630, 9.927) euler=(0.00, 90.00, 0.00) Echo=(-2.694, 0.030, 10.923) enabledBodyRenderers=0 selfDepthRenderers=0 unchangedPoseAndTake=true
+campaign-SE3-entry camera=(-2.700, 1.630, 28.917) euler=(0.00, 180.00, 0.00) Echo=(-2.693, 0.030, 22.970) enabledBodyRenderers=1 selfDepthRenderers=1 unchangedPoseAndTake=true
+campaign-SE3-codo camera=(-2.700, 1.630, 27.021) euler=(0.00, 180.00, 0.00) Echo=(-2.693, 0.030, 22.970) enabledBodyRenderers=1 selfDepthRenderers=1 unchangedPoseAndTake=true
+campaign-21-Echo-at-6B camera=(0.000, 1.630, -77.215) euler=(0.00, 180.00, 0.00) Echo=(-0.048, 0.030, -80.816) enabledBodyRenderers=1 selfDepthRenderers=1 unchangedPoseAndTake=true
+campaign-22-witnessed camera=(0.000, 1.630, -77.215) euler=(0.00, 180.00, 0.00) Echo=(-0.048, 0.030, -80.333) enabledBodyRenderers=1 selfDepthRenderers=1 unchangedPoseAndTake=true

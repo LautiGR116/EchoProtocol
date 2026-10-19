@@ -1,0 +1,4 @@
+FAIL System.Exception: Mouse failed to face target
+  at ShutdownPresentationProbe+<Face>d__40.MoveNext () [0x0006c] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ShutdownPresentationProbe.cs:80 
+  at ShutdownPresentationProbe+<Guarded>d__34.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ShutdownPresentationProbe.cs:36 
+checks=3 elapsed=9.443 fixtures=1 laterPoseResets=0

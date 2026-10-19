@@ -1,0 +1,4 @@
+FAIL final_witness_from_inside: System.InvalidOperationException: final_witness_from_inside: interior plate reports the actual witnessed immutable take
+  at ThresholdCampaignProbe.Check (System.Boolean condition, System.String message) [0x00068] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:1356 
+  at ThresholdCampaignProbe+<FinalAct>d__164.MoveNext () [0x00b86] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:1147 
+  at ThresholdCampaignProbe+<Guarded>d__135.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:115 

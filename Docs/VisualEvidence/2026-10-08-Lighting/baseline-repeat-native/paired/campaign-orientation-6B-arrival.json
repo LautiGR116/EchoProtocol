@@ -1,0 +1,16 @@
+{
+    "label": "campaign-orientation-6B-arrival",
+    "state": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+    "position": {
+        "x": -10.010713577270508,
+        "y": 1.6299999952316285,
+        "z": -52.35844421386719
+    },
+    "rotation": {
+        "x": -1.0532581029565336e-8,
+        "y": 0.7071068286895752,
+        "z": -1.0532581917743756e-8,
+        "w": -0.7071067690849304
+    },
+    "fov": 60.0
+}

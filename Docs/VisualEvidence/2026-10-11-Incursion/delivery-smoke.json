@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "method": "Native delivered app, real macOS keyboard and screenshots; no QA bootstrap",
+  "checks": [
+    "Title visible",
+    "Tab/Enter opens pump encounter",
+    "D movement changes actual viewpoint",
+    "Escape pauses",
+    "Audio options show saved volume 70%, mono/reduced inactive",
+    "Return from options resumes gameplay",
+    "Command-Q exits 0"
+  ],
+  "audioPreferencesChanged": false,
+  "ownPreviewCheckpointRestoredToAbsent": true,
+  "runtimeErrors": 0
+}

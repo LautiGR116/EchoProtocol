@@ -1,0 +1,23 @@
+{
+  "dateUTC": "2026-10-02T20:00:47.499035+00:00",
+  "status": "PASS",
+  "app": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-EncounterArt-20261002/EchoProtocol.app",
+  "method": "CUA native app launched from exact full app path; normal keyboard and menu click only",
+  "checked": [
+    "title and comfortable-volume/speaker/reduced-dynamics controls visible",
+    "Return starts session",
+    "H opens paused observed-rule notes and H returns",
+    "12 native W key pulses move Player and start actual recording",
+    "R resets and HUD shows real 5.3s Echo take",
+    "Escape pauses",
+    "C opens credits",
+    "Escape returns to pause",
+    "Salir clicked; no remaining EchoProtocol process"
+  ],
+  "actualTakeSecondsDisplayed": 5.3,
+  "settingsChanged": false,
+  "logRuntimeErrorMatches": [],
+  "playerLogSha256": "0a59f58c2970e72e4e26fdec518a9a762e6c4795177763f7892e656b211de53f",
+  "monoThreadShutdownNotesPresent": true,
+  "limits": "Brief launch/input/menu/RECALL only; no native full campaign, listening, comfort, first-play or fear claim. CUA screenshots inspected in conversation, not exported as evidence files. Post-quit AX procNotFound expected and process absence confirmed."
+}

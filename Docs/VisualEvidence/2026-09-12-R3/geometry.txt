@@ -1,0 +1,151 @@
+PASS floor support 18328 samples missing=0
+PASS R3 spine ceiling cross-section 2970 misses=0
+PASS R3 spine west wall cross-section 3256 misses=0
+PASS R3 spine east wall cross-section 2838 misses=0
+PASS R3 north end cross-section 165 misses=0
+PASS R3 south end cross-section 165 misses=0
+PASS R3 P3 exit south pier cross-section 99 misses=0
+PASS R3 permanently unlocked exit solid leaf cross-section 170 misses=0
+PASS R3 arrival ceiling cross-section 620 misses=0
+PASS R3 arrival north wall cross-section 682 misses=0
+PASS R3 arrival south wall cross-section 682 misses=0
+PASS R3 arrival rear solid leaf cross-section 120 misses=0
+PASS R3 Hub exit only solid leaf cross-section 120 misses=0
+PASS R3 Hub west south pier cross-section 77 misses=0
+PASS R3 Hub west middle pier cross-section 99 misses=0
+PASS R3 Hub west north pier cross-section 44 misses=0
+PASS R3 sealed observation glass cross-section 110 misses=0
+PASS R3 observation ceiling cross-section 154 misses=0
+PASS Relay State.m_Script
+PASS Relay State.echoReaderA
+PASS Relay State.echoReaderB
+PASS Relay State.playerServiceReader
+PASS Relay State.gateA
+PASS Relay State.gateB
+PASS Relay State.echoAIndicator
+PASS Relay State.echoBIndicator
+PASS Relay State.playerIndicator
+PASS Relay State.completeIndicator
+PASS P2 Blind Alignment Relay.m_Script
+PASS P2 Blind Alignment Relay.alignmentReader
+PASS P2 Blind Alignment Relay.controlledGate
+PASS VS1 Strong Event 1 - Occupied Lane.m_Script
+PASS VS1 Strong Event 1 - Occupied Lane.relay
+PASS VS1 Strong Event 1 - Occupied Lane.loopController
+PASS VS1 Strong Event 1 - Occupied Lane.player
+PASS VS1 Strong Event 1 - Occupied Lane.knockTrigger
+PASS VS1 Strong Event 1 - Occupied Lane.laneCheckTarget
+PASS VS1 Strong Event 1 - Occupied Lane.knockSource
+PASS VS1 Strong Event 1 - Occupied Lane.laneRelaySource
+PASS VS1 Strong Event 1 - Occupied Lane.laneSequenceLights.Array.data[0]
+PASS VS1 Strong Event 1 - Occupied Lane.laneSequenceLights.Array.data[1]
+PASS VS1 Strong Event 1 - Occupied Lane.laneSequenceLights.Array.data[2]
+PASS VS1 Strong Event 1 - Occupied Lane.laneSequencePanels.Array.data[0]
+PASS VS1 Strong Event 1 - Occupied Lane.laneSequencePanels.Array.data[1]
+PASS VS1 Strong Event 1 - Occupied Lane.laneSequencePanels.Array.data[2]
+PASS VS1 Strong Event 1 - Occupied Lane.serviceSequenceLights.Array.data[0]
+PASS VS1 Strong Event 1 - Occupied Lane.serviceSequenceLights.Array.data[1]
+PASS VS1 Strong Event 1 - Occupied Lane.serviceSequenceLights.Array.data[2]
+PASS VS1 Strong Event 1 - Occupied Lane.serviceSequencePanels.Array.data[0]
+PASS VS1 Strong Event 1 - Occupied Lane.serviceSequencePanels.Array.data[1]
+PASS VS1 Strong Event 1 - Occupied Lane.serviceSequencePanels.Array.data[2]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutLights.Array.data[0]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutLights.Array.data[1]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutLights.Array.data[2]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutLights.Array.data[3]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutLights.Array.data[4]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutLights.Array.data[5]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutLights.Array.data[6]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutLights.Array.data[7]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutLights.Array.data[8]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutLights.Array.data[9]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutLights.Array.data[10]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutLights.Array.data[11]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutPanels.Array.data[0]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutPanels.Array.data[1]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutPanels.Array.data[2]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutPanels.Array.data[3]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutPanels.Array.data[4]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutPanels.Array.data[5]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutPanels.Array.data[6]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutPanels.Array.data[7]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutPanels.Array.data[8]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutPanels.Array.data[9]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutPanels.Array.data[10]
+PASS VS1 Strong Event 1 - Occupied Lane.facilityBlackoutPanels.Array.data[11]
+PASS VS1 Strong Event 1 - Occupied Lane.ambienceSources.Array.data[0]
+PASS VS1 Strong Event 1 - Occupied Lane.ambienceSources.Array.data[1]
+PASS VS1 Strong Event 1 - Occupied Lane.domesticWarmLight
+PASS VS1 Strong Event 1 - Occupied Lane.thresholdSpill
+PASS VS1 Strong Event 1 - Occupied Lane.domesticDoorReveal
+PASS R1 Central observation station.m_Script
+PASS R1 Central observation station.recoveryHub
+PASS R1 Central observation station.loop
+PASS R1 Central observation station.player
+PASS R1 Central observation station.recallPoint
+PASS R1 Central observation station.activeDisplay
+PASS R1 Central observation station.statusLabel
+PASS R1 Central observation station.galleryAccess
+PASS P3 Recombination Relay.m_Script
+PASS P3 Recombination Relay.readerA
+PASS P3 Recombination Relay.readerB
+PASS P3 Recombination Relay.loop
+PASS P3 Recombination Relay.routeGate
+PASS P3 Recombination Relay.finalGate
+PASS P3 Recombination Relay.authorizationIndicator
+PASS R1 Player return access trigger.m_Script
+PASS R1 Player return access trigger.omittedPassage
+PASS R1 Player return access trigger.player
+PASS R1 Player return access trigger.baselineRoot
+PASS R1 Player return access trigger.hubRoot
+PASS R1 Player return access trigger.accessRoot
+PASS R1 Player return access trigger.domesticResidualRoot
+PASS R1 Player return access trigger.baselineBarrier
+PASS R1 Player return access trigger.observationBarrier
+PASS R3 actual Player final crossing.m_Script
+PASS R3 actual Player final crossing.player
+PASS R3 actual Player final crossing.playerBody
+PASS R3 actual Player final crossing.loop
+PASS R3 actual Player final crossing.puzzle
+PASS R3 actual Player final crossing.finalPuzzleGate
+PASS R3 actual Player final crossing.returnGate
+PASS R3 actual Player final crossing.arrivalRear
+PASS R3 actual Player final crossing.arrivalFront
+PASS R3 actual Player final crossing.arrivalInterior
+PASS R3 actual Player final crossing.arrivalClear
+PASS R3 actual Player final crossing.arrivalOccupancy
+PASS R3 actual Player final crossing.residualRoot
+PASS R3 actual Player final crossing.arrivalLightRoot
+PASS original 29 reset targets preserved
+PASS reset target 0
+PASS reset target 1
+PASS reset target 2
+PASS reset target 3
+PASS reset target 4
+PASS reset target 5
+PASS reset target 6
+PASS reset target 7
+PASS reset target 8
+PASS reset target 9
+PASS reset target 10
+PASS reset target 11
+PASS reset target 12
+PASS reset target 13
+PASS reset target 14
+PASS reset target 15
+PASS reset target 16
+PASS reset target 17
+PASS reset target 18
+PASS reset target 19
+PASS reset target 20
+PASS reset target 21
+PASS reset target 22
+PASS reset target 23
+PASS reset target 24
+PASS reset target 25
+PASS reset target 26
+PASS reset target 27
+PASS reset target 28
+PASS residue colliderless behind sealed solid glass
+PASS R3 contains no audio sources
+TOTAL passed=150 failed=0

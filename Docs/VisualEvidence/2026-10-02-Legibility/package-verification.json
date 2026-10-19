@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "archive": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Legibility-20261002.zip",
+  "bytes": 82739191,
+  "sha256": "0a21efe045adcd2534e3b387cba921d8cd2e5779a2b9317897e32ee0a16f2164",
+  "crcAllEntries": "PASS",
+  "regularFilesHashCompared": 203,
+  "executableModePreserved": true,
+  "candidateArchiveUnchanged": true,
+  "candidateSha256": "33b4954901154261f9fb76ddd3ab79d9f5760516384797c79161e6d6bfa221e1"
+}

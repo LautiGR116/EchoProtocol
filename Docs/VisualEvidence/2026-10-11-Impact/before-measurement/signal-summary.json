@@ -1,0 +1,221 @@
+{
+  "scope": "Actual PCM after SessionAudio; identical listener volume for before/after. RMS and peaks measure digital presence, not ear comfort or fear.",
+  "rate": 48000,
+  "channels": 2,
+  "seconds": 116.928,
+  "peakDb": -11.65,
+  "rmsDb": -33.23,
+  "samplesAtFullScale": 0,
+  "tenMsBlocksAtCeiling": 0,
+  "totalBlocks": 11692,
+  "rows": [
+    {
+      "step": "coverage_enter",
+      "start": 0.8533333333333334,
+      "end": 4.416,
+      "seconds": 3.56,
+      "peakDb": -22.05,
+      "rmsDb": -40.32,
+      "shortRms95Db": -33.14,
+      "stereoRms": [
+        -40.25,
+        -40.4
+      ]
+    },
+    {
+      "step": "coverage_record_first_noise",
+      "start": 4.416,
+      "end": 16.597333333333335,
+      "seconds": 12.18,
+      "peakDb": -18.74,
+      "rmsDb": -29.01,
+      "shortRms95Db": -28.03,
+      "stereoRms": [
+        -29.46,
+        -28.61
+      ]
+    },
+    {
+      "step": "coverage_record_silence",
+      "start": 16.597333333333335,
+      "end": 23.445333333333334,
+      "seconds": 6.85,
+      "peakDb": -28.83,
+      "rmsDb": -53.98,
+      "shortRms95Db": -48.08,
+      "stereoRms": [
+        -55.4,
+        -52.91
+      ]
+    },
+    {
+      "step": "coverage_record_return_noise",
+      "start": 23.445333333333334,
+      "end": 43.968,
+      "seconds": 20.52,
+      "peakDb": -18.83,
+      "rmsDb": -29.05,
+      "shortRms95Db": -27.93,
+      "stereoRms": [
+        -29.5,
+        -28.65
+      ]
+    },
+    {
+      "step": "coverage_playback_pause",
+      "start": 43.968,
+      "end": 45.653333333333336,
+      "seconds": 1.69,
+      "peakDb": -16.57,
+      "rmsDb": -38.91,
+      "shortRms95Db": -33.0,
+      "stereoRms": [
+        -38.92,
+        -38.9
+      ]
+    },
+    {
+      "step": "coverage_cross_to_crank",
+      "start": 45.653333333333336,
+      "end": 50.090666666666664,
+      "seconds": 4.44,
+      "peakDb": -22.17,
+      "rmsDb": -38.49,
+      "shortRms95Db": -32.4,
+      "stereoRms": [
+        -37.19,
+        -40.36
+      ]
+    },
+    {
+      "step": "coverage_hold_crank",
+      "start": 50.090666666666664,
+      "end": 63.808,
+      "seconds": 13.72,
+      "peakDb": -15.69,
+      "rmsDb": -36.69,
+      "shortRms95Db": -33.92,
+      "stereoRms": [
+        -34.76,
+        -40.24
+      ]
+    },
+    {
+      "step": "coverage_enter_service",
+      "start": 63.808,
+      "end": 66.70933333333333,
+      "seconds": 2.9,
+      "peakDb": -19.97,
+      "rmsDb": -40.09,
+      "shortRms95Db": -33.0,
+      "stereoRms": [
+        -40.4,
+        -39.81
+      ]
+    },
+    {
+      "step": "coverage_hold_release",
+      "start": 66.70933333333333,
+      "end": 68.97066666666667,
+      "seconds": 2.26,
+      "peakDb": -13.24,
+      "rmsDb": -35.42,
+      "shortRms95Db": -28.05,
+      "stereoRms": [
+        -33.62,
+        -38.56
+      ]
+    },
+    {
+      "step": "coverage_deliberate_failure",
+      "start": 68.97066666666667,
+      "end": 71.616,
+      "seconds": 2.65,
+      "peakDb": -11.68,
+      "rmsDb": -32.23,
+      "shortRms95Db": -27.62,
+      "stereoRms": [
+        -31.03,
+        -33.9
+      ]
+    },
+    {
+      "step": "coverage_cross_to_crank",
+      "start": 71.616,
+      "end": 77.0773125,
+      "seconds": 5.46,
+      "peakDb": -16.42,
+      "rmsDb": -37.68,
+      "shortRms95Db": -32.04,
+      "stereoRms": [
+        -36.5,
+        -39.31
+      ]
+    },
+    {
+      "step": "coverage_hold_crank",
+      "start": 77.07733333333333,
+      "end": 90.304,
+      "seconds": 13.23,
+      "peakDb": -15.0,
+      "rmsDb": -36.66,
+      "shortRms95Db": -34.21,
+      "stereoRms": [
+        -34.81,
+        -39.97
+      ]
+    },
+    {
+      "step": "coverage_enter_service",
+      "start": 90.304,
+      "end": 92.992,
+      "seconds": 2.69,
+      "peakDb": -21.21,
+      "rmsDb": -39.59,
+      "shortRms95Db": -32.25,
+      "stereoRms": [
+        -39.57,
+        -39.6
+      ]
+    },
+    {
+      "step": "coverage_hold_release",
+      "start": 92.992,
+      "end": 95.18933333333334,
+      "seconds": 2.2,
+      "peakDb": -13.69,
+      "rmsDb": -37.15,
+      "shortRms95Db": -29.2,
+      "stereoRms": [
+        -35.28,
+        -40.51
+      ]
+    },
+    {
+      "step": "coverage_prepared_return",
+      "start": 95.18933333333334,
+      "end": 99.17866666666667,
+      "seconds": 3.99,
+      "peakDb": -11.65,
+      "rmsDb": -32.71,
+      "shortRms95Db": -27.53,
+      "stereoRms": [
+        -31.47,
+        -34.45
+      ]
+    },
+    {
+      "step": "coverage_natural_recorded_release",
+      "start": 99.17866666666667,
+      "end": 116.928,
+      "seconds": 17.75,
+      "peakDb": -28.72,
+      "rmsDb": -40.83,
+      "shortRms95Db": -39.34,
+      "stereoRms": [
+        -38.99,
+        -44.06
+      ]
+    }
+  ]
+}

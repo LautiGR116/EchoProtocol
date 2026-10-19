@@ -1,0 +1,1 @@
+Native title inspected; actual window raised and title bar clicked before synthetic Enter. Runner additionally requires two seconds of Application.isFocused. No gameplay resume permitted.

@@ -1,0 +1,31 @@
+Assets/_Game/Scenes/Production/EchoProtocol_Legibility.unity saved; dirty=false
+guidance firstRelay = Relay State
+guidance firstEvent = VS1 Strong Event 1 - Occupied Lane
+guidance domesticCheckpoint = Domestic Checkpoint Trigger
+guidance alignmentRelay = P2 Blind Alignment Relay
+guidance passage = SE2 Architectural Discrepancy Event
+guidance returnPassage = SE3 Return Crossing (+Z toward return)
+guidance recoveryOrigin = R1 Central observation station
+guidance returnRelay = P3 Recombination Relay
+guidance campaign = Campaign / authored expansion
+guidance house = Residence / habitable reconstruction
+guidance finalReview = Threshold / del otro lado
+guidance hubReturn = R3 actual Player final crossing
+feedback relay = Relay State
+feedback readerA = Lane Optical Reader A
+feedback readerB = Lane Optical Reader B
+feedback statusA = P1 A actual state
+feedback statusB = P1 B actual state
+feedback statusC = P1 C actual state
+feedback review = Threshold / del otro lado
+feedback interiorStatus = Interior revision instructions
+feedback exteriorStatus = Outside pause instruction
+feedback receivedDoor = 6B review door / hinge
+feedback doorStatus = 6B / actual door state
+task Reader 1 / linked task pool <- Panel Light - Cold Ceiling Panel Lane 3 nominal=3.2 gain=3.4
+task Reader 2 / linked task pool <- Panel Light - Service Ceiling Panel 3 nominal=2.9 gain=3.4
+task Reader 0 / linked task pool <- Panel Light - Cold Ceiling Panel Lane 2 nominal=3.2 gain=3.4
+save=EP.CampaignCheckpoint.Legibility.v1
+lights=147 audio=57
+missingScripts=0
+sole enabled build scene matches

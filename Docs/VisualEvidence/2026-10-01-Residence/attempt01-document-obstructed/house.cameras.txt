@@ -1,0 +1,1 @@
+house-00-entry actual camera position=(0.000, 1.630, -49.500) rotation=(16.30, 97.31, 0.00) FOV=60.0 paused=False power=Hall step=enter_house

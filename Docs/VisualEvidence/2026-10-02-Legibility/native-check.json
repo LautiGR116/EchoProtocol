@@ -1,0 +1,19 @@
+{
+  "dateUTC": "2026-10-02T18:38:27.685021+00:00",
+  "app": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Legibility-20261002/EchoProtocol.app",
+  "status": "PASS",
+  "scope": "Brief native CUA inspection, not a full campaign, human first-play or listening test. Screens inspected inline; no saved native screenshots claimed.",
+  "observed": [
+    "title and comfortable-volume/mono/reduced-impact options visible",
+    "Return starts fresh reception",
+    "H opens observational P1 notes and pauses session; H closes",
+    "W pulses move Player and start actual recording",
+    "R returns to origin and HUD reports 7.5-second Echo",
+    "Escape pauses and resumes",
+    "C opens credits from pause; Escape returns",
+    "Salir control quits; no EchoProtocol process remains"
+  ],
+  "PlayerLog": "Player.log",
+  "runtimeExceptionsFound": 0,
+  "shutdownNotes": "Mono thread premature-finalization notes retained."
+}

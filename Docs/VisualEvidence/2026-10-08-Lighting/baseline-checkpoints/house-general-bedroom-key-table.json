@@ -1,0 +1,18 @@
+{
+    "label": "house-general-bedroom-key-table",
+    "position": {
+        "x": 3.299999952316284,
+        "y": 1.6299999952316285,
+        "z": -51.29999923706055
+    },
+    "target": {
+        "x": 3.4000000953674318,
+        "y": 0.800000011920929,
+        "z": -49.599998474121097
+    },
+    "chapter": "Archive",
+    "power": "Hall",
+    "answered": false,
+    "latched": true,
+    "drained": true
+}

@@ -1,0 +1,1 @@
+Preserved second layout trial. Grip, latch, source stop and pressure drainage passed; the probe incorrectly required full door travel only 3.3s after detent. The physical owner requests opening at 3s and the door takes approximately 2s more. The next trial asserts request at drainage and full travel at the physical exit. No gameplay timing changed.

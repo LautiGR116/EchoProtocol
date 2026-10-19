@@ -1,0 +1,51 @@
+{
+    "mode": "surface",
+    "status": "PASS",
+    "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Encounter.unity",
+    "lastStep": "done",
+    "scope": "Isolated final act. Initial public-API house fixture plus one initial Player placement; all subsequent gameplay mutations use synthetic Input System events. This mode attempts the physical route, witness, preservation, key return and ending. Direct encounter: head/chest aperture checks, real E opening and authored near-threshold band. Explicit renderer fixture: recorded-color renderer temporarily disabled with self-depth proxy left enabled, then restored. No direct gameplay completion writes after the initial fixture. No earlier-campaign, human fear, first-play clarity or listening claim. Camera images omit UI; Game images include it.",
+    "error": "",
+    "checks": 71,
+    "initialPoseFixtures": 1,
+    "immutableSnapshots": 1,
+    "playbackFramesChecked": 2328,
+    "unexpectedPauseResumes": 0,
+    "elapsedRealtime": 29.30135154724121,
+    "closedGlassPlaybackSeconds": 0.0,
+    "earlyOpenCount": 1,
+    "requireDirectEncounter": true,
+    "closedGlassRejected": false,
+    "takeTimings": [
+        {
+            "purpose": "authentic_approach",
+            "waitedForRecordingReady": false,
+            "requestedHoldSeconds": 4.199999809265137,
+            "actualHoldGameSeconds": 4.201985836029053,
+            "recordingDuration": 10.015861511230469,
+            "longestQualifiedPauseSeconds": 4.365861415863037,
+            "recordingFrames": 202
+        }
+    ],
+    "witnessed": true,
+    "preserved": true,
+    "keyReturned": true,
+    "complete": true,
+    "screenshots": [
+        "surface-00-origin-Game.png",
+        "surface-00-origin-Camera.png",
+        "surface-surface-depth-only-rejected-Game.png",
+        "surface-surface-depth-only-rejected-Camera.png",
+        "surface-01-recording-at-door-Game.png",
+        "surface-01-recording-at-door-Camera.png",
+        "surface-02-witnessed-from-inside-Game.png",
+        "surface-02-witnessed-from-inside-Camera.png",
+        "surface-03-pause-menu-Game.png",
+        "surface-03-pause-menu-Camera.png",
+        "surface-05-original-preserved-Game.png",
+        "surface-05-original-preserved-Camera.png",
+        "surface-06-key-returned-Game.png",
+        "surface-06-key-returned-Camera.png",
+        "surface-07-ending-menu-Game.png",
+        "surface-07-ending-menu-Camera.png"
+    ]
+}

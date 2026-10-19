@@ -1,0 +1,4 @@
+FAIL coverage_cross_to_crank: System.InvalidOperationException: coverage_cross_to_crank: real motor covers work while the pressurized grille stays closed
+  at ThresholdCampaignProbe.Check (System.Boolean condition, System.String message) [0x00068] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:1450 
+  at ThresholdCampaignProbe+<CoverWork>d__9.MoveNext () [0x001a0] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.Coverage.cs:74 
+  at ThresholdCampaignProbe+<Guarded>d__147.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:116 

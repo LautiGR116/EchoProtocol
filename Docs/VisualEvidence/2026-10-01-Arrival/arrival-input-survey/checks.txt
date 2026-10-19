@@ -1,0 +1,18 @@
+PASS initial fixture restores completed first-act lighting
+PASS both moved doors retain their physical movement-audio owners
+PASS approach receives Player through rear while Hub leaf remains closed
+PASS remote unlock and approach do not announce descent
+PASS actual interior occupancy starts rear sealing
+PASS real Esc pauses the interlock during rear movement
+PASS pause freezes both physical leaves, interlock phase and Player
+PASS real Esc resumes the interlock
+PASS front release waits for actual rear closure
+PASS interior and front release do not prematurely reveal descent guide
+PASS actual Hub-clear arrival reveals the existing local descent guide
+PASS legacy denial sequence remains disabled
+PASS door movement and pause retain both source world anchors
+PASS both leaves generated actual opening and closing movement events
+PASS closed Hub leaf physically prevents reverse entry without moving the Player back
+PASS no Player pose resets after the initial return fixture
+PASS no runtime error during the arrival input route
+PASS

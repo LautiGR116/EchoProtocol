@@ -1,0 +1,16 @@
+{
+    "label": "campaign-pause-phone_and_reserve",
+    "state": "House|house:True/True/Hall|pressure:True/True|P3:0.00",
+    "position": {
+        "x": -3.3713152408599855,
+        "y": 1.6299998760223389,
+        "z": -51.95195388793945
+    },
+    "rotation": {
+        "x": 0.232146218419075,
+        "y": -0.6527355909347534,
+        "z": 0.22071774303913117,
+        "w": 0.6865333914756775
+    },
+    "fov": 60.0
+}

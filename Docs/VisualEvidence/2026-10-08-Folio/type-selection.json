@@ -1,0 +1,22 @@
+{
+  "selection": "Cormorant Garamond SemiBold/Italic + IBM Plex Sans Regular/Medium + IBM Plex Serif Regular/Italic",
+  "method": "Three display typeface alternatives applied to the actual running Folio title; same layout and functional/editorial fonts. CLI captured a 2940x1678 Game view resized to 1280x720. These are comparison previews, not the final resolution checks.",
+  "alternatives": [
+    {
+      "display": "Barlow Condensed Medium",
+      "file": "type-barlow-title.png",
+      "judgment": "Strong technical sign voice, but too close to generic thriller utility and weakens the personal contrast."
+    },
+    {
+      "display": "IBM Plex Serif Regular",
+      "file": "type-plex-title.png",
+      "judgment": "Clear and stable, but too close to the document voice to give the title its own identity."
+    },
+    {
+      "display": "Cormorant Garamond SemiBold",
+      "file": "type-cormorant-title.png",
+      "judgment": "Selected. More expressive title with restrained personal italic; functional Plex keeps controls and state precise."
+    }
+  ],
+  "humanApproval": false
+}

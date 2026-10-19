@@ -1,0 +1,32 @@
+[
+  {
+    "file": "listening/regla-estereo.wav",
+    "source": "native-campaign-final/listener.wav",
+    "sourceSha256": "804440eb20ab323fb2d525a9d43f489372092f382f3b9ac799c4e71847fb430c",
+    "sha256": "663222fe2a925d2763e365d96cfe294032cf5085278c8398d70f722385f25818",
+    "startSeconds": 252.0,
+    "endSeconds": 272.0,
+    "mode": "est\u00e9reo",
+    "method": "Exact consecutive captured PCM frames; no gain, normalization, fades or resampling."
+  },
+  {
+    "file": "listening/regreso-estereo.wav",
+    "source": "native-campaign-final/listener.wav",
+    "sourceSha256": "804440eb20ab323fb2d525a9d43f489372092f382f3b9ac799c4e71847fb430c",
+    "sha256": "640941b4bb9ecb658e5ea92d90ca5cb26b3454b564f0f4b2350f7141544d1e3c",
+    "startSeconds": 311.0,
+    "endSeconds": 322.0,
+    "mode": "est\u00e9reo",
+    "method": "Exact consecutive captured PCM frames; no gain, normalization, fades or resampling."
+  },
+  {
+    "file": "listening/captura-mono-reducida.wav",
+    "source": "native-final-02/listener.wav",
+    "sourceSha256": "0e2c683c77a32d330801a8f9321d126d56c58117aecbc84b5d73820a9769d46b",
+    "sha256": "e9a718ef13df60d2ab12834e801e0a2df2abdaece0505b6854ecf20cbac18916",
+    "startSeconds": 68.0,
+    "endSeconds": 75.0,
+    "mode": "mono \u00b7 din\u00e1mica reducida",
+    "method": "Exact consecutive captured PCM frames; no gain, normalization, fades or resampling."
+  }
+]

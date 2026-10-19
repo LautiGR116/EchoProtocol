@@ -1,0 +1,163 @@
+{
+  "status": "PASS",
+  "error": "",
+  "scope": "Passive observer on input-driven campaign; displayed owner must equal each actual E dispatch. No interactions, poses or state changes injected by this observer. Pause clears usable focus. No human feel claim.",
+  "pausedFrames": 301,
+  "accepted": 22,
+  "receipts": [
+    {
+      "frame": 2555,
+      "type": "VS1RecallAnchor",
+      "kind": "VS1RecallAnchor",
+      "owner": "R1 Central observation station",
+      "prompt": "E  ·  Fijar el origen de registro"
+    },
+    {
+      "frame": 4484,
+      "type": "CampaignStation",
+      "kind": "Descent",
+      "owner": "Station / Descent",
+      "prompt": "E  ·  Habilitar paso al subsuelo"
+    },
+    {
+      "frame": 4812,
+      "type": "PressureIsolation",
+      "kind": "PressureIsolation",
+      "owner": "Isolation / physical service shutdown",
+      "prompt": "MANTENER E  ·  Aislar la instalación"
+    },
+    {
+      "frame": 4836,
+      "type": "PressureIsolation",
+      "kind": "PressureIsolation",
+      "owner": "Isolation / physical service shutdown",
+      "prompt": "MANTENER E  ·  Aislar la instalación"
+    },
+    {
+      "frame": 4894,
+      "type": "PressureIsolation",
+      "kind": "PressureIsolation",
+      "owner": "Isolation / physical service shutdown",
+      "prompt": "MANTENER E  ·  Aislar la instalación"
+    },
+    {
+      "frame": 5144,
+      "type": "CampaignStation",
+      "kind": "HouseOrigin",
+      "owner": "Station / HouseOrigin",
+      "prompt": "E  ·  Activar estación"
+    },
+    {
+      "frame": 5235,
+      "type": "HouseInteraction",
+      "kind": "Document",
+      "owner": "House interaction / Document",
+      "prompt": "E  ·  Leer"
+    },
+    {
+      "frame": 5329,
+      "type": "HouseInteraction",
+      "kind": "Telephone",
+      "owner": "House interaction / Telephone",
+      "prompt": "E  ·  Descolgar el teléfono"
+    },
+    {
+      "frame": 5357,
+      "type": "HouseInteraction",
+      "kind": "Telephone",
+      "owner": "House interaction / Telephone",
+      "prompt": "E  ·  Colgar el teléfono"
+    },
+    {
+      "frame": 5491,
+      "type": "HouseInteraction",
+      "kind": "HallSocket",
+      "owner": "Reserve socket / RECIBIDOR",
+      "prompt": "E  ·  Retirar la reserva de luz"
+    },
+    {
+      "frame": 5599,
+      "type": "HouseInteraction",
+      "kind": "KitchenSocket",
+      "owner": "Reserve socket / COCINA",
+      "prompt": "E  ·  Colocar la reserva en cocina"
+    },
+    {
+      "frame": 5615,
+      "type": "HouseInteraction",
+      "kind": "KitchenSocket",
+      "owner": "Reserve socket / COCINA",
+      "prompt": "E  ·  Retirar la reserva de luz"
+    },
+    {
+      "frame": 5706,
+      "type": "HouseInteraction",
+      "kind": "ExitDoor",
+      "owner": "6B exit / left hinge",
+      "prompt": "E  ·  Probar la puerta"
+    },
+    {
+      "frame": 5879,
+      "type": "HouseInteraction",
+      "kind": "BedroomSocket",
+      "owner": "Reserve socket / DORMITORIO",
+      "prompt": "E  ·  Colocar la reserva en dormitorio"
+    },
+    {
+      "frame": 5955,
+      "type": "HouseInteraction",
+      "kind": "Key",
+      "owner": "House interaction / Key",
+      "prompt": "E  ·  Tomar la llave de 6B"
+    },
+    {
+      "frame": 6028,
+      "type": "HouseInteraction",
+      "kind": "BedroomSocket",
+      "owner": "Reserve socket / DORMITORIO",
+      "prompt": "E  ·  Retirar la reserva de luz"
+    },
+    {
+      "frame": 6279,
+      "type": "HouseInteraction",
+      "kind": "HallSocket",
+      "owner": "Reserve socket / RECIBIDOR",
+      "prompt": "E  ·  Colocar la reserva en recibidor"
+    },
+    {
+      "frame": 6365,
+      "type": "HouseInteraction",
+      "kind": "ExitDoor",
+      "owner": "6B exit / left hinge",
+      "prompt": "E  ·  Abrir con la llave"
+    },
+    {
+      "frame": 6682,
+      "type": "FinalDoorInteraction",
+      "kind": "BeginReview",
+      "owner": "Review origin instrument",
+      "prompt": "E  ·  Fijar origen interior"
+    },
+    {
+      "frame": 6998,
+      "type": "FinalDoorInteraction",
+      "kind": "OpenDoor",
+      "owner": "6B review door / hinge",
+      "prompt": "E  ·  Abrir 6B"
+    },
+    {
+      "frame": 7215,
+      "type": "FinalDoorInteraction",
+      "kind": "Preserve",
+      "owner": "Original conservation terminal",
+      "prompt": "E  ·  Conservar este original"
+    },
+    {
+      "frame": 7268,
+      "type": "FinalDoorInteraction",
+      "kind": "ReturnKey",
+      "owner": "Return key to porter's tray",
+      "prompt": "E  ·  Devolver la llave"
+    }
+  ]
+}

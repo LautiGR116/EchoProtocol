@@ -1,0 +1,23 @@
+Synthetic input route; one explicit initial pose fixture. No human evidence.
+PASS explicit campaign and residence systems exist
+PASS Player input, camera and solid door references exist
+PASS fresh house has not been played
+PASS isolated fixture prepares only the previous chapter
+PASS Station / HouseOrigin is within the actual interaction range
+PASS center-camera ray reaches Station / HouseOrigin
+PASS Station / HouseOrigin accepts the actual Player in the current chapter
+PASS real E ray commits the house chapter
+PASS house suspends recording and playback
+PASS reserve begins in the hall before the phone
+PASS authored fuse representation exists: hallFuse
+PASS hallFuse agrees with the single reserve state
+PASS authored fuse representation exists: kitchenFuse
+PASS kitchenFuse agrees with the single reserve state
+PASS authored fuse representation exists: bedroomFuse
+PASS bedroomFuse agrees with the single reserve state
+PASS reserve never has duplicate physical representations
+PASS real R input cannot reset or record the house
+PASS R leaves the reserve and key unchanged
+PASS an optional physical house document exists
+PASS House interaction / Document is within the actual interaction range
+FAIL parlor_document: parlor_document: center-camera ray reaches House interaction / Document

@@ -1,0 +1,397 @@
+{
+  "scope": "Independent disposable Blender FBX reimport: exact mesh split, finite vertices/UVs/materials, metric bounds and anchors, declared pivot positions, total triangle budget, lever/gauge endpoint transforms, frontal grip/needle visibility at both states, isolated label visibility, and pedestal floor contact. No Unity import, in-game collision/ray interaction, labels/text rendering, audio, or human perception approval.",
+  "manifest_sha256": "f337ddb29cfb0e9cccedf4cb29af2e11dc9e36195ea422744d83d87db43f9bc3",
+  "exact_three_asset_names": true,
+  "total_triangles": 7656,
+  "maximum_triangles": 20000,
+  "triangle_budget_pass": true,
+  "manifest_triangle_total_matches": true,
+  "results": [
+    {
+      "asset": "IsolationPanel",
+      "file": "exports/EP_IC_IsolationPanel.fbx",
+      "bytes": 117324,
+      "sha256": "82848e3c44b836882855877b7686ae905e669d7ba964d655d54238a3a726cdf5",
+      "pass": true,
+      "failures": [],
+      "mesh_count": 2,
+      "triangles": 3612,
+      "finite_vertices": true,
+      "bounds_blender_xyz": [
+        [
+          -0.25999999046325684,
+          0.25
+        ],
+        [
+          -0.18200001120567322,
+          0.07500005513429642
+        ],
+        [
+          -0.36800000071525574,
+          0.32499998807907104
+        ]
+      ],
+      "bounds_error_m": 5.21540641784668e-08,
+      "missing_materials": [],
+      "unexpected_materials": [],
+      "anchor_errors_m": {
+        "IsolationPanel__ROOT": 0.0,
+        "IsolationPanel__AXIS_X": 1.4901161138336505e-09,
+        "IsolationPanel__AXIS_Y": 1.6292068139023286e-08,
+        "IsolationPanel__AXIS_Z": 1.6292068139023286e-08,
+        "IsolationPanel__FRONT_BASE": 0.0,
+        "IsolationPanel__FRONT_TIP": 1.6292068139023286e-08,
+        "IsolationPanel__LEVER_PIVOT": 2.2351741790771484e-08,
+        "IsolationPanel__LEVER_AXIS_POS": 1.1175870895385742e-08,
+        "IsolationPanel__LEVER_GRIP_MARCHA": 2.2351741790771484e-08,
+        "IsolationPanel__LEVER_GRIP_AISLADO": 4.470348358154297e-08,
+        "IsolationPanel__LABEL_MARCHA": 2.0205974574083463e-08,
+        "IsolationPanel__LABEL_AISLADO": 4.684925079823099e-08,
+        "IsolationPanel__SERVICE_LABEL": 4.792213439963611e-08,
+        "IsolationPanel__GAUGE_MOUNT": 2.688169478681779e-08,
+        "IsolationPanel__BACK_MOUNT": 3.427267074307405e-08,
+        "IsolationPanel__CABLE_PORT": 5.923211574693221e-08
+      },
+      "meshes": [
+        {
+          "name": "IsolationHousing",
+          "vertices": 1504,
+          "triangles": 2888,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": 0.0
+        },
+        {
+          "name": "IsolationLever",
+          "vertices": 376,
+          "triangles": 724,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": 2.2351741790771484e-08
+        }
+      ],
+      "checks": {
+        "explicit_root_anchor_present": true,
+        "root_origin_error_m": 0.0,
+        "animation_and_visibility": {
+          "pivot_error_m": 2.2351741790771484e-08,
+          "states": [
+            {
+              "state": "rest",
+              "angle_degrees": 0,
+              "endpoint_error_m": 7.450580596923828e-09,
+              "endpoint_blender_xyz": [
+                0.12574562430381775,
+                -0.15000000596046448,
+                0.09207294136285782
+              ],
+              "grip_or_needle_front_ray": {
+                "pass": true,
+                "target_blender_xyz": [
+                  0.10117106884717941,
+                  -0.15000000596046448,
+                  0.07486565411090851
+                ],
+                "first_hit_mesh": "IsolationLever",
+                "expected_mesh": "IsolationLever",
+                "distance_m": 0.41850000619888306,
+                "hit_blender_xyz": [
+                  0.10117106884717941,
+                  -0.18150001764297485,
+                  0.07486565411090851
+                ]
+              },
+              "pass": true,
+              "isolated_label_front_ray": {
+                "pass": true,
+                "target_blender_xyz": [
+                  -0.09399999678134918,
+                  -0.10400000214576721,
+                  -0.2800000011920929
+                ],
+                "first_hit_mesh": "IsolationHousing",
+                "expected_mesh": "IsolationHousing",
+                "distance_m": 0.49699994921684265,
+                "hit_blender_xyz": [
+                  -0.09399999678134918,
+                  -0.10300007462501526,
+                  -0.2800000011920929
+                ]
+              }
+            },
+            {
+              "state": "actuated",
+              "angle_degrees": 70,
+              "endpoint_error_m": 5.960464477539063e-08,
+              "endpoint_blender_xyz": [
+                0.12574560940265656,
+                -0.15000005066394806,
+                -0.2520729899406433
+              ],
+              "grip_or_needle_front_ray": {
+                "pass": true,
+                "target_blender_xyz": [
+                  0.10117107629776001,
+                  -0.15000000596046448,
+                  -0.23486566543579102
+                ],
+                "first_hit_mesh": "IsolationLever",
+                "expected_mesh": "IsolationLever",
+                "distance_m": 0.41850000619888306,
+                "hit_blender_xyz": [
+                  0.10117107629776001,
+                  -0.18150001764297485,
+                  -0.23486566543579102
+                ]
+              },
+              "pass": true,
+              "isolated_label_front_ray": {
+                "pass": true,
+                "target_blender_xyz": [
+                  -0.09399999678134918,
+                  -0.10400000214576721,
+                  -0.2800000011920929
+                ],
+                "first_hit_mesh": "IsolationHousing",
+                "expected_mesh": "IsolationHousing",
+                "distance_m": 0.49699994921684265,
+                "hit_blender_xyz": [
+                  -0.09399999678134918,
+                  -0.10300007462501526,
+                  -0.2800000011920929
+                ]
+              }
+            }
+          ],
+          "pass": true
+        }
+      }
+    },
+    {
+      "asset": "ControlPedestal",
+      "file": "exports/EP_IC_ControlPedestal.fbx",
+      "bytes": 65500,
+      "sha256": "e4623c72175196cd54587f36fcbbfa4fce5ac28f5714d9e83b0f76138a57d200",
+      "pass": true,
+      "failures": [],
+      "mesh_count": 2,
+      "triangles": 1524,
+      "finite_vertices": true,
+      "bounds_blender_xyz": [
+        [
+          -0.20000000298023224,
+          0.20000000298023224
+        ],
+        [
+          -0.11000025272369385,
+          0.219999760389328
+        ],
+        [
+          -1.5,
+          -0.08799995481967926
+        ]
+      ],
+      "bounds_error_m": 2.4586915969848633e-07,
+      "missing_materials": [],
+      "unexpected_materials": [],
+      "anchor_errors_m": {
+        "ControlPedestal__ROOT": 0.0,
+        "ControlPedestal__AXIS_X": 1.4901161138336505e-09,
+        "ControlPedestal__AXIS_Y": 1.6292068139023286e-08,
+        "ControlPedestal__AXIS_Z": 1.6292068139023286e-08,
+        "ControlPedestal__FRONT_BASE": 0.0,
+        "ControlPedestal__FRONT_TIP": 1.6292068139023286e-08,
+        "ControlPedestal__FLOOR_CONTACT": 2.443809989927104e-07,
+        "ControlPedestal__PANEL_CENTRE": 0.0,
+        "ControlPedestal__BACK_MOUNT": 3.427267074307405e-08,
+        "ControlPedestal__CABLE_PORT": 5.923211574693221e-08
+      },
+      "meshes": [
+        {
+          "name": "PedestalConduit",
+          "vertices": 328,
+          "triangles": 636,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": 0.0
+        },
+        {
+          "name": "PedestalStructure",
+          "vertices": 476,
+          "triangles": 888,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": 0.0
+        }
+      ],
+      "checks": {
+        "explicit_root_anchor_present": true,
+        "root_origin_error_m": 0.0,
+        "floor_z_minus_1_5_error_m": 0.0
+      }
+    },
+    {
+      "asset": "PressureGauge",
+      "file": "exports/EP_IC_PressureGauge.fbx",
+      "bytes": 90268,
+      "sha256": "457d829c98398c5fa972a9187c1689b80c4c519b91dcbf78e3f6cda86390d157",
+      "pass": true,
+      "failures": [],
+      "mesh_count": 2,
+      "triangles": 2520,
+      "finite_vertices": true,
+      "bounds_blender_xyz": [
+        [
+          -0.10400000214576721,
+          0.10400000214576721
+        ],
+        [
+          -0.08000000566244125,
+          0.021999994292855263
+        ],
+        [
+          -0.1643301248550415,
+          0.10400000959634781
+        ]
+      ],
+      "bounds_error_m": 7.450580596923828e-09,
+      "missing_materials": [],
+      "unexpected_materials": [],
+      "anchor_errors_m": {
+        "PressureGauge__ROOT": 0.0,
+        "PressureGauge__AXIS_X": 1.4901161138336505e-09,
+        "PressureGauge__AXIS_Y": 1.6292068139023286e-08,
+        "PressureGauge__AXIS_Z": 1.6292068139023286e-08,
+        "PressureGauge__FRONT_BASE": 0.0,
+        "PressureGauge__FRONT_TIP": 1.6292068139023286e-08,
+        "PressureGauge__NEEDLE_PIVOT": 1.1893209084234968e-08,
+        "PressureGauge__NEEDLE_AXIS_POS": 4.398858610699108e-09,
+        "PressureGauge__NEEDLE_TIP_HIGH": 1.1175870895385742e-08,
+        "PressureGauge__NEEDLE_TIP_ZERO": 1.1175870895385742e-08,
+        "PressureGauge__FACE_CENTRE": 1.1160065760407178e-08,
+        "PressureGauge__BACK_MOUNT": 0.0,
+        "PressureGauge__PRESSURE_PORT": 2.6196241377507423e-08,
+        "PressureGauge__UNIT_LABEL": 1.10864639274455e-08
+      },
+      "meshes": [
+        {
+          "name": "PressureGaugeHousing",
+          "vertices": 1294,
+          "triangles": 2404,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": 0.0
+        },
+        {
+          "name": "PressureNeedle",
+          "vertices": 62,
+          "triangles": 116,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": 1.1893209084234968e-08
+        }
+      ],
+      "checks": {
+        "explicit_root_anchor_present": true,
+        "root_origin_error_m": 0.0,
+        "animation_and_visibility": {
+          "pivot_error_m": 1.1893209084234968e-08,
+          "states": [
+            {
+              "state": "rest",
+              "angle_degrees": 0,
+              "endpoint_error_m": 0.0,
+              "endpoint_blender_xyz": [
+                0.04949747398495674,
+                -0.0729999989271164,
+                -0.04949747398495674
+              ],
+              "grip_or_needle_front_ray": {
+                "pass": true,
+                "target_blender_xyz": [
+                  0.0353553406894207,
+                  -0.0729999989271164,
+                  -0.0353553406894207
+                ],
+                "first_hit_mesh": "PressureNeedle",
+                "expected_mesh": "PressureNeedle",
+                "distance_m": 0.5260000824928284,
+                "hit_blender_xyz": [
+                  0.0353553406894207,
+                  -0.07399994134902954,
+                  -0.0353553406894207
+                ]
+              },
+              "pass": true
+            },
+            {
+              "state": "actuated",
+              "angle_degrees": -270,
+              "endpoint_error_m": 1.1175870895385742e-08,
+              "endpoint_blender_xyz": [
+                -0.049497462809085846,
+                -0.07300000637769699,
+                -0.04949748516082764
+              ],
+              "grip_or_needle_front_ray": {
+                "pass": true,
+                "target_blender_xyz": [
+                  -0.0353553406894207,
+                  -0.0729999989271164,
+                  -0.0353553406894207
+                ],
+                "first_hit_mesh": "PressureNeedle",
+                "expected_mesh": "PressureNeedle",
+                "distance_m": 0.5260000824928284,
+                "hit_blender_xyz": [
+                  -0.0353553406894207,
+                  -0.07399994134902954,
+                  -0.0353553406894207
+                ]
+              },
+              "pass": true
+            }
+          ],
+          "pass": true
+        }
+      }
+    }
+  ],
+  "all_pass": true
+}

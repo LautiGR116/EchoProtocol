@@ -1,0 +1,31 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "var d = UnityEngine.Object.FindAnyObjectByType<EchoProtocol.Horror.VS1DenialEvidence>(UnityEngine.FindObjectsInactive.Include); var e = UnityEngine.Object.FindAnyObjectByType<EchoProtocol.Horror.VS1DemoEnding>(UnityEngine.FindObjectsInactive.Include); var ds = new UnityEditor.SerializedObject(d); var es = new UnityEditor.SerializedObject(e); var dn = new[] {\"hubReturn\", \"arrivalInterior\", \"arrivalClear\", \"player\", \"playerBody\", \"viewCamera\", \"loop\", \"recorder\", \"observationGlass\", \"presentation\", \"recallPoint\", \"pauseZone\", \"observerZone\", \"pauseFacing\", \"stationLabel\", \"recordingLabel\", \"thought\"}; var en = new[] {\"evidence\", \"thought\", \"playerController\", \"loop\"}; return new { scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().path, dirty = UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty, checkedReferences = dn.Length + en.Length, unassignedD1 = dn.Where(n => ds.FindProperty(n) == null || ds.FindProperty(n).objectReferenceValue == null).ToArray(), unassignedEnding = en.Where(n => es.FindProperty(n) == null || es.FindProperty(n).objectReferenceValue == null).ToArray(), ambienceSources = ds.FindProperty(\"ambienceBeds\").arraySize };"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "scene": "Assets/_Game/Scenes/Development/VS1_ParallelReturn_Blockout.unity",
+        "dirty": false,
+        "checkedReferences": 21,
+        "unassignedD1": [],
+        "unassignedEnding": [],
+        "ambienceSources": 2
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/lautigr116/EchoProtocol"
+    },
+    "success": true
+  },
+  "errors": [],
+  "warnings": []
+}

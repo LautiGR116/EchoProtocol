@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Incursion.unity",
+  "activeLoop": "Temporal Loop VS1 Foundation",
+  "referenceFields": 11,
+  "spatialSources": 7,
+  "steps": 3,
+  "normalCeiling": 0.5,
+  "pursuitSpeed": 3.7,
+  "captureDistance": 0.94,
+  "navigationClearance": 0.39,
+  "colliderRadius": 0.4,
+  "assets": [
+    {
+      "path": "Assets/_Game/Audio/Clips/Incursion/Threat_AttackVoice.wav",
+      "channels": 1,
+      "frequency": 48000,
+      "length": 0.895,
+      "forceToMono": true,
+      "loadType": "DecompressOnLoad",
+      "compression": "Vorbis",
+      "normalize": null
+    },
+    {
+      "path": "Assets/_Game/Audio/Clips/Incursion/Threat_CaptureContact.wav",
+      "channels": 1,
+      "frequency": 48000,
+      "length": 0.28997916,
+      "forceToMono": true,
+      "loadType": "DecompressOnLoad",
+      "compression": "Vorbis",
+      "normalize": null
+    },
+    {
+      "path": "Assets/_Game/Audio/Clips/Incursion/Threat_PursuitVoice.wav",
+      "channels": 1,
+      "frequency": 48000,
+      "length": 0.45,
+      "forceToMono": true,
+      "loadType": "DecompressOnLoad",
+      "compression": "Vorbis",
+      "normalize": null
+    },
+    {
+      "path": "Assets/_Game/Audio/Clips/Incursion/Threat_RecognitionVoice.wav",
+      "channels": 1,
+      "frequency": 48000,
+      "length": 0.5,
+      "forceToMono": true,
+      "loadType": "DecompressOnLoad",
+      "compression": "Vorbis",
+      "normalize": null
+    }
+  ]
+}

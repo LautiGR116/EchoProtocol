@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Folio.unity",
+  "saved": true,
+  "sessionIdentityExplicit": true,
+  "papersAndSubtitleExplicit": true,
+  "fonts": [
+    {
+      "role": "displayFont",
+      "path": "Assets/_Game/Art/Folio/Fonts/CormorantGaramond-SemiBold.ttf",
+      "embedded": true,
+      "fontNames": [
+        "Cormorant Garamond"
+      ],
+      "spanishImportedGlyphs": true
+    },
+    {
+      "role": "narrativeItalic",
+      "path": "Assets/_Game/Art/Folio/Fonts/CormorantGaramond-Italic.ttf",
+      "embedded": true,
+      "fontNames": [
+        "Cormorant Garamond"
+      ],
+      "spanishImportedGlyphs": true
+    },
+    {
+      "role": "functionalFont",
+      "path": "Assets/_Game/Art/Folio/Fonts/IBMPlexSans-Regular.ttf",
+      "embedded": true,
+      "fontNames": [
+        "IBM Plex Sans"
+      ],
+      "spanishImportedGlyphs": true
+    },
+    {
+      "role": "functionalMedium",
+      "path": "Assets/_Game/Art/Folio/Fonts/IBMPlexSans-Medium.ttf",
+      "embedded": true,
+      "fontNames": [
+        "IBM Plex Sans"
+      ],
+      "spanishImportedGlyphs": true
+    },
+    {
+      "role": "editorialFont",
+      "path": "Assets/_Game/Art/Folio/Fonts/IBMPlexSerif-Regular.ttf",
+      "embedded": true,
+      "fontNames": [
+        "IBM Plex Serif"
+      ],
+      "spanishImportedGlyphs": true
+    },
+    {
+      "role": "editorialItalic",
+      "path": "Assets/_Game/Art/Folio/Fonts/IBMPlexSerif-Italic.ttf",
+      "embedded": true,
+      "fontNames": [
+        "IBM Plex Serif"
+      ],
+      "spanishImportedGlyphs": true
+    }
+  ],
+  "signCount": 56,
+  "initiallyActive": 51,
+  "allAtlasOwners": true,
+  "allMaterialsPersistent": true
+}

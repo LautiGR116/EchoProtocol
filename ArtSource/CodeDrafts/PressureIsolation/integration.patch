@@ -1,0 +1,256 @@
+--- a/Assets/_Game/Scripts/Campaign/CampaignDirector.cs
++++ b/Assets/_Game/Scripts/Campaign/CampaignDirector.cs
+@@ -28,6 +28,7 @@
+         [SerializeField] private BoxCollider departureZone;
+         [SerializeField] private CampaignStation[] stations;
+         [SerializeField] private HouseMemory house;
++        [SerializeField] private PressureIsolation pressureIsolation;
+         [SerializeField] private FinalDoorMemory finalDoor;
+         [SerializeField] private VS1HubReturnGate returnWithoutReview;
+         [Tooltip("Threshold only: a volume on the original Hub side of the completed R3 arrival. Never the distant P3 exit.")]
+@@ -52,12 +53,14 @@
+         private int documents,circuit,companion;
+         private float nextPulse, ringAt, stageStarted, presenceSeen;
+         private string status="";
+-        public bool IsReturnRecordingSuspended=>returnRecordingBoundary&&returnRecordingBoundary.IsSuspended;
+-        public string StatusText=>IsReturnRecordingSuspended?returnRecordingBoundary.StatusText:status;
++        public bool UsesPressureIsolation=>pressureIsolation;
++        public PressureIsolation IsolationControl=>pressureIsolation;
++        public bool IsReturnRecordingSuspended=>returnRecordingBoundary&&returnRecordingBoundary.IsSuspended&&(!pressureIsolation||Chapter<CampaignChapter.Pressure);
++        public string StatusText=>IsReturnRecordingSuspended?returnRecordingBoundary.StatusText:pressureIsolation&&Chapter==CampaignChapter.Pressure?pressureIsolation.StatusText:status;
+         public float WorkFraction=>working?Mathf.Clamp01(work/(Chapter==CampaignChapter.Pressure?6f:4f)):0;
+         private GUIStyle objectiveStyle,statusStyle;
+         public CampaignChapter Chapter {get;private set;}
+-        public float Pressure=>pressure;
++        public float Pressure=>pressureIsolation?pressureIsolation.Pressure01:pressure;
+         public bool PressureSubjectAligned=>Chapter==CampaignChapter.Pressure&&(EchoIn(pressureZone,270)||(PlayerIn(pressureZone)&&Mathf.Abs(Mathf.DeltaAngle(player.transform.eulerAngles.y,270))<35f));
+         public int ValvesDone=>(valveA?1:0)+(valveB?1:0);
+         public int DocumentsRead=>documents;
+@@ -65,7 +68,7 @@
+         public int GalleryPairs=>companion;
+         public bool HasFinalWitness=>finalWitness>=2f;
+         private string objective="";
+-        public string Objective {get=>IsReturnRecordingSuspended?returnRecordingBoundary.Objective:objective;private set=>objective=value;}
++        public string Objective {get=>IsReturnRecordingSuspended?returnRecordingBoundary.Objective:pressureIsolation&&Chapter==CampaignChapter.Pressure?pressureIsolation.Objective:objective;private set=>objective=value;}
+         public bool HasHomeChanged=>homeChanged;
+         public bool HideHudForPresence=>homePresence&&homePresence.activeSelf&&presenceSeen>.05f;
+         public bool PresenceResolved=>homeChanged&&presenceSeen>.7f&&!homePresence.activeSelf;
+@@ -77,17 +80,40 @@
+         private bool ReviewAvailable=>returnWithoutReview ? returnWithoutReview.IsOpen : evidence.HasWitnessed;
+         private bool AtReviewAnnouncement=>!returnWithoutReview || (player.isActiveAndEnabled && returnArrivalZone &&
+             returnArrivalZone.bounds.Contains(player.transform.position+Vector3.up));
+-        public bool HasSavedCheckpoint=>PlayerPrefs.GetInt(SaveKey,0)>=2&&PlayerPrefs.GetInt(SaveKey,0)<=5;
+-        public string SavedChapterTitle=>finalDoor&&PlayerPrefs.GetInt(SaveKey,0)==5?"Del otro lado":new[]{"","","Presión","La casa","Acompañamiento","Archivo"}[Mathf.Clamp(PlayerPrefs.GetInt(SaveKey,0),0,5)];
+-        private void SaveCheckpoint(){if(!SuppressSaves){PlayerPrefs.SetInt(SaveKey,(int)Chapter);if(finalDoor&&Chapter==CampaignChapter.Archive){PlayerPrefs.SetInt(SaveKey+".answered",house.HasAnswered?1:0);PlayerPrefs.SetInt(SaveKey+".light",(int)house.PowerLocation);}PlayerPrefs.Save();}}
+-        public void ClearCheckpointSave(){PlayerPrefs.DeleteKey(SaveKey);PlayerPrefs.DeleteKey(SaveKey+".answered");PlayerPrefs.DeleteKey(SaveKey+".light");PlayerPrefs.Save();}
++        public bool HasSavedCheckpoint {get {int saved=PlayerPrefs.GetInt(SaveKey,0);return saved>=2&&saved<=5&&(!pressureIsolation||saved!=4);}}
++        public string SavedChapterTitle=>pressureIsolation&&PlayerPrefs.GetInt(SaveKey,0)==2?"Subsuelo / aislamiento":finalDoor&&PlayerPrefs.GetInt(SaveKey,0)==5?"Del otro lado":new[]{"","","Presión","La casa","Acompañamiento","Archivo"}[Mathf.Clamp(PlayerPrefs.GetInt(SaveKey,0),0,5)];
++        private void SaveCheckpoint()
++        {
++            if(SuppressSaves)return;
++            PlayerPrefs.SetInt(SaveKey,(int)Chapter);
++            if(pressureIsolation)PlayerPrefs.SetInt(SaveKey+".isolated",pressureIsolation.IsLatched?1:0);
++            if(finalDoor&&Chapter==CampaignChapter.Archive)
++            {
++                PlayerPrefs.SetInt(SaveKey+".answered",house.HasAnswered?1:0);
++                PlayerPrefs.SetInt(SaveKey+".light",(int)house.PowerLocation);
++            }
++            PlayerPrefs.Save();
++        }
++        public void ClearCheckpointSave(){PlayerPrefs.DeleteKey(SaveKey);PlayerPrefs.DeleteKey(SaveKey+".answered");PlayerPrefs.DeleteKey(SaveKey+".light");PlayerPrefs.DeleteKey(SaveKey+".isolated");PlayerPrefs.Save();}
+         public bool RestoreCheckpoint()
+         {
+             if(!HasSavedCheckpoint)return false;
+             if(finalDoor && finalDoor.Active)return false;
+             var saved=(CampaignChapter)PlayerPrefs.GetInt(SaveKey);int index=(int)saved-2;
+             evidence.enabled=false;doors[0].SetOpen(true);
+-            if(saved>=CampaignChapter.House){valveA=valveB=true;doors[1].SetOpen(true);machinery.Stop();}
++            if(pressureIsolation)
++            {
++                bool isolated=saved>=CampaignChapter.House||PlayerPrefs.GetInt(SaveKey+".isolated",0)==1;
++                if(!pressureIsolation.RestoreState(isolated))return false;
++                if(saved==CampaignChapter.Pressure)
++                {
++                    var safeOrigin=pressureIsolation.ContinuationOrigin;
++                    player.ResetPose(safeOrigin.position,safeOrigin.rotation);
++                    Change(CampaignChapter.Pressure,pressureIsolation.Objective);
++                    return true;
++                }
++            }
++            if(saved>=CampaignChapter.House){valveA=valveB=true;doors[1].SetOpen(true);if(!pressureIsolation)machinery.Stop();}
+             if(finalDoor&&saved==CampaignChapter.Archive)
+             {
+                 house.RestoreAtReview(PlayerPrefs.GetInt(SaveKey+".answered",0)==1,(HousePowerLocation)Mathf.Clamp(PlayerPrefs.GetInt(SaveKey+".light",0),0,3));
+@@ -99,7 +125,7 @@
+             }
+             if(saved>=CampaignChapter.Gallery){documents=7;circuit=3;phone=true;if(!homeChanged)homeChair.position+=new Vector3(1.1f,0,.6f);homeChanged=true;doors[2].SetOpen(true);}
+             if(saved>=CampaignChapter.Archive){companion=3;for(int i=3;i<6;i++)doors[i].SetOpen(true);foreach(var l in galleryLights)l.enabled=false;}
+-            player.ResetPose(origins[index].position,origins[index].rotation);Origin(index);
++            player.ResetPose(origins[index].position,origins[index].rotation);if(!pressureIsolation)Origin(index);
+             string[] objectives={"PRESIÓN · Registrá 30 s en la cámara azul. RECALL. Cebá las dos válvulas.","LA CASA / LECTURA · Atendé el teléfono. Podés revisar los documentos de la casa.","ACOMPAÑAMIENTO · Registrá pausas de 8 s en I, II y III. RECALL; acompañá por el otro lado.","ARCHIVO · Registrate frente al vidrio. RECALL y observá desde la marca blanca."};
+             Change(saved,objectives[index]);
+             if(saved==CampaignChapter.House){loop.enabled=false;recorder.CancelRecording();ringAt=Time.time+4;if(house){house.EnterHouse();Objective=house.Objective;}}
+@@ -117,12 +143,26 @@
+         public void BeginExpansionProbe()
+         { evidence.enabled=false; doors[0].SetOpen(true); Change(CampaignChapter.Descent,"ISOLATED EXPANSION TEST"); }
+         public void PrepareHouseProbe()
+-        {evidence.enabled=false;valveA=valveB=true;doors[0].SetOpen(true);doors[1].SetOpen(true);Change(CampaignChapter.Pressure,"ISOLATED HOUSE TEST");}
++        {evidence.enabled=false;valveA=valveB=true;doors[0].SetOpen(true);doors[1].SetOpen(true);Change(CampaignChapter.Pressure,"ISOLATED HOUSE TEST");if(pressureIsolation)pressureIsolation.RestoreState(true);}
+         public void PrepareGalleryProbe()
+         {PrepareHouseProbe();documents=7;circuit=3;doors[2].SetOpen(true);Change(CampaignChapter.House,"ISOLATED GALLERY TEST");}
+         public void PrepareArchiveProbe()
+         {PrepareGalleryProbe();companion=3;for(int i=3;i<6;i++)doors[i].SetOpen(true);Change(CampaignChapter.Gallery,"ISOLATED ARCHIVE TEST");}
+ #endif
++        // Only the opt-in physical entry volume calls this. No new recording origin.
++        public bool BeginPressureIsolation()
++        {
++            if(!pressureIsolation||Chapter!=CampaignChapter.Descent||session.IsPaused||!player.isActiveAndEnabled)return false;
++            if(!pressureIsolation.EnterService())return false;
++            Change(CampaignChapter.Pressure,pressureIsolation.Objective);
++            SaveCheckpoint();
++            return true;
++        }
++        public void CommitPressureIsolation()
++        {
++            if(!pressureIsolation||!pressureIsolation.IsLatched||Chapter!=CampaignChapter.Pressure||session.IsPaused)return;
++            SaveCheckpoint();
++        }
+         private void Change(CampaignChapter chapter,string objective)
+         {Chapter=chapter;Objective=objective;status="";stageStarted=Time.time;working=null;work=0;if(chapter!=CampaignChapter.Protocol&&returnDescentGuide)returnDescentGuide.SetActive(false);}
+         private void Origin(int index)
+@@ -141,10 +181,10 @@
+             {
+                 case StationKind.IntroLetter:return Chapter==CampaignChapter.Protocol;
+                 case StationKind.Descent:return Chapter==CampaignChapter.Protocol&&ReviewAvailable&&!thought.IsShowing;
+-                case StationKind.PressureOrigin:return Chapter==CampaignChapter.Descent;
+-                case StationKind.ValveA:return Chapter==CampaignChapter.Pressure&&!valveA;
+-                case StationKind.ValveB:return Chapter==CampaignChapter.Pressure&&!valveB;
+-                case StationKind.HouseOrigin:return Chapter==CampaignChapter.Pressure&&valveA&&valveB;
++                case StationKind.PressureOrigin:return !pressureIsolation&&Chapter==CampaignChapter.Descent;
++                case StationKind.ValveA:return !pressureIsolation&&Chapter==CampaignChapter.Pressure&&!valveA;
++                case StationKind.ValveB:return !pressureIsolation&&Chapter==CampaignChapter.Pressure&&!valveB;
++                case StationKind.HouseOrigin:return Chapter==CampaignChapter.Pressure&&(pressureIsolation?pressureIsolation.IsDrained:valveA&&valveB);
+                 case StationKind.NoteArrival:case StationKind.NoteWorkOrder:case StationKind.NoteConsent:return Chapter==CampaignChapter.House;
+                 case StationKind.Telephone:return !house&&Chapter==CampaignChapter.House&&!phone;
+                 case StationKind.CircuitKitchen:case StationKind.CircuitBedroom:case StationKind.CircuitHall:return !house&&Chapter==CampaignChapter.House&&phone&&circuit<3;
+@@ -175,7 +215,7 @@
+                     if(pressure<.9f){thought.Show("Falta presión. Mi Echo tiene que permanecer en la cámara azul.",4);return;}
+                     working=station;work=0;Cue(0,0,station.transform.position,.3f);break;
+                 case StationKind.HouseOrigin:
+-                    Origin(1);loop.enabled=false;recorder.CancelRecording();machinery.Stop();
++                    if(!pressureIsolation)Origin(1);loop.enabled=false;recorder.CancelRecording();if(!pressureIsolation)machinery.Stop();
+                     Change(CampaignChapter.House,"LA CASA / LECTURA · Atendé el teléfono. Podés revisar los documentos de la casa.");
+                     station.SetCaption("RECONSTRUCCIÓN / LECTURA\nRegistro en pausa");
+                     SaveCheckpoint();if(house){house.EnterHouse();Objective=house.Objective;}else{thought.Show("El teléfono estaba junto a la ventana.",4);ringAt=Time.time+4;}break;
+@@ -229,7 +269,11 @@
+                 }
+                 return;
+             }
+-            if(Chapter==CampaignChapter.Pressure)UpdatePressure();
++            if(Chapter==CampaignChapter.Pressure)
++            {
++                if(pressureIsolation)return; // Its physical control owns pressure, lamps and sound.
++                UpdatePressure();
++            }
+             if(Chapter==CampaignChapter.House)UpdateHouse();
+             if(Chapter==CampaignChapter.Gallery)UpdateGallery();
+             if(Chapter==CampaignChapter.Archive)
+--- a/Assets/_Game/Scripts/Puzzle/SlidingDoor.cs
++++ b/Assets/_Game/Scripts/Puzzle/SlidingDoor.cs
+@@ -47,6 +47,17 @@
+             IsOpenRequested = shouldOpen;
+         }
+ 
++        // Explicit chapter restoration; normal play still uses animated SetOpen.
++        public void SetOpenImmediately(bool shouldOpen)
++        {
++            IsOpenRequested = shouldOpen;
++            if (doorBody == null) return;
++            Vector3 local = shouldOpen ? openLocalPosition : closedLocalPosition;
++            doorBody.position = GetWorldPosition(local);
++            doorBody.transform.localPosition = local;
++            Physics.SyncTransforms();
++        }
++
+         public void ResetLoopState()
+         {
+             IsOpenRequested = false;
+--- a/Assets/_Game/Scripts/Presentation/GameSession.cs
++++ b/Assets/_Game/Scripts/Presentation/GameSession.cs
+@@ -166,7 +166,11 @@
+         {
+             if((finale && finale.HasCommitted)||(campaign && campaign.HideHudForPresence))return;
+             bool target=interactor.TryGetTarget(out var t)&&t.CanInteract(player.gameObject);
+-            if(target && !(campaign && campaign.IsWorking)) GUI.Label(new Rect(535,406,590,32),"[E]  "+(t is CampaignStation cs?cs.Prompt:t is HouseInteraction hi?hi.Prompt:t is FinalDoorInteraction fi?fi.Prompt:"Interactuar"),accent);
++            var isolation=campaign?campaign.IsolationControl:null;
++            if(isolation&&isolation.IsHolding)
++                GUI.Label(new Rect(535,406,590,32),"Mantener E · aislar la instalación",accent);
++            else if(target && !(campaign && campaign.IsWorking))
++                GUI.Label(new Rect(535,406,590,32),t is PressureIsolation?"Mantener E · aislar la instalación":"[E]  "+(t is CampaignStation cs?cs.Prompt:t is HouseInteraction hi?hi.Prompt:t is FinalDoorInteraction fi?fi.Prompt:"Interactuar"),accent);
+             if(campaign && campaign.IsWorking)
+             {
+                 GUI.Label(new Rect(462,468,420,30),"Mantené el control a la vista",small);
+@@ -187,7 +191,13 @@
+                 GUI.DrawTexture(new Rect(280,215,720,290),Texture2D.whiteTexture); GUI.color=previous;
+                 string context=finalDoorMemory&&finalDoorMemory.Active?finalDoorMemory.Objective+"\n\n"+finalDoorMemory.StatusText:campaign&&(campaign.Chapter>=CampaignChapter.Descent||campaign.IsReturnRecordingSuspended)?campaign.Objective+"\n\n"+campaign.StatusText:
+                     "Recorré el lado de los lectores y miralos hasta ver cian.\nQuedate si la puerta necesita una presencia continua.\nPulsá R: el Echo repetirá ese recorrido y esas pausas.\nCooperá desde el otro lado del vidrio.";
+-                GUI.Label(new Rect(310,237,660,250),"RECALL / NOTAS DE LA SESIÓN\n\n"+context+"\n\nLas estaciones [E] fijan el origen del próximo RECALL.\nH cierra estas notas. La sesión sigue en marcha.",text);
++                string recallNote="Las estaciones [E] fijan el origen del próximo RECALL.";
++                if(campaign&&campaign.UsesPressureIsolation)
++                    recallNote=finalDoorMemory&&finalDoorMemory.Active
++                        ? (finalDoorMemory.OriginalPreserved?"El original está conservado. El registro terminó.":"R vuelve a 6B y sustituye la toma que estás revisando.")
++                        : !loop.enabled?"El registro permanece suspendido hasta la próxima revisión."
++                        : "Sólo una estación marcada ORIGEN fija el próximo RECALL.";
++                GUI.Label(new Rect(310,237,660,250),"RECALL / NOTAS DE LA SESIÓN\n\n"+context+"\n\n"+recallNote+"\nH cierra estas notas. La sesión sigue en marcha.",text);
+             }
+         }
+         private void Restart() { if(campaign)campaign.ClearCheckpointSave();Time.timeScale=1; AudioListener.pause=false; SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
+--- a/Assets/_Game/Scripts/Campaign/ReturnRecordingBoundary.cs
++++ b/Assets/_Game/Scripts/Campaign/ReturnRecordingBoundary.cs
+@@ -23,6 +23,7 @@
+         [Tooltip("Optional physical FIN DE REGISTRO / R INACTIVO sign and pilot at the P3 exit. Include its emissive surface and light in this group.")]
+         [SerializeField] private GameObject endOfRecordingSignal;
+ 
++        [SerializeField] private string followupObjective = "Volvé al vestíbulo. El próximo origen está en el subsuelo.";
+         private bool initialized, suspended;
+         public bool HasCommitted { get; private set; }
+         public bool IsSuspended => suspended && loop && loop.CheckpointRevision == CheckpointRevisionAtBoundary;
+@@ -30,7 +31,7 @@
+         public int CheckpointRevisionAtBoundary { get; private set; }
+         public EchoRecording RecordingAtBoundary { get; private set; }
+         public string StatusText => "FIN DE REGISTRO · R INACTIVO";
+-        public string Objective => "Volvé al vestíbulo. El próximo origen está en el subsuelo.";
++        public string Objective => followupObjective;
+ 
+         private void Awake()
+         {
+--- a/Assets/_Game/Scripts/Audio/CampaignRoomTone.cs
++++ b/Assets/_Game/Scripts/Audio/CampaignRoomTone.cs
+@@ -12,10 +12,15 @@
+         [SerializeField] FinalDoorMemory finalDoor;
+         [SerializeField] CampaignDirector director;
+         [SerializeField] VS1StrongEventOne firstActEvent;
++        [SerializeField] PressureIsolation serviceIsolation;
++        [Tooltip("Only institutional motor beds supplied by this plant; exclude room air and the local motor owned by PressureIsolationAudio.")]
++        [SerializeField] AudioSource[] isolatedMotorBeds = new AudioSource[0];
+         float[] levels;bool entered;
+         public bool OwnsAmbience=>entered;
+         public int AmbienceWriteCount{get;private set;}
+         void Start(){levels=new float[institution.Length];for(int i=0;i<levels.Length;i++)levels[i]=institution[i]?institution[i].volume:0f;}
++        bool IsIsolatedMotor(AudioSource source)
++        {foreach(var motor in isolatedMotorBeds)if(motor==source)return true;return false;}
+         void Update()
+         {
+             if(!player||Time.timeScale==0)return;
+@@ -50,6 +55,11 @@
+                 // when those distant lights still have their initial power.
+                 if(firstActEvent&&institution[i]==firstActEvent.FluorescentCircuitSource)
+                     target*=!pastFirstAct&&!inFollowingRegion?firstActEvent.FluorescentPowerFraction:0f;
++                if(serviceIsolation && IsIsolatedMotor(institution[i]))
++                {
++                    target*=serviceIsolation.MotorLevel01;
++                    if(serviceIsolation.IsDrained){institution[i].volume=0f;continue;}
++                }
+                 institution[i].volume=Mathf.MoveTowards(institution[i].volume,target,Time.deltaTime*rate);
+             }
+             AmbienceWriteCount++;

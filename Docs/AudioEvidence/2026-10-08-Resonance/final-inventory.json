@@ -1,0 +1,2729 @@
+{
+  "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Resonance.unity",
+  "sampleRate": 48000,
+  "buffer": 1024,
+  "buffers": 4,
+  "configuration": {
+    "speakerMode": 2,
+    "dspBufferSize": 1024,
+    "sampleRate": 48000,
+    "numRealVoices": 32,
+    "numVirtualVoices": 512
+  },
+  "listeners": [
+    {
+      "path": "Player/Main Camera",
+      "enabled": true
+    }
+  ],
+  "mixers": [
+    {
+      "path": "Assets/_Game/Audio/MX_Main.mixer",
+      "groups": [
+        "Master",
+        "Ambience",
+        "WorldSFX"
+      ],
+      "master": null
+    }
+  ],
+  "sources": [
+    {
+      "path": "VS1 Blockout/VS1 P2 Blind Alignment/Domestic North Threshold/P2 Blind Alignment Gate",
+      "pos": {
+        "x": -2.75,
+        "y": 0.0,
+        "z": 25.0,
+        "normalized": {
+          "x": -0.109340481,
+          "y": 0.0,
+          "z": 0.994004369,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 25.150795,
+        "sqrMagnitude": 632.5625
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "SlidingDoor",
+        "AudioSource",
+        "SlidingDoorAudio"
+      ]
+    },
+    {
+      "path": "Campaign / authored expansion/Campaign cue 3",
+      "pos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "magnitude": 0.0,
+        "sqrMagnitude": 0.0
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.2,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.5,
+      "maxDistance": 18.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver A",
+      "pos": {
+        "x": -6.58,
+        "y": 1.14,
+        "z": 34.22,
+        "normalized": {
+          "x": -0.188725129,
+          "y": 0.03269706,
+          "z": 0.9814854,
+          "normalized": {
+            "x": -0.188725144,
+            "y": 0.0326970629,
+            "z": 0.9814855,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 34.86552,
+        "sqrMagnitude": 1215.60449
+      },
+      "clip": "Assets/_Game/Audio/Clips/Finish/Relay.wav",
+      "seconds": 0.6,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.13,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 5.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "BoxCollider",
+        "TemporalRelayTerminal",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Complete Edition - presentation and exit/Final physical relay source",
+      "pos": {
+        "x": 2.25,
+        "y": 1.25,
+        "z": -11.85,
+        "normalized": {
+          "x": 0.18554689,
+          "y": 0.103081606,
+          "z": -0.9772136,
+          "normalized": {
+            "x": 0.1855469,
+            "y": 0.103081614,
+            "z": -0.9772137,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 12.1263151,
+        "sqrMagnitude": 147.047516
+      },
+      "clip": "Assets/_Game/Audio/Clips/VS1/SFX_VS1_FrameRelayStrain.wav",
+      "seconds": 0.46,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.24,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 2.0,
+      "maxDistance": 14.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Resonance / authored sonic consequences/Internal score / release",
+      "pos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "magnitude": 0.0,
+        "sqrMagnitude": 0.0
+      },
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Score_Release.wav",
+      "seconds": 22.6190414,
+      "channels": 1,
+      "load": "CompressedInMemory",
+      "volume": 0.0,
+      "pitch": 1.0,
+      "spatialBlend": 0.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "Ambience",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "ResonanceEmitter"
+      ]
+    },
+    {
+      "path": "Environmental Discrepancy M6.1/Chair That Was Not There/Chair Settling Source M6.3",
+      "pos": {
+        "x": -5.55,
+        "y": 0.65,
+        "z": -5.75,
+        "normalized": {
+          "x": -0.692196965,
+          "y": 0.081068106,
+          "z": -0.717141,
+          "normalized": {
+            "x": -0.692197,
+            "y": 0.08106811,
+            "z": -0.717141032,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.9999999
+        },
+        "magnitude": 8.017949,
+        "sqrMagnitude": 64.2875
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.1,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.25,
+      "maxDistance": 8.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "ChairSettlingCue"
+      ]
+    },
+    {
+      "path": "Recall Completion Audio AD2",
+      "pos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "magnitude": 0.0,
+        "sqrMagnitude": 0.0
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.12,
+      "pitch": 1.0,
+      "spatialBlend": 0.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "RecallCompletionAudio"
+      ]
+    },
+    {
+      "path": "VS1 Systems/Facility Ambience AD2/Fluorescent Bed",
+      "pos": {
+        "x": 0.0,
+        "y": 1.5,
+        "z": 2.0,
+        "normalized": {
+          "x": 0.0,
+          "y": 0.6,
+          "z": 0.8,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 2.5,
+        "sqrMagnitude": 6.25
+      },
+      "clip": "Assets/_Game/Audio/Clips/Ambience/AMB_Fluorescent_LP.wav",
+      "seconds": 12.85,
+      "channels": 1,
+      "load": "CompressedInMemory",
+      "volume": 0.05,
+      "pitch": 1.0,
+      "spatialBlend": 0.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Linear",
+      "playOnAwake": true,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "Ambience",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "VS1 Blockout/VS1 P2 Blind Alignment/Alignment Reader/P2 Blind Alignment Reader",
+      "pos": {
+        "x": -2.7,
+        "y": 0.0,
+        "z": 23.1,
+        "normalized": {
+          "x": -0.116092794,
+          "y": 0.0,
+          "z": 0.9932384,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 23.2572575,
+        "sqrMagnitude": 540.9
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "BoxCollider",
+        "OpticalReader",
+        "AudioSource",
+        "OpticalReaderAudio"
+      ]
+    },
+    {
+      "path": "Complete Edition - presentation and exit/Final exit door",
+      "pos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -12.1,
+        "normalized": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": -1.0,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 12.1,
+        "sqrMagnitude": 146.41
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 0.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "SlidingDoor",
+        "AudioSource",
+        "SlidingDoorAudio"
+      ]
+    },
+    {
+      "path": "Encounter Art / authored present-world setting/SE2 rear doorway frame strain",
+      "pos": {
+        "x": 7.66,
+        "y": 1.4,
+        "z": 28.75,
+        "normalized": {
+          "x": 0.2571689,
+          "y": 0.0470021479,
+          "z": 0.9652227,
+          "normalized": {
+            "x": 0.257168919,
+            "y": 0.04700215,
+            "z": 0.9652228,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 29.7858715,
+        "sqrMagnitude": 887.1981
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.43,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.6,
+      "maxDistance": 9.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Isolation / physical service shutdown/Shutdown / oblique isolation assembly/Isolation spindle friction",
+      "pos": {
+        "x": 5.55681467,
+        "y": 1.35,
+        "z": -35.8482361,
+        "normalized": {
+          "x": 0.153074086,
+          "y": 0.0371885747,
+          "z": -0.9875147,
+          "normalized": {
+            "x": 0.1530741,
+            "y": 0.03718858,
+            "z": -0.987514734,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.9999999
+        },
+        "magnitude": 36.30147,
+        "sqrMagnitude": 1317.79675
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 0.9,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 4.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Campaign / authored expansion/Campaign cue 1",
+      "pos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "magnitude": 0.0,
+        "sqrMagnitude": 0.0
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.2,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.5,
+      "maxDistance": 18.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Encounter Art / authored present-world setting/SE2 fixed ventilation motor",
+      "pos": {
+        "x": 7.52,
+        "y": 2.2,
+        "z": 30.4,
+        "normalized": {
+          "x": 0.2395402,
+          "y": 0.0700782537,
+          "z": 0.968354046,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 31.3934765,
+        "sqrMagnitude": 985.550354
+      },
+      "clip": "Assets/_Game/Audio/Clips/Overhaul/DomesticFridge_LP.wav",
+      "seconds": 7.483,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.0,
+      "pitch": 0.9,
+      "spatialBlend": 1.0,
+      "minDistance": 2.6,
+      "maxDistance": 12.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "Ambience",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "AudioLowPassFilter"
+      ]
+    },
+    {
+      "path": "Records / physical return passage/Powered fixture sound/Records actual fixture hum / 24.5",
+      "pos": {
+        "x": -21.35,
+        "y": 2.8,
+        "z": 24.5,
+        "normalized": {
+          "x": -0.6545532,
+          "y": 0.0858430341,
+          "z": 0.7511266,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 32.617672,
+        "sqrMagnitude": 1063.91248
+      },
+      "clip": "Assets/_Game/Audio/Clips/Ambience/AMB_Fluorescent_LP.wav",
+      "seconds": 12.85,
+      "channels": 1,
+      "load": "CompressedInMemory",
+      "volume": 0.06,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 0.5,
+      "maxDistance": 4.5,
+      "rolloff": "Linear",
+      "playOnAwake": true,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "Ambience",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/P3 Gate A alternative route physical motor",
+      "pos": {
+        "x": -14.2,
+        "y": 3.05,
+        "z": 37.15,
+        "normalized": {
+          "x": -0.3559954,
+          "y": 0.0764637962,
+          "z": 0.931354165,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 39.8881569,
+        "sqrMagnitude": 1591.06506
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.13,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 2.0,
+      "maxDistance": 14.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "SlidingDoorAudio"
+      ]
+    },
+    {
+      "path": "VS1 Blockout/VS1 P1 Parallel Observation Relay/Service Gates/Service Gate A",
+      "pos": {
+        "x": 2.5,
+        "y": 0.0,
+        "z": 3.0,
+        "normalized": {
+          "x": 0.6401844,
+          "y": 0.0,
+          "z": 0.768221259,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 3.905125,
+        "sqrMagnitude": 15.25
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "SlidingDoor",
+        "AudioSource",
+        "SlidingDoorAudio"
+      ]
+    },
+    {
+      "path": "Residence / habitable reconstruction/Present object contact",
+      "pos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "magnitude": 0.0,
+        "sqrMagnitude": 0.0
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.29,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 7.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "VS1 Blockout/VS1 P1 Parallel Observation Relay/Optical Readers/Service Player Reader",
+      "pos": {
+        "x": 3.35,
+        "y": 0.0,
+        "z": 10.0,
+        "normalized": {
+          "x": 0.317649722,
+          "y": 0.0,
+          "z": 0.948208153,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 10.5462074,
+        "sqrMagnitude": 111.222496
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "BoxCollider",
+        "OpticalReader",
+        "AudioSource",
+        "OpticalReaderAudio"
+      ]
+    },
+    {
+      "path": "Isolation / physical service shutdown/Shutdown / oblique isolation assembly/Isolation physical detent",
+      "pos": {
+        "x": 5.55681467,
+        "y": 1.35,
+        "z": -35.8482361,
+        "normalized": {
+          "x": 0.153074086,
+          "y": 0.0371885747,
+          "z": -0.9875147,
+          "normalized": {
+            "x": 0.1530741,
+            "y": 0.03718858,
+            "z": -0.987514734,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.9999999
+        },
+        "magnitude": 36.30147,
+        "sqrMagnitude": 1317.79675
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 7.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "VS1 Blockout/VS1 Event Source Kit v01/Domestic Knock Door/Domestic Door Leaf Pivot",
+      "pos": {
+        "x": -3.4895,
+        "y": 0.0,
+        "z": 20.02,
+        "normalized": {
+          "x": -0.171711847,
+          "y": 0.0,
+          "z": 0.9851472,
+          "normalized": {
+            "x": -0.171711862,
+            "y": 0.0,
+            "z": 0.985147238,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 20.3218365,
+        "sqrMagnitude": 412.97702
+      },
+      "clip": "Assets/_Game/Audio/Clips/Mechanisms/SFX_DoorMovement_LP.wav",
+      "seconds": 2.1,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.72,
+      "pitch": 0.72,
+      "spatialBlend": 1.0,
+      "minDistance": 3.0,
+      "maxDistance": 20.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "BoxCollider",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Resonance / authored sonic consequences/Plant / distant voice beyond the shaft grille",
+      "pos": {
+        "x": 8.45,
+        "y": 2.5,
+        "z": -40.1,
+        "normalized": {
+          "x": 0.205812335,
+          "y": 0.0608912222,
+          "z": -0.9766952,
+          "normalized": {
+            "x": 0.20581235,
+            "y": 0.0608912259,
+            "z": -0.97669524,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 41.05682,
+        "sqrMagnitude": 1685.66235
+      },
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Shaft_DistantCry.wav",
+      "seconds": 4.42995834,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 3.0,
+      "maxDistance": 24.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "AudioLowPassFilter",
+        "ResonanceEmitter"
+      ]
+    },
+    {
+      "path": "Environment/Sequential Relay Puzzle M5.2/Sequence Plate A",
+      "pos": {
+        "x": -4.5,
+        "y": 0.0,
+        "z": -3.25,
+        "normalized": {
+          "x": -0.8106792,
+          "y": 0.0,
+          "z": -0.5854905,
+          "normalized": {
+            "x": -0.810679257,
+            "y": 0.0,
+            "z": -0.5854906,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 5.550901,
+        "sqrMagnitude": 30.8125
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.14,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.25,
+      "maxDistance": 8.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "Rigidbody",
+        "BoxCollider",
+        "PressurePlate",
+        "AudioSource",
+        "PressurePlateAudio"
+      ]
+    },
+    {
+      "path": "Encounter Art / authored present-world setting/6B fixed ventilation motor",
+      "pos": {
+        "x": -15.18,
+        "y": 2.2,
+        "z": -53.42,
+        "normalized": {
+          "x": -0.273127258,
+          "y": 0.03958366,
+          "z": -0.961163163,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 55.57849,
+        "sqrMagnitude": 3088.96851
+      },
+      "clip": "Assets/_Game/Audio/Clips/Overhaul/DomesticFridge_LP.wav",
+      "seconds": 7.483,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.0,
+      "pitch": 0.82,
+      "spatialBlend": 1.0,
+      "minDistance": 2.4,
+      "maxDistance": 9.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "Ambience",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "AudioLowPassFilter"
+      ]
+    },
+    {
+      "path": "Arrival / remembered reception/Existing arrival interlock / rigid placement/R3 Hub exit only physical motor",
+      "pos": {
+        "x": -5.1,
+        "y": 2.75,
+        "z": -9.5,
+        "normalized": {
+          "x": -0.458321661,
+          "y": 0.247134238,
+          "z": -0.85373646,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 11.1275558,
+        "sqrMagnitude": 123.8225
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "SlidingDoorAudio"
+      ]
+    },
+    {
+      "path": "SD1 Directional Study/World-Locked Cues/Domestic Knock Behind Right",
+      "pos": {
+        "x": 3.8,
+        "y": 1.5,
+        "z": -7.35,
+        "normalized": {
+          "x": 0.4518929,
+          "y": 0.178378776,
+          "z": -0.874056041,
+          "normalized": {
+            "x": 0.451892853,
+            "y": 0.178378761,
+            "z": -0.8740559,
+            "normalized": {
+              "x": 0.451892883,
+              "y": 0.178378776,
+              "z": -0.874056,
+              "magnitude": 1.0,
+              "sqrMagnitude": 1.0
+            },
+            "magnitude": 0.99999994,
+            "sqrMagnitude": 0.9999999
+          },
+          "magnitude": 1.00000012,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 8.409072,
+        "sqrMagnitude": 70.7125
+      },
+      "clip": "Assets/_Game/Audio/Clips/SD1/SFX_SD1_DomesticKnock.wav",
+      "seconds": 5.933729,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 6.0,
+      "maxDistance": 16.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "VS1 Systems/VS1 Strong Event 1 - Occupied Lane/Environmental Presence Audio/Occupied Lane Relay Strain Emitter",
+      "pos": {
+        "x": -2.75,
+        "y": 0.15,
+        "z": 7.5,
+        "normalized": {
+          "x": -0.344193965,
+          "y": 0.018774217,
+          "z": 0.938710868,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 7.989681,
+        "sqrMagnitude": 63.835
+      },
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Relay_Strain.wav",
+      "seconds": 0.7,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Campaign / authored expansion/Campaign cue 0",
+      "pos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "magnitude": 0.0,
+        "sqrMagnitude": 0.0
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.2,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.5,
+      "maxDistance": 18.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "VS1 Blockout/VS1 P1 Parallel Observation Relay/Optical Readers/Lane Optical Reader A",
+      "pos": {
+        "x": -2.75,
+        "y": 0.0,
+        "z": 3.0,
+        "normalized": {
+          "x": -0.6757246,
+          "y": 0.0,
+          "z": 0.7371542,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 4.069705,
+        "sqrMagnitude": 16.5625
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "BoxCollider",
+        "OpticalReader",
+        "AudioSource",
+        "OpticalReaderAudio"
+      ]
+    },
+    {
+      "path": "Environmental Discrepancy M6.1",
+      "pos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "magnitude": 0.0,
+        "sqrMagnitude": 0.0
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.14,
+      "pitch": 1.0,
+      "spatialBlend": 0.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "Ambience",
+      "components": [
+        "Transform",
+        "EnvironmentalDiscrepancyController",
+        "AudioSource",
+        "ClinicalRoomTone"
+      ]
+    },
+    {
+      "path": "Resonance / authored sonic consequences/Plant / air in fixed riser",
+      "pos": {
+        "x": 6.6,
+        "y": 2.55,
+        "z": -42.6,
+        "normalized": {
+          "x": 0.152835831,
+          "y": 0.0590502061,
+          "z": -0.9864858,
+          "normalized": {
+            "x": 0.152835846,
+            "y": 0.05905021,
+            "z": -0.986485839,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 43.18359,
+        "sqrMagnitude": 1864.82239
+      },
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Pipe_Air_LP.wav",
+      "seconds": 23.6,
+      "channels": 1,
+      "load": "CompressedInMemory",
+      "volume": 0.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 3.0,
+      "maxDistance": 18.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "Ambience",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "AudioLowPassFilter",
+        "ResonanceEmitter"
+      ]
+    },
+    {
+      "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Contraprueba / authored chapter/Contraprueba fixed ventilation",
+      "pos": {
+        "x": -12.84,
+        "y": 2.13,
+        "z": 38.65,
+        "normalized": {
+          "x": -0.314839721,
+          "y": 0.0522280857,
+          "z": 0.9477068,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 40.7826576,
+        "sqrMagnitude": 1663.2251
+      },
+      "clip": "Assets/_Game/Audio/Clips/Overhaul/DomesticFridge_LP.wav",
+      "seconds": 7.483,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.13,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.3,
+      "maxDistance": 9.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Isolation / physical service shutdown/Isolation bulkhead motor",
+      "pos": {
+        "x": 0.0,
+        "y": 2.85,
+        "z": -48.0,
+        "normalized": {
+          "x": 0.0,
+          "y": 0.0592706166,
+          "z": -0.998241961,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 48.0845337,
+        "sqrMagnitude": 2312.12256
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 2.0,
+      "maxDistance": 14.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Records / physical return passage/Powered fixture sound/Records actual fixture hum / 17.5",
+      "pos": {
+        "x": -21.35,
+        "y": 2.8,
+        "z": 17.5,
+        "normalized": {
+          "x": -0.769444346,
+          "y": 0.100910731,
+          "z": 0.630692065,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 27.7472973,
+        "sqrMagnitude": 769.912537
+      },
+      "clip": "Assets/_Game/Audio/Clips/Ambience/AMB_Fluorescent_LP.wav",
+      "seconds": 12.85,
+      "channels": 1,
+      "load": "CompressedInMemory",
+      "volume": 0.06,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 0.5,
+      "maxDistance": 4.5,
+      "rolloff": "Linear",
+      "playOnAwake": true,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "Ambience",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Isolation / physical service shutdown/Isolation physical bulkhead sound",
+      "pos": {
+        "x": 0.0,
+        "y": 2.85,
+        "z": -48.0,
+        "normalized": {
+          "x": 0.0,
+          "y": 0.0592706166,
+          "z": -0.998241961,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 48.0845337,
+        "sqrMagnitude": 2312.12256
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 0.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": true,
+      "loop": false,
+      "dopplerLevel": 1.0,
+      "group": null,
+      "components": [
+        "Transform",
+        "AudioSource",
+        "SlidingDoorAudio"
+      ]
+    },
+    {
+      "path": "VS1 Blockout/05 Domestic Threshold/Domestic Slam Emitter",
+      "pos": {
+        "x": -3.45,
+        "y": 1.25,
+        "z": 20.1,
+        "normalized": {
+          "x": -0.168851092,
+          "y": 0.061177928,
+          "z": 0.9837411,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 20.4322052,
+        "sqrMagnitude": 417.475
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 0.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": true,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Residence / habitable reconstruction/Pressure valve working flow",
+      "pos": {
+        "x": 6.0,
+        "y": 1.5,
+        "z": -36.0,
+        "normalized": {
+          "x": 0.164260313,
+          "y": 0.04106508,
+          "z": -0.9855619,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 36.5273857,
+        "sqrMagnitude": 1334.25
+      },
+      "clip": "Assets/_Game/Audio/Clips/Overhaul/ValveFlow_LP.wav",
+      "seconds": 6.2,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.14,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 7.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Residence / habitable reconstruction/6B hinge movement",
+      "pos": {
+        "x": -0.49,
+        "y": 1.0,
+        "z": -62.5,
+        "normalized": {
+          "x": -0.007838756,
+          "y": 0.015997462,
+          "z": -0.999841332,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 62.50992,
+        "sqrMagnitude": 3907.49
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.17,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 7.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "Ambience",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Environment/Sequential Relay Puzzle M5.2/Sliding Door",
+      "pos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 2.5,
+        "normalized": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.0,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 2.5,
+        "sqrMagnitude": 6.25
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.2,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 2.0,
+      "maxDistance": 14.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "SlidingDoor",
+        "AudioSource",
+        "SlidingDoorAudio"
+      ]
+    },
+    {
+      "path": "Residence / habitable reconstruction/Pressure valve discharge",
+      "pos": {
+        "x": 6.0,
+        "y": 1.5,
+        "z": -36.0,
+        "normalized": {
+          "x": 0.164260313,
+          "y": 0.04106508,
+          "z": -0.9855619,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 36.5273857,
+        "sqrMagnitude": 1334.25
+      },
+      "clip": "Assets/_Game/Audio/Clips/Overhaul/ValveDischarge.wav",
+      "seconds": 4.25,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.2,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 7.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Resonance / authored sonic consequences/P3 / metal beyond the transfer wall",
+      "pos": {
+        "x": -12.75,
+        "y": 1.8,
+        "z": 38.55,
+        "normalized": {
+          "x": -0.313702255,
+          "y": 0.0442873761,
+          "z": 0.948488,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 40.6436348,
+        "sqrMagnitude": 1651.90491
+      },
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Wall_ThreeStrains.wav",
+      "seconds": 9.949959,
+      "channels": 1,
+      "load": "CompressedInMemory",
+      "volume": 0.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 2.2,
+      "maxDistance": 12.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "AudioLowPassFilter",
+        "ResonanceEmitter"
+      ]
+    },
+    {
+      "path": "VS1 Blockout/VS1 P1 Parallel Observation Relay/Service Gates/Service Gate B",
+      "pos": {
+        "x": 2.5,
+        "y": 0.0,
+        "z": 13.0,
+        "normalized": {
+          "x": 0.1888474,
+          "y": 0.0,
+          "z": 0.9820065,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 13.2382021,
+        "sqrMagnitude": 175.25
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "SlidingDoor",
+        "AudioSource",
+        "SlidingDoorAudio"
+      ]
+    },
+    {
+      "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Contraprueba / authored chapter/Transfer contact behind the service wall",
+      "pos": {
+        "x": -12.0,
+        "y": 1.75,
+        "z": 39.4,
+        "normalized": {
+          "x": -0.2910922,
+          "y": 0.0424509458,
+          "z": 0.95575273,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 41.2240524,
+        "sqrMagnitude": 1699.42261
+      },
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Transfer_Seat.wav",
+      "seconds": 1.7,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.32,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.3,
+      "maxDistance": 9.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Courtyard / real house exterior/Courtyard / outside air",
+      "pos": {
+        "x": -7.0,
+        "y": 3.4,
+        "z": -63.6,
+        "normalized": {
+          "x": -0.109248117,
+          "y": 0.05306337,
+          "z": -0.9925971,
+          "normalized": {
+            "x": -0.109248124,
+            "y": 0.053063374,
+            "z": -0.992597163,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.9999999
+        },
+        "magnitude": 64.07433,
+        "sqrMagnitude": 4105.52
+      },
+      "clip": "Assets/_Game/Audio/Clips/Courtyard/AMB_CourtyardNight_LP.wav",
+      "seconds": 38.039,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.16,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 3.0,
+      "maxDistance": 16.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "Ambience",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "CourtyardAir"
+      ]
+    },
+    {
+      "path": "Courtyard / real house exterior/Courtyard / relocated complete final/Threshold / del otro lado/Final current-world contact",
+      "pos": {
+        "x": -17.0,
+        "y": 1.3,
+        "z": -53.35,
+        "normalized": {
+          "x": -0.3035273,
+          "y": 0.02321091,
+          "z": -0.95254004,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 56.0081444,
+        "sqrMagnitude": 3136.91235
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.3,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 7.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Offhook / optional house telephone/Offhook original rotary telephone/TelephoneHandset/Telephone / live line at actual receiver",
+      "pos": {
+        "x": -4.465,
+        "y": 0.954,
+        "z": -51.9,
+        "normalized": {
+          "x": -0.08569985,
+          "y": 0.0183107834,
+          "z": -0.996152759,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 52.1004448,
+        "sqrMagnitude": 2714.45654
+      },
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Line_Unanswered.wav",
+      "seconds": 15.2,
+      "channels": 1,
+      "load": "CompressedInMemory",
+      "volume": 0.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.1,
+      "maxDistance": 6.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "AudioLowPassFilter",
+        "ResonanceEmitter"
+      ]
+    },
+    {
+      "path": "Campaign / authored expansion/Present Player foot contacts",
+      "pos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -9.6,
+        "normalized": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": -1.0,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 9.6,
+        "sqrMagnitude": 92.16
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.16,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 6.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Contraprueba / authored chapter/A return handle contact",
+      "pos": {
+        "x": -6.59,
+        "y": 1.17,
+        "z": 36.24,
+        "normalized": {
+          "x": -0.17881915,
+          "y": 0.03174786,
+          "z": 0.983369648,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 36.85288,
+        "sqrMagnitude": 1358.13477
+      },
+      "clip": "Assets/_Game/Audio/Clips/Finish/Relay.wav",
+      "seconds": 0.6,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.1,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.3,
+      "maxDistance": 9.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "SD1 Directional Study/World-Locked Cues/World Locked Breathing",
+      "pos": {
+        "x": -5.25,
+        "y": 1.55,
+        "z": 5.7,
+        "normalized": {
+          "x": -0.664317548,
+          "y": 0.19613184,
+          "z": 0.721259,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 7.90284729,
+        "sqrMagnitude": 62.454998
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.26,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 0.8,
+      "maxDistance": 11.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Arrival / remembered reception/Existing arrival interlock / rigid placement/R3 arrival rear physical motor",
+      "pos": {
+        "x": -7.9991374,
+        "y": 2.75,
+        "z": -12.3991375,
+        "normalized": {
+          "x": -0.5329357,
+          "y": 0.1832164,
+          "z": -0.826081932,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 15.0095739,
+        "sqrMagnitude": 225.287308
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "SlidingDoorAudio"
+      ]
+    },
+    {
+      "path": "Resonance / authored sonic consequences/Records / moving friction beyond the back wall",
+      "pos": {
+        "x": -24.35,
+        "y": 1.15,
+        "z": 26.2,
+        "normalized": {
+          "x": -0.6804212,
+          "y": 0.03213488,
+          "z": 0.7321164,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 35.78666,
+        "sqrMagnitude": 1280.685
+      },
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Archive_Approach.wav",
+      "seconds": 7.799979,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 2.6,
+      "maxDistance": 12.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "AudioLowPassFilter",
+        "ResonanceEmitter"
+      ]
+    },
+    {
+      "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Contraprueba / authored chapter/A physical observation blind motor",
+      "pos": {
+        "x": -6.28,
+        "y": 2.85,
+        "z": 35.5,
+        "normalized": {
+          "x": -0.173654944,
+          "y": 0.0788083747,
+          "z": 0.981648147,
+          "normalized": {
+            "x": -0.173654959,
+            "y": 0.07880838,
+            "z": 0.9816482,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.9999999
+        },
+        "magnitude": 36.16367,
+        "sqrMagnitude": 1307.81091
+      },
+      "clip": "Assets/_Game/Audio/Clips/Mechanisms/SFX_DoorMovement_LP.wav",
+      "seconds": 2.1,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.08,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.3,
+      "maxDistance": 9.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Isolation / physical service shutdown/Isolation automatic purge B",
+      "pos": {
+        "x": 7.3,
+        "y": 1.85,
+        "z": -44.0,
+        "normalized": {
+          "x": 0.163531169,
+          "y": 0.04144283,
+          "z": -0.9856673,
+          "magnitude": 1.0,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 44.63981,
+        "sqrMagnitude": 1992.71252
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 7.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Residence / habitable reconstruction/Study floorboard weight",
+      "pos": {
+        "x": 1.65,
+        "y": 0.1,
+        "z": -58.8,
+        "normalized": {
+          "x": 0.0280501414,
+          "y": 0.00170000864,
+          "z": -0.99960506,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 58.82323,
+        "sqrMagnitude": 3460.17236
+      },
+      "clip": "Assets/_Game/Audio/Clips/Overhaul/FloorboardWeight.wav",
+      "seconds": 0.896,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.15,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 7.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "VS1 Systems/VS1 Strong Event 1 - Occupied Lane/Environmental Presence Audio/Domestic Knock Emitter",
+      "pos": {
+        "x": -2.75,
+        "y": 1.35,
+        "z": 19.78,
+        "normalized": {
+          "x": -0.137391254,
+          "y": 0.06744662,
+          "z": 0.9882179,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 20.01583,
+        "sqrMagnitude": 400.633423
+      },
+      "clip": "Assets/_Game/Audio/Clips/SD1/SFX_SD1_DomesticKnock.wav",
+      "seconds": 5.933729,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 0.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/P3 Recombination Relay/Reconstruction / paired transfer receivers/P3 receiver B",
+      "pos": {
+        "x": -6.58,
+        "y": 1.14,
+        "z": 42.05,
+        "normalized": {
+          "x": -0.154543638,
+          "y": 0.0267750379,
+          "z": 0.9876231,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 42.57697,
+        "sqrMagnitude": 1812.79846
+      },
+      "clip": "Assets/_Game/Audio/Clips/Finish/Relay.wav",
+      "seconds": 0.6,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.13,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 5.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "BoxCollider",
+        "TemporalRelayTerminal",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "SD1 Directional Study/World-Locked Cues/Travelling Footsteps",
+      "pos": {
+        "x": -5.2,
+        "y": 1.0,
+        "z": -6.55,
+        "normalized": {
+          "x": -0.6173765,
+          "y": 0.118726254,
+          "z": -0.777657,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 8.422737,
+        "sqrMagnitude": 70.9425
+      },
+      "clip": "Assets/_Game/Audio/Clips/SD1/SFX_SD1_Footsteps.wav",
+      "seconds": 3.02266669,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 7.25,
+      "maxDistance": 18.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Campaign / authored expansion/Pressure machinery",
+      "pos": {
+        "x": 6.89,
+        "y": 0.55,
+        "z": -36.5,
+        "normalized": {
+          "x": 0.185470909,
+          "y": 0.0148053709,
+          "z": -0.9825382,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 37.14868,
+        "sqrMagnitude": 1380.02466
+      },
+      "clip": "Assets/_Game/Audio/Clips/Finish/PressureBed.wav",
+      "seconds": 13.8,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.2,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.5,
+      "maxDistance": 18.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Player/Main Camera/Head Locked Whisper Right Ear",
+      "pos": {
+        "x": 0.08,
+        "y": 1.6,
+        "z": -9.6,
+        "normalized": {
+          "x": 0.008219671,
+          "y": 0.16439344,
+          "z": -0.9863606,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 9.732749,
+        "sqrMagnitude": 94.72641
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.14,
+      "pitch": 1.0,
+      "spatialBlend": 0.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Environment/Sequential Relay Puzzle M5.2/Sequence Plate B",
+      "pos": {
+        "x": 4.5,
+        "y": 0.0,
+        "z": -3.25,
+        "normalized": {
+          "x": 0.8106792,
+          "y": 0.0,
+          "z": -0.5854905,
+          "normalized": {
+            "x": 0.810679257,
+            "y": 0.0,
+            "z": -0.5854906,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.00000012
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.99999994
+        },
+        "magnitude": 5.550901,
+        "sqrMagnitude": 30.8125
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.14,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.25,
+      "maxDistance": 8.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "Rigidbody",
+        "BoxCollider",
+        "PressurePlate",
+        "AudioSource",
+        "PressurePlateAudio"
+      ]
+    },
+    {
+      "path": "Residence / habitable reconstruction/Kitchen refrigerator",
+      "pos": {
+        "x": -4.85,
+        "y": 0.8,
+        "z": -60.1,
+        "normalized": {
+          "x": -0.08043027,
+          "y": 0.0132668484,
+          "z": -0.996672,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 60.3006821,
+        "sqrMagnitude": 3636.17236
+      },
+      "clip": "Assets/_Game/Audio/Clips/Overhaul/DomesticFridge_LP.wav",
+      "seconds": 7.483,
+      "channels": 1,
+      "load": "DecompressOnLoad",
+      "volume": 0.1,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 7.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "Ambience",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "AudioLowPassFilter"
+      ]
+    },
+    {
+      "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/VS1 R2 Return Gallery/Observation / P3 architecture and sound/P3 Gate B final hold physical motor",
+      "pos": {
+        "x": -7.8,
+        "y": 3.05,
+        "z": 44.65,
+        "normalized": {
+          "x": -0.1716977,
+          "y": 0.0671382,
+          "z": 0.9828593,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 45.42868,
+        "sqrMagnitude": 2063.76514
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.13,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 2.0,
+      "maxDistance": 14.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "SlidingDoorAudio"
+      ]
+    },
+    {
+      "path": "Resonance / authored sonic consequences/Plant / contracting upper pipe",
+      "pos": {
+        "x": 6.7,
+        "y": 2.65,
+        "z": -41.4,
+        "normalized": {
+          "x": 0.1594392,
+          "y": 0.06306178,
+          "z": -0.9851916,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 42.0222855,
+        "sqrMagnitude": 1765.87268
+      },
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Wall_ThreeStrains.wav",
+      "seconds": 9.949959,
+      "channels": 1,
+      "load": "CompressedInMemory",
+      "volume": 0.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 3.0,
+      "maxDistance": 18.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "AudioLowPassFilter",
+        "ResonanceEmitter"
+      ]
+    },
+    {
+      "path": "VS1 Blockout/VS1 P1 Parallel Observation Relay/Optical Readers/Lane Optical Reader B",
+      "pos": {
+        "x": -2.75,
+        "y": 0.0,
+        "z": 11.0,
+        "normalized": {
+          "x": -0.242535636,
+          "y": 0.0,
+          "z": 0.970142543,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 11.33854,
+        "sqrMagnitude": 128.5625
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "BoxCollider",
+        "OpticalReader",
+        "AudioSource",
+        "OpticalReaderAudio"
+      ]
+    },
+    {
+      "path": "Offhook / optional house telephone/Offhook original rotary telephone/TelephoneHandset/Offhook moving handset contacts",
+      "pos": {
+        "x": -4.465,
+        "y": 0.954,
+        "z": -51.9,
+        "normalized": {
+          "x": -0.08569985,
+          "y": 0.0183107834,
+          "z": -0.996152759,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 52.1004448,
+        "sqrMagnitude": 2714.45654
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.38,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 0.65,
+      "maxDistance": 5.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Resonance / authored sonic consequences/Internal score / recognition",
+      "pos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "magnitude": 0.0,
+        "sqrMagnitude": 0.0
+      },
+      "clip": "Assets/_Game/Audio/Clips/Resonance/Score_Recognition.wav",
+      "seconds": 19.0,
+      "channels": 1,
+      "load": "CompressedInMemory",
+      "volume": 0.0,
+      "pitch": 1.0,
+      "spatialBlend": 0.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "Ambience",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "ResonanceEmitter"
+      ]
+    },
+    {
+      "path": "Residence / habitable reconstruction/6B latch",
+      "pos": {
+        "x": 0.35,
+        "y": 1.0,
+        "z": -62.45,
+        "normalized": {
+          "x": 0.005603677,
+          "y": 0.0160105061,
+          "z": -0.9998561,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 62.45899,
+        "sqrMagnitude": 3901.125
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.14,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 7.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Residence / habitable reconstruction/Telephone at window",
+      "pos": {
+        "x": -4.45000029,
+        "y": 0.821,
+        "z": -51.756,
+        "normalized": {
+          "x": -0.08565362,
+          "y": 0.01580261,
+          "z": -0.996199667,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 51.95344,
+        "sqrMagnitude": 2699.16016
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.3,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 7.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "AudioLowPassFilter"
+      ]
+    },
+    {
+      "path": "Registration / inhabited administrative booth/R3 permanently unlocked exit physical motor",
+      "pos": {
+        "x": -17.2,
+        "y": 2.75,
+        "z": 46.4,
+        "normalized": {
+          "x": -0.347042143,
+          "y": 0.0554863848,
+          "z": 0.9362067,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 49.5617065,
+        "sqrMagnitude": 2456.36255
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 1.0,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 500.0,
+      "rolloff": "Logarithmic",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "SlidingDoorAudio"
+      ]
+    },
+    {
+      "path": "Courtyard / real house exterior/Courtyard / relocated complete final/Threshold / del otro lado/6B review latch",
+      "pos": {
+        "x": -13.4,
+        "y": 1.0,
+        "z": -52.75,
+        "normalized": {
+          "x": -0.2461671,
+          "y": 0.0183706786,
+          "z": -0.9690533,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.00000012
+        },
+        "magnitude": 54.43457,
+        "sqrMagnitude": 2963.12256
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.14,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 7.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Courtyard / real house exterior/Courtyard / relocated complete final/Threshold / del otro lado/Porter exit physical sound",
+      "pos": {
+        "x": -18.4000015,
+        "y": 1.2,
+        "z": -52.4,
+        "normalized": {
+          "x": -0.331235439,
+          "y": 0.02160231,
+          "z": -0.943300843,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 55.5496178,
+        "sqrMagnitude": 3085.76025
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.14,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 7.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource",
+        "SlidingDoorAudio"
+      ]
+    },
+    {
+      "path": "VS1 Systems/Facility Ambience AD2/Distant Machinery Bed",
+      "pos": {
+        "x": 6.75,
+        "y": 3.25,
+        "z": 8.5,
+        "normalized": {
+          "x": 0.5957493,
+          "y": 0.286842257,
+          "z": 0.750202835,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 11.3302689,
+        "sqrMagnitude": 128.375
+      },
+      "clip": "Assets/_Game/Audio/Clips/Ambience/AMB_DistantMachinery_LP.wav",
+      "seconds": 13.8,
+      "channels": 1,
+      "load": "CompressedInMemory",
+      "volume": 0.08,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 4.0,
+      "maxDistance": 20.0,
+      "rolloff": "Linear",
+      "playOnAwake": true,
+      "loop": true,
+      "dopplerLevel": 0.0,
+      "group": "Ambience",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Courtyard / real house exterior/Courtyard / relocated complete final/Threshold / del otro lado/6B review hinge sound",
+      "pos": {
+        "x": -13.4,
+        "y": 1.0,
+        "z": -51.920002,
+        "normalized": {
+          "x": -0.249857113,
+          "y": 0.018646054,
+          "z": -0.9681032,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 53.63065,
+        "sqrMagnitude": 2876.24658
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.14,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.0,
+      "maxDistance": 7.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    },
+    {
+      "path": "Campaign / authored expansion/Campaign cue 2",
+      "pos": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "magnitude": 0.0,
+        "sqrMagnitude": 0.0
+      },
+      "clip": null,
+      "seconds": 0.0,
+      "channels": 0,
+      "load": null,
+      "volume": 0.2,
+      "pitch": 1.0,
+      "spatialBlend": 1.0,
+      "minDistance": 1.5,
+      "maxDistance": 18.0,
+      "rolloff": "Linear",
+      "playOnAwake": false,
+      "loop": false,
+      "dopplerLevel": 0.0,
+      "group": "WorldSFX",
+      "components": [
+        "Transform",
+        "AudioSource"
+      ]
+    }
+  ]
+}

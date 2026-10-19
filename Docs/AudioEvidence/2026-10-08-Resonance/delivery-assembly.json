@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "method": "Read real build assembly type tables with Unity-bundled Mono.Cecil",
+  "qaTypeCount": 102,
+  "deliveryTypeCount": 95,
+  "qaBootstrapPresent": true,
+  "deliveryQaTypesAbsent": [
+    "ThresholdCampaignProbe",
+    "LightingRouteObserver",
+    "ResonanceRouteObserver",
+    "ResonanceAcousticProbe",
+    "EchoNativeVerification",
+    "LightingCheckpointSurvey",
+    "ContrapruebaProbe",
+    "IsolationCheckpointProbe",
+    "ThresholdCheckpointProbe"
+  ],
+  "gameplayPresent": true
+}

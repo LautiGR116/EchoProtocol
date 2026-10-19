@@ -1,0 +1,16 @@
+{
+    "label": "campaign-lighting-key-tray-approach",
+    "state": "Archive|house:False/True/Hall|pressure:True/True|P3:1.00",
+    "position": {
+        "x": -17.007131576538087,
+        "y": 1.6299998760223389,
+        "z": -52.400001525878909
+    },
+    "rotation": {
+        "x": 2.953813371675551e-8,
+        "y": -0.7071067690849304,
+        "z": 2.953813194039867e-8,
+        "w": 0.7071068286895752
+    },
+    "fov": 60.0
+}

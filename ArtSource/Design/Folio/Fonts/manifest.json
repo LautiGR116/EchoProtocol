@@ -1,0 +1,75 @@
+{
+  "dateUTC": "2026-10-08T22:48:27.147345+00:00",
+  "files": [
+    {
+      "file": "Assets/_Game/Art/Folio/Fonts/IBMPlexSans-Regular.ttf",
+      "source": "https://raw.githubusercontent.com/IBM/plex/763c36ef9117782905ae010056dfbe8fd2653a25/packages/plex-sans/fonts/complete/ttf/IBMPlexSans-Regular.ttf",
+      "repository": "https://github.com/IBM/plex",
+      "revision": "763c36ef9117782905ae010056dfbe8fd2653a25",
+      "bytes": 200500,
+      "sha256": "975dcda37d80f038dcd143c22e33ca2d97a0cc5a929aace1c749153b0fe1afa5",
+      "license": "SIL OFL 1.1",
+      "modified": false
+    },
+    {
+      "file": "Assets/_Game/Art/Folio/Fonts/IBMPlexSans-Medium.ttf",
+      "source": "https://raw.githubusercontent.com/IBM/plex/763c36ef9117782905ae010056dfbe8fd2653a25/packages/plex-sans/fonts/complete/ttf/IBMPlexSans-Medium.ttf",
+      "repository": "https://github.com/IBM/plex",
+      "revision": "763c36ef9117782905ae010056dfbe8fd2653a25",
+      "bytes": 202460,
+      "sha256": "331c8639d7598b2cde62a911a71db195e30cb655cd6bdf2e324a7e984955f907",
+      "license": "SIL OFL 1.1",
+      "modified": false
+    },
+    {
+      "file": "Assets/_Game/Art/Folio/Fonts/IBMPlexSerif-Regular.ttf",
+      "source": "https://raw.githubusercontent.com/IBM/plex/763c36ef9117782905ae010056dfbe8fd2653a25/packages/plex-serif/fonts/complete/ttf/IBMPlexSerif-Regular.ttf",
+      "repository": "https://github.com/IBM/plex",
+      "revision": "763c36ef9117782905ae010056dfbe8fd2653a25",
+      "bytes": 217332,
+      "sha256": "6c490ccd38e856c674e0d163f3f40742a75058b7b935998dbfbc1745ba54e474",
+      "license": "SIL OFL 1.1",
+      "modified": false
+    },
+    {
+      "file": "Assets/_Game/Art/Folio/Fonts/IBMPlexSerif-Italic.ttf",
+      "source": "https://raw.githubusercontent.com/IBM/plex/763c36ef9117782905ae010056dfbe8fd2653a25/packages/plex-serif/fonts/complete/ttf/IBMPlexSerif-Italic.ttf",
+      "repository": "https://github.com/IBM/plex",
+      "revision": "763c36ef9117782905ae010056dfbe8fd2653a25",
+      "bytes": 227404,
+      "sha256": "d28aa63cf618439712d6b459c5649af1d6d789cb911994f2357f1ce44128f163",
+      "license": "SIL OFL 1.1",
+      "modified": false
+    },
+    {
+      "file": "Assets/_Game/Art/Folio/Fonts/CormorantGaramond-SemiBold.ttf",
+      "source": "https://raw.githubusercontent.com/CatharsisFonts/Cormorant/016784836d2ad47bc4c62b7f504a0a5875d85aeb/fonts/ttf/CormorantGaramond-SemiBold.ttf",
+      "repository": "https://github.com/CatharsisFonts/Cormorant",
+      "revision": "016784836d2ad47bc4c62b7f504a0a5875d85aeb",
+      "bytes": 1051232,
+      "sha256": "de1b7923fbc20ce742f6498d085ad0b64dc3625efbd8bdb2f01dc70e1e7a6edd",
+      "license": "SIL OFL 1.1",
+      "modified": false
+    },
+    {
+      "file": "Assets/_Game/Art/Folio/Fonts/CormorantGaramond-Italic.ttf",
+      "source": "https://raw.githubusercontent.com/CatharsisFonts/Cormorant/016784836d2ad47bc4c62b7f504a0a5875d85aeb/fonts/ttf/CormorantGaramond-Italic.ttf",
+      "repository": "https://github.com/CatharsisFonts/Cormorant",
+      "revision": "016784836d2ad47bc4c62b7f504a0a5875d85aeb",
+      "bytes": 703284,
+      "sha256": "006291ded05a9e8a58436474d9bb74e7477f494a5dfc11435ae2a2d9d74d4ed9",
+      "license": "SIL OFL 1.1",
+      "modified": false
+    },
+    {
+      "file": "Assets/_Game/Art/Folio/Fonts/BarlowCondensed-Medium.ttf",
+      "source": "https://raw.githubusercontent.com/jpt/barlow/dc2940e2e04ef4ec96c07e23e0f02aefbddd343b/fonts/ttf/BarlowCondensed-Medium.ttf",
+      "repository": "https://github.com/jpt/barlow",
+      "revision": "dc2940e2e04ef4ec96c07e23e0f02aefbddd343b",
+      "bytes": 160868,
+      "sha256": "54786f6ce3972aec98430e05c6e5385b906a86839063d98bc1202750e572dad8",
+      "license": "SIL OFL 1.1",
+      "modified": false
+    }
+  ]
+}

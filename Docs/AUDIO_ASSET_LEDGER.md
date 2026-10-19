@@ -1,7 +1,65 @@
 # Audio asset ledger
 
+## La embestida — 2026-10-12
+
+Tres masters mono PCM16/48 kHz en `Clips/Embestida`, derivados exclusivamente
+de las fuentes CC0 ya registradas en El intruso. Sin nueva generación/clonación.
+`Embestida_HousingContact`: metal 556693 (0,11–0,69 s), banda 80–6500 Hz y dos
+resonancias amortiguadas originales de la caja. `Embestida_ExpelledEffort`:
+272023 (0,045–0,39 s), banda 130–5800 Hz, altura/tiempo originales;
+75 ms después del contacto. `Embestida_BodyBreath`: 173944 (6–7,02 s), corte
+corto adicional y silencios autorados. Reemplazan grito largo y esfuerzo anterior
+sólo en esta amenaza. Receta/hashes: `ArtSource/Design/Embestida/compose_contact.py`
+y `audio-masters.json`. Casting y comodidad **EN PRUEBA humana**; niveles no son
+aprobación de miedo. Fuentes/licencias y URLs: sección El intruso siguiente.
+
+
+## El intruso — 2026-10-12, selección implementada / escucha humana EN PRUEBA
+
+Seis masters mono PCM16/48 kHz en `Clips/Intruder`. Nueva interpretación,
+metal y manija editados de previews HQ publicados; sin generación ni pagos.
+La fuente/licencia CC0 1.0 se verificó en las páginas de los autores al descargar.
+Los originales, páginas, hashes y cortes exactos quedan en
+`ArtSource/Audio/Intruder/{sources,masters}.json` y `compose.py`.
+
+| Fuente | Master / función |
+| --- | --- |
+| [JohnsonBrandEditing — 173944](https://freesound.org/people/JohnsonBrandEditing/sounds/173944/) | `Intruder_BreachVoice`: 0.30–1.46 s, voz del cuerpo al irrumpir. `Intruder_CloseBreath`: 6.00–7.02 s con pausa de 1.45 s, respiración presente junto a la bomba. |
+| [aldenroth2 — 272023](https://freesound.org/people/aldenroth2/sounds/272023/) | `Intruder_ChargeEffort`: 0.025–0.61 s, esfuerzo corto durante la huida. |
+| [NachtmahrTV — 556693](https://freesound.org/people/NachtmahrTV/sounds/556693/) | `Intruder_MetalBreach`: 0.11–0.96 s, contacto corporal con hoja; cola abreviada. |
+| [alegemaate — 364682](https://freesound.org/people/alegemaate/sounds/364682/) | `Intruder_DoorHandle`: 0–0.51 s; `Intruder_DoorPressure`: 1.03–1.68 s. Dos acciones separadas por silencio. |
+
+Se conservan altura/formantes originales; límites espectrales suaves y fades.
+Metal, voz y cuerpo tienen fuentes distintas en WorldSFX. Se retira el pulso
+musical de esta versión. El limitador y las opciones de volumen, mono/parlantes
+y dinámica reducida conservan sus propietarios. La selección es una candidata
+para escucha integrada, no una aprobación humana por mediciones de señal.
+
+## Resonance — 2026-10-08
+
+Thirteen integrated mono masters, 48 kHz/24-bit, in `Clips/Resonance`.
+Exact input files, excerpts, editing recipe, durations, peak/RMS and output
+SHA-256: `ArtSource/Audio/Resonance/masters.json`. Sources and rights:
+`Sources/download-manifest.json`, primary-source links in `CREDITS.md`, saved
+CC0 license. New recordings: qubodup, AntumDeluge, Brian MacIntosh, SPAudiobooks
+and Archeos. Existing air: HECKFRICKER. No paid service or generative voice.
+
+Selection rejects the downloaded qubodup short effort grunts and mikeask tired
+breaths for this integration. They remain source candidates only, not imported
+assets or human-approved performances. The over-the-top Wilhelm-style collection
+and heavily altered ghost voices were rejected at source screening. The earlier
+rejected intimate breath was not reused. Vocal credibility remains human-pending.
+
+Unity imports short clips as preloaded PCM/decompress-on-load, clips over eight
+seconds as preloaded Vorbis .85/compressed-in-memory. All masters are already
+mono; no automatic importer peak normalization. First technical iteration fixed
+a DC-producing loop seam in `Pipe_Air_LP`; before/after measurements are saved.
+Evidence, final selection and remaining listening limits:
+[RESONANCE_CANDIDATE.md](RESONANCE_CANDIDATE.md).
+
+
 This ledger is the source-of-truth for external audio considered and imported
-through AD2. The repository is public. A link or a free
+through AD2, SD1 and subsequent campaign production. The repository is public. A link or a free
 download is not permission to redistribute its raw file in Git.
 
 The repository currently has no root project `LICENSE`. This ledger records
@@ -52,6 +110,32 @@ be verified again at download time.
 `CC0` is the candidate license, not the acceptance decision. Each source can
 still fail provenance, timbre, narrative, technical, or safety review.
 
+## VS1 project-authored prototype
+
+| ID / output | Source | Objective format and treatment | Status |
+| --- | --- | --- | --- |
+| `AUD-VS1-001`<br>`Assets/_Game/Audio/Clips/VS1/SFX_VS1_FrameRelayStrain.wav` | Project-authored deterministic procedural cue; generator `ArtSource/Audio/VS1/generate_vs1_frame_relay.py`; no external or generative service | Mono `48 kHz/24-bit PCM`, `0.460 s`, peak `-16 dBFS`; relay contact, gasket friction, and damped metal-frame modes; SHA-256 `0e2fb867e140e21ab7f31156ba0cf664d6e7ac4521a5a6e24b8e2df7d250a5d6` | Assigned to `VS1StrongEventOne` on `WorldSFX` for three localized fixture failures. Objective delivery passed; human timbre, fear, comfort, and device approval pending. |
+
+## SD1 prototype acceptance
+
+On `2026-08-12` the user approved the initial direction of one dry knock, one
+short concrete-footstep take, and one calm breathing source from their official
+Freesound previews. After requesting mild distortion, the user heard the treated
+breathing as erotic and rejected it for SD1. The derivative and scene assignment
+were removed. Two mono `48 kHz/24-bit` derivatives remain imported under
+`Assets/_Game/Audio/Clips/SD1/`; neither proves direction, source doubt, tension,
+fear, or device compatibility.
+
+| ID / output | Source | Prototype treatment | Status |
+| --- | --- | --- | --- |
+| `AUD-SD1-001`<br>`SFX_SD1_DomesticKnock.wav` | [DOOR KNOCKING](https://freesound.org/people/SamuelGremaud/sounds/426736/) — SamuelGremaud, CC0 | Dry mono trim, `5.934 s`, peak `-9 dBFS` | User-approved source direction; imported and objectively wired behind-right |
+| `AUD-SD1-002`<br>`SFX_SD1_Footsteps.wav` | [walking indoors on concrete floor 1](https://freesound.org/people/FOSSarts/sounds/740419/) — FOSSarts, CC0 | Complete mono take, `3.023 s`, peak `-12 dBFS` | Retained only in the frozen SD1 technical sandbox; human-rejected as the standalone SE1 construction and no longer assigned there |
+| `AUD-SD1-003`<br>no imported output | [SFX BREATHING](https://freesound.org/people/LindaBarrans/sounds/800927/) — LindaBarrans, CC0 | Tested `8.7 s` excerpt with filtering, delayed double, slow modulation, and restrained saturation | **Rejected after treatment:** read as erotic rather than threatening; derivative deleted and scene reference cleared |
+
+Original and derivative hashes, exact edits, first-party claims, voluntary
+credits, and Unity delivery state are retained in
+`AudioEvidence/2026-08-12/FREESOUND_CC0_SD1_SNAPSHOT.md`.
+
 ## Acceptance record
 
 All accepted source pages claimed `CC0 1.0`; commercial use, modification, and
@@ -68,7 +152,7 @@ the complete source auditions. This is a project review, not a warranty.
 | `AUD-AMB-001` | `67a19f1c1b06216b63d04bdb40abaf15d53cfc0a7ae5bd535d952b75a45f8062` | `AMB_FacilityAir_LP.wav`; stereo, `48 kHz/24-bit`, `24.000 s`, `6,916,096` bytes | `a0a6f8c1a3fd15f188a74ca8997d5f859f79f2fc4ab597da63747890ed612b8a` | Source `4.00–28.25 s`; `0.25 s` loop crossfade. Seam jump `0.002970`, internal-step P99 `0.013576`, DC `0.000008`; no clipping or non-finite samples. | `ClinicalRoomTone` / `Ambience`; prototype accepted by project reviewer on `2026-08-09`, replaceable in production. |
 | `AUD-AMB-002` | `3c8f293cbfe1e183691e261721d600ff2197c940ef12fe42f90d65dad9252d36` | `AMB_Fluorescent_LP.wav`; mono, `48 kHz/24-bit`, `12.850 s`, `1,854,496` bytes | `b491e4f37f547156eb249e417d97f299e45e2c20453b31a652bb1ccfd8484ca8` | Clean regions joined with `80 ms` crossfades; `0.25 s` loop crossfade. Seam `0.006307`, P99 `0.021191`, DC `0.000030`; no clipping/non-finite samples. | Persistent scene source / `Ambience`; prototype accepted by project reviewer on `2026-08-09`, replaceable in production. |
 | `AUD-AMB-003` | `fa362b53294f6ef8a7feec8739ac1d2c11b0248fb9a19a0c18cea34a6de0b85b` | `AMB_DistantMachinery_LP.wav`; mono, `48 kHz/24-bit`, `13.800 s`, `1,991,296` bytes | `4ea9b3098f493511c207156c68aba32e395f2fb76081c3e94fed9035fdfe2956` | Source after `0.4 s`; `0.30 s` loop crossfade. Seam `0.001145`, P99 `0.040460`, DC `0.000063`; no clipping/non-finite samples. | Persistent scene source / `Ambience`; accepted replacement for active industrial candidate, production identity open. |
-| `AUD-MEC-001` | `d3e3ec92617e27f4f21205a6a5dbee2b52d4bf6d8e26320d070d7b5142e30d8a` | `SFX_DoorMovement_LP.wav`; mono, `48 kHz/24-bit`, `2.100 s`, `306,496` bytes | `793ae3576c143031f3dac5b9e27709522d82a65711ba174cf7a00af13c7595c0` | Downmix; source from `0.20 s`; `0.15 s` loop crossfade. Seam `0.009369`, P99 `0.025960`, DC `0.000143`; no clipping/non-finite samples. | `SlidingDoorAudio` / `WorldSFX`; **human-selected option A** for its domestic character on `2026-08-09`. |
+| `AUD-MEC-001` | `d3e3ec92617e27f4f21205a6a5dbee2b52d4bf6d8e26320d070d7b5142e30d8a` | `SFX_DoorMovement_LP.wav`; mono, `48 kHz/24-bit`, `2.100 s`, `306,496` bytes | `793ae3576c143031f3dac5b9e27709522d82a65711ba174cf7a00af13c7595c0` | Downmix; source from `0.20 s`; `0.15 s` loop crossfade. Seam `0.009369`, P99 `0.025960`, DC `0.000143`; no clipping/non-finite samples. | `SlidingDoorAudio` / `WorldSFX`; **human-selected option A** for its domestic character on `2026-08-09`. Also reused by `VS1DomesticDoorReveal` at descending `0.72 → 0.58` pitch as a provisional hinge-friction checkpoint cue; that treatment is not human-approved. |
 | `AUD-MEC-002` | same original as `AUD-MEC-001` | `SFX_DoorEndpoint.wav`; mono, `48 kHz/24-bit`, `0.680 s`, `102,016` bytes | `4d2faeb8ef19350711e08e3edd44c4143b5666200e4e509adcc98280dacdf4cb` | Source `2.74–3.42 s`; downmix; `5 ms` fade-in and `40 ms` fade-out; no clipping/non-finite samples. | `SlidingDoorAudio` / `WorldSFX`; **human-selected option B**; metallic-clunk candidate rejected to keep one domestic object. |
 | `AUD-MEC-003` | `4c4a3b1e8b7bb4ce34bd406a88d9d7269fdde4f3be8701d7295a583190280a35` | `SFX_PlatePress.wav`; mono, `48 kHz/24-bit`, `0.480 s`, `73,216` bytes | `48a3d21524823fc0571dbdd2fcfba9ca22966e0f93a45669a9f234ad8661e149` | Source `0.90–1.38 s`; downmix; `5/20 ms` fades; no clipping/non-finite samples. | `PressurePlateAudio` / `WorldSFX`; prototype accepted, final identity open. |
 | `AUD-MEC-004` | same original as `AUD-MEC-003` | `SFX_PlateRelease.wav`; mono, `48 kHz/24-bit`, `0.520 s`, `78,976` bytes | `af99452667b1220a1f531bb734ff9da3b61c4da82b291b72ab90a05f7df3a2df` | Genuine off edge at source `2.86–3.38 s`; downmix; `5/20 ms` fades; no clipping/non-finite samples. | `PressurePlateAudio` / `WorldSFX`; prototype accepted, never synthesized by reversing press. |
@@ -262,3 +346,126 @@ never request, display, store, or commit those credentials.
 8. Before staging, verify file size, Git LFS status, public license evidence,
    attribution, secret scan, and `git diff --check`. A clean-clone check follows
    the focused audio commit.
+
+## Campaña ampliada — originales 2026-09-30 (EN PRUEBA)
+
+Siete archivos mono PCM 16 bit / 48 kHz creados por síntesis determinista en `ArtSource/Audio/campaign_sounds.py`, semilla 613. No se usó proveedor generativo de voz, muestra externa, voz humana, clonación ni servicio pago. Son diseño original del proyecto; no añaden canales de grabación al Echo.
+
+| Archivo (`Assets/_Game/Audio/Clips/Campaign/`) | Duración | Pico del archivo | Función |
+| --- | ---: | ---: | --- |
+| Relay.wav | 0.8 s | −9.9 dBFS | Contacto de tablero |
+| Telephone.wav | 2.4 s | −12.4 dBFS | Timbre espacial, repetición autorizada por estado |
+| Wire.wav | 2.6 s | −12.0 dBFS | Localizar circuito activo |
+| WallContact.wav | 3.5 s | −11.1 dBFS | Tres contactos desiguales detrás de pared |
+| CloseMovement.wav | 2.8 s | −13.2 dBFS | Movimiento próximo sin voz |
+| Archive.wav | 4 s | −13.2 dBFS | Resolución armónica contenida |
+| PressureBed.wav | 8 s | −12.4 dBFS | Máquina que deja de enmascarar al detenerse |
+
+Masters seleccionados provisionalmente: los WAV anteriores. Ganancias de fuente 0.18–0.30 y limitador de salida compartido; la cifra de pico del archivo no equivale al volumen final. Pendiente: capturar mezcla final y juzgar timbre, audibilidad, repetición y miedo por oído humano. Estos archivos no se presentan como actuaciones aprobadas.
+
+### Contactos del jugador — campaña, 2026-09-30 (EN PRUEBA)
+
+`StepVinyl0–2.wav` y `StepWood0–2.wav`: seis variantes originales de 0,28 s,
+mono PCM 16 bit / 48 kHz, pico −12,8 dBFS. Mismo generador determinista de campaña.
+Se disparan por distancia realmente caminada y contacto con el suelo; cambiar
+la pose por RECALL reinicia el acumulador. Se asignan únicamente al jugador,
+nunca al prefab del Echo. Fuente de reproducción 0,16 antes del bus/master.
+No reutilizan el estudio de pasos rechazado como scare autónomo de SE1.
+
+## Acabado — derivados de grabaciones 2026-09-30 (EN PRUEBA por oído)
+
+Escena `EchoProtocol_Finish.unity`. `ArtSource/Audio/Finish/derivatives.json`
+registra archivo fuente local, tratamiento, duración, pico y SHA-256; el generador
+`build_recorded_foley.py` conserva el proceso. Las licencias CC0 proceden de los
+registros previos de este ledger: FOSSarts (pasos), SamuelGremaud (golpe),
+Rolly-SFX (mecanismo/fricción), AlaskaRobotics (máquina). No voz ni gasto nuevo.
+
+| Derivado en `Clips/Finish` | Tratamiento / función | Duración | Pico |
+| --- | --- | ---: | ---: |
+| FootVinyl0–2 / FootWood0–2 | Tres contactos aislados; madera con filtrado suave | 0,34 s | −13,2 dBFS |
+| WallContact | Golpe grabado, mono y ganancia conservadora | 5,934 s | −11,7 dBFS |
+| Relay | Extremo corto del mecanismo; sustituye Relay y Wire | 0,6 s | −11,4 dBFS |
+| CloseMovement | Fragmento de fricción real | 1,6 s | −14,9 dBFS |
+| PressureBed | Cama de máquina previa con extremos fundidos | 13,8 s | −13,6 dBFS |
+
+PCM mono, importación sin compresión. Pasos sólo del jugador actual. El golpe
+autorizado durante la espera de presión pertenece al entorno; el Echo sigue sin
+canal de audio. `CampaignRoomTone` sustrae capas institucionales según ubicación.
+Se mantienen controles de volumen, mono y dinámica reducida y el procesador de
+salida sin aumento de ganancia. No se equipara el pico digital con seguridad del
+volumen físico ni con eficacia del miedo. La herramienta de esta sesión no admite
+entrada de audio: no se afirma audición, aprobación tímbrica o escucha espacial.
+
+## Residence / Threshold — Overhaul, 2026-10-01
+
+**Importados y referenciados; EN PRUEBA por oído.** Siete WAV en
+`Assets/_Game/Audio/Clips/Overhaul/`, con referencias serializadas verificadas por
+lectura en `EchoProtocol_Residence.unity` y `EchoProtocol_Threshold.unity`.
+La comprobación de referencias no sustituye ejecución, audición ni aprobación
+humana. Los siete archivos coinciden byte por byte con los SHA-256 de sus masters;
+suman **2.901.764 bytes**, mono PCM 48 kHz / 24-bit.
+
+| Derivado importado | Autor / fuente primaria CC0 | Duración / pico | Asignación actual |
+| --- | --- | --- | --- |
+| `FootWood0–2.wav` | ftpalad — [Footsteps on Wooden Floor.aif](https://freesound.org/people/ftpalad/sounds/119914/) | 0,440 s cada uno / −13,2 dBFS | `PlayerFootsteps`, contactos actuales sobre madera; nunca audio del Echo |
+| `FloorboardWeight.wav` | SoundDesignForYou — [Creaking Wooden Floor [7]](https://freesound.org/people/SoundDesignForYou/sounds/646691/) | 0,896 s / −13,2 dBFS | `HouseMemory`, peso localizado en el estudio durante el encuentro autorizado |
+| `DomesticFridge_LP.wav` | loopo — [machine-hum.ogg](https://freesound.org/people/loopo/sounds/164040/) | 7,483 s / −18,4 dBFS | `HouseMemory`, electrodoméstico ligado a la alimentación real de cocina |
+| `ValveFlow_LP.wav` | JohanHauskater — [gas_leak_3_samples](https://freesound.org/people/JohanHauskater/sounds/855703/) | 6,200 s / −14,4 dBFS | `PressureWorkAudio`, flujo durante trabajo válido en la válvula |
+| `ValveDischarge.wav` | Misma fuente de JohanHauskater | 4,250 s / −13,6 dBFS | `PressureWorkAudio`, descarga al completar válvula; cola física fija hasta terminar |
+
+Las páginas primarias publicaban **CC0 1.0** al revisarse el `2026-10-01`;
+se conservan créditos voluntarios y evidencia pública saneada. El
+[deed](https://creativecommons.org/publicdomain/zero/1.0/) y el
+[texto legal CC0](https://creativecommons.org/publicdomain/zero/1.0/legalcode.en)
+permiten modificación y redistribución, sin licenciar por ello el proyecto entero.
+Se descargaron previews HQ **MP3** públicos, no los originales sin pérdida tras
+registro. El proceso decodifica mediante `afconvert` a PCM 16-bit, mezcla canales,
+elimina DC, recorta, funde y normaliza; exportar a 24-bit no recupera detalle perdido.
+Los bucles de nevera/válvula usan cruces de 0,24/0,30 s respectivamente.
+
+Proveniencia exacta: [`sources.json`](../ArtSource/Audio/Overhaul/sources.json),
+[`Evidence/`](../ArtSource/Audio/Overhaul/Evidence/),
+[`masters.json`](../ArtSource/Audio/Overhaul/masters.json) y
+[`build_masters.py`](../ArtSource/Audio/Overhaul/build_masters.py).
+Los manifiestos conservan su estado histórico de **preparación**; la tabla anterior
+registra la importación posterior. Los controles numéricos originales comprobaron
+muestras finitas, ausencia de clipping y saltos de unión inferiores al percentil 99
+de los pasos internos de cada bucle. No establecen calidad percibida, ausencia de
+contenido incidental, comodidad, localización ni miedo: no hubo escucha humana.
+
+**Preparados, no importados ni integrados:** `WaterInPipe_LP` y `DrainRelease`, de
+Breviceps — [Faucet + sink + drain gurgling](https://freesound.org/people/Breviceps/sounds/458401/);
+`PipeStress`, de Rae_chuuu — [metal creak](https://freesound.org/people/Rae_chuuu/sounds/797978/).
+Ambas fuentes también publicaban CC0 1.0 y permanecen en `ArtSource/Audio/Overhaul/`.
+El conjunto completo de preparación contiene seis previews (1.711.163 bytes) y
+diez masters (4.422.536 bytes); estas cifras no describen el contenido importado.
+No se usaron cuentas, servicios pagos, voces generadas o clonadas ni paquetes de audio.
+
+## Courtyard — 2026-10-01
+
+**Importado provisionalmente; escucha EN PRUEBA.** `Clips/Courtyard/AMB_CourtyardNight_LP.wav`
+parte del preview HQ MP3 público de ahriik — [Quiet Neighborhood Ambience (light
+wind, no people)](https://freesound.org/people/ahriik/sounds/481964/), publicado
+con [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) al consultar la
+página primaria. No es el WAV original. `ArtSource/Audio/HouseCourtyard/source.json`
+conserva enlace, fecha y hash; `build_courtyard_master.py` reproduce decodificación
+PCM16/48k mono, ganancia constante +18dB y unión lineal de1s. Resultado38.039s,
+pico−20.69dBFS/RMS−34.70dBFS; hash y salto de unión en `master.json`.
+
+Una fuente3D fija del exterior, volumen.16, conserva el bus Ambience, pausa y
+procesamiento de salida existentes. `CourtyardAir` sólo posee esa fuente, con
+regiones exteriores solapadas y particiones reales; no reproduce acciones del
+Echo ni modifica teléfono, nevera o circuito. La comprobación de ejecución está
+en el informe Courtyard. No se afirma audición, timbre aceptado, comodidad ni
+contenido incidental verificado por oído. Sin servicios pagos o voz generada.
+
+## Impact — 2026-10-11
+
+Siete derivados pequeños en `Assets/_Game/Audio/Clips/Impact` y masters en
+`ArtSource/Audio/Impact/Masters`: voz adulta CC0 de Archeos 325548, contactos
+CC0 de Brian MacIntosh, scrape de AntumDeluge, tres pasos de Finish/Overhaul
+y pulso original no verbal. `ArtSource/Audio/Impact/masters.json` conserva
+procedencia, fecha, licencia, edición, duración, pico/RMS y SHA-256; no hay voz
+generada, clonación, modelo ni proveedor nuevo. `compose_audio.py` reproduce
+la edición desde las fuentes existentes. Aceptación de timbre, actuación y
+comodidad siguen EN PRUEBA humana. [Puesta y evidencia](IMPACT_CANDIDATE.md).

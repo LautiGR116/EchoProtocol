@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "dateUTC": "2026-10-02T23:11:20.554661+00:00",
+  "zip": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Reconstruction-20261002.zip",
+  "bytes": 84941278,
+  "sha256": "7e499c5b58f93c3733bfa9d4b8ed018f350f28ba91a10cafe5c00e2e0d133b45",
+  "regularFilesVerified": 203,
+  "symlinksVerified": 0,
+  "crc": "all entries pass",
+  "method": "Compared every package regular file against ZIP uncompressed content, checked all symlink targets and executable permissions. EncounterArt scene and ZIP hashes unchanged.",
+  "baselineSceneIntact": true,
+  "baselineZipIntact": true
+}

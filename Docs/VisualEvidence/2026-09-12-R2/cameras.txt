@@ -1,0 +1,12 @@
+R2_01_anchor_baseline position=(-5.636, 1.630, 27.872) euler=(0.00, 270.00, 0.00) FOV=60
+R2_02_anchor_active position=(-5.636, 1.630, 27.872) euler=(0.00, 270.00, 0.00) FOV=60
+R2_03_echo_A position=(-5.110, 1.630, 34.176) euler=(0.00, 300.00, 0.00) FOV=60
+R2_04_separated_route position=(-5.110, 1.630, 39.426) euler=(0.00, 0.00, 0.00) FOV=60
+R2_05_payoff position=(-5.110, 1.630, 46.271) euler=(0.00, 270.00, 0.00) FOV=60
+R2_06_distant_hub position=(-15.425, 1.630, 46.289) euler=(0.00, 155.00, 0.00) FOV=60
+R2_01_anchor_baseline position=(-5.638, 1.630, 27.877) euler=(0.00, 270.00, 0.00) FOV=60
+R2_02_anchor_active position=(-5.638, 1.630, 27.877) euler=(0.00, 270.00, 0.00) FOV=60
+R2_03_echo_A position=(-5.110, 1.630, 34.174) euler=(0.00, 300.00, 0.00) FOV=60
+R2_04_separated_route position=(-5.110, 1.630, 39.421) euler=(0.00, 0.00, 0.00) FOV=60
+R2_05_payoff position=(-5.110, 1.630, 46.272) euler=(0.00, 270.00, 0.00) FOV=60
+R2_06_distant_hub position=(-15.425, 1.630, 46.286) euler=(0.00, 155.00, 0.00) FOV=60

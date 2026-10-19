@@ -1,0 +1,152 @@
+ISOLATED FINAL ACT: initial public-API house fixture and one pose placement; synthetic input thereafter.
+PASS required final-act and house systems exist
+PASS physical Player, view and door references exist
+PASS final act begins fresh
+PASS public house fixture acquires the key and unlocks its exit without reflection writes
+PASS actual look sensitivity is nonzero
+PASS BeginReview lies within actual interaction range
+PASS actual camera ray reaches BeginReview
+PASS BeginReview accepts the real Player in the correct phase
+PASS real E transfers from house to active review
+PASS review commits exactly one checkpoint without teleporting the Player
+PASS interior origin clears obsolete recordings instead of inventing a take
+PASS domestic leaf, final exit and return tray begin in their honest initial states
+PASS preserve rejects Player without a current witness
+PASS key return rejects Player before preservation
+PASS unrelated actor cannot use the domestic door
+PASS the upcoming R has an actual movement recording to finish
+PASS one real R produces exactly one immutable take and active playback
+PASS R returns through the real loop to the established interior origin
+MEASURE wrong_facing_take waitForRecordingReady=False holdGameSeconds=3.1049 recordingSeconds=9.0305 longestQualifiedRecordedPause=0.0000
+PASS a stationary take facing away from 6B has no qualifying pause
+PASS early opening is requested before the recorded arrival reaches the exterior bay
+PASS OpenDoor lies within actual interaction range
+PASS actual camera ray reaches OpenDoor
+PASS OpenDoor accepts the real Player in the correct phase
+PASS real E can request 6B immediately after R, before any witness
+PASS real movement reaches the authored near-threshold witness band
+PASS rejected take was watched from the required band with the physical door fully open
+PASS an observed rejected take cannot authorize preservation, key return or ending
+PASS preserve rejects Player without a current witness
+PASS key return rejects Player before preservation
+PASS unrelated actor cannot use the domestic door
+PASS Echo actor cannot preserve a recording
+PASS the upcoming R has an actual movement recording to finish
+PASS one real R produces exactly one immutable take and active playback
+PASS R returns through the real loop to the established interior origin
+MEASURE short_take waitForRecordingReady=False holdGameSeconds=0.2545 recordingSeconds=15.5882 longestQualifiedRecordedPause=0.0000
+PASS a correctly facing but sub-two-second take is rejected
+PASS early opening is requested before the recorded arrival reaches the exterior bay
+PASS OpenDoor lies within actual interaction range
+PASS actual camera ray reaches OpenDoor
+PASS OpenDoor accepts the real Player in the correct phase
+PASS real E can request 6B immediately after R, before any witness
+PASS real movement reaches the authored near-threshold witness band
+PASS rejected take was watched from the required band with the physical door fully open
+PASS an observed rejected take cannot authorize preservation, key return or ending
+PASS preserve rejects Player without a current witness
+PASS key return rejects Player before preservation
+PASS unrelated actor cannot use the domestic door
+PASS Echo actor cannot preserve a recording
+PASS live pose guidance responds to the actual recorded pause
+PASS the upcoming R has an actual movement recording to finish
+PASS one real R produces exactly one immutable take and active playback
+PASS R returns through the real loop to the established interior origin
+MEASURE authentic_approach waitForRecordingReady=False holdGameSeconds=8.2035 recordingSeconds=30.0580 longestQualifiedRecordedPause=8.3580
+PASS actual immutable approach includes a qualified pause
+PASS real movement reaches the authored near-threshold witness band
+PASS closed-glass observation uses the final band while the real leaf remains closed
+PASS closed-glass body point is inside the actual camera witness margins at height 1.30
+PASS only authored transparent glass obstructs the body point; the rejection is not hidden by an opaque frame
+PASS closed-glass body point is inside the actual camera witness margins at height 1.64
+PASS only authored transparent glass obstructs the body point; the rejection is not hidden by an opaque frame
+PASS near-threshold observation remains outside the Echo proximity fade
+PASS closed-glass interval remained within the real stationary playback span
+PASS more than a witness interval through closed glass cannot authorize the direct encounter
+PASS OpenDoor lies within actual interaction range
+PASS actual camera ray reaches OpenDoor
+PASS OpenDoor accepts the real Player in the correct phase
+PASS present-Player E opens the leaf without replacing the take being reviewed
+PASS partial direct witness is captured before completion
+PASS pause breaks an incomplete contiguous direct observation
+PASS pause freezes actual playback during direct observation
+PASS direct observation resumes through Escape
+PASS open-aperture observation accredits the same immutable take that reached the threshold
+PASS direct witness belongs to the requested physical opening and authored band
+PASS witness stores the exact currently replayed snapshot
+PASS Escape opens the final-act pause menu
+PASS paused keyboard movement and R leave clock, pose and recording identity unchanged
+PASS Escape restores final-act control
+PASS a completed witness survives pause only for its identical snapshot
+PASS the upcoming R has an actual movement recording to finish
+PASS one real R produces exactly one immutable take and active playback
+PASS new R replaces the take and invalidates the previous witness reference
+PASS preserve rejects Player without a current witness
+PASS key return rejects Player before preservation
+PASS unrelated actor cannot use the domestic door
+PASS Echo actor cannot preserve a recording
+PASS R restores the review door only after placing the Player at the safe interior origin
+PASS live pose guidance responds to the actual recorded pause
+PASS the upcoming R has an actual movement recording to finish
+PASS one real R produces exactly one immutable take and active playback
+PASS R returns through the real loop to the established interior origin
+MEASURE replacement_authentic_take waitForRecordingReady=False holdGameSeconds=4.2064 recordingSeconds=9.5748 longestQualifiedRecordedPause=4.3748
+PASS early opening is requested before the recorded arrival reaches the exterior bay
+PASS OpenDoor lies within actual interaction range
+PASS actual camera ray reaches OpenDoor
+PASS OpenDoor accepts the real Player in the correct phase
+PASS real E can request 6B immediately after R, before any witness
+PASS real movement reaches the authored near-threshold witness band
+PASS open-aperture observation accredits the same immutable take that reached the threshold
+PASS direct witness belongs to the requested physical opening and authored band
+PASS replacement witness belongs to the newly recorded approach
+PASS real CharacterController passes through 6B into the outer archive
+PASS Preserve lies within actual interaction range
+PASS actual camera ray reaches Preserve
+PASS Preserve accepts the real Player in the correct phase
+PASS preservation keeps the exact witnessed immutable object
+PASS preservation stops new recording but requires the distinct key-return action
+PASS R after preservation cannot replace the original or teleport the Player
+PASS ReturnKey lies within actual interaction range
+PASS actual camera ray reaches ReturnKey
+PASS ReturnKey accepts the real Player in the correct phase
+PASS real E returns the physical key and requests the final mechanical exit
+PASS key return alone does not complete the game
+PASS actual departure crossing starts the fade while retaining Player control
+PASS departure can be paused with Escape
+PASS pause freezes the actual departure fade
+PASS departure resumes through the actual pause control
+PASS physical departure reaches the real final menu while retaining the same original
+PASS immutable snapshot retains its original frame count
+PASS all timestamps, positions and rotations of the captured snapshot remain identical
+PASS immutable snapshot retains its original frame count
+PASS all timestamps, positions and rotations of the captured snapshot remain identical
+PASS immutable snapshot retains its original frame count
+PASS all timestamps, positions and rotations of the captured snapshot remain identical
+PASS immutable snapshot retains its original frame count
+PASS all timestamps, positions and rotations of the captured snapshot remain identical
+PASS immutable snapshot retains its original frame count
+PASS all timestamps, positions and rotations of the captured snapshot remain identical
+PASS live playback was audited rather than simulated by direct state flags
+PASS capture exists: rules-00-origin-Game.png
+PASS capture exists: rules-00-origin-Camera.png
+PASS capture exists: rules-wrong_facing_take-rejected-Game.png
+PASS capture exists: rules-wrong_facing_take-rejected-Camera.png
+PASS capture exists: rules-short_take-rejected-Game.png
+PASS capture exists: rules-short_take-rejected-Camera.png
+PASS capture exists: rules-01-closed-glass-rejected-Game.png
+PASS capture exists: rules-01-closed-glass-rejected-Camera.png
+PASS capture exists: rules-02-witnessed-from-inside-Game.png
+PASS capture exists: rules-02-witnessed-from-inside-Camera.png
+PASS capture exists: rules-03-pause-menu-Game.png
+PASS capture exists: rules-03-pause-menu-Camera.png
+PASS capture exists: rules-01-recording-at-door-Game.png
+PASS capture exists: rules-01-recording-at-door-Camera.png
+PASS capture exists: rules-02-witnessed-from-inside-Game.png
+PASS capture exists: rules-02-witnessed-from-inside-Camera.png
+PASS capture exists: rules-05-original-preserved-Game.png
+PASS capture exists: rules-05-original-preserved-Camera.png
+PASS capture exists: rules-06-key-returned-Game.png
+PASS capture exists: rules-06-key-returned-Camera.png
+PASS capture exists: rules-07-ending-menu-Game.png
+PASS capture exists: rules-07-ending-menu-Camera.png

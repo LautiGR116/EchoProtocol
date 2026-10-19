@@ -1,0 +1,13 @@
+scene=Assets/_Game/Scenes/Production/EchoProtocol_Candidate.unity
+missingScripts=0
+sceneDirty=False
+lights=142
+audioSources=57
+firstRelay	Relay State	True
+firstEvent	VS1 Strong Event 1 - Occupied Lane	True
+domesticCheckpoint	Domestic Checkpoint Trigger	True
+alignmentRelay	P2 Blind Alignment Relay	True
+passage	SE2 Architectural Discrepancy Event	True
+returnPassage	SE3 Return Crossing (+Z toward return)	True
+recoveryOrigin	R1 Central observation station	False
+returnRelay	P3 Recombination Relay	False

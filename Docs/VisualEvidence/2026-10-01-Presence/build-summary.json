@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "buildId": "build_68bd4071a13d",
+  "result": "Succeeded",
+  "platform": "StandaloneOSX",
+  "totalSizeBytes": 197322541,
+  "buildTimeMs": 31601,
+  "totalWarnings": 346,
+  "totalErrors": 0,
+  "native": "PENDING: CUA reported Mac locked and unable to unlock; no native launch/input approval.",
+  "human": "No human playthrough or listening approval",
+  "signature": "codesign --verify --deep --strict PASS",
+  "architectures": [
+    "arm64",
+    "x86_64"
+  ]
+}

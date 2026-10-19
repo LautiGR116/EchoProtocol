@@ -1,0 +1,78 @@
+{
+  "source": "../final-native/listener.wav",
+  "sourceSha256": "57030a4d5db693e7e2a36010f7d9d8abb7dff74e0fc485f7e16275220073efba",
+  "sampleRate": 48000,
+  "channels": 2,
+  "method": "Individual excerpts: byte-identical contiguous PCM slices, no gain or EQ processing. Reel: cuts, 10ms boundary fades, 1s silence between clips. No normalization, source soloing, or replacement audio.",
+  "scope": "Actual post-SessionAudio listener callback during declared route. No source soloing, gain normalization, camera placement or hidden resume. OS/hardware gain and subjective listening not established.",
+  "clips": [
+    {
+      "file": "01-se2.wav",
+      "title": "SE2 · reconocimiento",
+      "description": "Cruce real del salón. Fricción del marco y motivo interno después del cambio; el Echo sigue sin voz.",
+      "sourceStartFrame": 4535552,
+      "sourceEndFrame": 5303552,
+      "sourceSeconds": 94.49066666666667,
+      "seconds": 16.0,
+      "sha256": "efe7ebf464121ae129e1f489844743ff8cb7c8aebdc3e66faab8532b9871f153",
+      "peak": 0.45782470703125
+    },
+    {
+      "file": "02-transferencia.wav",
+      "title": "P3 · transferencia",
+      "description": "Después de confirmar B, el metal responde al otro lado del tabique. La ventilación pierde fuerza.",
+      "sourceStartFrame": 7584000,
+      "sourceEndFrame": 8208000,
+      "sourceSeconds": 158.0,
+      "seconds": 13.0,
+      "sha256": "f6b0ef79fb12b35e0c683cd9a7e5cd2851ceeb130909c6bb86c0e21eb54554dd",
+      "peak": 0.357818603515625
+    },
+    {
+      "file": "03-archivo.wav",
+      "title": "Archivo · regreso",
+      "description": "Una fricción se acerca detrás de la pared mientras el jugador vuelve por el archivo.",
+      "sourceStartFrame": 9777856,
+      "sourceEndFrame": 10401856,
+      "sourceSeconds": 203.70533333333333,
+      "seconds": 13.0,
+      "sha256": "f42baaa24a8ac7846aa1397bd7d24fd719c16e3ea58d4e0a8111daaabf34e85e",
+      "peak": 0.212860107421875
+    },
+    {
+      "file": "04-aislamiento.wav",
+      "title": "Planta · después del drenaje",
+      "description": "La máquina se apaga, el caño contrae y llega una única voz desde el espacio de servicio.",
+      "sourceStartFrame": 12126464,
+      "sourceEndFrame": 12942464,
+      "sourceSeconds": 252.63466666666667,
+      "seconds": 17.0,
+      "sha256": "8dc2fae8f160c75ecbc5416d1c72e7fc01079101a6af10a7f5f9ca6417f097b8",
+      "peak": 0.30523681640625
+    },
+    {
+      "file": "05-telefono.wav",
+      "title": "Casa · la línea",
+      "description": "La toma se escucha desde el auricular físico. En el juego se puede interrumpir colgando; no se repite al levantarlo.",
+      "sourceStartFrame": 12787968,
+      "sourceEndFrame": 13651968,
+      "sourceSeconds": 266.416,
+      "seconds": 18.0,
+      "sha256": "b378f4601a2fdd46a3a31dedbb2fab1728adbd84ce104c2f8dc3e31f87ee7f80",
+      "peak": 0.49615478515625
+    },
+    {
+      "file": "06-devolucion.wav",
+      "title": "6B · reconocer y devolver",
+      "description": "El motivo reaparece después de RECALL; la devolución de la llave abre su resolución y el fundido de salida.",
+      "sourceStartFrame": 16494272,
+      "sourceEndFrame": 17506304,
+      "sourceSeconds": 343.6306666666667,
+      "seconds": 21.084,
+      "sha256": "7dc98b8bc8e8a86807ec5e314eee1093387229ae42f5f9c050f5cd1ee0e3eb56",
+      "peak": 0.179779052734375
+    }
+  ],
+  "reelSeconds": 103.084,
+  "reelSha256": "728af83e34b0c67a2df34c83453517b10d3351fcf0e70503cb7b5768794db82e"
+}

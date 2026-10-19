@@ -1,0 +1,19 @@
+{
+  "status": "FAIL",
+  "error": "System.Exception: real retries failed to accelerate attention\n  at ContrapruebaProbe+<Until>d__67.MoveNext () [0x0004a] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ContrapruebaProbe.cs:98 \n  at ContrapruebaProbe+<Guarded>d__46.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ContrapruebaProbe.cs:22 ",
+  "phase": "production hint timing and actual retries",
+  "mode": "hints",
+  "speakerReduced": false,
+  "fixtureCount": 0,
+  "scope": "Input System actual WASD/mouse/E/R/H. P3/retry declare one initial R1 prior-state/pose fixture; other modes start at the real title without placements. The named mode and checks define coverage; captures use the actual Player camera. Saves are suppressed. Not human comprehension, comfort, listening or fear evidence.",
+  "takeCount": 2,
+  "checks": [
+    "fresh real title",
+    "Enter starts controls",
+    "hints count the actual enabled loop, not preserved inactive prototypes",
+    "authored production delays are 45/65 seconds",
+    "one real R creates one take",
+    "one real R creates one take",
+    "two physical R attempts reached the live loop"
+  ]
+}

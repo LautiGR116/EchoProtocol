@@ -1,0 +1,12 @@
+Focused post-handoff source-state regression. No full-route or listening claim. Mode: dark-circuit-fixture
+PASS actual enabled mix owners, director and Player exist
+PASS independent route or checkpoint already reached Pressure beyond the first-act region
+PASS one-way handoff has already occurred; this probe does not release either owner
+PASS campaign owner references this exact first act and chapter director
+PASS fluorescent circuit and distinct distant machinery are the two shared configured sources
+PASS twelve distinct existing circuit lights are configured
+PASS FIXTURE: twelve light intensities set to zero; original values will be restored after observation
+PASS observed two seconds of real campaign Update writes
+PASS SE1 write count remained constant throughout
+PASS de-energized fluorescent source remained at zero after settling
+PASS independent machinery source retained positive gain and playback

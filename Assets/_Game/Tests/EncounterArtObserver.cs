@@ -1,0 +1,25 @@
+#if UNITY_EDITOR
+using System;using System.IO;using System.Linq;using System.Collections.Generic;using System.Reflection;
+using UnityEngine;using EchoProtocol.Audio;using EchoProtocol.Campaign;using EchoProtocol.Echo;using EchoProtocol.Presentation;
+// Read-only observer of the actual input-driven campaign. Adds no gameplay fixture.
+public sealed class EncounterArtObserver : MonoBehaviour
+{
+    [Serializable] public class Sample { public string frame; public float passageMotor, finalMotor, institutionGain; public int contacts; public bool finalQuiet, witnessed; }
+    [Serializable] public class Result { public string status="RUNNING",error="",scope="Read-only observer of normal-control campaign: fixed environmental sources, passive motor subtraction, pause, shared adult geometry, no Echo audio/animation. No listening or human fear claim."; public int fixedSourceFrames,pausedFrames;public List<Sample> samples=new List<Sample>(); }
+    EncounterAtmosphere atmosphere;FinalDoorMemory review;LoopController loop;GameSession session;AudioSource[] sources;Vector3[] sourcePositions;Transform[] rotors;Quaternion[] pausedRotations;bool wasPaused,ended;Result result=new Result();string output;
+    static T Field<T>(object o,string n)=>(T)o.GetType().GetField(n,BindingFlags.Instance|BindingFlags.NonPublic).GetValue(o);
+    public static void Begin(string destination) { var p=new GameObject("Temporary encounter presentation observer").AddComponent<EncounterArtObserver>();p.output=destination;Directory.CreateDirectory(destination);p.atmosphere=FindFirstObjectByType<EncounterAtmosphere>();p.review=FindFirstObjectByType<FinalDoorMemory>();p.loop=FindFirstObjectByType<LoopController>();p.session=FindFirstObjectByType<GameSession>();if(!p.atmosphere||!p.review||!p.loop||!p.session)throw new Exception("Missing real encounter systems");p.sources=new[]{Field<AudioSource>(p.atmosphere,"passageVent"),Field<AudioSource>(p.atmosphere,"finalVent"),Field<AudioSource>(p.atmosphere,"frameContact")};p.sourcePositions=p.sources.Select(s=>s.transform.position).ToArray();p.rotors=new[]{Field<Transform>(p.atmosphere,"passageRotor"),Field<Transform>(p.atmosphere,"finalRotor")};p.pausedRotations=p.rotors.Select(t=>t.rotation).ToArray();ThresholdCampaignProbe.ViewCaptured+=p.Capture;p.Save(); }
+    void Require(bool valid,string message){if(!valid)throw new Exception(message);}
+    void LateUpdate(){if(ended)return;try{
+        for(int i=0;i<sources.Length;i++)Require(sources[i]&&sources[i].spatialBlend>=.999f&&sources[i].transform.position==sourcePositions[i],"Environmental source moved or became head/actor locked");result.fixedSourceFrames++;
+        Require(atmosphere.InstitutionGain>=0&&atmosphere.InstitutionGain<=1,"Presentation gain boosted institutional bed");
+        if(session.IsPaused){if(wasPaused){for(int i=0;i<rotors.Length;i++)Require(Quaternion.Angle(rotors[i].rotation,pausedRotations[i])<.005f,"Rotor moved during real pause");result.pausedFrames++;}else for(int i=0;i<rotors.Length;i++)pausedRotations[i]=rotors[i].rotation;wasPaused=true;}else wasPaused=false;
+        if(loop.ActiveEcho){var e=loop.ActiveEcho;Require(e.GetComponentsInChildren<AudioSource>(true).Length==0&&e.GetComponentsInChildren<Animator>(true).Length==0,"Echo gained audio or unrecorded articulation");if(!e.IsComplete){var surface=e.GetComponentsInChildren<Renderer>(true).Single(r=>r.enabled&&r.gameObject.activeInHierarchy&&r.name=="EP_AdultRecordedSurface");var depth=surface.transform.Find("Recorded self depth").GetComponent<MeshFilter>();Require(depth.sharedMesh==surface.GetComponent<MeshFilter>().sharedMesh,"Depth and visible mesh differ");Require(surface.sharedMaterials.All(m=>m&&m.shader.name=="EchoProtocol/RecordedWitness"),"Visible body loses coherent recorded material");}}
+        var probe=FindFirstObjectByType<ThresholdCampaignProbe>();if(probe&&probe.Status=="PASS"){Require(atmosphere.PassageContactCount==1,"SE2 frame contact count not one");Require(atmosphere.PassageMotorLevel<.001f&&atmosphere.FinalMotorLevel<.001f&&atmosphere.FinalQuiet,"Encounter ventilation did not remain silent");Require(result.pausedFrames>30,"No actual pause observation");result.status="PASS";ended=true;Save();}else if(probe&&probe.Status.StartsWith("FAIL"))Fail("Route failed: "+probe.Status);
+    }catch(Exception e){Fail(e.Message);}}
+    void Capture(string label,Camera camera){if(ended)return;if(!(label.Contains("SE2")||label.Contains("6B")||label.Contains("witness")||label.Contains("P1")))return;result.samples.Add(new Sample{frame=label,passageMotor=atmosphere.PassageMotorLevel,finalMotor=atmosphere.FinalMotorLevel,institutionGain=atmosphere.InstitutionGain,contacts=atmosphere.PassageContactCount,finalQuiet=atmosphere.FinalQuiet,witnessed=review.HasWitnessed});Save();}
+    void Fail(string error){result.status="FAIL";result.error=error;ended=true;Save();Debug.LogWarning("Encounter observer failed: "+error);}
+    void Save(){File.WriteAllText(Path.Combine(output,"encounter-observer.json"),JsonUtility.ToJson(result,true));}
+    void OnDestroy(){ThresholdCampaignProbe.ViewCaptured-=Capture;}
+}
+#endif

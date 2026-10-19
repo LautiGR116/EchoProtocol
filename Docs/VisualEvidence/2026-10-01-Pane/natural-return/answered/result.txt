@@ -1,0 +1,7 @@
+PASS
+scene=Assets/_Game/Scenes/Production/EchoProtocol_Pane.unity
+branch=answered-carried-dark checks=25 fixtures=1 laterPoseResets=0 capturedFrames=4
+centreSeconds=0.6394 headSeconds=0.6394 eitherSeconds=0.6394 longestContinuousSeconds=0.6394
+returnAt=17.1402 activationAt=12.1108 cueCommittedAt=17.4174 firstGeometricExposureAt=17.5071
+maxReturnDelta=0.1678 PresenceSeen=True PresenceRetired=True
+All exposure durations use actual Time.deltaTime; centre/head rays and projected bounds are geometric opportunity, not measured visible pixels or spontaneous recognition.

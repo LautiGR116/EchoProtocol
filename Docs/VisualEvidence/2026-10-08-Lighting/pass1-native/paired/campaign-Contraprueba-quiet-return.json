@@ -1,0 +1,16 @@
+{
+    "label": "campaign-Contraprueba-quiet-return",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+    "position": {
+        "x": -14.194738388061524,
+        "y": 1.6299999952316285,
+        "z": 38.77812194824219
+    },
+    "rotation": {
+        "x": 3.118642313022401e-23,
+        "y": -1.0,
+        "z": 1.046442820125447e-15,
+        "w": 2.9802318834981635e-8
+    },
+    "fov": 60.0
+}

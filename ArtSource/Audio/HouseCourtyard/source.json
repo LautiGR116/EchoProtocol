@@ -1,0 +1,22 @@
+{
+  "title": "Quiet Neighborhood Ambience (light wind, no people)",
+  "author": "ahriik",
+  "sourceURL": "https://freesound.org/people/ahriik/sounds/481964/",
+  "downloadURL": "https://cdn.freesound.org/previews/481/481964_6657854-hq.mp3",
+  "license": "CC0 1.0",
+  "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "retrievedUTC": "2026-10-01T17:15:29.927387+00:00",
+  "format": "Public HQ MP3 preview, not the original 24-bit WAV",
+  "originalDescriptionParaphraseES": "Ambiente exterior suburbano suave, con tr\u00e1nsito distante y viento ligero; el autor declara ausencia de personas.",
+  "sourcePageFacts": {
+    "published": "2019-08-23",
+    "originalDurationSeconds": 39.039,
+    "originalSampleRate": 48000,
+    "originalChannels": 1,
+    "originalBitDepth": 24
+  },
+  "candidateOnly": true,
+  "audition": "No human listening or mix approval; file/signal inspection pending.",
+  "bytes": 863616,
+  "sha256": "78da966dd6a876d9b53f148cdf9d443454f732bb6b9f82b8ffb59a8d22283e42"
+}

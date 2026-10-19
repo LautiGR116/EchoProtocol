@@ -1,0 +1,2 @@
+PASS
+checks=10 elapsed=5.464 initialFixtures=1 laterPoseResets=0

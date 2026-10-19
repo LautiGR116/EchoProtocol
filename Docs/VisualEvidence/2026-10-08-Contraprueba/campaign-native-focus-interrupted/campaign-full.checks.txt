@@ -1,0 +1,28 @@
+CONTINUOUS TITLE TO ENDING. Zero fixtures or direct gameplay mutations. Input System keyboard/mouse only. Unexpected pauses fail rather than being resumed.
+PASS [title] Threshold systems exist
+PASS [title] all original-act, new house and new final references exist
+PASS [title] optional isolation has its single configured physical audio owner
+PASS [title] isolation begins untouched at the real title without a restored fixture
+PASS [title] optional recording boundary shares the actual campaign, R3 and loop
+PASS [title] boundary starts unused and its actual Hub arrival guidance is authored
+PASS [title] physical descent guide starts hidden with an explicit Hub arrival volume
+PASS [title] contextual notes reference the actual gameplay systems, excluding inactive legacy studies
+PASS [title] run begins at the actual paused title, before gameplay
+PASS [title] title has no earned progress, saved restoration or prior recording
+PASS [title] Threshold replaces D1 with actual R3 availability
+PASS [title] real look sensitivity is nonzero
+PASS [title] Enter starts the actual title session through input
+PASS [title/session_notes_initial] H opens contextual notes through real input and pauses world/audio
+PASS [title/session_notes_initial] notes resolve the actual configured stage
+PASS [title/session_notes_initial] reading notes with movement/R held leaves the actual recording, Echo, Player and event unchanged
+PASS [title/session_notes_initial] H/Escape closes notes and restores exactly the prior controls
+PASS [title/session_notes_initial] notes can also be requested from the real pause menu
+PASS [title/session_notes_initial] closing notes requested from pause returns to pause without resuming the world
+PASS [title/session_notes_initial] explicit Escape resumes after returning from notes to pause
+PASS [P1_record] first-act gates start sealed
+PASS [P1_record] C reports no Echo authorization during the real Player-only A preview
+PASS [P1_record] P1 A previews from the actual Player
+PASS [P1_record] RECALL has actual movement frames to finish
+PASS [P1_record] one real R completes exactly one actual take
+PASS [P1_record] RECALL placement creates no physical footstep
+FAIL P1_cooperate: Unexpected pause. No auto-resume was performed; keep the Game view focused and rerun from a fresh title.

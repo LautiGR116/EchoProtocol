@@ -1,0 +1,16 @@
+{
+    "label": "campaign-SE2-inside-room",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+    "position": {
+        "x": 6.437493801116943,
+        "y": 1.6299999952316285,
+        "z": 28.842477798461915
+    },
+    "rotation": {
+        "x": 2.94401232281416e-8,
+        "y": 0.7071067690849304,
+        "z": -2.9440119675427924e-8,
+        "w": 0.7071068286895752
+    },
+    "fov": 60.0
+}

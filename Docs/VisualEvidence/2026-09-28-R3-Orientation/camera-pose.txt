@@ -1,0 +1,2 @@
+R3_exit_natural position=(-3.581, 1.630, -9.457) euler=(0.00, 90.00, 0.00) FOV=60
+R3_exit_natural position=(-3.541, 1.630, -9.493) euler=(0.00, 90.00, 0.00) FOV=60

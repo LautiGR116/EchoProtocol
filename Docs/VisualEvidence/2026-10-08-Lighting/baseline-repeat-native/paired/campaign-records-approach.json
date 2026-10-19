@@ -1,0 +1,16 @@
+{
+    "label": "campaign-records-approach",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:0.00",
+    "position": {
+        "x": -18.545774459838868,
+        "y": 1.630000114440918,
+        "z": 30.07855987548828
+    },
+    "rotation": {
+        "x": 1.5439610288888932e-24,
+        "y": -1.0,
+        "z": 6.57863399967354e-18,
+        "w": 2.3469326038139116e-7
+    },
+    "fov": 60.0
+}

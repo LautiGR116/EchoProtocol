@@ -1,0 +1,21 @@
+Continuous floor: 4224/4224
+Hub perimeter: 258/258
+Residual colliders=0 audio=0
+Door P2 Blind Alignment Gate enabled=True
+  Collider P2 Blind Alignment Gate Body enabled=True active=True bounds=Center: (-2.75, 1.35, 25.00), Extents: (0.90, 1.35, 0.10)
+Door Service Gate A enabled=True
+  Collider Service Gate A Body enabled=True active=True bounds=Center: (2.50, 1.35, 3.00), Extents: (1.88, 1.35, 0.10)
+Door Service Gate B enabled=True
+  Collider Service Gate B Body enabled=True active=True bounds=Center: (2.50, 1.35, 13.00), Extents: (1.88, 1.35, 0.10)
+Final return replacement wall: 87/87
+Closed P1 Gate B blocks rays: 48/48
+P1 north bypass glass: 57/57
+omittedPassage=SE3 Return Crossing (+Z toward return)
+player=Player
+baselineRoot=R1 Baseline - original west containment
+hubRoot=R1 Clinical Observation Hub
+accessRoot=R1 Access and solid observation boundary
+domesticResidualRoot=R1 Distant Domestic Residue - visual only
+baselineBarrier=P2 North Leg West Wall
+observationBarrier=R1 Sealed observation glass
+Gate references=8

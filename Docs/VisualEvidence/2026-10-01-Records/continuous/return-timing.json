@@ -1,0 +1,25 @@
+{
+  "scope": "0.1s CSV samples along the automated R3 return, first z<=29 to first z<=13; includes input-driver stops, turns and camera capture overhead. Not human duration or isolated locomotion benchmark.",
+  "Encounter": {
+    "seconds": 4.553,
+    "startXZ": [
+      -18.544,
+      28.989
+    ],
+    "endXZ": [
+      -18.544,
+      12.78
+    ]
+  },
+  "Records": {
+    "seconds": 7.995,
+    "startXZ": [
+      -18.553,
+      28.832
+    ],
+    "endXZ": [
+      -18.651,
+      12.953
+    ]
+  }
+}

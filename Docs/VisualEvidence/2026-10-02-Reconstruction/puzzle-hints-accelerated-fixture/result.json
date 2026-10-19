@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "error": "",
+  "phase": "document time",
+  "mode": "hints",
+  "fixtureCount": 1,
+  "scope": "Input System WASD/mouse/E/R/H/J/Escape. P3 has one initial R1 prerequisite/pose fixture. Hints has temporary 10s delays, production defaults separately audited. No direct puzzle/interaction/recall callbacks after fixture. Not human clarity, difficulty, comfort or fear evidence.",
+  "takeCount": 0,
+  "checks": [
+    "fresh real title",
+    "Enter starts controls",
+    "first automatic hint orients attention, not explicit steps",
+    "reading help excludes real elapsed seconds",
+    "automatic escalation gives the relation, never full solution",
+    "deliberate request alone reveals steps",
+    "off option hides current automatic note",
+    "disabled hints produce no automatic notices",
+    "same-stage automatic notes do not repeat after re-enable or manual solution",
+    "real focus reaches Mara letter / reception",
+    "actual document excludes hint clock",
+    "no gameplay runtime errors; editor relay infrastructure logged separately"
+  ]
+}

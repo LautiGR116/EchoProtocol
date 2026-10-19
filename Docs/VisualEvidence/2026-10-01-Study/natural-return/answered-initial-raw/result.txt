@@ -1,0 +1,6 @@
+PASS
+branch=answered-carried-dark checks=24 fixtures=1 laterPoseResets=0 capturedFrames=4
+centreSeconds=0.6744 headSeconds=0.6744 eitherSeconds=0.6744 longestContinuousSeconds=0.6744
+returnAt=17.3617 activationAt=12.3447 cueCommittedAt=17.6394 firstGeometricExposureAt=18.0181
+maxReturnDelta=0.3333 PresenceSeen=True PresenceRetired=True
+All exposure durations use actual Time.deltaTime; centre/head rays and projected bounds are geometric opportunity, not measured visible pixels or spontaneous recognition.

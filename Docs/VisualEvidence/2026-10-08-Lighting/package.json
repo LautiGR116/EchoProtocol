@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "zip": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Lighting-20261008.zip",
+  "sha256": "7410178f7f72eab540f2bcb972d3c0d922885aed92c84b3d1e467075b9f9fecf",
+  "bytes": 88011100,
+  "regularFilesMatched": 203,
+  "zipCRC": "all entries pass",
+  "executablePermissionRetained": true,
+  "strictAdHocSignature": "PASS original and ZIP-extracted app",
+  "architectures": [
+    "x86_64",
+    "arm64"
+  ],
+  "notarized": false,
+  "preservedContrapruebaSha256": "a2b70ae417d38379be64046c4fc33dd93a505ed5b498b888e463884f02c499f9"
+}

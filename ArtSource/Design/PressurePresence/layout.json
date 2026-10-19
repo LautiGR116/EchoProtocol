@@ -1,0 +1,317 @@
+{
+  "status": "PROPOSED; source-derived geometry only; no Unity queries or mutations",
+  "coordinates": "Unity world metres; body Y=.03; eye Y=1.63; FOV vertical60, 16:9",
+  "preserve": {
+    "receiver": [
+      0,
+      0,
+      -34.9
+    ],
+    "pump_A": [
+      6.89,
+      0,
+      -36.5
+    ],
+    "pump_B": [
+      6.89,
+      0,
+      -44
+    ],
+    "collector_x_height": [
+      7.3,
+      1.85
+    ],
+    "B_gauge": [
+      5.918,
+      1.75,
+      -44
+    ],
+    "exit_door_plane_z": -48,
+    "entry_trigger": [
+      0,
+      1.1,
+      -29.2
+    ],
+    "motor_source": [
+      6.89,
+      0.55,
+      -36.5
+    ],
+    "purge_source": [
+      7.3,
+      1.85,
+      -44
+    ],
+    "exit_floor_fixture": [
+      1.58,
+      0.38,
+      -47.82
+    ],
+    "grip_reach": 1.65,
+    "hold_s": 1.8,
+    "motor_coast_s": 2.2,
+    "drain_s": 3.0
+  },
+  "control_cluster": {
+    "old_anchor": [
+      5.9,
+      1.5,
+      -36.5
+    ],
+    "new_anchor": [
+      5.75,
+      1.35,
+      -35.9
+    ],
+    "delta_world_yaw": 15,
+    "resulting_original_model_placement_yaw": 285,
+    "assembly_rule": "Create parent at old anchor with identity rotation; parent top-level authored pieces preserving world pose; then move parent to new anchor and yaw+15. Preserve dynamic pivot children and all component refs.",
+    "grips": {
+      "MARCHA": [
+        5.637656482707407,
+        1.4420729339122773,
+        -35.73971619563404
+      ],
+      "AISLADO": [
+        5.637656482707407,
+        1.0979270696640016,
+        -35.73971619563404
+      ]
+    },
+    "pedestal_shortening_m": 0.15,
+    "control_and_latch_sources": [
+      5.556814834742187,
+      1.35,
+      -35.84823619097949
+    ]
+  },
+  "cabinet": {
+    "model_root": [
+      2.75,
+      0,
+      -39
+    ],
+    "collider_centre": [
+      2.75,
+      1.35,
+      -39
+    ],
+    "collider_size": [
+      1.7,
+      2.7,
+      6
+    ],
+    "yaw": 0,
+    "world_x": [
+      1.9,
+      3.6
+    ],
+    "world_z": [
+      -42,
+      -36
+    ]
+  },
+  "clearance": {
+    "pump_collision_west_x": 6.115,
+    "raw_aisle_width_m": 2.515,
+    "character_radius_m": 0.32,
+    "skin_width_m": 0.03,
+    "straight_route_x": 4.65,
+    "capsule_surface_to_cabinet_m": 0.73,
+    "capsule_surface_to_pump_m": 1.1449999999999998,
+    "note": "Static envelope margins; existing circulation/physics must be inspected by root."
+  },
+  "reserve": {
+    "repurposed_first_fixture": {
+      "enclosure": [
+        3.69,
+        1.08,
+        -36.15
+      ],
+      "bracket_centre": [
+        3.62,
+        1.08,
+        -36.15
+      ],
+      "bracket_size": [
+        0.16,
+        0.045,
+        0.12
+      ],
+      "light": [
+        3.8,
+        1.08,
+        -36.15
+      ],
+      "target": [
+        6.174,
+        0.535,
+        -36.5
+      ],
+      "type": "Spot",
+      "intensity": 1.1,
+      "range": 4.3,
+      "outer_degrees": 90,
+      "inner_degrees": 55,
+      "colour": [
+        0.7,
+        0.81,
+        0.71
+      ],
+      "note": "Reuse the same reserve Light reference; replace only first floor shoe/pedestal with attached bracket/hood. Target/intensity provisional until actual Unity comparison."
+    },
+    "second_floor_fixture": [
+      3.72,
+      0.38,
+      -39.7
+    ],
+    "third_floor_fixture": [
+      3.72,
+      0.38,
+      -43.9
+    ],
+    "unchanged_exit_floor_fixture": [
+      1.58,
+      0.38,
+      -47.82
+    ]
+  },
+  "route": [
+    [
+      0,
+      0.03,
+      -29.6
+    ],
+    [
+      4.4,
+      0.03,
+      -30.3
+    ],
+    [
+      4.4,
+      0.03,
+      -35.45
+    ],
+    [
+      4.65,
+      0.03,
+      -36.8
+    ],
+    [
+      4.65,
+      0.03,
+      -44
+    ],
+    [
+      0,
+      0.03,
+      -46
+    ],
+    [
+      0,
+      0.03,
+      -49.5
+    ]
+  ],
+  "geometric_length_m": 26.74015414817064,
+  "baseline_length_m": 26.678547915592333,
+  "delta_distance_m": 0.06160623257830622,
+  "operator_camera": {
+    "position": [
+      4.4,
+      1.63,
+      -35.45
+    ],
+    "yaw": 103.17483182224902,
+    "pitch": 8.409942153051633,
+    "max_grip_distance_full_sweep_m": 1.3779806430568606,
+    "grip_distance_end_m": 1.3779806407916857,
+    "fan_projection": {
+      "centre": {
+        "viewport_x": 0.6429813000765237,
+        "viewport_y": 0.17277818918054,
+        "depth_m": 2.1056277903513267
+      },
+      "top": {
+        "viewport_x": 0.6448730937826097,
+        "viewport_y": 0.24595198165087628,
+        "depth_m": 2.078131908975839
+      },
+      "bottom": {
+        "viewport_x": 0.6411382766653988,
+        "viewport_y": 0.10149081140263477,
+        "depth_m": 2.133123671726815
+      },
+      "north": {
+        "viewport_x": 0.602699559874036,
+        "viewport_y": 0.16342499464905313,
+        "depth_m": 2.0632389939232874
+      },
+      "south": {
+        "viewport_x": 0.6816732066662545,
+        "viewport_y": 0.18176223324886281,
+        "depth_m": 2.1480165867793666
+      }
+    },
+    "projection_limit": "Analytic frustum projection; does not establish actual lighting, occlusion or readability."
+  },
+  "illustrative_approach_band": {
+    "x": [
+      4.3,
+      4.8
+    ],
+    "z": [
+      -35.5,
+      -35.0
+    ],
+    "grid_spacing_m": 0.1,
+    "samples": 36,
+    "max_sweep_reach_m": 1.618519857400228,
+    "minimum_fan_viewport_y": 0.06591502789056158,
+    "minimum_fan_viewport_x": 0.5175402255049097,
+    "maximum_fan_viewport_x": 0.7021190461704593,
+    "constraint": "No trigger, snap, camera modification or new interaction rule. Source-derived composition pending Unity camera/occlusion inspection."
+  },
+  "additional_camera_suggestions": [
+    {
+      "name": "entry oblique",
+      "position": [
+        4.15,
+        1.63,
+        -32.7
+      ],
+      "yaw": 160,
+      "pitch": 3
+    },
+    {
+      "name": "walk beside machinery",
+      "position": [
+        4.65,
+        1.63,
+        -40.2
+      ],
+      "yaw": 170,
+      "pitch": 6
+    },
+    {
+      "name": "exit approach",
+      "position": [
+        4.65,
+        1.63,
+        -44.1
+      ],
+      "yaw": 230,
+      "pitch": 3
+    },
+    {
+      "name": "optional look back, never required",
+      "position": [
+        0,
+        1.63,
+        -46.6
+      ],
+      "yaw": 65,
+      "pitch": 4
+    }
+  ]
+}

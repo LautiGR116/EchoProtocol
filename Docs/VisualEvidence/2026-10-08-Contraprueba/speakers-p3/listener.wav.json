@@ -1,0 +1,38 @@
+{
+  "rate": 48000,
+  "channels": 2,
+  "samples": 9756672,
+  "marks": [
+    {
+      "label": "chapter entry: speakers reduced",
+      "sample": 0,
+      "seconds": 0.0
+    },
+    {
+      "label": "RECALL: preserved root and body channels",
+      "sample": 4513792,
+      "seconds": 47.018666666666668
+    },
+    {
+      "label": "A confirmed: blind closes",
+      "sample": 4931584,
+      "seconds": 51.370666666666665
+    },
+    {
+      "label": "B confirmed: fixed ventilation coasts to silence",
+      "sample": 5783552,
+      "seconds": 60.245333333333335
+    },
+    {
+      "label": "held return: blind opens onto the same Echo",
+      "sample": 7075840,
+      "seconds": 73.706666666666663
+    },
+    {
+      "label": "PASS",
+      "sample": 9756672,
+      "seconds": 101.632
+    }
+  ],
+  "scope": "Actual listener output; source position, reduction and mono require accompanying state checks. Not human listening or hardware volume evidence."
+}

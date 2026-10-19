@@ -1,0 +1,21 @@
+{
+  "scope": "Reimport in Blender 5.2 only; no Unity orientation, shader, movement or comfort claim",
+  "bytes": 2230444,
+  "sha256": "6526e9edbb6f7cab2674b5fff949359c7238916976b5f394db0bbd6eb90aafd5",
+  "mesh_count": 1,
+  "armature_count": 0,
+  "finite_vertices": true,
+  "max_bounds_error_m": 2.2351741790771484e-07,
+  "height_m": 1.7614363660528625,
+  "material_polygon_counts": {
+    "FIG_Sole": 2705,
+    "FIG_Shoe": 3428,
+    "FIG_Trousers": 22421,
+    "FIG_Skin": 10212,
+    "FIG_Jacket": 26751,
+    "FIG_Stitch": 1226,
+    "FIG_Metal": 958,
+    "FIG_Hair": 3072
+  },
+  "pass": true
+}

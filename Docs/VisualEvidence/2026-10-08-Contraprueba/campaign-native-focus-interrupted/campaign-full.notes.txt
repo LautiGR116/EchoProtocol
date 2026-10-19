@@ -1,0 +1,3 @@
+initial
+Compará los estados de A y B. Uno conserva la lectura; el otro necesita una presencia continua.
+

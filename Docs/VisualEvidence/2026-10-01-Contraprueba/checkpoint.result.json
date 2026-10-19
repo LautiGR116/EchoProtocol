@@ -1,0 +1,11 @@
+{
+    "status": "PASS",
+    "scene": "Assets/_Game/Scenes/Production/EchoProtocol_Contraprueba.unity",
+    "error": "",
+    "scope": "Isolated API chapter fixtures, one pose fixture, actual E/PlayerPrefs writes and fresh scene continuation. No continuous route or human listening claim.",
+    "checks": 45,
+    "reloads": 4,
+    "chapterFixtures": 2,
+    "poseFixtures": 1,
+    "preferencesRestored": true
+}

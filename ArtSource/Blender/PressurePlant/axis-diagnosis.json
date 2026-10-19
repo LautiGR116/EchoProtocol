@@ -1,0 +1,709 @@
+{
+  "date": "2026-10-01",
+  "evidence": "Source bounds from validated Blender FBX reimport; independent Editor bounds reported by root agent: elbow centre approximately (-.32,0,-.18), receiver centre approximately (-.08,1.18,.06). Mathematical coordinate comparison, not a new Unity inspection by this agent.",
+  "uncorrected_unity_map": "(-X,Z,-Y)",
+  "assembly_contract_after_negating_imported_root_localScaleX_once": "(X,Z,-Y)",
+  "preserve_imported_rotation": "reported X=270 degrees; apply placementRotation * importedRotation",
+  "preserve_imported_scale_magnitudes": "reported (100,100,100); correction changes sign of X only",
+  "geometry_reexported": false,
+  "assets": {
+    "Receiver": {
+      "source_centre": [
+        0.078000009059906,
+        -0.0585000216960907,
+        1.1749999523162842
+      ],
+      "uncorrected_unity_centre": [
+        -0.078000009059906,
+        1.1749999523162842,
+        0.0585000216960907
+      ],
+      "corrected_assembly_centre": [
+        0.078000009059906,
+        1.1749999523162842,
+        0.0585000216960907
+      ],
+      "ports": [
+        {
+          "name": "inlet",
+          "source_position": [
+            0.76,
+            0,
+            0.84
+          ],
+          "source_outward": [
+            1,
+            0,
+            0
+          ],
+          "uncorrected_unity_position": [
+            -0.76,
+            0.84,
+            0
+          ],
+          "uncorrected_unity_outward": [
+            -1,
+            0,
+            0
+          ],
+          "corrected_assembly_position": [
+            0.76,
+            0.84,
+            0
+          ],
+          "corrected_assembly_outward": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "outlet",
+          "source_position": [
+            0,
+            0,
+            2.35
+          ],
+          "source_outward": [
+            0,
+            0,
+            1
+          ],
+          "uncorrected_unity_position": [
+            0,
+            2.35,
+            0
+          ],
+          "uncorrected_unity_outward": [
+            0,
+            1,
+            0
+          ],
+          "corrected_assembly_position": [
+            0,
+            2.35,
+            0
+          ],
+          "corrected_assembly_outward": [
+            0,
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    "ServiceCabinet": {
+      "source_centre": [
+        0.0,
+        0.0,
+        1.3499998450279236
+      ],
+      "uncorrected_unity_centre": [
+        -0.0,
+        1.3499998450279236,
+        -0.0
+      ],
+      "corrected_assembly_centre": [
+        0.0,
+        1.3499998450279236,
+        -0.0
+      ],
+      "ports": []
+    },
+    "PipeStraight2m": {
+      "source_centre": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "uncorrected_unity_centre": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "corrected_assembly_centre": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "ports": [
+        {
+          "name": "A",
+          "source_position": [
+            -1,
+            0,
+            0
+          ],
+          "source_outward": [
+            -1,
+            0,
+            0
+          ],
+          "uncorrected_unity_position": [
+            1,
+            0,
+            0
+          ],
+          "uncorrected_unity_outward": [
+            1,
+            0,
+            0
+          ],
+          "corrected_assembly_position": [
+            -1,
+            0,
+            0
+          ],
+          "corrected_assembly_outward": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "B",
+          "source_position": [
+            1,
+            0,
+            0
+          ],
+          "source_outward": [
+            1,
+            0,
+            0
+          ],
+          "uncorrected_unity_position": [
+            -1,
+            0,
+            0
+          ],
+          "uncorrected_unity_outward": [
+            -1,
+            0,
+            0
+          ],
+          "corrected_assembly_position": [
+            1,
+            0,
+            0
+          ],
+          "corrected_assembly_outward": [
+            1,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "PipeElbow90": {
+      "source_centre": [
+        0.32249999046325684,
+        0.17750000208616257,
+        0.0
+      ],
+      "uncorrected_unity_centre": [
+        -0.32249999046325684,
+        0.0,
+        -0.17750000208616257
+      ],
+      "corrected_assembly_centre": [
+        0.32249999046325684,
+        0.0,
+        -0.17750000208616257
+      ],
+      "ports": [
+        {
+          "name": "A",
+          "source_position": [
+            0,
+            0,
+            0
+          ],
+          "source_outward": [
+            -1,
+            0,
+            0
+          ],
+          "uncorrected_unity_position": [
+            0,
+            0,
+            0
+          ],
+          "uncorrected_unity_outward": [
+            1,
+            0,
+            0
+          ],
+          "corrected_assembly_position": [
+            0,
+            0,
+            0
+          ],
+          "corrected_assembly_outward": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "B",
+          "source_position": [
+            0.5,
+            0.5,
+            0
+          ],
+          "source_outward": [
+            0,
+            1,
+            0
+          ],
+          "uncorrected_unity_position": [
+            -0.5,
+            0,
+            -0.5
+          ],
+          "uncorrected_unity_outward": [
+            0,
+            0,
+            -1
+          ],
+          "corrected_assembly_position": [
+            0.5,
+            0,
+            -0.5
+          ],
+          "corrected_assembly_outward": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ]
+    },
+    "PipeTee": {
+      "source_centre": [
+        0.0,
+        0.17750000208616257,
+        0.0
+      ],
+      "uncorrected_unity_centre": [
+        -0.0,
+        0.0,
+        -0.17750000208616257
+      ],
+      "corrected_assembly_centre": [
+        0.0,
+        0.0,
+        -0.17750000208616257
+      ],
+      "ports": [
+        {
+          "name": "A",
+          "source_position": [
+            -0.5,
+            0,
+            0
+          ],
+          "source_outward": [
+            -1,
+            0,
+            0
+          ],
+          "uncorrected_unity_position": [
+            0.5,
+            0,
+            0
+          ],
+          "uncorrected_unity_outward": [
+            1,
+            0,
+            0
+          ],
+          "corrected_assembly_position": [
+            -0.5,
+            0,
+            0
+          ],
+          "corrected_assembly_outward": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "B",
+          "source_position": [
+            0.5,
+            0,
+            0
+          ],
+          "source_outward": [
+            1,
+            0,
+            0
+          ],
+          "uncorrected_unity_position": [
+            -0.5,
+            0,
+            0
+          ],
+          "uncorrected_unity_outward": [
+            -1,
+            0,
+            0
+          ],
+          "corrected_assembly_position": [
+            0.5,
+            0,
+            0
+          ],
+          "corrected_assembly_outward": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "C",
+          "source_position": [
+            0,
+            0.5,
+            0
+          ],
+          "source_outward": [
+            0,
+            1,
+            0
+          ],
+          "uncorrected_unity_position": [
+            0,
+            0,
+            -0.5
+          ],
+          "uncorrected_unity_outward": [
+            0,
+            0,
+            -1
+          ],
+          "corrected_assembly_position": [
+            0,
+            0,
+            -0.5
+          ],
+          "corrected_assembly_outward": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ]
+    },
+    "PipeWallSupport": {
+      "source_centre": [
+        0.0,
+        0.08499998971819878,
+        0.0
+      ],
+      "uncorrected_unity_centre": [
+        -0.0,
+        0.0,
+        -0.08499998971819878
+      ],
+      "corrected_assembly_centre": [
+        0.0,
+        0.0,
+        -0.08499998971819878
+      ],
+      "ports": [
+        {
+          "name": "pipe axis",
+          "source_position": [
+            0,
+            0,
+            0
+          ],
+          "source_outward": [
+            1,
+            0,
+            0
+          ],
+          "uncorrected_unity_position": [
+            0,
+            0,
+            0
+          ],
+          "uncorrected_unity_outward": [
+            -1,
+            0,
+            0
+          ],
+          "corrected_assembly_position": [
+            0,
+            0,
+            0
+          ],
+          "corrected_assembly_outward": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "wall plane",
+          "source_position": [
+            0,
+            0.277,
+            0
+          ],
+          "source_outward": [
+            0,
+            1,
+            0
+          ],
+          "uncorrected_unity_position": [
+            0,
+            0,
+            -0.277
+          ],
+          "uncorrected_unity_outward": [
+            0,
+            0,
+            -1
+          ],
+          "corrected_assembly_position": [
+            0,
+            0,
+            -0.277
+          ],
+          "corrected_assembly_outward": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ]
+    },
+    "PipeAdaptor300": {
+      "source_centre": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "uncorrected_unity_centre": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "corrected_assembly_centre": [
+        0.0,
+        0.0,
+        -0.0
+      ],
+      "ports": [
+        {
+          "name": "A",
+          "source_position": [
+            -0.15,
+            0,
+            0
+          ],
+          "source_outward": [
+            -1,
+            0,
+            0
+          ],
+          "uncorrected_unity_position": [
+            0.15,
+            0,
+            0
+          ],
+          "uncorrected_unity_outward": [
+            1,
+            0,
+            0
+          ],
+          "corrected_assembly_position": [
+            -0.15,
+            0,
+            0
+          ],
+          "corrected_assembly_outward": [
+            -1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "B",
+          "source_position": [
+            0.15,
+            0,
+            0
+          ],
+          "source_outward": [
+            1,
+            0,
+            0
+          ],
+          "uncorrected_unity_position": [
+            -0.15,
+            0,
+            0
+          ],
+          "uncorrected_unity_outward": [
+            -1,
+            0,
+            0
+          ],
+          "corrected_assembly_position": [
+            0.15,
+            0,
+            0
+          ],
+          "corrected_assembly_outward": [
+            1,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "PipeBlindCap": {
+      "source_centre": [
+        0.03149999614912247,
+        0.0,
+        0.0
+      ],
+      "uncorrected_unity_centre": [
+        -0.03149999614912247,
+        0.0,
+        -0.0
+      ],
+      "corrected_assembly_centre": [
+        0.03149999614912247,
+        0.0,
+        -0.0
+      ],
+      "ports": [
+        {
+          "name": "A",
+          "source_position": [
+            0,
+            0,
+            0
+          ],
+          "source_outward": [
+            -1,
+            0,
+            0
+          ],
+          "uncorrected_unity_position": [
+            0,
+            0,
+            0
+          ],
+          "uncorrected_unity_outward": [
+            1,
+            0,
+            0
+          ],
+          "corrected_assembly_position": [
+            0,
+            0,
+            0
+          ],
+          "corrected_assembly_outward": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "MotorSkid": {
+      "source_centre": [
+        0.015000015497207642,
+        0.0,
+        0.5049999952316284
+      ],
+      "uncorrected_unity_centre": [
+        -0.015000015497207642,
+        0.5049999952316284,
+        -0.0
+      ],
+      "corrected_assembly_centre": [
+        0.015000015497207642,
+        0.5049999952316284,
+        -0.0
+      ],
+      "ports": [
+        {
+          "name": "axial inlet",
+          "source_position": [
+            0.79,
+            0,
+            0.535
+          ],
+          "source_outward": [
+            1,
+            0,
+            0
+          ],
+          "uncorrected_unity_position": [
+            -0.79,
+            0.535,
+            0
+          ],
+          "uncorrected_unity_outward": [
+            -1,
+            0,
+            0
+          ],
+          "corrected_assembly_position": [
+            0.79,
+            0.535,
+            0
+          ],
+          "corrected_assembly_outward": [
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "upper discharge",
+          "source_position": [
+            0.41,
+            0,
+            1.01
+          ],
+          "source_outward": [
+            0,
+            0,
+            1
+          ],
+          "uncorrected_unity_position": [
+            -0.41,
+            1.01,
+            0
+          ],
+          "uncorrected_unity_outward": [
+            0,
+            1,
+            0
+          ],
+          "corrected_assembly_position": [
+            0.41,
+            1.01,
+            0
+          ],
+          "corrected_assembly_outward": [
+            0,
+            1,
+            0
+          ]
+        }
+      ]
+    }
+  }
+}

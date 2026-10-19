@@ -1,0 +1,363 @@
+{
+  "scope": "Blender FBX roundtrip: metric bounds, named geometry/anchors, declared pivots, finite vertices/UVs/materials, aggregate triangle budget, and nine world-space rays through the exact monitor display opening. Root identity is checked when explicit ROOT anchors or mesh pivots are declared. Not Unity integration, in-game readability, runtime text alignment, physical collision, human visual or audio approval.",
+  "all_pass": true,
+  "exact_three_asset_names": true,
+  "total_triangles": 12496,
+  "maximum_triangles": 20000,
+  "triangle_budget_pass": true,
+  "results": [
+    {
+      "asset": "ReviewDesk",
+      "file": "exports/EP_RO_ReviewDesk.fbx",
+      "bytes": 159932,
+      "sha256": "7104b2b4fce7ef83bbb95dd021b28f647959a570c2b0fcf778cb64aea4cc2265",
+      "pass": true,
+      "failures": [],
+      "mesh_count": 2,
+      "triangles": 5556,
+      "finite_vertices": true,
+      "bounds_blender_xyz": [
+        [
+          -0.824999988079071,
+          0.824999988079071
+        ],
+        [
+          -0.39199990034103394,
+          0.419721394777298
+        ],
+        [
+          -5.384528378726827e-08,
+          0.7706134915351868
+        ]
+      ],
+      "bounds_error_m": 1.1920928955078125e-07,
+      "missing_materials": [],
+      "unexpected_materials": [],
+      "anchor_errors_m": {
+        "ReviewDesk__ROOT": 0.0,
+        "ReviewDesk__AXIS_X": 1.4901161138336505e-09,
+        "ReviewDesk__AXIS_Y": 1.6292068139023286e-08,
+        "ReviewDesk__AXIS_Z": 1.6292068139023286e-08,
+        "ReviewDesk__FRONT_BASE": 0.0,
+        "ReviewDesk__FRONT_TIP": 1.6292068139023286e-08,
+        "ReviewDesk__FLOOR_CONTACT": 0.0,
+        "ReviewDesk__DESKTOP_CENTRE": 1.2381970293517952e-07,
+        "ReviewDesk__REAR_EDGE": 1.0490417479136482e-07,
+        "ReviewDesk__KNEE_FRONT_LEFT": 1.3351440431019768e-07,
+        "ReviewDesk__KNEE_REAR_RIGHT": 1.1515617370783104e-07,
+        "ReviewDesk__MONITOR_PLACEMENT": 1.239776611372534e-07,
+        "ReviewDesk__TASKLAMP_PLACEMENT": 1.2226402759663024e-07
+      },
+      "meshes": [
+        {
+          "name": "DeskRearCable",
+          "vertices": 414,
+          "triangles": 804,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": null
+        },
+        {
+          "name": "DeskStructure",
+          "vertices": 2472,
+          "triangles": 4752,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": null
+        }
+      ],
+      "checks": {
+        "floor_contact_error_m": 5.384528378726827e-08,
+        "desktop_top_error_m": 9.536743172944284e-09,
+        "explicit_root_anchor_present": true,
+        "root_origin_error_m": 0.0
+      }
+    },
+    {
+      "asset": "TaskLamp",
+      "file": "exports/EP_RO_TaskLamp.fbx",
+      "bytes": 124284,
+      "sha256": "92ecbcf93094358a1784026151fd66799c079a14cae651ea3e3faf2e96f2d121",
+      "pass": true,
+      "failures": [],
+      "mesh_count": 3,
+      "triangles": 3574,
+      "finite_vertices": true,
+      "bounds_blender_xyz": [
+        [
+          -0.0811687484383583,
+          0.12269674986600876
+        ],
+        [
+          -0.24553734064102173,
+          0.4224967062473297
+        ],
+        [
+          -0.09605928510427475,
+          0.46942535042762756
+        ]
+      ],
+      "bounds_error_m": 7.450580596923828e-08,
+      "missing_materials": [],
+      "unexpected_materials": [],
+      "anchor_errors_m": {
+        "TaskLamp__ROOT": 0.0,
+        "TaskLamp__AXIS_X": 1.4901161138336505e-09,
+        "TaskLamp__AXIS_Y": 1.6292068139023286e-08,
+        "TaskLamp__AXIS_Z": 1.6292068139023286e-08,
+        "TaskLamp__FRONT_BASE": 0.0,
+        "TaskLamp__FRONT_TIP": 1.6292068139023286e-08,
+        "TaskLamp__TABLE_CONTACT": 0.0,
+        "TaskLamp__LIGHT_SOURCE": 5.960464477539063e-08,
+        "TaskLamp__LIGHT_AIM_TIP": 4.470348358154297e-08,
+        "TaskLamp__DIFFUSER_CENTRE": 5.960464477539063e-08,
+        "TaskLamp__TABLE_BACK_EDGE": 5.865144458994109e-08,
+        "TaskLamp__CORD_END": 6.586313247569642e-08
+      },
+      "meshes": [
+        {
+          "name": "TaskLightBody",
+          "vertices": 1464,
+          "triangles": 2806,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": null
+        },
+        {
+          "name": "TaskLightCable",
+          "vertices": 372,
+          "triangles": 720,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": null
+        },
+        {
+          "name": "TaskLightDiffuser",
+          "vertices": 49,
+          "triangles": 48,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": null
+        }
+      ],
+      "checks": {
+        "cord_extends_below_support_plane": true,
+        "lowest_geometry_z_m": -0.09605928510427475,
+        "explicit_root_anchor_present": true,
+        "root_origin_error_m": 0.0
+      }
+    },
+    {
+      "asset": "ReviewMonitor",
+      "file": "exports/EP_RO_ReviewMonitor.fbx",
+      "bytes": 112140,
+      "sha256": "25262a67252d98db42fdd7bae263f6923df9d28602752dd6b6b4d1c22411c049",
+      "pass": true,
+      "failures": [],
+      "mesh_count": 3,
+      "triangles": 3366,
+      "finite_vertices": true,
+      "bounds_blender_xyz": [
+        [
+          -0.42899999022483826,
+          0.42899999022483826
+        ],
+        [
+          -0.058000121265649796,
+          0.22399988770484924
+        ],
+        [
+          -0.7200000286102295,
+          0.26899999380111694
+        ]
+      ],
+      "bounds_error_m": 1.1920928955078125e-07,
+      "missing_materials": [],
+      "unexpected_materials": [],
+      "anchor_errors_m": {
+        "ReviewMonitor__ROOT": 0.0,
+        "ReviewMonitor__AXIS_X": 1.4901161138336505e-09,
+        "ReviewMonitor__AXIS_Y": 1.6292068139023286e-08,
+        "ReviewMonitor__AXIS_Z": 1.6292068139023286e-08,
+        "ReviewMonitor__FRONT_BASE": 0.0,
+        "ReviewMonitor__FRONT_TIP": 1.6292068139023286e-08,
+        "ReviewMonitor__SCREEN_CENTRE": 0.0,
+        "ReviewMonitor__SCREEN_TOP_RIGHT": 3.095492573379488e-08,
+        "ReviewMonitor__SCREEN_BOTTOM_LEFT": 3.095492573379488e-08,
+        "ReviewMonitor__DESKTOP_CONTACT": 1.1730288917988219e-07,
+        "ReviewMonitor__BASE_CENTRE": 1.2236833572820682e-07,
+        "ReviewMonitor__REAR_CABLE_END": 1.1551380157959201e-07
+      },
+      "meshes": [
+        {
+          "name": "MonitorCable",
+          "vertices": 216,
+          "triangles": 420,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": null
+        },
+        {
+          "name": "MonitorShellOpen",
+          "vertices": 1136,
+          "triangles": 2174,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": null
+        },
+        {
+          "name": "MonitorStand",
+          "vertices": 400,
+          "triangles": 772,
+          "triangles_match_manifest": true,
+          "finite_uvs": true,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "material_slots_valid": true,
+          "material_indices_valid": true,
+          "finite_materials": true,
+          "pivot_error_m": null
+        }
+      ],
+      "checks": {
+        "foot_contact_error_m": 2.8610229518832853e-08,
+        "display_opening": {
+          "pass": true,
+          "origin_y_m": -0.25,
+          "display_plane_y_m": 0.0,
+          "display_width_m": 0.69,
+          "display_height_m": 0.38,
+          "endpoint_tolerance_m": 1e-06,
+          "rays": [
+            {
+              "x_m": -0.345,
+              "z_m": -0.19,
+              "clear_to_display_plane": true,
+              "hit_mesh": null,
+              "hit_triangle": null,
+              "hit_distance_m": null,
+              "hit_world_xyz": null
+            },
+            {
+              "x_m": -0.345,
+              "z_m": 0.0,
+              "clear_to_display_plane": true,
+              "hit_mesh": null,
+              "hit_triangle": null,
+              "hit_distance_m": null,
+              "hit_world_xyz": null
+            },
+            {
+              "x_m": -0.345,
+              "z_m": 0.19,
+              "clear_to_display_plane": true,
+              "hit_mesh": null,
+              "hit_triangle": null,
+              "hit_distance_m": null,
+              "hit_world_xyz": null
+            },
+            {
+              "x_m": 0.0,
+              "z_m": -0.19,
+              "clear_to_display_plane": true,
+              "hit_mesh": null,
+              "hit_triangle": null,
+              "hit_distance_m": null,
+              "hit_world_xyz": null
+            },
+            {
+              "x_m": 0.0,
+              "z_m": 0.0,
+              "clear_to_display_plane": true,
+              "hit_mesh": null,
+              "hit_triangle": null,
+              "hit_distance_m": null,
+              "hit_world_xyz": null
+            },
+            {
+              "x_m": 0.0,
+              "z_m": 0.19,
+              "clear_to_display_plane": true,
+              "hit_mesh": null,
+              "hit_triangle": null,
+              "hit_distance_m": null,
+              "hit_world_xyz": null
+            },
+            {
+              "x_m": 0.345,
+              "z_m": -0.19,
+              "clear_to_display_plane": true,
+              "hit_mesh": null,
+              "hit_triangle": null,
+              "hit_distance_m": null,
+              "hit_world_xyz": null
+            },
+            {
+              "x_m": 0.345,
+              "z_m": 0.0,
+              "clear_to_display_plane": true,
+              "hit_mesh": null,
+              "hit_triangle": null,
+              "hit_distance_m": null,
+              "hit_world_xyz": null
+            },
+            {
+              "x_m": 0.345,
+              "z_m": 0.19,
+              "clear_to_display_plane": true,
+              "hit_mesh": null,
+              "hit_triangle": null,
+              "hit_distance_m": null,
+              "hit_world_xyz": null
+            }
+          ]
+        },
+        "explicit_root_anchor_present": true,
+        "root_origin_error_m": 0.0
+      }
+    }
+  ]
+}

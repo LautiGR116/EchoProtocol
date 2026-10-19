@@ -1,0 +1,5198 @@
+[
+  {
+    "name": "Observation Glass 3",
+    "position": [
+      0.0,
+      1.65,
+      7.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "ProBuilderMesh",
+      "MeshFilter",
+      "BoxCollider"
+    ]
+  },
+  {
+    "name": "P3 Reader A",
+    "position": [
+      -5.05,
+      0.0,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      270.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider",
+      "OpticalReader"
+    ]
+  },
+  {
+    "name": "Observation / reader A mounted assembly",
+    "position": [
+      -6.3,
+      0.0,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      180.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "Observation / mounted B",
+    "position": [
+      -6.19,
+      2.1,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.024,
+      0.27,
+      0.32
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 panel housing",
+    "position": [
+      -10.0,
+      3.16,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation Frame Bay -1",
+    "position": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.98500049,
+      1.049,
+      0.9500002
+    ],
+    "active": true,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "Observation Divider Floor Infill",
+    "position": [
+      0.0,
+      -0.1,
+      6.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.02,
+      0.2,
+      20.2
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "ProBuilderMesh",
+      "MeshFilter",
+      "MeshCollider"
+    ]
+  },
+  {
+    "name": "P3 panel housing",
+    "position": [
+      -7.8,
+      3.16,
+      40.5
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Lane Optical Reader A Active Lens",
+    "position": [
+      -0.33100003,
+      1.25,
+      3.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      90.0
+    ],
+    "scale": [
+      0.170000032,
+      0.007000002,
+      0.17
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 quiet residual textile",
+    "position": [
+      -15.8,
+      0.012,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.5,
+      0.02,
+      1.4
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation A / sealed sill",
+    "position": [
+      -6.3,
+      0.795,
+      35.5
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.25,
+      0.055,
+      3.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation Frame Bay 3",
+    "position": [
+      0.0,
+      0.0,
+      3.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.98500049,
+      1.049,
+      0.9500002
+    ],
+    "active": true,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "P3 panel-owned cool light",
+    "position": [
+      -5.05,
+      2.95,
+      35.5
+    ],
+    "rotation": [
+      90.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ]
+  },
+  {
+    "name": "P3 Gate A alternative route / pressed inset",
+    "position": [
+      -7.8,
+      1.52,
+      35.316
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      2.02,
+      2.4,
+      0.016
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Service Gate B Body",
+    "position": [
+      2.5,
+      1.35,
+      13.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      3.75,
+      2.7,
+      0.2
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "Rigidbody"
+    ]
+  },
+  {
+    "name": "P3 A authorization retained",
+    "position": [
+      -7.8,
+      3.07,
+      34.96
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.8,
+      0.1,
+      0.035
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Gate B final hold / west jamb / solid",
+    "position": [
+      -9.1325,
+      1.6,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider"
+    ]
+  },
+  {
+    "name": "P1 C actual state / enamel plate",
+    "position": [
+      4.25300026,
+      0.83,
+      10.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.40000033,
+      0.29,
+      0.0350000076
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Reader A housing",
+    "position": [
+      -6.17000055,
+      1.55,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      180.0,
+      0.0
+    ],
+    "scale": [
+      0.16,
+      0.55,
+      0.5
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation mullion",
+    "position": [
+      -0.1,
+      1.8,
+      -85.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.12,
+      2.5,
+      0.16
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 observation mullion",
+    "position": [
+      -16.8,
+      1.6,
+      44.68
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.06,
+      3.2,
+      0.09
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Service Gate A",
+    "position": [
+      2.5,
+      0.0,
+      3.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "SlidingDoor",
+      "AudioSource",
+      "SlidingDoorAudio"
+    ]
+  },
+  {
+    "name": "P3 Gate B final hold header",
+    "position": [
+      -7.8,
+      3.1,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      3.1,
+      0.4,
+      0.4
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Reader B aligned lens",
+    "position": [
+      -6.04100037,
+      1.55,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      180.0,
+      90.0
+    ],
+    "scale": [
+      0.170000017,
+      0.007000002,
+      0.170000046
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 panel housing",
+    "position": [
+      -13.0,
+      3.16,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation / paired observation gallery",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "Lane Optical Reader B",
+    "position": [
+      -2.75,
+      0.0,
+      11.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "BoxCollider",
+      "OpticalReader",
+      "AudioSource",
+      "OpticalReaderAudio"
+    ]
+  },
+  {
+    "name": "P3 vestibule south east",
+    "position": [
+      -4.0,
+      1.6,
+      30.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.4,
+      3.2,
+      0.2
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 panel housing",
+    "position": [
+      -5.5,
+      3.16,
+      32.1
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 stable diffuser",
+    "position": [
+      -5.5,
+      3.075,
+      32.1
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Gate B final hold / east jamb",
+    "position": [
+      -6.4175,
+      1.6,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.435,
+      3.2,
+      0.44
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 panel-owned cool light",
+    "position": [
+      -7.8,
+      2.95,
+      40.5
+    ],
+    "rotation": [
+      90.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ]
+  },
+  {
+    "name": "P3 panel-owned cool light",
+    "position": [
+      -5.05,
+      2.95,
+      43.15
+    ],
+    "rotation": [
+      90.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ]
+  },
+  {
+    "name": "P3 distant glazing base",
+    "position": [
+      -13.2,
+      0.3,
+      44.7
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      8.0,
+      0.6,
+      0.18
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "Lane Optical Reader B Active Lens",
+    "position": [
+      -0.33100003,
+      1.25,
+      11.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      90.0
+    ],
+    "scale": [
+      0.170000032,
+      0.007000002,
+      0.17
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Gate B final hold / pressed inset",
+    "position": [
+      -7.8,
+      1.52,
+      43.2339973
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      2.02,
+      2.4,
+      0.016
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 panel-owned cool light",
+    "position": [
+      -16.0,
+      2.95,
+      46.4
+    ],
+    "rotation": [
+      90.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ]
+  },
+  {
+    "name": "VS1 P1 Parallel Observation Relay",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "R1 Observation mullion",
+    "position": [
+      -10.3,
+      1.7,
+      28.39
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.18,
+      2.1,
+      0.075
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Gate A alternative route / west jamb / solid",
+    "position": [
+      -9.1325,
+      1.6,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider"
+    ]
+  },
+  {
+    "name": "Observation B / side jamb",
+    "position": [
+      -6.3,
+      1.73,
+      42.34
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.22,
+      1.9,
+      0.08
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P2 Reader Housing",
+    "position": [
+      -0.53,
+      1.25,
+      23.1
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.16,
+      0.9,
+      0.9
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation B / lintel",
+    "position": [
+      -6.3,
+      2.94,
+      43.4499969
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.22,
+      0.52,
+      2.29999924
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P1 / A flag ceiling hanger",
+    "position": [
+      -2.75,
+      2.62,
+      2.18
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.018,
+      0.65,
+      0.018
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation mullion",
+    "position": [
+      0.1,
+      1.8,
+      -101.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.12,
+      2.5,
+      0.16
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Reader 1 / task bracket",
+    "position": [
+      -0.72,
+      2.36,
+      11.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.64,
+      0.045,
+      0.065
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 panel housing",
+    "position": [
+      -5.05,
+      3.16,
+      35.5
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 sealed lightwell south wall",
+    "position": [
+      -13.2,
+      1.6,
+      30.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      8.0,
+      3.2,
+      0.2
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 Reader A neutral lens",
+    "position": [
+      -6.07,
+      1.55,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      180.0,
+      0.0
+    ],
+    "scale": [
+      0.025,
+      0.29,
+      0.3
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 sealed lightwell west wall",
+    "position": [
+      -17.2,
+      1.6,
+      37.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      3.2,
+      14.4
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 vestibule south west",
+    "position": [
+      -8.05,
+      1.6,
+      30.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      2.3,
+      3.2,
+      0.2
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Gate B final hold / fixed guide",
+    "position": [
+      -8.974,
+      1.48,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.045,
+      2.96,
+      0.29
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P2 Blind Alignment Gate Body",
+    "position": [
+      -2.75,
+      1.35,
+      25.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.8,
+      2.7,
+      0.2
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "Rigidbody"
+    ]
+  },
+  {
+    "name": "Service Player Reader",
+    "position": [
+      3.35,
+      0.0,
+      10.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "BoxCollider",
+      "OpticalReader",
+      "AudioSource",
+      "OpticalReaderAudio"
+    ]
+  },
+  {
+    "name": "P1 flag / glass-post bracket",
+    "position": [
+      -0.51,
+      1.88,
+      2.6
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.31,
+      0.04,
+      0.04
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Optical Readers",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "P3 Gate A alternative route / fixed guide",
+    "position": [
+      -8.974,
+      1.48,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.045,
+      2.96,
+      0.29
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Lane Optical Reader B Housing",
+    "position": [
+      -0.2,
+      1.25,
+      11.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.16,
+      0.9,
+      0.9
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 panel-owned cool light",
+    "position": [
+      -10.0,
+      2.95,
+      46.4
+    ],
+    "rotation": [
+      90.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ]
+  },
+  {
+    "name": "Observation B / masonry base",
+    "position": [
+      -6.3,
+      0.39,
+      43.4499969
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      0.78,
+      2.29999924
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 Gate B final hold / east jamb / solid",
+    "position": [
+      -6.4175,
+      1.6,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider"
+    ]
+  },
+  {
+    "name": "P3 threshold identity",
+    "position": [
+      -5.5,
+      3.035,
+      29.974
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ]
+  },
+  {
+    "name": "Observation mullion",
+    "position": [
+      -0.1,
+      1.8,
+      -93.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.12,
+      2.5,
+      0.16
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Gate A alternative route / west jamb",
+    "position": [
+      -9.1325,
+      1.6,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.335,
+      3.2,
+      0.44
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 B observation glass",
+    "position": [
+      -6.3,
+      1.6,
+      43.45
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.12,
+      3.2,
+      2.3
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Gate A alternative route header",
+    "position": [
+      -7.8,
+      3.1,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      3.1,
+      0.4,
+      0.4
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Reader 0 / task bracket",
+    "position": [
+      -0.72,
+      2.36,
+      3.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.64,
+      0.045,
+      0.065
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 panel housing",
+    "position": [
+      -7.8,
+      3.16,
+      36.5
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 stable diffuser",
+    "position": [
+      -13.0,
+      3.075,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Service Player Reader Idle Lens",
+    "position": [
+      4.32,
+      1.25,
+      10.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.035,
+      0.52,
+      0.52
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation B / instrument pier",
+    "position": [
+      -6.3,
+      1.73,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      1.9,
+      0.46
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 repeating north frame",
+    "position": [
+      -16.0,
+      1.6,
+      48.06
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.075,
+      3.2,
+      0.1
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Reader A aligned lens",
+    "position": [
+      -6.04100037,
+      1.55,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      180.0,
+      90.0
+    ],
+    "scale": [
+      0.170000017,
+      0.007000002,
+      0.170000046
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Gate A alternative route / foot rail",
+    "position": [
+      -7.8,
+      0.180000067,
+      35.078
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      2.21999979,
+      0.2,
+      0.02
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 long return ceiling",
+    "position": [
+      -10.5,
+      3.3,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      13.6,
+      0.2,
+      3.8
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 vestibule west",
+    "position": [
+      -9.2,
+      1.6,
+      32.1
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      3.2,
+      4.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 panel housing",
+    "position": [
+      -7.8,
+      3.16,
+      43.7
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "01 Observation Hub",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "P3 repeating north frame",
+    "position": [
+      -13.0,
+      1.6,
+      48.06
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.075,
+      3.2,
+      0.1
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation B / sealed sill",
+    "position": [
+      -6.3,
+      0.795,
+      43.4499969
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.25,
+      0.055,
+      2.29999924
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 A observation glass",
+    "position": [
+      -6.3,
+      1.6,
+      35.5
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.12,
+      3.2,
+      3.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P1 / A flag backplate",
+    "position": [
+      -2.75,
+      2.15,
+      2.18
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.32,
+      0.3,
+      0.035
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Gate B Status Housing",
+    "position": [
+      2.5,
+      2.92,
+      12.82
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      2.1,
+      0.25,
+      0.1
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 vestibule east",
+    "position": [
+      -3.8,
+      1.6,
+      32.1
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      3.2,
+      4.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "Service Gate A Body",
+    "position": [
+      2.5,
+      1.35,
+      3.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      3.75,
+      2.7,
+      0.2
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "Rigidbody"
+    ]
+  },
+  {
+    "name": "P3 stable diffuser",
+    "position": [
+      -4.0,
+      3.075,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Gate A alternative route",
+    "position": [
+      -7.8,
+      0.0,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "SlidingDoor"
+    ]
+  },
+  {
+    "name": "P3 Gate A alternative route / pressed inset",
+    "position": [
+      -7.8,
+      1.52,
+      35.084
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      2.02,
+      2.4,
+      0.016
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Gate A alternative route / east jamb",
+    "position": [
+      -6.4175,
+      1.6,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.435,
+      3.2,
+      0.44
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P1 A actual state / enamel plate",
+    "position": [
+      -0.377,
+      0.86,
+      3.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.23000026,
+      0.29,
+      0.0350000076
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 panel-owned cool light",
+    "position": [
+      -7.0,
+      2.95,
+      46.4
+    ],
+    "rotation": [
+      90.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ]
+  },
+  {
+    "name": "Reader 0 / linked task pool",
+    "position": [
+      -1.04,
+      2.3,
+      3.0
+    ],
+    "rotation": [
+      60.25514,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.00000024,
+      1.00000036
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "Light",
+      "LinkedTaskLight",
+      "UniversalAdditionalLightData"
+    ]
+  },
+  {
+    "name": "P3 Gate B final hold",
+    "position": [
+      -7.8,
+      0.0,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "SlidingDoor"
+    ]
+  },
+  {
+    "name": "P3 panel-owned cool light",
+    "position": [
+      -4.0,
+      2.95,
+      46.4
+    ],
+    "rotation": [
+      90.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ]
+  },
+  {
+    "name": "Observation A / lintel",
+    "position": [
+      -6.3,
+      2.94,
+      35.5
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.22,
+      0.52,
+      3.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "Cooperate after recall instruction",
+    "position": [
+      2.5,
+      2.52,
+      -4.16700029
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ]
+  },
+  {
+    "name": "P3 lane west boundary",
+    "position": [
+      -9.2,
+      1.6,
+      39.3
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      3.2,
+      10.6
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 B identifier",
+    "position": [
+      -6.176,
+      2.1,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      270.0,
+      0.0
+    ],
+    "scale": [
+      0.9999999,
+      1.0,
+      0.9999999
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ]
+  },
+  {
+    "name": "Observation / mounted A",
+    "position": [
+      -6.19,
+      2.1,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.024,
+      0.27,
+      0.32
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 vestibule ceiling",
+    "position": [
+      -6.5,
+      3.3,
+      32.1
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      5.6,
+      0.2,
+      4.2
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P2 Reader Active Lens",
+    "position": [
+      -0.659,
+      1.25,
+      23.1
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      90.0
+    ],
+    "scale": [
+      0.170000032,
+      0.007000002,
+      0.17
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 long return east end",
+    "position": [
+      -3.8,
+      1.6,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      3.2,
+      3.6
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "Observation mullion",
+    "position": [
+      0.1,
+      1.8,
+      -93.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.12,
+      2.5,
+      0.16
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 alternative east boundary",
+    "position": [
+      -3.8,
+      1.6,
+      39.3
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      3.2,
+      10.6
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 sealed lightwell ceiling",
+    "position": [
+      -13.2,
+      3.3,
+      37.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      8.2,
+      0.2,
+      14.6
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 Gate A alternative route solid panel",
+    "position": [
+      -7.8,
+      1.45,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      2.3,
+      2.9,
+      0.22
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "Rigidbody"
+    ]
+  },
+  {
+    "name": "R1 Observation mullion",
+    "position": [
+      -10.3,
+      1.7,
+      30.06
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.18,
+      2.1,
+      0.075
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 stable diffuser",
+    "position": [
+      -10.0,
+      3.075,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation Frame Bay 15",
+    "position": [
+      0.0,
+      0.0,
+      15.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.98500049,
+      1.049,
+      0.9500002
+    ],
+    "active": true,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "P1 approach identity",
+    "position": [
+      -0.7,
+      1.88,
+      2.55
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ]
+  },
+  {
+    "name": "P3 panel housing",
+    "position": [
+      -7.0,
+      3.16,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Readers / recessed optical heads",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "P3 long return floor",
+    "position": [
+      -10.5,
+      -0.1,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      13.4,
+      0.2,
+      3.6
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P2 Blind Alignment Reader",
+    "position": [
+      -2.7,
+      0.0,
+      23.1
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "BoxCollider",
+      "OpticalReader",
+      "AudioSource",
+      "OpticalReaderAudio"
+    ]
+  },
+  {
+    "name": "P1 B actual state / enamel plate",
+    "position": [
+      -0.377,
+      0.92,
+      11.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.10000026,
+      0.2,
+      0.0350000076
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Gate B final hold / foot rail",
+    "position": [
+      -7.8,
+      0.180000067,
+      43.2279968
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      2.21999979,
+      0.2,
+      0.02
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 observation mullion",
+    "position": [
+      -12.0,
+      1.6,
+      44.68
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.06,
+      3.2,
+      0.09
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Lane Optical Reader A",
+    "position": [
+      -2.75,
+      0.0,
+      3.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "BoxCollider",
+      "OpticalReader",
+      "AudioSource",
+      "OpticalReaderAudio"
+    ]
+  },
+  {
+    "name": "Service Gate B",
+    "position": [
+      2.5,
+      0.0,
+      13.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "SlidingDoor",
+      "AudioSource",
+      "SlidingDoorAudio"
+    ]
+  },
+  {
+    "name": "Reader 1 / task diffuser",
+    "position": [
+      -1.04,
+      2.311,
+      11.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      0.013,
+      0.25
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "PracticalEmission"
+    ]
+  },
+  {
+    "name": "Observation Frame Bay 11",
+    "position": [
+      0.0,
+      0.0,
+      11.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.98500049,
+      1.049,
+      0.9500002
+    ],
+    "active": true,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "Reader 2 / linked task pool",
+    "position": [
+      3.6,
+      2.3,
+      10.0
+    ],
+    "rotation": [
+      60.25514,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.00000024,
+      1.00000036
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "Light",
+      "LinkedTaskLight",
+      "UniversalAdditionalLightData"
+    ]
+  },
+  {
+    "name": "Observation A / fixed clear pane",
+    "position": [
+      -6.3,
+      1.73,
+      35.5
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.035,
+      1.9,
+      3.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 panel housing",
+    "position": [
+      -16.0,
+      3.16,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "R1 Observation fascia",
+    "position": [
+      -10.35,
+      2.96,
+      27.55
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.22,
+      0.48,
+      5.1
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 Gate B final hold / pressed inset",
+    "position": [
+      -7.8,
+      1.52,
+      43.466
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      2.02,
+      2.4,
+      0.016
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Lane Optical Reader A Housing",
+    "position": [
+      -0.2,
+      1.25,
+      3.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.16,
+      0.9,
+      0.9
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation Glass 5",
+    "position": [
+      0.0,
+      1.65,
+      15.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "ProBuilderMesh",
+      "MeshFilter",
+      "BoxCollider"
+    ]
+  },
+  {
+    "name": "P1 / suspended A arrival flag",
+    "position": [
+      -2.75,
+      2.15,
+      2.15
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ]
+  },
+  {
+    "name": "P3 Gate B final hold solid panel",
+    "position": [
+      -7.8,
+      1.45,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      2.3,
+      2.9,
+      0.22
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "Rigidbody"
+    ]
+  },
+  {
+    "name": "Observation A / masonry base",
+    "position": [
+      -6.3,
+      0.39,
+      35.5
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      0.78,
+      3.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 lanes ceiling",
+    "position": [
+      -6.5,
+      3.3,
+      39.3
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      5.6,
+      0.2,
+      10.8
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 repeating north frame",
+    "position": [
+      -7.0,
+      1.6,
+      48.06
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.075,
+      3.2,
+      0.1
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Reader B housing",
+    "position": [
+      -6.17000055,
+      1.55,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      180.0,
+      0.0
+    ],
+    "scale": [
+      0.16,
+      0.55,
+      0.5
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Reader B neutral lens",
+    "position": [
+      -6.07,
+      1.55,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      180.0,
+      0.0
+    ],
+    "scale": [
+      0.025,
+      0.29,
+      0.3
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 A identifier",
+    "position": [
+      -6.176,
+      2.1,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      270.0,
+      0.0
+    ],
+    "scale": [
+      0.9999999,
+      1.0,
+      0.9999999
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ]
+  },
+  {
+    "name": "P3 panel housing",
+    "position": [
+      -4.0,
+      3.16,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Alignment Reader",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "P1 A actual state",
+    "position": [
+      -0.395,
+      0.86,
+      3.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ]
+  },
+  {
+    "name": "P1 service rule",
+    "position": [
+      4.27,
+      2.08,
+      10.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ]
+  },
+  {
+    "name": "P3 Gate B final hold / west jamb",
+    "position": [
+      -9.1325,
+      1.6,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.335,
+      3.2,
+      0.44
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 panel-owned cool light",
+    "position": [
+      -7.8,
+      2.95,
+      36.5
+    ],
+    "rotation": [
+      90.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ]
+  },
+  {
+    "name": "Service Player Reader Housing",
+    "position": [
+      4.42,
+      1.25,
+      10.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.14,
+      0.9,
+      0.9
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Lane Optical Reader A Idle Lens",
+    "position": [
+      -0.3,
+      1.25,
+      3.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.035,
+      0.52,
+      0.52
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation Glass 1",
+    "position": [
+      0.0,
+      1.65,
+      -1.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "ProBuilderMesh",
+      "MeshFilter",
+      "BoxCollider"
+    ]
+  },
+  {
+    "name": "Reader 0 / task diffuser",
+    "position": [
+      -1.04,
+      2.311,
+      3.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      0.013,
+      0.25
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "PracticalEmission"
+    ]
+  },
+  {
+    "name": "Lane Optical Reader B Idle Lens",
+    "position": [
+      -0.3,
+      1.25,
+      11.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.035,
+      0.52,
+      0.52
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Reader 2 / task canopy",
+    "position": [
+      3.6,
+      2.35,
+      10.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.24,
+      0.075,
+      0.3
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Cooperate after recall instruction backing",
+    "position": [
+      2.5,
+      2.52,
+      -4.15
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.72,
+      0.48,
+      0.025
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "R1 Clinical Observation Hub",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "P3 repeating north frame",
+    "position": [
+      -4.0,
+      1.6,
+      48.06
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.075,
+      3.2,
+      0.1
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation mullion",
+    "position": [
+      -0.1,
+      1.8,
+      -101.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.12,
+      2.5,
+      0.16
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "R3 P3 exit south pier",
+    "position": [
+      -17.2,
+      1.6,
+      43.85
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      3.2,
+      1.7
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "Reader 0 / task canopy",
+    "position": [
+      -1.04,
+      2.35,
+      3.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.24,
+      0.075,
+      0.3
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P1 B actual state",
+    "position": [
+      -0.395,
+      0.92,
+      11.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ]
+  },
+  {
+    "name": "P3 panel-owned cool light",
+    "position": [
+      -5.5,
+      2.95,
+      32.1
+    ],
+    "rotation": [
+      90.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ]
+  },
+  {
+    "name": "Observation Frame Bay 7",
+    "position": [
+      0.0,
+      0.0,
+      7.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.98500049,
+      1.049,
+      0.9500002
+    ],
+    "active": true,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "P3 observation mullion",
+    "position": [
+      -14.4,
+      1.6,
+      44.68
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.06,
+      3.2,
+      0.09
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Gate B final hold / fixed guide",
+    "position": [
+      -6.626,
+      1.48,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.045,
+      2.96,
+      0.29
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation A / side jamb",
+    "position": [
+      -6.3,
+      1.73,
+      36.96
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.22,
+      1.9,
+      0.08
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Sealed Observation Window",
+    "position": [
+      4.0,
+      0.0,
+      29.1
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": true,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "P1 approach identity / enamel plate",
+    "position": [
+      -0.7,
+      1.88,
+      2.56799984
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.68,
+      0.22,
+      0.035
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 repeating north frame",
+    "position": [
+      -10.0,
+      1.6,
+      48.06
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.075,
+      3.2,
+      0.1
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 stable diffuser",
+    "position": [
+      -16.0,
+      3.075,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Reader 1 / linked task pool",
+    "position": [
+      -1.04,
+      2.3,
+      11.0
+    ],
+    "rotation": [
+      60.25514,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.00000024,
+      1.00000036
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "Light",
+      "LinkedTaskLight",
+      "UniversalAdditionalLightData"
+    ]
+  },
+  {
+    "name": "P3 sealed lightwell floor",
+    "position": [
+      -13.2,
+      -0.18,
+      37.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      8.0,
+      0.2,
+      14.4
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 Gate B final hold physical motor",
+    "position": [
+      -7.8,
+      3.05,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "AudioSource",
+      "SlidingDoorAudio"
+    ]
+  },
+  {
+    "name": "Observation / P3 architecture and sound",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "R1 Observation mullion",
+    "position": [
+      -10.3,
+      1.7,
+      26.72
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.18,
+      2.1,
+      0.075
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation mullion",
+    "position": [
+      0.1,
+      1.8,
+      -85.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.12,
+      2.5,
+      0.16
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Gate A alternative route / fixed guide",
+    "position": [
+      -6.626,
+      1.48,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.045,
+      2.96,
+      0.29
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 long return north wall",
+    "position": [
+      -10.5,
+      1.6,
+      48.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      13.6,
+      3.2,
+      0.2
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 long return west end",
+    "position": [
+      -17.2,
+      1.6,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      3.2,
+      3.6
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 Gate B final hold / foot rail",
+    "position": [
+      -7.8,
+      0.180000067,
+      43.472
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      2.21999979,
+      0.2,
+      0.02
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 panel housing",
+    "position": [
+      -5.05,
+      3.16,
+      43.15
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.8,
+      0.14,
+      0.65
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Service Player Reader Active Lens",
+    "position": [
+      4.28900051,
+      1.25,
+      10.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      90.0
+    ],
+    "scale": [
+      0.170000032,
+      0.007000002,
+      0.17
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P1 C actual state",
+    "position": [
+      4.235,
+      0.83,
+      10.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ]
+  },
+  {
+    "name": "P3 Reader B",
+    "position": [
+      -5.05,
+      0.0,
+      43.0
+    ],
+    "rotation": [
+      0.0,
+      270.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider",
+      "OpticalReader"
+    ]
+  },
+  {
+    "name": "P3 stable diffuser",
+    "position": [
+      -5.05,
+      3.075,
+      35.5
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation B / fixed clear pane",
+    "position": [
+      -6.3,
+      1.73,
+      43.4499969
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.035,
+      1.9,
+      2.29999924
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation B / side jamb",
+    "position": [
+      -6.3,
+      1.73,
+      44.5599976
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.22,
+      1.9,
+      0.08
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "R1 Observation plinth",
+    "position": [
+      -10.35,
+      0.38,
+      27.55
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.22,
+      0.76,
+      5.1
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 panel-owned cool light",
+    "position": [
+      -7.8,
+      2.95,
+      43.7
+    ],
+    "rotation": [
+      90.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ]
+  },
+  {
+    "name": "P3 opaque separation",
+    "position": [
+      -6.3,
+      1.6,
+      39.65
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      3.2,
+      5.3
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 Gate A alternative route / foot rail",
+    "position": [
+      -7.8,
+      0.180000067,
+      35.3220024
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      2.21999979,
+      0.2,
+      0.02
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 distant hub sealed glazing",
+    "position": [
+      -13.2,
+      1.6,
+      44.6
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      8.0,
+      3.2,
+      0.12
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P1 A rule",
+    "position": [
+      -0.35,
+      2.08,
+      3.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ]
+  },
+  {
+    "name": "Observation A / side jamb",
+    "position": [
+      -6.3,
+      1.73,
+      34.04
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.22,
+      1.9,
+      0.08
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Reader 1 / task canopy",
+    "position": [
+      -1.04,
+      2.35,
+      11.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.24,
+      0.075,
+      0.3
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "R1 Observation mullion",
+    "position": [
+      -10.3,
+      1.7,
+      25.05
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.18,
+      2.1,
+      0.075
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation / reader B mounted assembly",
+    "position": [
+      -6.3,
+      0.0,
+      43.35
+    ],
+    "rotation": [
+      0.0,
+      180.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "P3 stable diffuser",
+    "position": [
+      -7.8,
+      3.075,
+      40.5
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 lanes floor",
+    "position": [
+      -6.5,
+      -0.1,
+      39.3
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      5.4,
+      0.2,
+      10.6
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "Observation A / instrument pier",
+    "position": [
+      -6.3,
+      1.73,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      1.9,
+      0.46
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 stable diffuser",
+    "position": [
+      -7.8,
+      3.075,
+      36.5
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation Glass 4",
+    "position": [
+      0.0,
+      1.65,
+      11.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "ProBuilderMesh",
+      "MeshFilter",
+      "BoxCollider"
+    ]
+  },
+  {
+    "name": "P3 panel-owned cool light",
+    "position": [
+      -13.0,
+      2.95,
+      46.4
+    ],
+    "rotation": [
+      90.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.00000024,
+      1.00000024
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "Light",
+      "UniversalAdditionalLightData"
+    ]
+  },
+  {
+    "name": "P3 stable diffuser",
+    "position": [
+      -5.05,
+      3.075,
+      43.15
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 Recombination Relay",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "RecombinationRelay"
+    ]
+  },
+  {
+    "name": "P1 B rule",
+    "position": [
+      -0.35,
+      2.08,
+      11.0
+    ],
+    "rotation": [
+      0.0,
+      90.0,
+      0.0
+    ],
+    "scale": [
+      1.00000024,
+      1.0,
+      1.00000024
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "TextMesh",
+      "DiegeticText"
+    ]
+  },
+  {
+    "name": "Reader 2 / task bracket",
+    "position": [
+      3.91999984,
+      2.36,
+      10.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.64,
+      0.045,
+      0.065
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 observation mullion",
+    "position": [
+      -9.6,
+      1.6,
+      44.68
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.06,
+      3.2,
+      0.09
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 vestibule floor",
+    "position": [
+      -6.5,
+      -0.1,
+      32.1
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      5.4,
+      0.2,
+      4.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "P3 recording lane terminal wall",
+    "position": [
+      -5.05,
+      1.6,
+      44.6
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      2.5,
+      3.2,
+      0.2
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer",
+      "SurfaceMapping"
+    ]
+  },
+  {
+    "name": "Gate A Status Housing",
+    "position": [
+      2.5,
+      2.92,
+      2.82
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.15,
+      0.25,
+      0.1
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "P3 stable diffuser",
+    "position": [
+      -7.0,
+      3.075,
+      46.4
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Parallel Observation Window",
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform"
+    ]
+  },
+  {
+    "name": "Reader 2 / task diffuser",
+    "position": [
+      3.6,
+      2.311,
+      10.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.2,
+      0.013,
+      0.25
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer",
+      "PracticalEmission"
+    ]
+  },
+  {
+    "name": "P3 Gate A alternative route physical motor",
+    "position": [
+      -7.8,
+      3.05,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "AudioSource",
+      "SlidingDoorAudio"
+    ]
+  },
+  {
+    "name": "P2 Reader Idle Lens",
+    "position": [
+      -0.63,
+      1.25,
+      23.1
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      0.035,
+      0.52,
+      0.52
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "BoxCollider",
+      "MeshRenderer"
+    ]
+  },
+  {
+    "name": "Observation Glass 2",
+    "position": [
+      0.0,
+      1.65,
+      3.0
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": true,
+    "components": [
+      "Transform",
+      "MeshRenderer",
+      "ProBuilderMesh",
+      "MeshFilter",
+      "BoxCollider"
+    ]
+  },
+  {
+    "name": "P3 Gate A alternative route / east jamb / solid",
+    "position": [
+      -6.4175,
+      1.6,
+      35.2
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "BoxCollider"
+    ]
+  },
+  {
+    "name": "P3 stable diffuser",
+    "position": [
+      -7.8,
+      3.075,
+      43.7
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.6,
+      0.035,
+      0.48
+    ],
+    "active": false,
+    "components": [
+      "Transform",
+      "MeshFilter",
+      "MeshRenderer"
+    ]
+  }
+]

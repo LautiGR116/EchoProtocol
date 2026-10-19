@@ -1,0 +1,62 @@
+ISOLATED FINAL ACT: initial public-API house fixture and one pose placement; synthetic input thereafter.
+PASS required final-act and house systems exist
+PASS physical Player, view and door references exist
+PASS final act begins fresh
+PASS public house fixture acquires the key and unlocks its exit without reflection writes
+PASS actual look sensitivity is nonzero
+PASS BeginReview lies within actual interaction range
+PASS actual camera ray reaches BeginReview
+PASS BeginReview accepts the real Player in the correct phase
+PASS real E transfers from house to active review
+PASS review commits exactly one checkpoint without teleporting the Player
+PASS interior origin clears obsolete recordings instead of inventing a take
+PASS domestic leaf, final exit and return tray begin in their honest initial states
+PASS preserve rejects Player without a current witness
+PASS key return rejects Player before preservation
+PASS unrelated actor cannot use the domestic door
+PASS live pose guidance responds to the actual recorded pause
+PASS the upcoming R has an actual movement recording to finish
+PASS one real R produces exactly one immutable take and active playback
+PASS R returns through the real loop to the established interior origin
+PASS actual immutable approach includes a qualified pause
+PASS OpenDoor lies within actual interaction range
+PASS actual camera ray reaches OpenDoor
+PASS OpenDoor accepts the real Player in the correct phase
+PASS the present Player can open 6B independently of witness authorization
+PASS continuous visible body observation qualifies only the current immutable take
+PASS witness stores the exact currently replayed snapshot
+PASS Escape opens the final-act pause menu
+PASS paused keyboard movement and R leave clock, pose and recording identity unchanged
+PASS Escape restores final-act control
+PASS a completed witness survives pause only for its identical snapshot
+PASS real CharacterController passes through 6B into the outer archive
+PASS Preserve lies within actual interaction range
+PASS actual camera ray reaches Preserve
+PASS Preserve accepts the real Player in the correct phase
+PASS preservation keeps the exact witnessed immutable object
+PASS preservation stops new recording but requires the distinct key-return action
+PASS R after preservation cannot replace the original or teleport the Player
+PASS ReturnKey lies within actual interaction range
+PASS actual camera ray reaches ReturnKey
+PASS ReturnKey accepts the real Player in the correct phase
+PASS real E returns the physical key and requests the final mechanical exit
+PASS key return alone does not complete the game
+PASS actual departure crossing starts the fade while retaining Player control
+PASS physical departure reaches the real final menu while retaining the same original
+PASS immutable snapshot retains its original frame count
+PASS all timestamps, positions and rotations of the captured snapshot remain identical
+PASS live playback was audited rather than simulated by direct state flags
+PASS capture exists: full-00-origin-Game.png
+PASS capture exists: full-00-origin-Camera.png
+PASS capture exists: full-01-recording-at-door-Game.png
+PASS capture exists: full-01-recording-at-door-Camera.png
+PASS capture exists: full-02-witnessed-from-inside-Game.png
+PASS capture exists: full-02-witnessed-from-inside-Camera.png
+PASS capture exists: full-03-pause-menu-Game.png
+PASS capture exists: full-03-pause-menu-Camera.png
+PASS capture exists: full-05-original-preserved-Game.png
+PASS capture exists: full-05-original-preserved-Camera.png
+PASS capture exists: full-06-key-returned-Game.png
+PASS capture exists: full-06-key-returned-Camera.png
+PASS capture exists: full-07-ending-menu-Game.png
+PASS capture exists: full-07-ending-menu-Camera.png

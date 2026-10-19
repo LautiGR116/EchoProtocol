@@ -1,0 +1,1223 @@
+[
+  {
+    "path": "Campaign / authored expansion/Station / CircuitKitchen",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": false,
+    "position": [
+      -7.75,
+      1.5,
+      -65.5
+    ],
+    "colliders": [
+      {
+        "name": "Station / CircuitKitchen",
+        "type": "BoxCollider",
+        "center": [
+          -7.75,
+          1.5,
+          -65.5
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / GalleryOrigin",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": false,
+    "position": [
+      3.8,
+      1.45,
+      -77.0
+    ],
+    "colliders": [
+      {
+        "name": "Station / GalleryOrigin",
+        "type": "BoxCollider",
+        "center": [
+          3.8,
+          1.45,
+          -77.0
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / CircuitBedroom",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": false,
+    "position": [
+      7.75,
+      1.5,
+      -55.6
+    ],
+    "colliders": [
+      {
+        "name": "Station / CircuitBedroom",
+        "type": "BoxCollider",
+        "center": [
+          7.75,
+          1.5,
+          -55.6
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Residence / habitable reconstruction/Reserve socket / RECIBIDOR",
+    "type": "HouseInteraction",
+    "enabled": true,
+    "active": true,
+    "position": [
+      0.88,
+      1.3,
+      -50.8
+    ],
+    "colliders": [
+      {
+        "name": "Reserve socket / RECIBIDOR",
+        "type": "BoxCollider",
+        "center": [
+          0.844,
+          1.3,
+          -50.8
+        ],
+        "size": [
+          0.18900013,
+          0.360000134,
+          0.260002136
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Environment/Interaction Test/Prototype Switch",
+    "type": "PrototypeToggleSwitch",
+    "enabled": true,
+    "active": false,
+    "position": [
+      0.0,
+      1.25,
+      -2.4
+    ],
+    "colliders": [
+      {
+        "name": "Switch Body",
+        "type": "BoxCollider",
+        "center": [
+          0.0,
+          1.25,
+          -2.4
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      },
+      {
+        "name": "Lever",
+        "type": "BoxCollider",
+        "center": [
+          0.0,
+          1.25,
+          -2.60000014
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      },
+      {
+        "name": "Indicator",
+        "type": "BoxCollider",
+        "center": [
+          0.0,
+          2.0,
+          -2.4
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / NoteWorkOrder",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": false,
+    "position": [
+      -3.5,
+      1.45,
+      -73.8
+    ],
+    "colliders": [
+      {
+        "name": "Station / NoteWorkOrder",
+        "type": "BoxCollider",
+        "center": [
+          -3.5,
+          1.45,
+          -73.8
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / ArchiveLetter",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": false,
+    "position": [
+      4.9,
+      1.45,
+      -120.6
+    ],
+    "colliders": [
+      {
+        "name": "Station / ArchiveLetter",
+        "type": "BoxCollider",
+        "center": [
+          4.9,
+          1.45,
+          -120.6
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Residence / habitable reconstruction/House interaction / Key",
+    "type": "HouseInteraction",
+    "enabled": true,
+    "active": true,
+    "position": [
+      3.6,
+      0.83,
+      -49.6
+    ],
+    "colliders": [
+      {
+        "name": "House interaction / Key",
+        "type": "BoxCollider",
+        "center": [
+          3.6,
+          0.83,
+          -49.6
+        ],
+        "size": [
+          0.239999771,
+          0.149999976,
+          0.239997864
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / ValveB",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": false,
+    "position": [
+      5.9,
+      1.5,
+      -44.0
+    ],
+    "colliders": [
+      {
+        "name": "Station / ValveB",
+        "type": "BoxCollider",
+        "center": [
+          5.9,
+          1.5,
+          -44.0
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Courtyard / real house exterior/Courtyard / relocated complete final/Threshold / del otro lado/Review origin instrument",
+    "type": "FinalDoorInteraction",
+    "enabled": true,
+    "active": true,
+    "position": [
+      -10.0999966,
+      1.45,
+      -54.75
+    ],
+    "colliders": [
+      {
+        "name": "Review origin instrument",
+        "type": "BoxCollider",
+        "center": [
+          -10.0999966,
+          1.45,
+          -54.75
+        ],
+        "size": [
+          0.880001068,
+          0.680000067,
+          0.0999984741
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / CircuitHall",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": false,
+    "position": [
+      0.7,
+      1.5,
+      -49.2
+    ],
+    "colliders": [
+      {
+        "name": "Station / CircuitHall",
+        "type": "BoxCollider",
+        "center": [
+          0.7,
+          1.5,
+          -49.2
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Residence / habitable reconstruction/Reserve socket / DORMITORIO",
+    "type": "HouseInteraction",
+    "enabled": true,
+    "active": true,
+    "position": [
+      5.242,
+      1.3,
+      -53.45
+    ],
+    "colliders": [
+      {
+        "name": "Reserve socket / DORMITORIO",
+        "type": "BoxCollider",
+        "center": [
+          5.20600033,
+          1.3,
+          -53.45
+        ],
+        "size": [
+          0.18900013,
+          0.360000134,
+          0.260002136
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / ValveA",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": false,
+    "position": [
+      5.9,
+      1.5,
+      -36.5
+    ],
+    "colliders": [
+      {
+        "name": "Station / ValveA",
+        "type": "BoxCollider",
+        "center": [
+          5.9,
+          1.5,
+          -36.5
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Courtyard / real house exterior/Courtyard / relocated complete final/Threshold / del otro lado/Mara final note",
+    "type": "FinalDoorInteraction",
+    "enabled": true,
+    "active": true,
+    "position": [
+      -13.26,
+      1.45,
+      -50.65
+    ],
+    "colliders": [
+      {
+        "name": "Mara final note",
+        "type": "BoxCollider",
+        "center": [
+          -13.26,
+          1.45,
+          -50.65
+        ],
+        "size": [
+          0.0400009155,
+          0.420000076,
+          0.3199997
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / NoteConsent",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": false,
+    "position": [
+      4.4,
+      1.45,
+      -73.8
+    ],
+    "colliders": [
+      {
+        "name": "Station / NoteConsent",
+        "type": "BoxCollider",
+        "center": [
+          4.4,
+          1.45,
+          -73.8
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Finish / materiality and inhabited detail/Mara letter / reception",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": true,
+    "position": [
+      0.35,
+      1.102,
+      -4.39
+    ],
+    "colliders": [
+      {
+        "name": "Mara letter / reception",
+        "type": "BoxCollider",
+        "center": [
+          0.35,
+          1.102,
+          -4.39
+        ],
+        "size": [
+          0.45,
+          0.319999933,
+          0.3199997
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Residence / habitable reconstruction/House interaction / Document",
+    "type": "HouseInteraction",
+    "enabled": true,
+    "active": true,
+    "position": [
+      -2.4,
+      1.5,
+      -49.22
+    ],
+    "colliders": [
+      {
+        "name": "House interaction / Document",
+        "type": "BoxCollider",
+        "center": [
+          -2.4,
+          1.5,
+          -49.22
+        ],
+        "size": [
+          0.3000002,
+          0.420000076,
+          0.04499817
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Courtyard / real house exterior/Courtyard / relocated complete final/Threshold / del otro lado/Original conservation terminal",
+    "type": "FinalDoorInteraction",
+    "enabled": true,
+    "active": true,
+    "position": [
+      -17.0,
+      1.6,
+      -54.56
+    ],
+    "colliders": [
+      {
+        "name": "Original conservation terminal",
+        "type": "BoxCollider",
+        "center": [
+          -17.0,
+          1.6,
+          -54.56
+        ],
+        "size": [
+          0.8499985,
+          0.569999933,
+          0.150001526
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Courtyard / real house exterior/Courtyard / relocated complete final/Threshold / del otro lado/Return key to porter's tray",
+    "type": "FinalDoorInteraction",
+    "enabled": true,
+    "active": true,
+    "position": [
+      -18.0200043,
+      0.93,
+      -51.0
+    ],
+    "colliders": [
+      {
+        "name": "Return key to porter's tray",
+        "type": "BoxCollider",
+        "center": [
+          -18.0200043,
+          0.929999948,
+          -51.0
+        ],
+        "size": [
+          0.3600006,
+          0.199999988,
+          0.550003052
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / NoteArrival",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": false,
+    "position": [
+      -3.3,
+      1.45,
+      -60.85
+    ],
+    "colliders": [
+      {
+        "name": "Station / NoteArrival",
+        "type": "BoxCollider",
+        "center": [
+          -3.3,
+          1.45,
+          -60.85
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Residence / habitable reconstruction/Reserve socket / COCINA",
+    "type": "HouseInteraction",
+    "enabled": true,
+    "active": true,
+    "position": [
+      -5.242,
+      1.3,
+      -57.5
+    ],
+    "colliders": [
+      {
+        "name": "Reserve socket / COCINA",
+        "type": "BoxCollider",
+        "center": [
+          -5.20600033,
+          1.3,
+          -57.5
+        ],
+        "size": [
+          0.18900013,
+          0.360000134,
+          0.260002136
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / ArchiveOrigin",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": false,
+    "position": [
+      4.8,
+      1.5,
+      -107.2
+    ],
+    "colliders": [
+      {
+        "name": "Station / ArchiveOrigin",
+        "type": "BoxCollider",
+        "center": [
+          4.8,
+          1.5,
+          -107.2
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Courtyard / real house exterior/Courtyard / relocated complete final/Threshold / del otro lado/6B review door / hinge",
+    "type": "FinalDoorInteraction",
+    "enabled": true,
+    "active": true,
+    "position": [
+      -13.4,
+      0.0,
+      -51.920002
+    ],
+    "colliders": [
+      {
+        "name": "6B lower opaque leaf",
+        "type": "BoxCollider",
+        "center": [
+          -13.3999987,
+          0.550000131,
+          -52.4
+        ],
+        "size": [
+          0.0650005341,
+          1.1,
+          0.9599991
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      },
+      {
+        "name": "6B solid stile",
+        "type": "BoxCollider",
+        "center": [
+          -13.4,
+          1.58500051,
+          -51.97
+        ],
+        "size": [
+          0.0650005341,
+          0.970000148,
+          0.0999984741
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      },
+      {
+        "name": "6B solid stile",
+        "type": "BoxCollider",
+        "center": [
+          -13.3999987,
+          1.58500051,
+          -52.83
+        ],
+        "size": [
+          0.0650005341,
+          0.970000148,
+          0.0999984741
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      },
+      {
+        "name": "6B solid top rail",
+        "type": "BoxCollider",
+        "center": [
+          -13.3999987,
+          2.02000046,
+          -52.4
+        ],
+        "size": [
+          0.0650005341,
+          0.139999986,
+          0.9599991
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      },
+      {
+        "name": "6B clear visor",
+        "type": "BoxCollider",
+        "center": [
+          -13.3999987,
+          1.52500045,
+          -52.4
+        ],
+        "size": [
+          0.02199936,
+          0.850000143,
+          0.760002136
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / Preserve",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": false,
+    "position": [
+      2.6,
+      1.5,
+      -123.8
+    ],
+    "colliders": [
+      {
+        "name": "Station / Preserve",
+        "type": "BoxCollider",
+        "center": [
+          2.6,
+          1.5,
+          -123.8
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "VS1 D1 Recorded Evidence",
+    "type": "VS1DenialEvidence",
+    "enabled": false,
+    "active": true,
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "colliders": [
+      {
+        "name": "D1 service origin station",
+        "type": "BoxCollider",
+        "center": [
+          0.22,
+          1.25,
+          -2.25
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      },
+      {
+        "name": "D1 real recorded pause zone",
+        "type": "BoxCollider",
+        "center": [
+          -1.0,
+          1.0,
+          -1.0
+        ],
+        "size": [
+          1.0999999,
+          2.5,
+          1.7
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": true,
+        "layer": 0
+      },
+      {
+        "name": "D1 witness service zone",
+        "type": "BoxCollider",
+        "center": [
+          1.2,
+          1.0,
+          -1.0
+        ],
+        "size": [
+          1.79999983,
+          2.5,
+          2.4
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": true,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / PressureOrigin",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": false,
+    "position": [
+      1.1,
+      1.4,
+      -28.1
+    ],
+    "colliders": [
+      {
+        "name": "Station / PressureOrigin",
+        "type": "BoxCollider",
+        "center": [
+          1.1,
+          1.4,
+          -28.1
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / Descent",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": true,
+    "position": [
+      2.25,
+      1.45,
+      -11.85
+    ],
+    "colliders": [
+      {
+        "name": "Station / Descent",
+        "type": "BoxCollider",
+        "center": [
+          2.25,
+          1.45,
+          -11.85
+        ],
+        "size": [
+          0.8499999,
+          0.680000067,
+          0.13999939
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / HouseOrigin",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": true,
+    "position": [
+      0.78,
+      1.4,
+      -49.6
+    ],
+    "colliders": [
+      {
+        "name": "Station / HouseOrigin",
+        "type": "BoxCollider",
+        "center": [
+          0.78,
+          1.4,
+          -49.6
+        ],
+        "size": [
+          0.320000172,
+          0.4000001,
+          0.13999939
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "VS1 Systems/VS1 R1 Recovery Hub/R1 Clinical Observation Hub/Orientation / R1 workstation placement/R1 Central observation station",
+    "type": "VS1RecallAnchor",
+    "enabled": true,
+    "active": false,
+    "position": [
+      -14.8615093,
+      0.0,
+      0.6494942
+    ],
+    "colliders": [
+      {
+        "name": "R1 Station solid plinth",
+        "type": "BoxCollider",
+        "center": [
+          -7.27858973,
+          0.48,
+          28.0834942
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      },
+      {
+        "name": "R1 Station worktop",
+        "type": "BoxCollider",
+        "center": [
+          -7.27858973,
+          1.015,
+          28.0834942
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      },
+      {
+        "name": "R1 Monitor housing",
+        "type": "BoxCollider",
+        "center": [
+          -7.28349352,
+          1.48,
+          28.375
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Residence / habitable reconstruction/6B exit / left hinge",
+    "type": "HouseInteraction",
+    "enabled": true,
+    "active": true,
+    "position": [
+      -0.49,
+      0.0,
+      -62.5
+    ],
+    "colliders": [
+      {
+        "name": "6B exit leaf",
+        "type": "BoxCollider",
+        "center": [
+          0.0,
+          1.04,
+          -62.5
+        ],
+        "size": [
+          0.98,
+          2.08,
+          0.0550003052
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Residence / habitable reconstruction/House interaction / Telephone",
+    "type": "HouseInteraction",
+    "enabled": true,
+    "active": true,
+    "position": [
+      -4.4,
+      0.9,
+      -51.84
+    ],
+    "colliders": [
+      {
+        "name": "House interaction / Telephone",
+        "type": "BoxCollider",
+        "center": [
+          -4.4,
+          0.9,
+          -51.84
+        ],
+        "size": [
+          0.118800163,
+          0.09000003,
+          0.1855011
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Isolation / physical service shutdown",
+    "type": "PressureIsolation",
+    "enabled": true,
+    "active": true,
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "colliders": [
+      {
+        "name": "Isolation physical entry",
+        "type": "BoxCollider",
+        "center": [
+          0.0,
+          1.10000014,
+          -29.2
+        ],
+        "size": [
+          15.5,
+          2.4,
+          3.0
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": true,
+        "layer": 0
+      },
+      {
+        "name": "Isolation control interaction body",
+        "type": "BoxCollider",
+        "center": [
+          5.75,
+          1.35,
+          -35.9
+        ],
+        "size": [
+          0.34967804,
+          0.680000067,
+          0.5688782
+        ],
+        "enabled": true,
+        "active": true,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  },
+  {
+    "path": "Campaign / authored expansion/Station / Telephone",
+    "type": "CampaignStation",
+    "enabled": true,
+    "active": false,
+    "position": [
+      -6.5,
+      1.03,
+      -54.0
+    ],
+    "colliders": [
+      {
+        "name": "Station / Telephone",
+        "type": "BoxCollider",
+        "center": [
+          -6.5,
+          1.03,
+          -54.0
+        ],
+        "size": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "enabled": true,
+        "active": false,
+        "trigger": false,
+        "layer": 0
+      }
+    ]
+  }
+]

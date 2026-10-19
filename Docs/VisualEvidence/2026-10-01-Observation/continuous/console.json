@@ -1,0 +1,24 @@
+{
+  "scope": "Complete Console read after continuous PASS468. Probe captured no gameplay error. Dispatch/editor/package diagnostics below are separate.",
+  "total": 167,
+  "returned": 167,
+  "counts": {
+    "Log": 164,
+    "Warning": 2,
+    "Error": 1
+  },
+  "diagnostics": [
+    {
+      "type": "Warning",
+      "message": "Ran out of Graphics Ring Buffer space. Consider using the -gfx-ring-buffer-size command line option to increase the size."
+    },
+    {
+      "type": "Warning",
+      "message": "Account API did not become accessible within 30 seconds. This may be due to network issues or editor focus."
+    },
+    {
+      "type": "Error",
+      "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms"
+    }
+  ]
+}

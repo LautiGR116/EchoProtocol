@@ -1,0 +1,39 @@
+CONTINUOUS TITLE TO ENDING. Zero fixtures or direct gameplay mutations. Input System keyboard/mouse only. Unexpected pauses fail rather than being resumed.
+PASS [title] Threshold systems exist
+PASS [title] all original-act, new house and new final references exist
+PASS [title] optional isolation has its single configured physical audio owner
+PASS [title] isolation begins untouched at the real title without a restored fixture
+PASS [title] optional recording boundary shares the actual campaign, R3 and loop
+PASS [title] boundary starts unused and its actual Hub arrival guidance is authored
+PASS [title] physical descent guide starts hidden with an explicit Hub arrival volume
+PASS [title] contextual notes reference the actual gameplay systems, excluding inactive legacy studies
+PASS [title] run begins at the actual paused title, before gameplay
+PASS [title] title has no earned progress, saved restoration or prior recording
+PASS [title] Threshold replaces D1 with actual R3 availability
+PASS [title] real look sensitivity is nonzero
+PASS [title] Enter starts the actual title session through input
+PASS [title/session_notes_initial] H opens contextual notes through real input and pauses world/audio
+PASS [title/session_notes_initial] notes resolve the actual configured stage
+PASS [title/session_notes_initial] reading notes with movement/R held leaves the actual recording, Echo, Player and event unchanged
+PASS [title/session_notes_initial] H/Escape closes notes and restores exactly the prior controls
+PASS [title/session_notes_initial] notes can also be requested from the real pause menu
+PASS [title/session_notes_initial] closing notes requested from pause returns to pause without resuming the world
+PASS [title/session_notes_initial] explicit Escape resumes after returning from notes to pause
+PASS [P1_record] first-act gates start sealed
+PASS [P1_record] C reports no Echo authorization during the real Player-only A preview
+PASS [P1_record] P1 A previews from the actual Player
+PASS [P1_record] RECALL has actual movement frames to finish
+PASS [P1_record] one real R completes exactly one actual take
+PASS [P1_record] RECALL placement creates no physical footstep
+PASS [P1_cooperate] P1 completes through real Echo A/B and Player cooperation
+PASS [P1_cooperate] physical C display reports the genuinely completed cooperation
+PASS [SE1_empty_lane/keyboard_pause] Escape opens the actual pause menu
+PASS [SE1_empty_lane/keyboard_pause] real paused movement and R input leave clock, Player and loop unchanged
+PASS [SE1_empty_lane/keyboard_pause] real menu pause freezes recording, Echo playback and the authored strong event
+PASS [SE1_empty_lane/keyboard_pause] Escape restores actual Player control
+PASS [SE1_consequence] SE1 follows the actual empty-lane check
+PASS [SE1_consequence] all three reaimed reader fixtures still extinguish through the original SE1 circuit
+FAIL SE1_consequence: System.InvalidOperationException: SE1_consequence: every reader task and fixture reflection follows the actual SE1 blackout
+  at ThresholdCampaignProbe.Check (System.Boolean condition, System.String message) [0x00014] in <27ad706f5e6841bb9a4739eb287e2309>:0 
+  at ThresholdCampaignProbe+<FirstAct>d__142.MoveNext () [0x003c4] in <27ad706f5e6841bb9a4739eb287e2309>:0 
+  at ThresholdCampaignProbe+<Guarded>d__135.MoveNext () [0x0004b] in <27ad706f5e6841bb9a4739eb287e2309>:0 

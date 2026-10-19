@@ -1,0 +1,2 @@
+PASS
+checks=41 elapsed=43.363 initialFixtures=1 requestedRecallPoseResets=2

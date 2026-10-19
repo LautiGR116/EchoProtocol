@@ -1,0 +1,117 @@
+[
+  {
+    "file": "Threat_DirectCry.wav",
+    "sources": [
+      "Archeos 325548, original excerpt 0.82\u20133.20 s; Resonance/Sources/download-manifest.json"
+    ],
+    "license": "CC0 1.0; existing repository source trail",
+    "date": "2026-10-11",
+    "model": null,
+    "voice": "Archeos original adult performance",
+    "edit": "Original adult pitch; 115\u20139500 Hz; 18 ms attack; gentle fixed crest reduction; short 180 ms physical reflections. Replaces distant shaft treatment for present threat.",
+    "seconds": 2.56,
+    "peakDb": -4.73144012896018,
+    "rmsDb": -18.345637309170137,
+    "loop": false,
+    "sha256": "0ba670054530e3c112176696699e3fc6b71719b509a10d8b2137dd664cc9dd14"
+  },
+  {
+    "file": "Threat_FrameContact.wav",
+    "sources": [
+      "Brian MacIntosh mechanical-clank1.wav / mechanical-rattle1.wav; existing CC0 manifest"
+    ],
+    "license": "CC0 1.0; existing repository source trail",
+    "date": "2026-10-11",
+    "model": null,
+    "voice": null,
+    "edit": "Dry door-frame contact and short rattle. One warning during held exit release; one visible frame encounter during rush.",
+    "seconds": 0.78,
+    "peakDb": -6.375175252550655,
+    "rmsDb": -27.24730082960653,
+    "loop": false,
+    "sha256": "dc29940ecdb12ae880bb267737c2e798d998c4784007b546d4d627a535bd6d2f"
+  },
+  {
+    "file": "Threat_Step0.wav",
+    "sources": [
+      "Assets/_Game/Audio/Clips/Finish/FootVinyl0.wav",
+      "Overhaul/masters.json and source trail"
+    ],
+    "license": "CC0 1.0; existing repository source trail",
+    "date": "2026-10-11",
+    "model": null,
+    "voice": null,
+    "edit": "Original physical floor contact; 65\u20138000 Hz; fixed crest reduction; deterministic left/right order. No independent recorded Echo sound.",
+    "seconds": 0.34,
+    "peakDb": -5.192746210125582,
+    "rmsDb": -17.161086840860154,
+    "loop": false,
+    "sha256": "63b4a868a0de4b7d4d76aa62b27cda3305954e2cbe6e82894106be0f9d2ec13c"
+  },
+  {
+    "file": "Threat_Step1.wav",
+    "sources": [
+      "Assets/_Game/Audio/Clips/Finish/FootVinyl1.wav",
+      "Overhaul/masters.json and source trail"
+    ],
+    "license": "CC0 1.0; existing repository source trail",
+    "date": "2026-10-11",
+    "model": null,
+    "voice": null,
+    "edit": "Original physical floor contact; 65\u20138000 Hz; fixed crest reduction; deterministic left/right order. No independent recorded Echo sound.",
+    "seconds": 0.34,
+    "peakDb": -5.192746210125582,
+    "rmsDb": -24.687231509467118,
+    "loop": false,
+    "sha256": "30b1285d7feb14a67708c4af72dd7b07dc97fc37374d8091195062f07a0f19f0"
+  },
+  {
+    "file": "Threat_Step2.wav",
+    "sources": [
+      "Assets/_Game/Audio/Clips/Finish/FootVinyl2.wav",
+      "Overhaul/masters.json and source trail"
+    ],
+    "license": "CC0 1.0; existing repository source trail",
+    "date": "2026-10-11",
+    "model": null,
+    "voice": null,
+    "edit": "Original physical floor contact; 65\u20138000 Hz; fixed crest reduction; deterministic left/right order. No independent recorded Echo sound.",
+    "seconds": 0.34,
+    "peakDb": -5.192746210125582,
+    "rmsDb": -26.852784002892328,
+    "loop": false,
+    "sha256": "360aea69af9e8e9efb5d2b508c7f7a6012af632ab2232ee627fc991c81e520c3"
+  },
+  {
+    "file": "Threat_MovingFriction.wav",
+    "sources": [
+      "AntumDeluge scrape-6.wav; existing CC0 manifest"
+    ],
+    "license": "CC0 1.0; existing repository source trail",
+    "date": "2026-10-11",
+    "model": null,
+    "voice": null,
+    "edit": "Band-limited physical scrape/grain. Level follows actual present movement, spatialized from torso; seamless 240 ms overlap.",
+    "seconds": 2.16,
+    "peakDb": -13.151546383343897,
+    "rmsDb": -32.84767495383494,
+    "loop": true,
+    "sha256": "077ceda512aa5235ec5a636fd45cb95e0ef9b3fdc532c3fcc7999cee909da7dd"
+  },
+  {
+    "file": "Pursuit_Pulse.wav",
+    "sources": [
+      "Original nonverbal modal composition, no licensed input"
+    ],
+    "license": "CC0 1.0; existing repository source trail",
+    "date": "2026-10-11",
+    "model": null,
+    "voice": null,
+    "edit": "8 s internal nonverbal pursuit pulse; sub/broad mid partials, gaps for spatial contacts; onset/offset fades owned by present threat.",
+    "seconds": 8.0,
+    "peakDb": -11.700533038333,
+    "rmsDb": -26.68724038697363,
+    "loop": true,
+    "sha256": "dcbb40e37c6c259af930455ba46329aab4e68b71fa8b23bee19f98f699c4457b"
+  }
+]

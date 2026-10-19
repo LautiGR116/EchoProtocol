@@ -1,0 +1,18 @@
+{
+    "label": "pressure-running-door-approach",
+    "position": {
+        "x": 2.299999952316284,
+        "y": 1.6299999952316285,
+        "z": -46.29999923706055
+    },
+    "target": {
+        "x": 0.0,
+        "y": 1.0,
+        "z": -48.0
+    },
+    "chapter": "Pressure",
+    "power": "Hall",
+    "answered": false,
+    "latched": false,
+    "drained": false
+}

@@ -1,0 +1,4 @@
+FAIL title: System.InvalidOperationException: title: Enter starts the actual title session through input
+  at ThresholdCampaignProbe.Check (System.Boolean condition, System.String message) [0x00068] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:1282 
+  at ThresholdCampaignProbe+<Execute>d__135.MoveNext () [0x009a1] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:195 
+  at ThresholdCampaignProbe+<Guarded>d__134.MoveNext () [0x00040] in /Users/lautigr116/EchoProtocol/Assets/_Game/Tests/ThresholdCampaignProbe.cs:113 

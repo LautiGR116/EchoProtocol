@@ -1,0 +1,16 @@
+FAIL title: Unity runtime error: UnassignedReferenceException: The variable cry of MachineCoverThreat has not been assigned.
+You probably need to assign the cry variable of the MachineCoverThreat script in the inspector.
+UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/UnityEngineObject.bindings.cs:1084)
+UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:61)
+UnityEngine.AudioSource.Stop (System.Boolean stopOneShots) (at <3ecc69a54b2d471c9db1e2873b1edfc9>:0)
+UnityEngine.AudioSource.Stop () (at /Users/bokken/build/output/unity/unity/Modules/Audio/Public/ScriptBindings/Audio.bindings.cs:1041)
+EchoProtocol.Campaign.MachineCoverThreat.ResetThreat () (at Assets/_Game/Scripts/Campaign/MachineCoverThreat.cs:47)
+EchoProtocol.Campaign.MachineCoverEncounter.ResetLoopState () (at Assets/_Game/Scripts/Campaign/MachineCoverEncounter.cs:96)
+EchoProtocol.Campaign.MachineCoverEncounter.Enter () (at Assets/_Game/Scripts/Campaign/MachineCoverEncounter.cs:81)
+EchoProtocol.Campaign.CampaignDirector.BeginMachineCover () (at Assets/_Game/Scripts/Campaign/CampaignDirector.cs:190)
+EchoProtocol.Campaign.CampaignDirector.BeginCoverPreview () (at Assets/_Game/Scripts/Campaign/CampaignDirector.cs:202)
+EchoProtocol.Presentation.GameSession.DrawFolioMain () (at Assets/_Game/Scripts/Presentation/GameSession.Folio.cs:58)
+EchoProtocol.Presentation.GameSession.DrawFolio () (at Assets/_Game/Scripts/Presentation/GameSession.Folio.cs:31)
+EchoProtocol.Presentation.GameSession.OnGUI () (at Assets/_Game/Scripts/Presentation/GameSession.cs:143)
+UnityEngine.GUIUtility:ProcessEvent(Int32, IntPtr, Boolean&) (at /Users/bokken/build/output/unity/unity/Modules/IMGUI/GUIUtility.cs:224)
+

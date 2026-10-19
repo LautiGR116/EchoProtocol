@@ -1,0 +1,16 @@
+{
+    "label": "campaign-coverage-grille-open",
+    "state": "Pressure|house:False/False/Hall|pressure:False/False|P3:1.00",
+    "position": {
+        "x": -3.5711636543273927,
+        "y": 1.6299999952316285,
+        "z": -38.48078918457031
+    },
+    "rotation": {
+        "x": 0.008667906746268273,
+        "y": 0.9833458662033081,
+        "z": -0.17487168312072755,
+        "w": 0.04874173924326897
+    },
+    "fov": 60.0
+}

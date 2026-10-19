@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "method": "Direct Unicode cmap format 4/12, packaged static fonts; no system-font fallback. Functional roles use conservative runtime-string superset; display uses all actual headings; personal editorial uses Latin/Spanish punctuation superset.",
+  "roles": [
+    {
+      "font": "IBMPlexSans-Regular.ttf",
+      "codepointsChecked": 102,
+      "missing": []
+    },
+    {
+      "font": "IBMPlexSans-Medium.ttf",
+      "codepointsChecked": 102,
+      "missing": []
+    },
+    {
+      "font": "CormorantGaramond-SemiBold.ttf",
+      "codepointsChecked": 49,
+      "missing": []
+    },
+    {
+      "font": "CormorantGaramond-Italic.ttf",
+      "codepointsChecked": 30,
+      "missing": []
+    },
+    {
+      "font": "IBMPlexSerif-Regular.ttf",
+      "codepointsChecked": 117,
+      "missing": []
+    },
+    {
+      "font": "IBMPlexSerif-Italic.ttf",
+      "codepointsChecked": 117,
+      "missing": []
+    }
+  ]
+}

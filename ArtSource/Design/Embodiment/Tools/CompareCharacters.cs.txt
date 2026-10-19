@@ -1,0 +1,27 @@
+using System;using System.IO;using System.Linq;using System.Collections.Generic;using System.Reflection;
+using UnityEngine;using UnityEditor;using EchoProtocol.Player;using EchoProtocol.Echo;
+public static class CompareCharacters {
+ const string Out="Docs/VisualEvidence/2026-10-09-Embodiment/alternatives";
+ const string Base="Assets/_Game/Art/Embodiment/RenderpeoplePrivate/";
+ static readonly List<UnityEngine.Object> owned=new List<UnityEngine.Object>();
+ static T L<T>(string p)where T:UnityEngine.Object{var x=AssetDatabase.LoadAssetAtPath<T>(p);if(!x)throw new Exception("Missing "+p);return x;}
+ static void Shot(Camera c,string name,Vector3 pos,Vector3 aim){
+  var old=c.targetTexture;var active=RenderTexture.active;var rt=new RenderTexture(1280,720,24);var t=new Texture2D(1280,720,TextureFormat.RGB24,false);
+  try{c.transform.SetPositionAndRotation(pos,Quaternion.LookRotation(aim-pos));c.targetTexture=rt;c.Render();RenderTexture.active=rt;t.ReadPixels(new Rect(0,0,1280,720),0,0);t.Apply();File.WriteAllBytes(Out+"/"+name+".png",t.EncodeToPNG());}
+  finally{c.targetTexture=old;RenderTexture.active=active;UnityEngine.Object.DestroyImmediate(rt);UnityEngine.Object.DestroyImmediate(t);}
+ }
+ static GameObject Old(bool lit){var loop=UnityEngine.Object.FindFirstObjectByType<LoopController>();var so=new SerializedObject(loop);var p=(EchoPlayback)so.FindProperty("echoPrefab").objectReferenceValue;var g=UnityEngine.Object.Instantiate(p.gameObject);owned.Add(g);
+  g.transform.SetPositionAndRotation(new Vector3(0,.03f,-8),Quaternion.Euler(0,180,0));
+  var rig=g.GetComponentInChildren<EchoBodyRig>(true);typeof(EchoBodyRig).GetMethod("Awake",BindingFlags.NonPublic|BindingFlags.Instance).Invoke(rig,null);rig.Apply(new RecordedBodyPose(1.6f,0,0,Vector2.zero));
+  if(lit)foreach(var r in g.GetComponentsInChildren<Renderer>()) {var mats=r.sharedMaterials;for(int i=0;i<mats.Length;i++){var m=new Material(Shader.Find("Universal Render Pipeline/Lit"));owned.Add(m);if(mats[i].HasProperty("_BaseMap"))m.SetTexture("_BaseMap",mats[i].GetTexture("_BaseMap"));var color=mats[i].HasProperty("_BaseColor")?mats[i].GetColor("_BaseColor"):mats[i].HasProperty("_Color")?mats[i].GetColor("_Color"):Color.gray;color.a=1;m.SetColor("_BaseColor",color);m.SetFloat("_Smoothness",i==0?.24f:.12f);m.SetFloat("_Metallic",0);mats[i]=m;}r.sharedMaterials=mats;}
+  return g;
+ }
+ static GameObject Stock(string who,string model){var g=UnityEngine.Object.Instantiate(L<GameObject>(Base+who+"/"+model));owned.Add(g);foreach(var a in g.GetComponentsInChildren<Animator>())UnityEngine.Object.DestroyImmediate(a);L<AnimationClip>(Base+who+"/RecordedWalk.anim").SampleAnimation(g,.8f);var root=g.GetComponentsInChildren<Transform>().First(t=>t.name=="root"||t.name=="rp_nathan_animated_003_walking_root");root.localPosition=Vector3.zero;g.transform.SetPositionAndRotation(new Vector3(0,.03f,-8),Quaternion.Euler(0,180,0));foreach(var r in g.GetComponentsInChildren<SkinnedMeshRenderer>()){r.sharedMaterial=L<Material>(Base+who+"/M_"+who+".mat");r.updateWhenOffscreen=true;}return g;}
+ public static object Main(){if(EditorApplication.isPlaying)throw new Exception("Stopped Editor required");Directory.CreateDirectory(Out);var player=UnityEngine.Object.FindFirstObjectByType<FirstPersonController>();var c=player.GetComponentInChildren<Camera>();var pos=c.transform.position;var rot=c.transform.rotation;var far=c.farClipPlane;var result=new List<object>();
+  try{c.farClipPlane=80;foreach(string choice in new[]{"baseline","worked-base","Eric","Nathan"}){var g=choice=="baseline"||choice=="worked-base"?Old(choice=="worked-base"):Stock(choice,choice=="Eric"?"rp_eric_rigged_001_u3d.fbx":"rp_nathan_animated_003_walking.fbx");
+   Shot(c,choice+"-whole",new Vector3(0,1.6f,-11.3f),new Vector3(0,1.0f,-8));Shot(c,choice+"-face",new Vector3(.2f,1.66f,-8.95f),new Vector3(0,1.68f,-8));Shot(c,choice+"-side",new Vector3(1.5f,1.6f,-8.75f),new Vector3(0,1.25f,-8));
+   result.Add(new{choice,renderers=g.GetComponentsInChildren<Renderer>().Select(r=>new{r.name,bounds=r.bounds.ToString(),materials=r.sharedMaterials.Select(m=>m?m.name:"null").ToArray()}).ToArray()});UnityEngine.Object.DestroyImmediate(g);
+  }var data=new{status="RENDERED",camera=c.name,c.fieldOfView,width=1280,height=720,scope="Editor render fixtures: actual Player camera, identical hub location, existing scene lights. This is a visual alternatives comparison, not a campaign playthrough.",alternatives=result};File.WriteAllText(Out+"/comparison.json",Newtonsoft.Json.JsonConvert.SerializeObject(data,Newtonsoft.Json.Formatting.Indented));return data;}
+  finally{c.transform.SetPositionAndRotation(pos,rot);c.farClipPlane=far;foreach(var x in owned)if(x)UnityEngine.Object.DestroyImmediate(x);}
+ }
+}

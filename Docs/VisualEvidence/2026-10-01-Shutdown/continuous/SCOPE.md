@@ -1,0 +1,1 @@
+Selected geometry, rotor and2.4 machine fixture; before the subsequent presentation-only switch of physical labels to lit ink. Full title-to-ending synthetic actual-input route, no fixtures/hidden resumes. Console at finish0errors/4warnings. Final printed labels have their separate focal camera evidence. No human play or listening claim.

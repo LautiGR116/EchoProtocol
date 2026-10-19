@@ -1,0 +1,10 @@
+Actual Player camera after the one initial fixture; Camera renders omit OnGUI.
+house-00-entry actual camera position=(0.000, 1.630, -49.500) rotation=(16.30, 97.31, 0.00) FOV=60.0 paused=False power=Hall step=enter_house
+house-01-document-game actual camera position=(-2.349, 1.630, -50.570) rotation=(5.50, 357.83, 0.00) FOV=60.0 paused=True power=Hall step=parlor_document
+house-02-phone-before actual camera position=(-3.380, 1.630, -51.946) rotation=(31.69, 272.59, 0.00) FOV=60.0 paused=False power=Hall step=phone_and_reserve
+house-03-phone-reserve actual camera position=(-3.380, 1.630, -51.946) rotation=(31.69, 272.59, 0.00) FOV=60.0 paused=False power=Hall step=phone_and_reserve
+house-pause-menu actual camera position=(-3.380, 1.630, -51.946) rotation=(31.69, 272.59, 0.00) FOV=60.0 paused=True power=Hall step=keyboard_pause
+house-04-hall-without-reserve actual camera position=(-0.047, 1.630, -50.883) rotation=(19.52, 84.90, 0.00) FOV=60.0 paused=False power=Carried step=remove_hall_reserve
+house-05-kitchen-powered actual camera position=(-4.114, 1.630, -57.537) rotation=(17.66, 272.03, 0.00) FOV=60.0 paused=False power=Kitchen step=reserve_to_kitchen
+house-06-bedroom-powered actual camera position=(4.619, 1.630, -52.924) rotation=(31.61, 98.17, 0.00) FOV=60.0 paused=False power=Bedroom step=reserve_to_bedroom
+house-07-key-taken actual camera position=(3.243, 1.630, -50.853) rotation=(31.55, 15.89, 0.00) FOV=60.0 paused=False power=Bedroom step=physical_key

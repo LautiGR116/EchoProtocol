@@ -1,0 +1,10 @@
+PASS final universal macOS app launched
+PASS native Enter starts gameplay
+PASS native movement begins actual recording
+PASS native R starts Echo playback (HUD 0.7 / 6.2 s observed)
+PASS Escape pause/resume UI
+PASS readable opaque H help
+PASS listening toggles, credits, restart and quit (initial standalone pass)
+PASS final restart returns fresh title
+PASS zero Exception/Error/Missing candidate lines in final Player log
+LIMIT: native synthetic mouse drag did not establish camera-look behavior; normal human mouse/cursor comfort check remains required. Full input-driven route passed in Editor.

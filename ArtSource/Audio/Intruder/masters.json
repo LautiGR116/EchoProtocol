@@ -1,0 +1,74 @@
+[
+  {
+    "file": "Intruder_BreachVoice.wav",
+    "source": 173944,
+    "region": [
+      0.3,
+      1.46
+    ],
+    "peak": 0.59,
+    "seconds": 1.16,
+    "sha256": "25e4de93ecd38aaa826251d021bd4ccb2d15f839a483eea238afacd89741570f",
+    "edit": "Mono 48 kHz PCM16, DC removal, 95\u201310500 Hz gentle band limits, 4 ms attack and 0.08 s tail; original pitch, no generated layer."
+  },
+  {
+    "file": "Intruder_ChargeEffort.wav",
+    "source": 272023,
+    "region": [
+      0.025,
+      0.61
+    ],
+    "peak": 0.38999999999999996,
+    "seconds": 0.585,
+    "sha256": "06aa1f31c84df59b46dd79c738fdad8bc3649494490bef699e7c03f8f1634198",
+    "edit": "Mono 48 kHz PCM16, DC removal, 110\u20139500 Hz gentle band limits, 4 ms attack and 0.07 s tail; original pitch, no generated layer."
+  },
+  {
+    "file": "Intruder_MetalBreach.wav",
+    "source": 556693,
+    "region": [
+      0.11,
+      0.96
+    ],
+    "peak": 0.54,
+    "seconds": 0.85,
+    "sha256": "26cead43c79209632f317fad18a3ca606fa839b6b53021414e39ce50aa38f56b",
+    "edit": "Mono 48 kHz PCM16, DC removal, 65\u20137000 Hz gentle band limits, 4 ms attack and 0.16 s tail; original pitch, no generated layer."
+  },
+  {
+    "file": "Intruder_DoorHandle.wav",
+    "source": 364682,
+    "region": [
+      0,
+      0.51
+    ],
+    "peak": 0.28,
+    "seconds": 0.51,
+    "sha256": "22b8438e7deed09645bb04c63e97c82f620516255a573c0c1cd51b3fa9f3fd18",
+    "edit": "Mono 48 kHz PCM16, DC removal, 130\u20139000 Hz gentle band limits, 4 ms attack and 0.045 s tail; original pitch, no generated layer."
+  },
+  {
+    "file": "Intruder_DoorPressure.wav",
+    "source": 364682,
+    "region": [
+      1.03,
+      1.68
+    ],
+    "peak": 0.26,
+    "seconds": 0.65,
+    "sha256": "eb502a17fd495be69daa321a2d58769a34f9ee7f46b827bc574998530b7d4b86",
+    "edit": "Mono 48 kHz PCM16, DC removal, 70\u20135200 Hz gentle band limits, 4 ms attack and 0.07 s tail; original pitch, no generated layer."
+  },
+  {
+    "file": "Intruder_CloseBreath.wav",
+    "source": 173944,
+    "region": [
+      6,
+      7.02
+    ],
+    "seconds": 2.47,
+    "peak": 0.13,
+    "sha256": "f1af14368e409d2173d99dde259f8247fe4ddd27cbe395a82b9fab4a09101815",
+    "edit": "Original intake, 10 ms in / 83 ms out, 1.45 s silence before next breath; mono 48 kHz PCM16; no pitch alteration. Casting is not human-approved."
+  }
+]

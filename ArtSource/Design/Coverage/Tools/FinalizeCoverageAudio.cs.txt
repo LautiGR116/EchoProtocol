@@ -1,0 +1,6 @@
+using System;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using EchoProtocol.Campaign;using EchoProtocol.Audio;
+public static class FinalizeCoverageAudio{public static string Main(){
+if(EditorApplication.isPlaying)throw new Exception("Stopped scene required");var cover=UnityEngine.Object.FindFirstObjectByType<MachineCoverEncounter>();var c=new SerializedObject(cover);var a=c.FindProperty("gateAudio");
+for(int i=0;i<2;i++){var audio=(SlidingDoorAudio)a.GetArrayElementAtIndex(i).objectReferenceValue;var s=new SerializedObject(audio);var source=(AudioSource)s.FindProperty("mechanismSource").objectReferenceValue;source.clip=(AudioClip)s.FindProperty("movementLoopClip").objectReferenceValue;source.playOnAwake=false;source.loop=true;source.spatialBlend=1;source.volume=.12f;}
+var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);return "Serialized gate sources now show their actual startup routing and clips in Inspector.";
+}}

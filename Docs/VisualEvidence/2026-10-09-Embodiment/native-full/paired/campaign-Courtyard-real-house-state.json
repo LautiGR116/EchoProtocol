@@ -1,0 +1,16 @@
+{
+    "label": "campaign-Courtyard-real-house-state",
+    "state": "House|house:True/True/Hall|pressure:False/False|P3:1.00",
+    "position": {
+        "x": -6.833491802215576,
+        "y": 1.6299999952316285,
+        "z": -52.39756393432617
+    },
+    "rotation": {
+        "x": -0.03120790794491768,
+        "y": -0.7005869150161743,
+        "z": 0.030698036774992944,
+        "w": -0.7122231721878052
+    },
+    "fov": 60.0
+}

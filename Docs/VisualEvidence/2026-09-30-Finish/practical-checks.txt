@@ -1,0 +1,1 @@
+PASS 29 practical diffuser materials extinguish with source lights

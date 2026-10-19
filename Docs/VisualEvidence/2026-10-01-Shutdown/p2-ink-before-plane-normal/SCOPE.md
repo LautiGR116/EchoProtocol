@@ -1,0 +1,1 @@
+Stationary cloned gameplay camera after Shutdown focal fixture restores completed first-act lighting. Exact eye pose/FOV from the actual continuous P2 reader capture; no P2 interaction, alignment state or Echo fabricated. The reader remains idle here. This checks only printed instruction visibility and runtime material, not an earned route, movement or discovery.

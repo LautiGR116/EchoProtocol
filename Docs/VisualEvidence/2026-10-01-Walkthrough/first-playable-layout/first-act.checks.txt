@@ -1,0 +1,76 @@
+CONTINUOUS TITLE TO R1 THROUGH THE PHYSICAL SE2 ROOM. Zero fixtures or direct gameplay mutations. Input System keyboard/mouse only. Unexpected pauses fail rather than being resumed.
+PASS [title] Threshold systems exist
+PASS [title] all original-act, new house and new final references exist
+PASS [title] optional isolation has its single configured physical audio owner
+PASS [title] isolation begins untouched at the real title without a restored fixture
+PASS [title] optional recording boundary shares the actual campaign, R3 and loop
+PASS [title] boundary starts unused and its actual Hub arrival guidance is authored
+PASS [title] physical descent guide starts hidden with an explicit Hub arrival volume
+PASS [title] run begins at the actual paused title, before gameplay
+PASS [title] title has no earned progress, saved restoration or prior recording
+PASS [title] Threshold replaces D1 with actual R3 availability
+PASS [title] real look sensitivity is nonzero
+PASS [title] Enter starts the actual title session through input
+PASS [P1_record] first-act gates start sealed
+PASS [P1_record] P1 A previews from the actual Player
+PASS [P1_record] RECALL has actual movement frames to finish
+PASS [P1_record] one real R completes exactly one actual take
+PASS [P1_record] RECALL placement creates no physical footstep
+PASS [P1_cooperate] P1 completes through real Echo A/B and Player cooperation
+PASS [SE1_empty_lane/keyboard_pause] Escape opens the actual pause menu
+PASS [SE1_empty_lane/keyboard_pause] real paused movement and R input leave clock, Player and loop unchanged
+PASS [SE1_empty_lane/keyboard_pause] real menu pause freezes recording, Echo playback and the authored strong event
+PASS [SE1_empty_lane/keyboard_pause] Escape restores actual Player control
+PASS [SE1_consequence] SE1 follows the actual empty-lane check
+PASS [SE1_consequence] all three reaimed reader fixtures still extinguish through the original SE1 circuit
+PASS [domestic_checkpoint] real domestic crossing establishes the first checkpoint and slam
+PASS [P2_record] Player previews P2 while recording the genuine hold
+PASS [P2_record] P2-aligned: actual trigger/facing owns indicator; survey uses only keyboard/mouse
+PASS [P2_record] RECALL has actual movement frames to finish
+PASS [P2_record] one real R completes exactly one actual take
+PASS [P2_record] RECALL placement creates no physical footstep
+PASS [P2_record] actual Echo holds P2
+PASS [P2_record] R1 remains sealed before SE3
+PASS [SE2_physical_cold_approach] genuine P2 crossing admits the physical room while its approach remains cold
+PASS [SE2_south_refuge] whole-envelope occlusion presents the room before visiting it; reveal alone earns no completion
+PASS [SE2_south_refuge] actual movement enters the domestic floor; no timer or forced gaze completes it
+PASS [SE2_physical_return] physical return completes SE2 once; the original SE3 return still owns R1 opening
+PASS [SE2_physical_return] actual SE2 entry and return complete without a gaze timer
+PASS [SE3_return] genuine SE3 return opens R1
+PASS [R1_anchor] R1 Central observation station is within the actual interaction range
+PASS [R1_anchor] center-camera ray reaches R1 Central observation station
+PASS [R1_anchor] R1 Central observation station accepts the actual Player in the current chapter
+PASS [R1_anchor] real anchor E establishes R1 without teleport or RECALL
+PASS [R1_anchor] R1 anchor discards the old take and arms an empty recorder
+PASS [R1_anchor] first-act scope ends at a real pause after R1, before P3
+PASS [immutable_archive_audit] every observed Player pose reset belongs to a real RECALL; there were zero fixture placements
+PASS [immutable_archive_audit] all timestamps, positions and rotations remain identical in each saved snapshot
+PASS [immutable_archive_audit] all timestamps, positions and rotations remain identical in each saved snapshot
+PASS [immutable_archive_audit] full campaign audited actual playback across multiple real takes
+PASS [immutable_archive_audit] the actual route uses only its expected real RECALLs (one initial, four with isolation, five legacy)
+PASS [immutable_archive_audit] capture exists: campaign-00-title-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-00-title-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-01-P1-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-01-P1-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-pause-SE1_empty_lane-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-pause-SE1_empty_lane-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-02-SE1-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-02-SE1-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-reader-P2-aligned-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-reader-P2-aligned-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-SE2-cold-approach-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-SE2-cold-approach-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-SE2-concealed-entry-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-SE2-concealed-entry-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-SE2-domestic-entry-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-SE2-domestic-entry-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-SE2-inside-room-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-SE2-inside-room-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-03-SE2-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-03-SE2-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-SE3-entry-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-SE3-entry-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-SE3-codo-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-SE3-codo-Camera.png
+PASS [immutable_archive_audit] capture exists: campaign-04-R1-Game.png
+PASS [immutable_archive_audit] capture exists: campaign-04-R1-Camera.png

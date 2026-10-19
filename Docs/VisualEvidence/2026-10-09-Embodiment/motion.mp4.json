@@ -1,0 +1,11 @@
+{
+  "audio" : false,
+  "cuts" : 3,
+  "frames" : 84,
+  "height" : 540,
+  "lastPresentationSeconds" : 7.667600000000018,
+  "scope" : "Actual camera frames from the stated QA route, source timing retained within each segment; uncaptured travel\/wait gaps cut. This motion sample is silent.",
+  "status" : "ENCODED_AND_DECODED",
+  "video" : "\/Users\/lautigr116\/EchoProtocol\/Docs\/VisualEvidence\/2026-10-09-Embodiment\/motion.mp4",
+  "width" : 960
+}

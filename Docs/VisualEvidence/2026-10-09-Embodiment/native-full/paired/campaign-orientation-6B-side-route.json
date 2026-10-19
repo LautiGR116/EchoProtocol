@@ -1,0 +1,16 @@
+{
+    "label": "campaign-orientation-6B-side-route",
+    "state": "Archive|house:False/True/Hall|pressure:False/False|P3:1.00",
+    "position": {
+        "x": -10.003997802734375,
+        "y": 1.6299999952316285,
+        "z": -52.39756393432617
+    },
+    "rotation": {
+        "x": -2.2055269011008507e-24,
+        "y": 5.21540641784668e-8,
+        "z": -1.1502718860861288e-31,
+        "w": -1.0
+    },
+    "fov": 60.0
+}

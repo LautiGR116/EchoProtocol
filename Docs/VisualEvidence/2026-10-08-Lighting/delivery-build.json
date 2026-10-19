@@ -1,0 +1,10 @@
+{
+  "result": "Succeeded",
+  "errors": 0,
+  "warnings": 346,
+  "bytes": 221117685,
+  "seconds": 17.907628,
+  "output": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Lighting-20261008/EchoProtocol.app",
+  "qaDefines": "none",
+  "scene": "Lighting only"
+}

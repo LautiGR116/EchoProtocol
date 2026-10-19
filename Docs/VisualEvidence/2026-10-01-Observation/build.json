@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "buildId": "build_3e5e960d9c2e",
+  "result": "Succeeded",
+  "outputPath": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Observation-20261001/EchoProtocol.app",
+  "totalSizeBytes": 198835105,
+  "buildTimeMs": 17863,
+  "totalWarnings": 346,
+  "totalErrors": 0,
+  "architectures": "/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Observation-20261001/EchoProtocol.app/Contents/MacOS/EchoProtocol: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64:Mach-O 64-bit executable arm64]\n/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Observation-20261001/EchoProtocol.app/Contents/MacOS/EchoProtocol (for architecture x86_64):\tMach-O 64-bit executable x86_64\n/Users/lautigr116/EchoProtocol/Builds/EchoProtocol-Observation-20261001/EchoProtocol.app/Contents/MacOS/EchoProtocol (for architecture arm64):\tMach-O 64-bit executable arm64",
+  "signature": "codesign --verify --deep --strict passed",
+  "native": "Pendiente: CUA intent\u00f3 abrir esta ruta exacta y devolvi\u00f3 Mac locked antes del arranque. No hay prueba nativa de Observation; Reserve conserva la \u00faltima prueba nativa breve.",
+  "warningMessages": [
+    "Pipeline: No RuntimePipelineConfig asset found (Project Settings > Pipeline > Runtime). Pipeline will be disabled in Player builds."
+  ],
+  "warningsScope": "Other shader warnings, if present, belong to the installed AI inference package."
+}

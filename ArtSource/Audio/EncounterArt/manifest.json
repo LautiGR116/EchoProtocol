@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-02",
+  "cost": 0,
+  "sources": [
+    {
+      "name": "DomesticFridge_LP",
+      "asset": "Assets/_Game/Audio/Clips/Overhaul/DomesticFridge_LP.wav",
+      "sha256": "e64ea619897077575b0bd2f5eacbfe7ceef037b6e059f72f73cfdfa48cf8ba62",
+      "license": "CC0 1.0",
+      "sourcePage": "https://freesound.org/people/loopo/sounds/164040/",
+      "attribution": "machine-hum.ogg by loopo (Freesound), CC0 1.0.",
+      "originalMasterLedger": "ArtSource/Audio/Overhaul/masters.json",
+      "processing": "Existing accepted project import reused byte-for-byte; no new generation/download, voice or derivative.",
+      "newRole": "Two fixed current-world ventilation sources in SE2/6B; motor level follows deterministic encounter presentation/actual final RECALL. No actor playback.",
+      "status": "Integrated candidate; listening and emotional effectiveness EN PRUEBA."
+    },
+    {
+      "name": "FloorboardWeight",
+      "asset": "Assets/_Game/Audio/Clips/Overhaul/FloorboardWeight.wav",
+      "sha256": "94b8d4f4105d6ef5eec982af81bef2b2625dbdc1418e404a519f8c9b880be46b",
+      "license": "CC0 1.0",
+      "sourcePage": "https://freesound.org/people/SoundDesignForYou/sounds/646691/",
+      "attribution": "Creaking Wooden Floor [7] by SoundDesignForYou (Freesound), CC0 1.0.",
+      "originalMasterLedger": "ArtSource/Audio/Overhaul/masters.json",
+      "processing": "Existing accepted project import reused byte-for-byte; no new generation/download, voice or derivative.",
+      "newRole": "One fixed rear-doorway-frame wood-strain contact on first real SE2 visit after hidden presentation. Never an Echo footstep.",
+      "status": "Integrated candidate; listening and emotional effectiveness EN PRUEBA."
+    }
+  ]
+}

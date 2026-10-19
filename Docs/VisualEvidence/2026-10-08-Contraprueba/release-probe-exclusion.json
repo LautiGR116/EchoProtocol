@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "assemblySha256": "96bcc51ce461f0255b3043b46e96fff4cc470adb6a366f489b8e1093530bb006",
+  "absentTypeNames": [
+    "EchoNativeVerification",
+    "ThresholdCampaignProbe",
+    "ContrapruebaProbe",
+    "IsolationCheckpointProbe",
+    "ThresholdCheckpointProbe"
+  ],
+  "scope": "QA probe/bootstrap type names absent from delivery managed assembly; source gated by compile defines."
+}

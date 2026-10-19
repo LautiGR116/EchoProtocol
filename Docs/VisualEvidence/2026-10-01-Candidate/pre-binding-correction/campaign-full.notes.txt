@@ -1,0 +1,20 @@
+initial
+Recorré el lado de los lectores A y B y mirá cada uno hasta ver cian.
+Pulsá R: el Echo repetirá tu posición, orientación y pausas.
+Vos cooperá desde el paso de servicio, del otro lado del vidrio.
+
+P2
+Esta puerta sólo sigue abierta mientras alguien mira el lector.
+Grabá una pausa frente a él y volvé con R.
+Cruzá mientras el Echo repite esa pausa; si no alcanza, alargala.
+
+passage
+Tu Echo está sosteniendo la puerta.
+Cruzá y seguí el pasillo hasta la estancia del fondo.
+R reemplaza esta toma y vuelve al origen doméstico.
+
+P3
+Desde este origen, recorré el lado de los lectores A y B.
+Mirá A hasta ver cian; en B, quedate mirando un rato.
+Volvé con R y recorré el otro lado mientras el Echo repite.
+

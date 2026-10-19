@@ -1,9 +1,47 @@
 # Game design
 
 This document synchronizes the approved product direction in
-[`Design/Echo Protocol - Game Design Document v0.2.pdf`](Design/Echo%20Protocol%20-%20Game%20Design%20Document%20v0.2.pdf)
+[`Design/Echo Protocol - Game Design Document v0.3.pdf`](Design/Echo%20Protocol%20-%20Game%20Design%20Document%20v0.3.pdf)
 with the current repository. `ARCHITECTURE.md` and playtest evidence remain
 authoritative for implemented and validated behavior.
+
+## Delivery-stage authority —2026-10-01
+
+The latest user instruction replaces quota exhaustion with a final candidate,
+a maximum six additional hours and earlier closure if a solid candidate is
+reached. Candidate is selected; see [delivery report](DELIVERY_CANDIDATE.md).
+Creative freedom remains, but no further expansion is selected for this stage.
+Technical completion and artistic judgment do not imply human fear/listening
+approval. Earlier durations below are targets, not measured human playtime.
+
+## Current production authority — 2026-09-30
+
+The user delegates autonomous full-game production, explicitly including new
+puzzles, controls, scenes, Blender, audio downloads and image generation. The
+agent may question and replace existing or previously approved product choices,
+including narrative, ending and systems, without further routine approval. The
+previous duration, roster, rules and ending describe the starting direction;
+they are not mandatory prescriptions for this goal. Psychological horror and a
+coherent playable result govern creative judgment. Use
+[OVERNIGHT_GOAL.md](OVERNIGHT_GOAL.md) and the dated
+DECISIONS entry. This is approved autonomy, not implemented or human-tested content.
+
+## Earlier delivery authority — H1.1, 2026-09-12
+
+**2026-09-16 update:** the user defers external playtesting and authorizes
+progress by intuition and creator judgment. This supersedes the evaluation-first
+prerequisite below; it does not add independent-player evidence. Technical
+checks remain required; unobserved human effects stay EN PRUEBA without blocking
+development. Next: define the denial-evidence scene, then Final C. See DECISIONS.
+
+The strategic-audit direction is approved: a complete, polished **20–25 minute**
+first delivery, **one Echo throughout**, preserving the temporal core and
+P1/P2/P3. Evaluate the continuous current route through R3 with new players
+before authoring truthful recorded evidence of the protagonist's denial and
+then Final C. Those later scenes are planned, not implemented or human-approved.
+See `DECISIONS.md` and `Evaluation/H1.1/OBSERVER.md`. Earlier GDD durations and
+multi-Echo possibilities are superseded for this delivery. No filler puzzles,
+general semantic capture, chases or frameworks.
 
 ## High concept
 
@@ -68,8 +106,8 @@ remain configurable for playtesting.
 Puzzle situations are not the sole source of runtime and must not become a chain
 of interchangeable two-minute plate rooms. Each production puzzle needs a clear
 place in the horror escalation and a concrete vulnerability it creates. The
-exact room and puzzle roster remains TBD until the complete 30–45 minute fear
-map is designed.
+current delivery retains P1/P2/P3; further content depends on the continuous
+human evaluation, within the approved 20–25 minute target.
 
 Terror may later consume attention, create discomfort, and make the player doubt
 their observation. It must not secretly change input, playback speed, pressure
@@ -203,16 +241,15 @@ without showing whether they wake.
 
 - One small facility/hub with limited backtracking and a coherent visual
   identity.
-- A small roster of meaningful experiments whose exact count remains TBD. Each
+- Preserve P1/P2/P3 as the delivery's meaningful experiments. Each
   must recombine Echo rules while serving a distinct vulnerability and horror
   beat; buttons, plates, doors, sensors, platforms, terminals, and timing are a
   vocabulary, not a quota.
-- One Echo for the vertical slice; up to two or three is an approved product
-  direction but remains unimplemented and requires a concrete validated puzzle.
+- One Echo for the whole first delivery; multiple Echoes are excluded.
 - Progressive psychological horror, concise narrative, spatial audio, minimal
   UI, autosave between rooms or chapters, and Final C.
-- Target playtime: 30-45 minutes, reducible to roughly 20 excellent minutes
-  before sacrificing quality.
+- Target playtime: 20–25 complete, polished minutes; not a measured duration
+  of the current R3 build.
 
 ## Scope exclusions
 

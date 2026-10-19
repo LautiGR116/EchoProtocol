@@ -1,0 +1,27 @@
+{
+  "duration": 44.30754,
+  "frames": 888,
+  "events": [
+    {
+      "time": 5.027252,
+      "target": 101,
+      "held": true
+    },
+    {
+      "time": 17.0284119,
+      "target": 101,
+      "held": false
+    },
+    {
+      "time": 24.0413361,
+      "target": 101,
+      "held": true
+    },
+    {
+      "time": 44.0384064,
+      "target": 101,
+      "held": false
+    }
+  ],
+  "scope": "Actual recording through physical control and normal E; immutable snapshot before replay."
+}

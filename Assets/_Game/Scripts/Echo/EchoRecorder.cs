@@ -8,12 +8,14 @@ namespace EchoProtocol.Echo
     {
         [SerializeField, Min(0.01f)] private float sampleInterval = 0.05f;
         [SerializeField, Min(1f)] private float maxRecordingDuration = 60f;
+        [SerializeField] private PlayerBodyPoseSource bodyPoseSource;
 
         [Header("Start Gate")]
         [SerializeField, Min(0f)] private float startMovementThreshold = 0.02f;
         [SerializeField, Min(0f)] private float startPreRollDuration = 1f;
 
         private readonly List<EchoFrame> frames = new List<EchoFrame>();
+        private readonly List<RecordedMachineGrip> machineGrips = new List<RecordedMachineGrip>();
         private float recordingStartTime;
         private Vector3 armedPosition;
         private Quaternion armedRotation;
@@ -21,6 +23,7 @@ namespace EchoProtocol.Echo
         private Vector3 lastObservedPosition;
         private Quaternion lastObservedRotation;
         private int nextSampleIndex;
+        private RecordedBodyPose armedBodyPose, lastObservedBodyPose;
 
         public bool ReachedDurationLimit { get; private set; }
 
@@ -33,12 +36,20 @@ namespace EchoProtocol.Echo
         public int CapturedFrameCount => frames.Count;
 
         public float SampleInterval => sampleInterval;
+        public bool RecordsBodyPose => bodyPoseSource != null;
 
         public float MaxRecordingDuration => maxRecordingDuration;
 
         public float StartMovementThreshold => startMovementThreshold;
 
         public float StartPreRollDuration => startPreRollDuration;
+        public int CapturedMachineGripCount => machineGrips.Count;
+        public bool CaptureMachineGrip(int target, bool held)
+        {
+            if (!IsRecording || !HasRecordingStarted || ReachedDurationLimit || target <= 0) return false;
+            machineGrips.Add(new RecordedMachineGrip(ElapsedTime, target, held));
+            return true;
+        }
 
         public float ElapsedTime => IsRecording && HasRecordingStarted
             ? Mathf.Min(Time.time - recordingStartTime, maxRecordingDuration)
@@ -85,7 +96,8 @@ namespace EchoProtocol.Echo
                 CaptureFrame(
                     sampleTime,
                     Vector3.Lerp(lastObservedPosition, observedPosition, interpolation),
-                    Quaternion.Slerp(lastObservedRotation, observedRotation, interpolation));
+                    Quaternion.Slerp(lastObservedRotation, observedRotation, interpolation),
+                    RecordedBodyPose.Lerp(lastObservedBodyPose, CurrentBodyPose, interpolation));
                 nextSampleIndex++;
             }
 
@@ -101,7 +113,8 @@ namespace EchoProtocol.Echo
                     CaptureFrame(
                         maxRecordingDuration,
                         Vector3.Lerp(lastObservedPosition, observedPosition, interpolation),
-                        Quaternion.Slerp(lastObservedRotation, observedRotation, interpolation));
+                        Quaternion.Slerp(lastObservedRotation, observedRotation, interpolation),
+                        RecordedBodyPose.Lerp(lastObservedBodyPose, CurrentBodyPose, interpolation));
                 }
 
                 ReachedDurationLimit = true;
@@ -110,6 +123,7 @@ namespace EchoProtocol.Echo
             lastObservedTime = observedTime;
             lastObservedPosition = observedPosition;
             lastObservedRotation = observedRotation;
+            lastObservedBodyPose = CurrentBodyPose;
         }
 
         public void BeginRecording()
@@ -121,12 +135,15 @@ namespace EchoProtocol.Echo
             }
 
             frames.Clear();
+            machineGrips.Clear();
             recordingStartTime = 0f;
             armedPosition = transform.position;
             armedRotation = transform.rotation;
+            armedBodyPose = CurrentBodyPose;
             lastObservedTime = 0f;
             lastObservedPosition = armedPosition;
             lastObservedRotation = armedRotation;
+            lastObservedBodyPose = armedBodyPose;
             nextSampleIndex = 0;
             ReachedDurationLimit = false;
             IsRecording = true;
@@ -152,7 +169,7 @@ namespace EchoProtocol.Echo
 
             IsRecording = false;
             HasRecordingStarted = false;
-            return new EchoRecording(frames);
+            return new EchoRecording(frames, machineGrips);
         }
 
         public void CancelRecording()
@@ -161,6 +178,7 @@ namespace EchoProtocol.Echo
             HasRecordingStarted = false;
             ReachedDurationLimit = false;
             frames.Clear();
+            machineGrips.Clear();
         }
 
         private void StartFromMovement(
@@ -180,7 +198,7 @@ namespace EchoProtocol.Echo
             }
             else
             {
-                CaptureFrame(0f, armedPosition, armedRotation);
+                CaptureFrame(0f, armedPosition, armedRotation, armedBodyPose);
                 int preRollSampleIndex = 1;
 
                 while (preRollSampleIndex * sampleInterval < preRollDuration)
@@ -188,7 +206,7 @@ namespace EchoProtocol.Echo
                     CaptureFrame(
                         preRollSampleIndex * sampleInterval,
                         armedPosition,
-                        armedRotation);
+                        armedRotation, armedBodyPose);
                     preRollSampleIndex++;
                 }
 
@@ -209,6 +227,7 @@ namespace EchoProtocol.Echo
             lastObservedTime = preRollDuration;
             lastObservedPosition = observedPosition;
             lastObservedRotation = observedRotation;
+            lastObservedBodyPose = CurrentBodyPose;
             HasRecordingStarted = true;
         }
 
@@ -221,8 +240,13 @@ namespace EchoProtocol.Echo
             float timestamp,
             Vector3 position,
             Quaternion rotation)
+            => CaptureFrame(timestamp, position, rotation, CurrentBodyPose);
+
+        private RecordedBodyPose CurrentBodyPose => bodyPoseSource ? bodyPoseSource.Current : default;
+
+        private void CaptureFrame(float timestamp, Vector3 position, Quaternion rotation, RecordedBodyPose pose)
         {
-            frames.Add(new EchoFrame(timestamp, position, rotation));
+            frames.Add(new EchoFrame(timestamp, position, rotation, pose));
         }
 
         private float CalculateInterpolation(

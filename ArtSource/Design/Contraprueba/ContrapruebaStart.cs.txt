@@ -1,0 +1,15 @@
+using System;using System.IO;using System.Linq;using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine;using UnityEngine.SceneManagement;using EchoProtocol.Campaign;using Object=UnityEngine.Object;
+public static class ContrapruebaStart {
+ static string P(Transform t)=>t.parent?P(t.parent)+"/"+t.name:t.name;
+ static float[] V(Vector3 p)=>new[]{p.x,p.y,p.z};
+ public static object Main(){
+  var scene=SceneManager.GetActiveScene(); const string path="Assets/_Game/Scenes/Production/EchoProtocol_Contraprueba.unity";
+  if(EditorApplication.isPlaying||scene.isDirty||File.Exists(path)||!scene.path.EndsWith("EchoProtocol_Reconstruction.unity"))throw new Exception("Require saved Reconstruction and new destination");
+  var d=Object.FindFirstObjectByType<CampaignDirector>();var so=new SerializedObject(d);so.FindProperty("checkpointKey").stringValue="EP.CampaignCheckpoint.Contraprueba.v1";so.ApplyModifiedPropertiesWithoutUndo();
+  EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene,path);EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(path,true)};
+  var all=Object.FindObjectsByType<Transform>(FindObjectsInactive.Include,FindObjectsSortMode.None).Where(t=>t.gameObject.scene==scene);
+  var rows=all.Where(t=>t.position.x> -17&&t.position.x<-.5&&t.position.z>=31&&t.position.z<46).Select(t=>new{path=P(t),position=V(t.position),scale=V(t.lossyScale),active=t.gameObject.activeInHierarchy,components=t.GetComponents<Component>().Select(c=>c?c.GetType().Name:"MISSING").ToArray(),material=t.GetComponent<Renderer>()?t.GetComponent<Renderer>().sharedMaterial?.name:null,collider=t.GetComponent<Collider>()?new{size=V(t.GetComponent<Collider>().bounds.size),center=V(t.GetComponent<Collider>().bounds.center),enabled=t.GetComponent<Collider>().enabled}:null}).ToArray();
+  Directory.CreateDirectory("ArtSource/Design/Contraprueba");File.WriteAllText("ArtSource/Design/Contraprueba/baseline-objects.json",Newtonsoft.Json.JsonConvert.SerializeObject(rows,Newtonsoft.Json.Formatting.Indented));
+  return new{scene=path,objects=rows.Length};
+ }
+}

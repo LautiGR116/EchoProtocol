@@ -1,0 +1,9 @@
+using System;using System.Linq;using System.IO;using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine;using UnityEngine.SceneManagement;using Object=UnityEngine.Object;
+public static class ReconstructionLabelRefine {
+static TextMesh N(string n)=>Object.FindObjectsByType<TextMesh>(FindObjectsInactive.Include,FindObjectsSortMode.None).Single(t=>t.name==n);
+static void Size(TextMesh t,float width,float height){var b=t.GetComponent<Renderer>().bounds.size;float w=Mathf.Max(b.x,b.z);t.characterSize*=Mathf.Min(width/Mathf.Max(w,.001f),height/Mathf.Max(b.y,.001f));}
+public static object Main(){if(EditorApplication.isPlaying)throw new Exception("Edit only");foreach(var n in new[]{"P1 A rule","P1 B rule","P1 service rule"}){var t=N(n);t.anchor=TextAnchor.MiddleCenter;t.alignment=TextAlignment.Center;var p=t.transform.position;p.y=1.99f;t.transform.position=p;Size(t,1.03f,.18f);}
+foreach(var n in new[]{"P1 A actual state","P1 B actual state","P1 C actual state"}){var t=N(n);var p=t.transform.position;p.y=1.50f;t.transform.position=p;t.anchor=TextAnchor.MiddleCenter;t.alignment=TextAlignment.Center;t.characterSize=.0068f;}
+foreach(var suffix in new[]{"A","B"}){var t=N("P3 receiver "+suffix+" actual state");t.characterSize=.0046f;var x=N("P3 recording explanation "+suffix);x.text=suffix=="A"?"A / ENLACE\nPRESENCIA AQUÍ\nCONFIRMACIÓN AL OTRO LADO":"B / TRANSFERENCIA\nGRABAR UNA PAUSA\nRECIBIR AL OTRO LADO";x.characterSize=.0061f;}
+var path=N("P3 receiving path identity");path.text="RECEPCIÓN / A → B\nCONFIRMAR CADA PRESENCIA";path.characterSize=.012f;var pp=path.transform.position;pp.z=33.80f;path.transform.position=pp;
+var scene=SceneManager.GetActiveScene();EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();return "Physical text fitted to actual enclosures and normal standing view";}}

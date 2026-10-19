@@ -1,0 +1,11 @@
+{
+    "status": "PASS",
+    "checkedFrames": 1758,
+    "pausedFrames": 109,
+    "pauses": 1,
+    "videoFrames": 62,
+    "comparisons": 0,
+    "maxPosition": 1.1920928955078126e-7,
+    "maxAngle": 0.0,
+    "pauseDrift": 0.0
+}

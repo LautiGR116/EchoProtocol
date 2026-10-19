@@ -1,0 +1,16 @@
+{
+    "label": "campaign-SE2-domestic-entry",
+    "state": "Protocol|house:False/False/Hall|pressure:False/False|P3:absent",
+    "position": {
+        "x": 4.843104839324951,
+        "y": 1.6299999952316285,
+        "z": 28.63521957397461
+    },
+    "rotation": {
+        "x": 4.7013752890734398e-8,
+        "y": 0.7071067690849304,
+        "z": -4.701374578530704e-8,
+        "w": 0.7071068286895752
+    },
+    "fov": 60.0
+}

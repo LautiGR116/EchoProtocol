@@ -1,0 +1,61 @@
+{
+  "scope": "FBX reimport in Blender, metric/UV/material/anchor/front clearance evidence. Does not establish Unity import mirror correction, material render, readability, interaction, desk contact or human approval.",
+  "all_pass": true,
+  "results": [
+    {
+      "asset": "WallReviewHousing",
+      "bytes": 92924,
+      "sha256": "4bb4d06624694084fef2cdea4e41b76fa3caa72183ab69762090d7bf01a6f5fd",
+      "mesh_count": 1,
+      "triangles": 3016,
+      "finite_vertices": true,
+      "finite_uvs": true,
+      "missing_materials": [],
+      "bounds_error_m": 5.21540641784668e-08,
+      "mesh_pivot_errors_m": {
+        "WallHousing": 0.0
+      },
+      "anchor_errors_m": {
+        "WallReviewHousing__ANCHOR_EXISTING_TITLE": 3.284215926990797e-08,
+        "WallReviewHousing__ANCHOR_EXISTING_INSTRUCTIONS": 1.1861324311635002e-08,
+        "WallReviewHousing__ANCHOR_FRONT_PLANE": 8.146034069511643e-09,
+        "WallReviewHousing__AXIS_X": 1.4901161138336505e-09,
+        "WallReviewHousing__AXIS_Y": 1.6292068139023286e-08,
+        "WallReviewHousing__AXIS_Z": 1.6292068139023286e-08,
+        "WallReviewHousing__FRONT_BASE": 0.0,
+        "WallReviewHousing__FRONT_TIP": 1.6292068139023286e-08
+      },
+      "existing_text_or_pilot_back_plane_clearance_m": 0.01099994710087776,
+      "pass": true
+    },
+    {
+      "asset": "DeskPreserveHousing",
+      "bytes": 169260,
+      "sha256": "5a7e843cd1f48c2cbcc0ff22c04d1d57b4bc31d2365d5a91d17432910b807cc3",
+      "mesh_count": 2,
+      "triangles": 6076,
+      "finite_vertices": true,
+      "finite_uvs": true,
+      "missing_materials": [],
+      "bounds_error_m": 5.960464477539063e-08,
+      "mesh_pivot_errors_m": {
+        "DeskHousing": 0.0,
+        "OptionalRearStand": 1.4901161193847656e-08
+      },
+      "anchor_errors_m": {
+        "DeskPreserveHousing__ANCHOR_EXISTING_TITLE": 1.1920928952302567e-08,
+        "DeskPreserveHousing__ANCHOR_EXISTING_PILOT": 1.4603137976632041e-08,
+        "DeskPreserveHousing__ANCHOR_PILOT_FRONT": 1.8537044524369328e-08,
+        "DeskPreserveHousing__ANCHOR_TABLE_CONTACT": 5.1617622370825345e-08,
+        "DeskPreserveHousing__ANCHOR_FRONT_PLANE": 9.775240172871236e-09,
+        "DeskPreserveHousing__AXIS_X": 1.4901161138336505e-09,
+        "DeskPreserveHousing__AXIS_Y": 1.6292068139023286e-08,
+        "DeskPreserveHousing__AXIS_Z": 1.6292068139023286e-08,
+        "DeskPreserveHousing__FRONT_BASE": 0.0,
+        "DeskPreserveHousing__FRONT_TIP": 1.6292068139023286e-08
+      },
+      "existing_text_or_pilot_back_plane_clearance_m": 0.00499997526407242,
+      "pass": true
+    }
+  ]
+}

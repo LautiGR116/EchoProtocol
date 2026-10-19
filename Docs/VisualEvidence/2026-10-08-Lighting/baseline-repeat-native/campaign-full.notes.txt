@@ -1,0 +1,18 @@
+initial
+Compará los estados de A y B. Uno conserva la lectura; el otro necesita una presencia continua.
+
+P2
+La señal de este lector cambia al retirar la mirada.
+
+passage
+El vidrio del frente está cerrado. Los dos accesos laterales comunican la estancia con el pasillo.
+
+P3
+El esquema del circuito vuelve al punto de partida. Compará sus tres estaciones con los dos lugares de registro.
+
+Hub
+El archivo comunica este regreso con la recepción conocida.
+
+6B-origin
+El origen y la llegada están a lados distintos de 6B. Sus placas muestran el estado real.
+

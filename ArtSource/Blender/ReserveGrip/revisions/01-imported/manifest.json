@@ -1,0 +1,155 @@
+{
+  "date": "2026-10-01",
+  "authorship": "Original project-authored procedural skin topology and cloth surfaces. No third-party or generated bitmap/model. Material values match OverhaulFigure/build_overhaul_figure.py FIG_Skin/FIG_Jacket/FIG_Stitch; those original project assets are unchanged.",
+  "axis_contract": "Metres; source X width,-Yfront,Zup. FBX-Z/+Y. Unity common corrected import with ReserveUnit (negate imported rootX once; retain imported rotation/scale). Endpoints are common world-source coordinates, not animation.",
+  "materials": {
+    "FIG_Skin": {
+      "color": [
+        0.37,
+        0.255,
+        0.182,
+        1
+      ],
+      "roughness": 0.65,
+      "metallic": 0
+    },
+    "FIG_Jacket": {
+      "color": [
+        0.11,
+        0.15,
+        0.14,
+        1
+      ],
+      "roughness": 0.86,
+      "metallic": 0
+    },
+    "FIG_Stitch": {
+      "color": [
+        0.06,
+        0.078,
+        0.07,
+        1
+      ],
+      "roughness": 0.89,
+      "metallic": 0
+    },
+    "RG_Nail": {
+      "color": [
+        0.4,
+        0.29,
+        0.225,
+        1
+      ],
+      "roughness": 0.52,
+      "metallic": 0
+    }
+  },
+  "total_triangles": 7686,
+  "assets": {
+    "ReserveGrip": {
+      "file": "exports/EP_ReserveGrip.fbx",
+      "bounds_blender_xyz": [
+        [
+          -0.18310776352882385,
+          0.055364061146974564
+        ],
+        [
+          -0.24697892367839813,
+          0.038967639207839966
+        ],
+        [
+          0.17550179362297058,
+          0.2667568027973175
+        ]
+      ],
+      "mesh_objects": [
+        {
+          "name": "ReserveRightHand",
+          "vertices": 2551,
+          "triangles": 5098,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "ReserveJacketSleeve",
+          "vertices": 1204,
+          "triangles": 2404,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "pivot_blender_xyz": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "ReserveThumbNail",
+          "vertices": 94,
+          "triangles": 184,
+          "uv_layers": [
+            "UVMap"
+          ],
+          "pivot_blender_xyz": [
+            -7.450580596923828e-09,
+            0.0,
+            -1.4901161193847656e-08
+          ]
+        }
+      ],
+      "materials": [
+        "FIG_Skin",
+        "FIG_Jacket",
+        "FIG_Stitch",
+        "RG_Nail"
+      ],
+      "anchors_blender_xyz": {
+        "ReserveGrip__ROOT": [
+          0,
+          0,
+          0
+        ],
+        "ReserveGrip__AXIS_X": [
+          0.1,
+          0,
+          0
+        ],
+        "ReserveGrip__AXIS_Y": [
+          0,
+          0.1,
+          0
+        ],
+        "ReserveGrip__AXIS_Z": [
+          0,
+          0,
+          0.1
+        ],
+        "ReserveGrip__HANDLE_CENTRE": [
+          0,
+          0,
+          0.201
+        ],
+        "ReserveGrip__WRIST_CENTRE": [
+          -0.039,
+          -0.079,
+          0.238
+        ],
+        "ReserveGrip__SLEEVE_EXIT": [
+          -0.151,
+          -0.22,
+          0.209
+        ]
+      },
+      "notes": "Static adult right hand and short jacket sleeve only. Common origin matches original ReservePack bottom. No pack geometry, armature, animation, light, collider or Echo data. Source hand grip centre is(0,0,.201), source sleeve exits-X/-Y."
+    }
+  },
+  "preview_only_pack_reference": "../ReserveUnit/exports/EP_RU_ReservePack.fbx",
+  "preview_pack_sha256": "0fbc9d51edb07b356f06412dcfbcef9de08495419eb1c8bc495ff571a6a0c2e0",
+  "verification_limit": "Source and FBX/studio checks only until integrated. Human anatomy/comfort, in-game camera clipping, collision masking and visual approval are not established by numerical checks."
+}

@@ -1,0 +1,18 @@
+{
+  "rate": 48000,
+  "channels": 2,
+  "samples": 15216640,
+  "marks": [
+    {
+      "label": "chapter entry: headphone stereo",
+      "sample": 0,
+      "seconds": 0.0
+    },
+    {
+      "label": "PASS",
+      "sample": 15216640,
+      "seconds": 158.50666666666666
+    }
+  ],
+  "scope": "Actual listener output; source position, reduction and mono require accompanying state checks. Not human listening or hardware volume evidence."
+}

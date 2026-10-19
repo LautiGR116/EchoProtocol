@@ -1,0 +1,22 @@
+{
+  "status": "PASS scoped controls",
+  "dateUTC": "2026-10-08T22:32:50.542977+00:00",
+  "app": "Builds/EchoProtocol-Resonance-20261008/EchoProtocol.app",
+  "scope": "CUA real macOS keyboard/click inspection, separate from synthetic full QA route and human playtest. Screenshots inspected in the tool conversation.",
+  "checked": [
+    "Enter starts title",
+    "A/W movement starts recording",
+    "R returns to origin and replays an 8.1 second take",
+    "H pauses session and shows contextual note",
+    "J progresses relation then explicit steps",
+    "Escape returns from notes and opens pause",
+    "mono and reduced-impact switches enabled then restored to false/false; volume untouched",
+    "new CC0 names fit inside credits without clipping",
+    "Quit clicked from actual menu"
+  ],
+  "notEstablished": [
+    "Native relative mouse feel; Input System mouse route is covered by native QA, not CUA drag",
+    "Human listening, credibility, comfort, first-play understanding or fear"
+  ],
+  "quitExitCode": 0
+}
