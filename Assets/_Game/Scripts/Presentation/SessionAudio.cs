@@ -1,5 +1,8 @@
 using UnityEngine;
 using EchoProtocol.Campaign;
+#if UNITY_WEBGL && !UNITY_EDITOR
+using System.Runtime.InteropServices;
+#endif
 
 namespace EchoProtocol.Presentation
 {
@@ -16,6 +19,10 @@ namespace EchoProtocol.Presentation
         private volatile float targetFinalGain = 1f;
         private float finalGain = 1f;
         private float finalGainSmoothing;
+#if UNITY_WEBGL && !UNITY_EDITOR
+        [DllImport("__Internal")]
+        private static extern void EchoWebAudioUpdate(float ceiling, int mono, float fade);
+#endif
 
         private void Awake()
         {
@@ -31,6 +38,11 @@ namespace EchoProtocol.Presentation
             // zero as its target; user volume, dynamics and speaker preferences
             // remain independent. Unwired editions retain unity gain.
             targetFinalGain = finalDoor ? (finalDoor.IsComplete ? 0f : 1f - Mathf.Clamp01(finalDoor.Fade)) : 1f;
+#if UNITY_WEBGL && !UNITY_EDITOR
+            // Unity Web does not invoke OnAudioFilterRead. The browser worklet
+            // applies the same shared envelope, mono downmix and final fade.
+            EchoWebAudioUpdate(ReducedDynamics ? .18f : normalCeiling, Speakers ? 1 : 0, targetFinalGain);
+#endif
         }
 
         private void OnAudioFilterRead(float[] data, int channels) => ProcessSamples(data, channels);

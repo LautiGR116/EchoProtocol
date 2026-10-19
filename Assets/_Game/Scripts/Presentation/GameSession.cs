@@ -266,6 +266,9 @@ namespace EchoProtocol.Presentation
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying=false;
+#elif UNITY_WEBGL
+            SetPaused(true);
+            EchoWebExit();
 #else
             Application.Quit();
 #endif

@@ -1,10 +1,12 @@
 # Echo Protocol
 
-[Download the macOS playtest on itch.io](https://lautigr116.itch.io/echo-protocol).
-La embestida / Incursion, packaged 2026-10-19 for Intel and Apple Silicon.
-This is an in-development downloadable game; see
-[release scope and checks](Docs/RELEASE_20261019.md). Day-to-day development
-continues in the Editor; this publication was explicitly requested.
+[Play Echo Protocol in your browser](https://lautigr116.itch.io/echo-protocol).
+La embestida / Incursion, published 2026-10-19. Use a desktop browser with
+keyboard and mouse; no game installation is required. The initial web payload is
+about 94 MB. The macOS download for Intel and Apple Silicon remains available.
+See [web release and checks](Docs/WEB_RELEASE.md) and
+[macOS release scope](Docs/RELEASE_20261019.md). Day-to-day development continues
+in the Editor; these publications were explicitly requested.
 
 Echo Protocol is a first-person psychological horror and temporal puzzle game
 about cooperating with recordings of your own past actions. The mechanic begins
@@ -46,7 +48,8 @@ into pursuit without the former recognition pause. The physical contact owns
 the sound attack; breath and short effort follow. Camera freedom, preparation,
 faithful Echo, pump diversion and exit remain. [Details and playtest](Docs/INCURSION_CANDIDATE.md).
 
-Saved Editor project only. Fear, comfort and acting remain **EN PRUEBA humana**.
+Saved Editor project, also published as the explicitly requested web/macOS
+playtest above. Fear, comfort and acting remain **EN PRUEBA humana**.
 Earlier builds/evidence below are historical.
 
 ## Impact preserved, 2026-10-11

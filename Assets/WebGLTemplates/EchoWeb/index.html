@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Echo Protocol</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #101718; color: #e7e4d2; }
+    body { font: 16px system-ui, sans-serif; }
+    #game { position: relative; width: 100%; height: 100%; display: grid; place-items: center; }
+    canvas { display: block; width: 100%; height: 100%; outline: none; }
+    #cover { position: absolute; inset: 0; display: grid; place-items: center; background: #203032; padding: 24px; z-index: 2; }
+    #cover[hidden] { display: none; }
+    .card { max-width: 560px; width: 100%; border-top: 1px solid #7c9692; padding: 28px 0; }
+    .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .16em; color: #abc0b9; }
+    h1 { font: 54px Georgia, serif; font-weight: normal; margin: 20px 0; line-height: 1; }
+    p { line-height: 1.5; }
+    button { border: 1px solid #dce5d9; background: #dce5d9; color: #182424; padding: 14px 20px; font: inherit; cursor: pointer; }
+    button:focus-visible { outline: 3px solid #cfaa82; outline-offset: 4px; }
+    button:disabled { cursor: wait; opacity: .65; }
+    .secondary { background: transparent; color: #dce5d9; margin-left: 8px; }
+    progress { width: 100%; height: 5px; accent-color: #c2d3c3; margin: 12px 0; }
+    #status { min-height: 24px; color: #c2d3c3; font-size: 14px; }
+    .note { color: #abc0b9; font-size: 13px; }
+    #pointer-help { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 3; max-width: 90%; padding: 16px; background: #203032; border: 1px solid #abc0b9; text-align: center; }
+  </style>
+</head>
+<body>
+  <main id="game">
+    <canvas id="unity-canvas" tabindex="0" aria-label="Echo Protocol: juego en primera persona"></canvas>
+    <aside id="pointer-help" hidden><p id="pointer-message">Activá el mouse para seguir jugando.</p><button id="capture-mouse">Activar mouse y continuar</button></aside>
+    <section id="cover" aria-label="Inicio del juego">
+      <div class="card">
+        <div class="eyebrow">Archivo de sesiones · Versión de prueba</div>
+        <h1>ECHO<br>PROTOCOL</h1>
+        <p>Tu registro recuerda lo que hiciste.<br>Vos no siempre recordás por qué.</p>
+        <p class="note">Computadora · teclado y mouse.<br>Auriculares a un volumen cómodo. Mono y dinámica reducida en ajustes.</p>
+        <progress id="progress" max="1" value="0" aria-label="Carga del juego"></progress>
+        <div id="status" role="status">Preparando el juego…</div>
+        <button id="play" disabled>Preparando…</button>
+        <button id="fullscreen" class="secondary" hidden>Pantalla completa</button>
+        <p class="note">WASD: moverte · E: interactuar · R: RECALL · Esc: pausa.<br>La primera carga puede tardar; después se conserva en la caché del navegador.</p>
+      </div>
+    </section>
+  </main>
+  <script>
+    const cover = document.querySelector('#cover'), canvas = document.querySelector('#unity-canvas');
+    const play = document.querySelector('#play'), status = document.querySelector('#status');
+    const progress = document.querySelector('#progress'), full = document.querySelector('#fullscreen');
+    let instance, audioContext, audioReady = false, gameReady = false;
+    const pointerHelp = document.querySelector('#pointer-help');
+    const nativePointerLock = canvas.requestPointerLock?.bind(canvas);
+    let retryingCapture = false;
+    function captureFailed(error) {
+      retryingCapture = false;
+      window.echoWebResumeAfterCapture = false;
+      window.echoWebCaptureFailed = true;
+      pointerHelp.hidden = false;
+      console.warn('Echo Protocol: mouse capture requires another click.', error);
+    }
+    // Unity's deferred request can be rejected after Escape or a focus change.
+    // Handle that rejection so it pauses cleanly instead of becoming a fatal alert.
+    if (nativePointerLock) canvas.requestPointerLock = options => {
+      if (document.pointerLockElement === canvas) return Promise.resolve();
+      try { return nativePointerLock(options)?.catch(captureFailed); }
+      catch (error) { captureFailed(error); }
+    };
+    document.querySelector('#capture-mouse').addEventListener('click', () => {
+      retryingCapture = true;
+      canvas.focus();
+      try {
+        if (!nativePointerLock) throw new Error('Pointer lock unavailable');
+        nativePointerLock()?.catch(captureFailed);
+      } catch (error) { captureFailed(error); }
+    });
+    document.addEventListener('pointerlockchange', () => {
+      if (document.pointerLockElement !== canvas) { window.echoWebResumeAfterCapture = false; return; }
+      pointerHelp.hidden = true;
+      if (retryingCapture) {
+        retryingCapture = false;
+        window.echoWebResumeAfterCapture = true;
+      }
+    });
+    document.addEventListener('pointerlockerror', () => captureFailed(new Error('Mouse capture was rejected.')));
+    function fail(message) { cover.hidden = false; status.textContent = message; play.hidden = true; progress.hidden = true; }
+    function ready() {
+      if (!gameReady || !audioReady) return;
+      progress.hidden = true; status.textContent = 'Listo. Elegí iniciar la campaña o probar la bomba en el menú.';
+      play.textContent = 'Entrar al juego'; play.disabled = false; full.hidden = !document.fullscreenEnabled;
+    }
+    window.echoAudioReady = context => { audioContext = context; audioReady = true; ready(); };
+    window.echoAudioFailed = () => fail('No se pudo iniciar el audio. Probá con un navegador de escritorio actualizado y recargá la página.');
+    window.echoExit = () => {
+      pointerHelp.hidden = true; retryingCapture = false;
+      window.echoWebCaptureFailed = false; window.echoWebResumeAfterCapture = false;
+      document.exitPointerLock?.(); cover.hidden = false; play.textContent = 'Volver al juego';
+      status.textContent = 'La sesión está en pausa. Podés volver o cerrar esta pestaña.';
+    };
+    play.addEventListener('click', async () => {
+      try { await audioContext.resume(); } catch (_) { window.echoAudioFailed(); return; }
+      cover.hidden = true; canvas.focus();
+    });
+    full.addEventListener('click', () => document.querySelector('#game').requestFullscreen().catch(() => {}));
+    window.addEventListener('unhandledrejection', e => console.error('Echo Protocol:', e.reason));
+    const loader = document.createElement('script');
+    loader.src = 'Build/{{{ LOADER_FILENAME }}}';
+    loader.onerror = () => fail('No se pudo cargar el juego. Revisá la conexión y recargá la página.');
+    loader.onload = () => createUnityInstance(canvas, {
+      dataUrl: 'Build/{{{ DATA_FILENAME }}}', frameworkUrl: 'Build/{{{ FRAMEWORK_FILENAME }}}',
+      codeUrl: 'Build/{{{ CODE_FILENAME }}}', streamingAssetsUrl: 'StreamingAssets',
+      companyName: '{{{ COMPANY_NAME }}}', productName: '{{{ PRODUCT_NAME }}}', productVersion: '{{{ PRODUCT_VERSION }}}',
+      devicePixelRatio: 1,
+      autoSyncPersistentDataPath: true,
+      showBanner: (message, type) => { if (type === 'error') fail('No se pudo iniciar el juego en este navegador. Probá Chrome, Edge, Firefox o Safari actualizados.'); console[type === 'error' ? 'error' : 'warn'](message); }
+    }, value => { progress.value = value; status.textContent = 'Cargando ' + Math.round(value * 100) + '%'; })
+    .then(unity => { instance = unity; gameReady = true; ready(); })
+    .catch(error => { console.error(error); fail('No se pudo iniciar el juego. Recargá la página o probá otro navegador de escritorio.'); });
+    document.body.appendChild(loader);
+  </script>
+</body>
+</html>
