@@ -22,8 +22,8 @@ playthroughs or campaign tests. Identical build inputs skip compilation. If a
 newer push arrives during a build, the older output is not submitted.
 
 butler publishes to `lautigr116/echo-protocol:web`, preserving the public page URL.
-Its first channel upload must be selected as **played in the browser** in itch's
-editor once; subsequent uploads replace that channel. A failed build is retained
+The channel is selected as **played in the browser** in itch's editor;
+subsequent uploads replace that channel. A failed build is retained
 for diagnosis and is not retried automatically. Upload interruptions retry up to
 three times, reusing the completed build. The prior published build remains live
 until itch accepts/processes the replacement. Already-open games need reloading.
@@ -65,9 +65,16 @@ private-asset snapshot independence. The repository's actual push ran the
 preserved LFS hook and queued the correct commit. One isolated WebGL build
 succeeded (0 errors, 354 existing shader warnings, 103.4 s build phase; roughly
 two minutes including Editor startup). No game route was replayed for this setup.
-The first butler transfer completed at 17:52 ART; itch had not exposed its channel
-at 17:58 ART. The local worker retains that output and waits for server confirmation.
-The manual r3 browser upload stays active until the new channel can be selected.
+The first butler transfer completed at 17:52 ART; itch completed processing at
+18:54 ART (build `2164583`, upload `19884658`, version `a882bc2cb93d-746dc195`).
+The channel is now the public browser game; the manual r3 upload is hidden and
+the macOS download remains available. The public iframe points to
+`html/19884658-2164583/index.html`. The worker confirmed publication and skipped
+the queued documentation/tool-only release because its game inputs were identical.
+That served build completed loading and reached the main menu in the in-app
+browser; no gameplay route was run. Evidence: `Builds/itch-auto-publish-20261019.png`.
+Temporary test tabs were closed. The setup-follow-up heartbeat is retired after
+this verification; the push-triggered LaunchAgent remains enabled.
 
 ## Rebuild and publish
 
