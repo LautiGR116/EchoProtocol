@@ -1,6 +1,6 @@
 # Folio — menús, pausa y lectura
 
-2026-10-22. **Implementado; compilación verificada. Game View y uso humano pendientes.**
+2026-10-22. **Implementado; compilación y comprobaciones acotadas en Game View verificadas. Aprobación humana pendiente.**
 
 ## Tres mejoras visibles
 
@@ -26,8 +26,9 @@
 
 - Rama local: `codex/interfaz-sesion`, sobre `9dbc67c5`.
 - Commit de implementación: `4bda41fb` — `Polish Folio session menus, navigation and reading`.
-- El commit siguiente documenta la entrega en este archivo; se puede integrar
-  la rama completa o seleccionar primero el commit de implementación.
+- Documentación inicial: `aa05fac4`; el commit de cierre de esta rama actualiza
+  las comprobaciones y capturas. Se puede integrar la rama completa o seleccionar
+  primero el commit de implementación.
 - Sólo scripts y el `.meta` del nuevo parcial `GameSession.FolioReading.cs`.
   No necesita reemplazar escenas, prefabs ni modelos. Sin merge, push, build
   de juego o despliegue.
@@ -51,30 +52,56 @@
 
 ## Comprobaciones y límites
 
-- Unity **6000.3.21f1**, instancia identificada por el worktree `72dc`:
-  compilación final de scripts exitosa y assemblies cargados, sin errores C#.
-  Cuatro advertencias previas en tests: CS0108, dos CS0252 y CS0164.
-  Evidencia local de arranque: `/tmp/echo-ui-editor.log`.
-- `git diff --check` pasó; revisión de alcance y comparación exacta de los
-  métodos protegidos. Distribución completa revisada en código: acciones
-  y340–638 con checkpoint+bomba, antes del pie en y656. Esto **no** acredita
-  legibilidad visual ni input en ejecución.
-- El Editor no terminó de importar: `No space left on device` en ArtifactDB.
-  Se cerraron únicamente las instancias abiertas por este chat y se eliminaron
-  sus directorios generados `Library`/`Temp`; quedaron unos 6,1 GiB disponibles
-  al comprobar. No se controló el Editor principal ni el del otro worktree.
-- No se llegó a Play Mode ni se escribieron PlayerPrefs/checkpoints de prueba;
-  los guardados y preferencias del usuario no necesitaron restauración.
-- **Pendiente:** Console después de importar; inspección real a 1280×720 y
-  1280×800; inicio con checkpoint+bomba; pausa → ajustes → volver → reanudar;
-  documento largo normal/ampliado y última línea; mouse/barra/teclado;
-  persistencia tras nueva sesión y pérdida/recuperación real de foco.
-- `EchoProtocol_Folio.unity` está versionada y usa `EP.CampaignCheckpoint.Folio.v1`.
-  Sirve para lector/menús básicos, pero precede al encuentro de bomba de
-  Incursion: no acredita ese acceso simultáneo. No se abrió ni modificó una
-  escena para aparentar esa comprobación. Los probes Folio existentes se
-  inspeccionaron, no ejecutaron: asumen viewport de 332 px y navegación previa.
-  No se creó un harness ni se hicieron recorridos de campaña.
+- Unity **6000.3.21f1**, Editor del worktree `72dc`: compilación exitosa, sin
+  errores C#. Cuatro advertencias previas en tests: CS0108, dos CS0252 y CS0164.
+  Console sin errores durante la ruta UI; al recargar apareció una excepción de
+  indexación `UnityEditor.Search.SearchDatabase`, fuera de los scripts del juego.
+  Log local: `/tmp/echo-ui-capture-editor.log`.
+- `git diff 9dbc67c5 --check` pasó. Comparación exacta de métodos protegidos,
+  `BeginOrResume`, `SaveSettings` y `Restart`: sin cambios.
+- El primer arranque falló por falta de disco. Se coordinó el uso de Unity con
+  los chats de bomba y casa y el segundo importó correctamente. Se hidrataron
+  los assets LFS comprometidos desde la caché local. No se controlaron sus
+  Editors ni se copiaron cambios de sus escenas/modelos privados.
+- Play Mode real en la escena versionada `EchoProtocol_Folio.unity`, con frames
+  avanzando. Game View y render target comprobados a **1280×720 y 1280×800**.
+  Inicio completo, ajustes, pausa, confirmación y lector inspeccionados en PNG.
+- **Fixture de composición explícita:** Folio precede a Incursion. Para mostrar
+  checkpoint+bomba juntos se usó una clave temporal propia y un encuentro
+  inactivo, sólo en memoria, con guardados suprimidos. La captura acredita
+  distribución del menú, no funcionamiento del encuentro ni sus accesos.
+  Se retiró el fixture y se conservó el checkpoint real.
+- Teclado virtual mediante Input System: pausa → ajustes → Esc → pausa;
+  reanudar esperó mientras E/R seguían pulsadas. Al soltar, volvió al juego.
+  Tab/Shift+Tab, flechas, Enter/Espacio y cambios únicos de opciones comprobados.
+  Confirmación abierta en memoria: foco inicial en «Conservar sesión» y Enter
+  canceló sin reiniciar. Componentes, tiempo y audio se restauraron al reanudar.
+- Documento largo de prueba con caracteres españoles: normal/ampliado, Home/End,
+  último renglón visible y cierre de vuelta a pausa. Cambiar tamaño en el final
+  conservó el 100 % del recorrido; navegar fuera del lector no desplazó texto.
+  Los textos narrativos de producción no se modificaron.
+- Valores aplicados y guardados coincidieron. Stop/Play conservó volumen 0,95,
+  dinámica reducida, mono, pistas desactivadas y lectura ampliada. Cambiar
+  realmente de aplicación a Finder y volver dejó la sesión pausada.
+- Se restauraron exactamente presencia/valores originales de las cinco claves
+  de preferencias; se borró sólo la clave de prueba. Play y autotick detenidos,
+  presets temporales retirados y únicamente nuestro Editor cerrado (PID 47271).
+  Escena sin guardar; sin harness, recorridos de campaña ni builds.
+- **Pendiente humano:** mouse/rueda/arrastre de barra, PageUp/PageDown y comodidad
+  final. La herramienta nativa seleccionaba el Editor principal, por lo que no
+  se operó para probar mouse. Créditos quedaron revisados en código, sin captura.
+
+## Capturas locales
+
+PNG reales de Game View, fuera de `Assets`, en una carpeta ignorada por Git:
+`Docs/VisualEvidence/2026-10-22-UI-Session/`.
+
+- `01-inicio-1280x720.png`: composición con checkpoint y bomba del fixture.
+- `02-ajustes-1280x720.png`: etiquetas, explicaciones y estados.
+- `03-documento-normal-1280x720.png`: título largo y lectura normal.
+- `04-documento-ampliado-final-1280x720.png`: última línea completa.
+- `05-documento-ampliado-1280x800.png`: lector ampliado en 16:10.
+- `06-pausa-1280x800.png` y `07-confirmacion-1280x800.png`: retorno y opción segura.
 
 ## Prueba humana de dos minutos
 
