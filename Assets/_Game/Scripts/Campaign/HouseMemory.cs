@@ -44,6 +44,9 @@ namespace EchoProtocol.Campaign
         [SerializeField] private AudioSource kitchenApplianceAudio;
         [SerializeField] private AudioClip kitchenApplianceClip;
 
+        [Header("Optional occupied-house sequence replaces the legacy appearance")]
+        [SerializeField] private HouseOccupiedPresence occupiedPresence;
+
         [Header("Optional presence, physically contained behind glazing")]
         [SerializeField] private GameObject presenceRoot;
         [Tooltip("A separate authored trigger enclosing visible body and light spill. Its center must lie on the visible torso.")]
@@ -69,6 +72,7 @@ namespace EchoProtocol.Campaign
         public bool HallLightLeftOn { get { foreach (var light in hallLights) if (light && light.enabled && light.gameObject.activeInHierarchy) return true; return false; } }
         public bool PresenceSeen => presenceSeen;
         public bool PresenceRetired => presenceRetired;
+        public HouseOccupiedPresence OccupiedPresence => occupiedPresence;
 
         public string Objective => !HasKey
             ? (HasAnswered ? "Encontrá la llave de 6B. Podés trasladar la reserva de luz." : "El teléfono sigue sonando. Buscá la llave de 6B.")
@@ -89,7 +93,9 @@ namespace EchoProtocol.Campaign
             }
             initialized = true;
             if (presenceRoot) presenceRoot.SetActive(false);
-            if (presenceRoot && !presenceVisibilityVolume)
+            if (occupiedPresence && !occupiedPresence.IsConfigured)
+                Debug.LogWarning("HouseMemory occupied-house assignment is incomplete; both presence performances stay suppressed until repaired.", this);
+            if (!occupiedPresence && presenceRoot && !presenceVisibilityVolume)
                 Debug.LogWarning("HouseMemory presence is disabled until an explicit visibility volume is assigned.", this);
             if (telephoneAudio) { telephoneAudio.playOnAwake = false; telephoneAudio.Stop(); }
             if (kitchenApplianceAudio) { kitchenApplianceAudio.playOnAwake = false; kitchenApplianceAudio.Stop(); }
@@ -112,6 +118,7 @@ namespace EchoProtocol.Campaign
         public void LeaveHouse()
         {
             Active = false;
+            if (occupiedPresence) occupiedPresence.Retire();
             if (telephoneAudio) telephoneAudio.Stop();
         }
 
@@ -127,6 +134,7 @@ namespace EchoProtocol.Campaign
             if (keyWorld) keyWorld.SetActive(false);
             if (presenceRoot) presenceRoot.SetActive(false);
             presenceTriggered = presenceRetired = true;
+            if (occupiedPresence) occupiedPresence.Retire();
             if (telephoneAudio) telephoneAudio.Stop();
             exitDoor.Open();
             ApplyFuseVisuals();
@@ -208,7 +216,9 @@ namespace EchoProtocol.Campaign
                 telephoneAudio.PlayOneShot(telephoneRing);
                 ringAt = Time.time + Mathf.Max(ringInterval, telephoneRing.length + .25f);
             }
-            UpdatePresence();
+            // An authored replacement never falls back to a second apparition.
+            // Incomplete/disabled new references fail quiet and are warned in Awake.
+            if (!occupiedPresence) UpdatePresence();
         }
 
         private void ApplyFuseVisuals()
@@ -377,6 +387,7 @@ namespace EchoProtocol.Campaign
 
         private void OnDisable()
         {
+            if (occupiedPresence) occupiedPresence.Retire();
             if (telephoneAudio) telephoneAudio.Stop();
             if (kitchenApplianceAudio) kitchenApplianceAudio.Stop();
         }
