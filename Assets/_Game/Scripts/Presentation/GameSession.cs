@@ -28,6 +28,10 @@ namespace EchoProtocol.Presentation
         [SerializeField] private string editionLabel="EDICIÓN 01";
         private bool started, paused = true, ending, credits, help, confirmRestart;
         private bool returnToPauseFromNotes;
+        private bool documentWasPaused, documentOriginHelp, documentOriginCredits, documentOriginSettings, documentOriginRestart;
+        private bool resumeRequested;
+        private int resumeRequestedFrame;
+        private System.Action afterMenuResume;
         private bool restorePlayer, restoreInteractor, restoreLoop;
         private float volume = .7f;
         private float sessionStartedAt;
@@ -40,7 +44,8 @@ namespace EchoProtocol.Presentation
         {
             if (!player || !interactor || !loop || !recorder || !audioOutput)
             { Debug.LogError("GameSession requires all explicit scene references.", this); enabled=false; return; }
-            volume=PlayerPrefs.GetFloat("EP.Volume", .7f);
+            volume=Mathf.Clamp01(PlayerPrefs.GetFloat("EP.Volume", .7f));
+            LoadReadingPreferences();
             player.UsesSessionPause=true;
             audioOutput.ReducedDynamics=PlayerPrefs.GetInt("EP.Reduced",0)==1;
             audioOutput.Speakers=PlayerPrefs.GetInt("EP.Speakers",0)==1;
@@ -50,29 +55,23 @@ namespace EchoProtocol.Presentation
         private void Update()
         {
             var k=Keyboard.current;
+            if(resumeRequested)
+            {
+                if(Time.frameCount>resumeRequestedFrame && !MenuKeysHeld(k))
+                {
+                    var continuation=afterMenuResume;resumeRequested=false;afterMenuResume=null;
+                    BeginOrResume();
+                    if(!paused)continuation?.Invoke();
+                }
+                return;
+            }
             if(k==null)return;
             if(campaign&&campaign.CoverEncounter&&campaign.CoverEncounter.Failed){if(identity)identity.Navigate();return;}
-            if(identity && paused)
+            if(identity && paused)identity.Navigate(GraphicPage);
+            if(!string.IsNullOrEmpty(documentTitle))
             {
-                identity.Navigate();
-                if(folioSettings && k.escapeKey.wasPressedThisFrame){folioSettings=false;return;}
-                if(confirmRestart && k.escapeKey.wasPressedThisFrame){confirmRestart=false;return;}
-                if(!string.IsNullOrEmpty(documentTitle))
-                {
-                    if(k.downArrowKey.wasPressedThisFrame)documentScroll+=62;
-                    if(k.upArrowKey.wasPressedThisFrame)documentScroll-=62;
-                    if(k.pageDownKey.wasPressedThisFrame)documentScroll+=280;
-                    if(k.pageUpKey.wasPressedThisFrame)documentScroll-=280;
-                    if(k.homeKey.wasPressedThisFrame)documentScroll=0;
-                    if(k.endKey.wasPressedThisFrame)documentScroll=float.MaxValue;
-                }
-                if(help)
-                {
-                    if(k.downArrowKey.wasPressedThisFrame)noteScroll+=60;
-                    if(k.upArrowKey.wasPressedThisFrame)noteScroll-=60;
-                    if(k.pageDownKey.wasPressedThisFrame)noteScroll+=180;
-                    if(k.pageUpKey.wasPressedThisFrame)noteScroll-=180;
-                }
+                if(k.escapeKey.wasPressedThisFrame)CloseDocument();
+                return;
             }
             if(started && !ending && !folioSettings && string.IsNullOrEmpty(documentTitle) && !credits && !confirmRestart
                 && k.hKey.wasPressedThisFrame)
@@ -87,16 +86,63 @@ namespace EchoProtocol.Presentation
                 if(k.escapeKey.wasPressedThisFrame)CloseSessionNotes();
                 return;
             }
-            if(paused && string.IsNullOrEmpty(documentTitle) && !confirmRestart && k.cKey.wasPressedThisFrame)credits=!credits;
-            if(paused && credits && k.escapeKey.wasPressedThisFrame){credits=false;return;}
-            if(k.escapeKey.wasPressedThisFrame && started && !ending) { credits=false; confirmRestart=false; documentTitle=null; SetPaused(!paused); }
-            if(!identity && paused && !credits && !confirmRestart && k.enterKey.wasPressedThisFrame && !ending) BeginOrResume();
+            if(paused && credits)
+            {
+                if(k.escapeKey.wasPressedThisFrame||k.cKey.wasPressedThisFrame)credits=false;
+                return;
+            }
+            if(paused && folioSettings)
+            {
+                if(k.escapeKey.wasPressedThisFrame)folioSettings=false;
+                return;
+            }
+            if(paused && confirmRestart)
+            {
+                if(k.escapeKey.wasPressedThisFrame)confirmRestart=false;
+                return;
+            }
+            if(paused && k.cKey.wasPressedThisFrame){credits=true;return;}
+            if(k.escapeKey.wasPressedThisFrame && started && !ending)
+            {
+                if(paused)RequestSessionResume();else SetPaused(true);
+                return;
+            }
+            if(!identity && paused && k.enterKey.wasPressedThisFrame && !ending)RequestSessionResume();
         }
         public void BeginOrResume() { if(ending || campaign&&campaign.CoverEncounter&&campaign.CoverEncounter.Failed)return; documentTitle=null; help=false; if(!started)sessionStartedAt=Time.time; started=true; SetPaused(false); }
+        // UI exits wait for release before restoring action maps. The public pause
+        // API remains immediate for encounter owners and browser pointer recovery.
+        private void RequestSessionResume(System.Action afterResume=null)
+        {
+            if(resumeRequested)return;
+            resumeRequested=true;resumeRequestedFrame=Time.frameCount;afterMenuResume=afterResume;
+        }
+        private static bool MenuKeysHeld(Keyboard k)
+        {
+            return k!=null && (k.escapeKey.isPressed||k.hKey.isPressed||k.enterKey.isPressed
+                ||k.numpadEnterKey.isPressed||k.spaceKey.isPressed||k.eKey.isPressed||k.rKey.isPressed)
+                || Mouse.current!=null && Mouse.current.leftButton.isPressed;
+        }
         public void ShowDocument(string heading, string body)
-        { documentTitle=heading; documentBody=body; folioDocumentKey=null;documentScroll=0; SetPaused(true); }
+        {
+            if(string.IsNullOrEmpty(documentTitle))
+            {
+                documentWasPaused=paused;documentOriginHelp=help;documentOriginCredits=credits;
+                documentOriginSettings=folioSettings;documentOriginRestart=confirmRestart;
+            }
+            help=false;credits=false;folioSettings=false;confirmRestart=false;
+            documentTitle=heading;documentBody=body;folioDocumentKey=null;documentScroll=0;SetPaused(true);
+        }
+        private void CloseDocument()
+        {
+            documentTitle=null;documentBody=null;
+            help=documentOriginHelp;credits=documentOriginCredits;
+            folioSettings=documentOriginSettings;confirmRestart=documentOriginRestart;
+            if(!documentWasPaused)RequestSessionResume();
+        }
         public void SetPaused(bool value)
         {
+            resumeRequested=false;afterMenuResume=null;
             if(paused==value)return;
             paused=value;
             if(value)
@@ -112,7 +158,11 @@ namespace EchoProtocol.Presentation
             Cursor.lockState=value?CursorLockMode.None:CursorLockMode.Locked; Cursor.visible=value;
         }
         public void Finish() { ending=true; credits=false; SetPaused(true); }
-        private void OnApplicationFocus(bool focused) { if(!focused && started && !paused && !ending)SetPaused(true); }
+        private void OnApplicationFocus(bool focused)
+        {
+            if(!focused){resumeRequested=false;afterMenuResume=null;}
+            if(!focused && started && !paused && !ending)SetPaused(true);
+        }
         private void OnDestroy() { Time.timeScale=1f; AudioListener.pause=false; AudioListener.volume=1f; }
         private void SaveSettings()
         {
@@ -159,7 +209,7 @@ namespace EchoProtocol.Presentation
                 GUI.Label(new Rect(220,76,820,28),"ARCHIVO 6B / DOCUMENTO APORTADO",label);
                 GUI.Label(new Rect(220,125,820,88),documentTitle,heading);
                 GUI.Label(new Rect(220,231,820,310),documentBody,body);
-                if(GUI.Button(new Rect(220,583,440,44),"Dejar documento   /   Esc",button))BeginOrResume();
+                if(GUI.Button(new Rect(220,583,440,44),"Dejar documento   /   Esc",button))CloseDocument();
                 return;
             }
             GUI.Label(new Rect(80,64,1100,28),editionLabel,accent);
@@ -259,7 +309,7 @@ namespace EchoProtocol.Presentation
         private void CloseSessionNotes()
         {
             help=false;
-            if(!returnToPauseFromNotes)BeginOrResume();
+            if(!returnToPauseFromNotes)RequestSessionResume();
         }
         private void Restart() { if(campaign)campaign.ClearCheckpointSave();Time.timeScale=1; AudioListener.pause=false; SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
         private void Quit()

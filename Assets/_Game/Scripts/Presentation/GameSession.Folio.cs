@@ -14,21 +14,27 @@ namespace EchoProtocol.Presentation
         float noteScroll;
         public string GraphicPage => campaign&&campaign.CoverEncounter&&campaign.CoverEncounter.Failed?"caught":!paused?"HUD":help?"notes":!string.IsNullOrEmpty(documentTitle)?"document":credits?"credits":folioSettings?"settings":confirmRestart?"restart":ending?"ending":started?"pause":"title";
         public float DocumentScroll => documentScroll;
-        public float DocumentContentHeight => documentLayout.Height;
+        public float DocumentContentHeight => documentReadingHeight;
         public string DocumentHeading => documentTitle;
         void DrawFolio()
         {
-            var oldMatrix=GUI.matrix;var oldColor=GUI.color;int depth=GUI.depth;
+            var oldMatrix=GUI.matrix;var oldColor=GUI.color;int depth=GUI.depth;bool oldEnabled=GUI.enabled;
             GUI.matrix=identity.Matrix;GUI.depth=-1200;GUI.color=Color.white;
             if(paused)
             {
                 identity.ReconcileTabModifiers(Event.current);
                 identity.BeginMenu(GraphicPage);identity.Background();
-                if(Event.current.type==EventType.KeyDown && (Event.current.keyCode==KeyCode.Return || Event.current.keyCode==KeyCode.KeypadEnter || Event.current.keyCode==KeyCode.Space || Event.current.keyCode==KeyCode.Tab || Event.current.keyCode==KeyCode.UpArrow || Event.current.keyCode==KeyCode.DownArrow || Event.current.keyCode==KeyCode.LeftArrow || Event.current.keyCode==KeyCode.RightArrow))Event.current.Use();
+                GUI.enabled=oldEnabled&&!resumeRequested;
+                if(Event.current.type==EventType.KeyDown && (Event.current.keyCode==KeyCode.Return || Event.current.keyCode==KeyCode.KeypadEnter || Event.current.keyCode==KeyCode.Space || Event.current.keyCode==KeyCode.Tab || Event.current.keyCode==KeyCode.UpArrow || Event.current.keyCode==KeyCode.DownArrow || Event.current.keyCode==KeyCode.LeftArrow || Event.current.keyCode==KeyCode.RightArrow || Event.current.keyCode==KeyCode.PageUp || Event.current.keyCode==KeyCode.PageDown || Event.current.keyCode==KeyCode.Home || Event.current.keyCode==KeyCode.End))Event.current.Use();
                 GUI.color=new Color(1,1,1,identity.MenuOpacity);
                 if(campaign&&campaign.CoverEncounter&&campaign.CoverEncounter.Failed)DrawCoverFailure();
                 else if(help)DrawFolioNotes();else if(!string.IsNullOrEmpty(documentTitle))DrawFolioDocument();
                 else if(credits)DrawFolioCredits();else if(folioSettings)DrawFolioSettings();else DrawFolioMain();
+                if(resumeRequested)
+                {
+                    identity.Fill(new Rect(762,674,434,30),new Color(.031f,.046f,.052f));
+                    GUI.Label(new Rect(762,678,434,24),"Soltá las teclas para volver a la sesión",identity.Text(16,false,identity.Accent,TextAnchor.UpperRight));
+                }
             }
             else
             {
@@ -36,58 +42,91 @@ namespace EchoProtocol.Presentation
                 if(finalDoorMemory&&finalDoorMemory.Fade>0)identity.Fill(new Rect(-2000,-2000,5280,4720),new Color(0,0,0,finalDoorMemory.Fade));
                 if(campaign&&campaign.DepartureFade>0)identity.Fill(new Rect(-2000,-2000,5280,4720),new Color(0,0,0,campaign.DepartureFade));
             }
-            GUI.matrix=oldMatrix;GUI.color=oldColor;GUI.depth=depth;
+            GUI.matrix=oldMatrix;GUI.color=oldColor;GUI.depth=depth;GUI.enabled=oldEnabled;
         }
         void DrawFolioMain()
         {
             var ui=identity;
-            ui.Tag(new Rect(88,121,680,24),ending?"CONSERVACIÓN / REGISTRO ORIGINAL":started?"SESIÓN EN CURSO":"PROTOCOLO DE REVISIÓN   /   EDICIÓN 01");
-            GUI.Label(new Rect(84,158,690,202),ending?"Original\nconservado.":started?"La sesión\nestá detenida.":"ECHO\nPROTOCOL",ui.Display(started||ending?62:82));
-            float y=414;
+            ui.Tag(new Rect(88,121,680,24),confirmRestart?"NUEVA SESIÓN / CONFIRMACIÓN":ending?"CONSERVACIÓN / REGISTRO ORIGINAL":started?"SESIÓN EN CURSO":"PROTOCOLO DE REVISIÓN   /   EDICIÓN 01");
+            GUI.Label(new Rect(84,154,690,172),confirmRestart?"¿Empezar\nde nuevo?":ending?"Original\nconservado.":started?"La sesión\nestá detenida.":"ECHO\nPROTOCOL",ui.Display(confirmRestart||started||ending?60:72));
             if(confirmRestart)
             {
-                GUI.Label(new Rect(88,362,620,42),"Reiniciar descarta esta sesión completa.",ui.Text(20));
-                if(ui.Button(new Rect(88,y,530,54),"restart-yes","Sí, empezar de nuevo","Enter",true))Restart();
-                if(ui.Button(new Rect(88,y+64,530,48),"restart-no","Volver","Esc"))confirmRestart=false;
+                GUI.Label(new Rect(88,342,610,64),"Se descartarán la sesión actual y su checkpoint.\nLos ajustes se conservarán.",ui.Text(20));
+                if(ui.Button(new Rect(88,435,610,54),"restart-no","Conservar sesión","Esc",true))confirmRestart=false;
+                if(ui.Button(new Rect(88,503,610,54),"restart-yes","Descartar y empezar de nuevo"))Restart();
             }
             else
             {
-                if(!ending&&ui.Button(new Rect(88,y,530,54),"begin",started?"Continuar":"Iniciar sesión","Enter",true))BeginOrResume();
-                y+=64;
-                if(!started&&campaign&&campaign.CoverEncounter)
-                {if(ui.Button(new Rect(88,y,530,40),"cover-preview","Jugar · La máquina que te cubre")) {BeginOrResume();campaign.BeginCoverPreview();}y+=44;}
-                if(!started&&campaign&&campaign.HasSavedCheckpoint)
-                {if(ui.Button(new Rect(88,y,530,44),"saved","Continuar · "+campaign.SavedChapterTitle)) {BeginOrResume();campaign.RestoreCheckpoint();}y+=52;}
-                if(ui.Button(new Rect(88,y,530,44),"settings","Escucha y ajustes"))folioSettings=true;y+=52;
-                if(ui.Button(new Rect(88,y,250,44),"credits","Créditos","C"))credits=true;
-                if(ui.Button(new Rect(356,y,262,44),"quit","Salir"))Quit();
-                if((started||ending)&&ui.Button(new Rect(88,y+52,530,36),"restart","Nueva sesión"))confirmRestart=true;
+                bool saved=!started&&campaign&&campaign.HasSavedCheckpoint;
+                bool preview=!started&&campaign&&campaign.CoverEncounter;
+                bool restart=started||ending;
+                // Anchor the complete action stack above the footer. Optional actions
+                // receive their own measured row instead of pushing later rows down.
+                float savedHeight=saved?Mathf.Max(64,ui.Text(20,true).CalcHeight(new GUIContent("Continuar checkpoint\n"+campaign.SavedChapterTitle),566)+16):0;
+                float height=44; // final row: credits and exit
+                if(!ending)height+=64;
+                if(saved)height+=savedHeight+10;
+                if(preview)height+=58;
+                height+=58; // settings
+                if(restart)height+=54;
+                float y=Mathf.Min(402,638-height);
+                if(!ending)
+                {
+                    if(ui.Button(new Rect(88,y,610,54),"begin",started?"Reanudar sesión":"Iniciar desde el comienzo","Enter",true))RequestSessionResume();
+                    y+=64;
+                }
+                if(saved)
+                {
+                    if(ui.Button(new Rect(88,y,610,savedHeight),"saved","Continuar checkpoint\n"+campaign.SavedChapterTitle))RequestSessionResume(()=>campaign.RestoreCheckpoint());
+                    y+=savedHeight+10;
+                }
+                if(preview)
+                {
+                    if(ui.Button(new Rect(88,y,610,48),"cover-preview","Probar la bomba · acceso directo"))RequestSessionResume(()=>campaign.BeginCoverPreview());
+                    y+=58;
+                }
+                if(ui.Button(new Rect(88,y,610,48),"settings","Escucha y ajustes"))folioSettings=true;
+                y+=58;
+                if(ui.Button(new Rect(88,y,292,44),"credits","Créditos","C"))credits=true;
+                if(ui.Button(new Rect(398,y,300,44),"quit","Salir"))Quit();
+                if(restart&&ui.Button(new Rect(88,y+54,610,44),"restart","Nueva sesión"))confirmRestart=true;
             }
-            ui.Line(762,130,1);
+            ui.Fill(new Rect(762,130,1,478),new Color(.26f,.32f,.31f));
             GUI.Label(new Rect(812,155,366,126),ending?"La toma quedó entera.\nLa llave quedó en portería.":started?"Tu registro continúa\ncuando vuelvas.":"Una llave.\nDos declaraciones.",ui.Display(35,true));
-            GUI.Label(new Rect(816,304,346,74),ending?(houseMemory&&houseMemory.HallLightLeftOn?"El recibidor quedó encendido.":"El recibidor quedó a oscuras."):started?"La sesión está en pausa. El tiempo y la reproducción esperan.":"Volviste para revisar la tuya.",ui.Text(19,false,ui.Muted));
-            ui.DrawPaper(new Rect(812,420,366,164),true);
-            ui.Tag(new Rect(836,443,315,24),ending?"DEVOLUCIÓN / CONFIRMADA":"DOCUMENTO PERSONAL",ui.Seal);
-            GUI.Label(new Rect(836,480,312,65),ending?"El original permanece.":"La dejé en portería.\nMara",ui.Display(28,true,ui.Ink));
-            ui.Tag(new Rect(88,678,720,24),"EL REGISTRO NO RECUERDA POR VOS.",ui.Muted);
-            GUI.Label(new Rect(918,678,278,24),"Tab / flechas · Enter",ui.Text(13,false,ui.Muted,TextAnchor.UpperRight));
+            GUI.Label(new Rect(816,304,346,88),ending?(houseMemory&&houseMemory.HallLightLeftOn?"El recibidor quedó encendido.":"El recibidor quedó a oscuras."):started?"La sesión está en pausa. El tiempo y la reproducción esperan.":"Volviste para revisar la tuya.\nLa campaña empieza en portería.",ui.Text(19,false,ui.Muted));
+            ui.DrawPaper(new Rect(812,440,366,164),true);
+            ui.Tag(new Rect(836,463,315,24),ending?"DEVOLUCIÓN / CONFIRMADA":"DOCUMENTO PERSONAL",ui.Seal);
+            GUI.Label(new Rect(836,500,312,65),ending?"El original permanece.":"La dejé en portería.\nMara",ui.Display(28,true,ui.Ink));
+            ui.Tag(new Rect(88,678,650,24),"EL REGISTRO NO RECUERDA POR VOS.",ui.Muted);
+            GUI.Label(new Rect(762,678,434,24),"Tab / Shift+Tab · ↑ ↓ · Enter / Espacio",ui.Text(14,false,ui.Muted,TextAnchor.UpperRight));
         }
         void DrawFolioSettings()
         {
-            var ui=identity;GUI.Label(new Rect(84,125,660,92),"Escucha y ajustes",ui.Display(58));
-            GUI.Label(new Rect(88,226,440,134),"Auriculares a volumen cómodo.\nTambién podés jugar con parlantes.\nNo hace falta subir el volumen.",ui.Text(21));
-            ui.Tag(new Rect(88,402,420,25),"CONTROLES");
-            GUI.Label(new Rect(88,443,420,135),"WASD   moverte\nMouse   mirar\nE   interactuar     R   RECALL\nH   ayuda              Esc   pausa",ui.Text(19));
-            GUI.Label(new Rect(680,244,420,30),"Volumen general",ui.Text(21,true));
-            GUI.Label(new Rect(1080,244,90,30),Mathf.RoundToInt(volume*100)+" %",ui.Text(20,true,null,TextAnchor.UpperRight));
-            float prior=volume;bool reduced=audioOutput.ReducedDynamics,mono=audioOutput.Speakers,automatic=contextualHints&&contextualHints.AutomaticEnabled;
-            volume=ui.Slider(new Rect(680,294,490,30),"volume",volume);
-            audioOutput.ReducedDynamics=ui.Toggle(new Rect(680,360,490,56),"reduced","Reducir impactos sonoros",reduced);
-            audioOutput.Speakers=ui.Toggle(new Rect(680,434,490,56),"mono","Parlantes / mezcla mono",mono);
-            if(contextualHints)contextualHints.AutomaticEnabled=ui.Toggle(new Rect(680,508,490,56),"hints","Pistas automáticas graduales",automatic);
+            var ui=identity;
+            GUI.Label(new Rect(84,125,660,82),"Escucha y ajustes",ui.Display(58));
+            GUI.Label(new Rect(88,230,450,120),"Auriculares a volumen cómodo.\nTambién podés jugar con parlantes.\nNo hace falta subir el volumen.",ui.Text(21));
+            ui.Tag(new Rect(88,402,450,25),"CONTROLES DE LA SESIÓN");
+            GUI.Label(new Rect(88,443,450,135),"WASD   moverte\nMouse   mirar\nE   interactuar     R   RECALL\nH   ayuda              Esc   pausa",ui.Text(19));
+            float prior=volume;
+            bool reduced=audioOutput.ReducedDynamics,mono=audioOutput.Speakers,automatic=contextualHints&&contextualHints.AutomaticEnabled;
+            GUI.Label(new Rect(650,215,400,28),"Volumen general",ui.Text(21,true));
+            volume=ui.Slider(new Rect(650,258,530,28),"volume",volume);
+            GUI.Label(new Rect(1070,215,110,28),Mathf.RoundToInt(volume*100)+" %",ui.Text(20,true,null,TextAnchor.UpperRight));
+            audioOutput.ReducedDynamics=ui.Toggle(new Rect(650,310,530,46),"reduced","Dinámica reducida",reduced);
+            GUI.Label(new Rect(672,361,508,26),"Atenúa los picos de sonido más intensos.",ui.Text(16,false,ui.Muted));
+            audioOutput.Speakers=ui.Toggle(new Rect(650,390,530,46),"mono","Parlantes / mezcla mono",mono);
+            GUI.Label(new Rect(672,441,508,26),"Combina los canales; no conserva la dirección estéreo.",ui.Text(16,false,ui.Muted));
+            if(contextualHints)
+            {
+                contextualHints.AutomaticEnabled=ui.Toggle(new Rect(650,470,530,46),"hints","Pistas automáticas",automatic);
+                GUI.Label(new Rect(672,521,508,26),"Muestra pistas graduales. La ayuda H sigue disponible.",ui.Text(16,false,ui.Muted));
+            }
+            bool enlarged=ui.Toggle(new Rect(650,550,530,46),"large-reading","Texto de lectura ampliado",readingTextEnlarged);
+            if(enlarged!=readingTextEnlarged)SetReadingTextEnlarged(enlarged);
+            GUI.Label(new Rect(672,601,508,26),"Aumenta sólo el texto de documentos y notas.",ui.Text(16,false,ui.Muted));
             if(volume!=prior||reduced!=audioOutput.ReducedDynamics||mono!=audioOutput.Speakers||automatic!=(contextualHints&&contextualHints.AutomaticEnabled))SaveSettings();
-            if(ui.Button(new Rect(88,598,440,46),"back-settings","Volver","Esc"))folioSettings=false;
-            ui.Tag(new Rect(680,609,500,24),"← → AJUSTAR   /   ENTER CAMBIAR",ui.Muted);
+            if(ui.Button(new Rect(88,598,440,46),"back-settings",ending?"Volver al cierre":started?"Volver a pausa":"Volver al inicio","Esc"))folioSettings=false;
+            GUI.Label(new Rect(650,678,530,24),"← → volumen · Enter / Espacio cambiar · Esc volver",ui.Text(14,false,ui.Muted));
         }
         void DrawCoverFailure()
         {
@@ -102,45 +141,14 @@ namespace EchoProtocol.Presentation
         void DrawFolioCredits()
         {
             var ui=identity;GUI.Label(new Rect(84,126,700,82),"Créditos",ui.Display(64));
-            ui.Tag(new Rect(88,244,330,24),"PROYECTO");
-            GUI.Label(new Rect(88,285,320,160),"Diseño y desarrollo\nProyecto Echo Protocol\n\nAsistencia de producción\nOpenAI Codex",ui.Text(18));
-            ui.Tag(new Rect(454,244,350,24),"SONIDOS / CC0");
-            GUI.Label(new Rect(454,285,350,265),"HECKFRICKER · JoelMcDaniel\nAlaskaRobotics · Rolly-SFX\nse2001 · Sadiquecat\nSamuelGremaud · FOSSarts\nftpalad · SoundDesignForYou\nloopo · JohanHauskater\ncookies+policy · ahriik\nSPAudiobooks · Archeos\nqubodup · AntumDeluge\nBrian MacIntosh",ui.Text(17));
-            ui.Tag(new Rect(854,244,340,24),"ARTE / TIPOGRAFÍA");
-            GUI.Label(new Rect(854,285,330,275),"Blender · MakeHuman Community\nOpenAI ImageGen\nPoly Haven / superficies CC0\nRob Tuytel · Amal Kumar\nCharlotte Baglioni\nDimitrios Savva\n\nCormorant / Christian Thalmann\nIBM Plex / Mike Abbink\ny Bold Monday · SIL OFL 1.1",ui.Text(17));
+            ui.Tag(new Rect(88,228,330,24),"PROYECTO");
+            GUI.Label(new Rect(88,270,320,190),"Diseño y desarrollo\nProyecto Echo Protocol\n\nAsistencia de producción\nOpenAI Codex",ui.Text(18));
+            ui.Tag(new Rect(454,228,350,24),"SONIDOS / CC0");
+            GUI.Label(new Rect(454,270,350,288),"HECKFRICKER · JoelMcDaniel\nAlaskaRobotics · Rolly-SFX\nse2001 · Sadiquecat\nSamuelGremaud · FOSSarts\nftpalad · SoundDesignForYou\nloopo · JohanHauskater\ncookies+policy · ahriik\nSPAudiobooks · Archeos\nqubodup · AntumDeluge\nBrian MacIntosh",ui.Text(18));
+            ui.Tag(new Rect(854,228,340,24),"ARTE / TIPOGRAFÍA");
+            GUI.Label(new Rect(854,270,340,288),"Blender · MakeHuman Community\nOpenAI ImageGen\nPoly Haven / superficies CC0\nRob Tuytel · Amal Kumar\nCharlotte Baglioni\nDimitrios Savva\n\nCormorant / Christian Thalmann\nIBM Plex / Mike Abbink\ny Bold Monday · SIL OFL 1.1",ui.Text(18));
             if(ui.Button(new Rect(88,591,380,50),"back-credits","Volver","Esc"))credits=false;
             GUI.Label(new Rect(502,601,690,46),"Unity 6 · URP · Input System · ProBuilder\nFuentes y tratamientos completos: CREDITS.txt",ui.Text(14,false,ui.Muted));
-        }
-        bool IsPersonalDocument()=>documentTitle!=null&&(documentTitle.Contains("llave")||documentTitle.Contains("carta")||documentTitle.Contains("recibidor"));
-        void DrawFolioDocument()
-        {
-            var ui=identity;bool personal=IsPersonalDocument();
-            ui.DrawPaper(new Rect(178,32,924,650),personal);
-            ui.Tag(new Rect(230,66,795,26),personal?"CORRESPONDENCIA PERSONAL   /   MARA":"ARCHIVO 6B   /   DOCUMENTO APORTADO",personal?ui.Seal:ui.Ink);
-            ui.Line(230,103,820,personal?ui.Seal:new Color(.35f,.47f,.43f));
-            GUI.Label(new Rect(229,124,804,90),documentTitle,ui.Display(44,false,ui.Ink));
-            var body=ui.Editorial(22,false,personal);
-            string key=documentTitle+"|"+documentBody+"|"+personal+"|"+body.font.GetInstanceID();
-            if(key!=folioDocumentKey){folioDocumentKey=key;documentLayout.Set(documentBody,body,778);documentScroll=0;}
-            var viewport=new Rect(230,232,778,332);documentScroll=ui.Scroll(viewport,documentScroll,documentLayout.Height);
-            documentLayout.Draw(viewport,documentScroll,body);
-            ui.Line(230,585,820,new Color(.58f,.58f,.50f));
-            if(ui.Button(new Rect(230,606,390,47),"document-close","Dejar documento","Esc",true))BeginOrResume();
-            GUI.Label(new Rect(678,607,363,48),documentLayout.Height>viewport.height?"Rueda / ↑ ↓ · leer\n"+Mathf.RoundToInt(documentScroll/Mathf.Max(1,documentLayout.Height-viewport.height)*100)+" % del recorrido":"Documento completo\nLa sesión está en pausa",ui.Text(14,false,ui.Ink,TextAnchor.UpperRight));
-        }
-        void DrawFolioNotes()
-        {
-            var ui=identity;GUI.Label(new Rect(84,126,830,84),"Notas de la sesión",ui.Display(58));
-            string note=contextualHints?contextualHints.CurrentNote:protocolGuidance?protocolGuidance.Context:campaign?campaign.Objective:"El registro conserva el recorrido y sus pausas.";
-            ui.Tag(new Rect(88,232,800,24),"RECALL   /   LECTURA DEL ESTADO ACTUAL");
-            var style=ui.Text(22);
-            if(note!=folioNoteKey){folioNoteKey=note;noteLayout.Set(note,style,985,30);noteScroll=0;}
-            var viewport=new Rect(88,277,985,182);noteScroll=ui.Scroll(viewport,noteScroll,noteLayout.Height);noteLayout.Draw(viewport,noteScroll,style);
-            string recall=finalDoorMemory&&finalDoorMemory.Active?(finalDoorMemory.OriginalPreserved?"El original está conservado. El registro terminó.":finalDoorMemory.UsesArrivalPresentation&&finalDoorMemory.HasWitnessed?"La llegada está observada. Conservá esta toma en la pantalla de portería.":"R vuelve a 6B y sustituye la toma que estás revisando."):!restoreLoop?"El registro permanece suspendido hasta la próxima revisión.":"R vuelve al último origen y sustituye la toma anterior.";
-            GUI.Label(new Rect(88,472,985,26),recall,ui.Text(16,false,ui.Muted));
-            if(contextualHints&&contextualHints.ManualLevel<2&&ui.Button(new Rect(88,504,940,50),"more-note",contextualHints.ManualLevel==0?"Otra pista sobre la relación":"Mostrar pasos de resolución","J"))contextualHints.RequestMore();
-            if(ui.Button(new Rect(88,592,530,50),"close-notes",returnToPauseFromNotes?"Volver a pausa":"Volver a la sesión","H / Esc",true))CloseSessionNotes();
-            ui.Tag(new Rect(665,604,500,24),"TU TOMA Y EL ECHO ESPERAN.",ui.Muted);
         }
         void DrawFolioHud()
         {

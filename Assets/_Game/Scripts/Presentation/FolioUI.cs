@@ -15,8 +15,12 @@ namespace EchoProtocol.Presentation
         readonly Dictionary<string, GUIStyle> styles = new Dictionary<string, GUIStyle>();
         readonly List<Texture2D> swatches = new List<Texture2D>();
         readonly List<string> controls = new List<string>();
+        readonly HashSet<string> readers = new HashSet<string>();
+        readonly HashSet<string> sliders = new HashSet<string>();
+        readonly Dictionary<string,string> menuFocus = new Dictionary<string,string>();
         string screenKey, focused, activate;
-        int adjustment, tabFrame=-1, nativeShiftFrame=-2;
+        string scrollTarget;
+        int adjustment, scrollLines, scrollPages, scrollEdge, activationFrame=-1, scrollFrame=-1, tabFrame=-1, nativeShiftFrame=-2;
         string tabOrigin;
         bool tabReverse;
         float enteredAt;
@@ -71,20 +75,42 @@ namespace EchoProtocol.Presentation
         }
         public void BeginMenu(string key)
         {
-            if(screenKey!=key) {screenKey=key;focused=null;activate=null;enteredAt=Time.unscaledTime;}
-            controls.Clear();
+            if(screenKey!=key)ChangeMenu(key);
+            controls.Clear();readers.Clear();sliders.Clear();
+        }
+        void ChangeMenu(string key)
+        {
+            if(screenKey!=null&&focused!=null)menuFocus[screenKey]=focused;
+            screenKey=key;focused=null;
+            // Confirmations start on the safe action; fresh readers start on
+            // their text, so their first arrow press always means reading.
+            if(key!="restart"&&key!="document"&&key!="notes")menuFocus.TryGetValue(key,out focused);
+            activate=null;adjustment=0;scrollTarget=null;enteredAt=Time.unscaledTime;
+            controls.Clear();readers.Clear();sliders.Clear();
         }
         void Register(string id,bool enabled=true) {if(enabled){controls.Add(id);if(focused==null)focused=id;}}
-        public void Navigate()
+        public void Navigate(string currentPage=null)
         {
+            activate=null;adjustment=0;scrollTarget=null;
+            if(currentPage!=null&&screenKey!=currentPage){ChangeMenu(currentPage);return;}
             var k=Keyboard.current;if(k==null||controls.Count==0)return;
             int index=controls.IndexOf(focused);if(index<0){index=0;focused=controls[0];activate=null;}
             bool reverse=nativeShiftFrame==Time.frameCount||k.shiftKey.isPressed||k.leftShiftKey.wasPressedThisFrame||k.rightShiftKey.wasPressedThisFrame;
-            int move=k.tabKey.wasPressedThisFrame?(reverse?-1:1):k.downArrowKey.wasPressedThisFrame?1:k.upArrowKey.wasPressedThisFrame?-1:0;
+            bool reading=readers.Contains(focused),slider=sliders.Contains(focused);
+            int move=k.tabKey.wasPressedThisFrame?(reverse?-1:1):!reading&&k.downArrowKey.wasPressedThisFrame?1:!reading&&k.upArrowKey.wasPressedThisFrame?-1:
+                !reading&&!slider&&k.rightArrowKey.wasPressedThisFrame?1:!reading&&!slider&&k.leftArrowKey.wasPressedThisFrame?-1:0;
             if(k.tabKey.wasPressedThisFrame){tabFrame=Time.frameCount;tabOrigin=focused;tabReverse=reverse;}
-            if(move!=0){focused=controls[(index+move+controls.Count)%controls.Count];activate=null;}
-            if(k.enterKey.wasPressedThisFrame||k.numpadEnterKey.wasPressedThisFrame||k.spaceKey.wasPressedThisFrame)activate=focused;
-            adjustment=k.rightArrowKey.wasPressedThisFrame?1:k.leftArrowKey.wasPressedThisFrame?-1:0;
+            if(move!=0){focused=controls[(index+move+controls.Count)%controls.Count];return;}
+            if(reading)
+            {
+                scrollTarget=focused;scrollFrame=Time.frameCount;
+                scrollLines=k.downArrowKey.wasPressedThisFrame?1:k.upArrowKey.wasPressedThisFrame?-1:0;
+                scrollPages=k.pageDownKey.wasPressedThisFrame?1:k.pageUpKey.wasPressedThisFrame?-1:0;
+                scrollEdge=k.homeKey.wasPressedThisFrame?-1:k.endKey.wasPressedThisFrame?1:0;
+            }
+            else if(k.enterKey.wasPressedThisFrame||k.numpadEnterKey.wasPressedThisFrame||k.spaceKey.wasPressedThisFrame)
+            {activate=focused;activationFrame=Time.frameCount;}
+            if(slider)adjustment=k.rightArrowKey.wasPressedThisFrame?1:k.leftArrowKey.wasPressedThisFrame?-1:0;
         }
         // Native IMGUI carries modifier flags even when a platform input event does
         // not expose a separate Shift key transition. Reconcile the same Tab once.
@@ -95,7 +121,7 @@ namespace EchoProtocol.Presentation
             int index=controls.IndexOf(tabOrigin);
             if(index>=0){focused=controls[(index-1+controls.Count)%controls.Count];activate=null;tabReverse=true;}
         }
-        bool Consume(string id) {if(activate!=id)return false;activate=null;return true;}
+        bool Consume(string id) {if(activate!=id||activationFrame!=Time.frameCount)return false;activate=null;return true;}
         GUIStyle ButtonStyle(bool focus,bool primary,bool enabled)
         {
             string key="button/"+focus+"/"+primary+"/"+enabled;
@@ -109,20 +135,27 @@ namespace EchoProtocol.Presentation
         Texture2D Swatch(Color color){var t=new Texture2D(1,1,TextureFormat.RGBA32,false);t.SetPixel(0,0,color);t.Apply();swatches.Add(t);return t;}
         public bool Button(Rect rect,string id,string label,string shortcut="",bool primary=false,bool enabled=true)
         {
-            Register(id,enabled); bool wasEnabled=GUI.enabled;GUI.enabled=enabled;
-            bool click=GUI.Button(rect,label,ButtonStyle(focused==id,primary,enabled));GUI.enabled=wasEnabled;
+            enabled=enabled&&GUI.enabled;Register(id,enabled);bool wasEnabled=GUI.enabled;GUI.enabled=enabled;
+            bool hover=rect.Contains(Event.current.mousePosition);
+            if(enabled&&hover&&Event.current.type==EventType.MouseDown){focused=id;activate=null;}
+            bool click=GUI.Button(rect,GUIContent.none,ButtonStyle(focused==id,primary,enabled));GUI.enabled=wasEnabled;
+            Color foreground=enabled?(hover?Color.white:primary?Ink:Paper):Muted;
+            var shortcutStyle=Text(13,true,primary?Ink:Muted,TextAnchor.MiddleRight);
+            float shortcutWidth=shortcut.Length==0?0:shortcutStyle.CalcSize(new GUIContent(shortcut)).x+22;
+            var labelRect=new Rect(rect.x+22,rect.y+4,rect.width-44-shortcutWidth,rect.height-8);
+            GUI.Label(labelRect,label,Text(20,true,foreground,TextAnchor.MiddleLeft));
             if(focused==id&&enabled)Fill(new Rect(rect.x-5,rect.y,2,rect.height),Accent);
-            if(shortcut.Length>0)GUI.Label(new Rect(rect.xMax-115,rect.y+17,94,24),shortcut,Text(13,true,primary?Ink:Muted,TextAnchor.UpperRight));
+            if(shortcut.Length>0)GUI.Label(new Rect(rect.xMax-shortcutWidth-22,rect.y+4,shortcutWidth,rect.height-8),shortcut,shortcutStyle);
             if(click){focused=id;activate=null;}return enabled&&(click||Consume(id));
         }
         public bool Toggle(Rect rect,string id,string label,bool value)
         {
             bool pressed=Button(rect,id,label,value?"ACTIVO":"INACTIVO");
-            Fill(new Rect(rect.xMax-18,rect.y+23,5,5),value?Accent:Muted);return pressed?!value:value;
+            Fill(new Rect(rect.xMax-13,rect.center.y-2.5f,5,5),value?Accent:Muted);return pressed?!value:value;
         }
         public float Slider(Rect rect,string id,float value)
         {
-            Register(id);if(focused==id&&adjustment!=0){value=Mathf.Clamp01(value+adjustment*.05f);adjustment=0;}
+            Register(id);sliders.Add(id);if(focused==id&&adjustment!=0){value=Mathf.Clamp01(value+adjustment*.05f);adjustment=0;}
             var track=Text(1);var thumb=Text(1); // Dedicated cached styles below, no skin-dependent track.
             if(!styles.TryGetValue("sliderTrack",out track)){track=new GUIStyle{normal={background=Swatch(new Color(.16f,.23f,.23f))},fixedHeight=3,margin=new RectOffset(0,0,12,12)};styles["sliderTrack"]=track;}
             if(!styles.TryGetValue("sliderThumb",out thumb)){thumb=new GUIStyle{normal={background=Swatch(Paper)},hover={background=Swatch(Accent)},active={background=Swatch(Accent)},fixedWidth=14,fixedHeight=26};styles["sliderThumb"]=thumb;}
@@ -130,17 +163,31 @@ namespace EchoProtocol.Presentation
             value=GUI.HorizontalSlider(rect,value,0,1,track,thumb);
             if(focused==id)Line(rect.x,rect.yMax+5,rect.width,Accent);return value;
         }
-        public float Scroll(Rect viewport,float value,float totalHeight)
+        public float Scroll(Rect viewport,float value,float totalHeight,string id=null)
         {
             float maximum=Mathf.Max(0,totalHeight-viewport.height);
-            if(Event.current.type==EventType.ScrollWheel&&viewport.Contains(Event.current.mousePosition)){value+=Event.current.delta.y*28;Event.current.Use();}
+            var scrollbar=new Rect(viewport.xMax+8,viewport.y,22,viewport.height);
+            if(id!=null)
+            {
+                Register(id);readers.Add(id);
+                if(Event.current.type==EventType.MouseDown&&(viewport.Contains(Event.current.mousePosition)||scrollbar.Contains(Event.current.mousePosition)))focused=id;
+                if(scrollTarget==id&&scrollFrame==Time.frameCount)
+                {
+                    value+=scrollLines*62+scrollPages*Mathf.Max(62,viewport.height-42);
+                    if(scrollEdge!=0)value=scrollEdge<0?0:maximum;
+                    scrollTarget=null;
+                }
+                if(focused==id)Fill(new Rect(viewport.x-8,viewport.y,2,viewport.height),screenKey=="document"?Seal:Accent);
+            }
+            if(Event.current.type==EventType.ScrollWheel&&(viewport.Contains(Event.current.mousePosition)||scrollbar.Contains(Event.current.mousePosition)))
+            {value+=Event.current.delta.y*28;if(id!=null)focused=id;Event.current.Use();}
             value=Mathf.Clamp(value,0,maximum);
             if(maximum>0)
             {
                 var track=Style(functionalFont,1,new Color(.7f,.7f,.7f),TextAnchor.UpperLeft);
                 if(!styles.TryGetValue("scrollTrack",out track)){track=new GUIStyle{normal={background=Swatch(new Color(.5f,.49f,.43f,.25f))},fixedWidth=4,margin=new RectOffset(7,7,0,0)};styles["scrollTrack"]=track;}
                 if(!styles.TryGetValue("scrollThumb",out var thumb)){thumb=new GUIStyle{normal={background=Swatch(new Color(.37f,.40f,.35f))},hover={background=Swatch(Seal)},active={background=Swatch(Seal)},fixedWidth=12,fixedHeight=36};styles["scrollThumb"]=thumb;}
-                value=GUI.VerticalSlider(new Rect(viewport.xMax+8,viewport.y,18,viewport.height),value,0,maximum,track,thumb);
+                value=GUI.VerticalSlider(scrollbar,value,0,maximum,track,thumb);
             }
             return Mathf.Clamp(value,0,maximum);
         }
