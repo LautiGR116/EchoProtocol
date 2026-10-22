@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-22",
+  "purpose": "House-only present-tense physical activity; no Echo channel or generated voice.",
+  "license": "CC0 1.0 for every source; original local source evidence retained in repository.",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "provenance": [
+    {
+      "author": "SoundDesignForYou",
+      "title": "Creaking Wooden Floor [7]",
+      "url": "https://freesound.org/people/SoundDesignForYou/sounds/646691/",
+      "evidence": "ArtSource/Audio/Overhaul/Evidence/646691.json",
+      "original": "Public lossy HQ MP3 preview; existing 48kHz PCM derivative does not restore lost precision.",
+      "derivative": "Assets/_Game/Audio/Clips/Overhaul/FloorboardWeight.wav"
+    },
+    {
+      "author": "ftpalad",
+      "title": "Footsteps on Wooden Floor.aif",
+      "url": "https://freesound.org/people/ftpalad/sounds/119914/",
+      "evidence": "ArtSource/Audio/Overhaul/Evidence/119914.json",
+      "original": "Public lossy HQ MP3 preview; existing FootWood derivatives contain separately documented excerpts.",
+      "derivatives": [
+        "Assets/_Game/Audio/Clips/Overhaul/FootWood0.wav",
+        "Assets/_Game/Audio/Clips/Overhaul/FootWood2.wav"
+      ]
+    },
+    {
+      "author": "AntumDeluge",
+      "title": "Scrapes",
+      "url": "https://opengameart.org/content/scrapes",
+      "evidence": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "derivative": "ArtSource/Audio/Resonance/Decoded/scrape-2.wav"
+    },
+    {
+      "author": "Brian MacIntosh (BMacZero)",
+      "title": "Mechanical Sounds",
+      "url": "https://opengameart.org/content/mechanical-sounds",
+      "evidence": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "derivative": "ArtSource/Audio/Resonance/Decoded/mechanical-lightclunk1.wav"
+    }
+  ],
+  "inputs": {
+    "Assets/_Game/Audio/Clips/Overhaul/FloorboardWeight.wav": {
+      "sha256": "94b8d4f4105d6ef5eec982af81bef2b2625dbdc1418e404a519f8c9b880be46b",
+      "seconds": 0.896
+    },
+    "Assets/_Game/Audio/Clips/Overhaul/FootWood0.wav": {
+      "sha256": "9bebba5361bfa9be3433886ca533fbf3bcf31aebe150836b5d2238b9e3556796",
+      "seconds": 0.44
+    },
+    "Assets/_Game/Audio/Clips/Overhaul/FootWood2.wav": {
+      "sha256": "a6bf64fc23e71962ef3d6d6fc82c93c2425ffb798a8f01ce1b5576c5e5901a50",
+      "seconds": 0.44
+    },
+    "ArtSource/Audio/Resonance/Decoded/scrape-2.wav": {
+      "sha256": "9b93f353f0155ffa391b1074a1595dd00321e8c604efe0ca9c1192a5f86129a0",
+      "seconds": 1.2849375
+    },
+    "ArtSource/Audio/Resonance/Decoded/mechanical-lightclunk1.wav": {
+      "sha256": "26d3685503d1cb5f8c0421b3dea64faa3108e8daab02b814c7c6ee33c5ca3e3d",
+      "seconds": 0.3715
+    }
+  },
+  "processing": "Arithmetic mono read, DC removal; linear sample interpolation for rate changes; first-order highpass/two-pole lowpass offline. Output mono PCM24 48k; unity PCM import, preload, no normalization. No added synthetic layer, reverb, voice or random event.",
+  "masters": [
+    {
+      "file": "Occupied_Weight.wav",
+      "seconds": 1.58,
+      "channels": 1,
+      "sample_rate": 48000,
+      "pcm_bits": 24,
+      "peak_linear": 0.28,
+      "peak_dbfs": -11.06,
+      "rms_dbfs": -28.14,
+      "dc": 3.6909134847166355e-18,
+      "clipped_samples": 0,
+      "loop": false,
+      "sources": [
+        "Assets/_Game/Audio/Clips/Overhaul/FootWood0.wav",
+        "Assets/_Game/Audio/Clips/Overhaul/FloorboardWeight.wav"
+      ],
+      "edits": [
+        "Whole FootWood0 at 0.90 playback ratio; onset 0.018s, relative gain 0.32.",
+        "Whole FloorboardWeight at 0.69 playback ratio; onset 0.17s, relative gain 0.68.",
+        "Offline band shaping (65/3800 Hz foot; 100/4100 Hz wood); no runtime filter required.",
+        "One loaded step followed by timber strain; 1.58s total, 4ms attack/80ms release, peak normalized 0.28."
+      ],
+      "sha256": "de33908e8f955df61e341934e888a6a1d162a680b2ea6b0113a30689e34913ea",
+      "status": "Prepared and signal-checked; mixture, attribution, comfort and fear pending human listening."
+    },
+    {
+      "file": "Occupied_Contact.wav",
+      "seconds": 1.76,
+      "channels": 1,
+      "sample_rate": 48000,
+      "pcm_bits": 24,
+      "peak_linear": 0.42,
+      "peak_dbfs": -7.54,
+      "rms_dbfs": -26.23,
+      "dc": 6.443925024041532e-09,
+      "clipped_samples": 0,
+      "loop": false,
+      "sources": [
+        "ArtSource/Audio/Resonance/Decoded/mechanical-lightclunk1.wav",
+        "Assets/_Game/Audio/Clips/Overhaul/FootWood2.wav",
+        "Assets/_Game/Audio/Clips/Overhaul/FloorboardWeight.wav"
+      ],
+      "edits": [
+        "Whole lightclunk1 at 0.82 ratio, onset 0, gain 0.60; latch/frame transient.",
+        "Whole FootWood2 at 0.77 ratio, onset 0.010s, gain 0.67; timber contact body.",
+        "Whole FloorboardWeight at 0.64 ratio, onset 0.07s, gain 0.54; released strain.",
+        "Offline 100/5400 Hz latch, 55/2900 Hz foot, 75/4600 Hz strain; one attack and decaying material tail, no repeated bangs.",
+        "1.76s total; 4ms attack/80ms release; peak normalized 0.42."
+      ],
+      "sha256": "28cd427dcc675b6dac8ba4383b61201e13db03fa9f88615b72ecf2c8d372bd35",
+      "status": "Prepared and signal-checked; mixture, attribution, comfort and fear pending human listening."
+    },
+    {
+      "file": "Occupied_Retreat.wav",
+      "seconds": 2.18,
+      "channels": 1,
+      "sample_rate": 48000,
+      "pcm_bits": 24,
+      "peak_linear": 0.24,
+      "peak_dbfs": -12.4,
+      "rms_dbfs": -29.08,
+      "dc": -3.9981871704926866e-20,
+      "clipped_samples": 0,
+      "loop": false,
+      "sources": [
+        "ArtSource/Audio/Resonance/Decoded/scrape-2.wav"
+      ],
+      "edits": [
+        "Whole scrape-2 at 0.66 playback ratio; 0.025s leading offset.",
+        "Offline 140–3100 Hz shaping, 140ms entrance/500ms release; one physical withdrawal, no loop, vocal or breathing layer.",
+        "2.18s total; final 4ms/80ms safety fades; peak normalized 0.24."
+      ],
+      "sha256": "7711d3d69ae8b2a699628d89539a4a3502ed4fc2992c0fdac0458cc9367e97d5",
+      "status": "Prepared and signal-checked; mixture, attribution, comfort and fear pending human listening."
+    }
+  ]
+}
