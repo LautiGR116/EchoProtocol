@@ -1,7 +1,7 @@
 # P3 — el otro cuerpo invade la distancia · 2026-10-23
 
-**Fuentes implementadas; integración/compilación/Play pendientes en Editor central.
-Miedo, actuación y escucha EN PRUEBA.** Base `4e240f2f`, rama
+**Integrado en Incursion; comprobación focal en Editor central realizada.
+Miedo, actuación y escucha EN PRUEBA humana.** Base `4e240f2f`, rama
 `codex/p3-body-intrusion`. Sin Editor, Library, build, push ni publicación aquí.
 
 El mismo intruso se reconoce junto al Echo real durante el retorno a A. Tras
@@ -51,7 +51,24 @@ sale primero en −X de la lámpara existente y luego converge en Z. Cara interi
 del vidrio `x=-6.2825`; muñecas `x=-6.2425` con margen para el volumen de la mano.
 La raíz conserva 0,51 m al plinto frente a radio 0,4 + skin 0,035. El jugador
 permanece al otro lado y conserva su salida. El integrador comprueba referencias,
-vidrio, rig, estado del controlador, dos puntos de clearance y fuentes antes de editar.
+vidrio mediante su geometría local aunque esté inactivo, rig, estado del
+controlador y fuentes antes de editar. La colisión efectiva se revisa en Play.
+
+## Resultado central
+
+Se corrigió el lookup de huesos para aceptar el prefijo real de Nathan. El
+primer check llegó al stop sin atravesar obstáculos, pero la muñeca izquierda
+quedó a 11,3 cm del target: no hubo golpe ficticio (`Contacts=0`). El apoyo se
+subió de y=1,12 a 1,40 y pasó a z=35,82, conservando el plano del vidrio. Al
+reanudar sólo ese extremo corregido se registró un contacto y asentamiento,
+sin bloqueo; la cámara mostró ambas manos y el cuerpo próximo al vidrio.
+La pose todavía debe juzgarse jugando; esto no aprueba su actuación.
+
+El fixture habilitó la recepción y las fases previas del relay, con un Echo
+estacionario sintético detectado realmente en A. No equivale a jugar P3 desde
+el inicio. La entrada real de bomba dejó `OwnsPose=false`, ambas fuentes P3
+detenidas y el mismo actor en `(-4.40,.03,-46.70)`. No se ejecutó la persecución.
+Escena guardada fuera de Play; sin builds ni cambios en la toma/Echo de producción.
 
 ## Comprobaciones realmente hechas y entrega al Editor
 

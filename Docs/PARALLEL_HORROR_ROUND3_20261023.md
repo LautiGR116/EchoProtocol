@@ -119,8 +119,9 @@ cuerpo a la validación o editar materiales/rigs compartidos. No modificar
 
 ## Chats iniciados
 
-Los tres arrancaron desde `4e240f2f`, con Astra / Ultra. Se recibió progreso
-inicial de cada uno; la implementación está **EN CURSO**, aún no integrada.
+Los tres arrancaron desde `4e240f2f`, con Astra / Ultra. Los tres entregaron;
+sus cambios están **integrados en la Incursion local**, con comprobaciones
+centrales focales. Terror, actuación y escucha siguen **EN PRUEBA humana**.
 
 - SE1: `01a169fd-29ca-79e2-a135-88062533c56b`, worktree `f9be`.
 - P3: `01a169fd-4dd5-7e42-8798-405ce1187155`, worktree `29c2`.
@@ -130,3 +131,29 @@ Para recuperar espacio se excluyeron `ArtSource/` y `Docs/VisualEvidence/` de
 las tres copias mediante sparse-checkout. Permanecen completos en el proyecto
 principal, disponibles para lectura. Se avisó a los tres chats. Espacio observado
 después: ~1 GiB; se mantiene la prohibición de Libraries/Editors adicionales.
+
+## Integración central — 2026-10-23
+
+6B `8f0ed7d6`, P3 `4842463e` y SE1 `9f22b40d`, sobre la misma base,
+sin conflictos entre frentes. Correcciones centrales: preflight de rig P3 con
+nombres completos, validación del vidrio inactivo (`1eaf61c1`), alcance real
+de la mano de apoyo, separación/bordes de las láminas SE1 y despeje del número
+6B. La escena privada se guardó mediante Editor y tiene copia antes/después en
+`/Users/lautigr116/EchoProtocol-backups/parallel-round3-20261023/`.
+
+Checks acotados: SE1 completó tres etapas/cuatro contactos y congeló el estado
+al pausar; la puerta rechazó cerrar con la cápsula en su barrido y cerró al
+despejarse. P3 alcanzó el stop mediante su controlador; se corrigió la mano
+inalcanzable, se observó un contacto y asentamiento, y Enter de bomba liberó
+pose/audio sin duplicar ni devolver el actor a P3. 6B ocultó el exterior con
+hoja cerrada y aceptó la observación de una toma realmente grabada; se revisó
+el encuadre y el número corregido desde la cámara. Capturas locales ignoradas
+en `Builds/round3-integration-20261023/` (imágenes, no builds).
+
+Límites: se prepararon estados de capítulo, sin recorrido completo. P3 usó un
+Echo estacionario sintético de prueba, detectado por el lector real; no valida
+la ruta natural del puzzle. Tras fallar el alcance, sólo se repitió el extremo
+de contacto corregido. SE1 partió con P1 completado y sin toma activa. La
+grabación de 6B sí fue capturada por el grabador existente. No se hizo escucha
+comparativa ni se certificó miedo por contadores. Sin builds ni push; Editor
+fuera de Play al entregar. No se añaden otras rondas de pruebas de rutina.

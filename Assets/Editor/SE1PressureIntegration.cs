@@ -267,15 +267,15 @@ public static class SE1PressureIntegration
             {
                 var blade = (Transform)blades.GetArrayElementAtIndex(j).objectReferenceValue;
                 At(blade, new Vector3(-.032f, 2.88f + j * .017f, BayZ[i]));
-                if (Vector3.Distance(blade.lossyScale, new Vector3(.018f, .184f, 3.52f)) > .001f
+                if (Vector3.Distance(blade.lossyScale, new Vector3(.018f, .170f, 3.52f)) > .001f
                     || Quaternion.Angle(blade.rotation, Quaternion.identity) > .01f)
                     throw new InvalidOperationException("A captive shutter blade was resized or rotated outside its protected track.");
                 // The entire downward sweep (including the folded lip) is in
                 // the old glass x/z slab. Upper storage is in its solid header.
                 Bounds glass = c.glass[i].bounds;
                 var atStop = blade.position + Vector3.down * (j * .192f);
-                if (atStop.y - .092f < glass.min.y || atStop.x - .009f < glass.min.x
-                    || atStop.x + .009f > glass.max.x || atStop.z - 1.76f < glass.min.z || atStop.z + 1.76f > glass.max.z)
+                if (atStop.y - .085f < glass.min.y || atStop.x - .009f < glass.min.x
+                    || atStop.x + .017f > glass.max.x || atStop.z - 1.76f < glass.min.z || atStop.z + 1.76f > glass.max.z)
                     throw new InvalidOperationException("A captive shutter stroke escapes the original glass barrier.");
             }
         }

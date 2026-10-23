@@ -1,7 +1,7 @@
 # 6B — no quiero abrir · 2026-10-23
 
-**Fuentes implementadas; integración/compilación/Play pendientes en el Editor
-central. Miedo, comodidad y composición final EN PRUEBA humana.**
+**Integrado en Incursion; comprobación focal en Editor central realizada.
+Miedo, comodidad y composición final EN PRUEBA humana.**
 Base `4e240f2f`; rama `codex/final-reception-close-arrival`.
 
 ## Cambio perceptible
@@ -85,3 +85,16 @@ falta otro harness ni un recorrido de campaña.
 
 Dos dudas humanas: ¿abrir revela una presencia corporal incómoda y no un
 escaparate? ¿se entiende cruzar a portería/conservar después del encuentro?
+
+## Resultado central
+
+Se preparó la revisión 6B y se capturó una aproximación/pausa real de 14,123 s
+con el grabador existente. La hoja cerrada ocultó el cuerpo; al abrir desde el
+origen, la misma toma produjo `HasWitnessed=true`. Se repitió únicamente esa
+reproducción para capturar el encuadre con el cuerpo presente, sin fabricar
+frames ni gestos. No se probaron conservación/salida ni una ruta completa.
+
+La primera cámara reveló que el nuevo dintel tapaba parte del número 6B; se
+elevó a y=2,30 y se volvió a mirar sólo la placa. La escena quedó guardada.
+El cuerpo conserva su aspecto neutro: una mejor composición no demuestra
+que ahora cause miedo. Sin escucha comparativa, builds ni publicación.

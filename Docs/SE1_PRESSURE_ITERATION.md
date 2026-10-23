@@ -1,7 +1,7 @@
 # SE1 — el apagado llega hasta vos
 
 2026-10-23. Base `4e240f2f`; rama `codex/se1-approaching-pressure`.
-**Fuentes implementadas; integración/compilación/Play central pendientes.
+**Integrado en Incursion; comprobación focal en Editor central realizada.
 Percepción, miedo y comodidad EN PRUEBA.**
 
 Cuatro persianas metálicas cautivas convierten el vidrio conocido de P1 en una
@@ -71,3 +71,16 @@ exigencias normales de P1 y del Echo no se omiten en producción.
 Quedan dos preguntas humanas: ¿el cierre próximo provoca retirada y se entiende
 el camino con cámara libre? ¿el contacto se siente material y cómodo con volumen
 normal, también en parlantes/dinámica reducida? No hay aprobación humana nueva.
+
+## Resultado central
+
+Con P1 preparado como completo y sin toma activa, la secuencia real llegó a
+tres etapas y cuatro contactos; permaneció estable al pausar. La primera cámara
+mostró láminas solapadas y bordes ocultos. Se redujo su alto de 0,184 a 0,170 m
+y se adelantó el pliegue dentro del vidrio, sin editar materiales compartidos.
+Se descartó una prueba temporal de material; se guardó la geometría corregida.
+
+En un check separado de la puerta abierta, el cierre fue rechazado con Player
+en `(-3.49,.03,20.02)` y aceptado desde el RECALL `(-2.75,.03,22.05)`;
+se confirmó cierre completo. No se recorrieron P1/P2 ni se simuló un Echo
+acelerado. No se aprobó escucha/terror. Sin builds; escena guardada fuera de Play.

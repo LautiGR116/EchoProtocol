@@ -19,7 +19,8 @@ public static class P3IntrusionIntegration
     static readonly Vector3 Initial = new Vector3(-4.55f, .03f, 35.8f);
     static readonly Vector3 Arrest = new Vector3(-5.68f, .03f, 36.02f);
     static readonly Vector3 HighPalm = new Vector3(-6.2425f, 1.43f, 36.28f);
-    static readonly Vector3 LowPalm = new Vector3(-6.2425f, 1.12f, 35.77f);
+    // Keep the brace within Nathan's actual arm reach through contact/settle.
+    static readonly Vector3 LowPalm = new Vector3(-6.2425f, 1.40f, 35.82f);
     const string ContactPath = "Assets/_Game/Audio/Clips/Impact/Threat_FrameContact.wav";
     const string SupportPath = "Assets/_Game/Audio/Clips/Impact/Threat_Step1.wav";
 
