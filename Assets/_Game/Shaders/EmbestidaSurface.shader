@@ -88,7 +88,11 @@ Shader "EchoProtocol/EmbestidaSurface"
                     // Let the sculpt and lighting describe the sockets and folds:
                     // retain photographic skin/lip variation, stubble and pores;
                     // no painted eye circles, cheek sores or flat scalp colour.
-                    base=lerp(base,scan*_BaseColor.rgb,faceWeight);
+                    // Reduce the healthy pink cast without inventing bruises or
+                    // flattening the scanned light/dark variation into makeup.
+                    float scanLuminance=dot(scan,float3(.2126,.7152,.0722));
+                    float3 quietSkin=lerp(scan,scanLuminance.xxx,.23);
+                    base=lerp(base,quietSkin*_BaseColor.rgb,faceWeight);
                     float3 scanBump=UnpackNormalScale(SAMPLE_TEXTURE2D(_BumpMap,sampler_BumpMap,i.uv),_BumpScale);
                     bump=lerp(bump,scanBump,faceWeight);
                     // A restrained dielectric response: dry cheek/neck, slightly
@@ -96,7 +100,7 @@ Shader "EchoProtocol/EmbestidaSurface"
                     float forehead=spot(p,float3(0,1.749,.096),float3(.060,.026,.038));
                     float nose=spot(p,float3(0,1.698,.133),float3(.018,.030,.037));
                     float lips=spot(p,float3(0,1.651,.115),float3(.032,.008,.022));
-                    float faceSmoothness=.25+.11*saturate(forehead)+.16*saturate(nose)+.10*saturate(lips);
+                    float faceSmoothness=.25+.11*saturate(forehead)+.16*saturate(nose)+.06*saturate(lips);
                     faceSmoothness=lerp(faceSmoothness,.20,smoothstep(1.76,1.80,p.y));
                     smoothness=lerp(smoothness,faceSmoothness,faceWeight);
                 }

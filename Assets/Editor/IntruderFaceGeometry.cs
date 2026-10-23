@@ -87,27 +87,31 @@ public static class IntruderFaceGeometry
         d.x -= masseter * .0014f;
         d.z += masseter * .0012f;
 
-        // Mouth remains closed/resting in geometry. Only B owns jaw opening.
-        // Small unequal corner depressions remove the scan's upward mouth arc;
-        // the central lip retains volume instead of stretching into a slash.
-        float leftCorner = G(p, new Vector3(-.023f, 1.664f, .111f), new Vector3(.012f, .013f, .019f));
-        float rightCorner = G(p, new Vector3(.022f, 1.664f, .112f), new Vector3(.012f, .013f, .019f));
-        d.y -= leftCorner * .0024f + rightCorner * .0013f;
+        // P3's first integrated view still read as a half-smile. Include the
+        // tissue around each commissure, not just a point on the lower lip:
+        // a broad 4-5 mm depression removes the rising arc without a long slash.
+        // Only B owns jaw opening; this is the contained resting mouth.
+        float leftCorner = G(p, new Vector3(-.025f, 1.666f, .111f), new Vector3(.016f, .018f, .023f));
+        float rightCorner = G(p, new Vector3(.024f, 1.666f, .112f), new Vector3(.016f, .018f, .023f));
+        d.y -= leftCorner * .0048f + rightCorner * .0042f;
+        d.z -= (leftCorner + rightCorner) * .0006f;
         float lowerLip = G(p, new Vector3(-.001f, 1.658f, .122f), new Vector3(.021f, .006f, .014f));
-        d.y += lowerLip * .0007f;
-        d.z += lowerLip * .0010f;
+        float upperLip = G(p, new Vector3(-.001f, 1.670f, .124f), new Vector3(.019f, .005f, .014f));
+        d.y += lowerLip * .0012f - upperLip * .0008f;
+        d.z += lowerLip * .00025f - upperLip * .0004f;
 
         // Brow tissue compresses over the original socket; no enlarged eyes.
         float browL = G(p, new Vector3(-.020f, 1.741f, .106f), new Vector3(.022f, .010f, .023f));
         float browR = G(p, new Vector3(.019f, 1.741f, .105f), new Vector3(.022f, .010f, .023f));
-        d.y -= browL * .0015f + browR * .0008f;
-        d.z += browL * .0012f + browR * .0008f;
+        d.y -= browL * .0030f + browR * .0022f;
+        d.x += browL * .0008f - browR * .0006f;
+        d.z += browL * .0018f + browR * .0012f;
 
         float upperL = G(p, new Vector3(-.0309f, 1.7238f, .106f), new Vector3(.020f, .0038f, .010f));
         float upperR = G(p, new Vector3(.0278f, 1.7240f, .105f), new Vector3(.020f, .0038f, .010f));
         float lowerL = G(p, new Vector3(-.0309f, 1.7133f, .105f), new Vector3(.019f, .004f, .009f));
         float lowerR = G(p, new Vector3(.0278f, 1.7138f, .104f), new Vector3(.019f, .004f, .009f));
-        d.y += -.0016f * upperL - .0009f * upperR + .0005f * lowerL + .0007f * lowerR;
+        d.y += -.0024f * upperL - .0017f * upperR + .0011f * lowerL + .0013f * lowerR;
         d.z += .0006f * (upperL + upperR + lowerL + lowerR);
         Vector3 q = p + d;
         // Constrain the moved lids to the original globe envelope (measured
