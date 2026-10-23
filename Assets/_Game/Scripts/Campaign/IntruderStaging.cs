@@ -77,7 +77,7 @@ namespace EchoProtocol.Campaign
         {
             Vector3 d=cornerHand.position-transform.position;d.y=0;
             if(!cornerBraced&&speed>1.2f&&angle>35&&d.magnitude<1.0f)
-            {cornerBraced=true;brakeAt=Time.time;cornerContact.Play();performance.ResetFeet();}
+            {cornerBraced=true;brakeAt=Time.time;cornerContact.Play();if(!embestida)performance.ResetFeet();}
             return Time.time-brakeAt<.24f;
         }
 

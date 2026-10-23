@@ -20,13 +20,23 @@ namespace EchoProtocol.Campaign
         Quaternion[] rotations;
         Vector3 rootPosition;
         Quaternion rootRotation, leftOrientation, rightOrientation;
-        Vector3 leftRest, rightRest, leftPlant, rightPlant, leftLiftOff, rightLiftOff;
+        Vector3 leftRest, rightRest, travelDirection;
         float lu,ll,ru,rl, la,lb,ra,rb,cycle,runBlend;
-        bool initialized,leftStance=true,rightStance=true;
+        float previousSpeed, accelerationWeight, brakeWeight, gazeYaw, gazePitch, machineHandWeight;
+        bool initialized;
+        struct FootSupport
+        {
+            public Vector3 plant, liftOff, lastTarget, recoveryTarget;
+            public Quaternion plantRotation, liftRotation, lastRotation;
+            public bool stance, recovering;
+            public float recoveryAge, recoveryDuration;
+        }
+        FootSupport leftSupport, rightSupport;
         int contacts;
         float[] voiceEnvelope;
         AudioClip envelopeClip;
         public Transform Face => head;
+        public float MachinePalmDistance => leftHand&&intruder?Vector3.Distance(leftHand.position,intruder.PumpHand.position):float.PositiveInfinity;
         public int PlantedContacts { get; private set; }
         public int ReachCount { get; private set; }
         public float MaxPlantDrift { get; private set; }
@@ -47,51 +57,86 @@ namespace EchoProtocol.Campaign
             ru=Vector3.Distance(rightThigh.position,rightShin.position);rl=Vector3.Distance(rightShin.position,rightFoot.position);
             la=Vector3.Distance(leftArm.position,leftForearm.position);lb=Vector3.Distance(leftForearm.position,leftHand.position);
             ra=Vector3.Distance(rightArm.position,rightForearm.position);rb=Vector3.Distance(rightForearm.position,rightHand.position);
-            initialized=true;
+            initialized=true;ResetFeet();
         }
-        public void ResetPerformance(){Initialize();if(!initialized)return;Restore();cycle=runBlend=0;contacts=0;ResetFeet();}
+        public void ResetPerformance()
+        {
+            Initialize();if(!initialized)return;Restore();
+            cycle=runBlend=previousSpeed=accelerationWeight=brakeWeight=gazeYaw=gazePitch=machineHandWeight=0;
+            contacts=0;travelDirection=root.forward;ResetFeet();
+        }
         void Restore(){for(int i=0;i<joints.Length;i++){joints[i].localPosition=positions[i];joints[i].localRotation=rotations[i];}root.localPosition=rootPosition;root.localRotation=rootRotation;}
         public void ResetFeet()
         {
             if(!initialized)return;
-            leftPlant=leftLiftOff=root.TransformPoint(leftRest);rightPlant=rightLiftOff=root.TransformPoint(rightRest);
-            leftStance=rightStance=true;
+            leftSupport=NewSupport(leftRest,leftOrientation);
+            rightSupport=NewSupport(rightRest,rightOrientation);
+        }
+        FootSupport NewSupport(Vector3 rest,Quaternion orientation)
+        {
+            Vector3 point=root.TransformPoint(rest);Quaternion rotation=root.rotation*orientation;
+            return new FootSupport{plant=point,liftOff=point,lastTarget=point,plantRotation=rotation,liftRotation=rotation,lastRotation=rotation,stance=true};
         }
         public int ConsumeContacts(){int n=contacts;contacts=0;return n;}
-        public void Present(MachineCoverThreat.Intention phase,float age,Vector3 velocity,float turnRate,Vector3 attention,AudioSource voice)
+        public void Present(MachineCoverThreat.Intention phase,float age,Vector3 velocity,float turnRate,Vector3 attention,AudioSource voice,float pursuitSpeed=3.6f)
         {
             Initialize();if(!initialized)return;Restore();
             float speed=new Vector2(velocity.x,velocity.z).magnitude,dt=Time.deltaTime;
-            runBlend=Mathf.MoveTowards(runBlend,Mathf.InverseLerp(1.7f,3.6f,speed),dt*4);
-            float moving=Mathf.Clamp01(speed/.25f),stride=Mathf.Lerp(1.32f,2.2f,runBlend);
-            cycle=Mathf.Repeat(cycle+speed*dt/stride+Mathf.Abs(turnRate)*dt/720*(1-moving),1);
+            bool searching=phase==MachineCoverThreat.Intention.Search;
+            bool reacquiring=phase==MachineCoverThreat.Intention.Reacquire;
+            bool charging=phase==MachineCoverThreat.Intention.Charge;
+            bool listening=phase==MachineCoverThreat.Intention.Listening;
+            // Urgency follows the speed configured by this encounter. A 2.1 m/s
+            // chase must not retain the old 3.6 m/s walking-to-running threshold.
+            // Foot timing remains distance-driven, including the faster breach.
+            float locomotion=Mathf.InverseLerp(Mathf.Max(.55f,pursuitSpeed*.38f),Mathf.Max(1,pursuitSpeed),speed);
+            if(searching||listening)locomotion*=.42f;
+            runBlend=Mathf.MoveTowards(runBlend,locomotion,dt*4);
+            float moving=Mathf.Clamp01(speed/.25f);
+            float stride=Mathf.Lerp(.96f,2.05f,Mathf.InverseLerp(.15f,4.5f,speed));
+            cycle=Mathf.Repeat(cycle+speed*dt/stride,1);
+            if(speed>.08f)travelDirection=Vector3.ProjectOnPlane(velocity,Vector3.up).normalized;
+            else if(travelDirection.sqrMagnitude<.01f)travelDirection=root.forward;
+            float acceleration=dt>.00001f?(speed-previousSpeed)/dt:0;previousSpeed=speed;
+            accelerationWeight=Mathf.MoveTowards(accelerationWeight,Mathf.Clamp01(acceleration/5),dt*5);
+            brakeWeight=Mathf.MoveTowards(brakeWeight,Mathf.Clamp01(-acceleration/4.5f),dt*(acceleration<0?9:3));
             bool recognition=phase==MachineCoverThreat.Intention.Recognition;
             bool capture=phase==MachineCoverThreat.Intention.Capture;
-            float launch=phase==MachineCoverThreat.Intention.Charge?1-Mathf.Clamp01(age/.45f):0;
+            float launch=charging?1-Mathf.Clamp01(age/.45f):reacquiring?Mathf.SmoothStep(0,1,age/.30f)*.65f:0;
             float brace=recognition?(intruder?.70f+.30f*Mathf.SmoothStep(0,1,age/.85f):Mathf.SmoothStep(0,1,Mathf.InverseLerp(.55f,1.3f,age))):launch;
             float recoil=intruder&&recognition?1-Mathf.SmoothStep(0,1,age/.85f):0;
-            float breath=Mathf.Sin(age*5.8f)*.9f;
+            float breath=Mathf.Sin(age*(searching?2.2f:5.8f))*(searching?.32f:.9f);
             bool witness=phase==MachineCoverThreat.Intention.Witness;
             bool onMachine=phase==MachineCoverThreat.Intention.MachineContact;
+            float searchWeight=searching?Mathf.SmoothStep(0,1,age/.26f):0;
+            float press=onMachine?Mathf.Sin(Mathf.PI*Mathf.Clamp01(Mathf.InverseLerp(.25f,.55f,age))):0;
+            machineHandWeight=Mathf.MoveTowards(machineHandWeight,onMachine?1:0,dt*(onMachine?4.5f:6));
             var rush=intruder?intruder.Embestida:null;
             float squeezed=intruder&&!rush&&phase==MachineCoverThreat.Intention.Entry?1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(1.12f,1.52f,age)):0;
-            float braking=intruder?intruder.BrakeWeight:0;
-            hips.position-=root.up*(runBlend*(.095f+.025f*Mathf.Cos(cycle*Mathf.PI*4))+.055f*brace);
-            hips.position+=root.right*(-.055f*squeezed)-root.up*(.16f*squeezed+(witness?.045f:0)+(onMachine?.065f:0));
-            Rotate(spine,root.right,runBlend*14+brace*8+breath);
-            Rotate(spine,root.right,squeezed*25+(witness?8:0)+(onMachine?19:0));
-            Rotate(spine,root.right,-braking*14+recoil*9);
+            float cornerBrace=intruder?intruder.BrakeWeight:0;
+            float braking=Mathf.Max(cornerBrace,brakeWeight);
+            hips.position-=root.up*(runBlend*(.070f+.020f*Mathf.Cos(cycle*Mathf.PI*4))+.045f*brace+braking*.035f);
+            hips.position+=root.right*(-.055f*squeezed+searchWeight*.018f)-root.up*(.16f*squeezed+(witness?.045f:0)+machineHandWeight*.055f);
+            hips.position+=root.forward*(accelerationWeight*.025f-braking*.027f+press*.022f);
+            Rotate(spine,root.right,runBlend*12+brace*8+breath+accelerationWeight*5);
+            Rotate(spine,root.right,squeezed*25+(witness?8:0)+machineHandWeight*16+press*5-searchWeight*4);
+            Rotate(spine,root.right,-braking*12+recoil*9);
             Rotate(chest,root.forward,-recoil*5);
             Rotate(chest,root.forward,squeezed*-18+(witness?-5:0));
-            Rotate(chest,root.up,Mathf.Sin(cycle*Mathf.PI*2)*runBlend*7-Mathf.Clamp(turnRate*.025f,-7,7));
-            Rotate(chest,root.forward,-Mathf.Clamp(turnRate*.03f,-8,8)*moving);
+            Rotate(chest,root.up,Mathf.Sin(cycle*Mathf.PI*2)*runBlend*6-Mathf.Clamp(turnRate*.028f,-10,10));
+            Rotate(chest,root.forward,-Mathf.Clamp(turnRate*.03f,-8,8)*moving-press*3);
             Vector3 gaze=root.InverseTransformDirection(attention-head.position);
-            float yaw=Mathf.Clamp(Mathf.Atan2(gaze.x,gaze.z)*Mathf.Rad2Deg,-38,38);
-            Rotate(neck,root.up,yaw*.4f);Rotate(head,root.up,yaw*.6f);
-            Rotate(head,root.right,-runBlend*8-brace*6+Mathf.Clamp(-Mathf.Atan2(gaze.y,new Vector2(gaze.x,gaze.z).magnitude)*Mathf.Rad2Deg,-12,18));
+            float yaw=Mathf.Clamp(Mathf.Atan2(gaze.x,gaze.z)*Mathf.Rad2Deg,-48,48);
+            float pitch=Mathf.Clamp(-Mathf.Atan2(gaze.y,new Vector2(gaze.x,gaze.z).magnitude)*Mathf.Rad2Deg,-12,18);
+            // Eyes/head acquire the supplied evidence first; the shoulders catch
+            // up through the actual root turn. Hidden Player position is never read.
+            gazeYaw=Mathf.MoveTowardsAngle(gazeYaw,yaw,dt*(reacquiring?300:searching?72:170));
+            gazePitch=Mathf.MoveTowardsAngle(gazePitch,pitch,dt*95);
+            Rotate(neck,root.up,gazeYaw*.36f);Rotate(head,root.up,gazeYaw*.64f);
+            Rotate(head,root.right,-runBlend*7-brace*6+gazePitch);
             Rotate(head,root.right,squeezed*13+(witness?9:0)+(intruder&&recognition?10:0));
             Rotate(head,root.forward,squeezed*16+(witness?5:0));
-            if(phase==MachineCoverThreat.Intention.Listening)Rotate(head,root.forward,7);
+            Rotate(head,root.forward,(listening?7:searchWeight*8)+machineHandWeight*7);
             float articulation=Voice(voice);
             Rotate(jaw,root.right,articulation*17);Rotate(chest,root.right,articulation*-3);
             if(intruder)
@@ -105,10 +150,11 @@ namespace EchoProtocol.Campaign
                 {brow.position-=root.up*(.004f*tension);brow.position+=Vector3.Project(head.position-brow.position,root.right)*(.12f*tension);}
             }
             // Bent elbows and opposing shoulder drives replace sped-up walking.
-            float swing=Mathf.Sin(cycle*Mathf.PI*2)*Mathf.Lerp(16,43,runBlend)*moving;
+            float swing=Mathf.Sin(cycle*Mathf.PI*2)*Mathf.Lerp(13,34,runBlend)*moving;
             Rotate(leftArm,root.right,swing-runBlend*8-brace*20);Rotate(rightArm,root.right,-swing-runBlend*8-brace*12);
-            Rotate(leftForearm,root.right,-runBlend*68-brace*32);Rotate(rightForearm,root.right,-runBlend*72-brace*42);
+            Rotate(leftForearm,root.right,-runBlend*54-brace*26-searchWeight*14);Rotate(rightForearm,root.right,-runBlend*60-brace*32-searchWeight*25);
             Rotate(leftArm,root.forward,runBlend*8+brace*8);Rotate(rightArm,root.forward,-runBlend*8-brace*8);
+            Rotate(leftArm,root.right,braking*12-searchWeight*7);Rotate(rightArm,root.right,braking*9-searchWeight*13);
             if(rush)rush.Pose(root,hips,spine,chest,neck,head,jaw,leftArm,rightArm,leftForearm,rightForearm,phase,age);
             if(rush&&phase==MachineCoverThreat.Intention.Entry)
                 Solve(leftArm,leftForearm,leftHand,root.TransformPoint(new Vector3(-.16f,1.15f,.34f)),leftArm.position-root.right*.24f-Vector3.up*.18f,la,lb);
@@ -120,20 +166,33 @@ namespace EchoProtocol.Campaign
                 Solve(rightArm,rightForearm,rightHand,Vector3.Lerp(rightHand.position,anchor.position,blend),rightArm.position+root.right*.25f-Vector3.up*.18f,ra,rb);
                 rightHand.rotation=Quaternion.Slerp(rightHand.rotation,anchor.rotation,blend);
             }
-            else if(intruder&&(squeezed>.01f||witness||onMachine))
+            else if(intruder&&(squeezed>.01f||witness))
             {
-                Transform anchor=witness?intruder.WitnessHand:onMachine?intruder.PumpHand:intruder.BreachHand;
+                Transform anchor=witness?intruder.WitnessHand:intruder.BreachHand;
                 bool right = witness || squeezed > .01f;
                 Transform arm=right?rightArm:leftArm,fore=right?rightForearm:leftForearm,hand=right?rightHand:leftHand;
                 float blend=squeezed>0?squeezed:1;
                 Solve(arm,fore,hand,Vector3.Lerp(hand.position,anchor.position,blend),arm.position-Vector3.up*.38f+root.forward*.1f,right?ra:la,right?rb:lb);
                 hand.rotation=Quaternion.Slerp(hand.rotation,anchor.rotation,blend);
             }
-            else if(braking>.01f)
+            else if(intruder&&machineHandWeight>.01f)
+            {
+                Transform anchor=intruder.PumpHand;
+                // Palm reaches the casing before the .38 s pressure/contact beat,
+                // remains there while listening, then releases as pursuit resumes.
+                float reach=1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(la+lb-.04f,la+lb+.23f,Vector3.Distance(leftArm.position,anchor.position)));
+                float blend=machineHandWeight*reach;
+                Solve(leftArm,leftForearm,leftHand,Vector3.Lerp(leftHand.position,anchor.position,blend),leftArm.position-root.right*.27f-Vector3.up*.20f,la,lb);
+                leftHand.rotation=Quaternion.Slerp(leftHand.rotation,anchor.rotation,blend);
+                Rotate(rightForearm,root.right,-machineHandWeight*18);
+            }
+            else if(cornerBrace>.01f)
             {
                 Transform anchor=intruder.CornerHand;
-                Solve(leftArm,leftForearm,leftHand,Vector3.Lerp(leftHand.position,anchor.position,braking),leftArm.position-root.right*.25f-Vector3.up*.25f,la,lb);
-                leftHand.rotation=Quaternion.Slerp(leftHand.rotation,anchor.rotation,braking);
+                float reach=1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(la+lb,la+lb+.20f,Vector3.Distance(leftArm.position,anchor.position)));
+                float blend=cornerBrace*reach;
+                Solve(leftArm,leftForearm,leftHand,Vector3.Lerp(leftHand.position,anchor.position,blend),leftArm.position-root.right*.25f-Vector3.up*.25f,la,lb);
+                leftHand.rotation=Quaternion.Slerp(leftHand.rotation,anchor.rotation,blend);
             }
             if(capture)
             {
@@ -149,37 +208,66 @@ namespace EchoProtocol.Campaign
             if(rush)foreach(var joint in joints)
                 if(joint.name.Contains("_02_")&&(joint.name.Contains("index")||joint.name.Contains("middle")||joint.name.Contains("ring")||joint.name.Contains("pinky")))
                     joint.localRotation*=Quaternion.Euler(0,0,joint.name.EndsWith("_l")?24:-15);
-            float stance=Mathf.Lerp(.62f,.40f,runBlend);
+            float stance=Mathf.Lerp(.64f,.52f,runBlend);
             Leg(true,Mathf.Repeat(cycle+.02f,1),stance,stride,moving,speed,turnRate);
             Leg(false,Mathf.Repeat(cycle+.52f,1),stance,stride,moving,speed,turnRate);
         }
         void Leg(bool left,float p,float stance,float stride,float moving,float speed,float turnRate)
         {
             Transform thigh=left?leftThigh:rightThigh,shin=left?leftShin:rightShin,foot=left?leftFoot:rightFoot;
-            Vector3 rest=left?leftRest:rightRest,plant=left?leftPlant:rightPlant,liftOff=left?leftLiftOff:rightLiftOff;
-            bool wasStance=left?leftStance:rightStance;
-            bool planted=p<stance||moving<.02f&&Mathf.Abs(turnRate)<8;
-            Vector3 target;
-            if(planted)
+            Vector3 rest=left?leftRest:rightRest;
+            FootSupport support=left?leftSupport:rightSupport,other=left?rightSupport:leftSupport;
+            Quaternion desiredRotation=root.rotation*(left?leftOrientation:rightOrientation);
+            Vector3 underHip=root.TransformPoint(rest);
+            Vector3 landing=underHip+travelDirection*stride*stance*.5f*moving;
+            float limit=(left?lu+ll:ru+rl)-.014f;
+            bool stopped=speed<.08f;
+            // A stopped swing settles through a short arc; planted soles keep
+            // their world orientation instead of revolving with every root turn.
+            if(!support.recovering&&stopped&&!support.stance)
+                BeginRecovery(ref support,underHip,.18f);
+            if(!support.recovering&&support.stance&&other.stance&&!other.recovering)
             {
-                if(!wasStance){plant=root.TransformPoint(rest+Vector3.forward*stride*stance*.5f*moving);contacts++;PlantedContacts++;}
-                target=plant;
+                bool stretched=Vector3.Distance(thigh.position,support.plant)>limit;
+                bool needsSettle=stopped&&(Vector3.Distance(support.plant,underHip)>.14f||Quaternion.Angle(support.plantRotation,desiredRotation)>28);
+                if(stretched||needsSettle)BeginRecovery(ref support,stopped?underHip:landing,stopped?.23f:.15f);
+            }
+            Vector3 target;Quaternion orientation;
+            if(support.recovering)
+            {
+                support.recoveryAge+=Time.deltaTime;
+                float u=Mathf.Clamp01(support.recoveryAge/support.recoveryDuration);
+                target=Vector3.Lerp(support.liftOff,support.recoveryTarget,Mathf.SmoothStep(0,1,u))+Vector3.up*Mathf.Sin(u*Mathf.PI)*.075f;
+                orientation=Quaternion.Slerp(support.liftRotation,desiredRotation,Mathf.SmoothStep(0,1,u));
+                if(u>=1)Plant(ref support,target,orientation);
+            }
+            else if(stopped||p<stance)
+            {
+                if(!support.stance)Plant(ref support,landing,desiredRotation);
+                target=support.plant;orientation=support.plantRotation;
             }
             else
             {
-                if(wasStance)liftOff=plant;
-                float u=(p-stance)/(1-stance);
-                Vector3 landing=root.TransformPoint(rest+Vector3.forward*stride*stance*.5f*moving);
-                target=Vector3.Lerp(liftOff,landing,Mathf.SmoothStep(0,1,u))+Vector3.up*Mathf.Sin(u*Mathf.PI)*Mathf.Lerp(.13f,.25f,runBlend);
+                if(support.stance){support.liftOff=support.plant;support.liftRotation=support.plantRotation;support.stance=false;}
+                float u=Mathf.Clamp01((p-stance)/(1-stance));
+                target=Vector3.Lerp(support.liftOff,landing,Mathf.SmoothStep(0,1,u))+Vector3.up*Mathf.Sin(u*Mathf.PI)*Mathf.Lerp(.10f,.17f,runBlend);
+                orientation=Quaternion.Slerp(support.liftRotation,desiredRotation,Mathf.SmoothStep(0,1,u));
             }
-            // Limit an abrupt corner's old plant to anatomical reach; turn steps
-            // lift/replant it instead of translating the mesh through a wall.
-            float limit=(left?lu+ll:ru+rl)-.012f;
-            if(Vector3.Distance(thigh.position,target)>limit&&planted){plant=root.TransformPoint(rest);target=plant;}
             Solve(thigh,shin,foot,target,root.TransformPoint(rest+new Vector3(0,.45f,.65f)),left?lu:ru,left?ll:rl);
-            foot.rotation=root.rotation*(left?leftOrientation:rightOrientation);
-            if(planted)MaxPlantDrift=Mathf.Max(MaxPlantDrift,Vector3.Distance(foot.position,target));
-            if(left){leftPlant=plant;leftLiftOff=liftOff;leftStance=planted;}else{rightPlant=plant;rightLiftOff=liftOff;rightStance=planted;}
+            foot.rotation=orientation;
+            if(support.stance)MaxPlantDrift=Mathf.Max(MaxPlantDrift,Vector3.Distance(foot.position,target));
+            support.lastTarget=target;support.lastRotation=orientation;
+            if(left)leftSupport=support;else rightSupport=support;
+        }
+        static void BeginRecovery(ref FootSupport support,Vector3 target,float duration)
+        {
+            support.recovering=true;support.recoveryAge=0;support.recoveryDuration=duration;
+            support.liftOff=support.lastTarget;support.liftRotation=support.lastRotation;support.recoveryTarget=target;support.stance=false;
+        }
+        void Plant(ref FootSupport support,Vector3 target,Quaternion rotation)
+        {
+            support.plant=target;support.plantRotation=rotation;support.stance=true;support.recovering=false;
+            contacts++;PlantedContacts++;
         }
         float Voice(AudioSource source)
         {

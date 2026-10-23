@@ -1,3 +1,47 @@
+# La embestida — cacería de la bomba, 2026-10-22
+
+**Implementada y guardada en Incursion; miedo, actuación y comodidad EN PRUEBA humana.**
+El feedback “sigue sin asustar” corresponde a El intruso. No hay un veredicto
+humano posterior de La embestida.
+
+- La persecución ahora acelera, compromete el primer paso, frena, busca la última
+  posición conocida y recupera contacto al volver a ver u oír al jugador. La
+  cabeza recibe esa evidencia, no la posición oculta. Se conserva la velocidad
+  sostenida de 2,1 m/s. Un ala del tabique permite cortar visión antes; un paso
+  físico más corto lleva al receptor de la bomba. La investigación termina en
+  una postura de escucha con palma apoyada y compromiso mínimo de 3,4 s; una
+  exposición frontal muy cercana todavía puede interrumpirla.
+- Cadencia y peso usan la velocidad real y la configurada. Los pies conservan
+  posición y orientación durante el apoyo; giros y frenadas recuperan un pie
+  por vez. Mano, hombro y torso llegan al contacto sin un salto de pose.
+- Esfuerzos de arranque y reencuentro, roce de frenada, toma de aire y presión
+  sobre la carcasa sustituyen la voz periódica de esta candidata. Respiración,
+  voz y contactos tienen fuentes separadas; la búsqueda resta capas para dejar
+  espacio a pasos y dirección. Cinco montajes CC0 existentes, trazados en
+  `ArtSource/Audio/Hunt/masters.json`. Sin compras ni generación de voces.
+
+**Prueba de 2–3 minutos:** Play → **Jugar · La máquina que te cubre**. En el mando,
+mantené E unos 12 s, soltá 7 s, mantené otros 20 s, soltá y hacé RECALL. Con el
+ruido del Echo, trabajá la manivela; cruzá la reja durante el silencio y liberá
+el cierre del fondo. Retirate por el paso lateral, rodeá el extremo libre del
+nuevo tabique y seguí el regreso. Asomarte permite el reencuentro; volver a
+ocultarte deja que atienda la bomba. Conservá tu volumen cómodo habitual.
+
+**Comprobaciones acotadas en Editor:** compilación sin errores ni warnings.
+La ruta de bomba llegó a la salida y al final natural de la toma sin cambiar
+frames ni agarres; registró búsqueda y reencuentro. Tras el último ajuste del
+paso se comprobó sólo el desvío desde la posición observada: contacto en ~2,7 s,
+palma en su anclaje y apoyos estables entre dos muestras. Se inspeccionó la pose
+con la cámara del juego desde regreso y proximidad. Una obstrucción temporal
+provocó abandono de la embestida en ~1,75 s, sin contacto, golpe ni mano fingidos.
+Captura del listener: pico 0,5, sin muestras saturadas; mono, dinámica reducida,
+WorldSFX y limitador conservados. Esto no sustituye la escucha humana.
+Console sin errores del juego en estas comprobaciones; hubo timeouts/errores
+de comandos de la herramienta. Helpers retirados, Play detenido, escena guardada.
+Sin campaña completa, builds, push ni integración de los otros worktrees.
+
+---
+
 # La embestida — revisión del encuentro, 2026-10-12
 
 **Implementada en Incursion; miedo y actuación EN PRUEBA humana.** El usuario

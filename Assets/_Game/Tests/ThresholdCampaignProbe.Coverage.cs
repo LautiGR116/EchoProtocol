@@ -121,7 +121,10 @@ public sealed partial class ThresholdCampaignProbe
         step="coverage_prepared_return";
         // Turn beside the wall-mounted release rather than trying to walk
         // through its real collision housing on the way to the lateral door.
-        yield return Go(-4.2f,-43.6f,180);yield return Go(0,-43.6f,90);
+        yield return Go(-4.2f,-43.6f,90);
+        if(GameObject.Find("Return / early blind wing"))
+        {yield return Go(-1.4f,-41.35f,90);yield return Go(0,-41.35f,90);yield return Go(0,-43.6f,90);}
+        else yield return Go(0,-43.6f,90);
         if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="EchoProtocol_Impact"||UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="EchoProtocol_Incursion")
         {
             yield return Go(3.3f,-43.6f,90);

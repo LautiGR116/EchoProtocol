@@ -27,7 +27,7 @@ namespace EchoProtocol.Campaign
         public Transform RecognitionPoint => recognitionPoint;
         [SerializeField] private Camera playerView;
         [SerializeField] private AudioSource recognitionVoice, chaseVoice;
-        public enum Intention { Dormant, Entry, Recognition, Charge, Listening, Capture, Resolved, Witness, MachineContact }
+        public enum Intention { Dormant, Entry, Recognition, Charge, Listening, Capture, Resolved, Witness, MachineContact, Search, Reacquire }
         public Intention Phase { get; private set; }
         public bool PerformanceEnabled => performance;
         public bool IsCapturing => Phase == Intention.Capture;
@@ -38,11 +38,26 @@ namespace EchoProtocol.Campaign
         Vector3 viewRest;
         Quaternion captureViewRotation;
         bool cornerReached;
-        void Change(Intention next){Phase=next;phaseAt=Time.time;}
+        void Change(Intention next){Phase=next;phaseAt=Time.time;routeAt=0;}
         [SerializeField] private float pursuitSpeed = 4.25f, listeningSpeed = 1.55f;
         [SerializeField, Min(0)] private float navigationClearance;
         [SerializeField] private float captureDistance = 1.05f;
         [SerializeField] private float initialRushSeconds=2.65f;
+        [Header("Present hunt — La embestida")]
+        [SerializeField, Min(.1f)] private float lostContactDelay = .55f;
+        [SerializeField, Min(.1f)] private float reacquireSeconds = .38f;
+        [SerializeField, Min(1)] private float machineCommitSeconds = 3.4f;
+        [SerializeField, Min(.1f)] private float searchSpeed = 1.15f;
+        float sensedAt, lastDetectedAt, visibleFor, coveredFor, silentFor, heardAt;
+        float searchArrivedAt, nextBrakeAt, routeAt;
+        Vector3 observedHeading, searchGoal, searchFacing, huntAttention, chargeGoal;
+        bool heardNow, machineContactPlayed, searchProbed, searchCuePlayed;
+        int searchPass;
+        bool UsesHunt => intruder && intruder.Embestida;
+        public Vector3 LastKnownPosition => knownPosition;
+        public float TravelSpeed => speedNow;
+        public int SearchCount { get; private set; }
+        public int ReacquisitionCount { get; private set; }
         CharacterController controller;
         Vector3 lastPlayer, knownPosition, destination;
         float releasedAt, inspectAt, gait, distanceWalked, lastStep;
@@ -72,6 +87,9 @@ namespace EchoProtocol.Campaign
             cry.Stop(); movement.Stop(); strike.Stop(); inspectAt = 0;
             gait = distanceWalked = lastStep = 0;
             Change(Intention.Dormant); speedNow=0;
+            sensedAt=lastDetectedAt=Time.time;visibleFor=coveredFor=silentFor=0;heardAt=-100;
+            searchArrivedAt=-1;nextBrakeAt=0;heardNow=machineContactPlayed=searchProbed=false;
+            observedHeading=searchFacing=transform.forward;huntAttention=knownPosition+Vector3.up*1.45f;
             cornerReached=false;
             player.MovementSuppressed=player.LookSuppressed=false;
             if(playerView&&performance){if(viewRest==Vector3.zero)viewRest=playerView.transform.localPosition;playerView.transform.localPosition=viewRest;}
@@ -87,6 +105,7 @@ namespace EchoProtocol.Campaign
         {
             Released = true; releasedAt = Time.time; inspectAt = 0;
             knownPosition = player.transform.position; lastPlayer = knownPosition; alerted = true;
+            sensedAt=lastDetectedAt=Time.time;inspectAt=0;
             if(performance){Change(Intention.Entry);performance.ResetPerformance();}
             if(presence)presence.Release();
             if(intruder)intruder.BeginBreach();
@@ -117,11 +136,25 @@ namespace EchoProtocol.Campaign
             }
             return best;
         }
+        int NearestReachable(Vector3 position)
+        {
+            int best=-1;float distance=float.PositiveInfinity;
+            for(int i=0;i<navigationPoints.Length;i++)
+            {
+                float candidate=(navigationPoints[i].position-position).sqrMagnitude;
+                if(candidate<distance&&WalkClear(position+Vector3.up,navigationPoints[i].position+Vector3.up))
+                {best=i;distance=candidate;}
+            }
+            return best;
+        }
         Vector3 RouteTowards(Vector3 target)
         {
             Vector3 eye = transform.position + Vector3.up;
             if (WalkClear(eye, target + Vector3.up)) return target;
-            int n = navigationPoints.Length, from = Nearest(transform.position), to = Nearest(target);
+            int n = navigationPoints.Length, from = NearestReachable(transform.position), to = NearestReachable(target);
+            // A node on the other side of the nearest wall is not a usable
+            // start/end. Stay physically contained if no authored link is clear.
+            if(from<0||to<0)return transform.position;
             var dist = new float[n]; var prev = new int[n]; var visited = new bool[n];
             for (int i = 0; i < n; i++) { dist[i] = float.PositiveInfinity; prev[i] = -1; }
             dist[from] = 0;
@@ -212,7 +245,13 @@ namespace EchoProtocol.Campaign
                 {
                     if(intruder.AdvanceBreach(PhaseAge,controller,cry))
                     {
-                        if(intruder.Embestida){Change(Intention.Charge);chargeAt=Time.time;nextVoice=Time.time+1.6f;inspectAt=0;speedNow=.65f;}
+                        if(intruder.Embestida)
+                        {
+                            Change(Intention.Charge);chargeAt=Time.time;inspectAt=0;speedNow=.65f;
+                            chargeGoal=knownPosition;
+                            lastDetectedAt=Time.time;huntAttention=knownPosition+Vector3.up*1.45f;
+                            if(presence)presence.Cue(MachineCoverPresence.HuntCue.Launch);
+                        }
                         else {Change(Intention.Recognition);speedNow=0;performance.ResetFeet();}
                         cryPlayed=true;
                     }
@@ -233,6 +272,10 @@ namespace EchoProtocol.Campaign
                 transform.rotation=Quaternion.RotateTowards(transform.rotation,Quaternion.LookRotation(d),220*dt);
                 if(!cryPlayed&&PhaseAge>=.40f){cryPlayed=true;recognitionVoice.Stop();cry.Play();}
                 if(PhaseAge>=(intruder?.85f:1.15f)){Change(Intention.Charge);chargeAt=Time.time;nextVoice=Time.time+1.8f;inspectAt=0;}
+            }
+            else if(UsesHunt)
+            {
+                UpdateHunt(present,dt);
             }
             else
             {
@@ -279,10 +322,194 @@ namespace EchoProtocol.Campaign
             }
             Vector3 actual=(transform.position-before)/dt;
             performance.Present(Phase,PhaseAge,actual,Mathf.DeltaAngle(oldYaw,transform.eulerAngles.y)/dt,
-                AttractedToMachine?(intruder?intruder.PumpHand.position:machineSound.position):present+Vector3.up*1.55f,
-                cry.isPlaying?cry:chaseVoice.isPlaying?chaseVoice:recognitionVoice);
+                UsesHunt&&Phase!=Intention.Entry?huntAttention:AttractedToMachine?(intruder?intruder.PumpHand.position:machineSound.position):present+Vector3.up*1.55f,
+                cry.isPlaying?cry:UsesHunt&&presence?presence.CurrentVoice:chaseVoice.isPlaying?chaseVoice:recognitionVoice,
+                pursuitSpeed);
             // Contacts come from the same planted-foot transition as the pose.
             int contacts=performance.ConsumeContacts();for(int i=0;i<contacts;i++){if(presence)presence.Step(movement);else movement.Play();}
         }
+
+        // This small encounter uses only its authored links, observed positions
+        // and the actual pump. Losing sight never supplies the hidden Player's
+        // position to movement, head attention or the search sweep.
+        void SenseHunt(Vector3 present)
+        {
+            if(Time.time<inspectAt)return;
+            float sampleSeconds=Mathf.Max(.01f,Time.time-sensedAt);
+            Vector3 motion=present-lastPlayer;motion.y=0;
+            lastPlayer=present;sensedAt=Time.time;inspectAt=Time.time+.08f;
+            Vector3 offset=present-transform.position;offset.y=0;
+            SeesPlayer=offset.magnitude<13&&Vector3.Dot(transform.forward,offset.normalized)>.25f
+                &&Clear(transform.position+Vector3.up*1.55f,present+Vector3.up*1.25f);
+            visibleFor=SeesPlayer?visibleFor+sampleSeconds:0;
+            coveredFor=encounter.Covered?coveredFor+sampleSeconds:0;
+            silentFor=encounter.Covered?0:silentFor+sampleSeconds;
+            // Sample displacement over the sensing interval, not one frame:
+            // high frame rates must not make identical footsteps inaudible.
+            heardNow=!encounter.Covered&&motion.magnitude/sampleSeconds>.65f&&offset.magnitude<11;
+            bool footfall=heardNow&&Time.time-heardAt>=.42f;
+            if(SeesPlayer||footfall)
+            {
+                if(motion.sqrMagnitude>.001f)observedHeading=motion.normalized;
+                knownPosition=present;lastDetectedAt=Time.time;
+                if(footfall){heardAt=Time.time;HeardPlayerCount++;}
+            }
+        }
+
+        void StartSearch()
+        {
+            Change(Intention.Search);SearchCount++;AttractedToMachine=false;
+            searchGoal=knownPosition;searchFacing=observedHeading.sqrMagnitude>.01f?observedHeading:transform.forward;
+            searchArrivedAt=-1;searchProbed=searchCuePlayed=false;searchPass=0;
+            if(presence)presence.Cue(MachineCoverPresence.HuntCue.Brake);
+        }
+
+        void ReacquirePlayer()
+        {
+            Change(Intention.Reacquire);ReacquisitionCount++;AttractedToMachine=false;
+            if(presence)presence.Cue(MachineCoverPresence.HuntCue.Reacquire);
+        }
+
+        void InvestigateMachine()
+        {
+            Change(Intention.Listening);AttractedToMachine=true;DiversionCount++;
+            machineContactPlayed=false;
+            if(chaseVoice)chaseVoice.Stop();
+            if(recognitionVoice)recognitionVoice.Stop();
+        }
+
+        void UpdateHunt(Vector3 present,float dt)
+        {
+            SenseHunt(present);
+            bool detected=visibleFor>=.20f||heardNow;
+            float separation=PlanarDistance(transform.position,present);
+
+            if(Phase==Intention.Charge)
+            {
+                if(PhaseAge>=.72f&&Time.time-lastDetectedAt>lostContactDelay)StartSearch();
+            }
+            else if(Phase==Intention.Reacquire)
+            {
+                if(PhaseAge>=reacquireSeconds){chargeGoal=knownPosition;Change(Intention.Charge);}
+            }
+            else if(Phase==Intention.Search)
+            {
+                if(!searchCuePlayed&&PhaseAge>=.28f)
+                {searchCuePlayed=true;if(presence)presence.Cue(MachineCoverPresence.HuntCue.Search);}
+                if(detected)ReacquirePlayer();
+                else if(coveredFor>=.45f&&PhaseAge>=.85f&&Time.time-chargeAt>=initialRushSeconds)
+                    InvestigateMachine();
+            }
+            else if(Phase==Intention.Listening)
+            {
+                // A short glimpse cannot flip the listener back and forth at a
+                // doorway. Close exposure or sustained sight can still interrupt.
+                if((visibleFor>=.28f&&separation<1.8f)||visibleFor>=.85f)
+                    ReacquirePlayer();
+                else if(PlanarDistance(transform.position,intruder.PumpStand.position)<.15f
+                    &&Quaternion.Angle(transform.rotation,intruder.PumpStand.rotation)<28)
+                {
+                    Change(Intention.MachineContact);speedNow=0;
+                }
+                else if(!encounter.Covered&&PhaseAge>.9f&&silentFor>.7f)StartSearch();
+            }
+            else if(Phase==Intention.MachineContact)
+            {
+                // The hand owns this once-only contact, then the body commits
+                // to listening through the housing. The player can use that time.
+                if(!machineContactPlayed&&PhaseAge>=.38f&&performance.MachinePalmDistance<.12f)
+                {machineContactPlayed=true;if(presence)presence.Cue(MachineCoverPresence.HuntCue.MachineContact);}
+                if((visibleFor>=.28f&&separation<1.35f)
+                    ||(PhaseAge>=machineCommitSeconds&&detected))ReacquirePlayer();
+                else if(PhaseAge>=machineCommitSeconds&&silentFor>.7f)StartSearch();
+            }
+
+            Vector3 goal=knownPosition;
+            float requestedSpeed=pursuitSpeed,turnSpeed=220;
+            huntAttention=knownPosition+Vector3.up*1.45f;
+            if(Phase==Intention.Reacquire)
+            {
+                requestedSpeed=0;turnSpeed=155;
+            }
+            else if(Phase==Intention.Charge)
+            {
+                // A brief committed surge changes phrasing; the sustainable
+                // speed remains below the Player and turns cost real distance.
+                requestedSpeed*=Mathf.Lerp(1.28f,1,Mathf.SmoothStep(0,1,PhaseAge/1.05f));
+                requestedSpeed*=intruder.Embestida.PursuitMultiplier;
+                // Commit the first step to the position that launched it. The
+                // torso cannot steer like a homing projectile when the Player
+                // cuts across the release. Senses still update the next decision.
+                if(PhaseAge<.72f){goal=chargeGoal;turnSpeed=75;}
+            }
+            else if(Phase==Intention.Search)
+            {
+                requestedSpeed=searchSpeed;turnSpeed=105;goal=searchGoal;
+                if(PlanarDistance(transform.position,searchGoal)<.35f)
+                {
+                    if(searchArrivedAt<0)searchArrivedAt=Time.time;
+                    float listeningAge=Time.time-searchArrivedAt;
+                    // Follow only the last observed direction for one cautious
+                    // step, then listen. This is a probe, not a hidden target.
+                    Vector3 probe=knownPosition+searchFacing*1.1f;
+                    if(!searchProbed&&listeningAge>.5f&&WalkClear(knownPosition+Vector3.up,probe+Vector3.up))
+                    {searchGoal=probe;goal=probe;searchProbed=true;searchArrivedAt=-1;}
+                    else if(searchProbed&&listeningAge>1.6f)
+                    {
+                        // Recheck both sides of the remembered track. Silence
+                        // buys concealment, but never freezes the hunter in place.
+                        Vector3 check=knownPosition+searchFacing*(searchPass++%2==0?-.65f:1.1f);
+                        if(WalkClear(transform.position+Vector3.up,check+Vector3.up))
+                        {searchGoal=goal=check;searchArrivedAt=-1;}
+                        else {searchArrivedAt=Time.time;requestedSpeed=0;}
+                    }
+                    else requestedSpeed=0;
+                    float sweep=Mathf.Sin(listeningAge*1.65f)*48;
+                    huntAttention=transform.position+Quaternion.AngleAxis(sweep,Vector3.up)*searchFacing*2+Vector3.up*1.45f;
+                }
+                else huntAttention=searchGoal+Vector3.up*1.35f;
+            }
+            else if(AttractedToMachine)
+            {
+                goal=intruder.PumpStand.position;requestedSpeed=listeningSpeed;turnSpeed=145;
+                huntAttention=intruder.PumpHand.position;
+                if(Phase==Intention.MachineContact)requestedSpeed=0;
+            }
+
+            if(Time.time>=routeAt){destination=RouteTowards(goal);routeAt=Time.time+.12f;}
+            Vector3 direction=destination-transform.position;direction.y=0;
+            Vector3 facing=direction;
+            if(Phase==Intention.Reacquire||Phase==Intention.Search&&requestedSpeed==0)
+            {facing=huntAttention-transform.position;facing.y=0;}
+            if(Phase==Intention.MachineContact)facing=intruder.PumpStand.forward;
+            if(Phase==Intention.Listening&&PlanarDistance(transform.position,intruder.PumpStand.position)<.15f)
+            {requestedSpeed=0;facing=intruder.PumpStand.forward;}
+            float angle=direction.sqrMagnitude>.001f?Vector3.Angle(transform.forward,direction):0;
+            requestedSpeed*=Mathf.Lerp(.08f,1,Mathf.InverseLerp(100,18,angle));
+            requestedSpeed=Mathf.Min(requestedSpeed,Mathf.Sqrt(2*5.5f*Mathf.Max(0,direction.magnitude-.08f)));
+            bool bracing=intruder.BraceCorner(speedNow,angle);
+            if(bracing)requestedSpeed=0;
+            if(Phase!=Intention.Search&&speedNow>1.2f&&requestedSpeed<speedNow-.8f&&Time.time>=nextBrakeAt)
+            {nextBrakeAt=Time.time+1.1f;if(presence)presence.Cue(MachineCoverPresence.HuntCue.Brake);}
+            speedNow=Mathf.MoveTowards(speedNow,requestedSpeed,dt*(requestedSpeed<speedNow?7:Phase==Intention.Charge?4.5f:2.8f));
+            if(facing.sqrMagnitude>.001f)
+                transform.rotation=Quaternion.RotateTowards(transform.rotation,Quaternion.LookRotation(facing),turnSpeed*dt);
+            if(direction.magnitude>.08f&&!bracing&&Phase!=Intention.MachineContact)
+            {
+                Vector3 travel=Vector3.RotateTowards(transform.forward,direction.normalized,Mathf.Deg2Rad*24,0);
+                controller.Move(travel*Mathf.Min(direction.magnitude,speedNow*dt)+Vector3.down*2*dt);
+            }
+
+            if(Phase==Intention.Charge&&PhaseAge>.25f&&!intruder.Embestida.ProtectReaction
+                &&separation<captureDistance&&Clear(transform.position+Vector3.up,present+Vector3.up))
+            {
+                Change(Intention.Capture);CaptureContactCount++;strike.Play();cry.Stop();
+                if(chaseVoice)chaseVoice.Stop();if(recognitionVoice)recognitionVoice.Stop();
+                if(presence)presence.Caught();
+                player.MovementSuppressed=player.LookSuppressed=true;captureViewRotation=playerView.transform.rotation;
+                performance.ResetFeet();
+            }
+        }
+        static float PlanarDistance(Vector3 a,Vector3 b){a.y=b.y;return Vector3.Distance(a,b);}
     }
 }

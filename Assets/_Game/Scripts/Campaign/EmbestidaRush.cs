@@ -12,18 +12,22 @@ namespace EchoProtocol.Campaign
         [SerializeField] MachineCoverThreat threat;
         Vector3 panelRest;
         Vector3 entryOrigin;
-        float contactAt = -1, speed, preparation;
+        float contactAt = -1, abortedAt = -1, speed, preparation;
+        float closestRemaining = float.PositiveInfinity, progressAt;
         bool crossed;
         public bool HasContact => contactAt >= 0;
+        public bool ApproachAborted => abortedAt >= 0;
         public float ContactAge => HasContact ? Time.time - contactAt : -1;
+        public float RecoveryAge => HasContact ? ContactAge : ApproachAborted ? Time.time - abortedAt : -1;
         public float ContactWeight => HasContact ? 1 - Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.16f, .65f, ContactAge)) : 0;
         public Transform Hand => impactHand;
         public float Preparation => preparation;
-        public float HandWeight => HasContact ? ContactWeight : Mathf.SmoothStep(0, .92f, Mathf.InverseLerp(.85f, .18f, Vector3.Distance(transform.position, impactStand.position)));
-        public float PursuitMultiplier => HasContact ? Mathf.Lerp(.58f, 1, Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.66f, 2.5f, ContactAge))) : 1;
-        public bool ProtectReaction => !HasContact || ContactAge < 1.65f;
-        public float MaskingGain => !HasContact ? .24f : Mathf.Lerp(.18f, 1, Mathf.SmoothStep(0, 1, ContactAge / .8f));
+        public float HandWeight => ApproachAborted ? 0 : HasContact ? ContactWeight : Mathf.SmoothStep(0, .92f, Mathf.InverseLerp(.85f, .18f, PlanarDistance(transform.position, impactStand.position)));
+        public float PursuitMultiplier => RecoveryAge >= 0 ? Mathf.Lerp(.58f, 1, Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.66f, 2.5f, RecoveryAge))) : 1;
+        public bool ProtectReaction => RecoveryAge < 1.65f;
+        public float MaskingGain => RecoveryAge < 0 ? .24f : Mathf.Lerp(.18f, 1, Mathf.SmoothStep(0, 1, RecoveryAge / .8f));
         public int Contacts { get; private set; }
+        public int AbortedApproaches { get; private set; }
 
         void Awake()
         {
@@ -34,7 +38,8 @@ namespace EchoProtocol.Campaign
 
         public void ResetAct()
         {
-            contactAt = -1; speed = preparation = 0; crossed = false;
+            contactAt = abortedAt = -1; speed = preparation = 0; crossed = false;
+            closestRemaining = float.PositiveInfinity; progressAt = Time.time;
             if (impactPanel) impactPanel.localPosition = panelRest;
             foreach (var source in new[] { contact, effort, breathing }) if (source) source.Stop();
         }
@@ -48,7 +53,9 @@ namespace EchoProtocol.Campaign
         public bool Advance(float age, CharacterController controller)
         {
             if (!enabled) return true;
+            if (ApproachAborted) return true;
             float dt = Time.deltaTime;
+            if (dt <= 0) return false;
             if (!HasContact)
             {
                 // One shoulder clears the leaf, then the body accelerates across
@@ -60,13 +67,30 @@ namespace EchoProtocol.Campaign
                 if (d.sqrMagnitude > .0001f)
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(d), 340 * dt);
                 controller.Move(Vector3.ClampMagnitude(d, speed * dt) + Vector3.down * 2 * dt);
-                if (!crossed && d.magnitude < .10f) crossed = true;
-                if (crossed && Vector3.Distance(new Vector3(transform.position.x, impactStand.position.y, transform.position.z), impactStand.position) < .09f)
+                float remaining = PlanarDistance(transform.position, target);
+                if (remaining < closestRemaining - .025f)
+                { closestRemaining = remaining; progressAt = Time.time; }
+                if (!crossed && remaining < .10f)
+                {
+                    crossed = true;
+                    closestRemaining = float.PositiveInfinity; progressAt = Time.time;
+                }
+                if (crossed && PlanarDistance(transform.position, impactStand.position) < .09f)
                 {
                     contactAt = Time.time; Contacts++; contact.Play();
                     // The metal owns the transient. The expelled effort follows
                     // the compressed chest, rather than announcing the reveal.
                     effort.PlayDelayed(.075f);
+                }
+                // A player or a moved collider can obstruct either authored point.
+                // Yield to the collision-respecting pursuit instead of waiting
+                // forever in Entry. An interrupted approach is NOT a steel hit:
+                // no contact sound, panel shake or planted hand is fabricated.
+                if (!HasContact && ((age >= 1.1f && Time.time - progressAt > .75f) || age >= 3.5f))
+                {
+                    abortedAt = Time.time; AbortedApproaches++;
+                    speed = preparation = 0;
+                    return true;
                 }
                 return false;
             }
@@ -92,7 +116,7 @@ namespace EchoProtocol.Campaign
                 float displacement = a >= 0 && a < .42f ? Mathf.Sin(a * 63) * Mathf.Exp(-a * 13) * .017f : 0;
                 impactPanel.localPosition = panelRest + Vector3.forward * displacement;
             }
-            bool sustain = threat.Released && HasContact && ContactAge > .24f && !threat.IsCapturing && threat.Phase != MachineCoverThreat.Intention.Resolved;
+            bool sustain = threat.Released && RecoveryAge > .24f && !threat.IsCapturing && threat.Phase != MachineCoverThreat.Intention.Resolved;
             if (sustain && !breathing.isPlaying) breathing.Play();
             if (!sustain && breathing.isPlaying) breathing.Stop();
         }
@@ -105,7 +129,7 @@ namespace EchoProtocol.Campaign
         {
             bool entry = phase == MachineCoverThreat.Intention.Entry;
             float hit = ContactWeight;
-            float drive = entry && !HasContact ? Mathf.SmoothStep(0, 1, age / .38f) : 0;
+            float drive = entry && !HasContact && !ApproachAborted ? Mathf.SmoothStep(0, 1, age / .38f) : 0;
             float pursuit = phase == MachineCoverThreat.Intention.Charge ? 1 : 0;
             // Permanent unequal compression belongs to this character, including
             // its silhouette through the door. It is not an Echo pose offset.
@@ -121,6 +145,8 @@ namespace EchoProtocol.Campaign
             Turn(rightArm, root.forward, -13);
             Turn(rightForearm, root.right, -18 - hit * 35);
         }
+        static float PlanarDistance(Vector3 a, Vector3 b)
+        { a.y = b.y; return Vector3.Distance(a, b); }
         static void Turn(Transform t, Vector3 axis, float angle) => t.rotation = Quaternion.AngleAxis(angle, axis) * t.rotation;
         void OnDisable() { if (contact) contact.Stop(); if (effort) effort.Stop(); if (breathing) breathing.Stop(); }
     }

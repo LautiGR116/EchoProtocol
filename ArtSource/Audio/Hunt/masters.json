@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-22",
+  "generation": "None; edits of existing CC0 recordings only.",
+  "selectedMasters": "All five WAVs below are the imported working masters. Performance/comfort remain EN PRUEBA humana.",
+  "masters": [
+    {
+      "file": "Assets/_Game/Audio/Clips/Hunt/Hunt_LaunchEffort.wav",
+      "sources": [
+        "aldenroth2 272023; ArtSource/Audio/Intruder/sources.json; .025-.40 s"
+      ],
+      "license": "CC0 1.0; existing repository source trail",
+      "edit": "Short existing adult expulsion on launch; original pitch/time, no periodic playback.",
+      "seconds": 0.375,
+      "peak": 0.28,
+      "rmsDb": -22.78011927649682,
+      "sha256": "eb3186eae138b926a994a5ad355c68cd9d7ced307d078181864fb743cee02cce"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/Hunt/Hunt_ReacquireEffort.wav",
+      "sources": [
+        "aldenroth2 272023; ArtSource/Audio/Intruder/sources.json; .16-.59 s"
+      ],
+      "license": "CC0 1.0; existing repository source trail",
+      "edit": "Later pressure/release from the same existing adult effort, attached to renewed pursuit, not a timed bark.",
+      "seconds": 0.43,
+      "peak": 0.32,
+      "rmsDb": -22.579817734080677,
+      "sha256": "791b174bb2138a283bdb32fc6fb6add7aa5479d57023f22cabb798ceda2a875b"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/Hunt/Hunt_SearchIntake.wav",
+      "sources": [
+        "JohnsonBrandEditing 173944; ArtSource/Audio/Intruder/sources.json; 6.00-6.81 s"
+      ],
+      "license": "CC0 1.0; existing repository source trail",
+      "edit": "Same existing close intake as Embestida, one shortened inhalation before the actor listens; no speech or added performance.",
+      "seconds": 0.81,
+      "peak": 0.13,
+      "rmsDb": -32.083408563069476,
+      "sha256": "07025f68dae88f432a06ea48f9721e95687c78748903169ac26d8406e4bab3c4"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/Hunt/Hunt_BrakeSole.wav",
+      "sources": [
+        "Impact/Threat_Step1.wav: CC0 existing Overhaul/Finish floor contact trail",
+        "Impact/Threat_MovingFriction.wav: AntumDeluge scrape-6.wav, CC0 existing Resonance trail"
+      ],
+      "license": "CC0 1.0; existing repository source trail",
+      "edit": "Dry planted heel plus short sole friction. One physical deceleration cue; no independent footsteps.",
+      "seconds": 0.47,
+      "peak": 0.29,
+      "rmsDb": -33.10942573090163,
+      "sha256": "bda5094fa0017c4f61e4ac34bd0062e3c538ce4fa092fbbd1bb22930eb0fe3d9"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/Hunt/Hunt_PumpContact.wav",
+      "sources": [
+        "NachtmahrTV 556693; ArtSource/Audio/Intruder/sources.json; .11-.57 s"
+      ],
+      "license": "CC0 1.0; existing repository source trail",
+      "edit": "Short damped housing contact, lower and shorter than entry impact; triggered only by the present hand's pump beat.",
+      "seconds": 0.46,
+      "peak": 0.32,
+      "rmsDb": -21.269446087988374,
+      "sha256": "f4860b835a7f6f855acf43f4f4c7024c88e50e98692fda3d82b6cd7acde67090"
+    }
+  ]
+}
