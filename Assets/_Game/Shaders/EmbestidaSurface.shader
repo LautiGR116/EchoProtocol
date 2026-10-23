@@ -7,6 +7,7 @@ Shader "EchoProtocol/EmbestidaSurface"
         _BumpMap("Surface normal", 2D) = "bump" {}
         _BumpScale("Normal strength", Float) = .55
         _Apron("Original rubber garment", Float) = 0
+        _IntruderFace("Intruder face / preserve scanned skin", Range(0,1)) = 0
     }
     SubShader
     {
@@ -29,7 +30,7 @@ Shader "EchoProtocol/EmbestidaSurface"
             TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
             TEXTURE2D(_BumpMap); SAMPLER(sampler_BumpMap);
             CBUFFER_START(UnityPerMaterial)
-                float4 _BaseColor; float4 _BaseMap_ST; float _BumpScale; float _Apron;
+                float4 _BaseColor; float4 _BaseMap_ST; float _BumpScale; float _Apron; float _IntruderFace;
             CBUFFER_END
             struct A { float4 positionOS:POSITION; float3 normalOS:NORMAL; float4 tangentOS:TANGENT; float2 uv:TEXCOORD0; float3 rest:TEXCOORD2; };
             struct V { float4 positionCS:SV_POSITION; float3 world:TEXCOORD0; float3 normal:TEXCOORD1; float4 tangent:TEXCOORD2; float2 uv:TEXCOORD3; float3 rest:TEXCOORD4; float fog:TEXCOORD5; };
@@ -76,13 +77,36 @@ Shader "EchoProtocol/EmbestidaSurface"
                 float3 n=normalize(i.normal); float3 t=normalize(i.tangent.xyz);
                 float3 bump=UnpackNormalScale(SAMPLE_TEXTURE2D(_BumpMap,sampler_BumpMap,i.uv),_BumpScale);
                 bump=lerp(bump,float3(0,0,1),max(scalp,_Apron));
+                float smoothness=lerp(lerp(.20,.36,skin)+stain*.04,.14,_Apron);
+                // Opt-in material on the private intruder only. TEXCOORD2 is the
+                // unmodified Nathan rest position in metres, unaffected by acting.
+                // Keep the historical surface and rubber garment path unchanged.
+                if (_IntruderFace > 0 && _Apron <= 0)
+                {
+                    float faceNeck=smoothstep(1.56,1.61,p.y)*(1-smoothstep(.12,.16,abs(p.x)));
+                    float faceWeight=saturate(_IntruderFace)*faceNeck;
+                    // Let the sculpt and lighting describe the sockets and folds:
+                    // retain photographic skin/lip variation, stubble and pores;
+                    // no painted eye circles, cheek sores or flat scalp colour.
+                    base=lerp(base,scan*_BaseColor.rgb,faceWeight);
+                    float3 scanBump=UnpackNormalScale(SAMPLE_TEXTURE2D(_BumpMap,sampler_BumpMap,i.uv),_BumpScale);
+                    bump=lerp(bump,scanBump,faceWeight);
+                    // A restrained dielectric response: dry cheek/neck, slightly
+                    // less rough forehead/nose and lips. No painted highlights.
+                    float forehead=spot(p,float3(0,1.749,.096),float3(.060,.026,.038));
+                    float nose=spot(p,float3(0,1.698,.133),float3(.018,.030,.037));
+                    float lips=spot(p,float3(0,1.651,.115),float3(.032,.008,.022));
+                    float faceSmoothness=.25+.11*saturate(forehead)+.16*saturate(nose)+.10*saturate(lips);
+                    faceSmoothness=lerp(faceSmoothness,.20,smoothstep(1.76,1.80,p.y));
+                    smoothness=lerp(smoothness,faceSmoothness,faceWeight);
+                }
                 n=normalize(t*bump.x+cross(n,t)*i.tangent.w*bump.y+n*bump.z);
                 InputData input=(InputData)0; input.positionWS=i.world; input.normalWS=n;
                 input.viewDirectionWS=GetWorldSpaceNormalizeViewDir(i.world);
                 input.shadowCoord=TransformWorldToShadowCoord(i.world); input.bakedGI=SampleSH(n);
                 input.normalizedScreenSpaceUV=GetNormalizedScreenSpaceUV(i.positionCS);input.shadowMask=half4(1,1,1,1);
                 SurfaceData surface=(SurfaceData)0;surface.albedo=base;surface.alpha=1;surface.occlusion=1;
-                surface.smoothness=lerp(lerp(.20,.36,skin)+stain*.04,.14,_Apron);surface.specular=half3(.04,.04,.04);
+                surface.smoothness=smoothness;surface.specular=half3(.04,.04,.04);
                 half4 c=UniversalFragmentPBR(input,surface);c.rgb=MixFog(c.rgb,i.fog);return c;
             }
             ENDHLSL
