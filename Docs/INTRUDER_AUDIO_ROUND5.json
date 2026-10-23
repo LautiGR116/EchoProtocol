@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "status": "Implemented assets; Editor integration and human listening pending.",
+  "direction": "Containment, dry physical contact, brief expelled strain, then a separate recovery. Timing and silence replace the former long cry/repeated breath language; performance identity is not simulated with pitch.",
+  "format": {
+    "channels": 1,
+    "sampleRate": 48000,
+    "encoding": "PCM signed 16-bit little-endian WAV"
+  },
+  "generation": null,
+  "paidServices": false,
+  "licenseScope": "Derivatives of locally preserved CC0 recordings; no new recordings, voice synthesis, cloning, or external asset downloads.",
+  "sources": [
+    {
+      "author": "qubodup",
+      "page": "https://opengameart.org/content/15-vocal-male-strainhurtpainjump-sounds",
+      "license": "CC0 1.0 Universal",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "originalPath": "ArtSource/Audio/Resonance/Sources/strain-slightscreams.7z",
+      "originalSha256": "3220b234efed17305bef05fe82c5d2e2b38302ae02b0d188021af9b045499a1e",
+      "sourceRetrievedDate": "2026-10-08",
+      "licensePageRecheckedDate": "2026-10-23",
+      "licenseEvidence": "ArtSource/Audio/Resonance/Sources/strain-source.json",
+      "decoded": [
+        {
+          "decodedPath": "ArtSource/Audio/Resonance/Decoded/slightscream-07.wav",
+          "decodedSha256": "e5a417c8754e780ee4747c6fb33502133165c333198dbb694b565476df5ca7a3",
+          "decodedRate": 48000
+        }
+      ]
+    },
+    {
+      "author": "mikeask",
+      "page": "https://opengameart.org/content/breathing-tired",
+      "license": "CC0 1.0 Universal",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "originalPath": "ArtSource/Audio/Resonance/Sources/breath-breathing%20tired.wav",
+      "originalSha256": "08d9c9e15426f0cd889b63867a3bc68bafd985e8d39fd57f805d4372b23aeeca",
+      "sourceRetrievedDate": "2026-10-08",
+      "licensePageRecheckedDate": "2026-10-23",
+      "licenseEvidence": "ArtSource/Audio/Resonance/Sources/breath-source.json",
+      "decoded": [
+        {
+          "decodedPath": "ArtSource/Audio/Resonance/Decoded/breath-breathing%20tired.wav",
+          "decodedSha256": "58de5c8e1c4a56ba883bbf3f3dce2050f7728fc25240db6ca0e8dcc5af0048bf",
+          "decodedRate": 48000
+        }
+      ]
+    },
+    {
+      "author": "Brian MacIntosh (BMacZero)",
+      "page": "https://opengameart.org/content/mechanical-sounds",
+      "license": "CC0 1.0 Universal",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "originalPath": "ArtSource/Audio/Resonance/Sources/mechanical-lightclunk2.wav",
+      "originalSha256": "987be837a5941ded9a81572c319b9bf8f57d9f89741a5781fc7104adc87d60f5",
+      "sourceRetrievedDate": "2026-10-08",
+      "licensePageRecheckedDate": "2026-10-23",
+      "licenseEvidence": "ArtSource/Audio/Resonance/Sources/mechanical-source.json",
+      "decoded": [
+        {
+          "decodedPath": "ArtSource/Audio/Resonance/Decoded/mechanical-lightclunk2.wav",
+          "decodedSha256": "098139d68ac9548f112db698ad34eba2663cfa76e4ecc0e951564e0f788974e0",
+          "decodedRate": 48000
+        }
+      ]
+    }
+  ],
+  "masters": [
+    {
+      "file": "Assets/_Game/Audio/IntruderDread/IntruderDread_ContainedBreath.wav",
+      "guid": "0b06cf53d6734b12bdc993c7b46dd6e4",
+      "sha256": "4fa49c7b986c74f3f4180cca7676292e6d81f3a8bfc48b40dfb549070b7f87da",
+      "bytes": 31724,
+      "sourceDecoded": "breath-breathing%20tired.wav",
+      "sourceRangeSeconds": [
+        0.16,
+        0.49
+      ],
+      "sourceRangeFrames": [
+        7680,
+        23520
+      ],
+      "seconds": 0.33,
+      "frames": 15840,
+      "role": "One clipped-off running breath before movement. A held-body cue, never a vocal loop; the abrupt containment is an edit, not a new performed utterance.",
+      "gestureCount": 1,
+      "authoredLeadingSilenceSeconds": 0.0,
+      "firstNonzeroFrame": 3,
+      "lastNonzeroFrame": 15793,
+      "processing": {
+        "order": [
+          "stereo arithmetic-mean downmix where applicable",
+          "trim source interval, start inclusive / end exclusive",
+          "remove interval DC mean",
+          "second-order RBJ Butterworth high-pass",
+          "second-order RBJ Butterworth low-pass",
+          "linear attack and squared tail fade",
+          "linear peak normalization",
+          "prepend authored zeros",
+          "round(sample * 32767) to signed little-endian PCM16"
+        ],
+        "highpassHz": 160,
+        "lowpassHz": 4600,
+        "filterQ": 0.7071067811865475,
+        "filterInitialState": "zero",
+        "fadeInSeconds": 0.008,
+        "fadeOutSeconds": 0.035,
+        "linearGainAfterFiltering": 2.677656363124702,
+        "targetFloatPeak": 0.12,
+        "pitchRatio": 1,
+        "timeRatio": 1,
+        "reverb": false,
+        "compression": false,
+        "distortion": false
+      },
+      "signal": {
+        "peakDbFS": -18.416728515992396,
+        "rmsDbFS": -30.61247456700043,
+        "clippedSamples": 0
+      },
+      "unityImport": {
+        "compression": "PCM",
+        "loadType": "DecompressOnLoad",
+        "forceToMono": true,
+        "normalize": false,
+        "preloadAudioData": true,
+        "preserveSampleRate": true
+      }
+    },
+    {
+      "file": "Assets/_Game/Audio/IntruderDread/IntruderDread_ExpelledEffort.wav",
+      "guid": "dde11e07f2c34837adcf8b265d0985a0",
+      "sha256": "3d350cdeda7b2c24a3090890dabead5083793e5280517822c55d61e81f24e572",
+      "bytes": 46124,
+      "sourceDecoded": "slightscream-07.wav",
+      "sourceRangeSeconds": [
+        0.085,
+        0.445
+      ],
+      "sourceRangeFrames": [
+        4080,
+        21360
+      ],
+      "seconds": 0.48,
+      "frames": 23040,
+      "role": "A different original male strain take, with 120 ms authored silence so the existing 75 ms delayed playback leaves physical contact exposed before the effort.",
+      "gestureCount": 1,
+      "authoredLeadingSilenceSeconds": 0.12,
+      "firstNonzeroFrame": 5761,
+      "lastNonzeroFrame": 22940,
+      "processing": {
+        "order": [
+          "stereo arithmetic-mean downmix where applicable",
+          "trim source interval, start inclusive / end exclusive",
+          "remove interval DC mean",
+          "second-order RBJ Butterworth high-pass",
+          "second-order RBJ Butterworth low-pass",
+          "linear attack and squared tail fade",
+          "linear peak normalization",
+          "prepend authored zeros",
+          "round(sample * 32767) to signed little-endian PCM16"
+        ],
+        "highpassHz": 110,
+        "lowpassHz": 6800,
+        "filterQ": 0.7071067811865475,
+        "filterInitialState": "zero",
+        "fadeInSeconds": 0.003,
+        "fadeOutSeconds": 0.028,
+        "linearGainAfterFiltering": 0.3498054470902059,
+        "targetFloatPeak": 0.34,
+        "pitchRatio": 1,
+        "timeRatio": 1,
+        "reverb": false,
+        "compression": false,
+        "distortion": false
+      },
+      "signal": {
+        "peakDbFS": -9.37051521459366,
+        "rmsDbFS": -26.450669487835743,
+        "clippedSamples": 0
+      },
+      "unityImport": {
+        "compression": "PCM",
+        "loadType": "DecompressOnLoad",
+        "forceToMono": true,
+        "normalize": false,
+        "preloadAudioData": true,
+        "preserveSampleRate": true
+      }
+    },
+    {
+      "file": "Assets/_Game/Audio/IntruderDread/IntruderDread_RecoveryBreath.wav",
+      "guid": "98161664cb48425885467e5a34441e53",
+      "sha256": "ab409631a8de0701e6398dafa9ac24bbc4bcec509f74e8bd2951ea4f15aebd9f",
+      "bytes": 40364,
+      "sourceDecoded": "breath-breathing%20tired.wav",
+      "sourceRangeSeconds": [
+        1.33,
+        1.75
+      ],
+      "sourceRangeFrames": [
+        63840,
+        84000
+      ],
+      "seconds": 0.42,
+      "frames": 20160,
+      "role": "The second recorded breath, distinct from the first contained breath; one short recovery gesture, no repeated copy and no loop.",
+      "gestureCount": 1,
+      "authoredLeadingSilenceSeconds": 0.0,
+      "firstNonzeroFrame": 5,
+      "lastNonzeroFrame": 19995,
+      "processing": {
+        "order": [
+          "stereo arithmetic-mean downmix where applicable",
+          "trim source interval, start inclusive / end exclusive",
+          "remove interval DC mean",
+          "second-order RBJ Butterworth high-pass",
+          "second-order RBJ Butterworth low-pass",
+          "linear attack and squared tail fade",
+          "linear peak normalization",
+          "prepend authored zeros",
+          "round(sample * 32767) to signed little-endian PCM16"
+        ],
+        "highpassHz": 160,
+        "lowpassHz": 6200,
+        "filterQ": 0.7071067811865475,
+        "filterInitialState": "zero",
+        "fadeInSeconds": 0.008,
+        "fadeOutSeconds": 0.05,
+        "linearGainAfterFiltering": 3.183239251365755,
+        "targetFloatPeak": 0.14,
+        "pitchRatio": 1,
+        "timeRatio": 1,
+        "reverb": false,
+        "compression": false,
+        "distortion": false
+      },
+      "signal": {
+        "peakDbFS": -17.078423896554707,
+        "rmsDbFS": -31.191766500110138,
+        "clippedSamples": 0
+      },
+      "unityImport": {
+        "compression": "PCM",
+        "loadType": "DecompressOnLoad",
+        "forceToMono": true,
+        "normalize": false,
+        "preloadAudioData": true,
+        "preserveSampleRate": true
+      }
+    },
+    {
+      "file": "Assets/_Game/Audio/IntruderDread/IntruderDread_DryContact.wav",
+      "guid": "a9ed449a9a714cdb91719cc3a2e69989",
+      "sha256": "52d189b1785c29d2cf44e6261fd1d2bb0a114aed2b386d5903cbca2b5e0704dd",
+      "bytes": 16364,
+      "sourceDecoded": "mechanical-lightclunk2.wav",
+      "sourceRangeSeconds": [
+        0.095,
+        0.265
+      ],
+      "sourceRangeFrames": [
+        4560,
+        12720
+      ],
+      "seconds": 0.17,
+      "frames": 8160,
+      "role": "Single short mechanical clunk, preserving the original attack and damping the tail. Replaces the existing contact clip; adds no playback trigger and no synthetic resonant layer.",
+      "gestureCount": 1,
+      "authoredLeadingSilenceSeconds": 0.0,
+      "firstNonzeroFrame": 1,
+      "lastNonzeroFrame": 8095,
+      "processing": {
+        "order": [
+          "stereo arithmetic-mean downmix where applicable",
+          "trim source interval, start inclusive / end exclusive",
+          "remove interval DC mean",
+          "second-order RBJ Butterworth high-pass",
+          "second-order RBJ Butterworth low-pass",
+          "linear attack and squared tail fade",
+          "linear peak normalization",
+          "prepend authored zeros",
+          "round(sample * 32767) to signed little-endian PCM16"
+        ],
+        "highpassHz": 90,
+        "lowpassHz": 4800,
+        "filterQ": 0.7071067811865475,
+        "filterInitialState": "zero",
+        "fadeInSeconds": 0.0015,
+        "fadeOutSeconds": 0.05,
+        "linearGainAfterFiltering": 5.921564879581617,
+        "targetFloatPeak": 0.52,
+        "pitchRatio": 1,
+        "timeRatio": 1,
+        "reverb": false,
+        "compression": false,
+        "distortion": false
+      },
+      "signal": {
+        "peakDbFS": -5.680116640845738,
+        "rmsDbFS": -21.736898135869357,
+        "clippedSamples": 0
+      },
+      "unityImport": {
+        "compression": "PCM",
+        "loadType": "DecompressOnLoad",
+        "forceToMono": true,
+        "normalize": false,
+        "preloadAudioData": true,
+        "preserveSampleRate": true
+      }
+    }
+  ],
+  "integrationContract": {
+    "pitch": 1,
+    "loop": false,
+    "routing": "Keep existing WorldSFX, master, limiter, mono and reduced-dynamics paths.",
+    "contactPlayback": "Existing contact owner remains the only trigger.",
+    "effortPlayback": "At the existing 0.075 s delayed Play, first nonzero signal occurs about 0.195 s after contact, with the principal performed attack later.",
+    "recoveryPlayback": "MachineCoverPresence owns the existing shared breath source after explicit EmbestidaRush handoff; single post-contact recovery, no sustain loop.",
+    "containedPlayback": "One state/event-owned short breath; no free-running timer, random scheduler, or vocal loop."
+  },
+  "limitations": [
+    "No human audition or fear, casting, actor continuity, localization, or comfort approval is claimed. Signal checks only establish file integrity and headroom.",
+    "The 2026-10-08 source inventory had deferred the quiet mikeask breaths and qubodup grunts. The current approved short bodily direction uses two separate breath gestures and one unshifted strain take; the earlier human rejection of doubled/modulated intimate breathing remains relevant and must be judged in the room.",
+    "The qubodup take has no near-full-scale samples in the preserved decoded source; this does not prove absence of earlier source processing.",
+    "Only the four derivatives and import metadata are delivered; no Editor/Play/build was run in this worktree."
+  ]
+}

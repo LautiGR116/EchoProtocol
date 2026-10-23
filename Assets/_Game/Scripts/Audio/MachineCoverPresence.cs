@@ -1,4 +1,5 @@
 using EchoProtocol.Campaign;
+using EchoProtocol.Campaign.P3Intrusion;
 using EchoProtocol.Presentation;
 using UnityEngine;
 
@@ -24,6 +25,11 @@ namespace EchoProtocol.Audio
         // separate voice, sole/intake, breathing and fixed pump-contact roles.
         [SerializeField] private AudioSource huntVoice, huntBody, huntBreathing, huntContact;
         [SerializeField] private AudioClip launchEffort, reacquireEffort, brakeFoley, searchBreath, machineContact;
+        // Opt-in round-five phrase. The existing shared breath emitter is used
+        // once at authored edges, never restarted as a vocal bed.
+        [SerializeField] private bool discreteBreathing;
+        [SerializeField] private P3BodyIntrusion dreadP3;
+        [SerializeField] private AudioClip containedBreath, recoveryBreath;
         public enum HuntCue { Launch, Brake, Search, Reacquire, MachineContact }
         readonly RaycastHit[] hits = new RaycastHit[32];
         float[] gains, acousticGains;
@@ -34,6 +40,9 @@ namespace EchoProtocol.Audio
         float lastCueAt = -100, breathQuietUntil = -100, listeningUntil = -100, maskUntil = -100;
         float breathGain = 1;
         bool primed, released, framePlayed, moveHuntBody;
+        bool containedPlayed, recoveryPlayed;
+        int p3ContactSeen;
+        float p3BreathAt = -1, machineBreathAt = -1;
         int stepIndex;
         HuntCue lastCue;
         public int WarningCount { get; private set; }
@@ -44,6 +53,8 @@ namespace EchoProtocol.Audio
         public AudioSource CurrentVoice => huntVoice && huntVoice.isPlaying ? huntVoice : null;
         public bool Obstructed { get; private set; }
         bool HuntConfigured => huntVoice && huntBody && huntBreathing && huntContact;
+        public bool OwnsDiscreteBreathing => isActiveAndEnabled && discreteBreathing && HuntConfigured
+            && containedBreath && recoveryBreath;
 
         void Awake()
         {
@@ -84,6 +95,8 @@ namespace EchoProtocol.Audio
         }
         public void Release()
         {
+            if (OwnsDiscreteBreathing) huntBreathing.Stop();
+            p3BreathAt = machineBreathAt = -1;
             released = true; framePlayed=false; releasedAt=Time.time; previous=threat.transform.position;
         }
         public void Step(AudioSource source)
@@ -104,6 +117,13 @@ namespace EchoProtocol.Audio
             // duplicate cue within the same transition; no repeating bark timer.
             if (cue == lastCue && Time.time - lastCueAt < .45f) return;
             lastCue = cue; lastCueAt = Time.time; HuntCueCount++;
+            if (OwnsDiscreteBreathing)
+            {
+                huntBreathing.Stop(); machineBreathAt = -1;
+                // A new response takes precedence over an unfinished recovery;
+                // the initial launch is just continuation of the housing hit.
+                if (cue != HuntCue.Launch) recoveryPlayed = true;
+            }
             maskUntil = Time.time + .48f;
             switch (cue)
             {
@@ -113,7 +133,8 @@ namespace EchoProtocol.Audio
                     // Starting pursuit is the continuation of that action, not
                     // a second near-identical vocal take after recovery.
                     var entry = threat.Intruder ? threat.Intruder.Embestida : null;
-                    if (!contactLedPresentation || !entry || !entry.HasContact || entry.ContactAge >= 1.2f)
+                    if (!(OwnsDiscreteBreathing && entry && entry.HasContact)
+                        && (!contactLedPresentation || !entry || !entry.HasContact || entry.ContactAge >= 1.2f))
                         PlayAction(huntVoice, launchEffort);
                     breathQuietUntil = Time.time + .42f;
                     listeningUntil = -100;
@@ -140,7 +161,49 @@ namespace EchoProtocol.Audio
                     huntVoice.Stop(); huntBody.Stop(); PlayAction(huntContact, machineContact);
                     breathQuietUntil = Time.time + .62f;
                     listeningUntil = -100;
+                    if (OwnsDiscreteBreathing) machineBreathAt = Time.time + .9f;
                     break;
+            }
+        }
+
+        void PresentDiscreteBreaths()
+        {
+            if (!OwnsDiscreteBreathing) return;
+            if (encounter.Complete || encounter.Failed || threat.IsCapturing)
+            { huntBreathing.Stop(); p3BreathAt = machineBreathAt = -1; return; }
+            if (!encounter.Active)
+            {
+                // Observe the actual glass contact; no advance/visibility timer
+                // invents another contact or announces a still-hidden visitor.
+                if (dreadP3 && dreadP3.OwnsPose && dreadP3.Contacts != p3ContactSeen)
+                { p3ContactSeen = dreadP3.Contacts; p3BreathAt = Time.time + .85f; }
+                if (p3BreathAt >= 0 && dreadP3 && dreadP3.OwnsPose && Time.time >= p3BreathAt)
+                { PlayAction(huntBreathing, recoveryBreath); p3BreathAt = -1; }
+                if (!dreadP3 || !dreadP3.OwnsPose) { p3BreathAt = -1; huntBreathing.Stop(); }
+                return;
+            }
+            var entry = threat.Intruder ? threat.Intruder.Embestida : null;
+            if (!entry) return;
+            if (!threat.Released)
+            {
+                // The real hand loading the closed door causes one contained
+                // intake. There is no recurring proximity or scare timer.
+                if (!containedPlayed && entry.Preparation > .12f)
+                { containedPlayed = true; PlayAction(huntBreathing, containedBreath); }
+                return;
+            }
+            if (!recoveryPlayed && entry.HasContact && entry.ContactAge >= 1.05f
+                && threat.Phase != MachineCoverThreat.Intention.Entry)
+            {
+                recoveryPlayed = true;
+                if (entry.ContactAge < 1.65f && !huntVoice.isPlaying && !huntBody.isPlaying)
+                    PlayAction(huntBreathing, recoveryBreath);
+            }
+            if (machineBreathAt >= 0 && Time.time >= machineBreathAt)
+            {
+                machineBreathAt = -1;
+                if (threat.Phase == MachineCoverThreat.Intention.MachineContact)
+                    PlayAction(huntBreathing, recoveryBreath);
             }
         }
         static void PlayAction(AudioSource source, AudioClip clip)
@@ -154,6 +217,7 @@ namespace EchoProtocol.Audio
             if (huntBody) huntBody.Stop();
             if (huntContact) huntContact.Stop();
             if (huntBreathing) huntBreathing.Stop();
+            p3BreathAt = machineBreathAt = -1;
             breathQuietUntil = listeningUntil = maskUntil = -100;
         }
         public void Caught()
@@ -166,6 +230,7 @@ namespace EchoProtocol.Audio
         {
             primed=released=framePlayed=false;stepIndex=0;frictionGain=scoreGain=speedNow=0;
             lastCueAt=-100;breathGain=1;
+            containedPlayed = recoveryPlayed = false;
             StopHunt();
             if (moveHuntBody && huntBody) huntBody.transform.localPosition = huntBodyRest;
             if (warning)warning.Stop();if(rush)rush.Stop();if(friction)friction.Stop();if(score)score.Stop();
@@ -176,6 +241,7 @@ namespace EchoProtocol.Audio
         void LateUpdate()
         {
             if (!enabled || session.IsPaused || Time.deltaTime<=0) return;
+            PresentDiscreteBreaths();
             float speed=(threat.transform.position-previous).magnitude/Time.deltaTime;previous=threat.transform.position;
             speedNow = Mathf.MoveTowards(speedNow, speed, Time.deltaTime * 12);
             bool active=released && threat.Released && !encounter.Complete && !encounter.Failed;
@@ -202,10 +268,15 @@ namespace EchoProtocol.Audio
                 grain*=searching?.30f:threat.AttractedToMachine?.45f:.72f;
                 if(listening||Time.time<maskUntil)grain=0;
                 float targetBreath=!active||Time.time<breathQuietUntil?0:searching?.26f:threat.AttractedToMachine?.48f:.85f;
+                if (OwnsDiscreteBreathing) targetBreath = huntBreathing.isPlaying ? 1 : 0;
                 var entry=threat.Intruder?threat.Intruder.Embestida:null;
                 if(contactLedPresentation && entry && (threat.Phase==MachineCoverThreat.Intention.Entry
                     || entry.HasContact && entry.ContactAge<.60f))targetBreath=0;
-                breathGain=Mathf.MoveTowards(breathGain,targetBreath,Time.deltaTime*(targetBreath<breathGain?7:2.5f));
+                // These sub-second files already contain fades. A bed-length
+                // fade would swallow most of a single intake; retain the saved
+                // source gain and the same acoustic/WorldSFX path instead.
+                breathGain=OwnsDiscreteBreathing?targetBreath:
+                    Mathf.MoveTowards(breathGain,targetBreath,Time.deltaTime*(targetBreath<breathGain?7:2.5f));
             }
             frictionGain=Mathf.MoveTowards(frictionGain,grain*motion,Time.deltaTime*.8f);
             scoreGain=Mathf.MoveTowards(scoreGain,music,Time.deltaTime*(active?.75f:1.5f));
