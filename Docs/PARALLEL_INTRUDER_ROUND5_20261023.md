@@ -59,8 +59,10 @@ negros pintados o sangre aleatoria. Ropa y cara deben pertenecer al mismo cuerpo
 Usar coordenadas originales UV2/UV0 y preservar detalle/licencia del scan.
 No cambiar mesh, huesos ni textura original compartida. Una propiedad nueva
 opt-in, default apagado, mantiene la ronda 4 y otros actores recuperables.
-Su integrador ajusta/clona sólo materiales del intruso, conservando referencias
-o coordinando el recibo existente; no tocar el integrador de A.
+  Su integrador ajusta sólo materiales del intruso; conserva las referencias
+  actuales de Skin.mat/Eyes.mat y respalda sus valores en copias privadas.
+  A conserva igualmente el objeto/GUID Face.asset. Ninguno reescribe el array
+  del renderer ni un recibo incompatible; no tocar el integrador del otro.
 
 ## C — actuación y mirada
 
@@ -140,4 +142,19 @@ ubicación exacta al coordinador; no resolverlo invadiendo el archivo de C/D.
 
 ## Estado
 
-Plan preparado. Se registrarán los cinco chats al iniciarlos.
+Los cinco chats se iniciaron desde `abdbae4c`, en Astra / Ultra, y su actividad
+fue confirmada. Implementación **EN CURSO**, todavía sin aplicar al Editor:
+
+| Frente | Chat | ID | Worktree |
+| --- | --- | --- | --- |
+| A | Intruso: anatomía que incomoda | `01a16a37-5652-7801-b152-00b7e6cf5eac` | `7d20` |
+| B | Intruso: piel, ojos y ropa de una amenaza | `01a16a37-74c1-72c3-9339-8901089121d7` | `a77b` |
+| C | Intruso: quietud que se convierte en… | `01a16a38-1ede-7853-98a8-dca1e451226e` | `a468` |
+| D | Intruso: una voz y un cuerpo que amenazan | `01a16a38-1ede-7853-98a8-dc97e9ba09ad` | `aa2f` |
+| E | Intruso: descubrirlo demasiado cerca | `01a16a38-4ee0-7211-ad18-eb383cfdad2a` | `0fc4` |
+
+Se redujeron con sparse-checkout los tres worktrees limpios de ronda 4,
+conservando commits y originales; las nuevas copias también son reducidas.
+A/B recibieron el contrato de referencias invariables; E recibió la dirección
+de piel/ropa más oscura para componer una luz que preserve su lectura.
+La escena jugable sigue en ronda 4; no se construyó ni publicó ninguna versión.
