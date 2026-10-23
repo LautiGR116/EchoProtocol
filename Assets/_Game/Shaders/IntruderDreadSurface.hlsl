@@ -108,4 +108,16 @@ IntruderDreadSurfaceData EvaluateIntruderDreadSurface(float3 p, float2 uv,
     output.normalTS = resultNormal * rsqrt(max(dot(resultNormal, resultNormal), 1e-8));
     return output;
 }
+// R6 keeps photographed variation. A narrow stressed lip/commissure region
+// follows the original skin coordinates through the actual geometric opening.
+float3 EvaluateIntruderRuptureSkin(float3 p, float3 scan, float3 base)
+{
+    float front = smoothstep(.088, .110, p.z);
+    float lip = DreadRegion(p,float3(-.0015,1.650,.114),float3(.032,.007,.023))*front;
+    float corner = DreadRegion(p,float3(-.026,1.650,.101),float3(.008,.012,.018))
+        + DreadRegion(p,float3(.024,1.650,.102),float3(.008,.012,.018));
+    float l = dot(scan,float3(.2126,.7152,.0722));
+    float3 stretched = lerp(base,l*float3(1.12,.91,.84),saturate(corner)*.25);
+    return lerp(stretched,scan*float3(.61,.47,.46),saturate(lip)*.65);
+}
 #endif

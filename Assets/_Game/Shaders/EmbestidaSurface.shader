@@ -8,6 +8,7 @@ Shader "EchoProtocol/EmbestidaSurface"
         _BumpScale("Normal strength", Float) = .55
         _Apron("Original rubber garment", Float) = 0
         _IntruderFace("Intruder face / preserve scanned skin", Range(0,1)) = 0
+        _IntruderRupture("Round 6 / forced mouth skin (opt in)", Range(0,1)) = 0
         _IntruderDreadSurface("Round 5 / contained violence surface (opt in)", Range(0,1)) = 0
     }
     SubShader
@@ -32,7 +33,7 @@ Shader "EchoProtocol/EmbestidaSurface"
             TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
             TEXTURE2D(_BumpMap); SAMPLER(sampler_BumpMap);
             CBUFFER_START(UnityPerMaterial)
-                float4 _BaseColor; float4 _BaseMap_ST; float _BumpScale; float _IntruderFace; float _IntruderDreadSurface;
+                float4 _BaseColor; float4 _BaseMap_ST; float _BumpScale; float _IntruderFace; float _IntruderDreadSurface; float _IntruderRupture;
             CBUFFER_END
             // Deliberately opt this two-renderer shader out of the SRP Batcher.
             // Borrowed Lit depth/shadow passes have a different material layout;
@@ -122,6 +123,9 @@ Shader "EchoProtocol/EmbestidaSurface"
                     bump = lerp(bump, dread.normalTS, weight);
                     smoothness = lerp(smoothness, dread.smoothness, weight);
                 }
+                // R6 is assigned only on the private skin clone. Preserve the
+                // R5 binding fix: _Apron remains outside UnityPerMaterial.
+                base=lerp(base,EvaluateIntruderRuptureSkin(p,scan,base),saturate(_IntruderRupture)*(1-saturate(_Apron)));
                 n=normalize(t*bump.x+cross(n,t)*i.tangent.w*bump.y+n*bump.z);
                 InputData input=(InputData)0; input.positionWS=i.world; input.normalWS=n;
                 input.viewDirectionWS=GetWorldSpaceNormalizeViewDir(i.world);
