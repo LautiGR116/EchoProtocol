@@ -25,6 +25,7 @@ namespace EchoProtocol.Campaign
         [SerializeField] EmbestidaRush embestida;
         public EmbestidaRush Embestida => embestida;
         [SerializeField] Light p3Practical;
+        [SerializeField] P3Intrusion.P3BodyIntrusion p3Intrusion;
         readonly RaycastHit[] hits = new RaycastHit[32];
         Quaternion doorRest, handleRest;
         bool ready, p3Placed, p3Retired, p3Sound, primed, pressed, burst, burstVoice, pumpPlaced;
@@ -56,6 +57,7 @@ namespace EchoProtocol.Campaign
 
         public void ResetPump()
         {
+            if(encounter&&encounter.Active&&p3Intrusion)p3Intrusion.ReleasePose();
             if(!ready)return;
             preparationAt=-1;primed=pressed=burst=burstVoice=false;
             brakeAt=-100;cornerBraced=false;
@@ -107,6 +109,9 @@ namespace EchoProtocol.Campaign
 
         void LateUpdate()
         {
+            // Release before the pause guard too: a checkpoint can activate the
+            // pump while paused. P3 never restores the actor's world position.
+            if(encounter&&encounter.Active&&p3Intrusion)p3Intrusion.ReleasePose();
             if(!ready||session.IsPaused||Time.deltaTime<=0)return;
             if(!encounter.Active)
             {
@@ -119,11 +124,19 @@ namespace EchoProtocol.Campaign
                 }
                 if(p3Placed&&!p3Retired)
                 {
-                    performance.Present(MachineCoverThreat.Intention.Witness,Time.time-witnessAt,Vector3.zero,0,view.transform.position,null);
-                    if(!p3Sound&&PlaceVisible(transform.position))
-                    {p3Sound=true;DiscoveryContacts++;p3Contact.Play();}
+                    bool visible=PlaceVisible(transform.position);
+                    bool owned=p3Intrusion&&p3Intrusion.Present(Time.deltaTime,visible,returnRelay.IsSecondLinkAccepted&&returnRelay.EchoAtA);
+                    if(owned)
+                    {
+                        if(!p3Sound&&p3Intrusion.HasContact){p3Sound=true;DiscoveryContacts++;}
+                    }
+                    else
+                    {
+                        performance.Present(MachineCoverThreat.Intention.Witness,Time.time-witnessAt,Vector3.zero,0,view.transform.position,null);
+                        if(!p3Sound&&visible){p3Sound=true;DiscoveryContacts++;p3Contact.Play();}
+                    }
                     if(campaign.Chapter!=CampaignChapter.Protocol&&Vector3.Distance(player.position,transform.position)>8&&!PlaceVisible(transform.position))
-                    {p3Retired=true;visual.gameObject.SetActive(false);p3Practical.intensity=0;}
+                    {if(p3Intrusion)p3Intrusion.ReleasePose();p3Retired=true;visual.gameObject.SetActive(false);p3Practical.intensity=0;}
                 }
                 return;
             }
@@ -187,6 +200,6 @@ namespace EchoProtocol.Campaign
             }
             return true;
         }
-        void OnDisable(){foreach(var source in new[]{p3Contact,latch,doorImpact,breath,returnMotor,cornerContact})if(source)source.Stop();}
+        void OnDisable(){if(p3Intrusion)p3Intrusion.ReleasePose();foreach(var source in new[]{p3Contact,latch,doorImpact,breath,returnMotor,cornerContact})if(source)source.Stop();}
     }
 }

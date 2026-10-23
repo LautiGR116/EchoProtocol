@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-23",
+  "purpose": "P3 present intruder: one sole support and one two-palm contact against the existing glass/frame. Replaces the old discovery scrape. No Echo sound, voice, loop or generated performance.",
+  "rights": "Existing CC0 1.0 derivatives; source/license evidence inspected locally. No new download, copy or re-encoding.",
+  "routing": "WorldSFX; world-space mono; contact gain 0.48, sole gain 0.22; listener volume/pause and SessionAudio mono/reduced dynamics retained.",
+  "human_status": "Timbre, impact and comfortable listening EN PRUEBA. No audition claimed.",
+  "clips": [
+    {
+      "asset": "Assets/_Game/Audio/Clips/Impact/Threat_FrameContact.wav",
+      "sha256": "dc29940ecdb12ae880bb267737c2e798d998c4784007b546d4d627a535bd6d2f",
+      "seconds": 0.78,
+      "author": "Brian MacIntosh (BMacZero)",
+      "source": "mechanical-clank1.wav and mechanical-rattle1.wav",
+      "page": "https://opengameart.org/content/mechanical-sounds",
+      "license": "CC0 1.0",
+      "evidence": ["ArtSource/Audio/Resonance/Sources/download-manifest.json", "ArtSource/Audio/Impact/masters.json", "Docs/AUDIO_ASSET_LEDGER.md"],
+      "edit": "Existing dry structural contact and short rattle; reused unchanged. Does not represent glass breaking. Fired only when root and palms reach their physical targets."
+    },
+    {
+      "asset": "Assets/_Game/Audio/Clips/Impact/Threat_Step1.wav",
+      "sha256": "30b1285d7feb14a67708c4af72dd7b07dc97fc37374d8091195062f07a0f19f0",
+      "seconds": 0.34,
+      "source": "Existing Finish/FootVinyl1.wav derivative, with Overhaul source trail",
+      "license": "CC0 1.0 per existing Impact manifest",
+      "evidence": ["Assets/_Game/Audio/Clips/Impact/ImpactManifest.json", "ArtSource/Audio/Impact/masters.json", "ArtSource/Audio/Overhaul/masters.json"],
+      "edit": "Existing band-limited floor support, reused unchanged, once at the lead-foot plant. No repeating walk or pursuit layer."
+    }
+  ]
+}
