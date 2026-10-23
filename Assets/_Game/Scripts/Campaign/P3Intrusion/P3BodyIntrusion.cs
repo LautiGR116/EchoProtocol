@@ -213,19 +213,22 @@ namespace EchoProtocol.Campaign.P3Intrusion
             float progress = actualProgress;
             float release = contacted ? Ease(Mathf.InverseLerp(.16f, .55f, contactAge)) : 0;
             float settle = contacted ? Ease(contactAge / RecoverSeconds) : 0;
+            float bearing = contacted ? Ease(Mathf.InverseLerp(.24f, RecoverSeconds, contactAge)) : 0;
             // Load holds both soles. One diagonal drive ends at the old proven
             // contact posture, then changes to a one-hand hold. No cyclic motion.
             float load = compress * (1 - Ease(progress / .34f));
             float drive = Ease(progress / .26f) * (1 - Ease(Mathf.InverseLerp(.58f, 1, progress)));
             float impactYield = contacted ? Ease(contactAge / .055f) * (1 - Ease(Mathf.InverseLerp(.055f, .24f, contactAge))) : 0;
             hips.position += actor.right * Mathf.Lerp(.025f, -.03f, Mathf.Max(compress, progress))
-                - Vector3.up * (.065f + .045f * compress + .018f * load + .018f * impactYield - .025f * settle);
-            Turn(spine, actor.right, 13 + 9 * load + 15 * drive + 5 * impactYield - 3 * settle);
+                - Vector3.up * (.065f + .045f * compress + .018f * load + .018f * impactYield - .025f * settle + .02f * bearing);
+            // Stay loaded into the planted right hand after the left releases.
+            // Only the recovered hold changes; contact/targets/root stay intact.
+            Turn(spine, actor.right, 13 + 9 * load + 15 * drive + 5 * impactYield - 3 * settle + 13 * bearing);
             Turn(chest, actor.forward, -9 - 6 * load + 3 * impactYield);
-            Turn(chest, actor.up, -9 - 10 * load + 10 * drive - 2 * settle);
-            Turn(neck, actor.right, -12 - 8 * load - 10 * drive - 4 * impactYield);
+            Turn(chest, actor.up, -9 - 10 * load + 10 * drive - 2 * settle - 6 * bearing);
+            Turn(neck, actor.right, -12 - 8 * load - 10 * drive - 4 * impactYield - 10 * bearing);
             Turn(head, actor.forward, 5 + 4 * load - 4 * settle);
-            Turn(head, actor.right, 3 - 3 * settle);
+            Turn(head, actor.right, 3 - 3 * settle + 2 * bearing);
             // A single expelled effort; the mouth returns to authored neutral.
             Turn(jaw, actor.right, 5 * impactYield);
             Turn(highPalm.arm.upper, actor.right, -8 - 32 * drive);
@@ -242,7 +245,12 @@ namespace EchoProtocol.Campaign.P3Intrusion
             float first = blocked ? 0 : Ease(Mathf.InverseLerp(.38f, .96f, progress));
             float brace = blocked ? 0 : Ease(Mathf.InverseLerp(.74f, 1, progress));
             if (first > 0)
+            {
                 highPalm.Place(first, highPalm.arm.upper.position + actor.right * .30f - actor.up * .30f);
+                // Rotate within the glass plane, not away from it: a diagonal
+                // brace instead of an upright greeting. The wrist stays pinned.
+                Turn(highPalm.arm.end, highPalm.target.forward, -28 * bearing);
+            }
             if (brace > 0)
             {
                 Vector3 hint = lowPalm.arm.upper.position - actor.right * .26f - actor.up * .42f;
@@ -258,7 +266,7 @@ namespace EchoProtocol.Campaign.P3Intrusion
             }
             int beat = !triggered ? 1 : !contacted ? 2 : 3;
             acting.Pose(actor, neck, head, viewer.position, beat, Time.deltaTime,
-                contacted ? .16f : .035f, !triggered || Settled);
+                contacted ? .16f : .035f, !triggered || Settled, -5 * bearing);
         }
 
         void AuthoredFoot(Limb leg, float from, float until, float stagger, float lift)

@@ -67,3 +67,19 @@ Tras el handoff: `OwnsPose == false`, fuentes P3 detenidas y mismo actor en bomb
 Dos dudas humanas: ¿la aproximación y la caída de una mano se leen como peso
 e intención, sin gesto de muñeco? ¿la mirada quieta resulta incómoda y la
 irrupción provoca retroceso con orientación y volumen cómodos?
+
+## Ajuste único tras el extremo P3 central
+
+El coordinador informó `Contacts=1`, errores de ambas muñecas al contacto
+<0,00001 m, `Settled=true`, `BraceReleased=true`, `RightPalmError=0` y
+`MaxSupportError≈0,000001 m`. La captura `p3-settled.png` todavía se lee como
+saludo amable: torso erguido y palma vertical. Esto es evidencia del primer
+pase, no validación del ajuste siguiente.
+
+Sólo desde 0,24 s después del contacto, la quietud carga el torso 13° más hacia
+la mano, adelanta el hombro derecho 6°, baja pelvis 2 cm y recoge el mentón
+con compensación cervical y ocular. La palma gira 28° dentro del plano del
+vidrio, conservando su muñeca y target. Entrada, raíz, targets, pies y bomba
+no cambian; el parámetro ocular nuevo tiene default cero para otros usos.
+Requiere únicamente el nuevo extremo P3 central para comprobar el apoyo y
+la lectura. Sin aplicación ni comprobación Unity en este worktree.

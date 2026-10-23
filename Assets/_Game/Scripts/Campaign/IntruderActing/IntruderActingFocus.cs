@@ -21,7 +21,7 @@ namespace EchoProtocol.Campaign.IntruderActing
         }
 
         public void Pose(Transform root, Transform neck, Transform head, Vector3 evidence,
-            int nextBeat, float delta, float headDelay, bool canReacquire)
+            int nextBeat, float delta, float headDelay, bool canReacquire, float eyePitchBias = 0)
         {
             if (!IsConfigured || delta <= 0) return;
             holdAge += delta; acquisitionAge += delta;
@@ -47,7 +47,7 @@ namespace EchoProtocol.Campaign.IntruderActing
             // Eyes acquire before the head. Limits are intentionally small;
             // anatomical neutral geometry belongs to the face authoring pass.
             float eyeYaw = Mathf.Clamp(targetYaw - yaw, -12, 12);
-            float eyePitch = Mathf.Clamp(targetPitch - pitch, -7, 7);
+            float eyePitch = Mathf.Clamp(targetPitch - pitch + eyePitchBias, -7, 7);
             Turn(leftEye, root.up, eyeYaw); Turn(rightEye, root.up, eyeYaw);
             Turn(leftEye, root.right, eyePitch); Turn(rightEye, root.right, eyePitch);
         }
