@@ -90,6 +90,13 @@ namespace EchoProtocol.Campaign.P3Intrusion
                         Quaternion.FromToRotation(direction, along), weight * gather) * digit.rotation;
                 }
             }
+
+            public void Grip(float weight, Vector3 hint)
+            {
+                // The R6 fingers wrap a jamb; do not flatten them onto glass.
+                arm.Place(Vector3.Lerp(arm.end.position, target.position, weight), hint);
+                arm.end.rotation = Quaternion.Slerp(arm.end.rotation, target.rotation * orientation, weight);
+            }
         }
 
         [SerializeField] IntruderStaging owner;
@@ -109,11 +116,17 @@ namespace EchoProtocol.Campaign.P3Intrusion
         [SerializeField] AudioSource contact, support;
         [SerializeField, Min(.1f)] float recognitionSeconds = .32f;
         [SerializeField, Min(.2f)] float advanceSeconds = .46f;
+        [SerializeField] bool rupturePerformance;
+        [SerializeField] MeshFilter gripFrame;
+        readonly P3RuptureGrip grip = new P3RuptureGrip();
 
         bool Authored => acting && acting.isActiveAndEnabled;
+        public bool UsesRupturePerformance => rupturePerformance;
+        bool Rupture => rupturePerformance && Authored;
         bool Contained => Authored && acting.UsesContainedViolence;
-        float CompressSeconds => Contained ? .26f : Authored ? .18f : .12f;
-        float RecoverSeconds => Contained ? .62f : Authored ? .68f : .48f;
+        float CompressSeconds => Rupture ? .20f : Contained ? .26f : Authored ? .18f : .12f;
+        float RecoverSeconds => Rupture ? .58f : Contained ? .62f : Authored ? .68f : .48f;
+        float TravelSeconds => Rupture ? .31f : advanceSeconds;
         Transform actor;
         Transform[] joints;
         Vector3[] positions;
@@ -132,10 +145,11 @@ namespace EchoProtocol.Campaign.P3Intrusion
         public float ContactRightPalmError { get; private set; }
         public float ContactLeftPalmError { get; private set; }
         public float MaxSupportError { get; private set; }
-        public bool BraceReleased => Authored && contacted && contactAge >= (Contained ? .42f : .55f);
+        public bool BraceReleased => Authored && contacted && contactAge >= (Rupture ? .44f : Contained ? .42f : .55f);
         public bool IsConfigured => owner && session && encounter && threat && performance && controller && anatomy
             && anatomy.IsPresentThreat && anatomy.ModelRoot && hips && spine && chest && neck && head && jaw && stop
             && (!acting || (acting.IsConfigured && viewer && acting.transform == owner.transform))
+            && (!rupturePerformance || (Authored && gripFrame && gripFrame.sharedMesh && highPalm.digits != null))
             && glazing && glazing.enabled && !glazing.isTrigger && highPalm.Valid && lowPalm.Valid && leftLeg.Valid && rightLeg.Valid
             && contact && contact.clip && support && support.clip && contact.outputAudioMixerGroup && support.outputAudioMixerGroup
             && !contact.loop && !support.loop && !contact.ignoreListenerPause && !support.ignoreListenerPause
@@ -161,6 +175,7 @@ namespace EchoProtocol.Campaign.P3Intrusion
             for (int i = 0; i < joints.Length; i++) { positions[i] = joints[i].localPosition; rotations[i] = joints[i].localRotation; }
             origin = actor.position; originRotation = actor.rotation;
             leftLeg.Capture(actor); rightLeg.Capture(actor); highPalm.Capture(actor); lowPalm.Capture(actor);
+            if (Rupture && !grip.Capture(highPalm.digits, gripFrame)) return false;
             if (acting) acting.CaptureNeutral(actor, head);
             OwnsPose = true;
             ApplyPose(0, 0);
@@ -184,7 +199,7 @@ namespace EchoProtocol.Campaign.P3Intrusion
             float travelAge = Mathf.Max(0, age - CompressSeconds);
             if (triggered && !contacted && !blocked && age >= CompressSeconds)
             {
-                float u = Ease(travelAge / advanceSeconds);
+                float u = Ease(travelAge / TravelSeconds);
                 Vector3 target = Vector3.Lerp(origin, stop.position, u);
                 // Leave the table lamp beside the original stand before moving
                 // diagonally toward the viewer. No collider is disabled/ignored.
@@ -194,28 +209,34 @@ namespace EchoProtocol.Campaign.P3Intrusion
                 float total = Vector3.Distance(new Vector3(origin.x, 0, origin.z), new Vector3(stop.position.x, 0, stop.position.z));
                 actualProgress = Mathf.Clamp01(Vector3.Distance(new Vector3(actor.position.x, 0, actor.position.z), new Vector3(origin.x, 0, origin.z)) / Mathf.Max(.001f, total));
                 // An obstruction is a stopped approach, never a fake glass hit.
-                if (travelAge >= advanceSeconds + .22f && PlanarDistance(actor.position, stop.position) > .055f) blocked = true;
+                if (travelAge >= TravelSeconds + .22f && PlanarDistance(actor.position, stop.position) > .055f) blocked = true;
             }
             if (contacted) contactAge += delta;
             ApplyPose(travelAge, triggered ? Ease(age / CompressSeconds) : 0);
 
-            if (triggered && !blocked && !supportPlayed && travelAge >= advanceSeconds * .82f && actualProgress > .85f)
+            if (!Rupture && triggered && !blocked && !supportPlayed && travelAge >= TravelSeconds * .82f && actualProgress > .85f)
             {
                 supportPlayed = true; support.transform.position = rightLeg.end.position; support.Play();
             }
-            if (triggered && !contacted && !blocked && travelAge >= advanceSeconds
+            if (triggered && !contacted && !blocked && travelAge >= TravelSeconds
                 && PlanarDistance(actor.position, stop.position) <= .055f && PalmsReached())
             {
                 ContactRightPalmError = RightPalmError; ContactLeftPalmError = LeftPalmError;
                 contacted = true; contactAge = 0; Contacts++;
-                contact.transform.position = highPalm.target.position; contact.Play();
+                contact.transform.position = Rupture ? grip.ContactPoint : highPalm.target.position; contact.Play();
+                if (Rupture && !supportPlayed)
+                {
+                    supportPlayed = true; support.transform.position = rightLeg.end.position; support.Play();
+                }
             }
-            if (triggered && !contacted && travelAge > advanceSeconds + .3f) blocked = true;
+            if (triggered && !contacted && travelAge > TravelSeconds + .3f) blocked = true;
             return true;
         }
 
         bool PalmsReached()
         {
+            if (Rupture)
+                return glazing.enabled && RightPalmError < .045f && grip.Reached;
             return glazing.enabled && Vector3.Distance(highPalm.arm.end.position, highPalm.target.position) < .045f
                 && Vector3.Distance(lowPalm.arm.end.position, lowPalm.target.position) < .045f
                 && Vector3.Distance(glazing.ClosestPoint(highPalm.target.position), highPalm.target.position) < .055f
@@ -224,9 +245,61 @@ namespace EchoProtocol.Campaign.P3Intrusion
 
         void ApplyPose(float travelAge, float compress)
         {
+            if (Rupture) { ApplyRupturePose(); return; }
             if (Contained) { ApplyContainedPose(); return; }
             if (Authored) { ApplyAuthoredPose(compress); return; }
             ApplyLegacyPose(travelAge, compress);
+        }
+
+        void ApplyRupturePose()
+        {
+            RestoreJoints();
+            float p = actualProgress;
+            float load = (triggered ? Ease(age / .10f) : 0) * (1 - Ease(p / .25f));
+            float drive = Ease(p / .22f) * (1 - Ease(Mathf.InverseLerp(.65f, 1, p)));
+            float release = contacted ? Ease(Mathf.InverseLerp(.34f, .44f, contactAge)) : 0;
+            float close = contacted ? Ease(Mathf.InverseLerp(.34f, .58f, contactAge)) : 0;
+            // Retention: the frame takes the right hand and shoulder's weight.
+            // Release: a ten-centisecond tear off, then a closer fixed head.
+            // No breathing loop, nod, jaw turn or mouth-corner offsets in P3 R6.
+            hips.position -= actor.up * (.10f + .025f * load + .018f * close);
+            hips.position += actor.forward * (.045f * close - .035f * load);
+            Turn(spine, actor.right, 25 + 10 * load + 17 * drive + 12 * close);
+            Turn(chest, actor.forward, -12 - 5 * load + 5 * close);
+            Turn(chest, actor.up, -12 - 8 * load + 5 * drive - 6 * close);
+            Turn(neck, actor.right, -20 - 10 * drive - 9 * close);
+            Turn(head, actor.forward, -5);
+            int beat = !triggered ? 61 : !contacted ? 62 : release < 1 ? 63 : 64;
+            acting.Pose(actor, neck, head, viewer.position, beat, Time.deltaTime, .06f, false);
+            // Keep the head volume on the actor's side of the actual glazing.
+            // Apply before arm/foot IK, so support never drifts with this bound.
+            Vector3 east = glazing.transform.right;
+            Vector3 face = glazing.transform.TransformPoint(glazing.center + Vector3.right * glazing.size.x * .5f);
+            float clearance = Vector3.Dot(head.position - face, east);
+            if (clearance < .16f) hips.position += east * (.16f - clearance);
+
+            AuthoredFoot(rightLeg, 0, .72f, .11f, .105f);
+            AuthoredFoot(leftLeg, .20f, 1, -.17f, .07f);
+            Vector3 rightHint = highPalm.arm.upper.position + actor.right * .25f - actor.up * .40f;
+            Vector3 leftHint = lowPalm.arm.upper.position - actor.right * .22f - actor.up * .35f;
+            // The free hand stays at the ribs: there is only one material grip.
+            lowPalm.arm.Place(actor.TransformPoint(new Vector3(-.19f, 1.06f, .15f)), leftHint);
+            lowPalm.arm.end.rotation = lowPalm.arm.rotation;
+            Turn(highPalm.arm.upper, actor.right, -8 - 25 * drive);
+            Turn(highPalm.arm.lower, actor.right, -38 - 12 * load);
+            float reach = blocked ? 0 : Ease(Mathf.InverseLerp(.36f, .98f, p));
+            if (reach > 0)
+            {
+                highPalm.Grip(reach, rightHint);
+                grip.Curl(reach);
+                if (release > 0)
+                {
+                    Quaternion held = highPalm.arm.end.rotation;
+                    Vector3 withdrawn = actor.TransformPoint(new Vector3(.22f, .98f, .15f));
+                    highPalm.arm.Place(Vector3.Lerp(highPalm.target.position, withdrawn, release), rightHint);
+                    highPalm.arm.end.rotation = Quaternion.Slerp(held, highPalm.arm.rotation, release);
+                }
+            }
         }
 
         void ApplyContainedPose()
