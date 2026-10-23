@@ -45,7 +45,7 @@ public static class P3IntrusionIntegration
     {
         Context c = Validate();
         Debug.Log(c.installed ? "P3 intrusion: installation valid; Apply is a no-op."
-            : "P3 intrusion: original actor, solid glass, path and sources ready. Apply adds only the P3 performance and its targets/sources.", c.owner);
+            : "P3 intrusion: original actor, authored glass and sources ready. Verify actual collision in Play after B. Apply adds only the P3 performance and its targets/sources.", c.owner);
     }
 
     [MenuItem("Echo Protocol/P3 intrusion/2. Apply to current scene")]
@@ -144,13 +144,15 @@ public static class P3IntrusionIntegration
         var glazing = o.FindProperty("p3Glazing");
         c.glass = Enumerable.Range(0, glazing.arraySize).Select(i => glazing.GetArrayElementAtIndex(i).objectReferenceValue as BoxCollider)
             .Single(b => b && b.enabled && b.name == "A sealed glass");
-        if (c.glass.isTrigger || !c.glass.gameObject.activeInHierarchy || Mathf.Abs(c.glass.bounds.max.x - -6.2825f) > .005f
-            || Vector3.Distance(c.glass.ClosestPoint(HighPalm), HighPalm) > .045f
-            || Vector3.Distance(c.glass.ClosestPoint(LowPalm), LowPalm) > .045f
+        // P3's gated decor is inactive in Edit Mode. Collider.bounds and
+        // ClosestPoint cannot validate it there; use the authored local box.
+        if (c.glass.isTrigger || Mathf.Abs(AuthoredBounds(c.glass).max.x - -6.2825f) > .005f
+            || Vector3.Distance(AuthoredClosestPoint(c.glass, HighPalm), HighPalm) > .045f
+            || Vector3.Distance(AuthoredClosestPoint(c.glass, LowPalm), LowPalm) > .045f
             || Physics.GetIgnoreLayerCollision(c.owner.gameObject.layer, c.glass.gameObject.layer))
-            throw new InvalidOperationException("The active A glass must remain solid with both wrists just inside its east face.");
-        Physics.SyncTransforms();
-        ValidateClearance(c);
+            throw new InvalidOperationException("The authored A glass must remain solid with both wrists just inside its east face.");
+        // Actual controller clearance/collision belongs to the central Play
+        // check after B activates the decor. Never activate it for preflight.
         c.contact = AssetDatabase.LoadAssetAtPath<AudioClip>(ContactPath); c.support = AssetDatabase.LoadAssetAtPath<AudioClip>(SupportPath);
         if (!c.contact || !c.support || c.contact.channels != 1 || c.support.channels != 1)
             throw new InvalidOperationException("Import the existing licensed mono Impact contacts; no new audio download is required.");
@@ -173,18 +175,23 @@ public static class P3IntrusionIntegration
         return c;
     }
 
-    static void ValidateClearance(Context c)
+    static Bounds AuthoredBounds(BoxCollider box)
     {
-        // The start is inherited beside the table lamp. Check the two subsequent
-        // positions, above floor level, without moving/creating any scene object.
-        foreach (var point in new[] { new Vector3(-4.95f, .03f, 35.8f), Arrest })
-        {
-            var hits = Physics.OverlapCapsule(point + Vector3.up * (c.controller.radius + .10f),
-                point + Vector3.up * (c.controller.height - c.controller.radius), c.controller.radius + c.controller.skinWidth,
-                Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
-            if (hits.Any(h => h.gameObject.scene == c.scene && !h.transform.IsChildOf(c.owner.transform)))
-                throw new InvalidOperationException("P3 approach clearance changed near " + point + ". Inspect the obstruction before applying.");
-        }
+        Vector3 half = box.size * .5f;
+        var bounds = new Bounds(box.transform.TransformPoint(box.center), Vector3.zero);
+        for (int x = -1; x <= 1; x += 2)
+            for (int y = -1; y <= 1; y += 2)
+                for (int z = -1; z <= 1; z += 2)
+                    bounds.Encapsulate(box.transform.TransformPoint(box.center + new Vector3(half.x * x, half.y * y, half.z * z)));
+        return bounds;
+    }
+
+    static Vector3 AuthoredClosestPoint(BoxCollider box, Vector3 worldPoint)
+    {
+        Vector3 local = box.transform.InverseTransformPoint(worldPoint), half = box.size * .5f;
+        Vector3 min = box.center - half, max = box.center + half;
+        return box.transform.TransformPoint(new Vector3(Mathf.Clamp(local.x, min.x, max.x),
+            Mathf.Clamp(local.y, min.y, max.y), Mathf.Clamp(local.z, min.z, max.z)));
     }
 
     static void Leg(SerializedProperty limb, SerializedObject p, string side)
