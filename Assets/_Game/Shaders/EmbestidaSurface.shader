@@ -8,6 +8,7 @@ Shader "EchoProtocol/EmbestidaSurface"
         _BumpScale("Normal strength", Float) = .55
         _Apron("Original rubber garment", Float) = 0
         _IntruderFace("Intruder face / preserve scanned skin", Range(0,1)) = 0
+        _IntruderDreadSurface("Round 5 / contained violence surface (opt in)", Range(0,1)) = 0
     }
     SubShader
     {
@@ -27,10 +28,11 @@ Shader "EchoProtocol/EmbestidaSurface"
             #pragma multi_compile_fog
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+            #include "IntruderDreadSurface.hlsl"
             TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
             TEXTURE2D(_BumpMap); SAMPLER(sampler_BumpMap);
             CBUFFER_START(UnityPerMaterial)
-                float4 _BaseColor; float4 _BaseMap_ST; float _BumpScale; float _Apron; float _IntruderFace;
+                float4 _BaseColor; float4 _BaseMap_ST; float _BumpScale; float _Apron; float _IntruderFace; float _IntruderDreadSurface;
             CBUFFER_END
             struct A { float4 positionOS:POSITION; float3 normalOS:NORMAL; float4 tangentOS:TANGENT; float2 uv:TEXCOORD0; float3 rest:TEXCOORD2; };
             struct V { float4 positionCS:SV_POSITION; float3 world:TEXCOORD0; float3 normal:TEXCOORD1; float4 tangent:TEXCOORD2; float2 uv:TEXCOORD3; float3 rest:TEXCOORD4; float fog:TEXCOORD5; };
@@ -104,6 +106,12 @@ Shader "EchoProtocol/EmbestidaSurface"
                     faceSmoothness=lerp(faceSmoothness,.20,smoothstep(1.76,1.80,p.y));
                     smoothness=lerp(smoothness,faceSmoothness,faceWeight);
                 }
+                // Explicit opt-in on the existing private intruder materials.
+                // Original scan coordinates survive the R5 anatomy upgrade;
+                // no actor, bone, UV or shared texture is modified here.
+                if (_IntruderDreadSurface > 0)
+                    ApplyIntruderDreadSurface(p, i.uv, scan, _BaseColor.rgb,
+                        _Apron, _IntruderDreadSurface, base, bump, smoothness);
                 n=normalize(t*bump.x+cross(n,t)*i.tangent.w*bump.y+n*bump.z);
                 InputData input=(InputData)0; input.positionWS=i.world; input.normalWS=n;
                 input.viewDirectionWS=GetWorldSpaceNormalizeViewDir(i.world);
