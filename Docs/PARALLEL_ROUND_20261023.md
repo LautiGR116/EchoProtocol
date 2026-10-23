@@ -62,3 +62,17 @@ y carpetas diferentes. La regla del Echo y las condiciones del puzzle se preserv
   README ni ROADMAP en paralelo. Entregar commits, archivos, operación de aplicación,
   comprobaciones realmente realizadas y dos puntos para prueba humana.
 - Miedo, actuación, comodidad y comprensión espontánea siguen EN PRUEBA humana.
+
+## Chats iniciados
+
+Verificados activos con modelo `gpt-6-astra` y effort `ultra`, todos desde
+`5277b28db7d1984178896d4c6487af16996b85e3`. Fast queda a cargo del usuario,
+quien confirmó que lo activará; no se afirma activación desde la herramienta.
+
+- P2: `01a169d7-bd82-7c63-9b08-15a2dffb0d18`, worktree `2c5b`.
+- SE2: `01a169d8-04e7-7041-ae52-a689324e0a49`, worktree `58ca`.
+- Player: `01a169d8-4ea1-7e23-8fc7-36635f143170`, worktree `94f3`.
+
+Son implementaciones en curso, todavía no integradas. El proyecto principal
+conserva la primera ronda jugable y Play detenido. No abrir Libraries adicionales:
+el espacio libre observado tras crear los tres worktrees es aproximadamente 1.2 GiB.
