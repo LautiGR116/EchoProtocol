@@ -25,6 +25,8 @@ namespace EchoProtocol.Campaign
         [SerializeField] EmbestidaRush embestida;
         public EmbestidaRush Embestida => embestida;
         [SerializeField] Light p3Practical;
+        [SerializeField, Min(0)] float p3RevealIntensity = .8f;
+        [SerializeField] bool contactLedPresentation;
         [SerializeField] P3Intrusion.P3BodyIntrusion p3Intrusion;
         readonly RaycastHit[] hits = new RaycastHit[32];
         Quaternion doorRest, handleRest;
@@ -120,7 +122,7 @@ namespace EchoProtocol.Campaign
                 if(!p3Placed&&!p3Retired&&returnRelay.IsSecondLinkAccepted&&!PlaceVisible(p3Stand.position))
                 {
                     MoveBody(p3Stand);p3Placed=true;witnessAt=Time.time;visual.gameObject.SetActive(true);
-                    p3Practical.intensity=.8f;
+                    p3Practical.intensity=p3RevealIntensity;
                 }
                 if(p3Placed&&!p3Retired)
                 {
@@ -165,6 +167,11 @@ namespace EchoProtocol.Campaign
             // A real outlet on the same driven pump creates the diversion at the
             // exposed exit. The recording still holds only its existing control.
             float outlet=encounter.MachineRunning?.20f:0;
+            // Retain the real outlet's direction and pump causality, while
+            // leaving the first housing attack unmasked by this extra emitter.
+            if(contactLedPresentation && embestida && threat.Released
+                && (threat.Phase==MachineCoverThreat.Intention.Entry || embestida.HasContact && embestida.ContactAge<.6f))
+                outlet*=.30f;
             returnMotor.volume=Mathf.MoveTowards(returnMotor.volume,outlet,Time.deltaTime*.8f);
             if(returnMotor.volume>0&&!returnMotor.isPlaying)returnMotor.Play();
             if(returnMotor.volume<=0&&returnMotor.isPlaying)returnMotor.Stop();

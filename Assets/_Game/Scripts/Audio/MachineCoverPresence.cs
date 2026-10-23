@@ -19,6 +19,7 @@ namespace EchoProtocol.Audio
         [SerializeField] private AudioClip[] steps;
         [SerializeField] private Light threatPractical;
         [SerializeField] private Light exitPractical;
+        [SerializeField] private bool contactLedPresentation;
         // Optional in older editions. These are present-body emitters, with
         // separate voice, sole/intake, breathing and fixed pump-contact roles.
         [SerializeField] private AudioSource huntVoice, huntBody, huntBreathing, huntContact;
@@ -107,7 +108,13 @@ namespace EchoProtocol.Audio
             switch (cue)
             {
                 case HuntCue.Launch:
-                    huntBody.Stop(); PlayAction(huntVoice, launchEffort);
+                    huntBody.Stop();
+                    // The housing contact has already expelled this effort.
+                    // Starting pursuit is the continuation of that action, not
+                    // a second near-identical vocal take after recovery.
+                    var entry = threat.Intruder ? threat.Intruder.Embestida : null;
+                    if (!contactLedPresentation || !entry || !entry.HasContact || entry.ContactAge >= 1.2f)
+                        PlayAction(huntVoice, launchEffort);
                     breathQuietUntil = Time.time + .42f;
                     listeningUntil = -100;
                     break;
@@ -179,6 +186,9 @@ namespace EchoProtocol.Audio
             { framePlayed=true;FrameCount++;rush.Play(); }
             float motion=active?Mathf.InverseLerp(.05f,3.7f,speed):0;
             float grain=directed?.12f:.22f;
+            // Actual sole/brake contacts carry movement. Continuous body grain
+            // flattens their attacks and advertises motion during held poses.
+            if(contactLedPresentation)grain=0;
             float music=active&&age>1.4f?.25f:0;
             if(directed)music=active&&(threat.Phase==MachineCoverThreat.Intention.Charge)? .23f : active&&threat.AttractedToMachine?.025f:0;
             if(threat.Intruder)music=0;
@@ -192,6 +202,9 @@ namespace EchoProtocol.Audio
                 grain*=searching?.30f:threat.AttractedToMachine?.45f:.72f;
                 if(listening||Time.time<maskUntil)grain=0;
                 float targetBreath=!active||Time.time<breathQuietUntil?0:searching?.26f:threat.AttractedToMachine?.48f:.85f;
+                var entry=threat.Intruder?threat.Intruder.Embestida:null;
+                if(contactLedPresentation && entry && (threat.Phase==MachineCoverThreat.Intention.Entry
+                    || entry.HasContact && entry.ContactAge<.60f))targetBreath=0;
                 breathGain=Mathf.MoveTowards(breathGain,targetBreath,Time.deltaTime*(targetBreath<breathGain?7:2.5f));
             }
             frictionGain=Mathf.MoveTowards(frictionGain,grain*motion,Time.deltaTime*.8f);
