@@ -32,8 +32,12 @@ Shader "EchoProtocol/EmbestidaSurface"
             TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
             TEXTURE2D(_BumpMap); SAMPLER(sampler_BumpMap);
             CBUFFER_START(UnityPerMaterial)
-                float4 _BaseColor; float4 _BaseMap_ST; float _BumpScale; float _Apron; float _IntruderFace; float _IntruderDreadSurface;
+                float4 _BaseColor; float4 _BaseMap_ST; float _BumpScale; float _IntruderFace; float _IntruderDreadSurface;
             CBUFFER_END
+            // Deliberately opt this two-renderer shader out of the SRP Batcher.
+            // Borrowed Lit depth/shadow passes have a different material layout;
+            // Metal otherwise reused RubberBib's binding for Skin in P3.
+            float _Apron;
             struct A { float4 positionOS:POSITION; float3 normalOS:NORMAL; float4 tangentOS:TANGENT; float2 uv:TEXCOORD0; float3 rest:TEXCOORD2; };
             struct V { float4 positionCS:SV_POSITION; float3 world:TEXCOORD0; float3 normal:TEXCOORD1; float4 tangent:TEXCOORD2; float2 uv:TEXCOORD3; float3 rest:TEXCOORD4; float fog:TEXCOORD5; };
             V vert(A a)

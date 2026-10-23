@@ -102,3 +102,14 @@ La respiración íntima doblada/modulada ya tuvo rechazo humano en una entrega
 anterior: este recorte seco y único debe juzgarse en la habitación. Puede sonar
 demasiado leve o genérico; la coherencia del nuevo esfuerzo con el adulto y el
 peso del contacto requieren oído humano a volumen cómodo, no un pico de señal.
+
+## Integración central, 2026-10-23
+
+Hook de propiedad en `EmbestidaRush` integrado y upgrade guardado en Incursion.
+Se corrigió el preflight: los masters son mono PCM de 48 kHz, pero el target WebGL
+abierto los importa a 44,1 kHz. Se acepta esa conversión sin cambiar plataforma,
+mezcla ni importación global. Compilación conjunta correcta. Check preparado de
+entrada/contacto/recuperación: esfuerzo y aliento observados en las fuentes reales,
+sin loop, y captura final del listener de 2,65 s, pico -6,02 dBFS, sin muestras saturadas.
+P3 también conserva contacto y captura del listener. Esto no valida timbre,
+comodidad en auriculares ni miedo. Evidencia/alcance en el plan de ronda 5.

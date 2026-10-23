@@ -161,8 +161,12 @@ public static class IntruderAudioIntegration
         string path = AudioRoot + suffix + ".wav";
         var clip = AssetDatabase.LoadAssetAtPath<AudioClip>(path);
         var importer = AssetImporter.GetAtPath(path) as AudioImporter;
-        Require(clip && clip.channels == 1 && clip.frequency == 48000 && clip.length < 1 && importer,
-            "Missing/invalid traced round-five mono 48 kHz clip: " + path);
+        // Unity's WebGL importer converts these 48 kHz masters to 44.1 kHz.
+        // Validate the effective platform rate without changing the Editor target.
+        bool validRate = clip && (clip.frequency == 48000
+            || (EditorUserBuildSettings.activeBuildTarget == BuildTarget.WebGL && clip.frequency == 44100));
+        Require(clip && clip.channels == 1 && validRate && clip.length < 1 && importer,
+            "Missing/invalid traced round-five mono clip for the active platform: " + path);
         var settings = importer.defaultSampleSettings;
         Require(settings.compressionFormat == AudioCompressionFormat.PCM && settings.loadType == AudioClipLoadType.DecompressOnLoad
             && settings.preloadAudioData && !importer.loadInBackground, "Use the committed short-clip PCM/preload settings: " + path);

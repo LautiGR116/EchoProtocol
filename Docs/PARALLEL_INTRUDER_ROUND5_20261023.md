@@ -3,7 +3,7 @@
 2026-10-23. Cinco chats GPT-6 Astra / Ultra autorizados. Sólo Editor, sin
 builds ni publicación y con checks puntuales. Base integrada `d2ea5398`, rama
 `codex/integracion-20261023`. La ronda 4 está guardada en Incursion y recuperable.
-Esto es dirección aprobada, no implementación ni miedo aprobado.
+Integrada y guardada en el Editor central. Miedo y escucha todavía EN PRUEBA humana.
 
 Coordinador: `01a12cb5-6030-77a1-b02b-93734f7c279b`, original
 `/Users/lautigr116/EchoProtocol`. Sólo él usa el Editor central e integra escena.
@@ -142,8 +142,8 @@ ubicación exacta al coordinador; no resolverlo invadiendo el archivo de C/D.
 
 ## Estado
 
-Los cinco chats se iniciaron desde `abdbae4c`, en Astra / Ultra, y su actividad
-fue confirmada. Implementación **EN CURSO**, todavía sin aplicar al Editor:
+Los cinco chats se iniciaron desde `abdbae4c`, en Astra / Ultra, y terminaron.
+Implementación **INTEGRADA** en la escena local Incursion:
 
 | Frente | Chat | ID | Worktree |
 | --- | --- | --- | --- |
@@ -157,4 +157,53 @@ Se redujeron con sparse-checkout los tres worktrees limpios de ronda 4,
 conservando commits y originales; las nuevas copias también son reducidas.
 A/B recibieron el contrato de referencias invariables; E recibió la dirección
 de piel/ropa más oscura para componer una luz que preserve su lectura.
-La escena jugable sigue en ronda 4; no se construyó ni publicó ninguna versión.
+La escena jugable contiene la ronda 5. No se construyó ni publicó ninguna versión.
+
+## Entrega central
+
+Commits integrados: A `3dab631e`, B `0d4d6caa`, C `1a00ebe5`, D `656aff57`,
+E `f6fca9c0`; correcciones de superficie `da58f4cd` y `b3ba2264`, más cierre
+central en esta rama. Se aplicaron los cinco upgrades mediante Editor sobre los
+mismos objetos privados. Escena guardada, Editor fuera de Play, helpers detenidos.
+Antes/después y recibos privados recuperables en
+`/Users/lautigr116/EchoProtocol-backups/parallel-round5-20261023/`.
+
+- Cara: mandíbula trabada/asimétrica y órbitas desiguales; textura del adulto
+  conservada. Piel más pálida y ropa oscura, ojos físicos sin emisión.
+- Actuación: palma transversal, apoyo y cabeza inclinada; mirada que adquiere
+  y sostiene un punto. La bomba concentra carga, irrupción, contacto y recuperación.
+- Sonido: contacto seco, esfuerzo breve y respiraciones discretas; un solo dueño
+  de la fuente compartida. Mezcla/opciones globales y registro del Echo conservados.
+- Puesta: luz local y encuadre de fondo revisados, seis luces reutilizadas.
+
+Compilación conjunta correcta, con una recompilación adicional por el preflight
+de audio: Unity WebGL convierte los masters 48 kHz a 44,1 kHz. Durante la inspección
+visual apareció un fallo real: cuerpo invisible y después piel con acabado de goma.
+La comparación en la misma vista con binding por renderer aisló el SRP Batcher.
+Se excluyó sólo `EmbestidaSurface` de ese camino, dejando `_Apron` fuera del buffer
+por material; no se desactivó globalmente. La vista final conserva detalle de piel
+y pelo. Los intentos matemáticos por sí solos no corrigieron ese fallo.
+
+Checks finales preparados, sin resolver rutas completas: P3 avanza de frame 247
+a 299, realiza un contacto, se asienta y libera la segunda mano sin bloquearse;
+error de apoyo/contacto inferior a 0,001 m. Transferencia al mismo actor de bomba,
+P3 deja de escribir su pose. Entrada de bomba frame 721 a 758, un contacto real,
+sin aborto, esfuerzo y aliento observados, recuperación a 1,50 s todavía protegida
+para reaccionar. La captura del listener dura 2,65 s, pico -6,02 dBFS y sin muestras
+saturadas. La Console final no agrega errores desde cursor 2572; los errores previos
+del callback temporal de inspección y transporte Pipeline no son errores del juego.
+Se corrigió el callback y se retiraron sus helpers. Las repeticiones se limitaron
+al fallo visual y al acceso preparado; no hubo campaña ni suites amplias.
+
+Evidencia local: `Builds/round5-integration-20261023/p3-settled.png`,
+`pump-contact.png`, `pump-recovery.png`, `p3-listener.wav`, `pump-listener.wav`
+y estados JSON. Comparar con las mismas capturas de `round4-integration-20261023`.
+El Echo estacionario de P3 y el acceso directo a Release son fixtures explícitos,
+no prueba de comprensión espontánea ni de persecución completa.
+
+**Juicio visual del coordinador:** se distingue la mandíbula, la palidez y la
+inclinación invasiva; la cercanía de bomba comunica más amenaza que P3. P3 aún
+mantiene una silueta humana reconocible y puede seguir resultando demasiado social.
+No se declara miedo aprobado. Prueba humana corta: reacción al rostro/apoyo en P3,
+impulso de retroceder en la bomba y credibilidad/impacto de las tres acciones sonoras
+a volumen cómodo. No hace falta otra auditoría antes de jugar esos dos momentos.

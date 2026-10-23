@@ -9,6 +9,7 @@ namespace EchoProtocol.Campaign
     {
         [SerializeField] Transform threshold, impactStand, impactHand, impactPanel;
         [SerializeField] AudioSource contact, effort, breathing;
+        [SerializeField] EchoProtocol.Audio.MachineCoverPresence discreteBreathOwner;
         [SerializeField] MachineCoverThreat threat;
         [SerializeField] bool authoredActing;
         public bool UsesAuthoredActing => authoredActing;
@@ -118,6 +119,7 @@ namespace EchoProtocol.Campaign
                 float displacement = a >= 0 && a < .42f ? Mathf.Sin(a * 63) * Mathf.Exp(-a * 13) * .017f : 0;
                 impactPanel.localPosition = panelRest + Vector3.forward * displacement;
             }
+            if (discreteBreathOwner && discreteBreathOwner.OwnsDiscreteBreathing) return;
             bool sustain = threat.Released && RecoveryAge > .24f && !threat.IsCapturing && threat.Phase != MachineCoverThreat.Intention.Resolved;
             if (sustain && !breathing.isPlaying) breathing.Play();
             if (!sustain && breathing.isPlaying) breathing.Stop();

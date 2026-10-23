@@ -73,28 +73,17 @@ depende de la luz y actuación conjuntas. La saturación oscura puede perder pli
 en la bomba; el check central debe comprobar legibilidad. Incluso un acabado
 claramente distinto puede no producir retirada o miedo en el jugador.
 
-### Corrección del fallo de render central
+### Corrección central del binding, 2026-10-23
 
-El coordinador encontró cuerpo y delantal invisibles tras la integración, con ojos
-visibles y sin errores de shader reportados. Su aislamiento en Play pausado cambió
-sólo `_IntruderDreadSurface` a 0 en instancias temporales: ambos reaparecieron.
-Esto localiza el fallo en la nueva ruta de superficie, no en anatomía/bounds ni en
-la transparencia guardada. No identifica por sí solo la instrucción GPU causante.
+La inspección en cámara detectó cuerpo invisible y después el acabado de goma
+sobre Skin, con `_Apron=0` correcto en CPU. Limitar exponentes y sustituir la rama
+por mezcla aritmética no resolvió por sí solo el fallo. En la misma vista pausada,
+un MaterialPropertyBlock temporal con el valor correcto recuperó el scan.
 
-El parche limita el exponente de las regiones al rango normal de float, elimina
-la microvariación con `fwidth` dentro de la rama y devuelve una estructura por
-valor en lugar de modificar tres argumentos `inout`. Conserva paleta, regiones,
-materiales, recibos y opt-in. Basta importar los dos archivos de shader; **no
-reaplicar el upgrade**. Requiere sólo volver a observar esa vista pausada con
-opt-in 1 en el Editor central. Fuente/diff revisados aquí, sin ejecución de Unity;
-la corrección visual permanece pendiente de esa comprobación.
-
-El check central de `b54e33f6` recuperó visibilidad, pero mostró el acabado de goma
-en cabeza/torso y el de vendas en manos, sin detalle del scan. `_Apron` seguía en
-0 para Skin y 1 para RubberBib. La lectura del programa Metal generado confirma
-muestreo del atlas y orden correcto de argumentos; no justifica recolorear la cara
-para compensarlo. El siguiente parche sustituye únicamente el overwrite condicional
-de goma por una mezcla aritmética con `_Apron`, igual al patrón histórico: con 0,
-la salida conserva albedo y normal derivados del scan; con 1, usa la goma.
-Sin cambio de paleta, materiales o recibos. Importar sólo el include y revisar la
-misma vista; no reaplicar. La selección GPU efectiva queda por confirmar en central.
+La corrección final declara `_Apron` fuera de `UnityPerMaterial`: excluye este
+shader de dos renderers del SRP Batcher y conserva el binding por dibujo. Sus
+UsePass de Lit tienen otro layout; no se cambió el batching global ni se agregó
+un componente/Update. Véase el [mecanismo documentado por Unity](https://docs.unity3d.com/6000.0/Documentation/Manual/SRPBatcher-Incompatible.html).
+La prueba final sin MPB temporal conserva pelo, piel y ropa en P3 y bomba;
+ShaderUtil sin errores. Escena/materiales guardados, recibos intactos. Evidencia
+y alcance humano en `PARALLEL_INTRUDER_ROUND5_20261023.md`. No hubo build ni web QA.
