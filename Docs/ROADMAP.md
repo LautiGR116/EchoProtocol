@@ -21,6 +21,9 @@ local sonic/visual presentation. Focused P3/contact and pump-entry checks passed
 the final face is more credible but still reads too ordinary in the coordinator's
 visual judgment. Fear and listening remain unapproved; no build or publication.
 [Scope, evidence and limits](PARALLEL_INTRUDER_ROUND4_20261023.md).
+Round 5 is authorized across five Astra Ultra chats: intruder anatomy, surface,
+performance, sound and reveal composition. Implementation pending; Editor only.
+[Direction and exclusive ownership](PARALLEL_INTRUDER_ROUND5_20261023.md).
 
 **La embestida / Incursion selected, 2026-10-12.** Scoped pump revision after
 El intruso's human fear failure: separate deteriorated adult mesh/material and
