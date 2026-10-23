@@ -7,12 +7,23 @@
 float DreadRegion(float3 p, float3 centre, float3 radius)
 {
     float3 d = (p - centre) / radius;
-    return exp(-2.0 * dot(d, d));
+    // Outside a region the value is visually zero. Keep the exponential in a
+    // finite, normal float range instead of feeding Metal fast-math very large
+    // negative inputs (the 3.5 mm lid region is evaluated on the whole body).
+    return exp2(-min(2.88539008 * dot(d, d), 80.0));
 }
 
-void ApplyIntruderDreadSurface(float3 p, float2 uv, float3 scan, float3 tint,
-    float apron, float strength, inout float3 albedo, inout float3 normalTS,
-    inout float smoothness)
+struct IntruderDreadSurfaceData
+{
+    float3 albedo;
+    float3 normalTS;
+    float smoothness;
+};
+
+// Value return avoids an inout call across the conditional fragment branch.
+// The caller alone owns the final PBR data and the opt-in interpolation.
+IntruderDreadSurfaceData EvaluateIntruderDreadSurface(float3 p, float2 uv,
+    float3 scan, float3 tint, float apron, float3 normalTS)
 {
     float luminance = dot(scan, float3(.2126, .7152, .0722));
     float front = smoothstep(.035, .085, p.z);
@@ -72,7 +83,7 @@ void ApplyIntruderDreadSurface(float3 p, float2 uv, float3 scan, float3 tint,
     {
         // Dark rubber replaces the old alternating ochre stripes. Edge wear is
         // attached to the actual bib's UV boundary; specular follows real folds.
-        // Fine scuff variation is derivative filtered so it cannot sparkle.
+        // No screen derivatives inside a material-dependent conditional path.
         float wraps = smoothstep(.63, .66, abs(p.x));
         float straps = smoothstep(1.431, 1.450, p.y) * (1.0 - wraps);
         float edge = 1.0 - smoothstep(.012, .045, min(uv.x, 1.0 - uv.x));
@@ -80,11 +91,8 @@ void ApplyIntruderDreadSurface(float3 p, float2 uv, float3 scan, float3 tint,
         float rub = DreadRegion(p, float3(.055, 1.10, .18), float3(.13, .26, .07));
         float waterLine = .81 + .045 * sin(p.x * 19.0 + .7);
         float soaked = 1.0 - smoothstep(waterLine - .055, waterLine + .065, p.y);
-        float phase = p.y * 480.0 + p.x * 93.0;
-        float scuff = sin(phase) * saturate(1.0 - fwidth(phase) * .5);
         float3 rubber = lerp(float3(.086, .079, .051), float3(.030, .035, .029), soaked * .82);
         rubber = lerp(rubber, float3(.155, .124, .065), saturate(edge * .64 + rub * .22));
-        rubber *= 1.0 + scuff * .025;
         rubber = lerp(rubber, float3(.063, .059, .043), straps * .6);
         float rubberGloss = lerp(.34, .64, soaked) - edge * .18 - rub * .09;
         // Wrist bindings are worn canvas, never luminous white watch bands.
@@ -95,8 +103,10 @@ void ApplyIntruderDreadSurface(float3 p, float2 uv, float3 scan, float3 tint,
         resultNormal = float3(0, 0, 1);
     }
 
-    albedo = lerp(albedo, result * tint, saturate(strength));
-    smoothness = lerp(smoothness, saturate(resultGloss), saturate(strength));
-    normalTS = normalize(lerp(normalTS, resultNormal, saturate(strength)));
+    IntruderDreadSurfaceData output;
+    output.albedo = result * tint;
+    output.smoothness = saturate(resultGloss);
+    output.normalTS = resultNormal * rsqrt(max(dot(resultNormal, resultNormal), 1e-8));
+    return output;
 }
 #endif

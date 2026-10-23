@@ -110,8 +110,14 @@ Shader "EchoProtocol/EmbestidaSurface"
                 // Original scan coordinates survive the R5 anatomy upgrade;
                 // no actor, bone, UV or shared texture is modified here.
                 if (_IntruderDreadSurface > 0)
-                    ApplyIntruderDreadSurface(p, i.uv, scan, _BaseColor.rgb,
-                        _Apron, _IntruderDreadSurface, base, bump, smoothness);
+                {
+                    IntruderDreadSurfaceData dread = EvaluateIntruderDreadSurface(
+                        p, i.uv, scan, _BaseColor.rgb, _Apron, bump);
+                    float weight = saturate(_IntruderDreadSurface);
+                    base = lerp(base, dread.albedo, weight);
+                    bump = lerp(bump, dread.normalTS, weight);
+                    smoothness = lerp(smoothness, dread.smoothness, weight);
+                }
                 n=normalize(t*bump.x+cross(n,t)*i.tangent.w*bump.y+n*bump.z);
                 InputData input=(InputData)0; input.positionWS=i.world; input.normalWS=n;
                 input.viewDirectionWS=GetWorldSpaceNormalizeViewDir(i.world);

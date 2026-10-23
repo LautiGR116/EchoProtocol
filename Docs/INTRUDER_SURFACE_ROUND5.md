@@ -72,3 +72,19 @@ del resultado integrado desde este worktree. No se añadieron tests ni harnesses
 depende de la luz y actuación conjuntas. La saturación oscura puede perder pliegues
 en la bomba; el check central debe comprobar legibilidad. Incluso un acabado
 claramente distinto puede no producir retirada o miedo en el jugador.
+
+### Corrección del fallo de render central
+
+El coordinador encontró cuerpo y delantal invisibles tras la integración, con ojos
+visibles y sin errores de shader reportados. Su aislamiento en Play pausado cambió
+sólo `_IntruderDreadSurface` a 0 en instancias temporales: ambos reaparecieron.
+Esto localiza el fallo en la nueva ruta de superficie, no en anatomía/bounds ni en
+la transparencia guardada. No identifica por sí solo la instrucción GPU causante.
+
+El parche limita el exponente de las regiones al rango normal de float, elimina
+la microvariación con `fwidth` dentro de la rama y devuelve una estructura por
+valor en lugar de modificar tres argumentos `inout`. Conserva paleta, regiones,
+materiales, recibos y opt-in. Basta importar los dos archivos de shader; **no
+reaplicar el upgrade**. Requiere sólo volver a observar esa vista pausada con
+opt-in 1 en el Editor central. Fuente/diff revisados aquí, sin ejecución de Unity;
+la corrección visual permanece pendiente de esa comprobación.
