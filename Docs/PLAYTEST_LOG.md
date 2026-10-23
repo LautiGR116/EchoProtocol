@@ -239,3 +239,13 @@ No se identificaron todavía el momento más débil ni una causa dominante;
 no atribuir el resultado automáticamente al volumen, al modelo o a la dificultad.
 La siguiente dirección debe revisar la eficacia de la amenaza ya implementada
 antes de extender la misma fórmula a la casa u otro capítulo.
+
+
+## 2026-10-23 — dirección después de la ronda 5
+
+El usuario pide priorizar P3 y la cara: «todavía se ve demasiado cotidiano» y
+quiere «un salto real en terror». No se identificó una nueva partida completa;
+no registrar aprobación de miedo, audio o actuación. Se autoriza otra ronda con
+tres chats Astra Ultra, sólo Editor, sin builds y con comprobaciones puntuales.
+La captura R5 coincide con la objeción visual: cara adulta reconocible, palma
+ofrecida y composición de mostrador. Dirección R6 en PARALLEL_P3_ROUND6_20261023.md.

@@ -27,6 +27,10 @@ P3 and pump-entry checks include actual camera/listener evidence; a Metal materi
 binding failure was corrected. Fear and headphone comfort remain human judgments.
 Editor only; no build or publication.
 [Integration, evidence and exclusive ownership](PARALLEL_INTRUDER_ROUND5_20261023.md).
+Round 6 is approved for three Astra Ultra chats: a substantially altered face,
+P3 gripping/forward assault, and a coordinated reveal with physical sound.
+Implementation pending; Editor only, no builds.
+[Direction and ownership](PARALLEL_P3_ROUND6_20261023.md).
 
 **La embestida / Incursion selected, 2026-10-12.** Scoped pump revision after
 El intruso's human fear failure: separate deteriorated adult mesh/material and
