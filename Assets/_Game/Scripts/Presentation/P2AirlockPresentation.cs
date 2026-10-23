@@ -29,6 +29,7 @@ namespace EchoProtocol.Presentation
         [SerializeField] private AudioClip powerOff;
         [SerializeField] private AudioClip exitReady;
         [SerializeField, Range(0f,1f)] private float humLevel = .12f;
+        [SerializeField] private P2CausalFeedback causalFeedback;
         private Vector3 platformRest;
         private Vector3 entranceRest, exitRest;
         private float entranceClosedY, exitClosedY;
@@ -157,6 +158,9 @@ namespace EchoProtocol.Presentation
             if (stationHum) stationHum.volume = 0f;
             if (humFilter) humFilter.cutoffFrequency = 16000f;
             if (platform) platform.localPosition = platformRest;
+            // The existing loop participant also resets its optional physical
+            // witness. No new recorder, playback or session ownership is needed.
+            if (causalFeedback) causalFeedback.ResetLoopState();
         }
 
         private void OnDisable()
