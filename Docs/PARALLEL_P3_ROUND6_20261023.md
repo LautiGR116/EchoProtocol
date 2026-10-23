@@ -105,4 +105,16 @@ eventos en la grabación ni cambios de progreso. Upgrade reversible desde R5.
 
 ## Estado
 
-Tres frentes preparados; IDs y actividad pendientes de despacho.
+Tres frentes despachados en GPT-6 Astra / Ultra; actividad inicial confirmada.
+Implementación en curso, todavía sin integrar ni verificar en el Editor central.
+
+| Frente | Chat | Worktree |
+| --- | --- | --- |
+| A — cara | `01a16a5b-5747-7511-82a9-583b74801169` | `/Users/lautigr116/.codex/worktrees/b9e0/EchoProtocol` |
+| B — actuación | `01a16a5b-7e0f-7292-9341-5e81941629d4` | `/Users/lautigr116/.codex/worktrees/a9a5/EchoProtocol` |
+| C — revelación | `01a16a5b-a55c-75f0-aaed-566fa5044a9f` | `/Users/lautigr116/.codex/worktrees/e3ed/EchoProtocol` |
+
+B comunicó a C que reserva el jamb norte existente `A sealed window jamb`
+(Transform 483625452) como borde de agarre; C no debe moverlo ni ocultarlo.
+Coordenadas y tiempos definitivos se entregan con B. El contrato facial mantiene
+jaw/mouthCorners neutrales en el nuevo perfil P3.
