@@ -1,6 +1,9 @@
 # IntruderFace — ronda 4, frente A · 2026-10-23
 
-**Implementado para integración; cámara, compilación y efecto humano pendientes.**
+**Integrado y guardado en el Editor central; miedo EN PRUEBA humana.**
+Aplicación, corrección de expresión y límites en
+[la entrega central](PARALLEL_INTRUDER_ROUND4_20261023.md#integración-central--2026-10-23).
+Lo siguiente conserva el alcance y las comprobaciones propias del worktree.
 Base `d50783f4`, rama `codex/intruder-face-round4`. Sólo geometría/material del
 intruso presente; no se abrió Unity ni se escribió el proyecto original.
 

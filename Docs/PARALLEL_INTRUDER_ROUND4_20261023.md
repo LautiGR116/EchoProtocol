@@ -129,7 +129,7 @@ persecuciones. Sin cambiar colocación, activación o retiro del actor en Stagin
 ## Chats iniciados
 
 Los tres se crearon desde `d50783f4`, con modelo `gpt-6-astra` y esfuerzo
-`ultra`, y trabajan en paralelo. Implementación **EN CURSO**, aún no integrada:
+`ultra`, y trabajaron en paralelo. Implementación **INTEGRADA en Editor**:
 
 - A, «Intruso: una cara que sostenga la mirada»:
   `01a16a1f-c030-7850-89c4-c1af1f261a6a`, worktree `b772`.
@@ -140,5 +140,42 @@ Los tres se crearon desde `d50783f4`, con modelo `gpt-6-astra` y esfuerzo
 
 Se excluyeron ArtSource/ y Docs/VisualEvidence/ de esas copias mediante
 sparse-checkout; siguen completas en el original. Los tres recibieron ese
-aviso y el límite de un único Editor central. La ronda 3 continúa disponible
-para jugar; este lanzamiento no modifica la escena ni genera builds.
+aviso y el límite de un único Editor central. La ronda 3 queda recuperable;
+Incursion ahora contiene la ronda 4 guardada. Sin builds ni publicación.
+
+## Integración central — 2026-10-23
+
+A, C y B se integraron en `d034e215`, `135d3a2f` y `86764fce`.
+`eab163cf` corrige el preflight de cara: acceso Editor a meshes con Read/Write
+runtime desactivado y bounds derivados por `updateWhenOffscreen`. No cambia
+esos ajustes. Tras la primera vista, se pidieron dos correcciones acotadas:
+expresión menos sonriente (`571544e5`) y quietud cargada hacia el vidrio
+(`67dbce9a`). El mesh privado se regeneró en el mismo asset, conservando GUID.
+
+- Compilación conjunta completada sin errores; Console sin errores nuevos desde
+  cursor 1362 hasta 1390. Los tres integradores se aplicaron en el único Editor.
+- P3 se comprobó con relay preparado y toma estacionaria sintética, no mediante
+  una resolución natural del puzzle. Un contacto, ambas muñecas <0,00001 m del
+  target, izquierda retirada y derecha retenida. La repetición final, justificada
+  por la corrección, dio `RightPalmError=0,00000096 m`,
+  `MaxSupportError=0,00000383 m`, sin bloqueo. Frames 85→1597→1885.
+- Handoff al preview de bomba: P3 dejó de poseer el mismo actor. Entrada real
+  desde preparación directa de Release: un contacto, sin aborto, palma a
+  0,000173 m; recuperación observada hasta 0,88 s. No recorrido de persecución.
+  Los pies coincidieron con sus targets en ese instante; `MaxPlantDrift=0,263 m`
+  es acumulado y puede incluir estados previos/traslado. No certifica ausencia
+  general de deslizamiento.
+- Luz/manos y poses revisadas desde cámara de jugador. Evidencia local en
+  `Builds/round4-integration-20261023/`: `p3-settled-corrected.png` final;
+  `pump-contact.png` y `pump-recovery.png` anteriores al ajuste estático de cara.
+  La bomba no se repitió porque su actuación no volvió a cambiar.
+
+**Juicio del coordinador, no aprobación humana:** perdió la máscara deformada y
+la pose de dos palmas permanentes, pero la expresión sigue demasiado cotidiana.
+Credibilidad mejorada no equivale a miedo logrado. No hubo escucha subjetiva ni
+validación nueva de comodidad/opciones. Para el usuario: juzgar si mirada y carga
+provocan retirada, y si contacto/recuperación de bomba tienen peso a volumen cómodo.
+
+Escena privada guardada fuera de Play, con respaldo antes/después y derivados
+faciales en `EchoProtocol-backups/parallel-round4-20261023/`. No se publican esos
+recursos licenciados. Sin nuevos Editors, builds, pushes ni helpers de captura activos.

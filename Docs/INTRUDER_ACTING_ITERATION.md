@@ -1,7 +1,8 @@
 # Intruso — actuación, ronda 4 · 2026-10-23
 
-**Implementado, pendiente de aplicación y comprobación central. Actuación y
-miedo EN PRUEBA humana.** Rama `codex/intruder-acting-round4`, base `d50783f4`.
+**Integrado y guardado en el Editor central. Actuación y miedo EN PRUEBA humana.**
+Checks y corrección de quietud en [la entrega central](PARALLEL_INTRUDER_ROUND4_20261023.md#integración-central--2026-10-23).
+Lo siguiente conserva la entrega del worktree `codex/intruder-acting-round4`, base `d50783f4`.
 No se abrió Unity ni se creó Library; sin compilación, Play, escucha o build.
 
 La captura `p3-contact-corrected.png` motivó separar carga, contacto y quietud:

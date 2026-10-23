@@ -16,9 +16,11 @@ pending human play. No new build or web publication.
 The third round (SE1 pressure, P3 body intrusion and final 6B reception) is also
 integrated locally with focused central checks; human effect remains pending.
 [Round 3 evidence](PARALLEL_HORROR_ROUND3_20261023.md).
-Round 4 is authorized: the present intruder's face, acting and local sonic/visual
-presentation, split across three isolated chats. Implementation pending;
-[scope and ownership](PARALLEL_INTRUDER_ROUND4_20261023.md).
+Round 4 is integrated and saved locally: the present intruder's face, acting and
+local sonic/visual presentation. Focused P3/contact and pump-entry checks passed;
+the final face is more credible but still reads too ordinary in the coordinator's
+visual judgment. Fear and listening remain unapproved; no build or publication.
+[Scope, evidence and limits](PARALLEL_INTRUDER_ROUND4_20261023.md).
 
 **La embestida / Incursion selected, 2026-10-12.** Scoped pump revision after
 El intruso's human fear failure: separate deteriorated adult mesh/material and

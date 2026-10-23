@@ -1,7 +1,8 @@
 # Presencia del intruso — ronda 4 · 2026-10-23
 
-**Implementada en código; pendiente de aplicación y check en el Editor central.
-Lectura visual, actuación, escucha y miedo EN PRUEBA.** Base `d50783f4`, rama
+**Integrada y guardada en el Editor central; escucha y miedo EN PRUEBA humana.**
+Checks y límites en [la entrega central](PARALLEL_INTRUDER_ROUND4_20261023.md#integración-central--2026-10-23).
+Lo siguiente conserva la entrega del worktree. Base `d50783f4`, rama
 `codex/intruder-presence-round4`. Sin Editor/Library/build en este worktree.
 
 La captura `Builds/round3-integration-20261023/p3-contact-corrected.png` muestra
