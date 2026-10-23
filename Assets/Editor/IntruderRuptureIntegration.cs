@@ -285,11 +285,77 @@ public static class IntruderRuptureIntegration
     {
         Undo.RegisterCompleteObjectUndo(new Object[] { c.face, c.renderer }, "Replace installed intruder rupture");
         string name = c.face.name;
-        EditorUtility.CopySerialized(mesh, c.face); c.face.name = name;
-        c.renderer.sharedMaterials = materials.ToArray(); c.renderer.localBounds = bounds;
+        // CopySerialized preserves the asset identity but does not guarantee
+        // invalidation of the renderer's old skinned vertex layout. R6 adds
+        // UV1 and changes the stride. Release that binding before replacing it.
+        c.renderer.sharedMesh = null;
+        c.face.Clear(false);
+        RebuildMeshData(mesh, c.face); c.face.name = name;
+        c.renderer.sharedMaterials = materials.ToArray();
+        c.renderer.sharedMesh = c.face;
+        c.face.MarkModified();
+        c.renderer.localBounds = bounds;
         EditorUtility.SetDirty(c.face); AssetDatabase.SaveAssetIfDirty(c.face);
         PrefabUtility.RecordPrefabInstancePropertyModifications(c.renderer);
         EditorSceneManager.MarkSceneDirty(c.scene);
+    }
+
+    // Repair the already-applied R6 without regenerating geometry, changing
+    // fingerprints or taking another backup. Useful after the stride failure.
+    [MenuItem("Echo Protocol/Intruder rupture/4. Repair current R6 mesh buffers")]
+    public static void RepairCurrentSceneBuffers()
+    {
+        var c = Validate(false);
+        Require(c.installation && c.installed, "Buffer repair requires the known, currently assigned R6 mesh/materials.");
+        Undo.IncrementCurrentGroup(); int group = Undo.GetCurrentGroup();
+        Undo.SetCurrentGroupName("Rebuild intruder R6 native mesh buffers");
+        try
+        {
+            Apply(c, c.installation.variantR6, c.installation.roundSixMaterials, c.installation.roundSixBounds);
+            Require(Validate(false).installed, "R6 buffer repair changed the saved content fingerprint.");
+            Undo.CollapseUndoOperations(group);
+            SceneView.RepaintAll();
+            Debug.Log("R6 buffers rebuilt from the existing immutable variant; Face.asset GUID, geometry fingerprint and receipts unchanged. Scene UNSAVED. Inspect the affected renderer before saving the scene explicitly.", c.renderer);
+        }
+        catch (Exception failure)
+        {
+            RestoreFailedTransaction(c, group, failure);
+            throw;
+        }
+    }
+
+    static void RebuildMeshData(Mesh source, Mesh destination)
+    {
+        Require(source != destination && source.blendShapeCount == 0, "Mesh rebuild requires a separate immutable, unblended snapshot.");
+        // Use public Mesh setters to allocate fresh native buffers. CopySerialized
+        // copied valid CPU arrays but retained a stale skinned layout in central
+        // Play. Keep dimensions exact: the content fingerprint includes them.
+        destination.indexFormat = source.indexFormat;
+        destination.vertices = source.vertices;
+        destination.normals = source.normals;
+        destination.tangents = source.tangents;
+        var colors = source.colors;
+        if (colors.Length > 0) destination.colors = colors;
+        var values = new List<Vector4>();
+        for (int channel = 0; channel < 8; channel++)
+        {
+            var attribute = (VertexAttribute)((int)VertexAttribute.TexCoord0 + channel);
+            if (!source.HasVertexAttribute(attribute)) continue;
+            values.Clear(); source.GetUVs(channel, values);
+            int dimension = source.GetVertexAttributeDimension(attribute);
+            if (dimension == 2) destination.SetUVs(channel, values.Select(v => new Vector2(v.x, v.y)).ToList());
+            else if (dimension == 3) destination.SetUVs(channel, values.Select(v => new Vector3(v.x, v.y, v.z)).ToList());
+            else if (dimension == 4) destination.SetUVs(channel, values);
+            else throw new InvalidOperationException("Unexpected UV dimension in immutable intruder snapshot.");
+        }
+        destination.bindposes = source.bindposes;
+        destination.boneWeights = source.boneWeights;
+        destination.subMeshCount = source.subMeshCount;
+        for (int sub = 0; sub < source.subMeshCount; sub++)
+            destination.SetIndices(source.GetIndices(sub), source.GetTopology(sub), sub, false);
+        destination.bounds = source.bounds;
+        Require(Fingerprint(destination) == Fingerprint(source), "Native buffer reconstruction did not preserve the mesh content.");
+        destination.UploadMeshData(false);
     }
 
     static void RestoreFailedTransaction(Context c, int group, Exception failure)

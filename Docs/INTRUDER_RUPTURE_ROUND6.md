@@ -76,3 +76,42 @@ Sin compilación, render del resultado ni Play afirmados; sin harnesses/builds.
 **Límite humano:** una boca mayor puede leerse como grito o deformación de modelo.
 La inspección central debe decidir si conserva tejido creíble y si rompe la
 lectura social a distancia real; sólo una persona jugando puede juzgar miedo.
+
+## Corrección de buffers tras el fallo central
+
+El coordinador informó compilación/preflight correctos pero renderer invisible
+con `expected mesh data size and vertex stride` en Play. R5 serializa 12.216 ×
+92 bytes y R6 12.372 × 100 bytes, ambos tamaños exactos; UV1 explica los 8 bytes
+extra. Reimportar Face no lo corrigió. **En el mismo Play central**, copiar los
+streams a `new Mesh` y reasignar el renderer recuperó cuerpo/cara: evidencia
+`Assets/Builds/round6-integration-20261023/p3-clean-buffer-diagnosis.png` en original.
+
+El integrador ahora desasigna el renderer, ejecuta `Clear(false)` y reconstruye
+Face por las APIs de Mesh, sin `CopySerialized`: posiciones, normales, tangentes,
+colores si existen, ocho canales UV con sus dimensiones, bindposes, pesos,
+submeshes/índices y bounds. Exige fingerprint idéntico, sube los buffers y vuelve
+a enlazar el renderer. Conserva Face.asset/GUID y los recibos/backups existentes.
+**No cambia el generador ni su hash R6, el diseño o los shaders.**
+[Clear(false)](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Mesh.Clear.html)
+descarta el layout anterior;
+[UploadMeshData(false)](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Mesh.UploadMeshData.html)
+envía los datos modificados a la API gráfica.
+
+**Reparar la instalación R6 existente**, fuera de Play y tras importar el fix:
+
+1. `Echo Protocol > Intruder rupture > 4. Repair current R6 mesh buffers`
+   (`IntruderRuptureIntegration.RepairCurrentSceneBuffers()`). Lee la variante
+   privada existente y reconstruye los buffers del mismo Face.asset. No crea
+   backups, variantes ni recibos nuevos; conserva el fingerprint.
+2. Inspeccionar sólo el renderer del punto fallido; guardar la escena de forma
+   explícita. La operación guarda Face.asset, nunca abre/guarda escenas.
+
+El upgrade y rollback habituales también reconstruyen los buffers. No hace falta
+regenerar R6 ni archivar su carpeta para este fix. Si se decide regenerar por
+otra edición de geometría: rollback R5, guardar escena, mover la carpeta privada
+IntruderRupture a un nombre de archivo nuevo conservando su `.meta`, y upgrade.
+Nunca sobrescribir sus copias ni ejecutar generadores históricos.
+
+Check propio: lectura de streams privados, revisión del diff/API y whitespace;
+sin Editor ni compilación/Play propios. El coordinador confirmó la reconstrucción
+temporal; la reparación persistente de este commit requiere el check central.
