@@ -5,6 +5,23 @@ published 2026-10-19: https://lautigr116.itch.io/echo-protocol.
 The ordinary development workflow remains Editor-only; publishing builds is an
 explicit exception requested for this release.
 
+## Current browser release — 2026-10-23
+
+Published the integrated Editor candidate through round 6, including the pump,
+house, interface, P3 and intruder face/acting improvements. Game commit
+`954ca3ac441a2376662037b6801687e2d59adddd`; butler version
+`954ca3ac441a-3fc9556d`, completed build `2196435`, existing upload `19884658`.
+The saved Incursion scene and all 10 private IntruderRupture files matched the
+publication snapshot. The isolated WebGL build succeeded with 0 errors and
+354 shader warnings (154.2 seconds build phase). The user's Editor was untouched.
+
+The public page served `html/19884658-2196435/index.html` and reached the current
+Folio menu; no browser errors or gameplay route runs. Evidence:
+`Builds/itch-release-20261023/menu.jpg`. Reloaded the test tab afterward to stop
+the game. Updated the page's menu labels and release date. The optional macOS
+download remains the older 2026-10-19 release, now explicitly labeled in the
+description; the browser contains the current improvements.
+
 ## Automatic updates from this Mac
 
 The user authorized a local publisher on pushes to `origin/main`, with no paid
