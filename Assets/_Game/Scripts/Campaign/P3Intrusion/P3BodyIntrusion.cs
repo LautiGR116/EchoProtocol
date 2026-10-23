@@ -1,5 +1,6 @@
 using System;
 using EchoProtocol.Echo;
+using EchoProtocol.Campaign.IntruderActing;
 using EchoProtocol.Presentation;
 using UnityEngine;
 
@@ -81,6 +82,8 @@ namespace EchoProtocol.Campaign.P3Intrusion
         [SerializeField] RecordedCharacterMotion anatomy;
         [SerializeField] Transform hips, spine, chest, neck, head, jaw, stop;
         [SerializeField] Transform[] brows, mouthCorners;
+        [SerializeField] IntruderActingFocus acting;
+        [SerializeField] Transform viewer;
         [SerializeField] BoxCollider glazing;
         [SerializeField] Limb leftLeg = new Limb(), rightLeg = new Limb();
         [SerializeField] Palm highPalm = new Palm(), lowPalm = new Palm { left = true };
@@ -88,7 +91,9 @@ namespace EchoProtocol.Campaign.P3Intrusion
         [SerializeField, Min(.1f)] float recognitionSeconds = .32f;
         [SerializeField, Min(.2f)] float advanceSeconds = .46f;
 
-        const float CompressSeconds = .12f, RecoverSeconds = .48f;
+        bool Authored => acting && acting.isActiveAndEnabled;
+        float CompressSeconds => Authored ? .18f : .12f;
+        float RecoverSeconds => Authored ? .68f : .48f;
         Transform actor;
         Transform[] joints;
         Vector3[] positions;
@@ -102,8 +107,15 @@ namespace EchoProtocol.Campaign.P3Intrusion
         public bool ApproachBlocked => blocked;
         public bool Settled => contacted && contactAge >= RecoverSeconds;
         public int Contacts { get; private set; }
+        public float RightPalmError => highPalm.Valid ? Vector3.Distance(highPalm.arm.end.position, highPalm.target.position) : float.PositiveInfinity;
+        public float LeftPalmError => lowPalm.Valid ? Vector3.Distance(lowPalm.arm.end.position, lowPalm.target.position) : float.PositiveInfinity;
+        public float ContactRightPalmError { get; private set; }
+        public float ContactLeftPalmError { get; private set; }
+        public float MaxSupportError { get; private set; }
+        public bool BraceReleased => Authored && contacted && contactAge >= .55f;
         public bool IsConfigured => owner && session && encounter && threat && performance && controller && anatomy
             && anatomy.IsPresentThreat && anatomy.ModelRoot && hips && spine && chest && neck && head && jaw && stop
+            && (!acting || (acting.IsConfigured && viewer && acting.transform == owner.transform))
             && glazing && glazing.enabled && !glazing.isTrigger && highPalm.Valid && lowPalm.Valid && leftLeg.Valid && rightLeg.Valid
             && contact && contact.clip && support && support.clip && contact.outputAudioMixerGroup && support.outputAudioMixerGroup
             && !contact.loop && !support.loop && !contact.ignoreListenerPause && !support.ignoreListenerPause
@@ -173,6 +185,7 @@ namespace EchoProtocol.Campaign.P3Intrusion
             if (triggered && !contacted && !blocked && travelAge >= advanceSeconds
                 && PlanarDistance(actor.position, stop.position) <= .055f && PalmsReached())
             {
+                ContactRightPalmError = RightPalmError; ContactLeftPalmError = LeftPalmError;
                 contacted = true; contactAge = 0; Contacts++;
                 contact.transform.position = highPalm.target.position; contact.Play();
             }
@@ -184,10 +197,84 @@ namespace EchoProtocol.Campaign.P3Intrusion
         {
             return glazing.enabled && Vector3.Distance(highPalm.arm.end.position, highPalm.target.position) < .045f
                 && Vector3.Distance(lowPalm.arm.end.position, lowPalm.target.position) < .045f
-                && Vector3.Distance(glazing.ClosestPoint(highPalm.target.position), highPalm.target.position) < .055f;
+                && Vector3.Distance(glazing.ClosestPoint(highPalm.target.position), highPalm.target.position) < .055f
+                && Vector3.Distance(glazing.ClosestPoint(lowPalm.target.position), lowPalm.target.position) < .055f;
         }
 
         void ApplyPose(float travelAge, float compress)
+        {
+            if (Authored) { ApplyAuthoredPose(compress); return; }
+            ApplyLegacyPose(travelAge, compress);
+        }
+
+        void ApplyAuthoredPose(float compress)
+        {
+            RestoreJoints();
+            float progress = actualProgress;
+            float release = contacted ? Ease(Mathf.InverseLerp(.16f, .55f, contactAge)) : 0;
+            float settle = contacted ? Ease(contactAge / RecoverSeconds) : 0;
+            // Load holds both soles. One diagonal drive ends at the old proven
+            // contact posture, then changes to a one-hand hold. No cyclic motion.
+            float load = compress * (1 - Ease(progress / .34f));
+            float drive = Ease(progress / .26f) * (1 - Ease(Mathf.InverseLerp(.58f, 1, progress)));
+            float impactYield = contacted ? Ease(contactAge / .055f) * (1 - Ease(Mathf.InverseLerp(.055f, .24f, contactAge))) : 0;
+            hips.position += actor.right * Mathf.Lerp(.025f, -.03f, Mathf.Max(compress, progress))
+                - Vector3.up * (.065f + .045f * compress + .018f * load + .018f * impactYield - .025f * settle);
+            Turn(spine, actor.right, 13 + 9 * load + 15 * drive + 5 * impactYield - 3 * settle);
+            Turn(chest, actor.forward, -9 - 6 * load + 3 * impactYield);
+            Turn(chest, actor.up, -9 - 10 * load + 10 * drive - 2 * settle);
+            Turn(neck, actor.right, -12 - 8 * load - 10 * drive - 4 * impactYield);
+            Turn(head, actor.forward, 5 + 4 * load - 4 * settle);
+            Turn(head, actor.right, 3 - 3 * settle);
+            // A single expelled effort; the mouth returns to authored neutral.
+            Turn(jaw, actor.right, 5 * impactYield);
+            Turn(highPalm.arm.upper, actor.right, -8 - 32 * drive);
+            Turn(highPalm.arm.lower, actor.right, -22 - 19 * load);
+            Turn(lowPalm.arm.upper, actor.right, 5 - 9 * drive);
+            Turn(lowPalm.arm.lower, actor.right, -8 - 12 * load);
+            if (brows != null) for (int i = 0; i < brows.Length; i++) if (brows[i])
+                brows[i].position -= actor.up * ((i == 0 ? .002f : .001f) * Mathf.Max(load, impactYield));
+
+            // Actual root travel drives two unequal support arcs. If collision
+            // arrests the body, the feet stop advancing toward the remote stop.
+            AuthoredFoot(rightLeg, 0, .76f, .12f, .11f);
+            AuthoredFoot(leftLeg, .17f, 1, -.18f, .065f);
+            float first = blocked ? 0 : Ease(Mathf.InverseLerp(.38f, .96f, progress));
+            float brace = blocked ? 0 : Ease(Mathf.InverseLerp(.74f, 1, progress));
+            if (first > 0)
+                highPalm.Place(first, highPalm.arm.upper.position + actor.right * .30f - actor.up * .30f);
+            if (brace > 0)
+            {
+                Vector3 hint = lowPalm.arm.upper.position - actor.right * .26f - actor.up * .42f;
+                lowPalm.Place(brace, hint);
+                if (release > 0)
+                {
+                    // The left wrist has already made real contact. It peels off
+                    // and falls beside the lower ribs while the right stays planted.
+                    Vector3 rest = actor.TransformPoint(new Vector3(-.24f, 1.01f, .12f));
+                    lowPalm.arm.Place(Vector3.Lerp(lowPalm.target.position, rest, release), hint);
+                    lowPalm.arm.end.rotation = Quaternion.Slerp(lowPalm.arm.end.rotation, lowPalm.arm.rotation, release);
+                }
+            }
+            int beat = !triggered ? 1 : !contacted ? 2 : 3;
+            acting.Pose(actor, neck, head, viewer.position, beat, Time.deltaTime,
+                contacted ? .16f : .035f, !triggered || Settled);
+        }
+
+        void AuthoredFoot(Limb leg, float from, float until, float stagger, float lift)
+        {
+            float u = triggered ? Mathf.InverseLerp(from, until, actualProgress) : 0;
+            Vector3 destination = stop.position + originRotation * leg.rest + stop.forward * stagger;
+            destination.y = leg.start.y;
+            Vector3 point = Vector3.Lerp(leg.start, destination, Ease(u));
+            point.y += 4 * u * (1 - u) * lift;
+            if (blocked) point = actor.TransformPoint(leg.rest);
+            leg.Place(point, leg.upper.position + actor.forward * .65f);
+            leg.end.rotation = leg.rotation;
+            if (u <= 0 || u >= 1) MaxSupportError = Mathf.Max(MaxSupportError, Vector3.Distance(leg.end.position, point));
+        }
+
+        void ApplyLegacyPose(float travelAge, float compress)
         {
             RestoreJoints();
             float drive = triggered && !contacted && !blocked ? Mathf.Sin(Mathf.PI * Mathf.Clamp01(travelAge / advanceSeconds)) : 0;

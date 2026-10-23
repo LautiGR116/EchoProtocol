@@ -10,6 +10,8 @@ namespace EchoProtocol.Campaign
         [SerializeField] Transform threshold, impactStand, impactHand, impactPanel;
         [SerializeField] AudioSource contact, effort, breathing;
         [SerializeField] MachineCoverThreat threat;
+        [SerializeField] bool authoredActing;
+        public bool UsesAuthoredActing => authoredActing;
         Vector3 panelRest;
         Vector3 entryOrigin;
         float contactAt = -1, abortedAt = -1, speed, preparation;
@@ -121,9 +123,122 @@ namespace EchoProtocol.Campaign
             if (!sustain && breathing.isPlaying) breathing.Stop();
         }
 
-        // Hand-authored compression / collision / weight recovery keys. World
-        // hand and foot constraints are solved afterwards by the existing rig.
+        struct ActingPose
+        {
+            public Vector3 hip, torso, look, leftArm, rightArm;
+            public Vector2 elbows;
+            public static ActingPose Blend(ActingPose a, ActingPose b, float weight) => new ActingPose
+            {
+                hip = Vector3.Lerp(a.hip, b.hip, weight),
+                torso = Vector3.Lerp(a.torso, b.torso, weight),
+                look = Vector3.Lerp(a.look, b.look, weight),
+                leftArm = Vector3.Lerp(a.leftArm, b.leftArm, weight),
+                rightArm = Vector3.Lerp(a.rightArm, b.rightArm, weight),
+                elbows = Vector2.Lerp(a.elbows, b.elbows, weight)
+            };
+        }
+
+        // These are whole-pose keys, interpolated from the restored anatomy.
+        // torso = spine pitch / chest yaw / chest roll; look counterbalances
+        // through the neck while the performance retains its directed gaze.
+        // World hand and foot constraints are solved afterwards by that rig.
         public void Pose(Transform root, Transform hips, Transform spine, Transform chest,
+            Transform neck, Transform head, Transform jaw, Transform leftArm, Transform rightArm,
+            Transform leftForearm, Transform rightForearm, MachineCoverThreat.Intention phase, float age)
+        {
+            if (!authoredActing)
+            {
+                LegacyPose(root, hips, spine, chest, neck, head, jaw, leftArm, rightArm,
+                    leftForearm, rightForearm, phase, age);
+                return;
+            }
+            bool entry = phase == MachineCoverThreat.Intention.Entry;
+            var quiet = new ActingPose
+            {
+                torso = new Vector3(3, -3, 0), look = new Vector3(-3, 0, 0),
+                leftArm = new Vector3(-5, 0, 5), rightArm = new Vector3(3, 0, -3),
+                elbows = new Vector2(-22, -11)
+            };
+            var drive = new ActingPose
+            {
+                hip = new Vector3(-.018f, -.045f, .014f),
+                torso = new Vector3(25, 16, -11), look = new Vector3(-19, -3, 5),
+                leftArm = new Vector3(-28, 0, 9), rightArm = new Vector3(-8, 0, -12),
+                elbows = new Vector2(-64, -27)
+            };
+            var impact = new ActingPose
+            {
+                hip = new Vector3(.012f, -.075f, -.012f),
+                torso = new Vector3(29, -11, 8), look = new Vector3(-23, 2, -4),
+                leftArm = new Vector3(-14, 0, 10), rightArm = new Vector3(-9, 0, -7),
+                elbows = new Vector2(-48, -53)
+            };
+            var settled = new ActingPose
+            {
+                torso = new Vector3(7, -5, -2), look = new Vector3(-5, 0, 1),
+                leftArm = new Vector3(-12, 0, 6), rightArm = new Vector3(3, 0, -4),
+                elbows = new Vector2(-37, -17)
+            };
+            bool pursuing = phase == MachineCoverThreat.Intention.Charge || phase == MachineCoverThreat.Intention.Reacquire;
+            ActingPose pose = quiet;
+            if (pursuing)
+            {
+                pose = settled;
+                pose.torso.x = 13; pose.look.x = -9;
+                pose.leftArm.x = -23; pose.rightArm.x = 7;
+                pose.elbows = new Vector2(-53, -24);
+            }
+            else if (phase == MachineCoverThreat.Intention.MachineContact)
+            {
+                // One shoulder listens against the casing; its palm is still
+                // placed by the existing reach-aware IK after this pose.
+                pose = ActingPose.Blend(quiet, settled, Mathf.SmoothStep(0, 1, age / .22f));
+                pose.torso.y = -9; pose.look.z = 3;
+            }
+
+            if (entry && !HasContact && !ApproachAborted)
+            {
+                // Load during the existing .24 s reaction hold, then send that
+                // same diagonal through the doorway. The root remains owned
+                // exclusively by Advance and its CharacterController.
+                float load = Mathf.SmoothStep(0, 1, age / .19f);
+                float launch = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.24f, .43f, age));
+                pose = ActingPose.Blend(quiet, drive, load);
+                pose.hip.z = Mathf.Lerp(-.022f * load, drive.hip.z, launch);
+                pose.torso.x = Mathf.Lerp(17 * load + quiet.torso.x * (1 - load), drive.torso.x, launch);
+            }
+            else if (HasContact && ContactAge < 1.25f && phase != MachineCoverThreat.Intention.Capture)
+            {
+                // Contact first arrests the leading shoulder, then the trunk
+                // yields and unwinds. Hold the recovered shape briefly instead
+                // of immediately falling back into a generic running cycle.
+                float a = ContactAge;
+                ActingPose arrest = ActingPose.Blend(drive, impact, Mathf.SmoothStep(0, 1, a / .055f));
+                ActingPose recover = ActingPose.Blend(arrest, settled,
+                    Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.12f, .64f, a)));
+                pose = ActingPose.Blend(recover, pose,
+                    Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.86f, 1.25f, a)));
+                float effortPulse = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.045f, .095f, a))
+                    * (1 - Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.14f, .29f, a)));
+                Turn(jaw, root.right, effortPulse * 8);
+            }
+            else if (ApproachAborted && RecoveryAge < .32f && phase != MachineCoverThreat.Intention.Capture)
+            {
+                // An obstructed approach sheds the loaded posture without
+                // impersonating the steel contact or opening the jaw.
+                pose = ActingPose.Blend(drive, pose, Mathf.SmoothStep(0, 1, RecoveryAge / .32f));
+            }
+
+            hips.position += root.right * pose.hip.x + root.up * pose.hip.y + root.forward * pose.hip.z;
+            Turn(spine, root.right, pose.torso.x);
+            Turn(chest, root.up, pose.torso.y); Turn(chest, root.forward, pose.torso.z);
+            Turn(neck, root.right, pose.look.x); Turn(neck, root.up, pose.look.y);
+            Turn(head, root.forward, pose.look.z);
+            Turn(leftArm, root.right, pose.leftArm.x); Turn(leftArm, root.forward, pose.leftArm.z);
+            Turn(rightArm, root.right, pose.rightArm.x); Turn(rightArm, root.forward, pose.rightArm.z);
+            Turn(leftForearm, root.right, pose.elbows.x); Turn(rightForearm, root.right, pose.elbows.y);
+        }
+        void LegacyPose(Transform root, Transform hips, Transform spine, Transform chest,
             Transform neck, Transform head, Transform jaw, Transform leftArm, Transform rightArm,
             Transform leftForearm, Transform rightForearm, MachineCoverThreat.Intention phase, float age)
         {

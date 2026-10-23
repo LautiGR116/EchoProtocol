@@ -1,4 +1,5 @@
 using EchoProtocol.Echo;
+using EchoProtocol.Campaign.IntruderActing;
 using UnityEngine;
 
 namespace EchoProtocol.Campaign
@@ -13,6 +14,7 @@ namespace EchoProtocol.Campaign
         [SerializeField] Transform leftThigh, leftShin, leftFoot, rightThigh, rightShin, rightFoot;
         [SerializeField] Transform leftArm, leftForearm, leftHand, rightArm, rightForearm, rightHand;
         [SerializeField] IntruderStaging intruder;
+        [SerializeField] IntruderActingFocus acting;
         [SerializeField] Transform[] brows, mouthCorners;
         Transform root;
         Transform[] joints;
@@ -37,6 +39,8 @@ namespace EchoProtocol.Campaign
         AudioClip envelopeClip;
         public Transform Face => head;
         public float MachinePalmDistance => leftHand&&intruder?Vector3.Distance(leftHand.position,intruder.PumpHand.position):float.PositiveInfinity;
+        public float BreachPalmDistance => rightHand&&intruder&&intruder.Embestida&&intruder.Embestida.Hand
+            ?Vector3.Distance(rightHand.position,intruder.Embestida.Hand.position):float.PositiveInfinity;
         public int PlantedContacts { get; private set; }
         public int ReachCount { get; private set; }
         public float MaxPlantDrift { get; private set; }
@@ -64,6 +68,7 @@ namespace EchoProtocol.Campaign
             Initialize();if(!initialized)return;Restore();
             cycle=runBlend=previousSpeed=accelerationWeight=brakeWeight=gazeYaw=gazePitch=machineHandWeight=0;
             contacts=0;travelDirection=root.forward;ResetFeet();
+            if(acting)acting.ResetFocus();
         }
         void Restore(){for(int i=0;i<joints.Length;i++){joints[i].localPosition=positions[i];joints[i].localRotation=rotations[i];}root.localPosition=rootPosition;root.localRotation=rootRotation;}
         public void ResetFeet()
@@ -80,7 +85,7 @@ namespace EchoProtocol.Campaign
         public int ConsumeContacts(){int n=contacts;contacts=0;return n;}
         public void Present(MachineCoverThreat.Intention phase,float age,Vector3 velocity,float turnRate,Vector3 attention,AudioSource voice,float pursuitSpeed=3.6f)
         {
-            Initialize();if(!initialized)return;Restore();
+            Initialize();if(!initialized||Time.deltaTime<=0)return;Restore();
             float speed=new Vector2(velocity.x,velocity.z).magnitude,dt=Time.deltaTime;
             bool searching=phase==MachineCoverThreat.Intention.Search;
             bool reacquiring=phase==MachineCoverThreat.Intention.Reacquire;
@@ -112,34 +117,48 @@ namespace EchoProtocol.Campaign
             float press=onMachine?Mathf.Sin(Mathf.PI*Mathf.Clamp01(Mathf.InverseLerp(.25f,.55f,age))):0;
             machineHandWeight=Mathf.MoveTowards(machineHandWeight,onMachine?1:0,dt*(onMachine?4.5f:6));
             var rush=intruder?intruder.Embestida:null;
+            bool authored=acting&&acting.isActiveAndEnabled&&rush&&rush.UsesAuthoredActing;
             float squeezed=intruder&&!rush&&phase==MachineCoverThreat.Intention.Entry?1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(1.12f,1.52f,age)):0;
             float cornerBrace=intruder?intruder.BrakeWeight:0;
             float braking=Mathf.Max(cornerBrace,brakeWeight);
-            hips.position-=root.up*(runBlend*(.070f+.020f*Mathf.Cos(cycle*Mathf.PI*4))+.045f*brace+braking*.035f);
-            hips.position+=root.right*(-.055f*squeezed+searchWeight*.018f)-root.up*(.16f*squeezed+(witness?.045f:0)+machineHandWeight*.055f);
-            hips.position+=root.forward*(accelerationWeight*.025f-braking*.027f+press*.022f);
-            Rotate(spine,root.right,runBlend*12+brace*8+breath+accelerationWeight*5);
-            Rotate(spine,root.right,squeezed*25+(witness?8:0)+machineHandWeight*16+press*5-searchWeight*4);
-            Rotate(spine,root.right,-braking*12+recoil*9);
-            Rotate(chest,root.forward,-recoil*5);
-            Rotate(chest,root.forward,squeezed*-18+(witness?-5:0));
-            Rotate(chest,root.up,Mathf.Sin(cycle*Mathf.PI*2)*runBlend*6-Mathf.Clamp(turnRate*.028f,-10,10));
-            Rotate(chest,root.forward,-Mathf.Clamp(turnRate*.03f,-8,8)*moving-press*3);
-            Vector3 gaze=root.InverseTransformDirection(attention-head.position);
-            float yaw=Mathf.Clamp(Mathf.Atan2(gaze.x,gaze.z)*Mathf.Rad2Deg,-48,48);
-            float pitch=Mathf.Clamp(-Mathf.Atan2(gaze.y,new Vector2(gaze.x,gaze.z).magnitude)*Mathf.Rad2Deg,-12,18);
-            // Eyes/head acquire the supplied evidence first; the shoulders catch
-            // up through the actual root turn. Hidden Player position is never read.
-            gazeYaw=Mathf.MoveTowardsAngle(gazeYaw,yaw,dt*(reacquiring?300:searching?72:170));
-            gazePitch=Mathf.MoveTowardsAngle(gazePitch,pitch,dt*95);
-            Rotate(neck,root.up,gazeYaw*.36f);Rotate(head,root.up,gazeYaw*.64f);
-            Rotate(head,root.right,-runBlend*7-brace*6+gazePitch);
-            Rotate(head,root.right,squeezed*13+(witness?9:0)+(intruder&&recognition?10:0));
-            Rotate(head,root.forward,squeezed*16+(witness?5:0));
-            Rotate(head,root.forward,(listening?7:searchWeight*8)+machineHandWeight*7);
-            float articulation=Voice(voice);
-            Rotate(jaw,root.right,articulation*17);Rotate(chest,root.right,articulation*-3);
-            if(intruder)
+            if(authored)
+            {
+                // Actual acceleration and support own the small balance change.
+                // Embestida supplies the three strong body keys below; do not
+                // stack the former breathing, run bob and mirrored arm cycle.
+                hips.position-=root.up*(runBlend*.025f+braking*.018f);
+                hips.position+=root.forward*(accelerationWeight*.018f-braking*.018f);
+                Rotate(spine,root.right,accelerationWeight*3-braking*5);
+                Rotate(chest,root.forward,-Mathf.Clamp(turnRate*.018f,-5,5)*moving);
+            }
+            else
+            {
+                hips.position-=root.up*(runBlend*(.070f+.020f*Mathf.Cos(cycle*Mathf.PI*4))+.045f*brace+braking*.035f);
+                hips.position+=root.right*(-.055f*squeezed+searchWeight*.018f)-root.up*(.16f*squeezed+(witness?.045f:0)+machineHandWeight*.055f);
+                hips.position+=root.forward*(accelerationWeight*.025f-braking*.027f+press*.022f);
+                Rotate(spine,root.right,runBlend*12+brace*8+breath+accelerationWeight*5);
+                Rotate(spine,root.right,squeezed*25+(witness?8:0)+machineHandWeight*16+press*5-searchWeight*4);
+                Rotate(spine,root.right,-braking*12+recoil*9);
+                Rotate(chest,root.forward,-recoil*5);
+                Rotate(chest,root.forward,squeezed*-18+(witness?-5:0));
+                Rotate(chest,root.up,Mathf.Sin(cycle*Mathf.PI*2)*runBlend*6-Mathf.Clamp(turnRate*.028f,-10,10));
+                Rotate(chest,root.forward,-Mathf.Clamp(turnRate*.03f,-8,8)*moving-press*3);
+                Vector3 gaze=root.InverseTransformDirection(attention-head.position);
+                float yaw=Mathf.Clamp(Mathf.Atan2(gaze.x,gaze.z)*Mathf.Rad2Deg,-48,48);
+                float pitch=Mathf.Clamp(-Mathf.Atan2(gaze.y,new Vector2(gaze.x,gaze.z).magnitude)*Mathf.Rad2Deg,-12,18);
+                // Eyes/head acquire the supplied evidence first; the shoulders catch
+                // up through the actual root turn. Hidden Player position is never read.
+                gazeYaw=Mathf.MoveTowardsAngle(gazeYaw,yaw,dt*(reacquiring?300:searching?72:170));
+                gazePitch=Mathf.MoveTowardsAngle(gazePitch,pitch,dt*95);
+                Rotate(neck,root.up,gazeYaw*.36f);Rotate(head,root.up,gazeYaw*.64f);
+                Rotate(head,root.right,-runBlend*7-brace*6+gazePitch);
+                Rotate(head,root.right,squeezed*13+(witness?9:0)+(intruder&&recognition?10:0));
+                Rotate(head,root.forward,squeezed*16+(witness?5:0));
+                Rotate(head,root.forward,(listening?7:searchWeight*8)+machineHandWeight*7);
+            }
+            float articulation=authored&&rush.RecoveryAge<.32f?0:Voice(voice);
+            Rotate(jaw,root.right,articulation*(authored?9:17));Rotate(chest,root.right,articulation*-3);
+            if(intruder&&!authored)
             {
                 Rotate(jaw,root.right,squeezed*5+(witness?2:0)+(recognition?9:0)+(onMachine?3+Mathf.Sin(age*2.5f):0));
                 // Only this present actor uses the rig's face joints. Quiet
@@ -149,13 +168,24 @@ namespace EchoProtocol.Campaign
                 if(brows!=null)foreach(var brow in brows)if(brow)
                 {brow.position-=root.up*(.004f*tension);brow.position+=Vector3.Project(head.position-brow.position,root.right)*(.12f*tension);}
             }
-            // Bent elbows and opposing shoulder drives replace sped-up walking.
-            float swing=Mathf.Sin(cycle*Mathf.PI*2)*Mathf.Lerp(13,34,runBlend)*moving;
-            Rotate(leftArm,root.right,swing-runBlend*8-brace*20);Rotate(rightArm,root.right,-swing-runBlend*8-brace*12);
-            Rotate(leftForearm,root.right,-runBlend*54-brace*26-searchWeight*14);Rotate(rightForearm,root.right,-runBlend*60-brace*32-searchWeight*25);
-            Rotate(leftArm,root.forward,runBlend*8+brace*8);Rotate(rightArm,root.forward,-runBlend*8-brace*8);
-            Rotate(leftArm,root.right,braking*12-searchWeight*7);Rotate(rightArm,root.right,braking*9-searchWeight*13);
+            if(!authored)
+            {
+                // Bent elbows and opposing shoulder drives replace sped-up walking.
+                float swing=Mathf.Sin(cycle*Mathf.PI*2)*Mathf.Lerp(13,34,runBlend)*moving;
+                Rotate(leftArm,root.right,swing-runBlend*8-brace*20);Rotate(rightArm,root.right,-swing-runBlend*8-brace*12);
+                Rotate(leftForearm,root.right,-runBlend*54-brace*26-searchWeight*14);Rotate(rightForearm,root.right,-runBlend*60-brace*32-searchWeight*25);
+                Rotate(leftArm,root.forward,runBlend*8+brace*8);Rotate(rightArm,root.forward,-runBlend*8-brace*8);
+                Rotate(leftArm,root.right,braking*12-searchWeight*7);Rotate(rightArm,root.right,braking*9-searchWeight*13);
+            }
             if(rush)rush.Pose(root,hips,spine,chest,neck,head,jaw,leftArm,rightArm,leftForearm,rightForearm,phase,age);
+            if(authored)
+            {
+                int beat=20+(int)phase;
+                if(phase==MachineCoverThreat.Intention.Entry)beat=rush.HasContact?41:40;
+                acting.Pose(root,neck,head,attention,beat,dt,
+                    phase==MachineCoverThreat.Intention.Entry&&rush.HasContact?.18f:.07f,
+                    searching||listening||onMachine||recognition);
+            }
             if(rush&&phase==MachineCoverThreat.Intention.Entry)
                 Solve(leftArm,leftForearm,leftHand,root.TransformPoint(new Vector3(-.16f,1.15f,.34f)),leftArm.position-root.right*.24f-Vector3.up*.18f,la,lb);
             if(rush&&(rush.HandWeight>.01f||rush.Preparation>.01f)&&!witness&&!onMachine)
@@ -196,7 +226,7 @@ namespace EchoProtocol.Campaign
             }
             if(capture)
             {
-                Rotate(jaw,root.right,6);Rotate(spine,root.right,5);
+                Rotate(jaw,root.right,authored?0:6);Rotate(spine,root.right,5);
                 float reach=Mathf.SmoothStep(0,1,Mathf.Clamp01(age/.24f));
                 Vector3 toward=(attention-transform.position);toward.y=0;toward.Normalize();Vector3 side=Vector3.Cross(Vector3.up,toward);
                 Vector3 contact=attention-Vector3.up*.39f-toward*.18f;
