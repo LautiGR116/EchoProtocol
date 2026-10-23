@@ -6,6 +6,12 @@ status.
 
 ## Current milestone
 
+**Local integration, 2026-10-23.** Pump hunt, occupied house and Folio session
+polish are integrated in Incursion. The next approved parallel implementation
+round covers P2 causal understanding, SE2 presence and Player physical contact.
+No new human fear approval; Editor only, one shared verification session.
+[Ownership and integration](PARALLEL_ROUND_20261023.md).
+
 **La embestida / Incursion selected, 2026-10-12.** Scoped pump revision after
 El intruso's human fear failure: separate deteriorated adult mesh/material and
 weighted rubber garment; a continuous door breach, physical housing impact,

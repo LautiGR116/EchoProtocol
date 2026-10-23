@@ -35,11 +35,17 @@ same mechanical room an objectively verified clinical visual foundation without
 changing puzzle geometry, Echo behavior, or audio. Its human visual checkpoint is
 approved at prototype level.
 
+## Editor integration — 2026-10-23
+
+Pump hunt, occupied house and Folio session polish are now integrated locally
+in Incursion. No new build or web publication. Fear and acting remain **EN PRUEBA**.
+[Integration and next parallel round](Docs/PARALLEL_ROUND_20261023.md).
+
 ## Selected candidate — La embestida / Incursion, 2026-10-12
 
 Work and play in **Unity Editor**: open
 `Assets/_Game/Scenes/Production/EchoProtocol_Incursion.unity`, enter Play Mode,
-and choose **Jugar · La máquina que te cubre** for the pump.
+and choose **Probar la bomba · acceso directo** for the pump.
 
 The present intruder now has a separate sculpted, deteriorated adult surface,
 unequal compressed posture and an articulated worn rubber bib. He bursts through

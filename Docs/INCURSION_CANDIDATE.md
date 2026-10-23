@@ -20,7 +20,7 @@ humano posterior de La embestida.
   espacio a pasos y dirección. Cinco montajes CC0 existentes, trazados en
   `ArtSource/Audio/Hunt/masters.json`. Sin compras ni generación de voces.
 
-**Prueba de 2–3 minutos:** Play → **Jugar · La máquina que te cubre**. En el mando,
+**Prueba de 2–3 minutos:** Play → **Probar la bomba · acceso directo**. En el mando,
 mantené E unos 12 s, soltá 7 s, mantené otros 20 s, soltá y hacé RECALL. Con el
 ruido del Echo, trabajá la manivela; cruzá la reja durante el silencio y liberá
 el cierre del fondo. Retirate por el paso lateral, rodeá el extremo libre del
