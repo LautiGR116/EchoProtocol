@@ -1,7 +1,7 @@
 # Contacto del jugador — 2026-10-23
 
-**Implementado en fuentes; integración, compilación y Play pendientes del Editor
-central.** Base `5277b28db7d1984178896d4c6487af16996b85e3`, rama
+**Integrado y guardado en Incursion; compilación y checks puntuales de Play realizados.**
+Base `5277b28db7d1984178896d4c6487af16996b85e3`, rama
 `codex/player-contact-weight`. No se abrió Unity, importó Library, ejecutó build,
 publicó ni modificó el proyecto original. Comodidad y peso percibido **EN PRUEBA**.
 
@@ -64,7 +64,20 @@ terminada, Play detenido y **la Incursion actual ya abierta**:
   es no-op; una instalación parcial falla antes de editar. No abre ni guarda
   escenas. El coordinador revisa/guarda con el Editor central.
 
-## Dos comprobaciones puntuales pendientes
+## Evidencia central
+
+Fixture temporal con Echo quieto y pared: el jugador salió lateralmente sin
+cruzar pared, desplazar al Echo ni emitir pasos por el empuje. El teléfono
+descolgado recibió foco sobre el receptor actual; una caja interpuesta retiró
+foco y `TryInteract` devolvió false sin incrementar activaciones. Fixtures retiradas.
+
+Desplazamientos breves del CharacterController comprobaron material clínico/madera,
+alternancia y posiciones fijas de emisores; pausa detuvo ambas fuentes sin
+contactos adicionales. La inyección de teclado no movió al jugador, por lo que
+esto no se presenta como prueba de controles físicos. No se repitió RECALL ni
+se aprobó la escucha o comodidad. Play detenido, sin build.
+
+## Checks originales propuestos (no todos ejecutados)
 
 1. **Contacto y foco:** grabar unos segundos quieto cerca de una pared recta;
    RECALL, salir >.76 m y acercarse por el hueco entre pared y Echo, dejando

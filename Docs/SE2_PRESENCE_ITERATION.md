@@ -1,6 +1,6 @@
 # SE2 — peso contra el vidrio · 2026-10-23
 
-**Implementado en fuentes; integración/imagen en Editor y juicio humano pendientes.**
+**Integrado y guardado en Incursion; imagen comprobada en Editor. Juicio humano pendiente.**
 Base `5277b28d`, rama `codex/se2-glass-pressure`. Sin builds, push, publicación,
 Editor/Library nuevos, escenas escritas a mano ni assets privados copiados.
 
@@ -46,7 +46,15 @@ Player/Echo, P2 y mezcla global no se modifican.
    los dos materiales exclusivos quedan disponibles para Redo/reaplicar. Guardar
    manualmente después de comprobar la composición.
 
-## Comprobado aquí y dos checks centrales
+## Evidencia central
+
+Aplicado sobre la escena original. Entrada preparada con gates existentes: los
+volúmenes de presentación quedaron fuera de cámara al revelar. Frente y oblicuo
+inspeccionados; descubrimiento y cesión contabilizaron uno cada uno, sin repetir
+al pausar/reanudar o volver a mirar. No se hizo entrada natural completa,
+Undo/Redo ni escucha humana; el miedo y la calidad de actuación no están aprobados.
+
+## Evidencia del worktree y checks propuestos (no todos ejecutados)
 
 Lectura de referencias/posiciones de Incursion, revisión focalizada y corrección
 de captura Undo de la jerarquía completa. Compilación aislada Roslyn de las tres

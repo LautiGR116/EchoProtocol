@@ -1,6 +1,6 @@
 # P2 — testigo lateral del cierre, 2026-10-23
 
-**Implementado en fuentes; aplicación y comprobación en Editor pendientes.**
+**Integrado y guardado en Incursion; comprobación central puntual realizada.**
 Base `5277b28db7d1984178896d4c6487af16996b85e3`, rama
 `codex/p2-causal-demonstration`. Comprensión espontánea y comodidad **EN PRUEBA humana**.
 
@@ -47,7 +47,16 @@ agrupado y rollback; no abre, reemplaza ni guarda escenas. Añade objetos sin
 colisión, mueve sólo presentación de P2 y deja la escena sucia para revisión.
 El coordinador decide guardar después del chequeo. No importa assets privados.
 
-## Evidencia y sólo dos comprobaciones centrales
+## Evidencia central
+
+En el Editor principal se comprobó mirar/girar/abandonar el puesto y la relación
+real entre alimentación, cierre y autorización de salida. Se inspeccionó la cámara
+y se añadió una luz fija sobre la primera hoja, inicialmente demasiado oscura.
+Se corrigió el GUID inválido de la carpeta nueva. No se repitió el recorrido
+completo con RECALL ni se aprobó comprensión espontánea. Detalle de alcance en
+`PARALLEL_ROUND_20261023.md`.
+
+## Evidencia del worktree y checks propuestos (no todos ejecutados)
 
 Revisión focal de fuentes y `git diff --check`. Compilación aislada de las
 fuentes afectadas y dependencias directas con Roslyn/módulos de Unity

@@ -37,9 +37,11 @@ approved at prototype level.
 
 ## Editor integration — 2026-10-23
 
-Pump hunt, occupied house and Folio session polish are now integrated locally
-in Incursion. No new build or web publication. Fear and acting remain **EN PRUEBA**.
-[Integration and next parallel round](Docs/PARALLEL_ROUND_20261023.md).
+Pump hunt, occupied house and Folio session polish are integrated locally in
+Incursion, together with P2 causal feedback, SE2 glass presence and Player contact.
+Focused Editor checks completed; no new build or web publication. Fear, acting and
+unprompted comprehension remain **EN PRUEBA**.
+[Integration and focused evidence](Docs/PARALLEL_ROUND_20261023.md).
 
 ## Selected candidate — La embestida / Incursion, 2026-10-12
 

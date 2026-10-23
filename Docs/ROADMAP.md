@@ -7,9 +7,10 @@ status.
 ## Current milestone
 
 **Local integration, 2026-10-23.** Pump hunt, occupied house and Folio session
-polish are integrated in Incursion. The next approved parallel implementation
-round covers P2 causal understanding, SE2 presence and Player physical contact.
-No new human fear approval; Editor only, one shared verification session.
+polish are integrated in Incursion. The second parallel round is also integrated:
+P2 causal feedback, SE2 presence and Player physical contact. Focused checks were
+performed in the central Editor; unprompted understanding, fear and comfort remain
+pending human play. No new build or web publication.
 [Ownership and integration](PARALLEL_ROUND_20261023.md).
 
 **La embestida / Incursion selected, 2026-10-12.** Scoped pump revision after

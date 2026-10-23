@@ -73,6 +73,32 @@ quien confirmó que lo activará; no se afirma activación desde la herramienta.
 - SE2: `01a169d8-04e7-7041-ae52-a689324e0a49`, worktree `58ca`.
 - Player: `01a169d8-4ea1-7e23-8fc7-36635f143170`, worktree `94f3`.
 
-Son implementaciones en curso, todavía no integradas. El proyecto principal
-conserva la primera ronda jugable y Play detenido. No abrir Libraries adicionales:
-el espacio libre observado tras crear los tres worktrees es aproximadamente 1.2 GiB.
+## Segunda ronda integrada en el Editor
+
+Los tres chats terminaron. Cherry-picks sin conflictos: P2 `06b96fcd`, SE2
+`bc4522ef`, Player `1e5496bb`. Se aplicaron sus tres integradores sobre la
+Incursion original y se guardó con Unity. Revisión de cámara añadió una luz
+local a la primera hoja de P2 (`a23e91eb`), que quedaba demasiado oscura junto
+al panel. También se corrigió el GUID de 33 caracteres del nuevo folder P2Causal,
+detectado en Console. No se sustituyeron escenas ni se abrieron otros Editors.
+
+Comprobaciones centrales puntuales, mediante estados preparados en Play:
+
+- P2: mirar alimenta/abre; girar en el puesto conserva alimentación, cierra la
+  primera hoja y autoriza la segunda; abandonar el puesto cancela autorización.
+  Cámara confirma panel y hoja legibles. No se repitió el recorrido con RECALL.
+- SE2: revelación con volúmenes fuera de cámara; un descubrimiento y una cesión
+  de mano, sin repetición al pausar/reanudar o volver a mirar. Frente y oblicuo
+  inspeccionados. La entrada fue preparada, no un recorrido natural completo.
+- Player: junto a una pared temporal, separación lateral sin mover el Echo ni
+  generar pasos por el empuje. Apoyos en clínico/madera, fuentes alternadas y
+  detenidas en pausa. El teléfono descolgado recibe foco en su posición real;
+  una caja interpuesta quita foco y bloquea activación. Fixtures retiradas.
+
+Compilación del proyecto completada. Los intentos de inyección de teclado no
+produjeron movimiento; para los apoyos se usó desplazamiento acotado del
+CharacterController, sin presentar eso como una prueba de controles físicos.
+Sin campaña, nueva build, push ni publicación. Play detenido; escena guardada.
+Respaldo privado antes/después: `../EchoProtocol-backups/parallel-round2-20261023/`.
+Capturas locales: `Builds/round2-integration-20261023/` (sólo imágenes).
+Comprensión espontánea, miedo, actuación, timbre y comodidad siguen **EN PRUEBA**.
