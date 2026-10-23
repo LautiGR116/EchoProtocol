@@ -57,7 +57,9 @@ Shader "EchoProtocol/IntruderRuptureMouth"
                 input.normalizedScreenSpaceUV=GetNormalizedScreenSpaceUV(i.positionCS); input.shadowMask=half4(1,1,1,1);
                 SurfaceData surface=(SurfaceData)0; surface.albedo=albedo; surface.alpha=1;
                 surface.occlusion=lerp(1,.12,smoothstep(.10,.85,depth));
-                surface.smoothness=lerp(.42,.65,smoothstep(0,.3,depth))-.09*saturate(ridge);
+                // Broad damp highlights keep the cavity organic at pump distance;
+                // a glossy inner wall read as a polished tube in the close view.
+                surface.smoothness=lerp(.28,.34,smoothstep(0,.3,depth))-.06*saturate(ridge);
                 surface.specular=half3(.04,.04,.04);
                 half4 c=UniversalFragmentPBR(input,surface); c.rgb=MixFog(c.rgb,i.fog); return c;
             }

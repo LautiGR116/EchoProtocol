@@ -2,7 +2,7 @@
 
 Dirección aprobada el 2026-10-23. Tres chats GPT-6 Astra / Ultra, worktrees separados,
 sólo Editor, sin builds ni push/publicación. Base `e393c391`, rama central
-`codex/integracion-20261023`. Implementación pendiente; terror no aprobado.
+`codex/integracion-20261023`. Integrado y guardado; terror no aprobado.
 Coordinador: `01a12cb5-6030-77a1-b02b-93734f7c279b`, `/Users/lautigr116/EchoProtocol`.
 
 ## Dirección común
@@ -105,8 +105,8 @@ eventos en la grabación ni cambios de progreso. Upgrade reversible desde R5.
 
 ## Estado
 
-Tres frentes despachados en GPT-6 Astra / Ultra; actividad inicial confirmada.
-Implementación en curso, todavía sin integrar ni verificar en el Editor central.
+Tres frentes terminados en GPT-6 Astra / Ultra e integrados en Incursion.
+Escena/derivados privados guardados, Editor detenido; sin build ni publicación.
 
 | Frente | Chat | Worktree |
 | --- | --- | --- |
@@ -116,5 +116,37 @@ Implementación en curso, todavía sin integrar ni verificar en el Editor centra
 
 B comunicó a C que reserva el jamb norte existente `A sealed window jamb`
 (Transform 483625452) como borde de agarre; C no debe moverlo ni ocultarlo.
-Coordenadas y tiempos definitivos se entregan con B. El contrato facial mantiene
+Coordenadas y tiempos definitivos están en la entrega B. El contrato facial mantiene
 jaw/mouthCorners neutrales en el nuevo perfil P3.
+
+## Cierre central
+
+Commits originales A `7d983990`, B `922dcf94`, C `ba963450`; integrados como
+`1a639bc8`, `02a850ab`, `ef126289`. Corrección A `937a3c3a` integrada como
+`ebfb3ce1`. Dos ajustes centrales: preflight C acepta el jamb activo dentro de
+R1 todavía inactivo por campaña; menor brillo oral tras ver el primer plano.
+
+La primera toma reveló un fallo real: `CopySerialized` conservaba el layout
+nativo anterior y el SkinnedMeshRenderer dejaba de dibujar al intruso. Reimportar
+no bastó. Reconstruir streams con `Clear(false)`/setters y reenlazar el mismo
+Face.asset corrigió el render; fingerprint/GUID/backups conservados. La reparación
+persistente se aplicó y se comprobó en Play. P3 se repitió sólo por ese fallo.
+
+Comprobación final acotada: compilación sin errores; P3 avanzó 50→108 frames,
+contacto único, sin bloqueo, suelta completa y aliento posterior observado.
+Vista breve de bomba: cesión de pose P3, contacto único y cara visible también
+articulada de cerca. Console sin errores nuevos desde cursor 11739 hasta 11741.
+Se reutilizaron los snippets/checkpoints R5: P3 usa un Echo estacionario sintético
+y estado preparado; no verifica descubrimiento espontáneo ni resolución natural
+del puzzle. No campaña, persecución completa, suite ni harness nuevos.
+
+Evidencia local en `Builds/round6-integration-20261023/`: `p3-contact.png`,
+`p3-settled.png`, `pump-contact.png`, `pump-recovery.png`, estados JSON y captures
+del listener. P3 2,88 s / bomba 2,47 s, picos −6,02 dBFS, sin muestras a escala
+completa. Son comprobaciones de señal; no escucha humana ni comodidad certificada.
+Backups antes/después en `/Users/lautigr116/EchoProtocol-backups/parallel-round6-20261023/`.
+Capturadores retirados, Play detenido, escena limpia y guardada.
+
+Juicio visual del coordinador: se perdió la sonrisa/palma ofrecida y la abertura
+oral es evidente a distancia de P3. La credibilidad de esa deformación y si la
+irrupción provoca retirada siguen **EN PRUEBA humana**, junto con timbre/comfort.

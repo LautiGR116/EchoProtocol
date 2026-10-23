@@ -159,7 +159,8 @@ public static class P3RuptureRevealIntegration
             && c.backing.parent && c.backing.parent.lossyScale == Vector3.one,
             "The backing must remain a standalone visual piece, without collider, script or children.");
         Require(c.previous.props[0].target == c.backing && c.previous.props[1].target == c.jamb
-            && c.previous.props[1].applied.Matches(c.jamb) && c.jamb.gameObject.activeInHierarchy
+            // The campaign keeps R1 inactive in the saved scene until arrival.
+            && c.previous.props[1].applied.Matches(c.jamb) && c.jamb.gameObject.activeSelf
             && c.jamb.GetComponent<MeshRenderer>() && c.jamb.GetComponent<MeshRenderer>().enabled
             && c.jamb.GetComponent<MeshRenderer>().sharedMaterials.Length == 1
             && c.jamb.GetComponent<MeshRenderer>().sharedMaterial,

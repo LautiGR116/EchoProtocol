@@ -27,9 +27,11 @@ P3 and pump-entry checks include actual camera/listener evidence; a Metal materi
 binding failure was corrected. Fear and headphone comfort remain human judgments.
 Editor only; no build or publication.
 [Integration, evidence and exclusive ownership](PARALLEL_INTRUDER_ROUND5_20261023.md).
-Round 6 is approved for three Astra Ultra chats: a substantially altered face,
-P3 gripping/forward assault, and a coordinated reveal with physical sound.
-Implementation pending; Editor only, no builds.
+Round 6 is integrated and saved: forced open mouth with a real oral cavity,
+P3 frame grip/abrupt release, closer stillness and contact-led reveal/audio.
+Focused central P3 and pump views passed after repairing stale skinned-mesh
+buffers. The face is visibly less ordinary; fear, acting and listening remain
+unapproved. Editor only, no builds or publication.
 [Direction and ownership](PARALLEL_P3_ROUND6_20261023.md).
 
 **La embestida / Incursion selected, 2026-10-12.** Scoped pump revision after
