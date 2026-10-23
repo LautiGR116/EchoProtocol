@@ -61,6 +61,7 @@ namespace EchoProtocol.Campaign
             ru=Vector3.Distance(rightThigh.position,rightShin.position);rl=Vector3.Distance(rightShin.position,rightFoot.position);
             la=Vector3.Distance(leftArm.position,leftForearm.position);lb=Vector3.Distance(leftForearm.position,leftHand.position);
             ra=Vector3.Distance(rightArm.position,rightForearm.position);rb=Vector3.Distance(rightForearm.position,rightHand.position);
+            if(acting)acting.CaptureNeutral(root,head);
             initialized=true;ResetFeet();
         }
         public void ResetPerformance()
@@ -68,7 +69,7 @@ namespace EchoProtocol.Campaign
             Initialize();if(!initialized)return;Restore();
             cycle=runBlend=previousSpeed=accelerationWeight=brakeWeight=gazeYaw=gazePitch=machineHandWeight=0;
             contacts=0;travelDirection=root.forward;ResetFeet();
-            if(acting)acting.ResetFocus();
+            if(acting){acting.ResetFocus();acting.CaptureNeutral(root,head);}
         }
         void Restore(){for(int i=0;i<joints.Length;i++){joints[i].localPosition=positions[i];joints[i].localRotation=rotations[i];}root.localPosition=rootPosition;root.localRotation=rootRotation;}
         public void ResetFeet()
@@ -118,6 +119,7 @@ namespace EchoProtocol.Campaign
             machineHandWeight=Mathf.MoveTowards(machineHandWeight,onMachine?1:0,dt*(onMachine?4.5f:6));
             var rush=intruder?intruder.Embestida:null;
             bool authored=acting&&acting.isActiveAndEnabled&&rush&&rush.UsesAuthoredActing;
+            bool contained=authored&&acting.UsesContainedViolence;
             float squeezed=intruder&&!rush&&phase==MachineCoverThreat.Intention.Entry?1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(1.12f,1.52f,age)):0;
             float cornerBrace=intruder?intruder.BrakeWeight:0;
             float braking=Mathf.Max(cornerBrace,brakeWeight);
@@ -157,7 +159,7 @@ namespace EchoProtocol.Campaign
                 Rotate(head,root.forward,(listening?7:searchWeight*8)+machineHandWeight*7);
             }
             float articulation=authored&&rush.RecoveryAge<.32f?0:Voice(voice);
-            Rotate(jaw,root.right,articulation*(authored?9:17));Rotate(chest,root.right,articulation*-3);
+            Rotate(jaw,root.right,articulation*(contained?3:authored?9:17));Rotate(chest,root.right,articulation*(contained?-1:-3));
             if(intruder&&!authored)
             {
                 Rotate(jaw,root.right,squeezed*5+(witness?2:0)+(recognition?9:0)+(onMachine?3+Mathf.Sin(age*2.5f):0));
@@ -177,17 +179,29 @@ namespace EchoProtocol.Campaign
                 Rotate(leftArm,root.forward,runBlend*8+brace*8);Rotate(rightArm,root.forward,-runBlend*8-brace*8);
                 Rotate(leftArm,root.right,braking*12-searchWeight*7);Rotate(rightArm,root.right,braking*9-searchWeight*13);
             }
-            if(rush)rush.Pose(root,hips,spine,chest,neck,head,jaw,leftArm,rightArm,leftForearm,rightForearm,phase,age);
+            if(rush)rush.Pose(root,hips,spine,chest,neck,head,jaw,leftArm,rightArm,leftForearm,rightForearm,phase,age,contained);
             if(authored)
             {
                 int beat=20+(int)phase;
-                if(phase==MachineCoverThreat.Intention.Entry)beat=rush.HasContact?41:40;
+                if(phase==MachineCoverThreat.Intention.Entry)beat=rush.HasContact?(contained&&rush.ContactAge>=.22f?42:41):40;
                 acting.Pose(root,neck,head,attention,beat,dt,
                     phase==MachineCoverThreat.Intention.Entry&&rush.HasContact?.18f:.07f,
-                    searching||listening||onMachine||recognition);
+                    searching||listening||onMachine||recognition||(contained&&(charging||reacquiring)));
             }
-            if(rush&&phase==MachineCoverThreat.Intention.Entry)
-                Solve(leftArm,leftForearm,leftHand,root.TransformPoint(new Vector3(-.16f,1.15f,.34f)),leftArm.position-root.right*.24f-Vector3.up*.18f,la,lb);
+            if(rush)
+            {
+                // The free hand protects the lower ribs through the impact;
+                // release that constraint continuously into pursuit, not on
+                // the Entry state edge. Right hand still owns the real casing.
+                float guard=phase==MachineCoverThreat.Intention.Entry?1:
+                    contained&&rush.HasContact&&!capture?1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(.66f,1f,rush.ContactAge)):0;
+                if(guard>0)
+                {
+                    Vector3 point=root.TransformPoint(contained?new Vector3(-.18f,1.02f,.23f):new Vector3(-.16f,1.15f,.34f));
+                    Solve(leftArm,leftForearm,leftHand,Vector3.Lerp(leftHand.position,point,guard),leftArm.position-root.right*.24f-Vector3.up*.18f,la,lb);
+                    if(contained)Rotate(leftHand,root.forward,-22*guard);
+                }
+            }
             if(rush&&(rush.HandWeight>.01f||rush.Preparation>.01f)&&!witness&&!onMachine)
             {
                 bool impact=phase==MachineCoverThreat.Intention.Entry||rush.HasContact;
@@ -236,8 +250,14 @@ namespace EchoProtocol.Campaign
                 ReachCount++;
             }
             if(rush)foreach(var joint in joints)
-                if(joint.name.Contains("_02_")&&(joint.name.Contains("index")||joint.name.Contains("middle")||joint.name.Contains("ring")||joint.name.Contains("pinky")))
-                    joint.localRotation*=Quaternion.Euler(0,0,joint.name.EndsWith("_l")?24:-15);
+                if(joint.name.Contains("index")||joint.name.Contains("middle")||joint.name.Contains("ring")||joint.name.Contains("pinky"))
+                {
+                    bool left=joint.name.EndsWith("_l");
+                    if(joint.name.Contains("_02_"))
+                        joint.localRotation*=Quaternion.Euler(0,0,contained&&!capture?(left?48:Mathf.Lerp(-28,-8,rush.HandWeight)):(left?24:-15));
+                    else if(contained&&!capture&&joint.name.Contains("_03_"))
+                        joint.localRotation*=Quaternion.Euler(0,0,left?25:Mathf.Lerp(-15,0,rush.HandWeight));
+                }
             float stance=Mathf.Lerp(.64f,.52f,runBlend);
             Leg(true,Mathf.Repeat(cycle+.02f,1),stance,stride,moving,speed,turnRate);
             Leg(false,Mathf.Repeat(cycle+.52f,1),stance,stride,moving,speed,turnRate);

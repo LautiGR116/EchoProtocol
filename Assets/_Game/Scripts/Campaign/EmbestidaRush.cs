@@ -144,11 +144,18 @@ namespace EchoProtocol.Campaign
         // World hand and foot constraints are solved afterwards by that rig.
         public void Pose(Transform root, Transform hips, Transform spine, Transform chest,
             Transform neck, Transform head, Transform jaw, Transform leftArm, Transform rightArm,
-            Transform leftForearm, Transform rightForearm, MachineCoverThreat.Intention phase, float age)
+            Transform leftForearm, Transform rightForearm, MachineCoverThreat.Intention phase, float age,
+            bool containedViolence = false)
         {
             if (!authoredActing)
             {
                 LegacyPose(root, hips, spine, chest, neck, head, jaw, leftArm, rightArm,
+                    leftForearm, rightForearm, phase, age);
+                return;
+            }
+            if (containedViolence)
+            {
+                ContainedPose(root, hips, spine, chest, neck, head, jaw, leftArm, rightArm,
                     leftForearm, rightForearm, phase, age);
                 return;
             }
@@ -229,6 +236,92 @@ namespace EchoProtocol.Campaign
                 pose = ActingPose.Blend(drive, pose, Mathf.SmoothStep(0, 1, RecoveryAge / .32f));
             }
 
+            ApplyKey(pose, root, hips, spine, chest, neck, head, leftArm, rightArm, leftForearm, rightForearm);
+        }
+
+        void ContainedPose(Transform root, Transform hips, Transform spine, Transform chest,
+            Transform neck, Transform head, Transform jaw, Transform leftArm, Transform rightArm,
+            Transform leftForearm, Transform rightForearm, MachineCoverThreat.Intention phase, float age)
+        {
+            var held = new ActingPose
+            {
+                hip = new Vector3(-.012f, -.065f, -.02f),
+                torso = new Vector3(19, -12, -8), look = new Vector3(-15, 0, -3),
+                leftArm = new Vector3(-7, 0, 8), rightArm = new Vector3(5, 0, -6),
+                elbows = new Vector2(-55, -28)
+            };
+            var loaded = new ActingPose
+            {
+                hip = new Vector3(-.035f, -.12f, -.045f),
+                torso = new Vector3(27, -20, -16), look = new Vector3(-23, 0, -5),
+                leftArm = new Vector3(-6, 0, 12), rightArm = new Vector3(-23, 0, -14),
+                elbows = new Vector2(-70, -48)
+            };
+            var drive = new ActingPose
+            {
+                hip = new Vector3(-.02f, -.085f, .025f),
+                torso = new Vector3(37, 13, -14), look = new Vector3(-29, -3, -4),
+                leftArm = new Vector3(-29, 0, 11), rightArm = new Vector3(-13, 0, -12),
+                elbows = new Vector2(-72, -36)
+            };
+            var impact = new ActingPose
+            {
+                hip = new Vector3(.025f, -.14f, -.035f),
+                torso = new Vector3(34, -15, 10), look = new Vector3(-27, 2, -5),
+                leftArm = new Vector3(-18, 0, 12), rightArm = new Vector3(-12, 0, -9),
+                elbows = new Vector2(-62, -58)
+            };
+            var recovered = new ActingPose
+            {
+                hip = new Vector3(.02f, -.095f, .005f),
+                torso = new Vector3(24, -15, -9), look = new Vector3(-19, 0, -3),
+                leftArm = new Vector3(-19, 0, 9), rightArm = new Vector3(9, 0, -7),
+                elbows = new Vector2(-61, -39)
+            };
+            bool entry = phase == MachineCoverThreat.Intention.Entry;
+            bool pursuing = phase == MachineCoverThreat.Intention.Charge || phase == MachineCoverThreat.Intention.Reacquire;
+            ActingPose pose = held;
+            if (pursuing)
+            {
+                pose = recovered;
+                pose.torso.x = 27; pose.torso.y = -10; pose.look.x = -22;
+                pose.leftArm.x = -27; pose.rightArm.x = 13;
+            }
+            else if (phase == MachineCoverThreat.Intention.MachineContact)
+            {
+                pose = ActingPose.Blend(held, recovered, Mathf.SmoothStep(0, 1, age / .22f));
+                pose.torso.y = -17;
+            }
+            if (entry && !HasContact && !ApproachAborted)
+            {
+                // Load quickly, hold the weight, then release it through the
+                // existing collision-driven travel. No faster pursuit/reaction.
+                ActingPose coil = ActingPose.Blend(held, loaded, Mathf.SmoothStep(0, 1, age / .11f));
+                pose = ActingPose.Blend(coil, drive,
+                    Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.24f, .39f, age)));
+            }
+            else if (HasContact && ContactAge < 1.25f && phase != MachineCoverThreat.Intention.Capture)
+            {
+                float a = ContactAge;
+                ActingPose arrest = ActingPose.Blend(drive, impact, Mathf.SmoothStep(0, 1, a / .065f));
+                ActingPose recover = ActingPose.Blend(arrest, recovered,
+                    Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.16f, .60f, a)));
+                pose = ActingPose.Blend(recover, pose,
+                    Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.90f, 1.25f, a)));
+                // Brief clenched effort, not a sustained open-mouth expression.
+                float effortPulse = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.045f, .095f, a))
+                    * (1 - Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.14f, .26f, a)));
+                Turn(jaw, root.right, effortPulse * 4);
+            }
+            else if (ApproachAborted && RecoveryAge < .32f && phase != MachineCoverThreat.Intention.Capture)
+                pose = ActingPose.Blend(drive, pose, Mathf.SmoothStep(0, 1, RecoveryAge / .32f));
+            ApplyKey(pose, root, hips, spine, chest, neck, head, leftArm, rightArm, leftForearm, rightForearm);
+        }
+
+        static void ApplyKey(ActingPose pose, Transform root, Transform hips, Transform spine, Transform chest,
+            Transform neck, Transform head, Transform leftArm, Transform rightArm,
+            Transform leftForearm, Transform rightForearm)
+        {
             hips.position += root.right * pose.hip.x + root.up * pose.hip.y + root.forward * pose.hip.z;
             Turn(spine, root.right, pose.torso.x);
             Turn(chest, root.up, pose.torso.y); Turn(chest, root.forward, pose.torso.z);

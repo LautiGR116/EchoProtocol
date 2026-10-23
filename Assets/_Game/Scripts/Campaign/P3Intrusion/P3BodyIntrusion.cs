@@ -71,6 +71,25 @@ namespace EchoProtocol.Campaign.P3Intrusion
                         digit.rotation = Quaternion.Slerp(Quaternion.identity, Quaternion.FromToRotation(direction, flat), weight) * digit.rotation;
                 }
             }
+
+            public void Press(float weight, Vector3 hint, float roll)
+            {
+                Place(weight, hint);
+                // Present the side of a compact hand, bearing through its heel.
+                // Turn during the reach, never twist a planted palm afterwards.
+                arm.end.rotation = Quaternion.AngleAxis(roll * weight, target.forward) * arm.end.rotation;
+                if (digits == null || middle.childCount == 0) return;
+                Vector3 along = Vector3.ProjectOnPlane(middle.GetChild(0).position - middle.position, target.forward).normalized;
+                if (along.sqrMagnitude < .01f) return;
+                foreach (var digit in digits)
+                {
+                    if (!digit || digit.childCount == 0 || !digit.name.Contains("_01_")) continue;
+                    Vector3 direction = digit.GetChild(0).position - digit.position;
+                    float gather = digit.name.Contains("thumb") ? .18f : .82f;
+                    digit.rotation = Quaternion.Slerp(Quaternion.identity,
+                        Quaternion.FromToRotation(direction, along), weight * gather) * digit.rotation;
+                }
+            }
         }
 
         [SerializeField] IntruderStaging owner;
@@ -92,8 +111,9 @@ namespace EchoProtocol.Campaign.P3Intrusion
         [SerializeField, Min(.2f)] float advanceSeconds = .46f;
 
         bool Authored => acting && acting.isActiveAndEnabled;
-        float CompressSeconds => Authored ? .18f : .12f;
-        float RecoverSeconds => Authored ? .68f : .48f;
+        bool Contained => Authored && acting.UsesContainedViolence;
+        float CompressSeconds => Contained ? .26f : Authored ? .18f : .12f;
+        float RecoverSeconds => Contained ? .62f : Authored ? .68f : .48f;
         Transform actor;
         Transform[] joints;
         Vector3[] positions;
@@ -112,7 +132,7 @@ namespace EchoProtocol.Campaign.P3Intrusion
         public float ContactRightPalmError { get; private set; }
         public float ContactLeftPalmError { get; private set; }
         public float MaxSupportError { get; private set; }
-        public bool BraceReleased => Authored && contacted && contactAge >= .55f;
+        public bool BraceReleased => Authored && contacted && contactAge >= (Contained ? .42f : .55f);
         public bool IsConfigured => owner && session && encounter && threat && performance && controller && anatomy
             && anatomy.IsPresentThreat && anatomy.ModelRoot && hips && spine && chest && neck && head && jaw && stop
             && (!acting || (acting.IsConfigured && viewer && acting.transform == owner.transform))
@@ -141,6 +161,7 @@ namespace EchoProtocol.Campaign.P3Intrusion
             for (int i = 0; i < joints.Length; i++) { positions[i] = joints[i].localPosition; rotations[i] = joints[i].localRotation; }
             origin = actor.position; originRotation = actor.rotation;
             leftLeg.Capture(actor); rightLeg.Capture(actor); highPalm.Capture(actor); lowPalm.Capture(actor);
+            if (acting) acting.CaptureNeutral(actor, head);
             OwnsPose = true;
             ApplyPose(0, 0);
             return true;
@@ -203,8 +224,58 @@ namespace EchoProtocol.Campaign.P3Intrusion
 
         void ApplyPose(float travelAge, float compress)
         {
+            if (Contained) { ApplyContainedPose(); return; }
             if (Authored) { ApplyAuthoredPose(compress); return; }
             ApplyLegacyPose(travelAge, compress);
+        }
+
+        void ApplyContainedPose()
+        {
+            RestoreJoints();
+            float progress = actualProgress;
+            float charge = triggered ? Ease(age / .12f) : 0;
+            float load = charge * (1 - Ease(progress / .30f));
+            float drive = Ease(progress / .22f) * (1 - Ease(Mathf.InverseLerp(.60f, 1, progress)));
+            float hit = contacted ? Ease(contactAge / .045f) * (1 - Ease(Mathf.InverseLerp(.06f, .22f, contactAge))) : 0;
+            float bearing = contacted ? Ease(Mathf.InverseLerp(.18f, RecoverSeconds, contactAge)) : 0;
+            float release = contacted ? Ease(Mathf.InverseLerp(.18f, .42f, contactAge)) : 0;
+            // Three legible shapes: coiled stillness, a shoulder-led invasion,
+            // then weight kept against the glass. The actual contact posture
+            // retains the proven shoulder origin and both wrist targets.
+            float contactShape = Ease(Mathf.InverseLerp(.65f, 1, progress));
+            hips.position += actor.right * Mathf.Lerp(-.03f, .035f, bearing)
+                - actor.up * (.065f + .045f * charge + .035f * load + .022f * hit + .018f * bearing)
+                + actor.forward * (-.04f * load + .015f * bearing);
+            Turn(spine, actor.right, Mathf.Lerp(20, 13, contactShape) + 10 * load + 19 * drive + 8 * hit + 22 * bearing);
+            Turn(chest, actor.forward, -9 - 7 * load + 6 * hit - 4 * bearing);
+            Turn(chest, actor.up, -9 - 12 * load + 12 * drive - 9 * bearing);
+            Turn(neck, actor.right, -12 - 12 * load - 13 * drive - 8 * hit - 15 * bearing);
+            Turn(head, actor.forward, -4 - 3 * load + 2 * bearing);
+            Turn(jaw, actor.right, 3 * hit);
+            Turn(highPalm.arm.upper, actor.right, 7 - 37 * drive);
+            Turn(highPalm.arm.lower, actor.right, -42 - 20 * load);
+            Turn(lowPalm.arm.upper, actor.right, 8 - 13 * drive);
+            Turn(lowPalm.arm.lower, actor.right, -26 - 20 * load);
+            AuthoredFoot(rightLeg, 0, .76f, .12f, .11f);
+            AuthoredFoot(leftLeg, .17f, 1, -.18f, .065f);
+            float first = blocked ? 0 : Ease(Mathf.InverseLerp(.38f, .96f, progress));
+            float brace = blocked ? 0 : Ease(Mathf.InverseLerp(.74f, 1, progress));
+            if (first > 0)
+                highPalm.Press(first, highPalm.arm.upper.position + actor.right * .24f - actor.up * .42f, -78);
+            if (brace > 0)
+            {
+                Vector3 hint = lowPalm.arm.upper.position - actor.right * .26f - actor.up * .42f;
+                lowPalm.Press(brace, hint, 48);
+                if (release > 0)
+                {
+                    Vector3 withdrawn = actor.TransformPoint(new Vector3(-.23f, .86f, .12f));
+                    lowPalm.arm.Place(Vector3.Lerp(lowPalm.target.position, withdrawn, release), hint);
+                    lowPalm.arm.end.rotation = Quaternion.Slerp(lowPalm.arm.end.rotation, lowPalm.arm.rotation, release);
+                }
+            }
+            int beat = !triggered ? 51 : !contacted ? 52 : contactAge < .22f ? 53 : 54;
+            acting.Pose(actor, neck, head, viewer.position, beat, Time.deltaTime,
+                contacted ? .14f : .08f, !triggered || Settled);
         }
 
         void ApplyAuthoredPose(float compress)
