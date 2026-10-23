@@ -14,6 +14,7 @@ namespace EchoProtocol.Interaction
         [Header("References")]
         [SerializeField] private Camera viewCamera;
         [SerializeField] private PlayerInput playerInput;
+        [SerializeField] private InteractionSurface[] movingSurfaces = Array.Empty<InteractionSurface>();
         [Header("Reach and physical visibility")]
         [SerializeField, Min(0f)] private float interactionDistance = 3f;
         [SerializeField] private LayerMask interactionLayers = Physics.DefaultRaycastLayers;
@@ -23,8 +24,12 @@ namespace EchoProtocol.Interaction
         [SerializeField, Range(0f, .15f)] private float releaseMargin = .08f;
         readonly RaycastHit[] hits = new RaycastHit[64];
         readonly RaycastHit[] sightHits = new RaycastHit[64];
+        Matrix4x4[] surfacePoses;
+        Vector3 resolvedEye, resolvedForward;
+        bool surfacesInitialized;
         InputAction interactAction, recallAction;
         FirstPersonController controller;
+        PlayerEchoClearance clearance;
         IInteractable focus;
         Collider focusCollider;
         Vector3 focusPoint;
@@ -47,16 +52,22 @@ namespace EchoProtocol.Interaction
             if (!playerInput) playerInput = GetComponent<PlayerInput>();
             if (!viewCamera) viewCamera = GetComponentInChildren<Camera>();
             controller = GetComponent<FirstPersonController>();
+            clearance = GetComponent<PlayerEchoClearance>();
             var map = playerInput ? playerInput.actions?.FindActionMap("Player") : null;
             interactAction = map?.FindAction("Interact");
             recallAction = map?.FindAction("ResetLoop");
             ready = playerInput && viewCamera && interactAction != null;
             if (!ready) { Debug.LogError("PlayerInteractor requires PlayerInput, a Camera and Player/Interact.", this); enabled = false; return; }
             if (controller) controller.PoseReset += OnPoseReset;
+            if (clearance) clearance.Displaced += RefreshPresentationFocus;
         }
         void OnEnable() { requireRelease = true; ClearFocus(); }
         void OnDisable() { requireRelease = true; ClearFocus(); }
-        void OnDestroy() { if (controller) controller.PoseReset -= OnPoseReset; }
+        void OnDestroy()
+        {
+            if (controller) controller.PoseReset -= OnPoseReset;
+            if (clearance) clearance.Displaced -= RefreshPresentationFocus;
+        }
         void OnApplicationFocus(bool focused) { if (!focused) { requireRelease = true; ClearFocus(); } }
         void OnPoseReset() { blockedFrame = Time.frameCount; requireRelease = true; ClearFocus(); }
 
@@ -64,6 +75,7 @@ namespace EchoProtocol.Interaction
         {
             if (!ready || Time.timeScale <= 0f || !interactAction.enabled || (controller && !controller.isActiveAndEnabled))
             { ClearFocus(); return; }
+            SyncMovedSurfaces();
             ResolveFocus();
             if (!PhysicallyPressed()) requireRelease = false;
             // An ambiguous E+R chord must not open a document before RECALL can run.
@@ -74,6 +86,39 @@ namespace EchoProtocol.Interaction
                 requireRelease = true;
                 TryInteract();
             }
+        }
+        // The receiver moves in LateUpdate and body clearance can move the eye.
+        // Refresh this same snapshot only when either actually changed. E stays
+        // in Update, preserving hold controls, release gating and RECALL priority.
+        void LateUpdate() { RefreshPresentationFocus(); }
+        void RefreshPresentationFocus()
+        {
+            if (!isActiveAndEnabled || !ready || Time.timeScale <= 0f || !interactAction.enabled || (controller && !controller.isActiveAndEnabled))
+            { ClearFocus(); return; }
+            bool surfaceMoved = SyncMovedSurfaces();
+            if (surfaceMoved || (viewCamera.transform.position - resolvedEye).sqrMagnitude > .00000001f
+                || (viewCamera.transform.forward - resolvedForward).sqrMagnitude > .00000001f)
+                ResolveFocus();
+        }
+        bool SyncMovedSurfaces()
+        {
+            int count = movingSurfaces != null ? movingSurfaces.Length : 0;
+            if (surfacePoses == null || surfacePoses.Length != count)
+            { surfacePoses = new Matrix4x4[count]; surfacesInitialized = false; }
+            bool changed = false;
+            for (int i = 0; i < count; i++)
+            {
+                var surface = movingSurfaces[i];
+                if (!surface || !surface.gameObject.activeInHierarchy) continue;
+                Matrix4x4 pose = surface.transform.localToWorldMatrix;
+                changed |= !surfacesInitialized || pose != surfacePoses[i];
+                surfacePoses[i] = pose;
+            }
+            surfacesInitialized = true;
+            // autoSyncTransforms is deliberately off. Sync only after a referenced
+            // interaction surface changes pose; never enable a project-wide option.
+            if (changed) Physics.SyncTransforms();
+            return changed;
         }
         bool PhysicallyPressed()
         {
@@ -117,6 +162,7 @@ namespace EchoProtocol.Interaction
         void ResolveFocus()
         {
             Vector3 eye = viewCamera.transform.position, forward = viewCamera.transform.forward;
+            resolvedEye = eye; resolvedForward = forward;
             var previous = focus;
             float reach = interactionDistance + releaseMargin;
             int count = Physics.RaycastNonAlloc(eye, forward, hits, reach, interactionLayers, triggerInteraction);
@@ -149,27 +195,35 @@ namespace EchoProtocol.Interaction
                 bool retaining = ReferenceEquals(target, previous);
                 if (d < .02f || d > interactionDistance + (retaining ? releaseMargin : 0f)) continue;
                 float angle = Vector3.Angle(forward, offset);
-                if (angle > focusAngle + (retaining ? .35f : 0f) || !Visible(eye, p, target)) continue;
+                if (angle > focusAngle + (retaining ? .35f : 0f)
+                    || !Visible(eye, p, target, out var visibleHit)) continue;
+                // Same-owner parts still have a front surface: anchor to it, not
+                // to a farther collider hidden behind the moving handset.
+                p = visibleHit.point;
                 float score = angle + d * .04f - (retaining ? .18f : 0f);
                 if (score >= best) continue;
-                best = score; winner = target; shape = hit.collider; point = p;
+                best = score; winner = target; shape = visibleHit.collider; point = p;
             }
             if (winner != null) Select(winner, shape, point);
             else { ClearFocus(); resolvedFrame = Time.frameCount; }
         }
-        bool Visible(Vector3 eye, Vector3 point, IInteractable owner)
+        bool Visible(Vector3 eye, Vector3 point, IInteractable owner, out RaycastHit visibleHit)
         {
+            visibleHit = default;
             Vector3 direction = point - eye; float distance = direction.magnitude;
             int count = Physics.RaycastNonAlloc(eye, direction / distance, sightHits, distance + .002f,
                 interactionLayers, triggerInteraction);
             if (count == sightHits.Length) return false;
+            float nearest = float.PositiveInfinity;
             for (int i = 0; i < count; i++)
             {
                 var hit = sightHits[i];
-                if (IsSelf(hit.collider) || ReferenceEquals(Owner(hit.collider), owner)) continue;
-                if (hit.distance < distance - .004f) return false;
+                if (IsSelf(hit.collider) || hit.distance >= nearest) continue;
+                nearest = hit.distance; visibleHit = hit;
             }
-            return true;
+            // No hit is not proof of visibility (e.g. a moved collider). A solid
+            // surface of another owner always blocks, including near the endpoint.
+            return visibleHit.collider && ReferenceEquals(Owner(visibleHit.collider), owner);
         }
         void OnValidate() { interactionDistance = Mathf.Max(0f, interactionDistance); }
     }

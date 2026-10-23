@@ -8,7 +8,7 @@ namespace EchoProtocol.Interaction
     public sealed class InteractionSurface : MonoBehaviour
     {
         [SerializeField] private MonoBehaviour owner;
-        public IInteractable Target => owner && owner.isActiveAndEnabled ? owner as IInteractable : null;
+        public IInteractable Target => isActiveAndEnabled && owner && owner.isActiveAndEnabled ? owner as IInteractable : null;
         private void OnValidate()
         {
             if (owner && !(owner is IInteractable))
