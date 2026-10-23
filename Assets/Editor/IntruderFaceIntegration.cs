@@ -170,7 +170,12 @@ public static class IntruderFaceIntegration
     }
 
     static bool Matches(SkinnedMeshRenderer renderer, Mesh mesh, Material[] materials, Bounds bounds)
-        => renderer.sharedMesh == mesh && renderer.sharedMaterials.SequenceEqual(materials) && renderer.localBounds.Equals(bounds);
+        => renderer.sharedMesh == mesh && renderer.sharedMaterials.SequenceEqual(materials)
+            // With this existing mode Unity immediately derives the bounds from
+            // the skinned pose, rather than retaining an assigned rest-pose box.
+            && (renderer.updateWhenOffscreen
+                || (renderer.localBounds.center - bounds.center).sqrMagnitude < .00000001f
+                && (renderer.localBounds.extents - bounds.extents).sqrMagnitude < .00000001f);
 
     static void Assign(Context c, Mesh mesh, Material[] materials, Bounds bounds)
     {

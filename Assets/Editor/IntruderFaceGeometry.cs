@@ -54,7 +54,9 @@ public static class IntruderFaceGeometry
 
     public static void ValidatePair(Mesh body, Mesh scan)
     {
-        if (!body || !scan || !body.isReadable || !scan.isReadable
+        // Editor mesh access is available even with runtime Read/Write disabled.
+        // Validate the actual streams without changing the source import flags.
+        if (!body || !scan
             || scan.vertexCount != 12216 || body.vertexCount != scan.vertexCount
             || body.subMeshCount != 2 || scan.subMeshCount != 2
             || body.blendShapeCount != 0 || scan.blendShapeCount != 0
@@ -63,7 +65,7 @@ public static class IntruderFaceGeometry
             || !body.bindposes.SequenceEqual(scan.bindposes)
             || !body.boneWeights.SequenceEqual(scan.boneWeights)
             || !body.uv.SequenceEqual(scan.uv))
-            throw new InvalidOperationException("IntruderFace needs the existing readable Nathan/Embestida pair with identical topology, UV, bindposes and weights.");
+            throw new InvalidOperationException("IntruderFace needs the Editor-accessible Nathan/Embestida pair with identical topology, UV, bindposes and weights.");
         for (int sub = 0; sub < 2; sub++)
             if (!body.GetTriangles(sub).SequenceEqual(scan.GetTriangles(sub)))
                 throw new InvalidOperationException("IntruderFace: body topology changed; inspect before applying.");
