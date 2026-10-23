@@ -47,6 +47,8 @@ namespace EchoProtocol.Horror
         [SerializeField] private Renderer[] facilityBlackoutPanels;
         [SerializeField, Min(0.1f)] private float laneStageInterval = 0.82f;
         [SerializeField, Range(0f, 0.25f)] private float lanePitchStep = 0.07f;
+        [Tooltip("Optional captive-shutter staging. Original scenes retain their fixture-only sequence.")]
+        [SerializeField] private SE1Pressure.SE1PressureSequence pressureSequence;
 
         [Header("Contrast")]
         [SerializeField] private AudioSource[] ambienceSources;
@@ -80,6 +82,7 @@ namespace EchoProtocol.Horror
         private float laneStageElapsed;
         private float consequenceElapsed;
         private int laneStageIndex;
+        private bool usesPressureSequence, stageContactApplied;
         private float ambienceMultiplier = 1f;
         private float ambienceTarget = 1f;
         private float ambientLightMultiplier = 1f;
@@ -158,6 +161,7 @@ namespace EchoProtocol.Horror
             laneRelaySource.Stop();
             ReleaseAmbienceControl();
             if (fluorescentCircuitSource) fluorescentCircuitSource.Stop();
+            if (pressureSequence) pressureSequence.RestoreConsequence();
             ExtinguishFacilityLightingThrough(float.PositiveInfinity);
             ambientLightMultiplier = ambientLightTarget = ambientLightConsequenceMultiplier;
             UpdateAmbientLighting();
@@ -355,14 +359,37 @@ namespace EchoProtocol.Horror
             laneStageElapsed = 0f;
             laneStageIndex = 0;
             ambienceTarget = laneAmbienceMultiplier;
+            usesPressureSequence = pressureSequence && pressureSequence.isActiveAndEnabled
+                && pressureSequence.IsConfigured;
             Phase = VS1StrongEventOnePhase.LaneSequenceAdvancing;
-            ExtinguishLaneStage(laneStageIndex);
+            BeginLaneStage();
+        }
+
+        private void BeginLaneStage()
+        {
+            stageContactApplied = false;
+            if (usesPressureSequence) pressureSequence.BeginStage(laneStageIndex);
+            else
+            {
+                ExtinguishLaneStage(laneStageIndex);
+                stageContactApplied = true;
+            }
         }
 
         private void UpdateLaneSequence()
         {
+            if (usesPressureSequence && !stageContactApplied)
+            {
+                if (!pressureSequence.StageAtStop) return;
+                // The surface must visibly reach its stop before its circuit
+                // dies. The nearby strike owns the contact, not a detached cue.
+                ExtinguishLaneStage(laneStageIndex);
+                stageContactApplied = true;
+                return;
+            }
             laneStageElapsed += Time.deltaTime;
-            if (laneStageElapsed < laneStageInterval)
+            float hold = usesPressureSequence ? pressureSequence.HoldSeconds : laneStageInterval;
+            if (laneStageElapsed < hold)
             {
                 return;
             }
@@ -371,7 +398,7 @@ namespace EchoProtocol.Horror
             laneStageIndex++;
             if (laneStageIndex < laneSequenceLights.Length)
             {
-                ExtinguishLaneStage(laneStageIndex);
+                BeginLaneStage();
                 return;
             }
 
@@ -382,17 +409,20 @@ namespace EchoProtocol.Horror
 
         private void ExtinguishLaneStage(int index)
         {
-            laneRelaySource.transform.position =
-                laneSequenceLights[index].transform.position + Vector3.down * 0.2f;
-            laneRelaySource.Stop();
-            laneRelaySource.pitch = 1f + lanePitchStep * index;
-            laneRelaySource.volume = eventSourceVolume;
-            laneRelaySource.Play();
+            if (!usesPressureSequence)
+            {
+                laneRelaySource.transform.position =
+                    laneSequenceLights[index].transform.position + Vector3.down * 0.2f;
+                laneRelaySource.Stop();
+                laneRelaySource.pitch = 1f + lanePitchStep * index;
+                laneRelaySource.volume = eventSourceVolume;
+                laneRelaySource.Play();
+                LaneRelayPlayCount++;
+            }
 
             ambientLightTarget = GetAmbientLightTarget(index);
             ExtinguishFacilityLightingThrough(
                 laneSequenceLights[index].transform.position.z);
-            LaneRelayPlayCount++;
             LaneStagesExtinguished++;
         }
 

@@ -1,0 +1,91 @@
+{
+  "title": "SE1 pressure contacts — source selection and one aligned stop",
+  "date": "2026-10-23",
+  "status": "Prepared; in-engine integration and human listening pending",
+  "rights": {
+    "license": "CC0 1.0",
+    "basis": "Existing repository license trail; no new download, service, voice or generated performance.",
+    "licenseRecord": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+    "masterRecords": [
+      "ArtSource/Audio/Resonance/masters.json",
+      "ArtSource/Audio/Impact/masters.json"
+    ],
+    "authors": [
+      {
+        "name": "Brian MacIntosh (BMacZero)",
+        "page": "https://opengameart.org/content/mechanical-sounds",
+        "sourceFiles": [
+          "mechanical-clank1.wav",
+          "mechanical-rattle1.wav",
+          "mechanical-mechanical2.wav",
+          "mechanical-lightclunk1.wav"
+        ]
+      },
+      {
+        "name": "qubodup",
+        "page": "https://opengameart.org/content/metal-interactions",
+        "sourceFiles": [
+          "metal_interactions/metal_swing1.wav"
+        ]
+      }
+    ]
+  },
+  "selection": [
+    {
+      "role": "far warning",
+      "path": "Assets/_Game/Audio/Clips/Resonance/Relay_Strain.wav",
+      "operation": "Existing asset, unchanged; fixed far fixture emitter.",
+      "durationSeconds": 0.7,
+      "peakDbFS": -9.63,
+      "wholeClipRmsDbFS": -31.819,
+      "firstHalfPeakSeconds": 0.178063,
+      "peakSeconds": 0.181188,
+      "sha256": "b336165f3d1b09d8315fe0c577c4361778974a562fdaa71fd465881b1f1e4644"
+    },
+    {
+      "role": "middle material advance",
+      "path": "Assets/_Game/Audio/Clips/Resonance/Latch_Release.wav",
+      "operation": "Existing asset, unchanged; fixed middle service joint emitter.",
+      "durationSeconds": 0.65,
+      "peakDbFS": -7.131,
+      "wholeClipRmsDbFS": -29.182,
+      "firstHalfPeakSeconds": 0.236042,
+      "peakSeconds": 0.440208,
+      "sha256": "f2dfc85758156afcf3e5067f1ddb0a7c0655094b6f7a85ad125661430e4ac612"
+    },
+    {
+      "role": "near plate mechanical stop",
+      "path": "Assets/_Game/Audio/SE1Pressure/SE1_PlateStop.wav",
+      "operation": "Preserve source frames 7968..37439 (0.166..0.780 s), 3 ms linear attack and 10 ms linear release; unchanged pitch/peak and no added gain. 24-bit PCM retained.",
+      "derivedFrom": "Assets/_Game/Audio/Clips/Impact/Threat_FrameContact.wav",
+      "sourceSha256": "dc29940ecdb12ae880bb267737c2e798d998c4784007b546d4d627a535bd6d2f",
+      "channels": 1,
+      "sampleRate": 48000,
+      "bits": 24,
+      "durationSeconds": 0.614,
+      "peakDbFS": -6.375,
+      "wholeClipRmsDbFS": -26.682,
+      "firstHalfPeakSeconds": 0.012416666666666666,
+      "peakSeconds": 0.013541666666666667,
+      "bytes": 88460,
+      "sha256": "452eecab3d981099f5ebbe3fda5822b0d68398a5d2c17c5103c44c870e9833ce"
+    }
+  ],
+  "integrationIntent": {
+    "emission": "Four fixed lower-frame emitters at z=3/7/11/15, gains 0.42/0.46/0.34/0.34, WorldSFX, spatialBlend 1, dopplerLevel 0. Existing listener/options/pause owner; no head-locked layer.",
+    "synchronization": "Far source starts 0.18 s before its stop, middle starts 0.44 s before its stop. Near sources start at their shared physical stop; trimmed maximum is +13.542 ms. Per-frame motion/audio dispatch requires central Editor review.",
+    "composition": "Far captive shutter -> middle captive shutter -> two near observation shutters closing together as one beat, with shrinking distance, brief gaps and persistent visual closure. No music, random schedule, repeated flash or Echo sound.",
+    "level": "Asset peak is unchanged from the existing frame contact. Start conservatively in the scene; do not compensate distant attenuation by raising global mix. Master options/mono/reduced dynamics remain authoritative."
+  },
+  "objectiveChecks": [
+    "Main-project read-only source hashes matched the tracked master manifests.",
+    "All selected masters inspected as mono, 48 kHz, 24-bit PCM.",
+    "New asset sample count, fades, peak, RMS, maximum offset and SHA256 measured directly.",
+    "No Unity Editor, import, Play, playback audition or device listening performed."
+  ],
+  "critique": "A 0.18 s unsynchronized start on the original frame contact would separate picture from impact. The trim fixes that onset; fear still depends on the plate moving into near peripheral space and a readable retreat path. Three similar distant clicks alone would reproduce the old weakness.",
+  "humanQuestions": [
+    "Does the near plate stop read as physical material reaching the Player, including on speakers?",
+    "Is the withdrawal direction immediately readable at comfortable volume with camera free?"
+  ]
+}

@@ -57,7 +57,7 @@ namespace EchoProtocol.Horror
 
         private void Update()
         {
-            if (!IsCheckpointCommitted || HasSlammed)
+            if (Time.deltaTime <= 0f || !IsCheckpointCommitted || HasSlammed)
             {
                 return;
             }

@@ -13,6 +13,9 @@ namespace EchoProtocol.Horror
         [SerializeField, Range(0.1f, 3f)] private float startPitch = 0.72f;
         [SerializeField, Range(0.1f, 3f)] private float endPitch = 0.58f;
         [SerializeField, Min(0.08f)] private float slamCloseDuration = 0.18f;
+        [Header("Optional SE1 pressure clearance")]
+        [SerializeField] private CharacterController safetyPlayer;
+        [SerializeField] private BoxCollider slamSweepClearance;
 
         private Quaternion closedLocalRotation;
         private Quaternion openLocalRotation;
@@ -54,6 +57,7 @@ namespace EchoProtocol.Horror
 
         private void Update()
         {
+            if (Time.deltaTime <= 0f) return;
             if (IsSlammingClosed)
             {
                 UpdateSlamClose();
@@ -102,7 +106,7 @@ namespace EchoProtocol.Horror
         public bool BeginSlamClose()
         {
             if (!enabled || !IsFullyOpen || IsSlammingClosed
-                || IsFullyClosedAfterSlam)
+                || IsFullyClosedAfterSlam || Time.deltaTime <= 0f || IsPlayerInSlamSweep())
             {
                 return false;
             }
@@ -117,6 +121,9 @@ namespace EchoProtocol.Horror
 
         private void UpdateSlamClose()
         {
+            // A return into the doorway pauses closure, including mid-stroke.
+            // Keep control and current leaf pose; never push the capsule out.
+            if (IsPlayerInSlamSweep()) return;
             elapsed = Mathf.Min(
                 slamCloseDuration,
                 elapsed + Time.deltaTime);
@@ -135,6 +142,15 @@ namespace EchoProtocol.Horror
             movingLeaf.localRotation = closedLocalRotation;
             IsSlammingClosed = false;
             IsFullyClosedAfterSlam = true;
+        }
+
+        private bool IsPlayerInSlamSweep()
+        {
+            if (!safetyPlayer || !slamSweepClearance) return false;
+            if (!safetyPlayer.enabled || !safetyPlayer.gameObject.activeInHierarchy) return true;
+            Bounds body = safetyPlayer.bounds;
+            body.Expand(.16f);
+            return slamSweepClearance.bounds.Intersects(body);
         }
 
         private void ConfigureSource()
