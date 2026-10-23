@@ -102,6 +102,17 @@ public static class P2CausalIntegration
             spill.type = LightType.Point; spill.color = new Color(.78f, .82f, .72f);
             spill.intensity = .38f; spill.range = 1.7f; spill.shadows = LightShadows.None;
 
+            // The real first leaf must remain readable beside the repeater.
+            // A local graze reveals its travel without raising room exposure.
+            var doorLightObject = Child(root.transform, "Door 1 fixed service graze", new Vector3(-2.75f, 2.15f, 24.1f));
+            var doorLight = doorLightObject.AddComponent<Light>();
+            doorLight.type = LightType.Spot;
+            doorLight.color = new Color(.78f, .82f, .72f);
+            doorLight.intensity = 1.25f; doorLight.range = 3f;
+            doorLight.spotAngle = 95f; doorLight.innerSpotAngle = 65f;
+            doorLight.shadows = LightShadows.None;
+            doorLight.transform.rotation = Quaternion.LookRotation(new Vector3(0, -.55f, .9f));
+
             var f = new SerializedObject(feedback);
             Set(f, "relay", c.relay); Set(f, "reader", c.reader);
             Set(f, "readerArmature", readerArmature.transform); Set(f, "witnessArmature", witnessArmature.transform);
