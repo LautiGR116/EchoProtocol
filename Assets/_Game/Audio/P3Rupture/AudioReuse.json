@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-23",
+  "scope": "R6 P3 only. Existing licensed masters reused unchanged; no new binary, download, voice generation or casting.",
+  "contact": {
+    "asset": "Assets/_Game/Audio/IntruderDread/IntruderDread_DryContact.wav",
+    "sha256": "52d189b1785c29d2cf44e6261fd1d2bb0a114aed2b386d5903cbca2b5e0704dd",
+    "seconds": 0.17,
+    "author": "Brian MacIntosh (BMacZero)",
+    "source": "mechanical-lightclunk2.wav",
+    "page": "https://opengameart.org/content/mechanical-sounds",
+    "license": "CC0 1.0 Universal",
+    "purpose": "One damped physical frame hit, not glass breaking. Replaces only the P3 contact clip; B owns playback. No gain increase."
+  },
+  "breath": {
+    "asset": "Assets/_Game/Audio/IntruderDread/IntruderDread_RecoveryBreath.wav",
+    "sha256": "ab409631a8de0701e6398dafa9ac24bbc4bcec509f74e8bd2951ea4f15aebd9f",
+    "seconds": 0.42,
+    "author": "mikeask",
+    "source": "breath-breathing%20tired.wav",
+    "page": "https://opengameart.org/content/breathing-tired",
+    "license": "CC0 1.0 Universal",
+    "purpose": "Existing one-shot recovery after the observed contact source ends; then silence. Pump phrase/clip references unchanged."
+  },
+  "provenance": "Docs/INTRUDER_AUDIO_ROUND5.json preserves exact source hashes, retrieval/license evidence, cuts, processing and import settings. Local master hashes rechecked 2026-10-23.",
+  "routing": "Existing WorldSFX emitters, native pitch, listener pause/volume, SessionAudio mono/reduced dynamics and limiter preserved.",
+  "human_status": "Material attribution, breath identity, comfort and fear remain EN PRUEBA. No integrated audition claimed."
+}

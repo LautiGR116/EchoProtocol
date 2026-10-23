@@ -30,6 +30,11 @@ namespace EchoProtocol.Audio
         [SerializeField] private bool discreteBreathing;
         [SerializeField] private P3BodyIntrusion dreadP3;
         [SerializeField] private AudioClip containedBreath, recoveryBreath;
+        // Round six follows B's real glass/frame source through its tail. The
+        // pump keeps its existing phrase and this component never plays the hit.
+        [SerializeField] private bool ruptureP3Presentation;
+        [SerializeField] private IntruderStaging ruptureP3Staging;
+        [SerializeField] private AudioSource ruptureP3Contact;
         public enum HuntCue { Launch, Brake, Search, Reacquire, MachineContact }
         readonly RaycastHit[] hits = new RaycastHit[32];
         float[] gains, acousticGains;
@@ -41,6 +46,7 @@ namespace EchoProtocol.Audio
         float breathGain = 1;
         bool primed, released, framePlayed, moveHuntBody;
         bool containedPlayed, recoveryPlayed;
+        bool ruptureP3Leased, ruptureP3BreathPending, ruptureP3BreathPlayed;
         int p3ContactSeen;
         float p3BreathAt = -1, machineBreathAt = -1;
         int stepIndex;
@@ -55,6 +61,9 @@ namespace EchoProtocol.Audio
         bool HuntConfigured => huntVoice && huntBody && huntBreathing && huntContact;
         public bool OwnsDiscreteBreathing => isActiveAndEnabled && discreteBreathing && HuntConfigured
             && containedBreath && recoveryBreath;
+        bool RuptureP3Live => OwnsDiscreteBreathing && ruptureP3Staging && ruptureP3Staging.P3Visible
+            && dreadP3 && dreadP3.OwnsPose && ruptureP3Contact && encounter && !encounter.Active
+            && !encounter.Complete && !encounter.Failed && threat && !threat.IsCapturing;
 
         void Awake()
         {
@@ -173,6 +182,7 @@ namespace EchoProtocol.Audio
             { huntBreathing.Stop(); p3BreathAt = machineBreathAt = -1; return; }
             if (!encounter.Active)
             {
+                if (ruptureP3Presentation) { PresentRuptureP3Breath(); return; }
                 // Observe the actual glass contact; no advance/visibility timer
                 // invents another contact or announces a still-hidden visitor.
                 if (dreadP3 && dreadP3.OwnsPose && dreadP3.Contacts != p3ContactSeen)
@@ -206,6 +216,37 @@ namespace EchoProtocol.Audio
                     PlayAction(huntBreathing, recoveryBreath);
             }
         }
+        void PresentRuptureP3Breath()
+        {
+            if (!RuptureP3Live) { CancelRuptureP3Breath(); return; }
+            if (!ruptureP3Leased)
+            {
+                // Acquiring visibility/pose is not a contact. In particular,
+                // an old counter cannot restart the breath after a handover.
+                ruptureP3Leased = true;
+                p3ContactSeen = dreadP3.Contacts;
+                return;
+            }
+            if (dreadP3.Contacts != p3ContactSeen)
+            {
+                p3ContactSeen = dreadP3.Contacts;
+                ruptureP3BreathPending = !ruptureP3BreathPlayed && dreadP3.HasContact
+                    && ruptureP3Contact.isPlaying;
+            }
+            if (!dreadP3.HasContact) { ruptureP3BreathPending = false; return; }
+            if (ruptureP3BreathPending && !ruptureP3Contact.isPlaying)
+            {
+                ruptureP3BreathPending = false;
+                ruptureP3BreathPlayed = true;
+                PlayAction(huntBreathing, recoveryBreath);
+            }
+        }
+        void CancelRuptureP3Breath()
+        {
+            if (ruptureP3Leased && huntBreathing) huntBreathing.Stop();
+            ruptureP3Leased = ruptureP3BreathPending = ruptureP3BreathPlayed = false;
+            p3ContactSeen = dreadP3 ? dreadP3.Contacts : 0;
+        }
         static void PlayAction(AudioSource source, AudioClip clip)
         {
             if (!source || !clip) return;
@@ -217,6 +258,7 @@ namespace EchoProtocol.Audio
             if (huntBody) huntBody.Stop();
             if (huntContact) huntContact.Stop();
             if (huntBreathing) huntBreathing.Stop();
+            if (ruptureP3Presentation) CancelRuptureP3Breath();
             p3BreathAt = machineBreathAt = -1;
             breathQuietUntil = listeningUntil = maskUntil = -100;
         }
@@ -240,6 +282,10 @@ namespace EchoProtocol.Audio
         }
         void LateUpdate()
         {
+            // Chapter/pose ownership can change at a paused checkpoint. Cancel
+            // the P3 phrase immediately; paused contact audio never ends it.
+            if (ruptureP3Presentation && ruptureP3Leased && !RuptureP3Live)
+                CancelRuptureP3Breath();
             if (!enabled || session.IsPaused || Time.deltaTime<=0) return;
             PresentDiscreteBreaths();
             float speed=(threat.transform.position-previous).magnitude/Time.deltaTime;previous=threat.transform.position;

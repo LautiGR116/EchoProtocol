@@ -28,6 +28,7 @@ namespace EchoProtocol.Campaign
         [SerializeField, Min(0)] float p3RevealIntensity = .8f;
         [SerializeField] bool contactLedPresentation;
         [SerializeField] P3Intrusion.P3BodyIntrusion p3Intrusion;
+        [SerializeField] P3RupturePresentation.P3RuptureRevealSetup p3RuptureReveal;
         readonly RaycastHit[] hits = new RaycastHit[32];
         Quaternion doorRest, handleRest;
         bool ready, p3Placed, p3Retired, p3Sound, primed, pressed, burst, burstVoice, pumpPlaced;
@@ -196,6 +197,9 @@ namespace EchoProtocol.Campaign
         {
             Vector3 v=view.WorldToViewportPoint(point);
             if(v.z<=0||v.z>14||v.x<-.08f||v.x>1.08f||v.y<-.08f||v.y>1.08f)return false;
+            // The optional visual return has no gameplay collider. Respect its
+            // real opaque silhouette when assessing P3's existing sight check.
+            if(p3RuptureReveal && p3RuptureReveal.Occludes(view.transform.position,point))return false;
             Vector3 d=point-view.transform.position;
             int n=Physics.RaycastNonAlloc(view.transform.position,d.normalized,hits,d.magnitude-.06f,Physics.DefaultRaycastLayers,QueryTriggerInteraction.Ignore);
             if(n==hits.Length)return false;
