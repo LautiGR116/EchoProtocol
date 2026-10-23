@@ -4,14 +4,15 @@ using System.Linq;
 using UnityEngine;
 
 // Authoring only. Start with the existing body's silhouette/weights, recover
-// the scanned head, then sculpt millimetres of compression, never a bone pose.
+// the scanned head, then sculpt a contained, off-axis jaw and unequal orbit.
+// This is rest geometry only: all articulation remains owned by performance.
 public static class IntruderFaceGeometry
 {
     public static Mesh Create(Mesh body, Mesh scan)
     {
         ValidatePair(body, scan);
         var result = UnityEngine.Object.Instantiate(body);
-        result.name = "IntruderFace / adult volume and compressed lids";
+        result.name = "IntruderFace / locked asymmetric jaw";
         var vertices = body.vertices;
         var normals = body.normals;
         var tangents = body.tangents;
@@ -77,59 +78,96 @@ public static class IntruderFaceGeometry
 
     static Vector3 Sculpt(Vector3 p)
     {
-        // Fully recovered cheek/jaw/skull volumes remove the former 10-26 mm
-        // overlapping dents and 22 mm lip drag. Keep the asymmetry anatomical.
-        Vector3 d = Vector3.zero;
-        float leftMalar = G(p, new Vector3(-.046f, 1.689f, .099f), new Vector3(.028f, .027f, .030f));
-        float rightMalar = G(p, new Vector3(.044f, 1.689f, .098f), new Vector3(.028f, .027f, .030f));
-        d.z += leftMalar * .0018f + rightMalar * .0012f;
-        float masseter = G(p, new Vector3(-.052f, 1.638f, .060f), new Vector3(.028f, .032f, .038f));
-        d.x -= masseter * .0014f;
-        d.z += masseter * .0012f;
+        Vector3 q = p;
+        float front = Smooth(-.025f, .055f, p.z);
+        float faceWidth = 1 - Smooth(.075f, .115f, Mathf.Abs(p.x));
 
-        // P3's first integrated view still read as a half-smile. Include the
-        // tissue around each commissure, not just a point on the lower lip:
-        // a broad 4-5 mm depression removes the rising arc without a long slash.
-        // Only B owns jaw opening; this is the contained resting mouth.
-        float leftCorner = G(p, new Vector3(-.025f, 1.666f, .111f), new Vector3(.016f, .018f, .023f));
-        float rightCorner = G(p, new Vector3(.024f, 1.666f, .112f), new Vector3(.016f, .018f, .023f));
-        d.y -= leftCorner * .0048f + rightCorner * .0042f;
-        d.z -= (leftCorner + rightCorner) * .0006f;
-        float lowerLip = G(p, new Vector3(-.001f, 1.658f, .122f), new Vector3(.021f, .006f, .014f));
-        float upperLip = G(p, new Vector3(-.001f, 1.670f, .124f), new Vector3(.019f, .005f, .014f));
-        d.y += lowerLip * .0012f - upperLip * .0008f;
-        d.z += lowerLip * .00025f - upperLip * .0004f;
+        // One coherent mandibular cage, not several overlapping cheek dents.
+        // Turn the lower face about its rear hinge while keeping nose, skull,
+        // ears and globes at the scan positions. The chin leaves the nasal axis
+        // by about 11 mm; the complete lip/inner-mouth region follows the cage.
+        float jaw = Smooth(1.584f, 1.615f, p.y)
+            * (1 - Smooth(1.648f, 1.686f, p.y)) * front * faceWidth;
+        Vector3 hinge = new Vector3(0, 1.657f, .012f);
+        Vector3 turned = Quaternion.AngleAxis(-6.5f, Vector3.up) * (p - hinge) + hinge;
+        q += (turned - p + new Vector3(-.0015f, -.0025f, .0035f)) * jaw;
 
-        // Brow tissue compresses over the original socket; no enlarged eyes.
-        float browL = G(p, new Vector3(-.020f, 1.741f, .106f), new Vector3(.022f, .010f, .023f));
-        float browR = G(p, new Vector3(.019f, 1.741f, .105f), new Vector3(.022f, .010f, .023f));
-        d.y -= browL * .0030f + browR * .0022f;
-        d.x += browL * .0008f - browR * .0006f;
-        d.z += browL * .0018f + browR * .0012f;
+        // A broad loaded masseter on negative scan-X is the principal asymmetry.
+        // Keep cheek volume above it; the opposing side is taut, not hollowed.
+        float loaded = Region(p, new Vector3(-.057f, 1.635f, .051f), new Vector3(.039f, .050f, .060f));
+        float held = Region(p, new Vector3(.055f, 1.639f, .051f), new Vector3(.036f, .043f, .057f));
+        q += new Vector3(-.0085f, -.0015f, .0035f) * loaded;
+        q += new Vector3(.0020f, .0010f, .0010f) * held;
 
-        float upperL = G(p, new Vector3(-.0309f, 1.7238f, .106f), new Vector3(.020f, .0038f, .010f));
-        float upperR = G(p, new Vector3(.0278f, 1.7240f, .105f), new Vector3(.020f, .0038f, .010f));
-        float lowerL = G(p, new Vector3(-.0309f, 1.7133f, .105f), new Vector3(.019f, .004f, .009f));
-        float lowerR = G(p, new Vector3(.0278f, 1.7138f, .104f), new Vector3(.019f, .004f, .009f));
-        d.y += -.0024f * upperL - .0017f * upperR + .0011f * lowerL + .0013f * lowerR;
-        d.z += .0006f * (upperL + upperR + lowerL + lowerR);
-        Vector3 q = p + d;
-        // Constrain the moved lids to the original globe envelope (measured
-        // from its own submesh); closing a lid must not push skin inside an eye.
-        SeatLid(ref q, new Vector3(-.030894f, 1.719280f, .087987f), new Vector3(.017418f, .017351f, .017994f), upperL + lowerL);
-        SeatLid(ref q, new Vector3(.027798f, 1.719722f, .086991f), new Vector3(.017367f, .017317f, .017997f), upperR + lowerR);
+        // The scanned lip closure is around y=1.650, not the philtrum at 1.666.
+        // Remap its whole curve to a compressed, descending arch. The smooth
+        // cage includes the commissures, lip rolls and oral interior together,
+        // keeping upper/lower lips and interior under the same spatial mapping.
+        float u = Mathf.Clamp(p.x / .028f, -1, 1);
+        float sourceSeam = 1.650f + .0012f * u * u;
+        float seamOffset = p.y - sourceSeam;
+        float mouthWidth = 1 - Smooth(.030f, .057f, Mathf.Abs(p.x));
+        float mouth = mouthWidth * (1 - Smooth(.012f, .033f, Mathf.Abs(seamOffset)))
+            * Smooth(.040f, .082f, p.z);
+        float lowerCorner = .0085f * u * u + .0015f * Mathf.Max(0, -u);
+        float press = 1 - Smooth(.004f, .014f, Mathf.Abs(seamOffset));
+        q.y -= (lowerCorner + .38f * seamOffset * press) * mouth;
+        q.x -= p.x * .07f * mouth;
+        q.z -= .0015f * press * mouth;
+
+        // Lower the inner brow as a continuous wedge over one orbit. Preserve
+        // the lateral rim and bridge rather than painting a black socket.
+        float browL = Region(p, new Vector3(-.026f, 1.741f, .095f), new Vector3(.036f, .028f, .038f));
+        float browR = Region(p, new Vector3(.025f, 1.742f, .095f), new Vector3(.034f, .026f, .038f));
+        // Fade the brow wedge before the lid rim so the separate lid
+        // compression cannot fold that rim over the lower lid.
+        float aboveLid = Smooth(1.721f, 1.737f, p.y);
+        q += new Vector3(.0015f, -.0070f, .0020f) * browL * aboveLid;
+        q += new Vector3(-.0005f, -.0025f, .0010f) * browR * aboveLid;
+
+        // Negative-X eye is narrowed while the other stays watchful. All eye
+        // vertices themselves are restored exactly from the scan in Create.
+        float upperL = G(p, new Vector3(-.0309f, 1.7238f, .106f), new Vector3(.020f, .0048f, .012f));
+        float upperR = G(p, new Vector3(.0278f, 1.7240f, .105f), new Vector3(.020f, .0048f, .012f));
+        float lowerL = G(p, new Vector3(-.0309f, 1.7133f, .105f), new Vector3(.019f, .005f, .012f));
+        float lowerR = G(p, new Vector3(.0278f, 1.7138f, .104f), new Vector3(.019f, .005f, .012f));
+        q.y += -.0035f * upperL - .0015f * upperR + .0015f * lowerL + .0006f * lowerR;
+
+        // Carry the loaded side into the upper neck. The neck's base, clothing,
+        // shoulders and every body vertex below Recovery's boundary stay put.
+        float neck = Region(p, new Vector3(-.032f, 1.598f, .038f), new Vector3(.023f, .050f, .045f));
+        q += new Vector3(-.0030f, 0, .0025f) * neck;
+        SeatLid(ref q, p, new Vector3(-.030894f, 1.719280f, .087987f), new Vector3(.017418f, .017351f, .017994f), upperL + lowerL + browL);
+        SeatLid(ref q, p, new Vector3(.027798f, 1.719722f, .086991f), new Vector3(.017367f, .017317f, .017997f), upperR + lowerR + browR);
         return q;
     }
 
-    static void SeatLid(ref Vector3 p, Vector3 center, Vector3 radius, float influence)
+    // Compact, smooth volume cage. It has an exact zero boundary and a broad
+    // interior; unlike multiplying gaussian amplitudes it does not accumulate
+    // distant deformation across the whole face.
+    static float Region(Vector3 p, Vector3 center, Vector3 radius)
     {
-        if (influence <= .04f || p.z <= center.z) return;
+        Vector3 d = p - center;
+        float r = Mathf.Sqrt(d.x * d.x / (radius.x * radius.x)
+            + d.y * d.y / (radius.y * radius.y) + d.z * d.z / (radius.z * radius.z));
+        return 1 - Smooth(.20f, 1, r);
+    }
+
+    static void SeatLid(ref Vector3 p, Vector3 source, Vector3 center, Vector3 radius, float influence)
+    {
+        if (influence <= .04f || source.z <= center.z) return;
+        // Slide each tissue layer around the unchanged globe while preserving
+        // its scanned radial depth. Pushing every inner-rim vertex onto the
+        // globe's front surface would fold the eyelid's return faces outward.
+        Vector3 rest = source - center;
+        float shell = rest.x * rest.x / (radius.x * radius.x)
+            + rest.y * rest.y / (radius.y * radius.y) + rest.z * rest.z / (radius.z * radius.z);
         float x = (p.x - center.x) / radius.x, y = (p.y - center.y) / radius.y;
-        float inside = 1 - x * x - y * y;
+        float inside = shell - x * x - y * y;
         if (inside > 0)
         {
-            float front = center.z + radius.z * Mathf.Sqrt(inside) + .00025f;
-            p.z += Mathf.Max(0, front - p.z) * Smooth(.04f, .18f, influence);
+            float front = center.z + radius.z * Mathf.Sqrt(inside);
+            p.z = Mathf.Lerp(p.z, front, Smooth(.04f, .18f, influence));
         }
     }
 
