@@ -126,5 +126,19 @@ persecuciones. Sin cambiar colocación, activación o retiro del actor en Stagin
   limitaciones honestas y hasta dos dudas humanas. No certificar miedo por
   capturas o contadores. No ampliar alcance para llenar tiempo o consumir cuota.
 
-Estado: dirección aprobada; chats por iniciar. Implementación de esta ronda
-todavía pendiente. El resultado de la ronda 3 sigue disponible en el Editor.
+## Chats iniciados
+
+Los tres se crearon desde `d50783f4`, con modelo `gpt-6-astra` y esfuerzo
+`ultra`, y trabajan en paralelo. Implementación **EN CURSO**, aún no integrada:
+
+- A, «Intruso: una cara que sostenga la mirada»:
+  `01a16a1f-c030-7850-89c4-c1af1f261a6a`, worktree `b772`.
+- B, «Intruso: peso, intención y violencia»:
+  `01a16a20-1d4f-7892-ab9f-4558660ad5c9`, worktree `bf8a`.
+- C, «Intruso: presencia sonora y revelación»:
+  `01a16a20-1d4f-7892-ab9f-454dbe964653`, worktree `4134`.
+
+Se excluyeron ArtSource/ y Docs/VisualEvidence/ de esas copias mediante
+sparse-checkout; siguen completas en el original. Los tres recibieron ese
+aviso y el límite de un único Editor central. La ronda 3 continúa disponible
+para jugar; este lanzamiento no modifica la escena ni genera builds.
