@@ -88,3 +88,13 @@ materiales, recibos y opt-in. Basta importar los dos archivos de shader; **no
 reaplicar el upgrade**. Requiere sólo volver a observar esa vista pausada con
 opt-in 1 en el Editor central. Fuente/diff revisados aquí, sin ejecución de Unity;
 la corrección visual permanece pendiente de esa comprobación.
+
+El check central de `b54e33f6` recuperó visibilidad, pero mostró el acabado de goma
+en cabeza/torso y el de vendas en manos, sin detalle del scan. `_Apron` seguía en
+0 para Skin y 1 para RubberBib. La lectura del programa Metal generado confirma
+muestreo del atlas y orden correcto de argumentos; no justifica recolorear la cara
+para compensarlo. El siguiente parche sustituye únicamente el overwrite condicional
+de goma por una mezcla aritmética con `_Apron`, igual al patrón histórico: con 0,
+la salida conserva albedo y normal derivados del scan; con 1, usa la goma.
+Sin cambio de paleta, materiales o recibos. Importar sólo el include y revisar la
+misma vista; no reaplicar. La selección GPU efectiva queda por confirmar en central.

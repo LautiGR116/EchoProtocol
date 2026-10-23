@@ -79,29 +79,28 @@ IntruderDreadSurfaceData EvaluateIntruderDreadSurface(float3 p, float2 uv,
     float3 resultNormal = normalTS;
     resultNormal.xy *= lerp(1.0, .55, saturate(nose + lips + lowerLids));
 
-    if (apron > 0)
-    {
-        // Dark rubber replaces the old alternating ochre stripes. Edge wear is
-        // attached to the actual bib's UV boundary; specular follows real folds.
-        // No screen derivatives inside a material-dependent conditional path.
-        float wraps = smoothstep(.63, .66, abs(p.x));
-        float straps = smoothstep(1.431, 1.450, p.y) * (1.0 - wraps);
-        float edge = 1.0 - smoothstep(.012, .045, min(uv.x, 1.0 - uv.x));
-        edge = max(edge, smoothstep(.91, .985, uv.y));
-        float rub = DreadRegion(p, float3(.055, 1.10, .18), float3(.13, .26, .07));
-        float waterLine = .81 + .045 * sin(p.x * 19.0 + .7);
-        float soaked = 1.0 - smoothstep(waterLine - .055, waterLine + .065, p.y);
-        float3 rubber = lerp(float3(.086, .079, .051), float3(.030, .035, .029), soaked * .82);
-        rubber = lerp(rubber, float3(.155, .124, .065), saturate(edge * .64 + rub * .22));
-        rubber = lerp(rubber, float3(.063, .059, .043), straps * .6);
-        float rubberGloss = lerp(.34, .64, soaked) - edge * .18 - rub * .09;
-        // Wrist bindings are worn canvas, never luminous white watch bands.
-        float bindingEdge = smoothstep(.733, .752, abs(p.x));
-        float3 binding = lerp(float3(.185, .172, .125), float3(.070, .073, .055), bindingEdge);
-        result = lerp(rubber, binding, wraps);
-        resultGloss = lerp(rubberGloss, .17, wraps);
-        resultNormal = float3(0, 0, 1);
-    }
+    // Keep scan-derived body outputs alive and combine arithmetically, as the
+    // historical Embestida shader does. A nested material-dependent overwrite
+    // produced the rubber/binding palette on Skin in the central Metal capture
+    // despite Skin's saved _Apron=0. Do not use an apron>0 branch here.
+    float wraps = smoothstep(.63, .66, abs(p.x));
+    float straps = smoothstep(1.431, 1.450, p.y) * (1.0 - wraps);
+    float edge = 1.0 - smoothstep(.012, .045, min(uv.x, 1.0 - uv.x));
+    edge = max(edge, smoothstep(.91, .985, uv.y));
+    float rub = DreadRegion(p, float3(.055, 1.10, .18), float3(.13, .26, .07));
+    float waterLine = .81 + .045 * sin(p.x * 19.0 + .7);
+    float soaked = 1.0 - smoothstep(waterLine - .055, waterLine + .065, p.y);
+    float3 rubber = lerp(float3(.086, .079, .051), float3(.030, .035, .029), soaked * .82);
+    rubber = lerp(rubber, float3(.155, .124, .065), saturate(edge * .64 + rub * .22));
+    rubber = lerp(rubber, float3(.063, .059, .043), straps * .6);
+    float rubberGloss = lerp(.34, .64, soaked) - edge * .18 - rub * .09;
+    // Wrist bindings are worn canvas, never luminous white watch bands.
+    float bindingEdge = smoothstep(.733, .752, abs(p.x));
+    float3 binding = lerp(float3(.185, .172, .125), float3(.070, .073, .055), bindingEdge);
+    float rubberWeight = saturate(apron);
+    result = lerp(result, lerp(rubber, binding, wraps), rubberWeight);
+    resultGloss = lerp(resultGloss, lerp(rubberGloss, .17, wraps), rubberWeight);
+    resultNormal = lerp(resultNormal, float3(0, 0, 1), rubberWeight);
 
     IntruderDreadSurfaceData output;
     output.albedo = result * tint;
