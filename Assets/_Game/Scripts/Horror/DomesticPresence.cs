@@ -1,5 +1,6 @@
 using EchoProtocol.Echo;
 using EchoProtocol.Presentation;
+using EchoProtocol.Horror.SE2Presence;
 using UnityEngine;
 
 namespace EchoProtocol.Horror
@@ -19,6 +20,7 @@ namespace EchoProtocol.Horror
         [SerializeField] private Collider observationGlass;
         [SerializeField] private AudioSource frameSound;
         [SerializeField] private AudioClip frameClip;
+        [SerializeField] private SE2GlassPressure glassPressure;
         private Camera view;
         private Transform playerBody;
         private bool ready, posed;
@@ -36,7 +38,8 @@ namespace EchoProtocol.Horror
             ready = session && passage && view && playerBody && anatomy && body && frameGrip && chest && neck && head
                 && contactArm && contactForearm && contactHand && frameSound && frameClip
                 && frameSound.outputAudioMixerGroup && frameSound.spatialBlend >= .999f
-                && !frameSound.ignoreListenerPause && !frameSound.ignoreListenerVolume;
+                && !frameSound.ignoreListenerPause && !frameSound.ignoreListenerVolume
+                && (!glassPressure || glassPressure.IsConfigured);
             if (!ready)
             { Debug.LogError("SE2 static person needs explicit current-world pose, camera and routed discovery sound.", this); enabled = false; }
         }
@@ -46,7 +49,9 @@ namespace EchoProtocol.Horror
             if (!ready || session.IsPaused || Time.deltaTime <= 0 || !passage.PresentationCommitted
                 || !anatomy.gameObject.activeInHierarchy) return;
             if (!posed) PreparePose();
-            if (!posed || ImpactPlayed) return;
+            if (!posed) return;
+            if (glassPressure) glassPressure.Tick(Time.deltaTime);
+            if (ImpactPlayed) return;
             // Broad visible-body evidence, not a gaze cone or a face-centre
             // target. Transparent frontage remains physically solid.
             int visible = Visible(head.position) ? 1 : 0;
@@ -56,7 +61,8 @@ namespace EchoProtocol.Horror
             visibleTime = visible >= 2 ? visibleTime + Mathf.Min(Time.deltaTime, .05f) : 0;
             if (visibleTime < .07f) return;
             ImpactPlayed = true; ImpactCount++;
-            frameSound.PlayOneShot(frameClip);
+            if (glassPressure) glassPressure.Discover();
+            else frameSound.PlayOneShot(frameClip);
         }
 
         private bool Visible(Vector3 point)
@@ -79,6 +85,11 @@ namespace EchoProtocol.Horror
 
         private void PreparePose()
         {
+            if (glassPressure)
+            {
+                posed = glassPressure.PreparePose();
+                return;
+            }
             anatomy.Apply(new RecordedBodyPose(0, 0, 0, Vector2.zero));
             if (!anatomy.IsReady) return;
             Transform model = anatomy.ModelRoot;
@@ -103,7 +114,11 @@ namespace EchoProtocol.Horror
             posed = true;
         }
 
-        private void OnDisable() { if (frameSound) frameSound.Stop(); }
+        private void OnDisable()
+        {
+            if (frameSound) frameSound.Stop();
+            if (glassPressure) glassPressure.StopSound();
+        }
         private static void Rotate(Transform joint, Vector3 axis, float angle) => joint.rotation = Quaternion.AngleAxis(angle, axis) * joint.rotation;
         private static void Solve(Transform upperBone, Transform lowerBone, Transform end, Vector3 target, Vector3 hint, float upper, float lower)
         {
