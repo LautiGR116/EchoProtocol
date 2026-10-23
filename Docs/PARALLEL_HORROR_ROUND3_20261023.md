@@ -117,4 +117,16 @@ cuerpo a la validación o editar materiales/rigs compartidos. No modificar
   checks realmente hechos y como máximo dos dudas humanas. No certificar terror
   o escucha por contadores. Un fallo concreto se corrige antes de entregar.
 
-Estado: **dirección aprobada; implementación pendiente**.
+## Chats iniciados
+
+Los tres arrancaron desde `4e240f2f`, con Astra / Ultra. Se recibió progreso
+inicial de cada uno; la implementación está **EN CURSO**, aún no integrada.
+
+- SE1: `01a169fd-29ca-79e2-a135-88062533c56b`, worktree `f9be`.
+- P3: `01a169fd-4dd5-7e42-8798-405ce1187155`, worktree `29c2`.
+- 6B: `01a169fd-85d0-7fa0-85eb-c9bd0dfe1c6a`, worktree `9e19`.
+
+Para recuperar espacio se excluyeron `ArtSource/` y `Docs/VisualEvidence/` de
+las tres copias mediante sparse-checkout. Permanecen completos en el proyecto
+principal, disponibles para lectura. Se avisó a los tres chats. Espacio observado
+después: ~1 GiB; se mantiene la prohibición de Libraries/Editors adicionales.
