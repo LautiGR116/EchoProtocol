@@ -79,12 +79,12 @@ public static class SE1PressureIntegration
                 for (int j = 0; j < 14; j++)
                 {
                     var blade = Box(mount.transform, "Linked blade " + j,
-                        new Vector3(0, 2.88f + j * .017f, 0), new Vector3(.018f, .184f, 3.52f), c.steel);
+                        new Vector3(0, 2.88f + j * .017f, 0), new Vector3(.018f, .170f, 3.52f), c.steel);
                     blades.GetArrayElementAtIndex(j).objectReferenceValue = blade.transform;
                     // Folded return gives the otherwise flat shutter a physical
                     // lip; it travels with its slat and stays inside the glass.
                     var lip = Box(blade.transform, "Folded lip", Vector3.zero, Vector3.one, c.dark);
-                    lip.transform.localPosition = new Vector3(.35f, -.39f, 0);
+                    lip.transform.localPosition = new Vector3(.80f, -.39f, 0);
                     lip.transform.localScale = new Vector3(.28f, .065f, 1f);
                 }
                 var emitter = Node(mount.transform, "Lower frame contact", new Vector3(-.032f, .52f, BayZ[i]));

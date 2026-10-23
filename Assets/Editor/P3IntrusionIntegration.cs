@@ -200,7 +200,7 @@ public static class P3IntrusionIntegration
         palm.FindPropertyRelative("middle").objectReferenceValue = Joint(anatomy, "middle_01_" + suffix);
         palm.FindPropertyRelative("little").objectReferenceValue = Joint(anatomy, "pinky_01_" + suffix);
         var digits = anatomy.Joints.Where(t => t.name.EndsWith("_" + suffix, StringComparison.Ordinal)
-            && new[] { "index_", "middle_", "ring_", "pinky_", "thumb_" }.Any(prefix => t.name.StartsWith(prefix, StringComparison.Ordinal))).ToArray();
+            && new[] { "index_", "middle_", "ring_", "pinky_", "thumb_" }.Any(prefix => t.name.StartsWith(prefix, StringComparison.Ordinal) || t.name.Contains("_" + prefix))).ToArray();
         var array = palm.FindPropertyRelative("digits"); array.arraySize = digits.Length;
         for (int i = 0; i < digits.Length; i++) array.GetArrayElementAtIndex(i).objectReferenceValue = digits[i];
     }
@@ -220,7 +220,7 @@ public static class P3IntrusionIntegration
     }
     static GameObject Node(Transform parent, string name, Vector3 position)
     { var go = new GameObject(name); go.transform.SetParent(parent, false); go.transform.position = position; return go; }
-    static Transform Joint(RecordedCharacterMotion anatomy, string name) => anatomy.Joints.Single(t => t.name == name);
+    static Transform Joint(RecordedCharacterMotion anatomy, string name) => anatomy.Joints.Single(t => t.name == name || t.name.EndsWith("_" + name, StringComparison.Ordinal));
     static System.Collections.Generic.IEnumerable<T> All<T>(Scene scene) where T : Component
         => scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<T>(true));
     static T Get<T>(SerializedObject s, string name) where T : Object => s.FindProperty(name)?.objectReferenceValue as T;

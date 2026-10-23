@@ -87,7 +87,7 @@ public static class FinalReceptionIntegration
             }
             Box(root.transform, "Receiving recess / low soffit", new Vector3(0, 2.32f, 1.13f),
                 new Vector3(2.74f, .16f, 2.04f), c.walnut);
-            Box(root.transform, "Receiving recess / forward lintel", new Vector3(0, 2.20f, .14f),
+            Box(root.transform, "Receiving recess / forward lintel", new Vector3(0, 2.30f, .14f),
                 new Vector3(1.18f, .08f, .10f), c.joinery);
 
             // Low, flush perspective lines invite a step toward the real leaf.
