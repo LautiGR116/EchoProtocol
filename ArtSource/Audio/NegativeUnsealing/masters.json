@@ -212,7 +212,7 @@
     },
     {
       "file": "Assets/_Game/Audio/Clips/NegativeUnsealing/NU_Hoist.wav",
-      "seconds": 3.4,
+      "seconds": 2.2,
       "sampleRate": 48000,
       "channels": 1,
       "pcmBits": 16,
@@ -234,7 +234,7 @@
           [
             0.015,
             0.89,
-            0.34
+            0.8
           ]
         ],
         "rattle": [
@@ -250,8 +250,8 @@
           ],
           [
             0.46,
-            0.65,
-            0.71
+            0.63,
+            0.75
           ]
         ]
       },
@@ -260,16 +260,20 @@
         "takeLoad": 0.025,
         "lowering": [
           0.1,
-          2.67
+          1.2
         ],
-        "brakeContact": 2.8
+        "visibleDescent": [
+          0.18,
+          1.25
+        ],
+        "brakeContact": 1.25
       },
       "composition": "One load-bearing mechanism: dry catch, slow unstable cable/ratchet tension, then a finite brake contact. Small original damped shell modes seed303 at the brake; no repeated loop or synthetic warning tone.",
       "peakDbFS": -12.501,
-      "rmsDbFS": -35.239,
+      "rmsDbFS": -33.899,
       "onset10PercentPeakSeconds": 0.029521,
       "peakAtSeconds": 0.156542,
-      "dc": 7.479798560049019e-10,
+      "dc": 2.3119377367424242e-08,
       "fadeSeconds": [
         0.004,
         0.2
@@ -278,8 +282,8 @@
         0.0,
         0.0
       ],
-      "sha256": "dc864a11b6f4c08a33e9a52a42d9e8b43c4fdd23c4825bf2cd810b9433a288f7",
-      "bytes": 326444,
+      "sha256": "b49c2d9a8d7126f0dbd325b17dcac13851176a1a6be6d95a4ea14efa783af4b4",
+      "bytes": 211244,
       "humanListeningApproval": "PENDING: signal checks cannot approve material identity, fear, acting, localization or comfort"
     },
     {

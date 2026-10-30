@@ -160,17 +160,17 @@ def render():
         {"dryContacts": [.08, .23, .44], "drag": [.58, 1.81]},
         "Three close dry fingertip-like contacts followed by one short elastic draw. No anatomic injury recording, voice or exaggerated wet splash; event identity belongs to its visible physical source.", .006, .19))
 
-    x = np.zeros(round(3.4 * RATE))
+    x = np.zeros(round(2.2 * RATE))
     add(x, cut("clunk", .01, .25, .8, 130, 3600), .025, .28)
-    tension = envelope(cut("mechanism", .015, .89, .34, 80, 2800), [(0, 0), (.18, .45), (.66, .65), (1.22, .25), (1.8, .7), (2.4, .13), (2.57, 0)])
+    tension = envelope(cut("mechanism", .015, .89, .80, 80, 2800), [(0, 0), (.08, .45), (.28, .65), (.50, .25), (.78, .7), (1.02, .13), (1.09, 0)])
     add(x, tension, .1, .40)
-    for at, start, end, speed, gain in [(.55, .14, .28, .73, .06), (1.13, .31, .45, .61, .045), (1.91, .46, .65, .71, .055)]:
+    for at, start, end, speed, gain in [(.32, .14, .28, .73, .06), (.68, .31, .45, .61, .045), (.96, .46, .63, .75, .055)]:
         add(x, cut("rattle", start, end, speed, 210, 3500), at, gain)
-    add(x, cut("clunk", .04, .27, .61, 130, 3600), 2.8, .24)
-    add(x, resonance(.55, [83, 171, 309, 721], .11, 303), 2.81, .045)
+    add(x, cut("clunk", .04, .27, .61, 130, 3600), 1.25, .24)
+    add(x, resonance(.55, [83, 171, 309, 721], .11, 303), 1.26, .045)
     result.append(master("Hoist", early_room(x, .18), -12.5, .18,
-        {"clunk": [[.01, .25, .8], [.04, .27, .61]], "mechanism": [[.015, .89, .34]], "rattle": [[.14, .28, .73], [.31, .45, .61], [.46, .65, .71]]},
-        {"takeLoad": .025, "lowering": [.1, 2.67], "brakeContact": 2.8},
+        {"clunk": [[.01, .25, .8], [.04, .27, .61]], "mechanism": [[.015, .89, .80]], "rattle": [[.14, .28, .73], [.31, .45, .61], [.46, .63, .75]]},
+        {"takeLoad": .025, "lowering": [.1, 1.2], "visibleDescent": [.18, 1.25], "brakeContact": 1.25},
         "One load-bearing mechanism: dry catch, slow unstable cable/ratchet tension, then a finite brake contact. Small original damped shell modes seed303 at the brake; no repeated loop or synthetic warning tone.", .004, .20))
 
     x = np.zeros(round(2.1 * RATE))
