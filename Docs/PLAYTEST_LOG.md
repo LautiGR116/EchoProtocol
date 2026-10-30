@@ -259,3 +259,18 @@ otro juego, siempre que mejore claridad, progresión y miedo. No atribuir el
 resultado a una publicación web vieja. La nueva candidata «El Negativo» responde
 con otra arquitectura, identidad gráfica, silueta del perseguidor y una secuencia
 de cierre/luz ligada a la cooperación. Todavía no tiene evaluación humana.
+
+## 2026-10-30 — El Negativo: dirección visual aceptada, pide más intensidad
+
+El usuario dice «Me gustaron los resultados» y valora la mayor libertad del
+cambio. Pide avanzar mucho más, con golpes sonoros inteligentes, más detalles
+y una dirección macabra. También pide abandonar el volumen cómodo. Este
+feedback aprueba la dirección y el cambio percibido; no identifica un momento
+concreto que haya asustado ni acredita una partida completa o una prueba de oído.
+
+Se implementa una segunda pasada de aparato ritual: figuras adultas bajo
+membranas, cuerpos suspendidos, deformación causada por la manivela, golpe
+físico tras el primer silencio reproducido y materiales/actuación del intruso.
+La intensidad se trabaja con sustracción, ataque y proximidad; el limitador y
+las opciones de dinámica/altavoces permanecen. La nueva pasada sigue EN PRUEBA
+humana; no se convierte este pedido en aprobación de sus sonidos o actuación.
