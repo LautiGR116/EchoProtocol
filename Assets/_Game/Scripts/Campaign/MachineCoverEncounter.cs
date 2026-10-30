@@ -77,6 +77,11 @@ namespace EchoProtocol.Campaign
         // It is coaching, not an unlock or a guarantee of a successful escape.
         public bool HasUsableTake => savedPlan.Ready;
         public bool CanReplayLastTake => loop && loop.LastRecording != null && loop.LastRecording.Duration > 0;
+        // An ended Echo is presented as preparation, but its useful original
+        // can still be deliberately replayed. Never discard a new pump plan or
+        // turn this recovery into a way to escape an already released threat.
+        public bool CanRestartPreparedTake => ready && Active && !Complete && !Failed && !ExitReleased && !threat.Released
+            && !preparing.HasEvents && CanReplayLastTake && HasUsableTake;
         public float WorkFraction => !BoltReleased ? crank.Fraction : !ExitReleased ? release.Fraction : Complete ? 1 : 0;
         public string PreparationTitle => preparing.Ready ? "Toma preparada · RECALL"
             : preparing.Phase == 2 ? "3 · Ruido para el regreso"
@@ -89,6 +94,8 @@ namespace EchoProtocol.Campaign
                 if (preparing.Ready) return machine.PlayerHeld
                     ? "El plan ya está grabado. Soltá E y pulsá R para usarlo desde la manivela."
                     : "Pulsá R. Tu Echo hará la secuencia; vos vas a la manivela de la reja.";
+                if (CanRestartPreparedTake && loop.ActiveEcho && loop.ActiveEcho.IsComplete)
+                    return "Tu Echo terminó, pero la toma sirve. Esc → Reusar toma de la bomba vuelve al origen con esa misma secuencia.";
                 if (!recorder || !recorder.HasRecordingStarted) return "Acercate al mando de la bomba. Caminar inicia la toma; mantené E para grabar la primera marcha.";
                 if (preparing.Phase == 1) return preparing.Remaining > 0
                     ? $"Dejá E suelta: faltan {preparing.Remaining} s de pausa. El silencio permitirá cruzar la reja."
@@ -239,6 +246,14 @@ namespace EchoProtocol.Campaign
             if (sameTake && loop.LastRecording != null) return loop.ReplayLastRecording();
             ResetLoopState(); loop.enabled = true; loop.SetRecallCheckpoint(origin);
             player.ResetPose(origin.position, origin.rotation); return true;
+        }
+        // Called only by an explicit menu action. The UI can defer this call
+        // until its keys are released; the recording and checkpoint stay intact.
+        public bool RestartPreparedTake()
+        {
+            if (!CanRestartPreparedTake) return false;
+            if (session.IsPaused) session.BeginOrResume();
+            return loop.ReplayLastRecording();
         }
         bool Inside(BoxCollider zone)
         { return new Bounds(zone.center, zone.size).Contains(zone.transform.InverseTransformPoint(player.transform.position + Vector3.up)); }
