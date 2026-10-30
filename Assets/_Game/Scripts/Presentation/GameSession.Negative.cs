@@ -252,7 +252,6 @@ namespace EchoProtocol.Presentation
             ui.RoleMark(new Rect(37,670,9,9),false);
             string own=!available?"REGISTRO SUSPENDIDO":recorder.IsArmed?"VOS / CAMINÁ PARA GRABAR":$"VOS / REC  {recorder.ElapsedTime:00.0} / {recorder.MaxRecordingDuration:00} s";
             GUI.Label(new Rect(59,666,460,18),own,ui.Text(12,true));
-            GUI.Label(new Rect(59,686,544,15),available&&!recorder.IsArmed?"R / NUEVA TOMA     H / AYUDA     ESC / PAUSA":"H / AYUDA     ESC / PAUSA",ui.Text(10,false,ui.Muted));
             ui.Fill(new Rect(36,706,544,2),new Color(.96f,.94f,.87f,.23f));
             if(available)ui.Fill(new Rect(36,706,544*Mathf.Clamp01(recorder.ElapsedTime/Mathf.Max(.01f,recorder.MaxRecordingDuration)),2),ui.Paper);
             if(echo)
@@ -262,7 +261,9 @@ namespace EchoProtocol.Presentation
                 ui.Fill(new Rect(660,706,584,2),new Color(.96f,.65f,.29f,.23f));
                 ui.Fill(new Rect(660,706,584*Mathf.Clamp01(echo.ElapsedTime/Mathf.Max(.01f,echo.Recording.Duration)),2),ui.Accent);
             }
-            else GUI.Label(new Rect(660,666,584,22),available?"R / VOLVER CON LA TOMA     H / AYUDA     ESC / PAUSA":"H / AYUDA     ESC / PAUSA",ui.Text(12,false,ui.Muted,TextAnchor.UpperRight));
+            string recall=available&&recorder.HasRecordingStarted&&!recorder.IsArmed
+                ?echo?"R / RECALL · REEMPLAZAR ECHO     ":"R / RECALL · REPRODUCIR TOMA     ":"";
+            GUI.Label(new Rect(660,echo?686:666,584,echo?16:22),recall+"H / AYUDA     ESC / PAUSA",ui.Text(echo?10:12,false,ui.Muted,TextAnchor.UpperRight));
             if(available&&recorder.HasRecordingStarted&&recorder.MaxRecordingDuration-recorder.ElapsedTime<8)
                 GUI.Label(new Rect(36,628,570,22),"El registro termina en breve / RECALL automático",ui.Text(13,true,ui.Accent));
             if(houseMemory&&houseMemory.Active&&houseMemory.PowerLocation==HousePowerLocation.Carried)
