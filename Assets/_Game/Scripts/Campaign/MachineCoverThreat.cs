@@ -48,6 +48,7 @@ namespace EchoProtocol.Campaign
         [SerializeField, Min(.1f)] private float reacquireSeconds = .38f;
         [SerializeField, Min(1)] private float machineCommitSeconds = 3.4f;
         [SerializeField, Min(.1f)] private float searchSpeed = 1.15f;
+        const float MachineOrientSeconds = .52f;
         float sensedAt, lastDetectedAt, visibleFor, coveredFor, silentFor, heardAt;
         float searchArrivedAt, nextBrakeAt, routeAt;
         Vector3 observedHeading, searchGoal, searchFacing, huntAttention, chargeGoal;
@@ -334,7 +335,16 @@ namespace EchoProtocol.Campaign
                 cry.isPlaying?cry:UsesHunt&&presence?presence.CurrentVoice:chaseVoice.isPlaying?chaseVoice:recognitionVoice,
                 pursuitSpeed);
             // Contacts come from the same planted-foot transition as the pose.
-            int contacts=performance.ConsumeContacts();for(int i=0;i<contacts;i++){if(presence)presence.Step(movement);else movement.Play();}
+            PresentFootContacts();
+        }
+
+        // Preparation has the same physical soles as pursuit. Its staging
+        // owner consumes these contacts immediately, never on a later release.
+        public void PresentFootContacts()
+        {
+            if(!performance)return;
+            int contacts=performance.ConsumeContacts();
+            for(int i=0;i<contacts;i++){if(presence)presence.Step(movement);else movement.Play();}
         }
 
         // This small encounter uses only its authored links, observed positions
@@ -384,6 +394,7 @@ namespace EchoProtocol.Campaign
             machineContactPlayed=machineSilenceTurn=false;machineSilenceAt=-1;
             if(chaseVoice)chaseVoice.Stop();
             if(recognitionVoice)recognitionVoice.Stop();
+            if(presence)presence.Cue(MachineCoverPresence.HuntCue.MachineAcquire);
         }
 
         void UpdateHunt(Vector3 present,float dt)
@@ -500,6 +511,11 @@ namespace EchoProtocol.Campaign
                     ? machineLastEvidence
                     : intruder.PumpHand.position;
                 if(Phase==Intention.MachineContact)requestedSpeed=0;
+                // The eyes/head acknowledge the actual pump before the body
+                // turns and leaves. This readable decision replaces an instant
+                // target switch; it never reveals the concealed player.
+                if(Phase==Intention.Listening&&PhaseAge<MachineOrientSeconds)
+                {requestedSpeed=0;turnSpeed=PhaseAge<.24f?0:95;}
             }
 
             if(Time.time>=routeAt){destination=RouteTowards(goal);routeAt=Time.time+.12f;}
@@ -507,6 +523,8 @@ namespace EchoProtocol.Campaign
             Vector3 facing=direction;
             if(Phase==Intention.Reacquire||Phase==Intention.Search&&requestedSpeed==0)
             {facing=huntAttention-transform.position;facing.y=0;}
+            if(Phase==Intention.Listening&&PhaseAge<MachineOrientSeconds)
+            {facing=intruder.PumpHand.position-transform.position;facing.y=0;}
             if(Phase==Intention.MachineContact)facing=intruder.PumpStand.forward;
             if(Phase==Intention.Listening&&PlanarDistance(transform.position,intruder.PumpStand.position)<.15f)
             {requestedSpeed=0;facing=intruder.PumpStand.forward;}

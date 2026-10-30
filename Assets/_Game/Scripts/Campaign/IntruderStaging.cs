@@ -29,12 +29,24 @@ namespace EchoProtocol.Campaign
         [SerializeField] bool contactLedPresentation;
         [SerializeField] P3Intrusion.P3BodyIntrusion p3Intrusion;
         [SerializeField] P3RupturePresentation.P3RuptureRevealSetup p3RuptureReveal;
+        [Header("Occupied threshold — explicit scene composition")]
+        [SerializeField] Transform occupiedDoorStand, occupiedDoorHand;
+        [SerializeField] AudioSource occupiedDoorContact;
+        [SerializeField, Range(5, 35)] float occupiedDoorAngle = 22;
         readonly RaycastHit[] hits = new RaycastHit[32];
         Quaternion doorRest, handleRest;
         bool ready, p3Placed, p3Retired, p3Sound, primed, pressed, burst, burstVoice, pumpPlaced;
         float preparationAt = -1, witnessAt, quiet;
         float manualPumpAge, answerQuietAge, answerAt = -1;
         bool preparationAnswered;
+        bool doorOccupied, occupiedContactPlayed;
+        float occupiedWeight, occupiedAge;
+        Vector3 occupiedAttention;
+        public bool HasOccupiedThreshold => occupiedDoorStand && occupiedDoorHand && occupiedDoorContact;
+        public bool DoorOccupied => doorOccupied && !threat.Released && encounter.Active && !encounter.Complete;
+        public float OccupiedDoorWeight => DoorOccupied ? occupiedWeight : 0;
+        public Transform OccupiedDoorHand => occupiedDoorHand;
+        public int OccupiedDoorContacts { get; private set; }
         public bool DoorAnswerPending => primed && !preparationAnswered && preparationAt < 0;
         public bool DoorAnswered => preparationAnswered;
         public int DoorAnswerCount { get; private set; }
@@ -70,11 +82,13 @@ namespace EchoProtocol.Campaign
             if(encounter&&encounter.Active&&p3Intrusion)p3Intrusion.ReleasePose();
             if(!ready)return;
             preparationAt=answerAt=-1;manualPumpAge=answerQuietAge=0;
+            occupiedWeight=occupiedAge=0;
             primed=pressed=burst=burstVoice=false;
             brakeAt=-100;cornerBraced=false;
             if(embestida)embestida.ResetAct();
             doorHinge.localRotation=doorRest;doorHandle.localRotation=handleRest;
             latch.Stop();doorImpact.Stop();breath.Stop();returnMotor.Stop();
+            if(occupiedDoorContact)occupiedDoorContact.Stop();
             quiet=1;
             // During P3 RECALL the independent visitor stays in the present.
             if(encounter.Active){p3Retired=pumpPlaced=true;visual.gameObject.SetActive(true);p3Practical.intensity=0;}
@@ -83,6 +97,7 @@ namespace EchoProtocol.Campaign
         public void BeginBreach()
         {
             burst=burstVoice=false;latch.Stop();breath.Stop();
+            if(occupiedDoorContact)occupiedDoorContact.Stop();
             preparationAt=answerAt=-1;answerQuietAge=0;
             if(embestida)embestida.Prepare(0);
             if(embestida)embestida.Begin();else latch.Play();
@@ -103,7 +118,8 @@ namespace EchoProtocol.Campaign
             if(embestida)
             {
                 float open=Mathf.SmoothStep(0,1,Mathf.InverseLerp(.08f,.35f,age));
-                doorHinge.localRotation=doorRest*Quaternion.Euler(0,-Mathf.Lerp(preparationAnswered?2.8f:0,105,open),0);
+                float opening=doorOccupied&&HasOccupiedThreshold?occupiedDoorAngle:preparationAnswered?2.8f:0;
+                doorHinge.localRotation=doorRest*Quaternion.Euler(0,-Mathf.Lerp(opening,105,open),0);
                 bool done=embestida.Advance(age,controller);
                 if(embestida.HasContact&&!burst){burst=true;BreachImpacts++;}
                 return done;
@@ -158,13 +174,15 @@ namespace EchoProtocol.Campaign
             // stop then earns one answer from the occupied door, in the newly
             // exposed silence, rather than burying a timer-driven hit under the
             // motor. The present-world consequence survives RECALL/retry.
-            if(!threat.Released&&!encounter.Complete) PresentPreparation();
-            if(embestida&&!threat.Released&&!encounter.Complete)
+            if(!threat.Released&&!encounter.Complete&&!encounter.Failed) PresentPreparation();
+            if(embestida&&!threat.Released&&!encounter.Complete&&!DoorOccupied)
                 performance.Present(MachineCoverThreat.Intention.Dormant,Time.time,Vector3.zero,0,breachHand.position,null);
+            if(DoorOccupied&&!encounter.Failed) PresentOccupiedDoor();
             bool tense=threat.Released&&!encounter.Complete;
             float answerAge=DoorAnswerAge;
             bool answering=(DoorAnswerPending&&!encounter.MachineRunning)||(answerAge>=0&&answerAge<1.2f);
-            float target=tense?(InPumpContact?.22f:.10f):answering?.18f:(preparationAnswered||pressed)?.55f:1;
+            bool approachingFrame=DoorOccupied&&occupiedAge<2.1f;
+            float target=tense?(InPumpContact?.22f:.10f):(answering||approachingFrame)?.18f:(preparationAnswered||pressed)?.55f:1;
             quiet=Mathf.MoveTowards(quiet,target,Time.deltaTime*1.6f);
             // A real outlet on the same driven pump creates the diversion at the
             // exposed exit. The recording still holds only its existing control.
@@ -186,6 +204,15 @@ namespace EchoProtocol.Campaign
 
         void PresentPreparation()
         {
+            // The first run/stop remains a safe demonstration. Only a second
+            // actual recorded run earns a body at the threshold. RECALL does
+            // not erase this present-world consequence or repeat its contact.
+            if(HasOccupiedThreshold&&!doorOccupied&&preparationAnswered
+                &&encounter.IsPreparingTake&&encounter.PreparationPhase>=2&&encounter.Machine.PlayerHeld)
+            {
+                doorOccupied=true;occupiedAge=0;
+                occupiedAttention=encounter.Machine.transform.position+Vector3.up*1.25f;
+            }
             if(preparationAnswered)
             {
                 float age=DoorAnswerAge;
@@ -193,7 +220,8 @@ namespace EchoProtocol.Campaign
                 // The actual door collider follows; no new route opens here.
                 float load=age<0?0:Mathf.SmoothStep(0,1,age/.065f)
                     *(1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(.10f,.42f,age)));
-                doorHinge.localRotation=doorRest*Quaternion.Euler(0,-(2.8f+4.7f*load),0);
+                float opening=Mathf.Lerp(2.8f,occupiedDoorAngle,occupiedWeight);
+                doorHinge.localRotation=doorRest*Quaternion.Euler(0,-(opening+4.7f*load),0);
                 doorHandle.localRotation=handleRest*Quaternion.Euler(0,0,-(14+18*load));
                 if(embestida)embestida.Prepare(load);
                 return;
@@ -221,6 +249,37 @@ namespace EchoProtocol.Campaign
             if(preparationAt>=0||answerQuietAge<.62f)return;
             preparationAnswered=true;answerAt=Time.time;DoorAnswerCount++;
             doorImpact.PlayOneShot(doorPressure,.36f);
+        }
+
+        void PresentOccupiedDoor()
+        {
+            float dt=Time.deltaTime;occupiedAge+=dt;
+            occupiedWeight=Mathf.MoveTowards(occupiedWeight,1,dt/1.1f);
+            Vector3 before=transform.position;
+            float oldYaw=transform.eulerAngles.y;
+            var controller=GetComponent<CharacterController>();
+            Vector3 d=occupiedDoorStand.position-transform.position;d.y=0;
+            // Advance through the existing alcove, not by relocating a body
+            // when the player looks away. A badly placed anchor stays blocked.
+            if(d.magnitude>.04f)
+                controller.Move(Vector3.ClampMagnitude(d,.62f*dt)+Vector3.down*2*dt);
+            transform.rotation=Quaternion.RotateTowards(transform.rotation,occupiedDoorStand.rotation,70*dt);
+            // The pump is audible. The player only becomes a gaze target with
+            // a real, unobstructed mutual sightline; never track through walls.
+            if(PlaceVisible(transform.position))occupiedAttention=view.transform.position;
+            else if(encounter.MachineRunning)occupiedAttention=encounter.Machine.transform.position+Vector3.up*1.25f;
+            performance.Present(MachineCoverThreat.Intention.Dormant,occupiedAge,
+                (transform.position-before)/dt,Mathf.DeltaAngle(oldYaw,transform.eulerAngles.y)/dt,
+                occupiedAttention,null);
+            threat.PresentFootContacts();
+            // The palm must actually reach the authored frame. An unreachable
+            // mark cannot manufacture a contact in the player's blind spot.
+            if(!occupiedContactPlayed&&occupiedWeight>.85f&&d.magnitude<.14f
+                &&performance.OccupiedPalmDistance<.10f)
+            {
+                occupiedContactPlayed=true;OccupiedDoorContacts++;
+                occupiedDoorContact.Play();
+            }
         }
 
         void MoveBody(Transform anchor)
@@ -251,6 +310,6 @@ namespace EchoProtocol.Campaign
             }
             return true;
         }
-        void OnDisable(){if(p3Intrusion)p3Intrusion.ReleasePose();foreach(var source in new[]{p3Contact,latch,doorImpact,breath,returnMotor,cornerContact})if(source)source.Stop();}
+        void OnDisable(){if(p3Intrusion)p3Intrusion.ReleasePose();foreach(var source in new[]{p3Contact,latch,doorImpact,breath,returnMotor,cornerContact,occupiedDoorContact})if(source)source.Stop();}
     }
 }

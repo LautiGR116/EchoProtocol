@@ -35,7 +35,7 @@ namespace EchoProtocol.Audio
         [SerializeField] private bool ruptureP3Presentation;
         [SerializeField] private IntruderStaging ruptureP3Staging;
         [SerializeField] private AudioSource ruptureP3Contact;
-        public enum HuntCue { Launch, Brake, Search, Reacquire, MachineContact, HoldBreath }
+        public enum HuntCue { Launch, Brake, Search, Reacquire, MachineContact, HoldBreath, MachineAcquire }
         readonly RaycastHit[] hits = new RaycastHit[32];
         float[] gains, acousticGains;
         bool[] obstructedSources;
@@ -181,6 +181,14 @@ namespace EchoProtocol.Audio
                     breathQuietUntil = Time.time + .62f;
                     listeningUntil = -100;
                     if (OwnsDiscreteBreathing) machineBreathAt = Time.time + .9f;
+                    break;
+                case HuntCue.MachineAcquire:
+                    // The body stops voicing to hear the real pump, then turns
+                    // towards it. Its causal sound remains audible; no extra
+                    // bark or artificial cue replaces the source being heard.
+                    huntVoice.Stop();huntBody.Stop();huntBreathing.Stop();
+                    breathQuietUntil=Time.time+.85f;
+                    listeningUntil=Time.time+.85f;
                     break;
             }
         }
@@ -373,7 +381,10 @@ namespace EchoProtocol.Audio
         void PresentContactLight(bool active)
         {
             var entry=threat.Intruder?threat.Intruder.Embestida:null;
-            float level=active?1.65f:.25f;
+            // Reuse the fixed threshold practical. The real opening reveals
+            // its light and a stationary face; no tracking portrait fill.
+            float occupied=threat.Intruder?threat.Intruder.OccupiedDoorWeight:0;
+            float level=active?1.65f:Mathf.Lerp(.25f,1.05f,occupied);
             if(active&&entry&&entry.HasContact)
             {
                 float age=entry.ContactAge;

@@ -41,6 +41,8 @@ namespace EchoProtocol.Campaign
         public float MachinePalmDistance => leftHand&&intruder?Vector3.Distance(leftHand.position,intruder.PumpHand.position):float.PositiveInfinity;
         public float BreachPalmDistance => rightHand&&intruder&&intruder.Embestida&&intruder.Embestida.Hand
             ?Vector3.Distance(rightHand.position,intruder.Embestida.Hand.position):float.PositiveInfinity;
+        public float OccupiedPalmDistance => rightHand&&intruder&&intruder.OccupiedDoorHand
+            ?Vector3.Distance(rightHand.position,intruder.OccupiedDoorHand.position):float.PositiveInfinity;
         public int PlantedContacts { get; private set; }
         public int ReachCount { get; private set; }
         public float MaxPlantDrift { get; private set; }
@@ -113,6 +115,7 @@ namespace EchoProtocol.Campaign
             float recoil=intruder&&recognition?1-Mathf.SmoothStep(0,1,age/.85f):0;
             float breath=Mathf.Sin(age*(searching?2.2f:5.8f))*(searching?.32f:.9f);
             bool witness=phase==MachineCoverThreat.Intention.Witness;
+            bool occupiedDoor=phase==MachineCoverThreat.Intention.Dormant&&intruder&&intruder.DoorOccupied;
             bool onMachine=phase==MachineCoverThreat.Intention.MachineContact;
             float searchWeight=searching?Mathf.SmoothStep(0,1,age/.26f):0;
             float press=onMachine?Mathf.Sin(Mathf.PI*Mathf.Clamp01(Mathf.InverseLerp(.25f,.55f,age))):0;
@@ -179,7 +182,21 @@ namespace EchoProtocol.Campaign
                 Rotate(leftArm,root.forward,runBlend*8+brace*8);Rotate(rightArm,root.forward,-runBlend*8-brace*8);
                 Rotate(leftArm,root.right,braking*12-searchWeight*7);Rotate(rightArm,root.right,braking*9-searchWeight*13);
             }
-            if(rush)rush.Pose(root,hips,spine,chest,neck,head,jaw,leftArm,rightArm,leftForearm,rightForearm,phase,age,contained);
+            if(occupiedDoor)
+            {
+                // A held weight at the frame, with a readable waist and free
+                // shoulder. This is one pose, not the old compressed breach
+                // layered over a new lean. The hand constraint finishes it.
+                float w=intruder.OccupiedDoorWeight;
+                hips.position-=root.up*.035f*w;
+                Rotate(spine,root.right,9*w);
+                Rotate(chest,root.up,-8*w);
+                Rotate(chest,root.forward,-4*w);
+                Rotate(leftArm,root.right,-7*w);
+                Rotate(leftForearm,root.right,-18*w);
+                Rotate(neck,root.right,-5*w);
+            }
+            else if(rush)rush.Pose(root,hips,spine,chest,neck,head,jaw,leftArm,rightArm,leftForearm,rightForearm,phase,age,contained);
             if(onMachine&&intruder&&intruder.ListeningTurnWeight>0)
             {
                 // The planted hand stays constrained below. Only the shoulder
@@ -191,11 +208,12 @@ namespace EchoProtocol.Campaign
             if(authored)
             {
                 int beat=20+(int)phase;
+                if(occupiedDoor)beat=71;
                 if(onMachine&&intruder&&intruder.ListeningTurnWeight>0)beat=70;
                 if(phase==MachineCoverThreat.Intention.Entry)beat=rush.HasContact?(contained&&rush.ContactAge>=.22f?42:41):40;
                 acting.Pose(root,neck,head,attention,beat,dt,
                     phase==MachineCoverThreat.Intention.Entry&&rush.HasContact?.18f:.07f,
-                    searching||listening||onMachine||recognition||(contained&&(charging||reacquiring)));
+                    occupiedDoor||searching||listening||onMachine||recognition||(contained&&(charging||reacquiring)));
             }
             if(rush)
             {
@@ -211,7 +229,16 @@ namespace EchoProtocol.Campaign
                     if(contained)Rotate(leftHand,root.forward,-22*guard);
                 }
             }
-            if(rush&&(rush.HandWeight>.01f||rush.Preparation>.01f)&&!witness&&!onMachine)
+            if(occupiedDoor)
+            {
+                Transform anchor=intruder.OccupiedDoorHand;
+                float reach=1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(ra+rb-.03f,ra+rb+.18f,Vector3.Distance(rightArm.position,anchor.position)));
+                float weight=intruder.OccupiedDoorWeight*reach;
+                Solve(rightArm,rightForearm,rightHand,Vector3.Lerp(rightHand.position,anchor.position,weight),
+                    rightArm.position+root.right*.24f-root.up*.24f,ra,rb);
+                rightHand.rotation=Quaternion.Slerp(rightHand.rotation,anchor.rotation,weight);
+            }
+            else if(rush&&(rush.HandWeight>.01f||rush.Preparation>.01f)&&!witness&&!onMachine)
             {
                 bool impact=phase==MachineCoverThreat.Intention.Entry||rush.HasContact;
                 float blend=impact?rush.HandWeight:rush.Preparation;
