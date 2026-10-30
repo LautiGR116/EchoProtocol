@@ -34,7 +34,7 @@ public static class NegativeArchitectureIntegration
             throw new InvalidOperationException("Architecture already exists; edit it in place instead of stacking another installation.");
         var encounter = All<MachineCoverEncounter>().Single();
         var session = All<GameSession>().Single();
-        var loop = All<LoopController>().Single();
+        var loop = new SerializedObject(encounter).FindProperty("loop").objectReferenceValue as LoopController;
         var output = All<SessionAudio>().Single();
         var player = new SerializedObject(encounter).FindProperty("player").objectReferenceValue as Component;
         var camera = player.GetComponentInChildren<Camera>(true);
