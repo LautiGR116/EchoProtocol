@@ -145,7 +145,7 @@ public sealed partial class ThresholdCampaignProbe
         if(GameObject.Find("Return / early blind wing"))
         {yield return Go(-1.4f,-41.35f,90);yield return Go(0,-41.35f,90);yield return Go(0,-43.6f,90);}
         else yield return Go(0,-43.6f,90);
-        if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="EchoProtocol_Impact"||UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="EchoProtocol_Incursion")
+        if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="EchoProtocol_Impact"||UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="EchoProtocol_Incursion"||UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="EchoProtocol_Negative")
         {
             yield return Go(3.3f,-43.6f,90);
             yield return Capture("coverage-return-covered");

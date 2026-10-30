@@ -205,7 +205,8 @@ public sealed partial class ThresholdCampaignProbe : MonoBehaviour
         yield return Capture("00-title");
         if(coverageOnly)
         {
-            yield return Press(Key.Tab);expectedPreviewAccess=true;yield return Press(Key.Enter);expectedPreviewAccess=false;expectedPause=false;
+            if(!session.NegativePresentation) yield return Press(Key.Tab);
+            expectedPreviewAccess=true;yield return Press(Key.Enter);expectedPreviewAccess=false;expectedPause=false;
             Check(campaign.Chapter==CampaignChapter.Pressure&&campaign.CoverEncounter.Active,"actual title button starts the authored segment");
             if(coveragePresentation)
             {
