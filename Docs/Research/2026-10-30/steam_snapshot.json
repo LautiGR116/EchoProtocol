@@ -1,0 +1,441 @@
+{
+  "queried_date": "2026-10-30",
+  "method": "Official Steam appdetails with cc=us,l=english; visible store tooltip for overall reviews. The appreviews endpoint redirected in this session. Review bases differ and are not a global ranking. Price is current base/offer, not launch price. No sales estimates. Facts-only extract; original descriptions and assets omitted.",
+  "games": [
+    {
+      "appid": 2653790,
+      "name": "The Exit 8",
+      "store_url": "https://store.steampowered.com/app/2653790/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=2653790&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": "USD",
+      "is_free": false,
+      "base_price_minor_units": 399,
+      "offer_price_minor_units": 279,
+      "discount_percent": 30,
+      "release": {
+        "coming_soon": false,
+        "date": "Nov 29, 2023"
+      },
+      "review_display_tooltip": "93% of the 5,293 user reviews in your language are positive",
+      "review_basis": "English",
+      "selected_tags": [
+        "Exploration",
+        "Puzzle",
+        "Walking Simulator",
+        "Horror",
+        "Immersive Sim",
+        "Psychological Horror",
+        "Underground",
+        "First-Person"
+      ]
+    },
+    {
+      "appid": 1846170,
+      "name": "Iron Lung",
+      "store_url": "https://store.steampowered.com/app/1846170/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=1846170&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": "USD",
+      "is_free": false,
+      "base_price_minor_units": 799,
+      "offer_price_minor_units": 359,
+      "discount_percent": 55,
+      "release": {
+        "coming_soon": false,
+        "date": "Mar 9, 2022"
+      },
+      "review_display_tooltip": "92% of the 8,552 user reviews in your language are positive",
+      "review_basis": "English",
+      "selected_tags": [
+        "Horror",
+        "Atmospheric",
+        "Psychological Horror",
+        "Submarine",
+        "Indie",
+        "Underwater",
+        "Short",
+        "Pixel Graphics"
+      ]
+    },
+    {
+      "appid": 2835570,
+      "name": "Buckshot Roulette",
+      "store_url": "https://store.steampowered.com/app/2835570/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=2835570&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": "USD",
+      "is_free": false,
+      "base_price_minor_units": 299,
+      "offer_price_minor_units": 149,
+      "discount_percent": 50,
+      "release": {
+        "coming_soon": false,
+        "date": "Apr 4, 2024"
+      },
+      "review_display_tooltip": "95% of the 36,820 user reviews in your language are positive",
+      "review_basis": "English",
+      "selected_tags": [
+        "Multiplayer",
+        "Dark",
+        "Gambling",
+        "Horror",
+        "First-Person",
+        "Strategy",
+        "Singleplayer",
+        "Indie"
+      ]
+    },
+    {
+      "appid": 2475490,
+      "name": "Mouthwashing",
+      "store_url": "https://store.steampowered.com/app/2475490/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=2475490&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": "USD",
+      "is_free": false,
+      "base_price_minor_units": 1299,
+      "offer_price_minor_units": 779,
+      "discount_percent": 40,
+      "release": {
+        "coming_soon": false,
+        "date": "Sep 26, 2024"
+      },
+      "review_display_tooltip": "95% of the 24,993 user reviews in your language are positive",
+      "review_basis": "English",
+      "selected_tags": [
+        "Psychological Horror",
+        "Horror",
+        "Story Rich",
+        "Atmospheric",
+        "Retro",
+        "Indie",
+        "Psychological",
+        "Gore"
+      ]
+    },
+    {
+      "appid": 1671340,
+      "name": "Fears to Fathom - Home Alone",
+      "store_url": "https://store.steampowered.com/app/1671340/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=1671340&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": null,
+      "is_free": true,
+      "base_price_minor_units": null,
+      "offer_price_minor_units": null,
+      "discount_percent": null,
+      "release": {
+        "coming_soon": false,
+        "date": "Jul 2, 2021"
+      },
+      "review_display_tooltip": "88% of the 5,841 user reviews in your language are positive",
+      "review_basis": "English",
+      "selected_tags": [
+        "Horror",
+        "Free to Play",
+        "Multiplayer",
+        "Psychological Horror",
+        "Singleplayer",
+        "First-Person",
+        "Indie",
+        "Adventure"
+      ]
+    },
+    {
+      "appid": 2506160,
+      "name": "Fears to Fathom - Ironbark Lookout",
+      "store_url": "https://store.steampowered.com/app/2506160/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=2506160&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": "USD",
+      "is_free": false,
+      "base_price_minor_units": 999,
+      "offer_price_minor_units": 399,
+      "discount_percent": 60,
+      "release": {
+        "coming_soon": false,
+        "date": "Oct 20, 2023"
+      },
+      "review_display_tooltip": "91% of the 3,046 user reviews in your language are positive",
+      "review_basis": "English",
+      "selected_tags": [
+        "Horror",
+        "Psychological Horror",
+        "Atmospheric",
+        "Narrative",
+        "Thriller",
+        "Exploration",
+        "Adventure",
+        "First-Person"
+      ]
+    },
+    {
+      "appid": 1049410,
+      "name": "Superliminal",
+      "store_url": "https://store.steampowered.com/app/1049410/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=1049410&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": "USD",
+      "is_free": false,
+      "base_price_minor_units": 1999,
+      "offer_price_minor_units": 1999,
+      "discount_percent": 0,
+      "release": {
+        "coming_soon": false,
+        "date": "Nov 5, 2020"
+      },
+      "review_display_tooltip": "93% of the 14,603 user reviews in your language are positive",
+      "review_basis": "English",
+      "selected_tags": [
+        "Puzzle",
+        "First-Person",
+        "Surreal",
+        "Psychological",
+        "Physics",
+        "Singleplayer",
+        "Thriller",
+        "Story Rich"
+      ]
+    },
+    {
+      "appid": 1382070,
+      "name": "Viewfinder",
+      "store_url": "https://store.steampowered.com/app/1382070/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=1382070&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": "USD",
+      "is_free": false,
+      "base_price_minor_units": 2499,
+      "offer_price_minor_units": 749,
+      "discount_percent": 70,
+      "release": {
+        "coming_soon": false,
+        "date": "Jul 18, 2023"
+      },
+      "review_display_tooltip": "92% of the 6,441 user reviews in your language are positive",
+      "review_basis": "English",
+      "selected_tags": [
+        "Puzzle Platformer",
+        "Puzzle",
+        "First-Person",
+        "Singleplayer",
+        "Abstract",
+        "Surreal",
+        "Psychological",
+        "Adventure"
+      ]
+    },
+    {
+      "appid": 1755100,
+      "name": "The Last Clockwinder",
+      "store_url": "https://store.steampowered.com/app/1755100/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=1755100&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": "USD",
+      "is_free": false,
+      "base_price_minor_units": 2499,
+      "offer_price_minor_units": 749,
+      "discount_percent": 70,
+      "release": {
+        "coming_soon": false,
+        "date": "Jun 2, 2022"
+      },
+      "review_display_tooltip": "96% of the 798 user reviews for this game are positive.",
+      "review_basis": "All Reviews display; not language-normalized",
+      "selected_tags": [
+        "Story Rich",
+        "Adventure",
+        "Stylized",
+        "Management",
+        "Automation",
+        "Puzzle",
+        "Time Management",
+        "Relaxing"
+      ]
+    },
+    {
+      "appid": 1729740,
+      "name": "Luto",
+      "store_url": "https://store.steampowered.com/app/1729740/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=1729740&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": "USD",
+      "is_free": false,
+      "base_price_minor_units": 1999,
+      "offer_price_minor_units": 1199,
+      "discount_percent": 40,
+      "release": {
+        "coming_soon": false,
+        "date": "Jul 21, 2025"
+      },
+      "review_display_tooltip": "85% of the 1,256 user reviews for this game are positive.",
+      "review_basis": "All Reviews display; not language-normalized",
+      "selected_tags": [
+        "Psychological Horror",
+        "Walking Simulator",
+        "Story Rich",
+        "Dark",
+        "Cinematic",
+        "Exploration",
+        "Puzzle",
+        "Atmospheric"
+      ]
+    },
+    {
+      "appid": 3180070,
+      "name": "No, I'm not a Human",
+      "store_url": "https://store.steampowered.com/app/3180070/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=3180070&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": "USD",
+      "is_free": false,
+      "base_price_minor_units": 1499,
+      "offer_price_minor_units": 1499,
+      "discount_percent": 0,
+      "release": {
+        "coming_soon": false,
+        "date": "Sep 15, 2025"
+      },
+      "review_display_tooltip": "93% of the 10,227 user reviews in your language are positive",
+      "review_basis": "English",
+      "selected_tags": [
+        "Horror",
+        "Psychological Horror",
+        "Choices Matter",
+        "Indie",
+        "Singleplayer",
+        "Story Rich",
+        "Atmospheric",
+        "Multiple Endings"
+      ]
+    },
+    {
+      "appid": 1670870,
+      "name": "MADiSON",
+      "store_url": "https://store.steampowered.com/app/1670870/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=1670870&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": "USD",
+      "is_free": false,
+      "base_price_minor_units": 3499,
+      "offer_price_minor_units": 2099,
+      "discount_percent": 40,
+      "release": {
+        "coming_soon": false,
+        "date": "Jul 7, 2022"
+      },
+      "review_display_tooltip": "85% of the 1,223 user reviews in your language are positive",
+      "review_basis": "English",
+      "selected_tags": [
+        "Horror",
+        "Psychological Horror",
+        "Dark",
+        "Survival Horror",
+        "First-Person",
+        "Puzzle",
+        "Atmospheric",
+        "Adventure"
+      ]
+    },
+    {
+      "appid": 1228520,
+      "name": "[Chilla's Art] The Convenience Store | 夜勤事件",
+      "store_url": "https://store.steampowered.com/app/1228520/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=1228520&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": "USD",
+      "is_free": false,
+      "base_price_minor_units": 299,
+      "offer_price_minor_units": 209,
+      "discount_percent": 30,
+      "release": {
+        "coming_soon": false,
+        "date": "Feb 17, 2020"
+      },
+      "review_display_tooltip": "83% of the 1,875 user reviews in your language are positive",
+      "review_basis": "English",
+      "selected_tags": [
+        "Horror",
+        "Indie",
+        "Psychological Horror",
+        "Adventure",
+        "Simulation",
+        "Casual",
+        "Atmospheric",
+        "Action"
+      ]
+    },
+    {
+      "appid": 2314720,
+      "name": "[Chilla's Art] Parasocial | パラソーシャル",
+      "store_url": "https://store.steampowered.com/app/2314720/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=2314720&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": "USD",
+      "is_free": false,
+      "base_price_minor_units": 799,
+      "offer_price_minor_units": 559,
+      "discount_percent": 30,
+      "release": {
+        "coming_soon": false,
+        "date": "Aug 25, 2023"
+      },
+      "review_display_tooltip": "94% of the 1,558 user reviews for this game are positive.",
+      "review_basis": "All Reviews display; not language-normalized",
+      "selected_tags": [
+        "Horror",
+        "Psychological Horror",
+        "Indie",
+        "Choices Matter",
+        "Atmospheric",
+        "Immersive Sim",
+        "Thriller",
+        "Anime"
+      ]
+    },
+    {
+      "appid": 1295920,
+      "name": "The Mortuary Assistant",
+      "store_url": "https://store.steampowered.com/app/1295920/?cc=us&l=english",
+      "details_url": "https://store.steampowered.com/api/appdetails?appids=1295920&cc=us&l=english",
+      "queried_date": "2026-10-30",
+      "region": "US",
+      "currency": "USD",
+      "is_free": false,
+      "base_price_minor_units": 2499,
+      "offer_price_minor_units": 1249,
+      "discount_percent": 50,
+      "release": {
+        "coming_soon": false,
+        "date": "Aug 2, 2022"
+      },
+      "review_display_tooltip": "92% of the 4,847 user reviews in your language are positive",
+      "review_basis": "English",
+      "selected_tags": [
+        "Horror",
+        "Supernatural",
+        "Demons",
+        "Mystery",
+        "Atmospheric",
+        "Singleplayer",
+        "Surreal",
+        "Simulation"
+      ]
+    }
+  ]
+}
