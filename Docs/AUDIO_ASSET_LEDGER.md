@@ -1,5 +1,38 @@
 # Audio asset ledger
 
+## El Negativo / ritual físico — 2026-10-30
+
+Ocho masters nuevos mono PCM16/48 kHz en `Clips/NegativeRitual`, 19,93 s
+en total (1,92 MB). Reutilizan metal de NachtmahrTV, presión de puerta de
+alegemaate, scrapes de AntumDeluge, mecanismos de Brian MacIntosh, puerta de
+Rolly-SFX, interruptor de se2001 y ventilación de HECKFRICKER: fuentes CC0
+ya documentadas abajo. Se agregan resonancias inarmónicas amortiguadas,
+reflexiones cortas y turbulencia fija originales. Sin descargas, servicios ni
+nuevas voces; `PressureInhale` y `PressureChoke` son aire/mecanismos, no actores.
+
+| Master `NR_` | Duración | Función física | Pico dBFS |
+| --- | ---: | --- | ---: |
+| `SteelCompression` | 3,20 s | Carga creciente y atasco del metal | −11,00 |
+| `WallStrike` | 1,55 s | Contacto seco, cuerpo de chapa y herrajes que se asientan | −6,50 |
+| `CloseDrag` | 2,40 s | Fricción próxima con dos resistencias desiguales | −12,50 |
+| `OverheadStrain` | 4,80 s | Transferencia lenta de carga sobre la cabeza | −14,50 |
+| `DryLatch` | 0,48 s | Cierre clínico de un relé físico | −12,00 |
+| `PressureInhale` | 3,60 s | Cámara que aspira aire con envolvente asimétrica | −14,50 |
+| `PressureChoke` | 1,80 s | Entrada de aire pinzada y escape débil | −10,50 |
+| `RemoteAnswer` | 2,10 s | Consecuencia mecánica detrás de una pared | −13,00 |
+
+Receta reproducible: `ArtSource/Audio/NegativeRitual/compose.py` (Python +
+NumPy). `masters.json` conserva cortes/velocidades, autores, URLs, cadena de
+procedencia, hashes de entradas/salidas, picos, RMS, DC, fades y bandas. Los
+WAV respetan extremos en cero y DC < 0,000001; no hay normalización automática
+del importador. Son sonidos del espacio presente, nunca canales inventados
+de una grabación Echo. `NegativeRitualAudioIntegration` crea fuentes explícitas
+WorldSFX, espaciales, sin Doppler/autoplay/loop; la secuencia propietaria decide
+posición, disparo y sustracción previa. El listener, limitador, volumen y las
+rutas mono/dinámica reducida conservan el control. Comprobación objetiva de
+archivos realizada; integración Editor y escucha de miedo/interpretación/
+comodidad **EN PRUEBA**, no aprobadas por estas mediciones.
+
 ## La embestida — 2026-10-12
 
 Tres masters mono PCM16/48 kHz en `Clips/Embestida`, derivados exclusivamente

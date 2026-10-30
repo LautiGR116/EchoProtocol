@@ -1,0 +1,440 @@
+{
+  "version": 1,
+  "date": "2026-10-30",
+  "title": "El Negativo / physical ritual apparatus",
+  "recipe": "ArtSource/Audio/NegativeRitual/compose.py",
+  "numpyVersion": "2.3.5",
+  "rights": "Existing inputs credited CC0 1.0; new authored DSP/composition is project work. No new voice, external generation or license representation.",
+  "integration": "Explicit 3D WorldSFX sources; causal sequence owns timing and transforms. Final SessionAudio limiter/master/mono/reduced-dynamics remain in control. Source gains are conservative starting points, not integrated listening approval.",
+  "sources": {
+    "metal": {
+      "path": "Assets/_Game/Audio/Clips/Intruder/Intruder_MetalBreach.wav",
+      "author": "NachtmahrTV",
+      "title": "Metal impact 556693",
+      "url": "https://freesound.org/people/NachtmahrTV/sounds/556693/",
+      "trace": "ArtSource/Audio/Intruder/masters.json",
+      "sha256": "26cead43c79209632f317fad18a3ca606fa839b6b53021414e39ce50aa38f56b",
+      "license": "CC0 1.0 as documented by the existing source ledger; not re-downloaded or re-licensed"
+    },
+    "pressure": {
+      "path": "Assets/_Game/Audio/Clips/Intruder/Intruder_DoorPressure.wav",
+      "author": "alegemaate",
+      "title": "Rattling door 364682",
+      "url": "https://freesound.org/people/alegemaate/sounds/364682/",
+      "trace": "ArtSource/Audio/Intruder/masters.json",
+      "sha256": "eb502a17fd495be69daa321a2d58769a34f9ee7f46b827bc574998530b7d4b86",
+      "license": "CC0 1.0 as documented by the existing source ledger; not re-downloaded or re-licensed"
+    },
+    "scrape": {
+      "path": "Assets/_Game/Audio/Clips/Impact/Threat_MovingFriction.wav",
+      "author": "AntumDeluge",
+      "title": "Scrapes: scrape-6.wav",
+      "url": "https://opengameart.org/content/scrapes",
+      "trace": "Assets/_Game/Audio/Clips/Impact/ImpactManifest.json",
+      "sha256": "077ceda512aa5235ec5a636fd45cb95e0ef9b3fdc532c3fcc7999cee909da7dd",
+      "license": "CC0 1.0 as documented by the existing source ledger; not re-downloaded or re-licensed"
+    },
+    "clank": {
+      "path": "ArtSource/Audio/Resonance/Sources/mechanical-clank1.wav",
+      "author": "Brian MacIntosh (BMacZero)",
+      "title": "Mechanical sounds: mechanical-clank1.wav",
+      "url": "https://opengameart.org/content/mechanical-sounds",
+      "trace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "sha256": "899a46a8423fa0ca349b3c70a07a422d1eaa3a58695ce6facfbae074dd70226f",
+      "license": "CC0 1.0 as documented by the existing source ledger; not re-downloaded or re-licensed"
+    },
+    "rattle": {
+      "path": "ArtSource/Audio/Resonance/Sources/mechanical-rattle1.wav",
+      "author": "Brian MacIntosh (BMacZero)",
+      "title": "Mechanical sounds: mechanical-rattle1.wav",
+      "url": "https://opengameart.org/content/mechanical-sounds",
+      "trace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "sha256": "65ae71cd800986e4e4c0c1a180221c0f240f6ffd9e306f8634c0335a5e3f039a",
+      "license": "CC0 1.0 as documented by the existing source ledger; not re-downloaded or re-licensed"
+    },
+    "door": {
+      "path": "Assets/_Game/Audio/Clips/Mechanisms/SFX_DoorMovement_LP.wav",
+      "author": "Rolly-SFX",
+      "title": "Sliding Door Open 626165",
+      "url": "https://freesound.org/people/Rolly-SFX/sounds/626165/",
+      "trace": "Docs/AUDIO_ASSET_LEDGER.md",
+      "sha256": "793ae3576c143031f3dac5b9e27709522d82a65711ba174cf7a00af13c7595c0",
+      "license": "CC0 1.0 as documented by the existing source ledger; not re-downloaded or re-licensed"
+    },
+    "switch": {
+      "path": "Assets/_Game/Audio/Clips/Mechanisms/SFX_PlateRelease.wav",
+      "author": "se2001",
+      "title": "Lamp Switch 503135",
+      "url": "https://freesound.org/people/se2001/sounds/503135/",
+      "trace": "Docs/AUDIO_ASSET_LEDGER.md",
+      "sha256": "af99452667b1220a1f531bb734ff9da3b61c4da82b291b72ab90a05f7df3a2df",
+      "license": "CC0 1.0 as documented by the existing source ledger; not re-downloaded or re-licensed"
+    },
+    "air": {
+      "path": "Assets/_Game/Audio/Clips/Ambience/AMB_FacilityAir_LP.wav",
+      "author": "HECKFRICKER",
+      "title": "House Vent Loop 03 753542",
+      "url": "https://freesound.org/people/HECKFRICKER/sounds/753542/",
+      "trace": "Docs/AUDIO_ASSET_LEDGER.md",
+      "sha256": "a0a6f8c1a3fd15f188a74ca8997d5f859f79f2fc4ab597da63747890ed612b8a",
+      "license": "CC0 1.0 as documented by the existing source ledger; not re-downloaded or re-licensed"
+    }
+  },
+  "masters": [
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeRitual/NR_SteelCompression.wav",
+      "seconds": 3.2,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceKeys": [
+        "door",
+        "pressure",
+        "rattle"
+      ],
+      "sourceCutsSeconds": {
+        "door": [
+          0,
+          2.1,
+          0.73
+        ],
+        "pressure": [
+          0.02,
+          0.64,
+          0.67
+        ],
+        "rattle": [
+          0,
+          0.34,
+          0.84
+        ]
+      },
+      "originalLayers": "Strain envelope rises into a restrained physical jam; fixed inharmonic plate modes; four sparse early reflections.",
+      "sourceGain": 0.16,
+      "peakDbFS": -11.0,
+      "rmsDbFS": -32.566,
+      "dc": 3.238519032796224e-08,
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "fadeSeconds": [
+        0.008,
+        0.12
+      ],
+      "energyBelow45HzPercent": 0.01,
+      "energyAbove7000HzPercent": 0.0,
+      "sha256": "a72921139347f7600c557e604ca543325bd2e2ca2ff8f7ee697f12c411a04bff",
+      "bytes": 307244,
+      "humanListeningApproval": "PENDING: technical signal validation does not establish fear or comfort"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeRitual/NR_WallStrike.wav",
+      "seconds": 1.55,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceKeys": [
+        "metal",
+        "clank",
+        "rattle"
+      ],
+      "sourceCutsSeconds": {
+        "metal": [
+          0,
+          0.72,
+          1
+        ],
+        "clank": [
+          0,
+          0.63,
+          0.71
+        ],
+        "rattle": [
+          0,
+          0.72,
+          0.61
+        ]
+      },
+      "originalLayers": "One dry initial wall contact plus deep inharmonic sheet body, settling hardware and printed room tail. No sub drop or hiss layer. Author a 0.3-0.6s sound subtraction before contact.",
+      "sourceGain": 0.3,
+      "peakDbFS": -6.5,
+      "rmsDbFS": -23.787,
+      "dc": -1.7227665070564518e-08,
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "fadeSeconds": [
+        0.004,
+        0.15
+      ],
+      "energyBelow45HzPercent": 0.007,
+      "energyAbove7000HzPercent": 0.0,
+      "sha256": "468190faaad5c5a013f9b8b1c049948e7c896492a41a624270edc01ab13910e7",
+      "bytes": 148844,
+      "humanListeningApproval": "PENDING: technical signal validation does not establish fear or comfort"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeRitual/NR_CloseDrag.wav",
+      "seconds": 2.4,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceKeys": [
+        "scrape",
+        "door"
+      ],
+      "sourceCutsSeconds": {
+        "scrape": [
+          0.04,
+          2.08,
+          0.91
+        ],
+        "door": [
+          0.33,
+          1.53,
+          0.69
+        ]
+      },
+      "originalLayers": "Two unequal resistance peaks within one continuous coarse mechanical drag; sparse short reflections. Position/movement belongs to physical apparatus.",
+      "sourceGain": 0.17,
+      "peakDbFS": -12.501,
+      "rmsDbFS": -32.289,
+      "dc": 2.6490953233506943e-08,
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "fadeSeconds": [
+        0.014,
+        0.15
+      ],
+      "energyBelow45HzPercent": 0.001,
+      "energyAbove7000HzPercent": 0.162,
+      "sha256": "b1ee83b49e6e96418f8403a1652fb2a8f805088e9d32a8f083e52761505ee59d",
+      "bytes": 230444,
+      "humanListeningApproval": "PENDING: technical signal validation does not establish fear or comfort"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeRitual/NR_OverheadStrain.wav",
+      "seconds": 4.8,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceKeys": [
+        "door",
+        "scrape"
+      ],
+      "sourceCutsSeconds": {
+        "door": [
+          0.05,
+          2.06,
+          0.46
+        ],
+        "scrape": [
+          0.12,
+          2.0,
+          0.62
+        ]
+      },
+      "originalLayers": "Slow load transfer with continuous non-vocal source material, quiet dispersive steel modes and ceiling reflections; no periodic beat.",
+      "sourceGain": 0.14,
+      "peakDbFS": -14.5,
+      "rmsDbFS": -34.251,
+      "dc": 3.337860107421875e-08,
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "fadeSeconds": [
+        0.065,
+        0.24
+      ],
+      "energyBelow45HzPercent": 0.003,
+      "energyAbove7000HzPercent": 0.0,
+      "sha256": "2a3c23907c0c8ddb24029c9d553920aba5cbbe9249db24950a06ea1dc0e06166",
+      "bytes": 460844,
+      "humanListeningApproval": "PENDING: technical signal validation does not establish fear or comfort"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeRitual/NR_DryLatch.wav",
+      "seconds": 0.48,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceKeys": [
+        "switch",
+        "clank"
+      ],
+      "sourceCutsSeconds": {
+        "switch": [
+          0.148,
+          0.4,
+          1.08
+        ],
+        "clank": [
+          0.03,
+          0.21,
+          1.15
+        ]
+      },
+      "originalLayers": "Clinical dry relay closure and low-level inner mechanism after-contact, no synthetic confirmation beep.",
+      "sourceGain": 0.14,
+      "peakDbFS": -12.0,
+      "rmsDbFS": -36.546,
+      "dc": -2.2517310248480902e-08,
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "fadeSeconds": [
+        0.003,
+        0.055
+      ],
+      "energyBelow45HzPercent": 0.0,
+      "energyAbove7000HzPercent": 0.269,
+      "sha256": "b59bfa20c96a787c6b54af80854b0c500bba6a1cdbfd559acb36b19bfe793846",
+      "bytes": 46124,
+      "humanListeningApproval": "PENDING: technical signal validation does not establish fear or comfort"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeRitual/NR_PressureInhale.wav",
+      "seconds": 3.6,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceKeys": [
+        "air",
+        "door"
+      ],
+      "sourceCutsSeconds": {
+        "air": [
+          7,
+          10.6,
+          1
+        ],
+        "door": [
+          0.4,
+          1.4,
+          0.6
+        ]
+      },
+      "originalLayers": "A machine chamber draws air: existing vent plus fixed band-limited turbulence seed79. Suggests breathing only through an asymmetric pressure envelope; no person, voice, vowel or recorded breath.",
+      "sourceGain": 0.14,
+      "peakDbFS": -14.5,
+      "rmsDbFS": -31.821,
+      "dc": -3.1789143880208335e-09,
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "fadeSeconds": [
+        0.055,
+        0.2
+      ],
+      "energyBelow45HzPercent": 0.024,
+      "energyAbove7000HzPercent": 0.0,
+      "sha256": "9b69d4e3ba51a0c10704419ea230c0bb77d5b42adee9fa18d9a09a8901df246e",
+      "bytes": 345644,
+      "humanListeningApproval": "PENDING: technical signal validation does not establish fear or comfort"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeRitual/NR_PressureChoke.wav",
+      "seconds": 1.8,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceKeys": [
+        "air",
+        "pressure"
+      ],
+      "sourceCutsSeconds": {
+        "air": [
+          [
+            11,
+            12.36,
+            1
+          ],
+          [
+            12,
+            12.85,
+            1
+          ]
+        ],
+        "pressure": [
+          0.02,
+          0.64,
+          0.72
+        ]
+      },
+      "originalLayers": "Intake is abruptly pinched by a real hinge contact; interrupted air then one weak pressure escape. Non-vocal machine event, no cry/formant/grunt.",
+      "sourceGain": 0.22,
+      "peakDbFS": -10.5,
+      "rmsDbFS": -26.679,
+      "dc": -5.8280097113715276e-08,
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "fadeSeconds": [
+        0.018,
+        0.16
+      ],
+      "energyBelow45HzPercent": 0.008,
+      "energyAbove7000HzPercent": 0.0,
+      "sha256": "c45cf4cf356887170e60297d3ce611ada77ca89d46a28708845a1f2bb6975c12",
+      "bytes": 172844,
+      "humanListeningApproval": "PENDING: technical signal validation does not establish fear or comfort"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeRitual/NR_RemoteAnswer.wav",
+      "seconds": 2.1,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceKeys": [
+        "metal",
+        "rattle"
+      ],
+      "sourceCutsSeconds": {
+        "metal": [
+          0.03,
+          0.73,
+          0.58
+        ],
+        "rattle": [
+          0.08,
+          0.63,
+          0.75
+        ]
+      },
+      "originalLayers": "One occluded mechanical consequence through a distant wall with long diffuse tail; never labelled as a recording, Echo replay or an unexplained extra channel.",
+      "sourceGain": 0.16,
+      "peakDbFS": -13.0,
+      "rmsDbFS": -29.673,
+      "dc": 4.5110308934771827e-08,
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "fadeSeconds": [
+        0.012,
+        0.21
+      ],
+      "energyBelow45HzPercent": 0.043,
+      "energyAbove7000HzPercent": 0.0,
+      "sha256": "141fa1d35a77baba27f5d73b3b304ed4c89161ffaddfe11f4a54790222f92728",
+      "bytes": 201644,
+      "humanListeningApproval": "PENDING: technical signal validation does not establish fear or comfort"
+    }
+  ]
+}
