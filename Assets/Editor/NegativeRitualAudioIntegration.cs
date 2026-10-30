@@ -40,8 +40,10 @@ public static class NegativeRitualAudioIntegration
     {
         RecommendedGain(cue); // Validate enum before constructing an asset path.
         var clip = AssetDatabase.LoadAssetAtPath<AudioClip>(ClipRoot + cue + ".wav");
-        if (!clip || clip.channels != 1 || clip.frequency != 48000)
-            throw new InvalidOperationException("Expected the committed mono 48 kHz Negative ritual master: " + cue);
+        // The WAV master is 48 kHz; Unity's Editor decoder can expose it at
+        // 44.1 kHz even with PreserveSampleRate. Playback retains its duration.
+        if (!clip || clip.channels != 1 || clip.frequency < 44100 || clip.length <= 0)
+            throw new InvalidOperationException("Expected an imported full-band mono Negative ritual master: " + cue);
         return clip;
     }
 

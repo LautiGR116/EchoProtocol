@@ -17,6 +17,7 @@ public static class NegativeRitualIntegration
         if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling || SceneManager.GetActiveScene().name != "EchoProtocol_Negative")
             throw new InvalidOperationException("Open Negative in Edit Mode after compilation. This installer does not open or save a scene.");
         if (All<NegativeRitualSequence>().Any()) throw new InvalidOperationException("Ritual already connected. Edit the existing installation.");
+        NegativeRitualAudioIntegration.ImportClips();
         var root = Named("Negative / ritual apparatus");
         var close = Named("Ritual / close relief");
         var impact = Named("Ritual / impact relief");
@@ -39,7 +40,6 @@ public static class NegativeRitualIntegration
         // High fixtures describe the hanging forms without raising room exposure.
         for (int i = 0; i < forms.Length; i++)
             Lamp(root, "Ritual / suspension practical " + (i+1), forms[i].position + new Vector3(i%2==0?1.2f:-1.2f,-1,-.7f), forms[i].position + Vector3.down*1.7f, 1.2f, 4.2f);
-        NegativeRitualAudioIntegration.ImportClips();
         var cues = new[]
         {
             Source(close, "Ritual / pressure entering cloth", NegativeRitualAudioIntegration.Cue.PressureInhale, close.position),
