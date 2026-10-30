@@ -1401,10 +1401,10 @@ public sealed partial class ThresholdCampaignProbe : MonoBehaviour
     static T Field<T>(object target, string name) => (T)(target.GetType().GetField(name, Private) ?? throw new MissingFieldException(target.GetType().Name, name)).GetValue(target);
     CampaignStation Station(StationKind kind) => FindObjectsByType<CampaignStation>(FindObjectsSortMode.None).Single(s => s.Kind == kind);
     IEnumerator Use(FinalDoorInteractionKind kind) { yield return UseTarget(FindObjectsByType<FinalDoorInteraction>(FindObjectsSortMode.None).Single(s => s.Kind == kind)); }
-    IEnumerator Go(float x, float z, float facing)
+    IEnumerator Go(float x, float z, float facing, float arrivalRadius = .1f)
     {
         yield return Face(facing); float deadline = Time.realtimeSinceStartup + 28;
-        while (Vector2.Distance(new Vector2(player.transform.position.x, player.transform.position.z), new Vector2(x, z)) > .1f)
+        while (Vector2.Distance(new Vector2(player.transform.position.x, player.transform.position.z), new Vector2(x, z)) > arrivalRadius)
         {
             if (Time.realtimeSinceStartup > deadline) throw new Exception("Physical route blocked at " + player.transform.position.ToString("F2") + " toward " + x + "," + z);
             Vector3 local = player.transform.InverseTransformDirection(new Vector3(x, player.transform.position.y, z) - player.transform.position);

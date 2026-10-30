@@ -143,9 +143,9 @@ public sealed partial class ThresholdCampaignProbe
         // through its real collision housing on the way to the lateral door.
         // Keep a full controller radius south of the trolley's -43.07 edge.
         // A low-frame-rate diagonal correction can cut the old -43.6 corner.
-        yield return Go(-4.2f,-43.9f,90);
+        yield return Go(-4.2f,-43.9f,90,.24f);
         if(GameObject.Find("Return / early blind wing"))
-        {yield return Go(-1.4f,-43.9f,90);yield return Go(-1.4f,-41.35f,90);yield return Go(0,-41.35f,90);yield return Go(0,-43.6f,90);}
+        {yield return Go(-1.4f,-43.9f,90,.24f);yield return Go(-1.4f,-41.35f,90);yield return Go(0,-41.35f,90);yield return Go(0,-43.6f,90);}
         else yield return Go(0,-43.6f,90);
         if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="EchoProtocol_Impact"||UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="EchoProtocol_Incursion"||UnityEngine.SceneManagement.SceneManager.GetActiveScene().name=="EchoProtocol_Negative")
         {
