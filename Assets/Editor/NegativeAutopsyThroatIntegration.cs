@@ -27,7 +27,7 @@ public static class NegativeAutopsyThroatIntegration
         var throat=MeshAsset("AutopsyThroat-v2.asset",()=>BuildThroat(bind,pivot));
         var teeth=MeshAsset("AutopsyTeeth-v1.asset",()=>BuildTeeth(bind,pivot));
         var well=MeshAsset("AutopsyWell-v2.asset",()=>BuildWell(bind,pivot));
-        var dark=MaterialAsset("AutopsyThroat-v2.mat",new Color(.14f,.026f,.018f),.16f);
+        var dark=MaterialAsset("AutopsyThroat-v2.mat",new Color(.38f,.075f,.05f),.16f);
         var black=MaterialAsset("AutopsyWell-v2.mat",new Color(.004f,.001f,.001f),0);
         var ivory=MaterialAsset("AutopsyTeeth-v1.mat",new Color(.49f,.39f,.27f),.42f);
         var root=existing?existing.transform:new GameObject("Autopsy / throat behind ceramic").transform;

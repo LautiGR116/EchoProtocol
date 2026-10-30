@@ -139,8 +139,8 @@ namespace EchoProtocol.Campaign
 
         void ApplyForms()
         {
-            leftChestFlap.localRotation = leftRest * Quaternion.Euler(0, -55 * Open01, 0);
-            rightChestFlap.localRotation = rightRest * Quaternion.Euler(0, 55 * Open01, 0);
+            leftChestFlap.localRotation = leftRest * Quaternion.Euler(0, -80 * Open01, 0);
+            rightChestFlap.localRotation = rightRest * Quaternion.Euler(0, 80 * Open01, 0);
             hangingNeck.localRotation = Quaternion.Slerp(neckRest, neckTarget, ReturnLook01);
             hangingJaw.localRotation = hangingJawRest * Quaternion.Euler(35 * HangingJaw01, 0, 0);
             captiveJaw.localRotation = captiveJawRest * Quaternion.Euler(32 * CaptiveJaw01, 0, 0);
