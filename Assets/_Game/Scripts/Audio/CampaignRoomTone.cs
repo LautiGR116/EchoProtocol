@@ -15,6 +15,7 @@ namespace EchoProtocol.Audio
         [SerializeField] PressureIsolation serviceIsolation;
         [SerializeField] MachineCoverEncounter machineCover;
         [SerializeField] NegativeRitualSequence negativeRitual;
+        [SerializeField] NegativeUnsealingSequence negativeUnsealing;
         [Tooltip("Only institutional motor beds supplied by this plant; exclude room air and the local motor owned by PressureIsolationAudio.")]
         [SerializeField] AudioSource[] isolatedMotorBeds = new AudioSource[0];
         [Tooltip("Optional authored final-review volume. Uses the box in its own local frame, so a relocated/rotated portería retains its ambience mix.")]
@@ -68,6 +69,11 @@ namespace EchoProtocol.Audio
                 {
                     target *= negativeRitual.AmbienceGain;
                     if(negativeRitual.AmbienceGain < 1) rate = Mathf.Max(rate, levels[i] * 8);
+                }
+                if(negativeUnsealing && negativeUnsealing.isActiveAndEnabled && machineCover && machineCover.Active)
+                {
+                    target *= negativeUnsealing.AmbienceGain;
+                    if(negativeUnsealing.AmbienceGain < 1) rate = Mathf.Max(rate, levels[i] * 8);
                 }
                 // Checkpoint restores do not replay the first-act blackout.
                 // Its 2D bed belongs only to that region and its chapters, even

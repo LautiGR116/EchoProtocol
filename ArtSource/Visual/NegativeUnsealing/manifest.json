@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-30",
+  "method": "built-in image_gen tool",
+  "model": "not exposed by tool",
+  "asset": "Assets/_Game/Art/NegativeUnsealing/WaxedMortuaryCanvas.png",
+  "sha256": "5340487f7e0c3ec0e3c48de7dc27fc64108edb71b66f139d992e95a8bf1a9819",
+  "prompt": "Create a single square 1024x1024 seamless physically-based diffuse/albedo material texture for the macabre horror game Echo Protocol. This image will wrap original 3D shrouds and a sculpted adult human cast, it is NOT a concept illustration or a scene. Flat orthographic macro surface only, edge-to-edge uninterrupted wax-impregnated old mortuary canvas fused with aged ivory latex. Pale bone tan and sickly muted gray-beige base, translucent-looking wax fibers, very fine pores, organic stretched creases, uneven wear, small dried oxblood-brown stains trapped deep in cracks, sparse black hair-thin stitching impressions. High material realism, tactile, distressed, disturbing. Balanced diffuse illumination, no directional shadows, no highlights, no ambient scene, no rendered object, no face, no human silhouette, no hands, no eyes, no text, no border, no graphic logo. Fine varied detail with broad quiet areas so it works wrapped at 2 meters scale. Keep most pixels middle-light beige so dark game lighting remains readable. Seamless on all four edges; no big central seam or compositional centerpiece.",
+  "reference_images": [],
+  "selected_output": "exec-2c803272-85f9-4470-bf58-c0a30e76c034.png",
+  "use": "Original diffuse surface on game shrouds, veils and cast anatomy; not a photographed real person."
+}
