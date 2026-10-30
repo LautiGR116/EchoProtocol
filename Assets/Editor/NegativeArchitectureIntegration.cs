@@ -54,7 +54,7 @@ public static class NegativeArchitectureIntegration
         brass = Paint("Ochre", new Color(.42f,.29f,.105f), .6f, .4f);
         glow = Paint("Work emission", new Color(.65f,.55f,.35f), .1f, .3f);
         glow.SetColor("_EmissionColor", new Color(2.2f,1.05f,.24f));
-        glow.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
+        glow.globalIlluminationFlags = MaterialGlobalIlluminationFlags.BakedEmissive;
         glow.EnableKeyword("_EMISSION");
         EditorUtility.SetDirty(glow);
         AddConcreteGrain(graphite);
