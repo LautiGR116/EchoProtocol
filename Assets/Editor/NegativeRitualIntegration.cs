@@ -39,7 +39,7 @@ public static class NegativeRitualIntegration
         Ref(so, "impactLight", Lamp(root, "Ritual / impact grazing light", new Vector3(-4.7f, 2.9f, -41.4f), impact.position, .25f, 4.5f));
         // High fixtures describe the hanging forms without raising room exposure.
         for (int i = 0; i < forms.Length; i++)
-            Lamp(root, "Ritual / suspension practical " + (i+1), forms[i].position + new Vector3(i%2==0?1.2f:-1.2f,-1,-.7f), forms[i].position + Vector3.down*1.7f, 1.2f, 4.2f);
+            Lamp(root, "Ritual / suspension practical " + (i+1), forms[i].position + new Vector3(i%2==0?-1.7f:1.7f,-.6f,i==0?-1f:1f), forms[i].position + Vector3.down*1.1f, 2.8f, 5.2f);
         var cues = new[]
         {
             Source(close, "Ritual / pressure entering cloth", NegativeRitualAudioIntegration.Cue.PressureInhale, close.position),

@@ -14,7 +14,7 @@ public static class NegativeRitualEnvironment
     const string Marker="Ritual / authored environment";
     const string Folder="Assets/_Game/Art/NegativeRitual";
     static Transform root;
-    static Material membrane,cloth,ivory,steel,thread;
+    static Material membrane,cloth,shroud,ivory,steel,thread;
 
     [MenuItem("Echo Protocol/El Negativo/Apply ritual environment to open scene")]
     public static void ApplyToOpenScene()
@@ -29,6 +29,7 @@ public static class NegativeRitualEnvironment
         EnsureFolder(Folder);
         membrane=Paint("Tensioned cast",new Color(.23f,.205f,.174f),.08f,.52f);
         cloth=Paint("Stitched graphite",new Color(.065f,.058f,.052f),.05f,.27f);
+        shroud=Paint("Waxed shroud",new Color(.32f,.27f,.22f),.02f,.35f);
         ivory=Paint("Calcium ivory",new Color(.62f,.56f,.43f),.03f,.29f);
         steel=Paint("Surgical frame",new Color(.21f,.23f,.21f),.68f,.5f);
         thread=Paint("Dark suture",new Color(.055f,.021f,.014f),.15f,.48f);
@@ -63,7 +64,7 @@ public static class NegativeRitualEnvironment
                 const float scale=.88f, attachment=2.16f;
                 g.position=positions[i]+g.rotation*(Vector3.up*attachment*scale);
                 foreach(var part in new[]{
-                    MeshObject(g,"Ritual / opaque cast skin",cocoon,cloth,ShadowCastingMode.On),
+                    MeshObject(g,"Ritual / opaque cast skin",cocoon,shroud,ShadowCastingMode.On),
                     MeshObject(g,"Ritual / bands and sutures",seams,ivory),
                     MeshObject(g,"Ritual / cast feet",feet,ivory)})
                 {part.transform.localPosition=Vector3.down*attachment*scale;part.transform.localScale=Vector3.one*scale;}
