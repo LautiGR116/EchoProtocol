@@ -91,10 +91,17 @@ namespace EchoProtocol.Campaign
         public string Objective => Complete ? "La compuerta quedó abierta. Cruzá y seguí hacia la casa."
             : Failed ? "Te alcanzó en el pasillo. Tu toma sigue entera."
             : ExitReleased ? EscapeInstruction
-            : BoltReleased ? "La reja abre cuando baja la presión. La palanca de salida está del otro lado."
-            : loop.ActiveEcho ? "Aflojá el cierre junto a la reja mientras la bomba tape los golpes."
-            : RuleObserved ? "La bomba cubre los golpes, pero su presión cierra la reja. Prepará tu recorrido. R / RECALL."
+            : BoltReleased ? (Pressure01>.15f
+                ? "Cierre destrabado. Esperá que tu Echo suelte el mando; la presión debe bajar para cruzar."
+                : "Cruzá la reja y buscá la palanca al fondo. Necesitás otra marcha grabada para cubrir el regreso.")
+            : loop.ActiveEcho && !loop.ActiveEcho.IsComplete ? ReplayWorkInstruction
+            : RuleObserved || loop.ActiveEcho ? "En el mando: E 12 s → soltá 7 s → E 20 s. Soltá y pulsá R; el Echo repetirá esa secuencia."
             : "Mantené E en el mando de la bomba. Después soltá y mirá bajar el manómetro.";
+        string ReplayWorkInstruction => Covered
+            ? "La bomba tapa los golpes. Mantené E en la manivela junto a la reja hasta destrabar el cierre."
+            : HasUpcomingPumpRun || machine.ReplayHeld
+                ? "Tu Echo va a encender la bomba. Acercate a la manivela de la reja; esperá el ruido para mantener E."
+                : "Esta toma ya no tiene otra marcha. Volvé al mando: E 12 s → soltá 7 s → E 20 s. Soltá y pulsá R.";
         public string StatusText => Complete ? "SALIDA ASEGURADA"
             : Covered ? "BOMBA EN MARCHA · TUS GOLPES QUEDAN CUBIERTOS"
             : Pressure01 > .15f ? "PRESIÓN BAJANDO"
