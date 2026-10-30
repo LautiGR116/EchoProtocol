@@ -49,8 +49,10 @@ public sealed partial class ThresholdCampaignProbe
             yield return Wait(.5f);
             Check(session.IsPaused&&AudioListener.pause&&loop.ActiveEcho.ElapsedTime==echoTime&&cover.Pressure01==pressure&&machine.ReplayHeld==held,"real pause freezes playback, pressure and the recorded grip");
             yield return Capture("coverage-paused");
-            yield return Press(Key.Escape);expectedPause=false;
-            Check(!session.IsPaused,"real Escape resumes the segment");
+            Check(cover.CanRestartPreparedTake,"prepared take can be reused explicitly before danger");
+            int beforeReuse=loop.PlaybackRestartCount;
+            yield return Press(Key.Tab);yield return Press(Key.Enter);expectedPause=false;
+            Check(!session.IsPaused&&loop.PlaybackRestartCount==beforeReuse+1&&ReferenceEquals(loop.ActiveEcho.Recording,coverTake),"real pause-menu Tab/Enter reuses the same immutable take before danger");
         }
         yield return CoverWork(false);
         if(coverageFailure)
@@ -75,8 +77,9 @@ public sealed partial class ThresholdCampaignProbe
             Check(session.IsPaused&&cover.FailureCount==1&&!cover.Complete,"failure is concrete and stops the session");
             if(threat.PerformanceEnabled){var acting=threat.GetComponent<MachineThreatPerformance>();Check(threat.CaptureContactCount==1&&threat.LastCaptureSeconds>=.94f,"physical capture precedes failure by at least 940 ms");Check(acting.ReachCount>0,"present arms reach during physical capture");Check(acting.PlantedContacts>4,"physical steps follow planted supports");Check(acting.MaxPlantDrift<.025f,"planted feet remain within 25 mm of authored floor contact");}
             AuditCoverTake();yield return Capture("coverage-failure");
+            int beforeFailureRetry=loop.PlaybackRestartCount;
             yield return Press(Key.Enter);expectedPause=false;
-            Check(!cover.Failed&&!session.IsPaused&&loop.PlaybackRestartCount==1&&ReferenceEquals(loop.ActiveEcho.Recording,coverTake),"actual failure-menu Enter replays the same immutable take");
+            Check(!cover.Failed&&!session.IsPaused&&loop.PlaybackRestartCount==beforeFailureRetry+1&&ReferenceEquals(loop.ActiveEcho.Recording,coverTake),"actual failure-menu Enter replays the same immutable take");
             yield return CoverWork(true);
         }
         else yield return CoverEscape();
@@ -115,7 +118,18 @@ public sealed partial class ThresholdCampaignProbe
         step="coverage_enter_service";yield return Go(-4.65f,-38.6f,270);yield return Go(-4.65f,-41.6f,180);yield return Go(-4.0f,-43.2f,180);yield return Aim(release.transform.position);
         step="coverage_hold_release";
         var presentActor=Field<MachineCoverThreat>(cover,"threat");
-        if(presentActor.PerformanceEnabled){Vector3 d=presentActor.GetComponent<MachineThreatPerformance>().Face.position-view.transform.position;Check(Physics.RaycastAll(view.transform.position,d.normalized,d.magnitude,~0,QueryTriggerInteraction.Ignore).Any(h=>!h.transform.IsChildOf(player.transform)&&!h.transform.IsChildOf(presentActor.transform)),"present actor is physically concealed before the release");}
+        if(presentActor.PerformanceEnabled)
+        {
+            var staging=presentActor.GetComponent<IntruderStaging>();
+            if(staging&&staging.HasOccupiedThreshold)
+            {
+                Check(staging.DoorOccupied&&!presentActor.Released,"second recorded run leaves an occupied threshold without an early attack");
+                yield return Aim(presentActor.GetComponent<MachineThreatPerformance>().Face.position);
+                yield return Capture("coverage-occupied-threshold");
+                yield return Aim(release.transform.position);
+            }
+            else {Vector3 d=presentActor.GetComponent<MachineThreatPerformance>().Face.position-view.transform.position;Check(Physics.RaycastAll(view.transform.position,d.normalized,d.magnitude,~0,QueryTriggerInteraction.Ignore).Any(h=>!h.transform.IsChildOf(player.transform)&&!h.transform.IsChildOf(presentActor.transform)),"present actor is physically concealed before the release");}
+        }
         keys=new[]{Key.E};yield return new WaitForSeconds(Field<float>(release,"workSeconds")+.3f);keys=Array.Empty<Key>();yield return Wait(.08f);
         Check(cover.ExitReleased&&Field<MachineCoverThreat>(cover,"threat").Released,"manual exit release secures the return and releases a present-time threat");
         if(Field<MachineCoverThreat>(cover,"threat").PerformanceEnabled){Vector3 v=view.WorldToViewportPoint(Field<MachineCoverThreat>(cover,"threat").RecognitionPoint.position+Vector3.up*1.75f);Check(v.z>0&&v.x>.03f&&v.x<.97f&&v.y>.02f&&v.y<.98f,"authored recognition point fits normal free-camera release framing");Check(cover.HideEncounterHud,"encounter HUD clears immediately on release");}
