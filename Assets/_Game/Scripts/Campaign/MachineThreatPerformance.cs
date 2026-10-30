@@ -16,6 +16,7 @@ namespace EchoProtocol.Campaign
         [SerializeField] IntruderStaging intruder;
         [SerializeField] IntruderActingFocus acting;
         [SerializeField] NegativeIntruderIdentity negativeIdentity;
+        [SerializeField] bool negativeRitualPerformance;
         [SerializeField] Transform[] brows, mouthCorners;
         Transform root;
         Transform[] joints;
@@ -27,6 +28,9 @@ namespace EchoProtocol.Campaign
         float lu,ll,ru,rl, la,lb,ra,rb,cycle,runBlend;
         float previousSpeed, accelerationWeight, brakeWeight, gazeYaw, gazePitch, machineHandWeight;
         bool initialized;
+        Vector3 ritualHeadForward, ritualAimDirection, ritualFromDirection, ritualToDirection;
+        float ritualAimAge;
+        int ritualFocusBeat=int.MinValue;
         struct FootSupport
         {
             public Vector3 plant, liftOff, lastTarget, recoveryTarget;
@@ -39,6 +43,7 @@ namespace EchoProtocol.Campaign
         float[] voiceEnvelope;
         AudioClip envelopeClip;
         public Transform Face => head;
+        public bool UsesNegativeRitualPerformance => negativeRitualPerformance;
         public float MachinePalmDistance => leftHand&&intruder?Vector3.Distance(leftHand.position,intruder.PumpHand.position):float.PositiveInfinity;
         public float BreachPalmDistance => rightHand&&intruder&&intruder.Embestida&&intruder.Embestida.Hand
             ?Vector3.Distance(rightHand.position,intruder.Embestida.Hand.position):float.PositiveInfinity;
@@ -65,6 +70,8 @@ namespace EchoProtocol.Campaign
             la=Vector3.Distance(leftArm.position,leftForearm.position);lb=Vector3.Distance(leftForearm.position,leftHand.position);
             ra=Vector3.Distance(rightArm.position,rightForearm.position);rb=Vector3.Distance(rightForearm.position,rightHand.position);
             if(acting)acting.CaptureNeutral(root,head);
+            ritualHeadForward=head.InverseTransformDirection(root.forward);
+            ritualAimDirection=root.forward;
             initialized=true;ResetFeet();
         }
         public void ResetPerformance()
@@ -72,6 +79,7 @@ namespace EchoProtocol.Campaign
             Initialize();if(!initialized)return;Restore();
             cycle=runBlend=previousSpeed=accelerationWeight=brakeWeight=gazeYaw=gazePitch=machineHandWeight=0;
             contacts=0;travelDirection=root.forward;ResetFeet();
+            ritualFocusBeat=int.MinValue;ritualAimAge=0;ritualAimDirection=root.forward;
             if(acting){acting.ResetFocus();acting.CaptureNeutral(root,head);}
         }
         void Restore(){for(int i=0;i<joints.Length;i++){joints[i].localPosition=positions[i];joints[i].localRotation=rotations[i];}root.localPosition=rootPosition;root.localRotation=rootRotation;}
@@ -198,7 +206,7 @@ namespace EchoProtocol.Campaign
                 Rotate(leftForearm,root.right,-18*w);
                 Rotate(neck,root.right,-5*w);
             }
-            else if(negative)PresentNegativePose(phase,age,rush);
+            else if(negative)PresentNegativePose(phase,age,rush,velocity,turnRate);
             else if(rush)rush.Pose(root,hips,spine,chest,neck,head,jaw,leftArm,rightArm,leftForearm,rightForearm,phase,age,contained);
             if(onMachine&&intruder&&intruder.ListeningTurnWeight>0)
             {
@@ -214,7 +222,9 @@ namespace EchoProtocol.Campaign
                 if(occupiedDoor)beat=71;
                 if(onMachine&&intruder&&intruder.ListeningTurnWeight>0)beat=70;
                 if(phase==MachineCoverThreat.Intention.Entry)beat=rush.HasContact?(contained&&rush.ContactAge>=.22f?42:41):40;
-                acting.Pose(root,neck,head,attention,beat,dt,
+                if(negative&&negativeRitualPerformance)
+                    PresentNegativeFocus(phase,attention,phase==MachineCoverThreat.Intention.Entry&&rush.HasContact?41:beat,dt,rush,occupiedDoor);
+                else acting.Pose(root,neck,head,attention,beat,dt,
                     negative?.16f:phase==MachineCoverThreat.Intention.Entry&&rush.HasContact?.18f:.07f,
                     occupiedDoor||searching||listening||onMachine||recognition||(contained&&(charging||reacquiring)));
             }
@@ -302,7 +312,7 @@ namespace EchoProtocol.Campaign
             Leg(false,Mathf.Repeat(cycle+.52f,1),stance,stride,moving,speed,turnRate);
         }
 
-        void PresentNegativePose(MachineCoverThreat.Intention phase,float age,EmbestidaRush rush)
+        void PresentNegativePose(MachineCoverThreat.Intention phase,float age,EmbestidaRush rush,Vector3 velocity,float turnRate)
         {
             // One substantial body key replaces the stacked collapsed torso.
             // The rigid mask is carried by the neck; the coat follows the same
@@ -326,6 +336,34 @@ namespace EchoProtocol.Campaign
                     lean=12+15*impact;side=-6+9*impact;load=impact;
                 }
             }
+            if(negativeRitualPerformance)
+            {
+                // The shoulder clears first; the mask waits. These keys keep
+                // their physical entry/contact clock, not a second scare timer.
+                if(phase==MachineCoverThreat.Intention.Entry&&rush)
+                {
+                    if(!rush.HasContact)
+                    {
+                        float drive=Mathf.SmoothStep(0,1,Mathf.InverseLerp(.24f,.43f,age));
+                        lean=Mathf.Lerp(9,25,drive);side=Mathf.Lerp(-18,7,drive);
+                    }
+                    else
+                    {
+                        float a=rush.ContactAge;
+                        float compression=1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(.075f,.32f,a));
+                        lean=13+14*compression;side=-13+19*compression;
+                    }
+                }
+                else if(onMachine){lean=24;side=-16;}
+                else if(pursuing){lean=17;side=-13;}
+                else if(phase==MachineCoverThreat.Intention.Listening){lean=7;side=-15;}
+                // The sleeves/cowl inherit only a small actual lateral drag.
+                // No clock-driven breathing, repeated shiver or root scaling.
+                float drag=Mathf.Clamp(Vector3.Dot(velocity,root.right)*.7f+turnRate*.008f,-2.2f,2.2f);
+                Rotate(chest,root.forward,-drag);
+                Rotate(leftArm,root.forward,drag*.7f);
+                Rotate(rightArm,root.forward,drag*.45f);
+            }
             hips.position-=root.up*(.028f+.025f*load);
             Rotate(spine,root.right,lean);
             Rotate(chest,root.up,side);
@@ -337,6 +375,56 @@ namespace EchoProtocol.Campaign
             Rotate(leftForearm,root.right,pursuing?-34:-17);
             Rotate(rightForearm,root.right,pursuing?-22:-12);
         }
+        void PresentNegativeFocus(MachineCoverThreat.Intention phase,Vector3 evidence,int beat,float delta,
+            EmbestidaRush rush,bool occupiedDoor)
+        {
+            // A closed mask has no eye saccades. Sample the actual heard/seen
+            // evidence once per authored action, then retain a world direction.
+            // Player motion cannot turn the quiet mask into a tracking camera.
+            if(ritualFocusBeat!=beat)
+            {
+                ritualFromDirection=ritualAimDirection.sqrMagnitude>.001f?ritualAimDirection:root.forward;
+                Vector3 toward=evidence-head.position;
+                ritualToDirection=toward.sqrMagnitude>.001f?toward.normalized:ritualFromDirection;
+                ritualFocusBeat=beat;ritualAimAge=0;
+            }
+            ritualAimAge+=delta;
+            bool entry=phase==MachineCoverThreat.Intention.Entry;
+            bool contact=entry&&rush&&rush.HasContact;
+            bool listening=phase==MachineCoverThreat.Intention.Listening||phase==MachineCoverThreat.Intention.MachineContact;
+            float delay=contact?.025f:entry?1.2f:occupiedDoor?.65f:listening?.34f:.12f;
+            float duration=contact?.085f:listening?.16f:.12f;
+            float acquire=Mathf.SmoothStep(0,1,Mathf.InverseLerp(delay,delay+duration,ritualAimAge));
+            ritualAimDirection=Vector3.Slerp(ritualFromDirection,ritualToDirection,acquire).normalized;
+            Vector2 target=HeadAngles(ritualAimDirection);
+            target.x=Mathf.Clamp(target.x,-54,54);target.y=Mathf.Clamp(target.y,-22,27);
+            Vector2 current=HeadAngles(head.TransformDirection(ritualHeadForward));
+            float yaw=Mathf.Clamp(Mathf.DeltaAngle(current.x,target.x),-62,62);
+            Rotate(neck,root.up,yaw*.30f);Rotate(head,root.up,yaw*.70f);
+            current=HeadAngles(head.TransformDirection(ritualHeadForward));
+            float pitch=Mathf.Clamp(Mathf.DeltaAngle(current.y,target.y+5),-38,38);
+            Rotate(neck,root.right,pitch*.25f);Rotate(head,root.right,pitch*.75f);
+            float cant=occupiedDoor?8:listening?-11:-5;
+            if(entry&&rush)
+            {
+                cant=8;
+                if(rush.HasContact)
+                {
+                    float a=rush.ContactAge;
+                    // One short articulation after the actual steel contact,
+                    // held long enough to read before pursuit takes over.
+                    cant=Mathf.Lerp(8,-11,Mathf.SmoothStep(0,1,Mathf.InverseLerp(.025f,.11f,a)));
+                }
+            }
+            Rotate(head,root.forward,cant);
+        }
+        Vector2 HeadAngles(Vector3 direction)
+        {
+            Vector3 local=root.InverseTransformDirection(direction);
+            return new Vector2(Mathf.Atan2(local.x,local.z)*Mathf.Rad2Deg,
+                -Mathf.Atan2(local.y,new Vector2(local.x,local.z).magnitude)*Mathf.Rad2Deg);
+        }
+
         void Leg(bool left,float p,float stance,float stride,float moving,float speed,float turnRate)
         {
             Transform thigh=left?leftThigh:rightThigh,shin=left?leftShin:rightShin,foot=left?leftFoot:rightFoot;
