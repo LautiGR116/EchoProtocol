@@ -28,13 +28,12 @@ namespace EchoProtocol.Presentation
         [SerializeField] private string editionLabel="EDICIÓN 01";
         private bool started, paused = true, ending, credits, help, confirmRestart;
         private bool returnToPauseFromNotes;
-        private bool documentWasPaused, documentOriginHelp, documentOriginCredits, documentOriginSettings, documentOriginRestart;
+        private bool documentWasPaused, documentOriginHelp, documentOriginCredits, documentOriginSettings, documentOriginRestart, documentOriginControls;
         private bool resumeRequested;
         private int resumeRequestedFrame;
         private System.Action afterMenuResume;
         private bool restorePlayer, restoreInteractor, restoreLoop;
         private float volume = .7f;
-        private float sessionStartedAt;
         private GUIStyle title, text, small, button, accent;
         private string documentTitle, documentBody;
         public bool IsPaused => paused;
@@ -68,6 +67,13 @@ namespace EchoProtocol.Presentation
             if(k==null)return;
             if(campaign&&campaign.CoverEncounter&&campaign.CoverEncounter.Failed){if(identity)identity.Navigate();return;}
             if(identity && paused)identity.Navigate(GraphicPage);
+            if(showControls)
+            {
+                if(k.escapeKey.wasPressedThisFrame||k.hKey.wasPressedThisFrame)showControls=false;
+                return;
+            }
+            if(!started && !ending && !credits && !folioSettings && !confirmRestart && string.IsNullOrEmpty(documentTitle) && k.hKey.wasPressedThisFrame)
+            {showControls=true;return;}
             if(!string.IsNullOrEmpty(documentTitle))
             {
                 if(k.escapeKey.wasPressedThisFrame)CloseDocument();
@@ -109,7 +115,7 @@ namespace EchoProtocol.Presentation
             }
             if(!identity && paused && k.enterKey.wasPressedThisFrame && !ending)RequestSessionResume();
         }
-        public void BeginOrResume() { if(ending || campaign&&campaign.CoverEncounter&&campaign.CoverEncounter.Failed)return; documentTitle=null; help=false; if(!started)sessionStartedAt=Time.time; started=true; SetPaused(false); }
+        public void BeginOrResume() { if(ending || campaign&&campaign.CoverEncounter&&campaign.CoverEncounter.Failed)return; documentTitle=null; help=false; showControls=false; started=true; SetPaused(false); }
         // UI exits wait for release before restoring action maps. The public pause
         // API remains immediate for encounter owners and browser pointer recovery.
         private void RequestSessionResume(System.Action afterResume=null)
@@ -128,16 +134,16 @@ namespace EchoProtocol.Presentation
             if(string.IsNullOrEmpty(documentTitle))
             {
                 documentWasPaused=paused;documentOriginHelp=help;documentOriginCredits=credits;
-                documentOriginSettings=folioSettings;documentOriginRestart=confirmRestart;
+                documentOriginSettings=folioSettings;documentOriginRestart=confirmRestart;documentOriginControls=showControls;
             }
-            help=false;credits=false;folioSettings=false;confirmRestart=false;
+            help=false;credits=false;folioSettings=false;confirmRestart=false;showControls=false;
             documentTitle=heading;documentBody=body;folioDocumentKey=null;documentScroll=0;SetPaused(true);
         }
         private void CloseDocument()
         {
             documentTitle=null;documentBody=null;
             help=documentOriginHelp;credits=documentOriginCredits;
-            folioSettings=documentOriginSettings;confirmRestart=documentOriginRestart;
+            folioSettings=documentOriginSettings;confirmRestart=documentOriginRestart;showControls=documentOriginControls;
             if(!documentWasPaused)RequestSessionResume();
         }
         public void SetPaused(bool value)
@@ -199,6 +205,7 @@ namespace EchoProtocol.Presentation
         private void DrawMenu()
         {
             var prev=GUI.color; GUI.color=new Color(.009f,.016f,.021f,1f); GUI.DrawTexture(new Rect(-2000,-2000,5280,4720),Texture2D.whiteTexture); GUI.color=prev;
+            if(showControls) { DrawBasicControls(); return; }
             if(help) { DrawSessionNotes(); return; }
             if(!string.IsNullOrEmpty(documentTitle))
             {
@@ -238,10 +245,11 @@ namespace EchoProtocol.Presentation
             }
             else
             {
-                if(!ending && GUI.Button(new Rect(80,392,450,52),started?"Continuar   /   Esc":"Iniciar sesión   /   Enter",button))BeginOrResume();
-                if(!started && campaign && campaign.HasSavedCheckpoint && GUI.Button(new Rect(80,456,450,44),"Continuar / "+campaign.SavedChapterTitle,button)){BeginOrResume();campaign.RestoreCheckpoint();}
+                if(!ending && GUI.Button(new Rect(80,392,450,52),started?"Continuar   /   Esc":"Iniciar sesión   /   Enter",button))RequestSessionResume();
+                if(!started && campaign && campaign.HasSavedCheckpoint && GUI.Button(new Rect(80,456,450,44),"Continuar / "+campaign.SavedChapterTitle,button)){RequestSessionResume(()=>campaign.RestoreCheckpoint());}
                 if((started||ending) && GUI.Button(new Rect(80,456,450,44),"Nueva sesión",button))confirmRestart=true;
-                if(GUI.Button(new Rect(80,512,450,44),"Créditos   /   C",button))credits=true;
+                if(GUI.Button(new Rect(80,512,218,44),"Cómo jugar",button))showControls=true;
+                if(GUI.Button(new Rect(312,512,218,44),"Créditos / C",button))credits=true;
                 if(GUI.Button(new Rect(80,568,450,44),"Salir",button))Quit();
             }
             GUI.Label(new Rect(738,176,420,32),"ESCUCHA Y CONTROLES",accent);
@@ -275,12 +283,12 @@ namespace EchoProtocol.Presentation
                 var tint=GUI.color;GUI.color=new Color(.055f,.08f,.08f,.95f);GUI.DrawTexture(new Rect(462,501,350,3),Texture2D.whiteTexture);
                 GUI.color=new Color(.36f,.76f,.67f);GUI.DrawTexture(new Rect(462,501,350*campaign.WorkFraction,3),Texture2D.whiteTexture);GUI.color=tint;
             }
-            GUI.Label(new Rect(42,30,520,30),campaign&&campaign.IsReturnRecordingSuspended?"FIN DE REGISTRO · R INACTIVO":!loop.enabled?"REGISTRO SUSPENDIDO":recorder.IsArmed?"REGISTRO EN ESPERA":$"REGISTRANDO  {recorder.ElapsedTime:00.0} / {recorder.MaxRecordingDuration:00} s",small);
+            GUI.Label(new Rect(42,30,520,30),RecordingStatus,small);
             if(loop.ActiveEcho!=null&&!loop.ActiveEcho.IsComplete)
                 GUI.Label(new Rect(42,56,500,30),$"ECHO  {loop.ActiveEcho.ElapsedTime:00.0} / {loop.ActiveEcho.Recording.Duration:00.0} s",accent);
             if(recorder.HasRecordingStarted && recorder.MaxRecordingDuration-recorder.ElapsedTime<8)
                 GUI.Label(new Rect(430,90,650,32),"El registro termina en breve. RECALL automático.",text);
-            if((!contextualHints || !contextualHints.IsVisible) && (Time.time-sessionStartedAt<20 || help))GUI.Label(new Rect(42,659,600,28),loop.enabled?"R  RECALL     ·     E  INTERACTUAR     ·     H  AYUDA":"E  INTERACTUAR     ·     ESC  PAUSA",small);
+            if(!contextualHints || !contextualHints.IsVisible)GUI.Label(new Rect(42,659,600,28),"H  AYUDA Y PRÓXIMO PASO     ·     ESC  PAUSA",small);
             if((!contextualHints || !contextualHints.IsVisible) && houseMemory && houseMemory.Active && houseMemory.PowerLocation==HousePowerLocation.Carried)
                 GUI.Label(new Rect(42,615,500,28),"RESERVA DE LUZ EN LA MANO",small);
         }
