@@ -37,7 +37,7 @@ public static class NegativePresentationSetup
             Undo.RegisterCreatedObjectUndo(go,"Create El Negativo title camera");
             camera=Undo.AddComponent<Camera>(go);
             camera.CopyFrom(source);
-            camera.transform.SetPositionAndRotation(new Vector3(0,2.4f,-29.4f),Quaternion.LookRotation(new Vector3(1.8f,3.2f,-38)-new Vector3(0,2.4f,-29.4f)));
+            camera.transform.SetPositionAndRotation(new Vector3(0,2.4f,-29.4f),Quaternion.LookRotation(new Vector3(5,3.3f,-39)-new Vector3(0,2.4f,-29.4f)));
             camera.fieldOfView=62;
             camera.depth=source.depth+10;
             camera.targetTexture=null;

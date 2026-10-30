@@ -163,16 +163,17 @@ public static class NegativeArchitectureIntegration
         }
         var task=Lamp("Resonator / working light",new Vector3(4.6f,4.5f,-35.3f),new Color(1,.83f,.56f),3.5f,10);
         work.Add(task);
+        ambient.Add(Lamp("Vault / entry reflected light",new Vector3(0,3.8f,-31.5f),new Color(.72f,.79f,.83f),2.4f,11));
         var head=Lamp("Negative / inspection lamp",camera.transform.position,new Color(.84f,.89f,1f),2.8f,11);
         head.transform.SetParent(camera.transform,false); head.transform.localPosition=new Vector3(.12f,-.13f,.08f);
         head.transform.localRotation=Quaternion.identity; head.type=LightType.Spot; head.spotAngle=63; head.innerSpotAngle=24;
         head.shadows=LightShadows.Soft; head.shadowStrength=.85f; head.shadowBias=.025f; head.shadowNormalBias=.15f;
         reserve.Add(head);
 
-        Label("Negative / chamber identity","03",new Vector3(-5.8f,5.6f,-47.95f),Quaternion.identity,.16f,ivory.color);
-        Label("Negative / chamber name","CÁMARA DEL NEGATIVO",new Vector3(-5.8f,4.05f,-47.94f),Quaternion.identity,.026f,ivory.color);
-        Label("Negative / work identity","01  /  GRABAR",new Vector3(5.8f,2.6f,-35.98f),Quaternion.Euler(0,-90,0),.025f,Color.white);
-        Label("Negative / cooperation identity","02  /  COOPERAR",new Vector3(-2.55f,2.8f,-39.8f),Quaternion.Euler(0,90,0),.022f,Color.white);
+        Label("Negative / chamber identity","03",new Vector3(-5.8f,5.6f,-47.95f),Quaternion.Euler(0,180,0),.16f,ivory.color);
+        Label("Negative / chamber name","CÁMARA DEL NEGATIVO",new Vector3(-5.8f,4.05f,-47.94f),Quaternion.Euler(0,180,0),.026f,ivory.color);
+        Label("Negative / work identity","01  /  GRABAR",new Vector3(5.8f,2.6f,-35.98f),Quaternion.Euler(0,90,0),.025f,Color.white);
+        Label("Negative / cooperation identity","02  /  COOPERAR",new Vector3(-2.76f,2.8f,-39.8f),Quaternion.Euler(0,90,0),.022f,Color.white);
 
         var sequence=root.gameObject.AddComponent<NegativeRoomSequence>();
         var so=new SerializedObject(sequence);
