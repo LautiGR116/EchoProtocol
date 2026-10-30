@@ -45,6 +45,7 @@ namespace EchoProtocol.Presentation
             { Debug.LogError("GameSession requires all explicit scene references.", this); enabled=false; return; }
             volume=Mathf.Clamp01(PlayerPrefs.GetFloat("EP.Volume", .7f));
             LoadReadingPreferences();
+            if(identity)identity.SetNegativePresentation(negativePresentation);
             player.UsesSessionPause=true;
             audioOutput.ReducedDynamics=PlayerPrefs.GetInt("EP.Reduced",0)==1;
             audioOutput.Speakers=PlayerPrefs.GetInt("EP.Speakers",0)==1;
@@ -53,6 +54,7 @@ namespace EchoProtocol.Presentation
         }
         private void Update()
         {
+            UpdateNegativeMenuCamera();
             var k=Keyboard.current;
             if(resumeRequested)
             {
@@ -115,7 +117,7 @@ namespace EchoProtocol.Presentation
             }
             if(!identity && paused && k.enterKey.wasPressedThisFrame && !ending)RequestSessionResume();
         }
-        public void BeginOrResume() { if(ending || campaign&&campaign.CoverEncounter&&campaign.CoverEncounter.Failed)return; documentTitle=null; help=false; showControls=false; started=true; SetPaused(false); }
+        public void BeginOrResume() { if(ending || campaign&&campaign.CoverEncounter&&campaign.CoverEncounter.Failed)return; documentTitle=null; help=false; showControls=false; started=true; SetPaused(false); UpdateNegativeMenuCamera(); }
         // UI exits wait for release before restoring action maps. The public pause
         // API remains immediate for encounter owners and browser pointer recovery.
         private void RequestSessionResume(System.Action afterResume=null)

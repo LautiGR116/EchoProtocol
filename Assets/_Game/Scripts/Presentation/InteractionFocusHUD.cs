@@ -96,6 +96,7 @@ namespace EchoProtocol.Presentation
             var coverHolding=campaign&&campaign.CoverEncounter?campaign.CoverEncounter.HoldingInteraction:null;
             bool hold=(isolation&&isolation.IsHolding)||holdReturn||coverHolding!=null;
             bool available=interactor.HasUsableFocus;
+            if(ui.NegativePresentation){DrawNegativeFocus(ui,returning,holdReturn,coverHolding,hold,available);return;}
             ui.Fill(new Rect(638.5f,358.5f,3,3),available||hold?ui.Paper:ui.Muted);
             if(!available&&!hold)
             {
@@ -134,6 +135,29 @@ namespace EchoProtocol.Presentation
                 ui.Fill(new Rect(p.x-8,p.y-8,5,1),ui.Accent);ui.Fill(new Rect(p.x-8,p.y-8,1,5),ui.Accent);
                 ui.Fill(new Rect(p.x+3,p.y+8,5,1),ui.Accent);ui.Fill(new Rect(p.x+8,p.y+4,1,5),ui.Accent);
             }
+        }
+
+        void DrawNegativeFocus(FolioUI ui,ReturnWitnessControl returning,bool holdReturn,IInteractable coverHolding,bool hold,bool available)
+        {
+            ui.Fill(new Rect(639,359,2,2),available||hold?ui.Accent:ui.Paper);
+            if(!available&&!hold)
+            {
+                if(!guidance||string.IsNullOrEmpty(guidance.OpticalPrompt))return;
+                DisplayedPrompt=guidance.OpticalPrompt;
+                GUI.Label(new Rect(350,596,580,44),DisplayedPrompt,ui.Text(16,false,ui.Paper,TextAnchor.MiddleCenter));
+                return;
+            }
+            DisplayedTarget=coverHolding??(holdReturn?(IInteractable)returning:hold?isolation:interactor.FocusedTarget);
+            bool sustained=DisplayedTarget is PressureIsolation||DisplayedTarget is ReturnWitnessControl||DisplayedTarget is RecordedMachineControl||DisplayedTarget is MachineCoverInteraction;
+            DisplayedPrompt=(sustained?"MANTENER E · ":"E · ")+Prompt(DisplayedTarget);
+            ui.Outline(new Rect(625,384,30,30),ui.Accent);
+            GUI.Label(new Rect(626,387,28,25),"E",ui.Text(17,true,ui.Paper,TextAnchor.UpperCenter));
+            if(sustained)
+            {
+                ui.Fill(new Rect(621,384,2,30),ui.Accent);
+                ui.Fill(new Rect(657,384,2,30),ui.Accent);
+            }
+            GUI.Label(new Rect(350,598,580,28),(sustained?"Mantené E / ":"E / ")+Prompt(DisplayedTarget),ui.Text(16,true,ui.Paper,TextAnchor.MiddleCenter));
         }
     }
 }

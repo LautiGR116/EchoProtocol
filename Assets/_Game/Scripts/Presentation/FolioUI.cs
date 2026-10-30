@@ -24,12 +24,18 @@ namespace EchoProtocol.Presentation
         string tabOrigin;
         bool tabReverse;
         float enteredAt;
+        public bool NegativePresentation { get; private set; }
+        public void SetNegativePresentation(bool value)
+        {
+            if(NegativePresentation==value)return;
+            NegativePresentation=value;InvalidateStyles();
+        }
         public float MenuOpacity => .82f+.18f*Mathf.Clamp01((Time.unscaledTime-enteredAt)/.12f);
-        public Color Ink => new Color(.055f,.073f,.080f);
-        public Color Paper => new Color(.91f,.88f,.79f);
-        public Color Muted => new Color(.59f,.65f,.63f);
-        public Color Accent => new Color(.63f,.79f,.73f);
-        public Color Seal => new Color(.60f,.33f,.26f);
+        public Color Ink => NegativePresentation?new Color(.025f,.023f,.020f):new Color(.055f,.073f,.080f);
+        public Color Paper => NegativePresentation?new Color(.96f,.94f,.87f):new Color(.91f,.88f,.79f);
+        public Color Muted => NegativePresentation?new Color(.68f,.67f,.62f):new Color(.59f,.65f,.63f);
+        public Color Accent => NegativePresentation?new Color(.96f,.65f,.29f):new Color(.63f,.79f,.73f);
+        public Color Seal => NegativePresentation?new Color(.52f,.27f,.10f):new Color(.60f,.33f,.26f);
         public Font FunctionalFont => functionalFont;
         public Font DisplayFont => displayFont;
         public Font EditorialFont => editorialFont;
@@ -50,7 +56,7 @@ namespace EchoProtocol.Presentation
         public GUIStyle Text(int size=20,bool medium=false,Color? color=null,TextAnchor align=TextAnchor.UpperLeft)
             => Style(medium?functionalMedium:functionalFont,size,color??Paper,align);
         public GUIStyle Display(int size=66,bool italic=false,Color? color=null)
-            => Style(italic?narrativeItalic:displayFont,size,color??Paper,TextAnchor.UpperLeft);
+            => Style(NegativePresentation?functionalMedium:italic?narrativeItalic:displayFont,size,color??Paper,TextAnchor.UpperLeft);
         public GUIStyle Editorial(int size=22,bool italic=false,bool domestic=true)
             => Style(domestic?(italic?editorialItalic:editorialFont):functionalFont,size,Ink,TextAnchor.UpperLeft);
         GUIStyle Style(Font font,int size,Color color,TextAnchor align)
@@ -81,9 +87,13 @@ namespace EchoProtocol.Presentation
             for(float offset=0;offset<width;offset+=10)
                 Fill(new Rect(x+offset,y,Mathf.Min(5,width-offset),2),Accent);
         }
-        public void Line(float x,float y,float width,Color? color=null) => Fill(new Rect(x,y,width,1),color??new Color(.26f,.32f,.31f));
+        public void Line(float x,float y,float width,Color? color=null) => Fill(new Rect(x,y,width,1),color??(NegativePresentation?new Color(.28f,.26f,.22f):new Color(.26f,.32f,.31f)));
         public void Tag(Rect rect,string text,Color? color=null) => GUI.Label(rect,text,Text(13,true,color??Accent));
-        public void Panel(Rect rect) { Fill(rect,new Color(.034f,.055f,.060f,1));Line(rect.x,rect.y,rect.width,new Color(.31f,.43f,.40f)); }
+        public void Panel(Rect rect)
+        {
+            if(NegativePresentation){Fill(rect,new Color(.015f,.013f,.010f,.78f));return;}
+            Fill(rect,new Color(.034f,.055f,.060f,1));Line(rect.x,rect.y,rect.width,new Color(.31f,.43f,.40f));
+        }
         public void Background()
         {
             Fill(new Rect(-2000,-2000,5280,4720),new Color(.031f,.046f,.052f));
@@ -147,6 +157,14 @@ namespace EchoProtocol.Presentation
             string key="button/"+focus+"/"+primary+"/"+enabled;
             if(styles.TryGetValue(key,out var s))return s;
             s=new GUIStyle(Text(20,true)){alignment=TextAnchor.MiddleLeft,padding=new RectOffset(22,16,0,0),wordWrap=false};
+            if(NegativePresentation)
+            {
+                s.normal.background=Swatch(primary?Paper:new Color(0,0,0,focus ? .38f : .12f));
+                s.hover.background=Swatch(primary?Accent:new Color(0,0,0,.55f));
+                s.active.background=Swatch(primary?Accent:new Color(.16f,.12f,.07f,.8f));s.focused.background=s.normal.background;
+                s.normal.textColor=enabled?(primary?Ink:Paper):Muted;s.hover.textColor=primary?Ink:Paper;s.active.textColor=s.hover.textColor;
+                styles[key]=s;return s;
+            }
             s.normal.background=Swatch(primary?new Color(.77f,.83f,.76f):focus?new Color(.17f,.26f,.25f):new Color(.070f,.105f,.111f));
             s.hover.background=Swatch(new Color(.24f,.34f,.31f));s.active.background=Swatch(new Color(.36f,.43f,.36f));s.focused.background=s.normal.background;
             s.normal.textColor=enabled?(primary?Ink:Paper):Muted;s.hover.textColor=Color.white;s.active.textColor=Color.white;s.focused.textColor=s.normal.textColor;
@@ -159,12 +177,13 @@ namespace EchoProtocol.Presentation
             bool hover=rect.Contains(Event.current.mousePosition);
             if(enabled&&hover&&Event.current.type==EventType.MouseDown){focused=id;activate=null;}
             bool click=GUI.Button(rect,GUIContent.none,ButtonStyle(focused==id,primary,enabled));GUI.enabled=wasEnabled;
-            Color foreground=enabled?(hover?Color.white:primary?Ink:Paper):Muted;
+            Color foreground=enabled?(NegativePresentation?(primary?Ink:Paper):hover?Color.white:primary?Ink:Paper):Muted;
             var shortcutStyle=Text(13,true,primary?Ink:Muted,TextAnchor.MiddleRight);
             float shortcutWidth=shortcut.Length==0?0:shortcutStyle.CalcSize(new GUIContent(shortcut)).x+22;
             var labelRect=new Rect(rect.x+22,rect.y+4,rect.width-44-shortcutWidth,rect.height-8);
             GUI.Label(labelRect,label,Text(20,true,foreground,TextAnchor.MiddleLeft));
             if(focused==id&&enabled)Fill(new Rect(rect.x-5,rect.y,2,rect.height),Accent);
+            if(NegativePresentation&&!primary)Line(rect.x,rect.yMax,rect.width,new Color(.96f,.94f,.87f,.18f));
             if(shortcut.Length>0)GUI.Label(new Rect(rect.xMax-shortcutWidth-22,rect.y+4,shortcutWidth,rect.height-8),shortcut,shortcutStyle);
             if(click){focused=id;activate=null;}return enabled&&(click||Consume(id));
         }
@@ -177,7 +196,7 @@ namespace EchoProtocol.Presentation
         {
             Register(id);sliders.Add(id);if(focused==id&&adjustment!=0){value=Mathf.Clamp01(value+adjustment*.05f);adjustment=0;}
             var track=Text(1);var thumb=Text(1); // Dedicated cached styles below, no skin-dependent track.
-            if(!styles.TryGetValue("sliderTrack",out track)){track=new GUIStyle{normal={background=Swatch(new Color(.16f,.23f,.23f))},fixedHeight=3,margin=new RectOffset(0,0,12,12)};styles["sliderTrack"]=track;}
+            if(!styles.TryGetValue("sliderTrack",out track)){track=new GUIStyle{normal={background=Swatch(NegativePresentation?new Color(.22f,.20f,.16f):new Color(.16f,.23f,.23f))},fixedHeight=3,margin=new RectOffset(0,0,12,12)};styles["sliderTrack"]=track;}
             if(!styles.TryGetValue("sliderThumb",out thumb)){thumb=new GUIStyle{normal={background=Swatch(Paper)},hover={background=Swatch(Accent)},active={background=Swatch(Accent)},fixedWidth=14,fixedHeight=26};styles["sliderThumb"]=thumb;}
             if(Event.current.type==EventType.MouseDown&&rect.Contains(Event.current.mousePosition))focused=id;
             value=GUI.HorizontalSlider(rect,value,0,1,track,thumb);
@@ -213,6 +232,7 @@ namespace EchoProtocol.Presentation
         }
         public void DrawPaper(Rect rect,bool domestic)
         {
+            if(NegativePresentation){Fill(rect,Paper);return;}
             Fill(new Rect(rect.x+7,rect.y+9,rect.width,rect.height),new Color(0,0,0,.3f));
             GUI.DrawTexture(rect,domestic?domesticPaper:archivePaper,ScaleMode.StretchToFill);
             Fill(new Rect(rect.x,rect.y,3,rect.height),domestic?Seal:new Color(.21f,.38f,.35f));

@@ -23,22 +23,23 @@ namespace EchoProtocol.Presentation
             if(paused)
             {
                 identity.ReconcileTabModifiers(Event.current);
-                identity.BeginMenu(GraphicPage);identity.Background();
+                identity.BeginMenu(GraphicPage);
+                if(negativePresentation)DrawNegativeBackdrop();else identity.Background();
                 GUI.enabled=oldEnabled&&!resumeRequested;
                 if(Event.current.type==EventType.KeyDown && (Event.current.keyCode==KeyCode.Return || Event.current.keyCode==KeyCode.KeypadEnter || Event.current.keyCode==KeyCode.Space || Event.current.keyCode==KeyCode.Tab || Event.current.keyCode==KeyCode.UpArrow || Event.current.keyCode==KeyCode.DownArrow || Event.current.keyCode==KeyCode.LeftArrow || Event.current.keyCode==KeyCode.RightArrow || Event.current.keyCode==KeyCode.PageUp || Event.current.keyCode==KeyCode.PageDown || Event.current.keyCode==KeyCode.Home || Event.current.keyCode==KeyCode.End))Event.current.Use();
                 GUI.color=new Color(1,1,1,identity.MenuOpacity);
-                if(campaign&&campaign.CoverEncounter&&campaign.CoverEncounter.Failed)DrawCoverFailure();
-                else if(showControls)DrawFolioControls();else if(help)DrawFolioNotes();else if(!string.IsNullOrEmpty(documentTitle))DrawFolioDocument();
+                if(campaign&&campaign.CoverEncounter&&campaign.CoverEncounter.Failed){if(negativePresentation)DrawNegativeFailure();else DrawCoverFailure();}
+                else if(showControls){if(negativePresentation)DrawNegativeControls();else DrawFolioControls();}else if(help)DrawFolioNotes();else if(!string.IsNullOrEmpty(documentTitle))DrawFolioDocument();
                 else if(credits)DrawFolioCredits();else if(folioSettings)DrawFolioSettings();else DrawFolioMain();
                 if(resumeRequested)
                 {
-                    identity.Fill(new Rect(762,674,434,30),new Color(.031f,.046f,.052f));
+                    identity.Fill(new Rect(762,674,434,30),negativePresentation?new Color(0,0,0,.8f):new Color(.031f,.046f,.052f));
                     GUI.Label(new Rect(762,678,434,24),"Soltá las teclas para volver a la sesión",identity.Text(16,false,identity.Accent,TextAnchor.UpperRight));
                 }
             }
             else
             {
-                DrawFolioHud();
+                if(negativePresentation)DrawNegativeHud();else DrawFolioHud();
                 if(finalDoorMemory&&finalDoorMemory.Fade>0)identity.Fill(new Rect(-2000,-2000,5280,4720),new Color(0,0,0,finalDoorMemory.Fade));
                 if(campaign&&campaign.DepartureFade>0)identity.Fill(new Rect(-2000,-2000,5280,4720),new Color(0,0,0,campaign.DepartureFade));
             }
@@ -46,6 +47,7 @@ namespace EchoProtocol.Presentation
         }
         void DrawFolioMain()
         {
+            if(negativePresentation){DrawNegativeMain();return;}
             var ui=identity;
             ui.Tag(new Rect(88,121,680,24),confirmRestart?"NUEVA SESIÓN / CONFIRMACIÓN":ending?"CONSERVACIÓN / REGISTRO ORIGINAL":started?"SESIÓN EN CURSO":"PROTOCOLO DE REVISIÓN   /   EDICIÓN 01");
             GUI.Label(new Rect(84,142,690,160),confirmRestart?"¿Empezar\nde nuevo?":ending?"Original\nconservado.":started?"La sesión\nestá detenida.":"ECHO\nPROTOCOL",ui.Display(confirmRestart||started||ending?60:66));
