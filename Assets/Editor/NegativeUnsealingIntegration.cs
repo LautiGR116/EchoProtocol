@@ -49,6 +49,10 @@ public static class NegativeUnsealingIntegration
             NegativeUnsealingAudioIntegration.CreateSource(hanging,"Unsealing / stressed lowering harness",NegativeUnsealingAudioIntegration.Cue.Hoist,hanging.position)
         });
         so.ApplyModifiedPropertiesWithoutUndo();
+        var mask=All<NegativeUnsealingMask>().Single();
+        var maskSurface=Named("Unsealing / ceramic plates and recessed core");
+        var fracture=NegativeUnsealingAudioIntegration.CreateSource(maskSurface,"Unsealing / ceramic fracture",NegativeUnsealingAudioIntegration.Cue.CeramicFracture,maskSurface.position);
+        var maskSo=new SerializedObject(mask);Ref(maskSo,"fracture",fracture);maskSo.ApplyModifiedPropertiesWithoutUndo();
         foreach(var tone in All<CampaignRoomTone>())
         { var mix=new SerializedObject(tone); Ref(mix,"negativeUnsealing",sequence); mix.ApplyModifiedPropertiesWithoutUndo(); }
         EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
@@ -70,7 +74,8 @@ public static class NegativeUnsealingIntegration
         {
             var mat=AssetDatabase.LoadAssetAtPath<Material>(AssetDatabase.GUIDToAssetPath(guid));
             if(mat.name.IndexOf("cast",StringComparison.OrdinalIgnoreCase)<0 && mat.name.IndexOf("shroud",StringComparison.OrdinalIgnoreCase)<0
-                && mat.name.IndexOf("veil",StringComparison.OrdinalIgnoreCase)<0 && mat.name.IndexOf("anatom",StringComparison.OrdinalIgnoreCase)<0)continue;
+                && mat.name.IndexOf("veil",StringComparison.OrdinalIgnoreCase)<0 && mat.name.IndexOf("anatom",StringComparison.OrdinalIgnoreCase)<0
+                && mat.name!="Pressed ivory" && mat.name!="Torn wax membrane" && mat.name!="Tensioned mortuary cloth")continue;
             mat.SetTexture("_BaseMap",texture); mat.SetTextureScale("_BaseMap",Vector2.one);
             EditorUtility.SetDirty(mat);
         }
