@@ -115,7 +115,9 @@ namespace EchoProtocol.Campaign
 
         private void LateUpdate()
         {
-            if (!ready || !session.HasStarted || !encounter.Active || session.IsPaused || Time.deltaTime <= 0) return;
+            if (!ready || !session.HasStarted || !encounter.Active) return;
+            if (encounter.Failed) { foreach (var source in cues) source.Stop(); return; }
+            if (session.IsPaused || Time.deltaTime <= 0) return;
             if (encounter.Complete && Stage != RoomStage.Listening)
             {
                 // Loading an already completed room must not replay the lesson

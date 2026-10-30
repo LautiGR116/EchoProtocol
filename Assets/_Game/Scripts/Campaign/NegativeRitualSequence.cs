@@ -25,7 +25,7 @@ namespace EchoProtocol.Campaign
         float[] levels;
         float closeAge = -1, impactAge = -1, suspensionAge = -1, answerAge = -1;
         float closeDepth = .14f;
-        bool ready, dragPlayed, impactPlayed, answerPlayed, settled;
+        bool ready, dragPlayed, impactPlayed, answerPlayed, settled, interrupted;
         public int CloseReveals { get; private set; }
         public int WallStrikes { get; private set; }
         public int OverheadStrains { get; private set; }
@@ -68,7 +68,17 @@ namespace EchoProtocol.Campaign
 
         void LateUpdate()
         {
-            if (!ready || !session.HasStarted || !encounter.Active || session.IsPaused || Time.deltaTime <= 0) return;
+            if (!ready || !session.HasStarted || !encounter.Active) return;
+            // Capture pauses in the same frame. Cancel before that guard so a
+            // retry cannot resume an old sound or deliver a deferred strike.
+            if (encounter.Failed)
+            {
+                interrupted = true; StopCues(); AmbienceGain = 1;
+                impactPanel.localPosition = panelRest;
+                for (int i = 0; i < suspensionRest.Length; i++) suspendedForms[i].localRotation = suspensionRest[i];
+                return;
+            }
+            if (session.IsPaused || Time.deltaTime <= 0) return;
             if (encounter.Complete)
             {
                 if (!settled)
@@ -80,7 +90,9 @@ namespace EchoProtocol.Campaign
                 }
                 AmbienceGain = 1; return;
             }
-            if (encounter.Failed) { StopCues(); AmbienceGain = 1; return; }
+            // Already witnessed material stays deformed. Unseen accents are
+            // consumed on capture instead of being scheduled into the retry.
+            if (interrupted) { AmbienceGain = 1; return; }
 
             float dt = Time.deltaTime;
             if (suspensionAge < 0 && room.Stage == NegativeRoomSequence.RoomStage.Listening)
