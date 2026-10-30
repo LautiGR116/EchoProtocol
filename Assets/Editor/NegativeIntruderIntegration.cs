@@ -15,7 +15,7 @@ using Object=UnityEngine.Object;
 public static class NegativeIntruderIntegration
 {
     const string Output="Assets/_Game/Art/Embodiment/RenderpeoplePrivate/NegativeIntruder/";
-    const int Revision=1;
+    const int Revision=2;
 
     [MenuItem("Echo Protocol/El Negativo/Apply present intruder")]
     public static void Apply()
@@ -37,31 +37,26 @@ public static class NegativeIntruderIntegration
         var surface=surfaces[0];var prior=threat.GetComponent<NegativeIntruderIdentity>();
         if(prior)
         {
+            if(prior.revision==1){RepairGeneratedGeometry();return;}
             Require(prior.revision==Revision&&prior.body==surface&&prior.silhouette,"Existing Negative installation is incomplete; preserve it for review.");
+            NegativeIntruderGeometry.Validate(surface.sharedMesh);
+            foreach(var renderer in prior.silhouette.GetComponentsInChildren<SkinnedMeshRenderer>(true))NegativeIntruderGeometry.Validate(renderer.sharedMesh);
             Debug.Log("El Negativo already installed; saved geometry and scene composition preserved.",threat);return;
         }
         // Native saved meshes disable runtime Read/Write; outside Play the
         // Editor can still read these streams. Never change the source flag.
         Require(surface.sharedMesh&&surface.bones.All(b=>b)
             &&surface.bones.Length==surface.sharedMesh.bindposes.Length,"Licensed Nathan bind data required.");
-        var rig=new NegativeIntruderGeometry.Rig{binds=surface.sharedMesh.bindposes,bones=surface.bones};
-        int Bone(string field)
-        {
-            var t=Ref<Transform>(p,field);int i=Array.IndexOf(rig.bones,t);
-            Require(t&&i>=0,"Missing present bone: "+field);return i;
-        }
-        rig.hip=Bone("hips");rig.spine=Bone("spine");rig.chest=Bone("chest");rig.neck=Bone("neck");rig.head=Bone("head");
-        rig.la=Bone("leftArm");rig.le=Bone("leftForearm");rig.lh=Bone("leftHand");
-        rig.ra=Bone("rightArm");rig.re=Bone("rightForearm");rig.rh=Bone("rightHand");rig.lt=Bone("leftThigh");rig.rt=Bone("rightThigh");
+        var rig=RigFor(surface,performance,surface.sharedMesh);
         var shader=Shader.Find("Universal Render Pipeline/Lit");Require(shader,"URP Lit shader required.");
         EnsureFolder(Output.TrimEnd('/'));
         // All generated bind data and retained scan triangles stay private. New
         // objects/meshes are assigned rather than rewriting a shared Face asset.
-        var body=Asset("HandsAndBoots.asset",()=>NegativeIntruderGeometry.HandsAndBoots(surface.sharedMesh));
-        var mask=Asset("Mask.asset",()=>NegativeIntruderGeometry.Mask(rig));
-        var hood=Asset("Hood.asset",()=>NegativeIntruderGeometry.Hood(rig));
-        var coat=Asset("Coat.asset",()=>NegativeIntruderGeometry.Coat(rig));
-        var fingers=Asset("Fingertips.asset",()=>NegativeIntruderGeometry.Fingers(rig));
+        var body=Asset("HandsAndBoots-v2.asset",()=>NegativeIntruderGeometry.HandsAndBoots(surface.sharedMesh));
+        var mask=Asset("Mask-v2.asset",()=>NegativeIntruderGeometry.Mask(rig));
+        var hood=Asset("Hood-v2.asset",()=>NegativeIntruderGeometry.Hood(rig));
+        var coat=Asset("Coat-v2.asset",()=>NegativeIntruderGeometry.Coat(rig));
+        var fingers=Asset("Fingertips-v2.asset",()=>NegativeIntruderGeometry.Fingers(rig));
         var clothTexture=Asset("CoatedFabric.asset",()=>Texture(false));
         var maskTexture=Asset("CastIvory.asset",()=>Texture(true));
         var cloth=Asset("CoatedBlack.mat",()=>Material(shader,"Negative / coated black fabric",new Color(.050f,.057f,.052f),.25f,clothTexture,true));
@@ -92,6 +87,66 @@ public static class NegativeIntruderIntegration
                 +"Review one near view and actual movement centrally before saving.",threat);
         }
         catch{Undo.RevertAllDownToGroup(group);if(root)Object.DestroyImmediate(root);throw;}
+    }
+
+    static NegativeIntruderGeometry.Rig RigFor(SkinnedMeshRenderer surface,MachineThreatPerformance performance,Mesh source)
+    {
+        NegativeIntruderGeometry.Validate(source);
+        var p=new SerializedObject(performance);
+        var rig=new NegativeIntruderGeometry.Rig{binds=source.bindposes,bones=surface.bones};
+        int Bone(string field)
+        {
+            var t=Ref<Transform>(p,field);int i=Array.IndexOf(rig.bones,t);
+            Require(t&&i>=0,"Missing present bone: "+field);return i;
+        }
+        rig.hip=Bone("hips");rig.spine=Bone("spine");rig.chest=Bone("chest");rig.neck=Bone("neck");rig.head=Bone("head");
+        rig.la=Bone("leftArm");rig.le=Bone("leftForearm");rig.lh=Bone("leftHand");
+        rig.ra=Bone("rightArm");rig.re=Bone("rightForearm");rig.rh=Bone("rightHand");rig.lt=Bone("leftThigh");rig.rt=Bone("rightThigh");
+        return rig;
+    }
+
+    [MenuItem("Echo Protocol/El Negativo/Repair generated geometry before Play")]
+    public static void RepairGeneratedGeometry()
+    {
+        Require(!EditorApplication.isPlayingOrWillChangePlaymode&&!EditorApplication.isCompiling,"Repair outside Play, after import.");
+        var scene=SceneManager.GetActiveScene();
+        Require(scene.IsValid()&&scene.isLoaded&&(scene.path.EndsWith("/EchoProtocol_Incursion.unity",StringComparison.Ordinal)
+            ||scene.path.EndsWith("/EchoProtocol_Negative.unity",StringComparison.Ordinal)),"Repair only the open Incursion/Negative scene.");
+        var receipts=scene.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<NegativeIntruderIdentity>(true)).ToArray();
+        Require(receipts.Length==1,"Expected one Negative receipt; no scene was changed.");
+        var receipt=receipts[0];var body=receipt.body;var performance=receipt.GetComponent<MachineThreatPerformance>();
+        Require(body&&receipt.priorBody&&receipt.silhouette&&performance&&receipt.GetComponent<MachineCoverThreat>()
+            &&!receipt.GetComponentInParent<EchoPlayback>(),"Missing original present-actor recovery references.");
+        var rig=RigFor(body,performance,receipt.priorBody);
+        var replacements=new[]
+        {
+            Asset("Mask-v2.asset",()=>NegativeIntruderGeometry.Mask(rig)),
+            Asset("Hood-v2.asset",()=>NegativeIntruderGeometry.Hood(rig)),
+            Asset("Coat-v2.asset",()=>NegativeIntruderGeometry.Coat(rig)),
+            Asset("Fingertips-v2.asset",()=>NegativeIntruderGeometry.Fingers(rig))
+        };
+        var names=new[]{"Negative / ivory shell","Negative / closed cowl","Negative / split heavy coat","Negative / articulated ivory fingertips"};
+        var all=receipt.silhouette.GetComponentsInChildren<SkinnedMeshRenderer>(true);
+        var targets=names.Select(name=>all.Single(r=>r.name==name)).ToArray();
+        var retained=Asset("HandsAndBoots-v2.asset",()=>NegativeIntruderGeometry.HandsAndBoots(receipt.priorBody));
+        // Assign new validated native meshes. Never CopySerialized into the
+        // broken v1 skin buffers, enable the actor, or mutate the source scan.
+        Undo.IncrementCurrentGroup();int group=Undo.GetCurrentGroup();Undo.SetCurrentGroupName("Repair Negative mesh buffers");
+        try
+        {
+            Undo.RecordObject(body,"Replace retained body buffer");body.sharedMesh=retained;
+            for(int i=0;i<targets.Length;i++)
+            {
+                Undo.RecordObject(targets[i],"Replace Negative mesh buffer");targets[i].sharedMesh=replacements[i];
+                var bounds=body.localBounds;bounds.Encapsulate(replacements[i].bounds);bounds.Expand(.24f);targets[i].localBounds=bounds;
+                PrefabUtility.RecordPrefabInstancePropertyModifications(targets[i]);
+            }
+            Undo.RecordObject(receipt,"Validate repaired Negative geometry");receipt.revision=Revision;
+            AssetDatabase.SaveAssets();EditorSceneManager.MarkSceneDirty(scene);Undo.CollapseUndoOperations(group);
+            Debug.Log("Negative v2 geometry validated and rebound to five fresh meshes. Actor remains in its prior active state; scene UNSAVED. "
+                +"Unreferenced v1 generated assets retained; source scan and original recovery mesh untouched. Save before Play.",receipt);
+        }
+        catch{Undo.RevertAllDownToGroup(group);throw;}
     }
 
     static void Surface(Transform parent,string name,Mesh mesh,Material material,SkinnedMeshRenderer source)
@@ -125,9 +180,11 @@ public static class NegativeIntruderIntegration
     }
     static T Asset<T>(string name,Func<T> create) where T:Object
     {
-        string path=Output+name;var old=AssetDatabase.LoadAssetAtPath<T>(path);if(old)return old;
+        string path=Output+name;var old=AssetDatabase.LoadAssetAtPath<T>(path);
+        if(old){if(old is Mesh existing)NegativeIntruderGeometry.Validate(existing);return old;}
         Require(!System.IO.File.Exists(path),"Unrecognized existing private asset: "+path);
-        var item=create();AssetDatabase.CreateAsset(item,path);return item;
+        var item=create();if(item is Mesh mesh)NegativeIntruderGeometry.Validate(mesh);
+        AssetDatabase.CreateAsset(item,path);return item;
     }
     static void EnsureFolder(string path)
     {

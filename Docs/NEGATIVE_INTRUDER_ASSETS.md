@@ -16,3 +16,10 @@ The scene-local receipt retains the prior body mesh/material references. Repeati
 Apply preserves the installation and composition. Root transform, collider,
 recorded Echo, audio and capture/pursuit rules are unchanged. Appearance and motion
 require the central Editor review; fear is not established by these assets.
+
+Revision 2 clamps the fractional mask profile before exponentiation and rejects
+non-finite vertices, normals, tangents, UVs, bounds, skin weights and bind matrices
+before asset persistence. After a revision-1 installation, run
+`NegativeIntruderIntegration.RepairGeneratedGeometry()` outside Play and save the
+scene. It assigns new validated `*-v2.asset` meshes rather than reusing invalid
+native buffers. The source scan and unreferenced first generated assets remain.

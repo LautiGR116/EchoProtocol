@@ -39,9 +39,13 @@ public static class NegativeIntruderGeometry
         }
         public Mesh Finish(string name,Matrix4x4[] binds)
         {
+            // Validate before handing data to native Mesh/skin buffers. In
+            // particular sin(PI) can be slightly negative in float arithmetic.
+            Require(vertices.All(Finite)&&uv.All(p=>Finite(p.x)&&Finite(p.y)),name+": invalid generated positions/UVs.");
+            ValidateSkin(weights,binds,name);
             var mesh=new Mesh{name=name};mesh.SetVertices(vertices);mesh.SetUVs(0,uv);
             mesh.SetTriangles(triangles,0);mesh.boneWeights=weights.ToArray();mesh.bindposes=binds;
-            mesh.RecalculateNormals();mesh.RecalculateTangents();mesh.RecalculateBounds();return mesh;
+            mesh.RecalculateNormals();mesh.RecalculateTangents();mesh.RecalculateBounds();Validate(mesh);return mesh;
         }
     }
     static BoneWeight One(int bone)=>new BoneWeight{boneIndex0=bone,weight0=1};
@@ -50,6 +54,7 @@ public static class NegativeIntruderGeometry
 
     public static Mesh HandsAndBoots(Mesh source)
     {
+        Validate(source);
         var mesh=UnityEngine.Object.Instantiate(source);mesh.name="Negative / retained hands and continuous legs under coat";
         var rest=new List<Vector3>();source.GetUVs(2,rest);
         var vertices=rest.Count==source.vertexCount?rest.ToArray():source.vertices;
@@ -64,7 +69,7 @@ public static class NegativeIntruderGeometry
         // Vertices/bone weights stay untouched; only hidden triangles disappear.
         // The face, eyes, scalp and shirt cannot leak. Complete legs stay under
         // the split coat so stepping cannot expose a gap above the grounded boot.
-        mesh.bounds=source.bounds;return mesh;
+        mesh.bounds=source.bounds;Validate(mesh);return mesh;
     }
 
     public static Mesh Mask(Rig r)
@@ -79,7 +84,7 @@ public static class NegativeIntruderGeometry
             // sockets, painted face, mouth hole, or recognizable human features.
             float seam=.007f*Mathf.Exp(-Mathf.Pow((x+.28f)*13,2))*Mathf.Sin(v*Mathf.PI);
             return new Vector3(-.018f+x*width-.012f*(1-v),1.515f+v*.405f+x*.012f,
-                .178f+.061f*(1-x*x)*Mathf.Pow(Mathf.Sin(v*Mathf.PI),.4f)-seam);
+                .178f+.061f*(1-x*x)*Mathf.Pow(Mathf.Max(0,Mathf.Sin(v*Mathf.PI)),.4f)-seam);
         }
         b.Grid(30,32,Face,p=>One(r.head));
         b.Grid(30,32,(u,v)=>Face(u,v)-Vector3.forward*.016f,p=>One(r.head),true);
@@ -192,4 +197,38 @@ public static class NegativeIntruderGeometry
         }
         return b.Finish("Negative / eight blunt articulated ivory fingertip sleeves",r.binds);
     }
+
+    public static void Validate(Mesh mesh)
+    {
+        Require(mesh,"Missing Negative mesh.");
+        Require(mesh.vertexCount>0&&mesh.vertices.All(Finite),mesh.name+": invalid vertices.");
+        Require(mesh.normals.Length==mesh.vertexCount&&mesh.normals.All(Finite),mesh.name+": invalid normals.");
+        Require(mesh.tangents.Length==mesh.vertexCount&&mesh.tangents.All(Finite),mesh.name+": invalid tangents.");
+        Require(mesh.uv.Length==mesh.vertexCount&&mesh.uv.All(v=>Finite(v.x)&&Finite(v.y)),mesh.name+": invalid UVs.");
+        Require(Finite(mesh.bounds.center)&&Finite(mesh.bounds.extents),mesh.name+": invalid bounds.");
+        Require(mesh.boneWeights.Length==mesh.vertexCount,mesh.name+": incomplete skin weights.");
+        ValidateSkin(mesh.boneWeights,mesh.bindposes,mesh.name);
+        for(int s=0;s<mesh.subMeshCount;s++)
+            Require(mesh.GetIndices(s).All(i=>i>=0&&i<mesh.vertexCount),mesh.name+": invalid indices.");
+    }
+    static void ValidateSkin(IEnumerable<BoneWeight> weights,Matrix4x4[] binds,string name)
+    {
+        Require(binds!=null&&binds.Length>0,name+": missing bind matrices.");
+        foreach(var matrix in binds)
+        {
+            for(int i=0;i<16;i++)Require(Finite(matrix[i]),name+": invalid bind matrix.");
+            Require(Finite(matrix.determinant)&&Mathf.Abs(matrix.determinant)>.000001f,name+": singular bind matrix.");
+        }
+        foreach(var w in weights)
+        {
+            var values=new[]{w.weight0,w.weight1,w.weight2,w.weight3};
+            var indices=new[]{w.boneIndex0,w.boneIndex1,w.boneIndex2,w.boneIndex3};
+            Require(values.All(v=>Finite(v)&&v>=0)&&Mathf.Abs(values.Sum()-1)<.002f,name+": invalid skin weight.");
+            for(int i=0;i<4;i++)if(values[i]>0)Require(indices[i]>=0&&indices[i]<binds.Length,name+": invalid skin index.");
+        }
+    }
+    static bool Finite(float value)=>!float.IsNaN(value)&&!float.IsInfinity(value);
+    static bool Finite(Vector3 value)=>Finite(value.x)&&Finite(value.y)&&Finite(value.z);
+    static bool Finite(Vector4 value)=>Finite(value.x)&&Finite(value.y)&&Finite(value.z)&&Finite(value.w);
+    static void Require(bool condition,string message){if(!condition)throw new InvalidOperationException(message);}
 }
