@@ -32,11 +32,7 @@ namespace EchoProtocol.Presentation
             if(!titlePage){ui.Fill(new Rect(-2000,-2000,5280,4720),new Color(.008f,.007f,.005f,.88f));return;}
             // Leave the architecture visible on the right; no full-screen card.
             ui.Fill(new Rect(-2000,-2000,5280,4720),new Color(0,0,0,.13f));
-            for(int i=0;i<48;i++)
-            {
-                float alpha=.87f*(1-Mathf.SmoothStep(0,1,i/47f));
-                ui.Fill(new Rect(i*22,0,23,720),new Color(.005f,.004f,.003f,alpha));
-            }
+            ui.EdgeShade(new Rect(0,0,1056,720),.87f);
             ui.Fill(new Rect(0,672,1280,48),new Color(0,0,0,.34f));
         }
 
@@ -227,7 +223,7 @@ namespace EchoProtocol.Presentation
             NegativeAction(out string stage,out string key,out string action,out float progress);
             bool escape=cover&&cover.HideEncounterHud;
             // A single verb/target remains outside the centre of the frame.
-            for(int i=0;i<18;i++)ui.Fill(new Rect(i*44,28,45,132),new Color(0,0,0,.62f*(1-i/18f)));
+            ui.EdgeShade(new Rect(0,28,792,132),.62f);
             ui.Tag(new Rect(64,45,710,21),stage,ui.Muted);
             float actionX=64;
             if(key.Length>0)

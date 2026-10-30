@@ -14,6 +14,7 @@ namespace EchoProtocol.Presentation
         [SerializeField] private EchoProtocol.Horror.SD1SubtitleDisplay subtitles;
         readonly Dictionary<string, GUIStyle> styles = new Dictionary<string, GUIStyle>();
         readonly List<Texture2D> swatches = new List<Texture2D>();
+        Texture2D edgeShade;
         readonly List<string> controls = new List<string>();
         readonly HashSet<string> readers = new HashSet<string>();
         readonly HashSet<string> sliders = new HashSet<string>();
@@ -67,6 +68,22 @@ namespace EchoProtocol.Presentation
             s.normal.textColor=color; styles[key]=s;return s;
         }
         public void Fill(Rect rect,Color color) {var old=GUI.color;GUI.color=color;GUI.DrawTexture(rect,Texture2D.whiteTexture);GUI.color=old;}
+        public void EdgeShade(Rect rect,float opacity)
+        {
+            if(!edgeShade)
+            {
+                edgeShade=new Texture2D(256,1,TextureFormat.RGBA32,false)
+                {name="El Negativo / edge shade",wrapMode=TextureWrapMode.Clamp,filterMode=FilterMode.Bilinear,hideFlags=HideFlags.HideAndDontSave};
+                var pixels=new Color[256];
+                for(int i=0;i<pixels.Length;i++)pixels[i]=new Color(0,0,0,1-Mathf.SmoothStep(0,1,i/255f));
+                edgeShade.SetPixels(pixels);edgeShade.Apply(false,true);
+                // Shares the existing instance-owned texture cleanup, including
+                // style invalidation. Unity's null check rebuilds it if destroyed.
+                swatches.Add(edgeShade);
+            }
+            var old=GUI.color;GUI.color=new Color(1,1,1,Mathf.Clamp01(opacity));
+            GUI.DrawTexture(rect,edgeShade,ScaleMode.StretchToFill);GUI.color=old;
+        }
         public void Outline(Rect rect,Color color,float thickness=1)
         {
             Fill(new Rect(rect.x,rect.y,rect.width,thickness),color);
