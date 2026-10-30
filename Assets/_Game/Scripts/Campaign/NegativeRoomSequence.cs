@@ -36,6 +36,8 @@ namespace EchoProtocol.Campaign
         [SerializeField, Min(0)] private int silencePanelIndex = 2;
         [SerializeField] private Vector3 silenceSettleOffset = new Vector3(0, -.18f, 0);
         [SerializeField, Min(.2f)] private float silenceSettleSeconds = 1.15f;
+        [Tooltip("Optional physical pressure-cue cutoff before the separate ritual panel strikes. Zero retains the full clip.")]
+        [SerializeField, Min(0)] private float silenceCueSeconds;
 
         private Vector3[] openPositions;
         private Quaternion[] openRotations;
@@ -156,6 +158,11 @@ namespace EchoProtocol.Campaign
             }
             wasRunning = running;
             if (SilenceResponsePlayed) settlingTime = Mathf.Min(silenceSettleSeconds, settlingTime + Time.deltaTime);
+            if (SilenceResponsePlayed && silenceCueSeconds > 0 && cues[2].isPlaying)
+            {
+                cues[2].volume = CueLevel(2) * Mathf.Clamp01((silenceCueSeconds - settlingTime) / .12f);
+                if (settlingTime >= silenceCueSeconds) cues[2].Stop();
+            }
             float ambientTarget = Stage == RoomStage.Teaching ? 1 : Stage == RoomStage.Sealed ? .18f : 0;
             ambient01 = Mathf.MoveTowards(ambient01, ambientTarget, Time.deltaTime / blackoutSeconds);
             WorkLight01 = Mathf.MoveTowards(WorkLight01, running ? 1 : 0,
