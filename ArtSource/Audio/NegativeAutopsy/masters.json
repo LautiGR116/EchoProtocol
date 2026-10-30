@@ -1,0 +1,364 @@
+{
+  "version": 1,
+  "date": "2026-10-30",
+  "title": "El Negativo / Autopsy physical consequences",
+  "recipe": "ArtSource/Audio/NegativeAutopsy/compose.py",
+  "numpyVersion": "2.3.5",
+  "rights": "Inputs credited CC0 1.0 in existing repository receipts; original DSP/composition is project work. No download, voice or external model/service used.",
+  "integration": "Dedicated 3D WorldSFX sources at the visible physical emitter. Runtime owns causal timing, pause/capture cancellation and reduced-dynamics scaling. Existing master/limiter/mono remain authoritative.",
+  "sources": {
+    "scrape2": {
+      "path": "ArtSource/Audio/Resonance/Decoded/scrape-2.wav",
+      "author": "AntumDeluge",
+      "title": "Scrapes / scrape-2.wav",
+      "url": "https://opengameart.org/content/scrapes",
+      "sourceTrace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "license": "CC0 1.0 per existing repository evidence; no new licensing claim",
+      "sha256": "9b93f353f0155ffa391b1074a1595dd00321e8c604efe0ca9c1192a5f86129a0"
+    },
+    "scrape4": {
+      "path": "ArtSource/Audio/Resonance/Decoded/scrape-4.wav",
+      "author": "AntumDeluge",
+      "title": "Scrapes / scrape-4.wav",
+      "url": "https://opengameart.org/content/scrapes",
+      "sourceTrace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "license": "CC0 1.0 per existing repository evidence; no new licensing claim",
+      "sha256": "70f45f23b790881887bb45cc8f041b92140d27c0e7bf4e99dc679decfaa97dd1"
+    },
+    "scrape7": {
+      "path": "ArtSource/Audio/Resonance/Decoded/scrape-7.wav",
+      "author": "AntumDeluge",
+      "title": "Scrapes / scrape-7.wav",
+      "url": "https://opengameart.org/content/scrapes",
+      "sourceTrace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "license": "CC0 1.0 per existing repository evidence; no new licensing claim",
+      "sha256": "60220f433d94f8eb6356717f20687d32b44ad8e37e68c47e540ef2f2b8ca0f92"
+    },
+    "clunk": {
+      "path": "ArtSource/Audio/Resonance/Sources/mechanical-lightclunk1.wav",
+      "author": "Brian MacIntosh (BMacZero)",
+      "title": "Mechanical sounds / lightclunk1.wav",
+      "url": "https://opengameart.org/content/mechanical-sounds",
+      "sourceTrace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "license": "CC0 1.0 per existing repository evidence; no new licensing claim",
+      "sha256": "d5a2aa8764c02924f6ed6fbaad0c650ab2d57ec57a626cee9e6645f941dbc8fa"
+    },
+    "mechanism": {
+      "path": "ArtSource/Audio/Resonance/Sources/mechanical-mechanical2.wav",
+      "author": "Brian MacIntosh (BMacZero)",
+      "title": "Mechanical sounds / mechanical2.wav",
+      "url": "https://opengameart.org/content/mechanical-sounds",
+      "sourceTrace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "license": "CC0 1.0 per existing repository evidence; no new licensing claim",
+      "sha256": "27b4b6c3517c90d635295fca48fccd747950f869d680c871662f26038c3665ef"
+    },
+    "key": {
+      "path": "ArtSource/Audio/Resonance/Sources/mechanical-typewriter.wav",
+      "author": "Brian MacIntosh (BMacZero)",
+      "title": "Mechanical sounds / typewriter.wav",
+      "url": "https://opengameart.org/content/mechanical-sounds",
+      "sourceTrace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "license": "CC0 1.0 per existing repository evidence; no new licensing claim",
+      "sha256": "f62eade0c6b597f9faa00406ff74924d61f75ff770b906e45b90388b81907bd3"
+    },
+    "air": {
+      "path": "Assets/_Game/Audio/Clips/Ambience/AMB_FacilityAir_LP.wav",
+      "author": "HECKFRICKER",
+      "title": "House Vent Loop 03 / existing facility-air derivative",
+      "url": "https://freesound.org/people/HECKFRICKER/sounds/753542/",
+      "sourceTrace": "Docs/AUDIO_ASSET_LEDGER.md",
+      "license": "CC0 1.0 per existing repository evidence; no new licensing claim",
+      "sha256": "a0a6f8c1a3fd15f188a74ca8997d5f859f79f2fc4ab597da63747890ed612b8a"
+    }
+  },
+  "masters": [
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeAutopsy/NA_Suture.wav",
+      "seconds": 2.4,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceCutsSeconds": {
+        "scrape2": [
+          [
+            0.14,
+            0.48,
+            0.72
+          ]
+        ],
+        "scrape7": [
+          [
+            0.05,
+            0.38,
+            0.91
+          ],
+          [
+            0.47,
+            0.55,
+            0.9
+          ],
+          [
+            0.69,
+            0.79,
+            0.9
+          ],
+          [
+            1.03,
+            1.12,
+            0.9
+          ]
+        ],
+        "key": [
+          [
+            0.002,
+            0.113,
+            1.25
+          ]
+        ],
+        "scrape4": [
+          [
+            0.23,
+            1.3,
+            0.72
+          ]
+        ]
+      },
+      "sourceGain": 0.18,
+      "authoredChoreographySeconds": {
+        "tautFiber": [
+          0.025,
+          0.45
+        ],
+        "mainTearPeak": 0.45,
+        "clothPeel": [
+          0.59,
+          2.08
+        ]
+      },
+      "composition": "A taut surface loads, one close fiber knot separates, then the remaining cloth draws away with three diminishing loose fibers. Crisp recorded friction and typewriter spring detail; no vocal or injury recording.",
+      "peakDbFS": -11.501,
+      "rmsDbFS": -36.462,
+      "onset10PercentPeakSeconds": 0.127771,
+      "peakAtSeconds": 0.45,
+      "dc": 1.9073486328125e-08,
+      "fadeSeconds": [
+        0.012,
+        0.2
+      ],
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "sha256": "b670a53c6231639beff51eecaa41d36e8ac233a062686286d4a4b09af8f63730",
+      "bytes": 230444,
+      "humanListeningApproval": "PENDING: signal checks cannot approve material identity, fear, acting, localization or comfort"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeAutopsy/NA_Thorax.wav",
+      "seconds": 3.0,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceCutsSeconds": {
+        "clunk": [
+          [
+            0.005,
+            0.35,
+            0.54
+          ],
+          [
+            0.09,
+            0.22,
+            0.84
+          ]
+        ],
+        "mechanism": [
+          [
+            0.02,
+            0.25,
+            0.68
+          ]
+        ],
+        "scrape4": [
+          [
+            0.15,
+            1.2,
+            0.63
+          ]
+        ],
+        "air": [
+          [
+            6.2,
+            8.45,
+            1
+          ]
+        ]
+      },
+      "sourceGain": 0.24,
+      "authoredChoreographySeconds": {
+        "mainBodyPeak": 0.18,
+        "hingeTravel": [
+          0.32,
+          1.99
+        ],
+        "secondaryDryStop": 0.64,
+        "cavityEscape": [
+          0.23,
+          2.48
+        ]
+      },
+      "composition": "A deep dry shell contact opens into a short damp cavity response, followed by strained hinge friction and low escaping chamber air. Five brief original shell modes seed601 add body without a drone or sub-drop. No human bodily performance is claimed.",
+      "peakDbFS": -8.5,
+      "rmsDbFS": -37.94,
+      "onset10PercentPeakSeconds": 0.140479,
+      "peakAtSeconds": 0.175875,
+      "dc": -5.7008531358506944e-08,
+      "fadeSeconds": [
+        0.006,
+        0.24
+      ],
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "sha256": "4a8da7f1cee4d8b6d498788261e00305824785a7277d3aea5090a51a9dba698e",
+      "bytes": 288044,
+      "humanListeningApproval": "PENDING: signal checks cannot approve material identity, fear, acting, localization or comfort"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeAutopsy/NA_Jaw.wav",
+      "seconds": 1.8,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceCutsSeconds": {
+        "key": [
+          [
+            0.001,
+            0.115,
+            0.79
+          ]
+        ],
+        "clunk": [
+          [
+            0.015,
+            0.16,
+            1.21
+          ]
+        ],
+        "scrape2": [
+          [
+            0.48,
+            0.56,
+            1.1
+          ],
+          [
+            0.68,
+            0.77,
+            0.91
+          ],
+          [
+            1.03,
+            1.11,
+            0.83
+          ]
+        ],
+        "mechanism": [
+          [
+            0.12,
+            0.47,
+            0.86
+          ]
+        ]
+      },
+      "sourceGain": 0.2,
+      "authoredChoreographySeconds": {
+        "mainReleasePeak": 0.06,
+        "fallingFragments": [
+          0.19,
+          0.33,
+          0.57
+        ]
+      },
+      "composition": "A brittle joint releases once, with compact mechanical spring/clunk grains, a very short original bone-like shell response seed607 and small diminishing fragments. Deliberately dry, no sustained ringing or vocal expression.",
+      "peakDbFS": -11.0,
+      "rmsDbFS": -42.099,
+      "onset10PercentPeakSeconds": 0.055354,
+      "peakAtSeconds": 0.06,
+      "dc": 5.7573671694155095e-08,
+      "fadeSeconds": [
+        0.003,
+        0.2
+      ],
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "sha256": "31f5461fc6354ddb5458f44955b68650c8cbb1adacc27fee1572f2154d2e5264",
+      "bytes": 172844,
+      "humanListeningApproval": "PENDING: signal checks cannot approve material identity, fear, acting, localization or comfort"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeAutopsy/NA_AfterBreath.wav",
+      "seconds": 3.6,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceCutsSeconds": {
+        "air": [
+          [
+            13.1,
+            16.7,
+            1
+          ],
+          [
+            9.2,
+            12.8,
+            1
+          ]
+        ],
+        "scrape4": [
+          [
+            0.18,
+            0.6,
+            0.67
+          ]
+        ]
+      },
+      "sourceGain": 0.14,
+      "authoredChoreographySeconds": {
+        "emptyingOnset": 0.07,
+        "pressureRise": [
+          0.13,
+          0.72
+        ],
+        "unevenRelease": [
+          0.72,
+          2.93
+        ],
+        "airGone": 3.59
+      },
+      "composition": "Two differently filtered sections of credited vent air form one intimate, empty chamber exhalation: brief textured opening, uneven pressure loss and almost dry disappearance. No voice, breath performer, formant synthesis or continuous horror drone.",
+      "peakDbFS": -15.5,
+      "rmsDbFS": -31.483,
+      "onset10PercentPeakSeconds": 0.10125,
+      "peakAtSeconds": 0.726688,
+      "dc": -1.0419774938512731e-08,
+      "fadeSeconds": [
+        0.035,
+        0.25
+      ],
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "sha256": "a565b68bfc75808bed526796642c1780b1062c6da26719cd93a2717f381f3e2f",
+      "bytes": 345644,
+      "humanListeningApproval": "PENDING: signal checks cannot approve material identity, fear, acting, localization or comfort"
+    }
+  ]
+}

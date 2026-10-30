@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: c54a11ae415d59a4a93b390ca3ac961b
+AudioImporter:
+  externalObjects: {}
+  serializedVersion: 8
+  defaultSettings:
+    serializedVersion: 2
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 48000
+    compressionFormat: 0
+    quality: 1
+    conversionMode: 0
+    preloadAudioData: 1
+  platformSettingOverrides: {}
+  forceToMono: 0
+  normalize: 0
+  loadInBackground: 0
+  ambisonic: 0
+  3D: 1
+  userData: Negative autopsy; mono 48k PCM16; authored physical cue; no automatic normalization
+  assetBundleName:
+  assetBundleVariant:
