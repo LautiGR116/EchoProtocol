@@ -37,6 +37,14 @@ approved at prototype level.
 
 ## Editor integration — 2026-10-30
 
+The research pass now adds visual teaching, paired world routes, a shorter
+8/5/16-second pump plan, retained crank work and explicit pause-menu take reuse.
+An occupied threshold persists into the cooperation, with clearer work/escape
+lighting and a corrected intruder silhouette. P1 PASS59 and pump PASS40 in the
+Editor; human comprehension and fear remain **EN PRUEBA**.
+[Current saved delivery](Docs/ONESHOT_20261030.md),
+[communication draft](Docs/MARKETING_KIT_20261030.md).
+
 Incursion now teaches recording, RECALL and cooperation at the title and during
 play. State-based next actions, reader cues and suggested-pause countdowns guide
 progress. The pump adds a response in the silence, a more committed first rush

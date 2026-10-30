@@ -6,6 +6,12 @@ status.
 
 ## Current milestone
 
+**Research integrado, 2026-10-30.** Enseñanza gráfica, rutas físicas A/B/C,
+preparación de bomba 8/5/16, manivela que conserva avance y reuso explícito desde
+pausa. Umbral ocupado persistente y composición del encuentro reforzada.
+P1 PASS59 y bomba PASS40 en Editor; miedo y comprensión siguen EN PRUEBA humana.
+[Cambios y entrega local](ONESHOT_20261030.md).
+
 **Claridad y presión, 2026-10-30.** Incursion adds first-play teaching, live next
 actions, suggested recording pauses and stronger authored pump anticipation,
 first rush and post-diversion listening. Three isolated agent worktrees integrated
