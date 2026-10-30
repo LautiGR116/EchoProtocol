@@ -35,14 +35,25 @@ same mechanical room an objectively verified clinical visual foundation without
 changing puzzle geometry, Echo behavior, or audio. Its human visual checkpoint is
 approved at prototype level.
 
-## Editor integration — 2026-10-30
+## Current Editor candidate — El Negativo, 2026-10-30
+
+`Assets/_Game/Scenes/Production/EchoProtocol_Negative.unity` introduces a
+monumental black, ivory and amber chamber, physical shutters, a masked present
+intruder and a full-screen title with **ENTRAR EN LA CÁMARA** as the default
+entry. The room darkens after the learned pump rule; its work lighting follows
+the real pump control. **Recorrido completo** remains a secondary entry.
+Incursion is preserved. Local integration and verification are pending; human
+comprehension, fear and comfort remain **EN PRUEBA**.
+[Candidate and verification status](Docs/NEGATIVE_20261030.md).
+
+## Previous Editor integration — 2026-10-30
 
 The research pass now adds visual teaching, paired world routes, a shorter
 8/5/16-second pump plan, retained crank work and explicit pause-menu take reuse.
 An occupied threshold persists into the cooperation, with clearer work/escape
 lighting and a corrected intruder silhouette. P1 PASS59 and pump PASS40 in the
 Editor; human comprehension and fear remain **EN PRUEBA**.
-[Current saved delivery](Docs/ONESHOT_20261030.md),
+[Previous saved delivery](Docs/ONESHOT_20261030.md),
 [communication draft](Docs/MARKETING_KIT_20261030.md).
 
 Incursion now teaches recording, RECALL and cooperation at the title and during
@@ -59,7 +70,7 @@ Focused Editor checks completed; no new build or web publication. Fear, acting a
 unprompted comprehension remain **EN PRUEBA**.
 [Integration and focused evidence](Docs/PARALLEL_ROUND_20261023.md).
 
-## Selected candidate — La embestida / Incursion, 2026-10-12
+## Preserved candidate — La embestida / Incursion, 2026-10-12
 
 Work and play in **Unity Editor**: open
 `Assets/_Game/Scenes/Production/EchoProtocol_Incursion.unity`, enter Play Mode,
