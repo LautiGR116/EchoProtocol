@@ -180,9 +180,18 @@ namespace EchoProtocol.Campaign
                 Rotate(leftArm,root.right,braking*12-searchWeight*7);Rotate(rightArm,root.right,braking*9-searchWeight*13);
             }
             if(rush)rush.Pose(root,hips,spine,chest,neck,head,jaw,leftArm,rightArm,leftForearm,rightForearm,phase,age,contained);
+            if(onMachine&&intruder&&intruder.ListeningTurnWeight>0)
+            {
+                // The planted hand stays constrained below. Only the shoulder
+                // and head leave the housing when its real motor falls quiet.
+                Vector3 heard=root.InverseTransformDirection(attention-head.position);
+                float turn=Mathf.Clamp(Mathf.Atan2(heard.x,heard.z)*Mathf.Rad2Deg,-24,24);
+                Rotate(chest,root.up,turn*intruder.ListeningTurnWeight);
+            }
             if(authored)
             {
                 int beat=20+(int)phase;
+                if(onMachine&&intruder&&intruder.ListeningTurnWeight>0)beat=70;
                 if(phase==MachineCoverThreat.Intention.Entry)beat=rush.HasContact?(contained&&rush.ContactAge>=.22f?42:41):40;
                 acting.Pose(root,neck,head,attention,beat,dt,
                     phase==MachineCoverThreat.Intention.Entry&&rush.HasContact?.18f:.07f,

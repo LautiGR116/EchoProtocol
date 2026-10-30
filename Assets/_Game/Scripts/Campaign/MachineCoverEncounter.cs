@@ -53,13 +53,48 @@ namespace EchoProtocol.Campaign
         public LoopController Loop => loop;
         public EchoProtocol.Interaction.IInteractable HoldingInteraction => machine.PlayerHeld ? machine : crank.IsHolding ? crank : release.IsHolding ? release : null;
         public string ProgressStamp => RuleObserved + "/" + BoltReleased + "/" + ExitReleased + "/" + Complete;
+        public bool HasUpcomingPumpRun
+        {
+            get
+            {
+                if(!loop||!machine)return false;
+                var echo=loop.ActiveEcho;
+                if(!echo||echo.IsComplete||echo.Recording==null)return false;
+                for(int i=0;i<echo.Recording.MachineGripCount;i++)
+                {
+                    var grip=echo.Recording.MachineGrip(i);
+                    if(grip.Target==machine.TargetId&&grip.Held&&grip.Timestamp>echo.ElapsedTime)return true;
+                }
+                return false;
+            }
+        }
+        public string EscapeInstruction
+        {
+            get
+            {
+                if(Complete)return "Compuerta asegurada. Cruzá y seguí hacia la casa.";
+                if(Failed)return "Tu toma sigue entera. Podés reintentar con el mismo Echo.";
+                if(!threat||!threat.Released)return "La salida está al otro lado del paso lateral iluminado.";
+                if(threat.IsCapturing)return "Te alcanzó. Tu toma se conserva para el reintento.";
+                if(threat.ListeningAfterPump)return "La bomba se apagó. Conservá el tabique entre él y vos y acercate a la compuerta.";
+                if(threat.AttractedToMachine)return "Va hacia la bomba. Seguí por el paso lateral y cruzá la compuerta iluminada.";
+                if(threat.Phase==MachineCoverThreat.Intention.Search)
+                {
+                    if(Covered)return "Quedate detrás del tabique: el ruido de la bomba está desviando su atención.";
+                    return HasUpcomingPumpRun
+                        ? "Quedate detrás del tabique. Esperá el próximo arranque que grabaste."
+                        : "Tu toma ya no tiene otro arranque. Mantené distancia; R permite preparar una nueva.";
+                }
+                return "Entrá al paso lateral iluminado. Dejá el tabique entre él y vos.";
+            }
+        }
         public string Objective => Complete ? "La compuerta quedó abierta. Cruzá y seguí hacia la casa."
             : Failed ? "Te alcanzó en el pasillo. Tu toma sigue entera."
-            : ExitReleased ? "Salí por el paso lateral iluminado y cruzá la compuerta."
+            : ExitReleased ? EscapeInstruction
             : BoltReleased ? "La reja abre cuando baja la presión. La palanca de salida está del otro lado."
             : loop.ActiveEcho ? "Aflojá el cierre junto a la reja mientras la bomba tape los golpes."
             : RuleObserved ? "La bomba cubre los golpes, pero su presión cierra la reja. Prepará tu recorrido. R / RECALL."
-            : "Probá el mando de la bomba. Mirá qué cambia en la reja de servicio.";
+            : "Mantené E en el mando de la bomba. Después soltá y mirá bajar el manómetro.";
         public string StatusText => Complete ? "SALIDA ASEGURADA"
             : Covered ? "BOMBA EN MARCHA · TUS GOLPES QUEDAN CUBIERTOS"
             : Pressure01 > .15f ? "PRESIÓN BAJANDO"
@@ -185,8 +220,8 @@ namespace EchoProtocol.Campaign
         public string Hint(int level)
         {
             if (Complete) return Objective;
-            if (ExitReleased) return level==0 ? "La palanca abrió otro paso a tu izquierda. Escuchá de dónde viene la figura antes de salir."
-                : "Volvé por el paso lateral iluminado, a la izquierda cuando mirás la palanca. Desde ahí, la compuerta abierta queda al fondo. La bomba atrae su atención, pero si te ve puede perseguirte.";
+            if (ExitReleased) return level==0 ? EscapeInstruction
+                : "El paso lateral iluminado está a la izquierda cuando mirás la palanca. Usá el tabique para ocultarte. Si grabaste otra marcha de la bomba, esperá su ruido: lo atrae después de perderte de vista. Cruzá la compuerta cuando se desvíe. Si la toma terminó, podés usar R para preparar otra.";
             if (BoltReleased) return level==0 ? "El cierre ya está destrabado. Mirá cómo baja el manómetro cuando tu Echo suelta el mando."
                 : "Cruzá la reja cuando termine la descarga. La palanca para liberar la salida está al fondo del pasillo de servicio. Conservá una segunda marcha de la bomba para tu regreso.";
             if (level == 0) return "El ruido y la presión hacen cosas distintas. Mirá el manómetro y escuchá el pasillo cuando soltás el mando.";

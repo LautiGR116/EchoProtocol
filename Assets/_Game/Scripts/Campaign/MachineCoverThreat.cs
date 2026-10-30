@@ -52,6 +52,13 @@ namespace EchoProtocol.Campaign
         float searchArrivedAt, nextBrakeAt, routeAt;
         Vector3 observedHeading, searchGoal, searchFacing, huntAttention, chargeGoal;
         bool heardNow, machineContactPlayed, searchProbed, searchCuePlayed;
+        bool machineSilenceTurn, openingCharge;
+        float machineSilenceAt = -1;
+        Vector3 machineLastEvidence;
+        public bool ListeningAfterPump => Phase == Intention.MachineContact && machineSilenceTurn && !encounter.Covered;
+        public float ListeningTurnWeight => ListeningAfterPump
+            ? Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.12f, .36f, Time.time-machineSilenceAt)) : 0;
+        public int SilenceTurnCount { get; private set; }
         int searchPass;
         bool UsesHunt => intruder && intruder.Embestida;
         public Vector3 LastKnownPosition => knownPosition;
@@ -89,6 +96,7 @@ namespace EchoProtocol.Campaign
             Change(Intention.Dormant); speedNow=0;
             sensedAt=lastDetectedAt=Time.time;visibleFor=coveredFor=silentFor=0;heardAt=-100;
             searchArrivedAt=-1;nextBrakeAt=0;heardNow=machineContactPlayed=searchProbed=false;
+            machineSilenceTurn=openingCharge=false;machineSilenceAt=-1;
             observedHeading=searchFacing=transform.forward;huntAttention=knownPosition+Vector3.up*1.45f;
             cornerReached=false;
             player.MovementSuppressed=player.LookSuppressed=false;
@@ -247,8 +255,8 @@ namespace EchoProtocol.Campaign
                     {
                         if(intruder.Embestida)
                         {
-                            Change(Intention.Charge);chargeAt=Time.time;inspectAt=0;speedNow=.65f;
-                            chargeGoal=knownPosition;
+                            Change(Intention.Charge);chargeAt=Time.time;inspectAt=0;speedNow=1.0f;
+                            chargeGoal=knownPosition;openingCharge=true;
                             lastDetectedAt=Time.time;huntAttention=knownPosition+Vector3.up*1.45f;
                             if(presence)presence.Cue(MachineCoverPresence.HuntCue.Launch);
                         }
@@ -358,7 +366,7 @@ namespace EchoProtocol.Campaign
 
         void StartSearch()
         {
-            Change(Intention.Search);SearchCount++;AttractedToMachine=false;
+            Change(Intention.Search);SearchCount++;AttractedToMachine=false;openingCharge=false;
             searchGoal=knownPosition;searchFacing=observedHeading.sqrMagnitude>.01f?observedHeading:transform.forward;
             searchArrivedAt=-1;searchProbed=searchCuePlayed=false;searchPass=0;
             if(presence)presence.Cue(MachineCoverPresence.HuntCue.Brake);
@@ -366,14 +374,14 @@ namespace EchoProtocol.Campaign
 
         void ReacquirePlayer()
         {
-            Change(Intention.Reacquire);ReacquisitionCount++;AttractedToMachine=false;
+            Change(Intention.Reacquire);ReacquisitionCount++;AttractedToMachine=false;openingCharge=false;
             if(presence)presence.Cue(MachineCoverPresence.HuntCue.Reacquire);
         }
 
         void InvestigateMachine()
         {
             Change(Intention.Listening);AttractedToMachine=true;DiversionCount++;
-            machineContactPlayed=false;
+            machineContactPlayed=machineSilenceTurn=false;machineSilenceAt=-1;
             if(chaseVoice)chaseVoice.Stop();
             if(recognitionVoice)recognitionVoice.Stop();
         }
@@ -419,9 +427,20 @@ namespace EchoProtocol.Campaign
                 // to listening through the housing. The player can use that time.
                 if(!machineContactPlayed&&PhaseAge>=.38f&&performance.MachinePalmDistance<.12f)
                 {machineContactPlayed=true;if(presence)presence.Cue(MachineCoverPresence.HuntCue.MachineContact);}
+                if(!machineSilenceTurn&&!encounter.Covered&&silentFor>=.32f)
+                {
+                    machineSilenceTurn=true;machineSilenceAt=Time.time;
+                    // The last actually seen/heard place, never a hidden live
+                    // Player coordinate. His hand remains on the casing while
+                    // the head turns into the silence before his body follows.
+                    machineLastEvidence=knownPosition+Vector3.up*1.45f;
+                    SilenceTurnCount++;
+                    if(presence)presence.Cue(MachineCoverPresence.HuntCue.HoldBreath);
+                }
+                bool finishedListening=!ListeningAfterPump||Time.time-machineSilenceAt>=.8f;
                 if((visibleFor>=.28f&&separation<1.35f)
-                    ||(PhaseAge>=machineCommitSeconds&&detected))ReacquirePlayer();
-                else if(PhaseAge>=machineCommitSeconds&&silentFor>.7f)StartSearch();
+                    ||(PhaseAge>=machineCommitSeconds&&detected&&finishedListening))ReacquirePlayer();
+                else if(PhaseAge>=machineCommitSeconds&&silentFor>1.25f&&finishedListening)StartSearch();
             }
 
             Vector3 goal=knownPosition;
@@ -433,10 +452,15 @@ namespace EchoProtocol.Campaign
             }
             else if(Phase==Intention.Charge)
             {
-                // A brief committed surge changes phrasing; the sustainable
-                // speed remains below the Player and turns cost real distance.
-                requestedSpeed*=Mathf.Lerp(1.28f,1,Mathf.SmoothStep(0,1,PhaseAge/1.05f));
-                requestedSpeed*=intruder.Embestida.PursuitMultiplier;
+                // A protected, committed first surge actually invades the
+                // release operator's space. It points at the last observed
+                // position, not a homing target. After that near miss, ordinary
+                // pursuit retains its saved speed and collision/turn costs.
+                float surge=openingCharge
+                    ?1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(.34f,.88f,PhaseAge)):0;
+                float burstSpeed=Mathf.Clamp(pursuitSpeed*1.65f,3.4f,4.4f);
+                requestedSpeed=Mathf.Lerp(pursuitSpeed,burstSpeed,surge);
+                requestedSpeed*=Mathf.Lerp(intruder.Embestida.PursuitMultiplier,1,surge);
                 // Commit the first step to the position that launched it. The
                 // torso cannot steer like a homing projectile when the Player
                 // cuts across the release. Senses still update the next decision.
@@ -472,7 +496,9 @@ namespace EchoProtocol.Campaign
             else if(AttractedToMachine)
             {
                 goal=intruder.PumpStand.position;requestedSpeed=listeningSpeed;turnSpeed=145;
-                huntAttention=intruder.PumpHand.position;
+                huntAttention=ListeningAfterPump
+                    ? machineLastEvidence
+                    : intruder.PumpHand.position;
                 if(Phase==Intention.MachineContact)requestedSpeed=0;
             }
 
@@ -491,7 +517,7 @@ namespace EchoProtocol.Campaign
             if(bracing)requestedSpeed=0;
             if(Phase!=Intention.Search&&speedNow>1.2f&&requestedSpeed<speedNow-.8f&&Time.time>=nextBrakeAt)
             {nextBrakeAt=Time.time+1.1f;if(presence)presence.Cue(MachineCoverPresence.HuntCue.Brake);}
-            speedNow=Mathf.MoveTowards(speedNow,requestedSpeed,dt*(requestedSpeed<speedNow?7:Phase==Intention.Charge?4.5f:2.8f));
+            speedNow=Mathf.MoveTowards(speedNow,requestedSpeed,dt*(requestedSpeed<speedNow?7:Phase==Intention.Charge&&openingCharge&&PhaseAge<.72f?9:Phase==Intention.Charge?4.5f:2.8f));
             if(facing.sqrMagnitude>.001f)
                 transform.rotation=Quaternion.RotateTowards(transform.rotation,Quaternion.LookRotation(facing),turnSpeed*dt);
             if(direction.magnitude>.08f&&!bracing&&Phase!=Intention.MachineContact)

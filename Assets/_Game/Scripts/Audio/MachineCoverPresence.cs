@@ -35,7 +35,7 @@ namespace EchoProtocol.Audio
         [SerializeField] private bool ruptureP3Presentation;
         [SerializeField] private IntruderStaging ruptureP3Staging;
         [SerializeField] private AudioSource ruptureP3Contact;
-        public enum HuntCue { Launch, Brake, Search, Reacquire, MachineContact }
+        public enum HuntCue { Launch, Brake, Search, Reacquire, MachineContact, HoldBreath }
         readonly RaycastHit[] hits = new RaycastHit[32];
         float[] gains, acousticGains;
         bool[] obstructedSources;
@@ -165,6 +165,16 @@ namespace EchoProtocol.Audio
                     huntBody.Stop(); PlayAction(huntVoice, reacquireEffort);
                     breathQuietUntil = Time.time + .48f;
                     listeningUntil = -100;
+                    break;
+                case HuntCue.HoldBreath:
+                    // Real pump silence interrupts the recovery phrase. A
+                    // single close intake, then absence: it is the current
+                    // body listening, never a sound attributed to the Echo.
+                    huntVoice.Stop();
+                    if(moveHuntBody)huntBody.transform.localPosition=huntBodyRest;
+                    PlayAction(huntBody,searchBreath);
+                    breathQuietUntil=Time.time+1.4f;
+                    listeningUntil=Time.time+1.4f;
                     break;
                 case HuntCue.MachineContact:
                     huntVoice.Stop(); huntBody.Stop(); PlayAction(huntContact, machineContact);
@@ -329,7 +339,7 @@ namespace EchoProtocol.Audio
             if(frictionGain>0&&!friction.isPlaying)friction.Play();
             if(scoreGain>0&&!score.isPlaying)score.Play();
             score.volume=scoreGain;
-            threatPractical.intensity=Mathf.MoveTowards(threatPractical.intensity,active?1.65f:.25f,Time.deltaTime*4);
+            PresentContactLight(active);
             if(exitPractical)exitPractical.intensity=Mathf.MoveTowards(exitPractical.intensity,active?2.2f:threat.Intruder?1.1f:.12f,Time.deltaTime*5);
             if(Time.time>=inspectAt)
             {
@@ -359,6 +369,24 @@ namespace EchoProtocol.Audio
             }
             if(frictionGain<=0&&friction.isPlaying)friction.Stop();
             if(scoreGain<=0&&score.isPlaying)score.Stop();
+        }
+        void PresentContactLight(bool active)
+        {
+            var entry=threat.Intruder?threat.Intruder.Embestida:null;
+            float level=active?1.65f:.25f;
+            if(active&&entry&&entry.HasContact)
+            {
+                float age=entry.ContactAge;
+                // One fixture drops at the actual housing impact; no random
+                // flicker or repeated strobe. Its weak recovery reveals how
+                // much space the body gained. The exit light stays untouched.
+                if(age<.20f)level=0;
+                else if(age<.70f)level=Mathf.Lerp(.18f,.95f,Mathf.SmoothStep(0,1,(age-.20f)/.50f));
+                else level=threat.AttractedToMachine?1.15f:.95f;
+                threatPractical.intensity=level;
+                return;
+            }
+            threatPractical.intensity=Mathf.MoveTowards(threatPractical.intensity,level,Time.deltaTime*4);
         }
         void OnDisable(){ResetPresence();}
     }

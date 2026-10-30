@@ -33,6 +33,12 @@ namespace EchoProtocol.Campaign
         Quaternion doorRest, handleRest;
         bool ready, p3Placed, p3Retired, p3Sound, primed, pressed, burst, burstVoice, pumpPlaced;
         float preparationAt = -1, witnessAt, quiet;
+        float manualPumpAge, answerQuietAge, answerAt = -1;
+        bool preparationAnswered;
+        public bool DoorAnswerPending => primed && !preparationAnswered && preparationAt < 0;
+        public bool DoorAnswered => preparationAnswered;
+        public int DoorAnswerCount { get; private set; }
+        public float DoorAnswerAge => answerAt < 0 ? -1 : Time.time - answerAt;
         float brakeAt=-100;
         bool cornerBraced;
         public Transform PumpStand => pumpStand;
@@ -42,6 +48,7 @@ namespace EchoProtocol.Campaign
         public Transform CornerHand => cornerHand;
         public float BrakeWeight => 1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(.15f,.48f,Time.time-brakeAt));
         public bool InPumpContact => threat.Phase == MachineCoverThreat.Intention.MachineContact;
+        public float ListeningTurnWeight => threat.ListeningTurnWeight;
         public float AmbienceMultiplier => encounter.Active && !encounter.Complete ? quiet : 1;
         public int DiscoveryContacts { get; private set; }
         public int BreachImpacts { get; private set; }
@@ -62,7 +69,8 @@ namespace EchoProtocol.Campaign
         {
             if(encounter&&encounter.Active&&p3Intrusion)p3Intrusion.ReleasePose();
             if(!ready)return;
-            preparationAt=-1;primed=pressed=burst=burstVoice=false;
+            preparationAt=answerAt=-1;manualPumpAge=answerQuietAge=0;
+            primed=pressed=burst=burstVoice=false;
             brakeAt=-100;cornerBraced=false;
             if(embestida)embestida.ResetAct();
             doorHinge.localRotation=doorRest;doorHandle.localRotation=handleRest;
@@ -75,6 +83,8 @@ namespace EchoProtocol.Campaign
         public void BeginBreach()
         {
             burst=burstVoice=false;latch.Stop();breath.Stop();
+            preparationAt=answerAt=-1;answerQuietAge=0;
+            if(embestida)embestida.Prepare(0);
             if(embestida)embestida.Begin();else latch.Play();
         }
 
@@ -93,7 +103,7 @@ namespace EchoProtocol.Campaign
             if(embestida)
             {
                 float open=Mathf.SmoothStep(0,1,Mathf.InverseLerp(.08f,.35f,age));
-                doorHinge.localRotation=doorRest*Quaternion.Euler(0,-105*open,0);
+                doorHinge.localRotation=doorRest*Quaternion.Euler(0,-Mathf.Lerp(preparationAnswered?2.8f:0,105,open),0);
                 bool done=embestida.Advance(age,controller);
                 if(embestida.HasContact&&!burst){burst=true;BreachImpacts++;}
                 return done;
@@ -144,26 +154,17 @@ namespace EchoProtocol.Campaign
                 return;
             }
             if(!pumpPlaced){pumpPlaced=true;p3Retired=true;p3Practical.intensity=0;visual.gameObject.SetActive(true);}
-            // The rehearsal stays safe. It is actual live manual pumping that
-            // first draws the hand to the closed side door, not a scare timer.
-            if(!threat.Released&&!encounter.Complete)
-            {
-                if(!primed&&encounter.Machine.PlayerHeld){primed=true;preparationAt=Time.time+.6f;}
-                if(preparationAt>=0)
-                {
-                    float age=Time.time-preparationAt;
-                    float push=Mathf.SmoothStep(0,1,Mathf.InverseLerp(0,.8f,age))*(1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(1.0f,1.5f,age)));
-                    doorHandle.localRotation=handleRest*Quaternion.Euler(0,0,-32*push);
-                    doorHinge.localRotation=doorRest*Quaternion.Euler(0,-(embestida?4.5f:1.4f)*push,0);
-                    if(embestida)embestida.Prepare(push);
-                    if(age>=0&&!pressed){pressed=true;latch.Play();}
-                    if(age>=2.25f){doorImpact.PlayOneShot(doorPressure,.36f);preparationAt=-1;}
-                }
-            }
+            // The first manual run demonstrates the real pressure rule. Its
+            // stop then earns one answer from the occupied door, in the newly
+            // exposed silence, rather than burying a timer-driven hit under the
+            // motor. The present-world consequence survives RECALL/retry.
+            if(!threat.Released&&!encounter.Complete) PresentPreparation();
             if(embestida&&!threat.Released&&!encounter.Complete)
                 performance.Present(MachineCoverThreat.Intention.Dormant,Time.time,Vector3.zero,0,breachHand.position,null);
             bool tense=threat.Released&&!encounter.Complete;
-            float target=tense?(InPumpContact?.22f:.10f):pressed?.55f:1;
+            float answerAge=DoorAnswerAge;
+            bool answering=(DoorAnswerPending&&!encounter.MachineRunning)||(answerAge>=0&&answerAge<1.2f);
+            float target=tense?(InPumpContact?.22f:.10f):answering?.18f:(preparationAnswered||pressed)?.55f:1;
             quiet=Mathf.MoveTowards(quiet,target,Time.deltaTime*1.6f);
             // A real outlet on the same driven pump creates the diversion at the
             // exposed exit. The recording still holds only its existing control.
@@ -181,6 +182,45 @@ namespace EchoProtocol.Campaign
                 if(InPumpContact&&!encounter.Complete){if(!breath.isPlaying)breath.Play();}
                 else if(breath.isPlaying)breath.Stop();
             }
+        }
+
+        void PresentPreparation()
+        {
+            if(preparationAnswered)
+            {
+                float age=DoorAnswerAge;
+                // One loaded leaf, one recoil, then a persistent narrow opening.
+                // The actual door collider follows; no new route opens here.
+                float load=age<0?0:Mathf.SmoothStep(0,1,age/.065f)
+                    *(1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(.10f,.42f,age)));
+                doorHinge.localRotation=doorRest*Quaternion.Euler(0,-(2.8f+4.7f*load),0);
+                doorHandle.localRotation=handleRest*Quaternion.Euler(0,0,-(14+18*load));
+                if(embestida)embestida.Prepare(load);
+                return;
+            }
+            if(!primed)
+            {
+                manualPumpAge=encounter.Machine.PlayerHeld?manualPumpAge+Time.deltaTime:0;
+                if(manualPumpAge<1.5f)return;
+                primed=true;preparationAt=Time.time;
+            }
+            if(preparationAt>=0)
+            {
+                float age=Time.time-preparationAt;
+                float push=Mathf.SmoothStep(0,1,age/.65f)
+                    *(1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(.8f,1.3f,age)));
+                doorHandle.localRotation=handleRest*Quaternion.Euler(0,0,-32*push);
+                doorHinge.localRotation=doorRest*Quaternion.Euler(0,-(embestida?4.5f:1.4f)*push,0);
+                if(embestida)embestida.Prepare(push);
+                if(!pressed){pressed=true;latch.Play();}
+                if(age>=1.3f)preparationAt=-1;
+            }
+            // Respect both live and replayed pumping. A new run cancels the
+            // pending quiet interval, never the immutable control recording.
+            answerQuietAge=encounter.MachineRunning||!encounter.RuleObserved?0:answerQuietAge+Time.deltaTime;
+            if(preparationAt>=0||answerQuietAge<.62f)return;
+            preparationAnswered=true;answerAt=Time.time;DoorAnswerCount++;
+            doorImpact.PlayOneShot(doorPressure,.36f);
         }
 
         void MoveBody(Transform anchor)
