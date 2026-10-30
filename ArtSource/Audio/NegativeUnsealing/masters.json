@@ -1,0 +1,379 @@
+{
+  "version": 1,
+  "date": "2026-10-30",
+  "title": "El Negativo / Unsealing physical consequences",
+  "recipe": "ArtSource/Audio/NegativeUnsealing/compose.py",
+  "numpyVersion": "2.3.5",
+  "rights": "Inputs credited CC0 1.0 in existing repository receipts; original DSP/composition is project work. No download, voice or external model/service used.",
+  "integration": "Dedicated 3D WorldSFX sources at the visible physical emitter. Runtime owns causal timing, pause/capture cancellation and reduced-dynamics scaling. Existing master/limiter/mono remain authoritative.",
+  "sources": {
+    "scrape3": {
+      "path": "ArtSource/Audio/Resonance/Decoded/scrape-3.wav",
+      "author": "AntumDeluge",
+      "title": "Scrapes / scrape-3.wav",
+      "url": "https://opengameart.org/content/scrapes",
+      "sourceTrace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "license": "CC0 1.0 per existing repository evidence; no new licensing claim",
+      "sha256": "5586c252106affc44e71fcc5781bafb7c6d6d49c301b92f69a210f0d7435d508"
+    },
+    "scrape5": {
+      "path": "ArtSource/Audio/Resonance/Decoded/scrape-5.wav",
+      "author": "AntumDeluge",
+      "title": "Scrapes / scrape-5.wav",
+      "url": "https://opengameart.org/content/scrapes",
+      "sourceTrace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "license": "CC0 1.0 per existing repository evidence; no new licensing claim",
+      "sha256": "1b9a0bed92b019fa2029996e2e8c7e86ff45bab24b1c1b742bf0cd0b3e160cff"
+    },
+    "scrape8": {
+      "path": "ArtSource/Audio/Resonance/Decoded/scrape-8.wav",
+      "author": "AntumDeluge",
+      "title": "Scrapes / scrape-8.wav",
+      "url": "https://opengameart.org/content/scrapes",
+      "sourceTrace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "license": "CC0 1.0 per existing repository evidence; no new licensing claim",
+      "sha256": "1486ac23e6e66bcda8333244190d2a1e0939f05037176e26cce2f43aed58519f"
+    },
+    "clunk": {
+      "path": "ArtSource/Audio/Resonance/Sources/mechanical-lightclunk2.wav",
+      "author": "Brian MacIntosh (BMacZero)",
+      "title": "Mechanical sounds / lightclunk2.wav",
+      "url": "https://opengameart.org/content/mechanical-sounds",
+      "sourceTrace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "license": "CC0 1.0 per existing repository evidence; no new licensing claim",
+      "sha256": "987be837a5941ded9a81572c319b9bf8f57d9f89741a5781fc7104adc87d60f5"
+    },
+    "mechanism": {
+      "path": "ArtSource/Audio/Resonance/Sources/mechanical-mechanical1.wav",
+      "author": "Brian MacIntosh (BMacZero)",
+      "title": "Mechanical sounds / mechanical1.wav",
+      "url": "https://opengameart.org/content/mechanical-sounds",
+      "sourceTrace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "license": "CC0 1.0 per existing repository evidence; no new licensing claim",
+      "sha256": "de520ad93fa9f4df357b31a8fdef7778d8df994574c861f9337d5241fee5db33"
+    },
+    "squeak": {
+      "path": "ArtSource/Audio/Resonance/Sources/mechanical-squeakyclick2.wav",
+      "author": "Brian MacIntosh (BMacZero)",
+      "title": "Mechanical sounds / squeakyclick2.wav",
+      "url": "https://opengameart.org/content/mechanical-sounds",
+      "sourceTrace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "license": "CC0 1.0 per existing repository evidence; no new licensing claim",
+      "sha256": "33adab3bd231593b4d1a7d3735b869275550e469fa6656ff7f836d8c391e5f0e"
+    },
+    "rattle": {
+      "path": "ArtSource/Audio/Resonance/Sources/mechanical-rattle1.wav",
+      "author": "Brian MacIntosh (BMacZero)",
+      "title": "Mechanical sounds / rattle1.wav",
+      "url": "https://opengameart.org/content/mechanical-sounds",
+      "sourceTrace": "ArtSource/Audio/Resonance/Sources/download-manifest.json",
+      "license": "CC0 1.0 per existing repository evidence; no new licensing claim",
+      "sha256": "65ae71cd800986e4e4c0c1a180221c0f240f6ffd9e306f8634c0335a5e3f039a"
+    }
+  },
+  "masters": [
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeUnsealing/NU_Peel.wav",
+      "seconds": 3.1,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceCutsSeconds": {
+        "scrape3": [
+          [
+            0.08,
+            1.32,
+            0.48
+          ]
+        ],
+        "scrape5": [
+          [
+            0.16,
+            0.38,
+            0.73
+          ],
+          [
+            0.52,
+            0.77,
+            0.62
+          ],
+          [
+            0.89,
+            1.16,
+            0.83
+          ]
+        ],
+        "squeak": [
+          [
+            0.1,
+            0.47,
+            0.55
+          ]
+        ]
+      },
+      "sourceGain": 0.18,
+      "authoredChoreographySeconds": {
+        "firstLoad": 0.25,
+        "adhesionReleases": [
+          0.32,
+          0.71,
+          1.28
+        ],
+        "residualFrictionEnd": 2.64
+      },
+      "composition": "Low coarse material stretches, three irregular tears release and the remaining tack draws away. Recorded scrape grains and low squeaky hardware are edited as a non-vocal membrane surface, with short dry reflections.",
+      "peakDbFS": -12.0,
+      "rmsDbFS": -32.465,
+      "onset10PercentPeakSeconds": 0.322292,
+      "peakAtSeconds": 1.073125,
+      "dc": 2.563640635500672e-08,
+      "fadeSeconds": [
+        0.018,
+        0.2
+      ],
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "sha256": "faa6871afe06112e4a63d8b0102ebc9701fe40e14d70cbecbca8bf1f843af595",
+      "bytes": 297644,
+      "humanListeningApproval": "PENDING: signal checks cannot approve material identity, fear, acting, localization or comfort"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeUnsealing/NU_Tendon.wav",
+      "seconds": 2.25,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceCutsSeconds": {
+        "clunk": [
+          [
+            0.02,
+            0.11,
+            1.0
+          ],
+          [
+            0.09,
+            0.19,
+            0.83
+          ],
+          [
+            0.11,
+            0.29,
+            0.7
+          ]
+        ],
+        "scrape8": [
+          [
+            0.32,
+            1.27,
+            0.77
+          ]
+        ],
+        "squeak": [
+          [
+            0.07,
+            0.38,
+            0.54
+          ]
+        ]
+      },
+      "sourceGain": 0.14,
+      "authoredChoreographySeconds": {
+        "dryContacts": [
+          0.08,
+          0.23,
+          0.44
+        ],
+        "drag": [
+          0.58,
+          1.81
+        ]
+      },
+      "composition": "Three close dry fingertip-like contacts followed by one short elastic draw. No anatomic injury recording, voice or exaggerated wet splash; event identity belongs to its visible physical source.",
+      "peakDbFS": -15.0,
+      "rmsDbFS": -37.59,
+      "onset10PercentPeakSeconds": 0.082271,
+      "peakAtSeconds": 0.447479,
+      "dc": -4.521122685185185e-08,
+      "fadeSeconds": [
+        0.006,
+        0.19
+      ],
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "sha256": "f9a01935feac54b27d1f7230e82c492539deead577275fd5ff60b852f75f5d52",
+      "bytes": 216044,
+      "humanListeningApproval": "PENDING: signal checks cannot approve material identity, fear, acting, localization or comfort"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeUnsealing/NU_Hoist.wav",
+      "seconds": 3.4,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceCutsSeconds": {
+        "clunk": [
+          [
+            0.01,
+            0.25,
+            0.8
+          ],
+          [
+            0.04,
+            0.27,
+            0.61
+          ]
+        ],
+        "mechanism": [
+          [
+            0.015,
+            0.89,
+            0.34
+          ]
+        ],
+        "rattle": [
+          [
+            0.14,
+            0.28,
+            0.73
+          ],
+          [
+            0.31,
+            0.45,
+            0.61
+          ],
+          [
+            0.46,
+            0.65,
+            0.71
+          ]
+        ]
+      },
+      "sourceGain": 0.18,
+      "authoredChoreographySeconds": {
+        "takeLoad": 0.025,
+        "lowering": [
+          0.1,
+          2.67
+        ],
+        "brakeContact": 2.8
+      },
+      "composition": "One load-bearing mechanism: dry catch, slow unstable cable/ratchet tension, then a finite brake contact. Small original damped shell modes seed303 at the brake; no repeated loop or synthetic warning tone.",
+      "peakDbFS": -12.501,
+      "rmsDbFS": -35.239,
+      "onset10PercentPeakSeconds": 0.029521,
+      "peakAtSeconds": 0.156542,
+      "dc": 7.479798560049019e-10,
+      "fadeSeconds": [
+        0.004,
+        0.2
+      ],
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "sha256": "dc864a11b6f4c08a33e9a52a42d9e8b43c4fdd23c4825bf2cd810b9433a288f7",
+      "bytes": 326444,
+      "humanListeningApproval": "PENDING: signal checks cannot approve material identity, fear, acting, localization or comfort"
+    },
+    {
+      "file": "Assets/_Game/Audio/Clips/NegativeUnsealing/NU_CeramicFracture.wav",
+      "seconds": 2.1,
+      "sampleRate": 48000,
+      "channels": 1,
+      "pcmBits": 16,
+      "loop": false,
+      "sourceCutsSeconds": {
+        "scrape8": [
+          [
+            0.12,
+            0.17,
+            1.17
+          ],
+          [
+            0.26,
+            0.31,
+            1.29
+          ],
+          [
+            0.57,
+            0.63,
+            0.97
+          ],
+          [
+            0.91,
+            0.98,
+            1.1
+          ]
+        ],
+        "clunk": [
+          [
+            0.005,
+            0.15,
+            1.32
+          ]
+        ],
+        "scrape5": [
+          [
+            0.22,
+            0.27,
+            1.14
+          ],
+          [
+            0.44,
+            0.51,
+            1.14
+          ],
+          [
+            0.9,
+            0.98,
+            1.14
+          ],
+          [
+            1.19,
+            1.25,
+            1.14
+          ]
+        ]
+      },
+      "sourceGain": 0.25,
+      "authoredChoreographySeconds": {
+        "fractureCluster": [
+          0.005,
+          0.017,
+          0.029,
+          0.047
+        ],
+        "looseFragments": [
+          0.16,
+          0.29,
+          0.51,
+          0.68
+        ]
+      },
+      "composition": "Clustered brittle micro-fractures with a short inharmonic ceramic response seed307 and uneven falling fragments. Low material support under the crack; no bass-drop, high hiss bed or long pure ringing tone.",
+      "peakDbFS": -8.0,
+      "rmsDbFS": -33.089,
+      "onset10PercentPeakSeconds": 0.007229,
+      "peakAtSeconds": 0.014313,
+      "dc": 9.597293914310516e-08,
+      "fadeSeconds": [
+        0.002,
+        0.22
+      ],
+      "edgeSamples": [
+        0.0,
+        0.0
+      ],
+      "sha256": "8e4082d4490729b6caa6c664229d562df2ac36bb655454822fd05b0ead5abe06",
+      "bytes": 201644,
+      "humanListeningApproval": "PENDING: signal checks cannot approve material identity, fear, acting, localization or comfort"
+    }
+  ]
+}
