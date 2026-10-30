@@ -44,6 +44,9 @@ namespace EchoProtocol.Echo
 
         public float StartPreRollDuration => startPreRollDuration;
         public int CapturedMachineGripCount => machineGrips.Count;
+        // Guidance can inspect events already captured without obtaining the
+        // mutable buffer or inferring an interaction from the animated hand.
+        public RecordedMachineGrip CapturedMachineGrip(int index) => machineGrips[index];
         public bool CaptureMachineGrip(int target, bool held)
         {
             if (!IsRecording || !HasRecordingStarted || ReachedDurationLimit || target <= 0) return false;

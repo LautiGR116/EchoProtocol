@@ -11,6 +11,11 @@ namespace EchoProtocol.Campaign
     [DefaultExecutionOrder(220), DisallowMultipleComponent]
     public sealed class MachineCoverEncounter : MonoBehaviour, ILoopResettable
     {
+        // A suggested, conservative plan for this room, not a replay modifier.
+        // The HUD, physical cues and focused route use these same durations.
+        public const float FirstRunSeconds = 8;
+        public const float QuietWindowSeconds = 5;
+        public const float ReturnRunSeconds = 16;
         [SerializeField] private CampaignDirector director;
         [SerializeField] private GameSession session;
         [SerializeField] private FirstPersonController player;
@@ -35,6 +40,17 @@ namespace EchoProtocol.Campaign
         bool ready, wasRunning;
         float taughtRun, motorEnvelope, rotorAngle;
         Quaternion needleRest, rotorRest;
+        PreparationState preparing, savedPlan;
+        struct PreparationState
+        {
+            public bool HasEvents, Held, Ready;
+            public int Phase, Interruption;
+            public float PhaseStarted, At;
+            public float Elapsed => Mathf.Max(0, At - PhaseStarted);
+            public float Target => Phase == 0 ? FirstRunSeconds : Phase == 1 ? QuietWindowSeconds : ReturnRunSeconds;
+            public float Fraction => Ready ? 1 : !HasEvents || Phase == 0 && !Held ? 0 : Mathf.Clamp01(Elapsed / Target);
+            public int Remaining => Mathf.Max(0, Mathf.CeilToInt(Target - Elapsed));
+        }
         public bool Active { get; private set; }
         public bool Failed { get; private set; }
         public bool Complete { get; private set; }
@@ -52,7 +68,52 @@ namespace EchoProtocol.Campaign
         public RecordedMachineControl Machine => machine;
         public LoopController Loop => loop;
         public EchoProtocol.Interaction.IInteractable HoldingInteraction => machine.PlayerHeld ? machine : crank.IsHolding ? crank : release.IsHolding ? release : null;
-        public string ProgressStamp => RuleObserved + "/" + BoltReleased + "/" + ExitReleased + "/" + Complete;
+        public bool IsPreparingTake => Active && !Complete && !Failed
+            && (preparing.HasEvents || !BoltReleased && (!loop.ActiveEcho || loop.ActiveEcho.IsComplete));
+        public int PreparationPhase => preparing.Phase;
+        public float PreparationFraction => preparing.Fraction;
+        public bool CurrentTakeReady => preparing.Ready;
+        // Usable means the suggested three windows actually exist in the take.
+        // It is coaching, not an unlock or a guarantee of a successful escape.
+        public bool HasUsableTake => savedPlan.Ready;
+        public bool CanReplayLastTake => loop && loop.LastRecording != null && loop.LastRecording.Duration > 0;
+        public float WorkFraction => !BoltReleased ? crank.Fraction : !ExitReleased ? release.Fraction : Complete ? 1 : 0;
+        public string PreparationTitle => preparing.Ready ? "Toma preparada · RECALL"
+            : preparing.Phase == 2 ? "3 · Ruido para el regreso"
+            : preparing.Phase == 1 ? "2 · Soltá y dejá descargar"
+            : "1 · Ruido para aflojar";
+        public string PreparationDetail
+        {
+            get
+            {
+                if (preparing.Ready) return machine.PlayerHeld
+                    ? "El plan ya está grabado. Soltá E y pulsá R para usarlo desde la manivela."
+                    : "Pulsá R. Tu Echo hará la secuencia; vos vas a la manivela de la reja.";
+                if (!recorder || !recorder.HasRecordingStarted) return "Acercate al mando de la bomba. Caminar inicia la toma; mantené E para grabar la primera marcha.";
+                if (preparing.Phase == 1) return preparing.Remaining > 0
+                    ? $"Dejá E suelta: faltan {preparing.Remaining} s de pausa. El silencio permitirá cruzar la reja."
+                    : "La pausa ya alcanza. Volvé a mantener E en el mando para grabar el ruido del regreso.";
+                if (preparing.Phase == 2) return preparing.Remaining > 0
+                    ? $"Mantené E: faltan {preparing.Remaining} s para cubrir el regreso. Podés mirar alrededor sin soltar."
+                    : "El regreso ya tiene tiempo. Soltá E para cerrar el plan; después pulsá R.";
+                if (preparing.Held) return preparing.Remaining > 0
+                    ? $"Mantené E: faltan {preparing.Remaining} s para trabajar la manivela. Después vas a soltar."
+                    : "Primera marcha suficiente. Soltá E y observá cómo baja el manómetro.";
+                return preparing.Interruption == 2 ? "El tramo de regreso quedó corto. Mantené E para preparar una nueva secuencia en esta toma."
+                    : preparing.Interruption == 1 ? "La marcha quedó corta. Volvé a mantener E; la barra cuenta sólo el mando que realmente grabás."
+                    : "Mantené E en el mando. Dejá ruido grabado para aflojar el cierre desde el otro lado.";
+            }
+        }
+        public string TakeStatus => !CanReplayLastTake ? "Todavía no hay una toma guardada."
+            : HasUsableTake ? Failed ? "La secuencia está completa. Reintentá el recorrido con la misma toma."
+                : "Toma con ruido, descarga y regreso. El Echo repite lo que grabaste."
+            : !savedPlan.HasEvents ? "Esta toma no contiene el mando de la bomba. Prepará una nueva."
+            : savedPlan.Interruption == 2 || savedPlan.Phase == 2 ? "El regreso quedó corto o sin soltar. Prepará una segunda marcha más larga."
+            : savedPlan.Phase == 1 ? "La toma tiene la primera marcha; falta completar la pausa y el ruido del regreso."
+            : savedPlan.Held && savedPlan.Elapsed >= FirstRunSeconds ? "La toma no tiene una descarga suficiente. Soltá el mando durante la fase de pausa."
+            : "La primera marcha quedó corta. Prepará una nueva toma siguiendo las tres fases.";
+        public string ProgressStamp => RuleObserved + "/" + PreparationPhase + "/" + CurrentTakeReady + "/" + HasUsableTake
+            + "/" + BoltReleased + "/" + ExitReleased + "/" + Complete;
         public bool HasUpcomingPumpRun
         {
             get
@@ -89,19 +150,22 @@ namespace EchoProtocol.Campaign
             }
         }
         public string Objective => Complete ? "La compuerta quedó abierta. Cruzá y seguí hacia la casa."
-            : Failed ? "Te alcanzó en el pasillo. Tu toma sigue entera."
+            : Failed ? TakeStatus
             : ExitReleased ? EscapeInstruction
-            : BoltReleased ? (Pressure01>.15f
+            : IsPreparingTake ? PreparationDetail
+            : BoltReleased ? (release.IsHolding ? "Mantené E en la palanca hasta liberar la salida. El paso lateral se abrirá a tu lado."
+                : Pressure01>.15f
                 ? "Cierre destrabado. Esperá que tu Echo suelte el mando; la presión debe bajar para cruzar."
                 : "Cruzá la reja y buscá la palanca al fondo. Necesitás otra marcha grabada para cubrir el regreso.")
             : loop.ActiveEcho && !loop.ActiveEcho.IsComplete ? ReplayWorkInstruction
-            : RuleObserved || loop.ActiveEcho ? "En el mando: E 12 s → soltá 7 s → E 20 s. Soltá y pulsá R; el Echo repetirá esa secuencia."
-            : "Mantené E en el mando de la bomba. Después soltá y mirá bajar el manómetro.";
+            : PreparationDetail;
         string ReplayWorkInstruction => Covered
-            ? "La bomba tapa los golpes. Mantené E en la manivela junto a la reja hasta destrabar el cierre."
+            ? crank.Fraction > 0 ? "Seguí con E en la manivela. El avance queda guardado si soltás para mirar."
+                : "La bomba tapa los golpes. Mantené E en la manivela junto a la reja. Podés soltar sin perder el avance."
             : HasUpcomingPumpRun || machine.ReplayHeld
-                ? "Tu Echo va a encender la bomba. Acercate a la manivela de la reja; esperá el ruido para mantener E."
-                : "Esta toma ya no tiene otra marcha. Volvé al mando: E 12 s → soltá 7 s → E 20 s. Soltá y pulsá R.";
+                ? crank.Fraction > 0 ? "El cierre conserva tu avance. Esperá el próximo ruido de la bomba para seguir con E."
+                    : "Tu Echo va a encender la bomba. Acercate a la manivela de la reja; esperá el ruido para mantener E."
+                : "Esta toma ya no tiene otra marcha. Volvé al mando para grabar una nueva secuencia; la guía muestra cada fase.";
         public string StatusText => Complete ? "SALIDA ASEGURADA"
             : Covered ? "BOMBA EN MARCHA · TUS GOLPES QUEDAN CUBIERTOS"
             : Pressure01 > .15f ? "PRESIÓN BAJANDO"
@@ -138,6 +202,7 @@ namespace EchoProtocol.Campaign
         {
             if (!Active || Complete) return;
             Failed = false; BoltReleased = ExitReleased = false; Pressure01 = motorEnvelope = 0;
+            preparing = default;
             machine.ResetControl(); crank.ResetWork(); release.ResetWork(); threat.ResetThreat();
             motor.Stop(); motor.volume = 0; purge.Stop(); contact.Stop(); wasRunning = false;
             serviceGate.SetOpenImmediately(false); returnGate.SetOpenImmediately(false); exitDoor.SetOpenImmediately(false);
@@ -177,9 +242,57 @@ namespace EchoProtocol.Campaign
         }
         bool Inside(BoxCollider zone)
         { return new Bounds(zone.center, zone.size).Contains(zone.transform.InverseTransformPoint(player.transform.position + Vector3.up)); }
+        // Reads captured grip events directly. Looking at the pump, an animated
+        // hand, or another Echo holding it never counts as the Player recording
+        // this action. Pausing cannot add time: both sources use take timestamps.
+        PreparationState ReadPreparation(EchoRecording take)
+        {
+            var state = new PreparationState();
+            bool live = take == null;
+            int count = live ? recorder.CapturedMachineGripCount : take.MachineGripCount;
+            state.At = live ? recorder.ElapsedTime : take.Duration;
+            for (int i = 0; i < count; i++)
+            {
+                var grip = live ? recorder.CapturedMachineGrip(i) : take.MachineGrip(i);
+                if (grip.Target != machine.TargetId || grip.Timestamp > state.At || grip.Held == state.Held) continue;
+                state.HasEvents = true;
+                if (!state.Ready)
+                {
+                    float duration = grip.Timestamp - state.PhaseStarted;
+                    if (grip.Held)
+                    {
+                        if (state.Phase == 1 && duration >= QuietWindowSeconds) state.Phase = 2;
+                        else
+                        {
+                            if (state.Phase == 1) state.Interruption = 1;
+                            state.Phase = 0;
+                        }
+                        state.PhaseStarted = grip.Timestamp;
+                    }
+                    else if (state.Phase == 2 && duration >= ReturnRunSeconds)
+                    {
+                        state.Phase = 3; state.Ready = true; state.Interruption = 0;
+                    }
+                    else if (state.Phase == 0 && duration >= FirstRunSeconds)
+                    {
+                        state.Phase = 1; state.PhaseStarted = grip.Timestamp; state.Interruption = 0;
+                    }
+                    else
+                    {
+                        state.Interruption = state.Phase == 2 ? 2 : 1;
+                        state.Phase = 0; state.PhaseStarted = grip.Timestamp;
+                    }
+                }
+                state.Held = grip.Held;
+            }
+            return state;
+        }
         void LateUpdate()
         {
-            if (!ready || !session.HasStarted || session.IsPaused) return;
+            if (!ready) return;
+            preparing = ReadPreparation(null);
+            savedPlan = loop.LastRecording == null ? default : ReadPreparation(loop.LastRecording);
+            if (!session.HasStarted || session.IsPaused) return;
             if (!Active && director.Chapter == CampaignChapter.Descent && Inside(entry)) director.BeginMachineCover();
             if (!Active || Failed) return;
             bool running = machine.Held;
@@ -220,20 +333,22 @@ namespace EchoProtocol.Campaign
         }
         void UpdateLabels()
         {
-            controlText.text = "BOMBA / MANDO\n" + (machine.Held ? "MARCHA" : "SOLTAR = DESCARGAR") + "\nEL REGISTRO CONSERVA EL MANDO";
-            gateText.text = ExitReleased ? "RETÉN ACTIVADO\nPASO DE REGRESO ASEGURADO" : BoltReleased ? (Pressure01 > .15f ? "CIERRE DESTRABADO\nESPERAR DESCARGA" : "REJA SIN PRESIÓN\nPALANCA DE SALIDA AL FONDO") : "REJA DE SERVICIO\nCIERRE ATASCADO · USAR MANIVELA";
+            controlText.text = "BOMBA / MANDO\n" + (IsPreparingTake ? preparing.Ready ? "TOMA PREPARADA · R" : "PLAN " + (preparing.Phase + 1) + "/3 · " + (machine.PlayerHeld ? "GRABANDO MARCHA" : "MANDO SUELTO") : machine.Held ? "MARCHA" : "SOLTAR = DESCARGAR") + "\nE · MANTENER / SOLTAR";
+            gateText.text = ExitReleased ? "RETÉN ACTIVADO\nPASO DE REGRESO ASEGURADO" : BoltReleased ? (Pressure01 > .15f ? "CIERRE DESTRABADO\nESPERAR DESCARGA" : "REJA SIN PRESIÓN\nPALANCA DE SALIDA AL FONDO")
+                : crank.Fraction > 0 ? "MANIVELA · " + Mathf.RoundToInt(crank.Fraction * 100) + "%\nAVANCE RETENIDO · SEGUIR CON RUIDO" : "REJA DE SERVICIO\nCIERRE ATASCADO · USAR MANIVELA";
             exitText.text = ExitReleased ? "SALIDA LIBERADA\nVOLVER A LA COMPUERTA" : "SALIDA / LIBERACIÓN MANUAL";
         }
         public string Hint(int level)
         {
             if (Complete) return Objective;
+            if (Failed) return TakeStatus;
             if (ExitReleased) return level==0 ? EscapeInstruction
                 : "El paso lateral iluminado está a la izquierda cuando mirás la palanca. Usá el tabique para ocultarte. Si grabaste otra marcha de la bomba, esperá su ruido: lo atrae después de perderte de vista. Cruzá la compuerta cuando se desvíe. Si la toma terminó, podés usar R para preparar otra.";
             if (BoltReleased) return level==0 ? "El cierre ya está destrabado. Mirá cómo baja el manómetro cuando tu Echo suelta el mando."
                 : "Cruzá la reja cuando termine la descarga. La palanca para liberar la salida está al fondo del pasillo de servicio. Conservá una segunda marcha de la bomba para tu regreso.";
             if (level == 0) return "El ruido y la presión hacen cosas distintas. Mirá el manómetro y escuchá el pasillo cuando soltás el mando.";
             if (level == 1) return "Tu Echo puede mantener la bomba mientras aflojás el cierre. Después necesitás silencio para entrar, y ruido de nuevo para volver sin llamar su atención.";
-            return "Grabá el mando sostenido unos 12 s, soltalo unos 7 s y sostenelo otros 20 s. Soltá y pulsá R. Aflojá la manivela junto a la reja durante la primera marcha; cruzá cuando baje la presión y liberá la salida al fondo. Durante la segunda marcha, salí por el paso lateral iluminado y cruzá la compuerta. Los tiempos se cuentan desde que llegás al mando.";
+            return "Seguí las tres fases del mando: ruido para aflojar, pausa para cruzar y ruido para volver. La barra cuenta sólo lo que grabás. Cuando indique toma preparada, pulsá R. Trabajá la manivela con ruido; su avance se conserva si soltás. Cruzá al descargar y liberá la salida al fondo. Volvé por el paso lateral iluminado.";
         }
     }
 }

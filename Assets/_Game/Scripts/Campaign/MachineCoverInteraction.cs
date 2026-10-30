@@ -26,7 +26,10 @@ namespace EchoProtocol.Campaign
         public bool IsHolding { get; private set; }
         public float Fraction { get; private set; }
         public Kind Operation => kind;
-        public string Prompt => kind == Kind.Crank ? "Aflojar el cierre de la reja" : "Liberar la compuerta de salida";
+        public float WorkSeconds => workSeconds;
+        public string Prompt => kind == Kind.Crank
+            ? Fraction > 0 && !Accepted ? "Seguir aflojando · avance conservado" : "Aflojar el cierre de la reja"
+            : "Liberar la compuerta de salida";
         bool Accepted => kind == Kind.Crank ? encounter.BoltReleased : encounter.ExitReleased;
         void Awake()
         {
@@ -52,7 +55,11 @@ namespace EchoProtocol.Campaign
             if (!interact.IsPressed()) requireRelease = false;
             if (IsHolding && (!interact.IsPressed() || !InReach() || encounter.Failed || !player.isActiveAndEnabled
                 || (kind == Kind.Crank && !encounter.Covered))) IsHolding = false;
-            if (!Accepted) Fraction = Mathf.MoveTowards(Fraction, IsHolding ? 1 : 0, Time.deltaTime / (IsHolding ? workSeconds : .65f));
+            // The ratcheted crank keeps its real work when the Player lets go
+            // to look or when cover stops. New work still requires cover. The
+            // spring-loaded exit release retains its original hold requirement.
+            if (!Accepted && IsHolding) Fraction = Mathf.MoveTowards(Fraction, 1, Time.deltaTime / workSeconds);
+            else if (!Accepted && kind == Kind.Release) Fraction = Mathf.MoveTowards(Fraction, 0, Time.deltaTime / .65f);
             if(kind==Kind.Release && IsHolding && Fraction>.28f)encounter.PrimeThreat();
             if (IsHolding && Time.time >= nextContact)
             {

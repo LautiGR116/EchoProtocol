@@ -11,6 +11,11 @@ namespace EchoProtocol.Presentation
     [DisallowMultipleComponent]
     public sealed class ProtocolGuidance : MonoBehaviour
     {
+        public const float FirstReaderPauseSeconds = 8;
+        public const float AlignmentPauseSeconds = 7;
+        public const float ReturnFirstPauseSeconds = 6;
+        public const float ReturnTransferPauseSeconds = 10;
+        public const float ReturnFinalPauseSeconds = 10;
         [SerializeField] private ParallelObservationRelay firstRelay;
         [SerializeField] private VS1StrongEventOne firstEvent;
         [SerializeField] private VS1DomesticThresholdCheckpoint domesticCheckpoint;
@@ -30,10 +35,80 @@ namespace EchoProtocol.Presentation
         [SerializeField] private EchoRecorder recorder;
         [SerializeField] private OpticalReader firstReaderA, firstReaderB, firstReaderC;
         [SerializeField] private OpticalReader alignmentReader, returnReaderA, returnReaderB;
-        private int observedAttempt = -1, observedCheckpoint = -1;
+        private int observedAttempt = -1, observedCheckpoint = -1, observedRestart = -1;
         private string observedStage = "";
         private float firstASeconds, firstBSeconds, alignmentFacingSeconds, alignmentAwaySeconds;
         private float returnASeconds, returnBSeconds, returnFinalASeconds;
+        private static readonly string[] FirstPlan = { "Mirá A", "Pausa en B", "R · RECALL" };
+        private static readonly string[] FirstReplayPlan = { "Echo abre", "Vos mirás C", "Paso abierto" };
+        private static readonly string[] AlignmentPlan = { "Mirá el aro", "Mirá afuera", "R · RECALL" };
+        private static readonly string[] AlignmentReplayPlan = { "Cruzá 1", "Esperá cierre", "Cruzá 2" };
+        private static readonly string[] ReturnPlan = { "Pausa en A", "Pausa en B", "Volvé a A", "R · RECALL" };
+        private static readonly string[] ReturnReplayPlan = { "Recibí A", "Recibí B", "Retorno A" };
+        private static readonly string[] CoverPlan = { "Ruido", "Descarga", "Regreso", "R · RECALL" };
+        private static readonly string[] CoverReplayPlan = { "Manivela", "Cruzá reja", "Palanca", "Paso lateral" };
+        private static readonly string[] EmptyPlan = System.Array.Empty<string>();
+        private float ReaderObservationSeconds => recorder ? Mathf.Max(.1f, recorder.SampleInterval * 2) : .1f;
+        public bool ShowPlan => StageKey == "P1" && firstRelay.RequiresSimultaneousPresence
+            || StageKey == "P2" && alignmentRelay.RequiresPoweredClosure
+            || StageKey == "P3" && returnRelay.RequiresReturnWitness || StageKey == "Cobertura";
+        public string[] PlanSteps
+        {
+            get
+            {
+                switch (StageKey)
+                {
+                    case "P1": return HasLiveEcho ? FirstReplayPlan : FirstPlan;
+                    case "P2": return HasLiveEcho || alignmentRelay.HasTransferred ? AlignmentReplayPlan : AlignmentPlan;
+                    case "P3": return HasLiveEcho || returnRelay.IsTransferComplete ? ReturnReplayPlan : ReturnPlan;
+                    case "Cobertura": return campaign.CoverEncounter.IsPreparingTake ? CoverPlan : CoverReplayPlan;
+                    default: return EmptyPlan;
+                }
+            }
+        }
+        // Step indices are milestones, never an elapsed-time simulation of the
+        // solution. Only the current observation/work supplies a progress bar.
+        public int PlanStep
+        {
+            get
+            {
+                switch (StageKey)
+                {
+                    case "P1": return HasLiveEcho ? firstRelay.IsComplete ? 3 : firstRelay.EchoAAuthorized ? 1 : 0 : PreparationStep;
+                    case "P2": return alignmentRelay.HasTransferred ? 3 : HasLiveEcho
+                        ? !alignmentRelay.IsPlayerInside ? 0 : alignmentRelay.IsEntranceClosed ? 2 : 1 : PreparationStep;
+                    case "P3": return returnRelay.IsTransferComplete ? 3 : HasLiveEcho
+                        ? returnRelay.IsSecondLinkAccepted ? 2 : returnRelay.IsAuthorized ? 1 : 0 : PreparationStep;
+                    case "Cobertura":
+                        var cover = campaign.CoverEncounter;
+                        return cover.Complete ? 4 : cover.IsPreparingTake ? cover.PreparationPhase
+                            : cover.ExitReleased ? 3 : cover.BoltReleased ? cover.WorkFraction > 0 ? 2 : 1 : 0;
+                    default: return 0;
+                }
+            }
+        }
+        public float PlanProgress01
+        {
+            get
+            {
+                switch (StageKey)
+                {
+                    case "P1": return HasLiveEcho ? firstRelay.CooperationFraction
+                        : PreparationStep == 0 ? Mathf.Clamp01(firstASeconds / ReaderObservationSeconds)
+                        : PreparationStep == 1 ? Mathf.Clamp01(firstBSeconds / FirstReaderPauseSeconds) : 1;
+                    case "P2": return HasLiveEcho ? alignmentRelay.HasTransferred ? 1 : 0
+                        : PreparationStep == 0 ? Mathf.Clamp01(alignmentFacingSeconds / AlignmentPauseSeconds)
+                        : PreparationStep == 1 ? Mathf.Clamp01(alignmentAwaySeconds / AlignmentPauseSeconds) : 1;
+                    case "P3": return HasLiveEcho ? returnRelay.ReturnProgress
+                        : PreparationStep == 0 ? Mathf.Clamp01(returnASeconds / ReturnFirstPauseSeconds)
+                        : PreparationStep == 1 ? Mathf.Clamp01(returnBSeconds / ReturnTransferPauseSeconds)
+                        : PreparationStep == 2 ? Mathf.Clamp01(returnFinalASeconds / ReturnFinalPauseSeconds) : 1;
+                    case "Cobertura": return campaign.CoverEncounter.IsPreparingTake
+                        ? campaign.CoverEncounter.PreparationFraction : campaign.CoverEncounter.WorkFraction;
+                    default: return 0;
+                }
+            }
+        }
 
         public bool HasLiveEcho => loop && loop.ActiveEcho && !loop.ActiveEcho.IsComplete;
         public bool HasEndedEcho => loop && loop.ActiveEcho && loop.ActiveEcho.IsComplete;
@@ -60,40 +135,42 @@ namespace EchoProtocol.Presentation
 
         // Thresholds below are coaching suggestions, not qualification rules.
         // Only time actually spent recording in the matching real reader counts.
-        public int PreparationStep => StageKey == "P1" ? (firstBSeconds >= 12 ? 2 : firstASeconds > 0 ? 1 : 0)
-            : StageKey == "P2" ? (alignmentAwaySeconds >= 7 ? 2 : alignmentFacingSeconds >= 7 ? 1 : 0)
-            : StageKey == "P3" ? (returnFinalASeconds >= 10 ? 3 : returnBSeconds >= 10 ? 2 : returnASeconds >= 6 ? 1 : 0) : 0;
+        public int PreparationStep => StageKey == "P1" ? (firstBSeconds >= FirstReaderPauseSeconds ? 2 : firstASeconds >= ReaderObservationSeconds ? 1 : 0)
+            : StageKey == "P2" ? (alignmentAwaySeconds >= AlignmentPauseSeconds ? 2 : alignmentFacingSeconds >= AlignmentPauseSeconds ? 1 : 0)
+            : StageKey == "P3" ? (returnFinalASeconds >= ReturnFinalPauseSeconds ? 3 : returnBSeconds >= ReturnTransferPauseSeconds ? 2 : returnASeconds >= ReturnFirstPauseSeconds ? 1 : 0) : 0;
 
         private void Update()
         {
             if (!loop || !recorder || Time.timeScale <= 0) return;
             string stage = StageKey;
-            if (observedAttempt != loop.CurrentAttemptNumber || observedCheckpoint != loop.CheckpointRevision || observedStage != stage)
+            if (observedAttempt != loop.CurrentAttemptNumber || observedCheckpoint != loop.CheckpointRevision
+                || observedRestart != loop.PlaybackRestartCount || observedStage != stage)
             {
                 observedAttempt = loop.CurrentAttemptNumber; observedCheckpoint = loop.CheckpointRevision; observedStage = stage;
+                observedRestart = loop.PlaybackRestartCount;
                 firstASeconds = firstBSeconds = alignmentFacingSeconds = alignmentAwaySeconds = 0;
                 returnASeconds = returnBSeconds = returnFinalASeconds = 0;
             }
-            if (!loop.isActiveAndEnabled || !recorder.IsRecording || !recorder.HasRecordingStarted) return;
+            if (!loop.isActiveAndEnabled || !recorder.IsRecording || !recorder.HasRecordingStarted || recorder.ReachedDurationLimit) return;
             float dt = Time.deltaTime;
             if (stage == "P1")
             {
-                if (firstReaderA && firstReaderA.IsPlayerAligned) firstASeconds += dt;
-                if (firstBSeconds < 12) firstBSeconds = firstASeconds > 0 && firstReaderB && firstReaderB.IsPlayerAligned ? firstBSeconds + dt : 0;
+                if (firstASeconds < ReaderObservationSeconds) firstASeconds = firstReaderA && firstReaderA.IsPlayerAligned ? firstASeconds + dt : 0;
+                if (firstBSeconds < FirstReaderPauseSeconds) firstBSeconds = firstASeconds >= ReaderObservationSeconds && firstReaderB && firstReaderB.IsPlayerAligned ? firstBSeconds + dt : 0;
             }
             else if (stage == "P2" && alignmentReader)
             {
-                if (alignmentFacingSeconds < 7) alignmentFacingSeconds = alignmentReader.IsPlayerAligned ? alignmentFacingSeconds + dt : 0;
-                if (alignmentAwaySeconds < 7) alignmentAwaySeconds = alignmentReader.IsPlayerPresent && !alignmentReader.IsPlayerFacing
-                    && alignmentFacingSeconds >= 7 ? alignmentAwaySeconds + dt : 0;
+                if (alignmentFacingSeconds < AlignmentPauseSeconds) alignmentFacingSeconds = alignmentReader.IsPlayerAligned ? alignmentFacingSeconds + dt : 0;
+                if (alignmentAwaySeconds < AlignmentPauseSeconds) alignmentAwaySeconds = alignmentReader.IsPlayerPresent && !alignmentReader.IsPlayerFacing
+                    && alignmentFacingSeconds >= AlignmentPauseSeconds ? alignmentAwaySeconds + dt : 0;
             }
             else if (stage == "P3")
             {
                 bool atA = returnReaderA && returnReaderA.IsPlayerAligned;
                 bool atB = returnReaderB && returnReaderB.IsPlayerAligned;
-                if (returnASeconds < 6) returnASeconds = atA ? returnASeconds + dt : 0;
-                if (returnBSeconds < 10) returnBSeconds = returnASeconds >= 6 && atB ? returnBSeconds + dt : 0;
-                if (returnFinalASeconds < 10) returnFinalASeconds = returnBSeconds >= 10 && atA ? returnFinalASeconds + dt : 0;
+                if (returnASeconds < ReturnFirstPauseSeconds) returnASeconds = atA ? returnASeconds + dt : 0;
+                if (returnBSeconds < ReturnTransferPauseSeconds) returnBSeconds = returnASeconds >= ReturnFirstPauseSeconds && atB ? returnBSeconds + dt : 0;
+                if (returnFinalASeconds < ReturnFinalPauseSeconds) returnFinalASeconds = returnBSeconds >= ReturnTransferPauseSeconds && atA ? returnFinalASeconds + dt : 0;
             }
         }
 
@@ -112,8 +189,8 @@ namespace EchoProtocol.Presentation
                             : "Esperá que tu Echo mire A. Eso abre para vos el pasillo derecho de SERVICIO.";
                         if (PreparationStep == 2) return "Grabaste A y una pausa en B. Pulsá R: volvés al inicio y tu Echo repite el recorrido.";
                         if (PreparationStep == 1) return firstReaderB && firstReaderB.IsPlayerAligned
-                            ? $"Mantené la mirada en B: faltan {Remaining(12, firstBSeconds)} s de pausa sugerida. Después R crea tu Echo."
-                            : "Andá al lector B y quedate mirándolo unos 12 segundos. Esa pausa te da tiempo para llegar a C.";
+                            ? $"Mantené la mirada en B: faltan {Remaining(FirstReaderPauseSeconds, firstBSeconds)} s de pausa sugerida. Después R crea tu Echo."
+                            : $"Andá al lector B y miralo unos {FirstReaderPauseSeconds:0} segundos. Esa pausa te da tiempo para llegar a C.";
                         return HasEndedEcho ? "La toma terminó. Grabá otra: mirá A y después dejá una pausa más larga mirando B."
                             : recorder.IsArmed ? "Tomá el pasillo izquierdo de REGISTRO y buscá A. Caminar inicia la toma; mirá el aro hasta que encienda."
                             : "Buscá A por el pasillo izquierdo de REGISTRO. Mirá su aro hasta que encienda; ya estás grabando.";
