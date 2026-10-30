@@ -42,8 +42,9 @@ monumental black, ivory and amber chamber, physical shutters, a masked present
 intruder and a full-screen title with **ENTRAR EN LA CÁMARA** as the default
 entry. The room darkens after the learned pump rule; its work lighting follows
 the real pump control. **Recorrido completo** remains a secondary entry.
-Incursion is preserved. Local integration and verification are pending; human
-comprehension, fear and comfort remain **EN PRUEBA**.
+Incursion is preserved. Saved local integration; pump PASS40 in the Editor,
+with an 8/8/20-second suggested plan. Human comprehension, fear and comfort
+remain **EN PRUEBA**.
 [Candidate and verification status](Docs/NEGATIVE_20261030.md).
 
 ## Previous Editor integration — 2026-10-30

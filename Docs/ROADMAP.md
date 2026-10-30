@@ -6,13 +6,14 @@ status.
 
 ## Current milestone
 
-**El Negativo, 2026-10-30 — candidata en integración.** Cámara industrial
+**El Negativo, 2026-10-30 — candidata guardada.** Cámara industrial
 monumental negra/marfil/ámbar, cierre físico de seis paneles y luz que responde
 al mando real de la bomba. Menú de pantalla completa con entrada directa y
 amenaza presente de máscara cerrada y abrigo articulado. Escena separada
 `EchoProtocol_Negative.unity`; Incursion permanece recuperable. Editor only;
-comprobación central pendiente de registrar, miedo y comprensión EN PRUEBA
-humana. [Candidata y estado de verificación](NEGATIVE_20261030.md).
+bomba PASS40, plan sugerido 8/8/20, toma inmutable y escape comprobados.
+Miedo y comprensión EN PRUEBA humana.
+[Candidata y estado de verificación](NEGATIVE_20261030.md).
 
 **Research integrado, 2026-10-30.** Enseñanza gráfica, rutas físicas A/B/C,
 preparación de bomba 8/5/16, manivela que conserva avance y reuso explícito desde
