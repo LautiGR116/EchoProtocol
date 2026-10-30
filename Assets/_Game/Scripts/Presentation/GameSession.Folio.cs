@@ -59,6 +59,7 @@ namespace EchoProtocol.Presentation
             {
                 bool saved=!started&&campaign&&campaign.HasSavedCheckpoint;
                 bool preview=!started&&campaign&&campaign.CoverEncounter;
+                bool reuseCover=started&&!ending&&campaign&&campaign.CoverEncounter&&campaign.CoverEncounter.CanRestartPreparedTake;
                 bool restart=started||ending;
                 // Anchor the complete action stack above the footer. Optional actions
                 // receive their own measured row instead of pushing later rows down.
@@ -67,6 +68,7 @@ namespace EchoProtocol.Presentation
                 if(!ending)height+=64;
                 if(saved)height+=savedHeight+10;
                 if(preview)height+=58;
+                if(reuseCover)height+=58;
                 height+=58; // settings
                 if(restart)height+=54;
                 float y=Mathf.Min(402,638-height);
@@ -83,6 +85,11 @@ namespace EchoProtocol.Presentation
                 if(preview)
                 {
                     if(ui.Button(new Rect(88,y,610,48),"cover-preview","Probar la bomba · acceso directo"))RequestSessionResume(()=>campaign.BeginCoverPreview());
+                    y+=58;
+                }
+                if(reuseCover)
+                {
+                    if(ui.Button(new Rect(88,y,610,48),"cover-reuse","Reusar toma de la bomba"))RequestSessionResume(()=>campaign.CoverEncounter.RestartPreparedTake());
                     y+=58;
                 }
                 if(ui.Button(new Rect(88,y,298,48),"settings","Escucha y ajustes"))folioSettings=true;
@@ -139,8 +146,11 @@ namespace EchoProtocol.Presentation
             var ui=identity;var cover=campaign.CoverEncounter;
             ui.Tag(new Rect(88,142,700,24),"INTENTO INTERRUMPIDO / EL REGISTRO SIGUE ENTERO");
             GUI.Label(new Rect(84,192,850,150),"Te alcanzó\nen el pasillo.",ui.Display(66));
-            GUI.Label(new Rect(88,363,660,92),"El ruido lo atrae hacia la bomba. Si te ve, puede perseguirte. Usá el paso lateral mientras tu Echo mantenga la máquina en marcha.",ui.Text(22));
-            if(loop.LastRecording!=null&&ui.Button(new Rect(88,471,570,54),"cover-retry","Reintentar con la misma toma","Enter",true))cover.Retry(true);
+            GUI.Label(new Rect(88,363,660,92),cover.TakeStatus,ui.Text(22));
+            ui.Fill(new Rect(762,210,1,365),new Color(.26f,.32f,.31f));
+            ui.Tag(new Rect(812,227,366,24),"PARA EL PRÓXIMO INTENTO");
+            GUI.Label(new Rect(812,276,366,236),"El ruido lo atrae hacia la bomba.\n\nSi te ve, rompé la línea de visión. Usá el tabique del paso lateral y cruzá cuando se desvíe.",ui.Text(20));
+            if(cover.CanReplayLastTake&&ui.Button(new Rect(88,471,570,54),"cover-retry","Reintentar con la misma toma","Enter",true))cover.Retry(true);
             if(ui.Button(new Rect(88,541,570,48),"cover-record","Volver al mando y grabar otra toma"))cover.Retry(false);
             if(ui.Button(new Rect(88,609,260,42),"cover-quit","Salir"))Quit();
         }
