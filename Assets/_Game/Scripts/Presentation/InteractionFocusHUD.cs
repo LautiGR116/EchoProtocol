@@ -102,8 +102,13 @@ namespace EchoProtocol.Presentation
                 if(!guidance || string.IsNullOrEmpty(guidance.OpticalPrompt))return;
                 DisplayedPrompt=guidance.OpticalPrompt;
                 ui.Panel(area);
-                ui.Fill(new Rect(area.x+15,area.y+13,32,32),ui.Accent);
-                GUI.Label(new Rect(area.x+15,area.y+15,32,28),"VER",ui.Text(10,true,ui.Ink,TextAnchor.MiddleCenter));
+                // An eye, rather than a key cap: optical readers need no E.
+                ui.Fill(new Rect(area.x+21,area.y+16,20,2),ui.Accent);
+                ui.Fill(new Rect(area.x+21,area.y+30,20,2),ui.Accent);
+                ui.Fill(new Rect(area.x+17,area.y+20,2,8),ui.Accent);
+                ui.Fill(new Rect(area.x+43,area.y+20,2,8),ui.Accent);
+                ui.Fill(new Rect(area.x+28,area.y+21,6,6),ui.Accent);
+                GUI.Label(new Rect(area.x+7,area.y+38,48,16),"MIRAR",ui.Text(9,true,ui.Accent,TextAnchor.UpperCenter));
                 GUI.Label(new Rect(area.x+61,area.y+8,area.width-79,area.height-12),DisplayedPrompt,ui.Text(17,false,null,TextAnchor.MiddleLeft));
                 return;
             }
@@ -111,10 +116,16 @@ namespace EchoProtocol.Presentation
             bool sustained=DisplayedTarget is PressureIsolation||DisplayedTarget is ReturnWitnessControl||DisplayedTarget is RecordedMachineControl||DisplayedTarget is MachineCoverInteraction;
             DisplayedPrompt=(sustained?"MANTENER E  ·  ":"E  ·  ")+Prompt(DisplayedTarget);
             ui.Panel(area);
-            ui.Fill(new Rect(area.x+15,area.y+13,32,32),ui.Accent);
+            Color actionColor=sustained?new Color(.94f,.74f,.43f):ui.Paper;
+            ui.Fill(new Rect(area.x+15,area.y+13,32,32),actionColor);
             GUI.Label(new Rect(area.x+15,area.y+15,32,28),"E",ui.Text(19,true,ui.Ink,TextAnchor.MiddleCenter));
-            GUI.Label(new Rect(area.x+61,area.y+10,area.width-79,area.height-15),(sustained?"Mantener · ":"")+Prompt(DisplayedTarget),ui.Text(20,false,null,TextAnchor.MiddleLeft));
-            if(hold)ui.Fill(new Rect(area.x+61,area.yMax-4,(area.width-79)*(coverHolding is MachineCoverInteraction cw?cw.Fraction:coverHolding!=null?1:holdReturn?returning.Fraction:isolation.HandleFraction),2),ui.Accent);
+            if(sustained)
+            {
+                ui.Fill(new Rect(area.x+10,area.y+13,2,32),actionColor);
+                ui.Fill(new Rect(area.x+50,area.y+13,2,32),actionColor);
+            }
+            GUI.Label(new Rect(area.x+65,area.y+10,area.width-83,area.height-15),(sustained?"Mantener · ":"")+Prompt(DisplayedTarget),ui.Text(18,false,null,TextAnchor.MiddleLeft));
+            if(hold)ui.Fill(new Rect(area.x+65,area.yMax-4,(area.width-83)*Mathf.Clamp01(coverHolding is MachineCoverInteraction cw?cw.Fraction:coverHolding!=null?1:holdReturn?returning.Fraction:isolation.HandleFraction),2),actionColor);
             if(available&&!hold&&view)
             {
                 Vector3 point=view.WorldToScreenPoint(interactor.FocusPoint);float scale=ui.Scale;

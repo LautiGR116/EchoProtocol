@@ -1,4 +1,5 @@
 using UnityEngine;
+using EchoProtocol.Campaign;
 
 namespace EchoProtocol.Presentation
 {
@@ -19,23 +20,54 @@ namespace EchoProtocol.Presentation
         void DrawTitleIntroduction()
         {
             var ui=identity;
-            ui.Tag(new Rect(812,142,366,24),"JUGÁS JUNTO A TU PROPIO ECO");
-            GUI.Label(new Rect(810,181,374,72),"Tu recorrido.\nOtra oportunidad.",ui.Display(34,true));
-            DrawLearningRow(812,284,"1","GRABÁ", "Al moverte se guardan tu recorrido, tu orientación y tus pausas.");
-            DrawLearningRow(812,379,"2","PULSÁ R · RECALL", "Volvés al origen. Tu Echo empieza a repetir esa toma.");
-            DrawLearningRow(812,474,"3","COOPERÁ", "Mientras él repite, vos podés hacer lo que falta del otro lado.");
-            GUI.Label(new Rect(812,589,366,43),"WASD: moverte · mouse: mirar\nE: interactuar · H: cómo jugar",ui.Text(15,false,ui.Muted));
+            ui.Tag(new Rect(812,142,366,24),"UN JUGADOR. DOS PRESENCIAS.");
+            GUI.Label(new Rect(810,178,374,75),"Primero vos.\nDespués, los dos.",ui.Display(34,true));
+            DrawTeachingDiagram(new Rect(812,271,366,96),0);
+            DrawTeachingDiagram(new Rect(812,377,366,96),1);
+            DrawTeachingDiagram(new Rect(812,483,366,96),2);
+            GUI.Label(new Rect(812,592,366,20),"ESQUEMA ILUSTRATIVO / NO ES GAMEPLAY",ui.Text(10,true,ui.Muted));
+            GUI.Label(new Rect(812,619,366,23),"WASD moverte · mouse mirar · E usar",ui.Text(14,false,ui.Muted));
         }
 
-        void DrawLearningRow(float x,float y,string number,string heading,string body,float width=366)
+        void DrawTeachingDiagram(Rect area,int step)
         {
             var ui=identity;
-            ui.Fill(new Rect(x,y,29,29),new Color(.14f,.23f,.22f));
-            GUI.Label(new Rect(x,y+3,29,25),number,ui.Text(17,true,ui.Accent,TextAnchor.UpperCenter));
-            ui.Tag(new Rect(x+42,y+4,width-42,24),heading);
-            var style=ui.Text(17);
-            float h=style.CalcHeight(new GUIContent(body),width-42);
-            GUI.Label(new Rect(x+42,y+31,width-42,h),body,style);
+            float x=area.x,y=area.y,w=area.width;
+            ui.Panel(area);
+            ui.Tag(new Rect(x+13,y+9,28,20),(step+1).ToString("00"),ui.Muted);
+            ui.Tag(new Rect(x+47,y+9,w-60,20),step==0?"GRABÁ AL MOVERTE":step==1?"R / VOLVÉ AL ORIGEN":"REPARTÍ LAS DOS TAREAS");
+            float routeY=y+51;
+            if(step==0)
+            {
+                ui.RoleMark(new Rect(x+21,routeY-7,14,14),false);
+                ui.RecordedRoute(x+49,routeY,w-131);
+                ui.Outline(new Rect(x+w-68,routeY-11,23,23),ui.Muted);
+                ui.Fill(new Rect(x+w-61,routeY-4,9,9),ui.Paper);
+                GUI.Label(new Rect(x+15,y+70,67,18),"VOS",ui.Text(11,true));
+                GUI.Label(new Rect(x+83,y+70,w-98,18),"RECORRIDO + MIRADA + PAUSAS",ui.Text(11,false,ui.Muted,TextAnchor.UpperRight));
+            }
+            else if(step==1)
+            {
+                ui.RoleMark(new Rect(x+21,routeY-7,14,14),false);
+                ui.Outline(new Rect(x+14,routeY-14,28,28),ui.Muted);
+                ui.RecordedRoute(x+56,routeY,w-135);
+                ui.RoleMark(new Rect(x+w-66,routeY-9,18,18),true);
+                GUI.Label(new Rect(x+15,y+70,130,18),"VOS / ORIGEN",ui.Text(11,true));
+                GUI.Label(new Rect(x+147,y+70,w-162,18),"ECHO / REPITE TU TOMA",ui.Text(11,true,ui.Accent,TextAnchor.UpperRight));
+            }
+            else
+            {
+                float mid=x+w*.5f;
+                ui.RoleMark(new Rect(x+21,routeY-9,18,18),true);
+                ui.Line(x+51,routeY,w*.5f-79,ui.Accent);
+                ui.Outline(new Rect(mid-13,routeY-14,26,28),ui.Muted);
+                ui.Fill(new Rect(mid-7,routeY-9,3,18),ui.Accent);
+                ui.Fill(new Rect(mid+4,routeY-9,3,18),ui.Paper);
+                ui.Line(mid+28,routeY,w*.5f-79,ui.Paper);
+                ui.RoleMark(new Rect(x+w-37,routeY-7,14,14),false);
+                GUI.Label(new Rect(x+15,y+70,w*.5f-15,18),"ECHO / UN PUESTO",ui.Text(11,true,ui.Accent));
+                GUI.Label(new Rect(mid,y+70,w*.5f-15,18),"VOS / EL OTRO",ui.Text(11,true,null,TextAnchor.UpperRight));
+            }
         }
 
         void DrawPausedNextAction()
@@ -57,10 +89,9 @@ namespace EchoProtocol.Presentation
             var ui=identity;
             ui.Tag(new Rect(88,123,1104,24),"CÓMO JUGAR / PODÉS VOLVER ACÁ DESDE PAUSA");
             GUI.Label(new Rect(84,157,1104,78),"Un recorrido. Dos presencias.",ui.Display(54));
-            ui.Panel(new Rect(88,257,536,309));
-            DrawLearningRow(110,279,"1","HACÉ TU RECORRIDO", "Se graba al empezar a caminar. Quedarte quieto también forma parte de la toma.",492);
-            DrawLearningRow(110,374,"2","VOLVÉ CON R", "Volvés al origen con un Echo que repite lo que grabaste, incluidas tus pausas.",492);
-            DrawLearningRow(110,469,"3","HACÉ LA OTRA PARTE", "Tu Echo ocupa un lugar mientras vos actuás en otro. Una nueva R reemplaza la toma anterior.",492);
+            DrawTeachingDiagram(new Rect(88,257,536,96),0);
+            DrawTeachingDiagram(new Rect(88,363,536,96),1);
+            DrawTeachingDiagram(new Rect(88,469,536,96),2);
             ui.Panel(new Rect(650,257,542,309));
             ControlRow(672,279,"WASD","Moverte");
             ControlRow(672,323,"MOUSE","Mirar / orientar a tu personaje");
@@ -69,7 +100,7 @@ namespace EchoProtocol.Presentation
             ControlRow(672,455,"H","Ayuda y próximo paso · pausa el tiempo");
             ControlRow(672,499,"ESC","Pausa y ajustes");
             if(ui.Button(new Rect(88,592,536,50),"close-controls",started?"Volver a pausa":"Volver al inicio","H / Esc",true))showControls=false;
-            GUI.Label(new Rect(650,592,542,54),"Los lectores responden a dónde mirás: buscá su aro iluminado. No necesitan E.",ui.Text(17,false,ui.Accent));
+            GUI.Label(new Rect(650,592,542,54),"Una nueva R reemplaza tu Echo. Los lectores se activan al mirarlos: no necesitan E.",ui.Text(17,false,ui.Accent));
             GUI.Label(new Rect(88,677,1104,24),"Auriculares a volumen cómodo. Parlantes y dinámica reducida disponibles en ajustes.",ui.Text(14,false,ui.Muted));
         }
 
@@ -93,11 +124,39 @@ namespace EchoProtocol.Presentation
         {
             if(!protocolGuidance || !protocolGuidance.isActiveAndEnabled || !protocolGuidance.CanOfferHint)return;
             var ui=identity;
+            var cover=campaign&&campaign.Chapter==CampaignChapter.Pressure?campaign.CoverEncounter:null;
+            string action=cover&&cover.IsPreparingTake?cover.PreparationDetail:CurrentNextAction;
+            string heading=cover&&cover.IsPreparingTake?cover.PreparationTitle:CurrentStageTitle;
             var style=ui.Text(18);
-            float h=style.CalcHeight(new GUIContent(CurrentNextAction),350);
-            ui.Panel(new Rect(846,26,402,h+65));
-            ui.Tag(new Rect(865,38,362,20),CurrentStageTitle.ToUpperInvariant());
-            GUI.Label(new Rect(865,67,350,h+4),CurrentNextAction,style);
+            float h=style.CalcHeight(new GUIContent(action),326);
+            bool plan=protocolGuidance.ShowPlan && protocolGuidance.PlanSteps!=null && protocolGuidance.PlanSteps.Length>0;
+            ui.Panel(new Rect(884,26,364,h+(plan?116:65)));
+            ui.Tag(new Rect(903,38,326,20),heading.ToUpperInvariant());
+            GUI.Label(new Rect(903,67,326,h+4),action,style);
+            if(plan)DrawPlanStrip(new Rect(903,80+h,326,42));
+        }
+
+        void DrawPlanStrip(Rect area)
+        {
+            var ui=identity;var steps=protocolGuidance.PlanSteps;
+            int current=Mathf.Clamp(protocolGuidance.PlanStep,0,steps.Length);
+            if(steps.Length>4)
+            {
+                string label=current==steps.Length?"PLAN COMPLETO":$"{current+1}/{steps.Length}  {steps[current]}";
+                ui.Tag(area,label);
+                return;
+            }
+            float width=(area.width-9*(steps.Length-1))/steps.Length;
+            for(int i=0;i<steps.Length;i++)
+            {
+                float x=area.x+i*(width+9);
+                bool done=i<current,active=i==current;
+                ui.Fill(new Rect(x,area.y,width,3),new Color(.16f,.24f,.23f));
+                if(done)ui.Fill(new Rect(x,area.y,width,3),ui.Accent);
+                else if(active)ui.Fill(new Rect(x,area.y,width*Mathf.Clamp01(protocolGuidance.PlanProgress01),3),ui.Paper);
+                if(active)ui.Fill(new Rect(x,area.y-3,3,9),ui.Paper);
+                GUI.Label(new Rect(x,area.y+9,width,31),steps[i],ui.Text(12,active,done?ui.Accent:active?ui.Paper:ui.Muted));
+            }
         }
 
         void DrawEscapeActionHud()
@@ -105,43 +164,38 @@ namespace EchoProtocol.Presentation
             string action=campaign.CoverEncounter.EscapeInstruction;
             if(string.IsNullOrEmpty(action))return;
             var ui=identity;var style=ui.Text(18,true);
-            float h=style.CalcHeight(new GUIContent(action),350);
-            ui.Panel(new Rect(846,26,402,h+58));
-            ui.Tag(new Rect(865,38,350,20),"AHORA");
-            GUI.Label(new Rect(865,63,350,h+4),action,style);
+            float h=style.CalcHeight(new GUIContent(action),280);
+            ui.Panel(new Rect(930,26,318,h+58));
+            ui.Tag(new Rect(949,38,280,20),"AHORA");
+            GUI.Label(new Rect(949,63,280,h+4),action,style);
         }
 
         float DrawRecordingHud()
         {
             var ui=identity;var echo=loop.ActiveEcho;
             bool available=loop.enabled && recorder.IsRecording;
-            bool teaching=available && protocolGuidance && protocolGuidance.StageKey=="P1" && loop.CompletedLoopCount<2;
-            string lesson=!teaching?"":echo
-                ? echo.IsComplete ? "Tu Echo llegó al final. Si necesitás más tiempo, grabá una pausa más larga."
-                    : "Tu Echo repite la toma anterior. Vos podés hacer la otra parte."
-                : recorder.IsArmed ? "WASD para moverte. Mouse para mirar. El registro empieza cuando caminás."
-                    : "Tus pausas también se graban. R vuelve al origen y pone tu Echo en marcha.";
-            var lessonStyle=ui.Text(16,false,ui.Accent);
-            float lessonHeight=string.IsNullOrEmpty(lesson)?0:lessonStyle.CalcHeight(new GUIContent(lesson),319)+20;
-            float height=(available?94:68)+(echo?68:0)+lessonHeight;
-            ui.Panel(new Rect(32,26,355,height));
-            ui.Tag(new Rect(48,37,319,20),available?"VOS / TOMA EN CURSO":"REGISTRO / SESIÓN ACTUAL");
-            GUI.Label(new Rect(48,61,319,25),RecordingStatus,ui.Text(16));
+            float height=echo?169:103;
+            ui.Panel(new Rect(32,26,292,height));
+            ui.RoleMark(new Rect(48,42,12,12),false);
+            ui.Tag(new Rect(72,38,95,21),"VOS",ui.Paper);
+            GUI.Label(new Rect(147,38,160,21),available&&!recorder.IsArmed?$"{recorder.ElapsedTime:00.0} / {recorder.MaxRecordingDuration:00} s":"",ui.Text(13,true,ui.Paper,TextAnchor.UpperRight));
+            string status=!available?RecordingStatus:recorder.IsArmed?"WASD / empezá tu recorrido":"Recorrido, mirada y pausas";
+            GUI.Label(new Rect(48,65,259,21),status,ui.Text(14,false,ui.Muted));
             if(available)
             {
-                ui.Fill(new Rect(48,96,319,3),new Color(.13f,.22f,.22f));
-                ui.Fill(new Rect(48,96,319*Mathf.Clamp01(recorder.ElapsedTime/recorder.MaxRecordingDuration),3),ui.Accent);
-                GUI.Label(new Rect(48,102,319,17),recorder.IsArmed?"R disponible después de caminar":"R / volver con esta toma",ui.Text(12,false,ui.Muted));
+                ui.Fill(new Rect(48,91,259,2),new Color(.13f,.22f,.22f));
+                ui.Fill(new Rect(48,91,259*Mathf.Clamp01(recorder.ElapsedTime/Mathf.Max(.01f,recorder.MaxRecordingDuration)),2),ui.Paper);
             }
-            float y=available?130:101;
             if(echo)
             {
-                ui.Tag(new Rect(48,y,319,20),"ECHO / TOMA ANTERIOR");
-                GUI.Label(new Rect(48,y+23,319,25),echo.IsComplete?"Llegó al final de la toma":$"Reproduciendo  {echo.ElapsedTime:00.0} / {echo.Recording.Duration:00.0} s",ui.Text(16,true,ui.Accent));
-                ui.Fill(new Rect(48,y+51,319,3),new Color(.13f,.22f,.22f));
-                ui.Fill(new Rect(48,y+51,319*Mathf.Clamp01(echo.ElapsedTime/Mathf.Max(.01f,echo.Recording.Duration)),3),ui.Paper);
+                ui.RoleMark(new Rect(46,106,16,16),true);
+                ui.Tag(new Rect(72,103,95,21),"ECHO");
+                GUI.Label(new Rect(147,103,160,21),$"{echo.ElapsedTime:00.0} / {echo.Recording.Duration:00.0} s",ui.Text(13,true,ui.Accent,TextAnchor.UpperRight));
+                GUI.Label(new Rect(48,130,259,21),echo.IsComplete?"Toma terminada":"Repite tu toma anterior",ui.Text(14,false,ui.Accent));
+                ui.Fill(new Rect(48,156,259,2),new Color(.13f,.22f,.22f));
+                ui.Fill(new Rect(48,156,259*Mathf.Clamp01(echo.ElapsedTime/Mathf.Max(.01f,echo.Recording.Duration)),2),ui.Accent);
             }
-            if(lessonHeight>0)GUI.Label(new Rect(48,26+height-lessonHeight+8,319,lessonHeight-8),lesson,lessonStyle);
+            GUI.Label(new Rect(48,26+height-25,259,20),available?(recorder.IsArmed?"R disponible después de caminar":"R / volver con esta toma"):"REGISTRO SUSPENDIDO",ui.Text(12,true,ui.Muted));
             return 26+height;
         }
     }

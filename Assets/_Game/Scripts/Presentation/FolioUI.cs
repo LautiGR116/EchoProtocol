@@ -61,6 +61,26 @@ namespace EchoProtocol.Presentation
             s.normal.textColor=color; styles[key]=s;return s;
         }
         public void Fill(Rect rect,Color color) {var old=GUI.color;GUI.color=color;GUI.DrawTexture(rect,Texture2D.whiteTexture);GUI.color=old;}
+        public void Outline(Rect rect,Color color,float thickness=1)
+        {
+            Fill(new Rect(rect.x,rect.y,rect.width,thickness),color);
+            Fill(new Rect(rect.x,rect.yMax-thickness,rect.width,thickness),color);
+            Fill(new Rect(rect.x,rect.y,thickness,rect.height),color);
+            Fill(new Rect(rect.xMax-thickness,rect.y,thickness,rect.height),color);
+        }
+        // A solid body is the Player; a double outline is a recorded presence.
+        // Shape carries the distinction even without colour discrimination.
+        public void RoleMark(Rect rect,bool echo)
+        {
+            if(!echo){Fill(rect,Paper);return;}
+            Outline(rect,Accent,2);
+            Outline(new Rect(rect.x+4,rect.y+4,rect.width-8,rect.height-8),Accent);
+        }
+        public void RecordedRoute(float x,float y,float width)
+        {
+            for(float offset=0;offset<width;offset+=10)
+                Fill(new Rect(x+offset,y,Mathf.Min(5,width-offset),2),Accent);
+        }
         public void Line(float x,float y,float width,Color? color=null) => Fill(new Rect(x,y,width,1),color??new Color(.26f,.32f,.31f));
         public void Tag(Rect rect,string text,Color? color=null) => GUI.Label(rect,text,Text(13,true,color??Accent));
         public void Panel(Rect rect) { Fill(rect,new Color(.034f,.055f,.060f,1));Line(rect.x,rect.y,rect.width,new Color(.31f,.43f,.40f)); }

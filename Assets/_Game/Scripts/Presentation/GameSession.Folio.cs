@@ -166,15 +166,7 @@ namespace EchoProtocol.Presentation
             if(campaign&&campaign.CoverEncounter&&campaign.CoverEncounter.HideEncounterHud)
             {DrawEscapeActionHud();return;}
             if(hidden)return;
-            if(campaign&&campaign.CoverEncounter&&campaign.Chapter==CampaignChapter.Pressure)
-            {
-                var cover=campaign.CoverEncounter;
-                var style=ui.Text(17);float h=style.CalcHeight(new GUIContent(cover.Objective),350);
-                ui.Panel(new Rect(846,26,402,h+91));ui.Tag(new Rect(865,38,362,20),"SUBSUELO / SERVICIO");
-                GUI.Label(new Rect(865,65,350,h+4),cover.Objective,style);
-                GUI.Label(new Rect(865,73+h,350,34),cover.StatusText,ui.Text(12,true,ui.Accent));
-            }
-            else DrawNextActionHud();
+            DrawNextActionHud();
             // An immediate state/subtitle has priority over the optional note.
             // H still opens the full note; the interaction remains actionable.
             if(contextualHints&&contextualHints.IsVisible&&string.IsNullOrEmpty(subtitle)
@@ -192,11 +184,11 @@ namespace EchoProtocol.Presentation
             {
                 float y=recordingBottom+12;
                 if(houseMemory&&houseMemory.Active&&houseMemory.PowerLocation==HousePowerLocation.Carried)y+=50;
-                var style=ui.Text(16);const string message="El registro termina en breve. RECALL automático.";float h=style.CalcHeight(new GUIContent(message),319)+26;
-                ui.Panel(new Rect(32,y,355,h));GUI.Label(new Rect(48,y+12,319,h-20),message,style);
+                var style=ui.Text(15);const string message="El registro termina en breve. RECALL automático.";float h=style.CalcHeight(new GUIContent(message),259)+26;
+                ui.Panel(new Rect(32,y,292,h));GUI.Label(new Rect(48,y+12,259,h-20),message,style);
             }
             if(houseMemory&&houseMemory.Active&&houseMemory.PowerLocation==HousePowerLocation.Carried)
-            {ui.Panel(new Rect(32,recordingBottom+12,355,38));ui.Tag(new Rect(48,recordingBottom+23,320,24),"RESERVA DE LUZ EN LA MANO",ui.Paper);}
+            {ui.Panel(new Rect(32,recordingBottom+12,292,38));ui.Tag(new Rect(48,recordingBottom+23,259,24),"RESERVA DE LUZ EN LA MANO",ui.Paper);}
             GUI.Label(new Rect(34,680,650,23),"H / AYUDA Y PRÓXIMO PASO     ESC / PAUSA",ui.Text(13,true));
         }
     }

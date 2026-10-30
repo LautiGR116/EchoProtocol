@@ -36,20 +36,33 @@ namespace EchoProtocol.Presentation
         }
         private static void Write(TextMesh surface, string value)
         { if (surface.text != value) surface.text = value; }
+        private static readonly Color Retained = new Color(.63f,.79f,.73f);
+        private static readonly Color Sustained = new Color(.94f,.74f,.43f);
+        private static readonly Color Waiting = new Color(.74f,.76f,.70f);
+        private static void Signal(TextMesh surface,string value,Color color)
+        {
+            Write(surface,value);
+            if(surface.color!=color)surface.color=color;
+        }
         private void LateUpdate()
         {
-            Write(statusA, relay.EchoAAuthorized ? "A / ECHO RECIBIDO\nCRUZÁ A SERVICIO"
-                : readerA.IsPlayerAligned ? "A / MIRADA DETECTADA\nSEGUÍ HASTA B" : "A / MIRÁ EL ARO\nSE ACTIVA SIN PULSAR E");
-            Write(statusB, relay.RequiresSimultaneousPresence
-                ? (relay.EchoBAuthorized ? "B / ECHO PRESENTE\nVOS MIRÁ C" : readerB.IsPlayerAligned ? "B / MIRADA DETECTADA\nGRABÁ UNA PAUSA AQUÍ" : "B / MIRÁ Y ESPERÁ\nR / CREAR TU ECHO")
-                : relay.EchoBAuthorized ? "B / TOMA ACEPTADA"
-                : readerB.IsPlayerAligned ? "B / LECTURA LOCAL" : "B / LECTOR DE MIRADA");
-            Write(statusC, relay.IsComplete ? "A + B + C\nCOOPERACIÓN ACEPTADA"
+            // A latches until RECALL; B requires a presence right now. Words and
+            // brackets distinguish those rules without relying on hue or blinking.
+            Signal(statusA, relay.EchoAAuthorized ? "[A] / ACCESO RETENIDO\nCRUZÁ A SERVICIO"
+                : readerA.IsPlayerAligned ? "A / MIRADA LOCAL\nSEGUÍ HASTA B" : "A / MIRÁ EL ARO\nSE ACTIVA SIN PULSAR E",
+                relay.EchoAAuthorized?Retained:Waiting);
+            Signal(statusB, relay.IsComplete ? "[B] / TAREA CUMPLIDA\nCOOPERACIÓN ACEPTADA" : relay.RequiresSimultaneousPresence
+                ? (relay.EchoBAuthorized ? "| B | ECHO PRESENTE\nVOS MIRÁ C" : readerB.IsPlayerAligned ? "| B | MANTENÉ MIRADA\nGRABÁ UNA PAUSA AQUÍ" : "| B | PRESENCIA\nMIRÁ Y QUEDATE AQUÍ")
+                : relay.EchoBAuthorized ? "[B] / TOMA ACEPTADA"
+                : readerB.IsPlayerAligned ? "B / LECTURA LOCAL" : "B / LECTOR DE MIRADA",
+                relay.IsComplete?Retained:relay.RequiresSimultaneousPresence?Sustained:relay.EchoBAuthorized?Retained:Waiting);
+            Signal(statusC, relay.IsComplete ? "[A + B + C]\nCOOPERACIÓN ACEPTADA"
                 : relay.RequiresSimultaneousPresence && relay.EchoAAuthorized
                     ? (relay.EchoBAuthorized ? "B PRESENTE / MIRAR C\nCOINCIDENCIA " + Mathf.RoundToInt(relay.CooperationFraction*100) + "%" : "ESPERÁ A TU ECHO EN B\nDESPUÉS MIRÁ EL ARO C")
                 : relay.RequiresSimultaneousPresence ? "C / TU LADO DEL VIDRIO\nECHO EN B + VOS EN C"
                 : relay.EchoAAuthorized && relay.EchoBAuthorized ? "A + B ACEPTADOS\nC / LECTURA DISPONIBLE"
-                : "C / ACCESO\nREQUIERE A + B EN LA TOMA");
+                : "C / ACCESO\nREQUIERE A + B EN LA TOMA",
+                relay.IsComplete?Retained:relay.RequiresSimultaneousPresence?Sustained:Waiting);
             if (review.UsesArrivalPresentation)
             {
                 Write(interiorStatus, review.KeyReturned ? "LLAVE RECIBIDA\nSALIDA ABIERTA"
