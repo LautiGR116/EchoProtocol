@@ -10,7 +10,7 @@ using UnityEngine.Rendering.Universal;
 
 public static class EchoWebBuild
 {
-    public const string ScenePath = "Assets/_Game/Scenes/Production/EchoProtocol_Incursion.unity";
+    public const string ScenePath = "Assets/_Game/Scenes/Production/EchoProtocol_Negative.unity";
     public const string PipelinePath = "Assets/Settings/Web_RPAsset.asset";
     public const string RendererPath = "Assets/Settings/Web_Renderer.asset";
 

@@ -28,6 +28,8 @@ PRIVATE = (
     "Assets/_Game/Prefabs/Embodiment", "Assets/_Game/Prefabs/Embodiment.meta",
     "Assets/_Game/Scenes/Production/EchoProtocol_Incursion.unity",
     "Assets/_Game/Scenes/Production/EchoProtocol_Incursion.unity.meta",
+    "Assets/_Game/Scenes/Production/EchoProtocol_Negative.unity",
+    "Assets/_Game/Scenes/Production/EchoProtocol_Negative.unity.meta",
 )
 IDENTITY = Path.home() / "Library/Application Support/itch/butler_creds"
 

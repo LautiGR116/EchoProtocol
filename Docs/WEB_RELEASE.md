@@ -99,7 +99,7 @@ Use Unity 6000.3.21f1 with Web Build Support. Switch the active target to WebGL,
 then run **Echo Protocol > Web > Configure release** and let scripts finish
 compiling. This saves the project settings and applies the machine-local Wasm
 DiskSize optimization. `EchoWebBuild.BuildTo("Builds/<new-folder>")` builds the
-Incursion scene explicitly; the general scene list still points to Coverage.
+Negative scene explicitly; the general scene list still points to Coverage.
 The scene and licensed body sources must exist locally and remain outside public
 Git. Use a fresh output directory; previous builds are preserved.
 
