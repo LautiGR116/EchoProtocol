@@ -249,3 +249,13 @@ no registrar aprobación de miedo, audio o actuación. Se autoriza otra ronda co
 tres chats Astra Ultra, sólo Editor, sin builds y con comprobaciones puntuales.
 La captura R5 coincide con la objeción visual: cara adulta reconocible, palma
 ofrecida y composición de mostrador. Dirección R6 en PARALLEL_P3_ROUND6_20261023.md.
+
+
+## 2026-10-30 — cambio percibido insuficiente en Editor
+
+El usuario probó la entrega anterior en Unity Editor y reporta que el cambio
+percibido fue muy pequeño. Pide una transformación radical, incluso que parezca
+otro juego, siempre que mejore claridad, progresión y miedo. No atribuir el
+resultado a una publicación web vieja. La nueva candidata «El Negativo» responde
+con otra arquitectura, identidad gráfica, silueta del perseguidor y una secuencia
+de cierre/luz ligada a la cooperación. Todavía no tiene evaluación humana.
