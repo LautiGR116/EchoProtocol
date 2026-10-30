@@ -274,7 +274,7 @@ namespace EchoProtocol.Campaign
             threat.PresentFootContacts();
             // The palm must actually reach the authored frame. An unreachable
             // mark cannot manufacture a contact in the player's blind spot.
-            if(!occupiedContactPlayed&&occupiedWeight>.85f&&d.magnitude<.14f
+            if(!occupiedContactPlayed&&occupiedWeight>.85f
                 &&performance.OccupiedPalmDistance<.10f)
             {
                 occupiedContactPlayed=true;OccupiedDoorContacts++;
