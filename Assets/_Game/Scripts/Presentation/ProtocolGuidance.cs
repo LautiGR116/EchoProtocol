@@ -233,16 +233,18 @@ namespace EchoProtocol.Presentation
         {
             get
             {
-                string attempt = loop ? loop.CheckpointRevision + "/" + loop.CurrentAttemptNumber + "/" : "";
+                // A retry is not new progress. Attempts still reset the observed
+                // coaching hold times, but only a new origin resets this identity.
+                string checkpoint = loop ? loop.CheckpointRevision + "/" : "";
                 string preparation = PreparationStep + "/" + HasLiveEcho + "/" + HasEndedEcho;
                 switch (StageKey)
                 {
-                    case "Cobertura": return attempt + campaign.CoverEncounter.ProgressStamp;
-                    case "P1": return attempt + preparation + "/" + firstRelay.EchoAAuthorized + "/" + firstRelay.EchoBAuthorized + "/" + firstRelay.IsComplete;
-                    case "P2": return attempt + preparation + "/" + alignmentRelay.IsPlayerInside + "/" + alignmentRelay.IsPowered + "/" + alignmentRelay.IsEntranceClosed + "/" + alignmentRelay.HasTransferred;
-                    case "P3": return attempt + preparation + "/" + returnRelay.IsAuthorized + "/" + returnRelay.IsSecondLinkAccepted + "/" + returnRelay.IsTransferComplete;
+                    case "Cobertura": return checkpoint + campaign.CoverEncounter.ProgressStamp;
+                    case "P1": return checkpoint + preparation + "/" + firstRelay.EchoAAuthorized + "/" + firstRelay.EchoBAuthorized + "/" + firstRelay.IsComplete;
+                    case "P2": return checkpoint + preparation + "/" + alignmentRelay.IsPlayerInside + "/" + alignmentRelay.IsPowered + "/" + alignmentRelay.IsEntranceClosed + "/" + alignmentRelay.HasTransferred;
+                    case "P3": return checkpoint + preparation + "/" + returnRelay.IsAuthorized + "/" + returnRelay.IsSecondLinkAccepted + "/" + returnRelay.IsTransferComplete;
                     case "Casa": return house.HasAnswered + "/" + house.PowerLocation + "/" + house.HasKey + "/" + house.HasExited;
-                    case "6B": return attempt + finalReview.RecordingReady + "/" + finalReview.ReceptionInProgress + "/" + finalReview.HasWitnessed + "/" + finalReview.OriginalPreserved + "/" + finalReview.KeyReturned;
+                    case "6B": return checkpoint + finalReview.RecordingReady + "/" + finalReview.ReceptionInProgress + "/" + finalReview.HasWitnessed + "/" + finalReview.OriginalPreserved + "/" + finalReview.KeyReturned;
                     case "SE1": return firstEvent.Phase.ToString();
                     default: return StageKey;
                 }
