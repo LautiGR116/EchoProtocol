@@ -340,7 +340,7 @@ public sealed partial class ThresholdCampaignProbe : MonoBehaviour
         if(orientation)Check(orientation.CooperationText.Contains(p1.RequiresSimultaneousPresence?"ECHO EN B + VOS EN C":"REQUIERE A + B"),"C reports the required cooperation during the real Player-only A preview");
         Check(p1.IsGateAPreviewActive, "P1 A previews from the actual Player");
         if (readerSurvey) { yield return Go(-2.75f, 9.4f, 0); yield return SurveyReader("Lane Optical Reader B", "B-approach-idle", false); }
-        yield return Go(-2.75f, 11, 90); yield return Wait(p1.RequiresSimultaneousPresence ? 6 : 1);
+        yield return Go(-2.75f, 11, 90); yield return Wait(p1.RequiresSimultaneousPresence ? EchoProtocol.Presentation.ProtocolGuidance.FirstReaderPauseSeconds : 1);
         if (readerSurvey) yield return SurveyReader("Lane Optical Reader B", "B-aligned", true);
         yield return Recall();
         step = "P1_cooperate";
