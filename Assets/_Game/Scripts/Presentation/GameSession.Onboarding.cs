@@ -25,7 +25,7 @@ namespace EchoProtocol.Presentation
             DrawTeachingDiagram(new Rect(812,271,366,96),0);
             DrawTeachingDiagram(new Rect(812,377,366,96),1);
             DrawTeachingDiagram(new Rect(812,483,366,96),2);
-            GUI.Label(new Rect(812,592,366,20),"ESQUEMA ILUSTRATIVO / NO ES GAMEPLAY",ui.Text(10,true,ui.Muted));
+            GUI.Label(new Rect(812,592,366,20),"GRABÁ · VOLVÉ · COOPERÁ",ui.Text(10,true,ui.Muted));
             GUI.Label(new Rect(812,619,366,23),"WASD moverte · mouse mirar · E usar",ui.Text(14,false,ui.Muted));
         }
 
