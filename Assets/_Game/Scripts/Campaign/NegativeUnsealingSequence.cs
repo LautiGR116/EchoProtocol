@@ -111,17 +111,17 @@ namespace EchoProtocol.Campaign
                 captiveHand.localPosition = handRest + Vector3.forward * (.035f * reach);
             }
 
-            // Commit to the already opened return route before lowering the
-            // suspended mass. Even at its low point feet stay above 2.3 m.
+            // Commit to the final return corner before the weight descends
+            // beside the path, where its whole silhouette enters normal view.
             var distance = player.position - hangingOrigin; distance.y = 0;
-            if (dropAge < 0 && encounter.ExitReleased && player.position.x > -2.05f && distance.sqrMagnitude < 4.1f * 4.1f)
+            if (dropAge < 0 && encounter.ExitReleased && player.position.x > 1.65f && player.position.z < -43.1f && distance.sqrMagnitude < 4.1f * 4.1f)
             { dropAge = 0; Descents++; Play(2); }
             if (dropAge >= 0)
             {
                 dropAge += dt;
                 Descent01 = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.18f, 1.25f, dropAge));
                 float recoilAge = Mathf.Max(0, dropAge - 1.25f);
-                float sway = dropAge < 1.25f ? 0 : Mathf.Sin(recoilAge * 2.8f) * Mathf.Exp(-recoilAge * .65f) * 4;
+                float sway = dropAge < 1.25f ? 0 : Mathf.Sin(recoilAge * 2.8f) * Mathf.Exp(-recoilAge * .65f) * 2.5f;
                 hangingBody.localRotation = hangingRest * Quaternion.Euler(0, 0, sway);
             }
             ApplyForms();
@@ -134,7 +134,7 @@ namespace EchoProtocol.Campaign
         {
             leftVeil.localRotation = leftRest * Quaternion.Euler(0, 70 * Unsealed01, 0);
             rightVeil.localRotation = rightRest * Quaternion.Euler(0, -70 * Unsealed01, 0);
-            hangingBody.position = hangingOrigin + Vector3.down * (1.85f * Descent01);
+            hangingBody.position = hangingOrigin + Vector3.down * (3.55f * Descent01);
             loweringCable.localScale = new Vector3(cableScale.x, Mathf.Max(.1f, loweringCable.position.y - hangingBody.position.y), cableScale.z);
             captiveLight.intensity = Mathf.Lerp(.12f, 2.3f, Unsealed01);
             suspendedLight.intensity = Mathf.Lerp(.75f, 2.7f, Descent01);

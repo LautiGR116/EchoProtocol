@@ -42,7 +42,7 @@ public static class NegativeUnsealingIntegration
         Ref(so,"captiveHead",head); Ref(so,"captiveHand",hand);
         Ref(so,"hangingBody",hanging); Ref(so,"loweringCable",Named("Unsealing / lowering cable"));
         Ref(so,"captiveLight",Lamp(root,"Unsealing / cavity practical",new Vector3(-4.7f,2.9f,-41.6f),head.position,.12f,4.5f,new Color(.9f,.66f,.44f)));
-        Ref(so,"suspendedLight",Lamp(root,"Unsealing / descent practical",new Vector3(2.7f,5.6f,-42.8f),new Vector3(1.15f,3.8f,-43.6f),.75f,7f,new Color(.65f,.75f,.72f)));
+        Ref(so,"suspendedLight",Lamp(root,"Unsealing / descent practical",new Vector3(5.2f,4f,-43.8f),new Vector3(4.2f,1.7f,-44.8f),.75f,7f,new Color(.65f,.75f,.72f)));
         Refs(so,"cues",new[] {
             NegativeUnsealingAudioIntegration.CreateSource(chamber,"Unsealing / veil detachment",NegativeUnsealingAudioIntegration.Cue.Peel,chamber.position),
             NegativeUnsealingAudioIntegration.CreateSource(hand,"Unsealing / close tendon",NegativeUnsealingAudioIntegration.Cue.Tendon,hand.position),

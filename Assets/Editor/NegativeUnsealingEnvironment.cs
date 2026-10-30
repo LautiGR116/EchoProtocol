@@ -73,10 +73,10 @@ public static class NegativeUnsealingEnvironment
             var rv=Node(chamber,"Unsealing / right veil",new Vector3(.82f,0,.30f));
             MeshObject(rv,"Unsealing / right membrane",rightVeil,veil);MeshObject(rv,"Unsealing / right cut filaments",rightEdge,inner);
 
-            // Two feet end at y4.204 in the saved scene; a 1.85m descent ends
-            // above y2.35. The cable is separate, fixed at the ceiling, and its
+            // Two feet end at y4.204 in the saved scene; a 3.55m descent ends
+            // at y0.654 beside the return path. The fixed ceiling cable
             // unit down-axis is stretched by the runtime owner with the drop.
-            var suspension=Node(root,"Unsealing / hanging body",new Vector3(1.15f,6.55f,-43.6f));
+            var suspension=Node(root,"Unsealing / hanging body",new Vector3(4.2f,6.55f,-44.8f));
             // Roll is expressed by individual anatomy, not the whole root, to
             // retain the exact vertical clearance contract during a drop.
             suspension.localRotation=Quaternion.Euler(0,-40,0);
@@ -89,9 +89,9 @@ public static class NegativeUnsealingEnvironment
             var handB=Node(suspension,"Unsealing / hanging right hand",new Vector3(-.08f,-1.40f,.20f));
             handB.localRotation=Quaternion.Euler(0,0,95);handB.localScale=Vector3.one*.88f;
             MeshObject(handB,"Unsealing / hanging right fingers",rightHand,ivory);
-            var cord=Node(root,"Unsealing / lowering cable",new Vector3(1.15f,7.65f,-43.6f));
+            var cord=Node(root,"Unsealing / lowering cable",new Vector3(4.2f,7.65f,-44.8f));
             cord.localScale=new Vector3(1,1.10f,1);MeshObject(cord,"Unsealing / loaded suspension cable",cable,restraint);
-            Box(root,"Unsealing / ceiling winch socket",new Vector3(1.15f,7.69f,-43.6f),new Vector3(.28f,.1f,.28f),restraint);
+            Box(root,"Unsealing / ceiling winch socket",new Vector3(4.2f,7.69f,-44.8f),new Vector3(.28f,.1f,.28f),restraint);
             AssetDatabase.SaveAssets();EditorSceneManager.MarkSceneDirty(scene);Undo.CollapseUndoOperations(group);
             Debug.Log(DescribeOpenScene()+" Scene UNSAVED; existing panel, audio and lighting not modified.",root);
         }
