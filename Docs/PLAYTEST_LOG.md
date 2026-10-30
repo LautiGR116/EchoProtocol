@@ -283,3 +283,11 @@ del resultado percibido y autorización para otra escalada; no se identifica
 qué momento produjo miedo ni una duración de juego. La nueva pasada «Apertura»
 revela un cuerpo detrás de la membrana, baja otro junto al regreso y fractura
 la máscara tras el contacto físico del intruso. Su impacto sigue EN PRUEBA.
+
+## 2026-10-30 — aprobación de Apertura y nueva escalada
+
+El usuario repite «Me gustaron los resultados» después de Apertura y pide ir
+mucho más lejos con lo macabro. Se conserva la dirección y se profundiza la
+transformación de los cuerpos que ya están presentes: tórax, mandíbula y
+garganta. No hay reacción humana específica ante esos acontecimientos nuevos;
+su miedo y actuación siguen EN PRUEBA.

@@ -46,7 +46,10 @@ casts, crank-driven deformation, a first-silence wall strike and eight authored
 physical sounds. The unsealing pass reveals a captive behind that membrane,
 lowers a suspended body beside the return and fractures the intruder’s ceramic
 mask on real contact, with four further sound masters and an original waxed
-canvas surface. **Recorrido completo** remains a secondary entry.
+canvas surface. Autopsy gives the descended body an opening thorax and a sudden
+head turn toward the Player, articulates both captive jaws, and replaces the intruder's flat
+interior with a contracting folded throat. Four new physical sounds follow
+those actions. **Recorrido completo** remains a secondary entry.
 Incursion is preserved. Saved local integration; pump PASS40 in the Editor,
 with an 8/8/20-second suggested plan. Human comprehension, fear and comfort
 remain **EN PRUEBA**.

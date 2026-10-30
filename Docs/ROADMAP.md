@@ -14,6 +14,8 @@ con segunda pasada ritual: membranas humanas, cuerpos suspendidos, ocho
 masters sonoros y deformación/impacto ligados a la manivela y al silencio real.
 La tercera pasada abre la membrana, baja un cuerpo junto al regreso y fractura
 la máscara al contacto; cuatro nuevos masters y superficie original de cera.
+La cuarta, Autopsia, abre el tórax del cuerpo descendido, articula cabezas y
+mandíbulas, y añade una garganta contraída al intruso con cuatro sonidos físicos.
 `EchoProtocol_Negative.unity`; Incursion permanece recuperable. Editor only;
 bomba PASS40, plan sugerido 8/8/20, toma inmutable y escape comprobados.
 Miedo y comprensión EN PRUEBA humana.
