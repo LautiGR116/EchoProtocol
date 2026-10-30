@@ -108,15 +108,15 @@ namespace EchoProtocol.Presentation
                     case "P1":
                         if (HasLiveEcho) return firstRelay.EchoAAuthorized
                             ? firstRelay.EchoBAuthorized ? "Mirá el lector C, del lado de servicio, mientras tu Echo mira B."
-                                : "Cruzá el acceso de servicio y buscá C. Tu Echo tiene que llegar al lector B."
-                            : "Esperá que tu Echo mire A. Eso abre el acceso de servicio para vos.";
+                                : "Tomá el pasillo derecho de SERVICIO y buscá C. Tu Echo tiene que llegar al lector B."
+                            : "Esperá que tu Echo mire A. Eso abre para vos el pasillo derecho de SERVICIO.";
                         if (PreparationStep == 2) return "Grabaste A y una pausa en B. Pulsá R: volvés al inicio y tu Echo repite el recorrido.";
                         if (PreparationStep == 1) return firstReaderB && firstReaderB.IsPlayerAligned
                             ? $"Mantené la mirada en B: faltan {Remaining(12, firstBSeconds)} s de pausa sugerida. Después R crea tu Echo."
                             : "Andá al lector B y quedate mirándolo unos 12 segundos. Esa pausa te da tiempo para llegar a C.";
                         return HasEndedEcho ? "La toma terminó. Grabá otra: mirá A y después dejá una pausa más larga mirando B."
-                            : recorder.IsArmed ? "Movete hasta el lector A: eso inicia la grabación. Mirá su aro hasta que encienda."
-                            : "Acercate al lector A y miralo hasta que el aro encienda. Tus movimientos ya se están grabando.";
+                            : recorder.IsArmed ? "Tomá el pasillo izquierdo de REGISTRO y buscá A. Caminar inicia la toma; mirá el aro hasta que encienda."
+                            : "Buscá A por el pasillo izquierdo de REGISTRO. Mirá su aro hasta que encienda; ya estás grabando.";
                     case "P2":
                         if (alignmentRelay.HasTransferred) return "Cruzaste las dos puertas. Seguí hacia la estancia del fondo.";
                         if (!alignmentRelay.RequiresPoweredClosure) return alignmentRelay.IsEchoHoldingGate
@@ -177,9 +177,14 @@ namespace EchoProtocol.Presentation
                     case "Origen": return "Entrá en la oficina del regreso. Activá el puesto ORIGEN con E para iniciar el siguiente registro.";
                     case "Estancia": return "Rodeá el vidrio cerrado por un acceso lateral y cruzá la estancia.";
                     case "SE3": return "Seguí el pasillo de regreso hacia la instalación.";
-                    case "SE1": return firstEvent.Phase == VS1StrongEventOnePhase.Recovery
-                        ? "Entrá por la puerta iluminada del fondo. El umbral fija tu próximo punto de regreso."
-                        : "Avanzá por el pasillo de servicio hacia el extremo acristalado.";
+                    case "SE1":
+                        if (firstEvent.Phase == VS1StrongEventOnePhase.Recovery)
+                            return "Entrá por la puerta iluminada del fondo. El umbral fija tu próximo punto de regreso.";
+                        if (firstEvent.Phase == VS1StrongEventOnePhase.AwaitingLaneCheck)
+                            return "Mirá a través del vidrio hacia el pasillo donde grabaste tu recorrido.";
+                        if (firstEvent.Phase == VS1StrongEventOnePhase.AwaitingEchoEnd)
+                            return "Llegá al extremo acristalado del paso de servicio y dejá que tu Echo termine su recorrido.";
+                        return "Seguí el paso de servicio hasta la puerta del fondo.";
                     default: return Context;
                 }
             }

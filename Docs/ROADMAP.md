@@ -6,6 +6,12 @@ status.
 
 ## Current milestone
 
+**Claridad y presión, 2026-10-30.** Incursion adds first-play teaching, live next
+actions, suggested recording pauses and stronger authored pump anticipation,
+first rush and post-diversion listening. Three isolated agent worktrees integrated
+locally. Editor only; fear, comfort and unprompted understanding remain human
+judgments. [Implementation and focused checks](CLARITY_HORROR_20261030.md).
+
 **Local integration, 2026-10-23.** Pump hunt, occupied house and Folio session
 polish are integrated in Incursion. The second parallel round is also integrated:
 P2 causal feedback, SE2 presence and Player physical contact. Focused checks were

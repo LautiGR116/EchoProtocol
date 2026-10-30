@@ -35,6 +35,14 @@ same mechanical room an objectively verified clinical visual foundation without
 changing puzzle geometry, Echo behavior, or audio. Its human visual checkpoint is
 approved at prototype level.
 
+## Editor integration — 2026-10-30
+
+Incursion now teaches recording, RECALL and cooperation at the title and during
+play. State-based next actions, reader cues and suggested-pause countdowns guide
+progress. The pump adds a response in the silence, a more committed first rush
+and clear escape guidance. Saved Editor delivery; human comprehension, fear and
+listening remain **EN PRUEBA**. [Changes and focused checks](Docs/CLARITY_HORROR_20261030.md).
+
 ## Editor integration — 2026-10-23
 
 Pump hunt, occupied house and Folio session polish are integrated locally in
