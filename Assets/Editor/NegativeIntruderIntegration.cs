@@ -40,8 +40,10 @@ public static class NegativeIntruderIntegration
             Require(prior.revision==Revision&&prior.body==surface&&prior.silhouette,"Existing Negative installation is incomplete; preserve it for review.");
             Debug.Log("El Negativo already installed; saved geometry and scene composition preserved.",threat);return;
         }
-        Require(surface.sharedMesh&&surface.sharedMesh.isReadable&&surface.bones.All(b=>b)
-            &&surface.bones.Length==surface.sharedMesh.bindposes.Length,"Readable licensed Nathan bind data required.");
+        // Native saved meshes disable runtime Read/Write; outside Play the
+        // Editor can still read these streams. Never change the source flag.
+        Require(surface.sharedMesh&&surface.bones.All(b=>b)
+            &&surface.bones.Length==surface.sharedMesh.bindposes.Length,"Licensed Nathan bind data required.");
         var rig=new NegativeIntruderGeometry.Rig{binds=surface.sharedMesh.bindposes,bones=surface.bones};
         int Bone(string field)
         {
