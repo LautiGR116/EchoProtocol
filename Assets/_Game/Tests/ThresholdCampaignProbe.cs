@@ -1244,9 +1244,14 @@ public sealed partial class ThresholdCampaignProbe : MonoBehaviour
     {
         if (!running || InputState.currentUpdateType != InputUpdateType.Dynamic) return;
         InputSystem.QueueStateEvent(keyboard, new KeyboardState(keys));
+        // Mouse motion is angular speed, not a fixed number of degrees per
+        // rendered frame. Slow Editor captures must not prolong a 90-degree
+        // turn until the faithfully recorded quiet window has already ended.
+        float yawStep = 720 * Mathf.Clamp(Time.unscaledDeltaTime, 1f / 240, .1f);
+        float pitchStep = 600 * Mathf.Clamp(Time.unscaledDeltaTime, 1f / 240, .1f);
         InputSystem.QueueStateEvent(mouse, new MouseState { delta = session.IsPaused ? Vector2.zero : new Vector2(
-            Mathf.Clamp(Mathf.DeltaAngle(player.transform.eulerAngles.y, yaw), -12, 12) / sensitivity,
-            -Mathf.Clamp(Mathf.DeltaAngle(Field<float>(player, "pitch"), pitch), -10, 10) / sensitivity) });
+            Mathf.Clamp(Mathf.DeltaAngle(player.transform.eulerAngles.y, yaw), -yawStep, yawStep) / sensitivity,
+            -Mathf.Clamp(Mathf.DeltaAngle(Field<float>(player, "pitch"), pitch), -pitchStep, pitchStep) / sensitivity) });
         // No focus repair, cursor reflection write, session call or automatic pause resume.
     }
     void ObservePoseReset() { poseResets++; if(expectedPreviewAccess)previewResets++; }
