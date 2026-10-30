@@ -15,6 +15,7 @@ namespace EchoProtocol.Campaign
         [SerializeField] Transform leftArm, leftForearm, leftHand, rightArm, rightForearm, rightHand;
         [SerializeField] IntruderStaging intruder;
         [SerializeField] IntruderActingFocus acting;
+        [SerializeField] NegativeIntruderIdentity negativeIdentity;
         [SerializeField] Transform[] brows, mouthCorners;
         Transform root;
         Transform[] joints;
@@ -123,6 +124,7 @@ namespace EchoProtocol.Campaign
             var rush=intruder?intruder.Embestida:null;
             bool authored=acting&&acting.isActiveAndEnabled&&rush&&rush.UsesAuthoredActing;
             bool contained=authored&&acting.UsesContainedViolence;
+            bool negative=negativeIdentity&&negativeIdentity.silhouette&&negativeIdentity.silhouette.activeInHierarchy;
             float squeezed=intruder&&!rush&&phase==MachineCoverThreat.Intention.Entry?1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(1.12f,1.52f,age)):0;
             float cornerBrace=intruder?intruder.BrakeWeight:0;
             float braking=Mathf.Max(cornerBrace,brakeWeight);
@@ -161,7 +163,7 @@ namespace EchoProtocol.Campaign
                 Rotate(head,root.forward,squeezed*16+(witness?5:0));
                 Rotate(head,root.forward,(listening?7:searchWeight*8)+machineHandWeight*7);
             }
-            float articulation=authored&&rush.RecoveryAge<.32f?0:Voice(voice);
+            float articulation=negative||authored&&rush.RecoveryAge<.32f?0:Voice(voice);
             Rotate(jaw,root.right,articulation*(contained?3:authored?9:17));Rotate(chest,root.right,articulation*(contained?-1:-3));
             if(intruder&&!authored)
             {
@@ -196,6 +198,7 @@ namespace EchoProtocol.Campaign
                 Rotate(leftForearm,root.right,-18*w);
                 Rotate(neck,root.right,-5*w);
             }
+            else if(negative)PresentNegativePose(phase,age,rush);
             else if(rush)rush.Pose(root,hips,spine,chest,neck,head,jaw,leftArm,rightArm,leftForearm,rightForearm,phase,age,contained);
             if(onMachine&&intruder&&intruder.ListeningTurnWeight>0)
             {
@@ -212,7 +215,7 @@ namespace EchoProtocol.Campaign
                 if(onMachine&&intruder&&intruder.ListeningTurnWeight>0)beat=70;
                 if(phase==MachineCoverThreat.Intention.Entry)beat=rush.HasContact?(contained&&rush.ContactAge>=.22f?42:41):40;
                 acting.Pose(root,neck,head,attention,beat,dt,
-                    phase==MachineCoverThreat.Intention.Entry&&rush.HasContact?.18f:.07f,
+                    negative?.16f:phase==MachineCoverThreat.Intention.Entry&&rush.HasContact?.18f:.07f,
                     occupiedDoor||searching||listening||onMachine||recognition||(contained&&(charging||reacquiring)));
             }
             if(rush)
@@ -290,13 +293,49 @@ namespace EchoProtocol.Campaign
                 {
                     bool left=joint.name.EndsWith("_l");
                     if(joint.name.Contains("_02_"))
-                        joint.localRotation*=Quaternion.Euler(0,0,contained&&!capture?(left?48:Mathf.Lerp(-28,-8,rush.HandWeight)):(left?24:-15));
+                        joint.localRotation*=Quaternion.Euler(0,0,negative&&!capture?(left?24:Mathf.Lerp(-18,-5,rush.HandWeight)):contained&&!capture?(left?48:Mathf.Lerp(-28,-8,rush.HandWeight)):(left?24:-15));
                     else if(contained&&!capture&&joint.name.Contains("_03_"))
-                        joint.localRotation*=Quaternion.Euler(0,0,left?25:Mathf.Lerp(-15,0,rush.HandWeight));
+                        joint.localRotation*=Quaternion.Euler(0,0,left?(negative?11:25):Mathf.Lerp(negative?-8:-15,0,rush.HandWeight));
                 }
             float stance=Mathf.Lerp(.64f,.52f,runBlend);
             Leg(true,Mathf.Repeat(cycle+.02f,1),stance,stride,moving,speed,turnRate);
             Leg(false,Mathf.Repeat(cycle+.52f,1),stance,stride,moving,speed,turnRate);
+        }
+
+        void PresentNegativePose(MachineCoverThreat.Intention phase,float age,EmbestidaRush rush)
+        {
+            // One substantial body key replaces the stacked collapsed torso.
+            // The rigid mask is carried by the neck; the coat follows the same
+            // planted feet and physical approach, never an enlarged actor root.
+            bool pursuing=phase==MachineCoverThreat.Intention.Charge||phase==MachineCoverThreat.Intention.Reacquire;
+            bool onMachine=phase==MachineCoverThreat.Intention.MachineContact;
+            float lean=pursuing?18:onMachine?22:8;
+            float side=pursuing?-7:onMachine?-11:-5;
+            float load=0;
+            if(phase==MachineCoverThreat.Intention.Entry&&rush)
+            {
+                if(!rush.HasContact)
+                {
+                    float drive=Mathf.SmoothStep(0,1,Mathf.InverseLerp(.20f,.42f,age));
+                    lean=Mathf.Lerp(10,24,drive);side=Mathf.Lerp(-9,4,drive);load=drive;
+                }
+                else
+                {
+                    float a=rush.ContactAge;
+                    float impact=Mathf.SmoothStep(0,1,a/.055f)*(1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(.15f,.52f,a)));
+                    lean=12+15*impact;side=-6+9*impact;load=impact;
+                }
+            }
+            hips.position-=root.up*(.028f+.025f*load);
+            Rotate(spine,root.right,lean);
+            Rotate(chest,root.up,side);
+            Rotate(chest,root.forward,-4);
+            Rotate(neck,root.right,-lean*.55f);
+            Rotate(leftArm,root.right,pursuing?-16:-5);
+            Rotate(rightArm,root.right,pursuing?8:-8);
+            Rotate(leftArm,root.forward,7);Rotate(rightArm,root.forward,-9);
+            Rotate(leftForearm,root.right,pursuing?-34:-17);
+            Rotate(rightForearm,root.right,pursuing?-22:-12);
         }
         void Leg(bool left,float p,float stance,float stride,float moving,float speed,float turnRate)
         {
