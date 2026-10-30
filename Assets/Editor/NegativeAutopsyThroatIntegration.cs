@@ -18,24 +18,27 @@ public static class NegativeAutopsyThroatIntegration
         if(EditorApplication.isPlayingOrWillChangePlaymode||SceneManager.GetActiveScene().name!="EchoProtocol_Negative")
             throw new InvalidOperationException("Open Negative in Edit Mode.");
         var mask=All<NegativeUnsealingMask>().Single();
-        if(mask.GetComponentInChildren<NegativeAutopsyThroat>(true))return;
+        var existing=mask.GetComponentInChildren<NegativeAutopsyThroat>(true);
         var shell=mask.GetComponentsInChildren<SkinnedMeshRenderer>(true).Single(r=>r.name=="Negative / ivory shell");
         var surface=mask.GetComponentsInChildren<Transform>(true).Single(t=>t.name=="Unsealing / ceramic plates and recessed core");
         var head=surface.parent;
         var bind=shell.sharedMesh.bindposes[Array.IndexOf(shell.bones,head)];
         var pivot=bind.MultiplyPoint3x4(new Vector3(-.023f,1.72f,.198f));
-        var throat=MeshAsset("AutopsyThroat-v1.asset",()=>BuildThroat(bind,pivot));
+        var throat=MeshAsset("AutopsyThroat-v2.asset",()=>BuildThroat(bind,pivot));
         var teeth=MeshAsset("AutopsyTeeth-v1.asset",()=>BuildTeeth(bind,pivot));
-        var dark=MaterialAsset("AutopsyThroat-v1.mat",new Color(.11f,.021f,.014f),.58f);
+        var well=MeshAsset("AutopsyWell-v2.asset",()=>BuildWell(bind,pivot));
+        var dark=MaterialAsset("AutopsyThroat-v2.mat",new Color(.14f,.026f,.018f),.16f);
+        var black=MaterialAsset("AutopsyWell-v2.mat",new Color(.004f,.001f,.001f),0);
         var ivory=MaterialAsset("AutopsyTeeth-v1.mat",new Color(.49f,.39f,.27f),.42f);
-        var root=new GameObject("Autopsy / throat behind ceramic").transform;
-        Undo.RegisterCreatedObjectUndo(root.gameObject,"Sculpt present throat");root.SetParent(head,false);root.localPosition=pivot;
+        var root=existing?existing.transform:new GameObject("Autopsy / throat behind ceramic").transform;
+        if(!existing){Undo.RegisterCreatedObjectUndo(root.gameObject,"Sculpt present throat");root.SetParent(head,false);root.localPosition=pivot;}
         Surface(root,"Autopsy / nested throat folds",throat,dark);
         Surface(root,"Autopsy / inward bone roots",teeth,ivory);
+        Surface(root,"Autopsy / opaque inner well",well,black);
         foreach(var old in surface.GetComponentsInChildren<Renderer>(true))
             if(old.name=="Unsealing / recessed interior"||old.name=="Unsealing / inner binding fibers")
             {Undo.RecordObject(old,"Replace flat interior");old.enabled=false;}
-        var movement=Undo.AddComponent<NegativeAutopsyThroat>(root.gameObject);
+        var movement=existing?existing:Undo.AddComponent<NegativeAutopsyThroat>(root.gameObject);
         var so=new SerializedObject(movement);
         so.FindProperty("mask").objectReferenceValue=mask;
         so.FindProperty("session").objectReferenceValue=All<EchoProtocol.Presentation.GameSession>().Single();
@@ -51,7 +54,8 @@ public static class NegativeAutopsyThroatIntegration
         b.Grid(64,64,(u,v)=>
         {
             float a=u*Mathf.PI*2,r=.015f+.985f*v;
-            float crease=.0028f*Mathf.Sin(v*44+a*.7f)*Mathf.Sin(v*Mathf.PI);
+            float crease=.005f*Mathf.Sin(v*13+Mathf.Sin(a*3)*1.8f+Mathf.Sin(a*7)*.8f)*Mathf.Sin(v*Mathf.PI)
+                +.003f*Mathf.Sin(a*9+v*5)*r;
             float x=-.023f+Mathf.Cos(a)*.102f*r*(1+.035f*Mathf.Sin(a*5));
             float y=1.72f+Mathf.Sin(a)*.177f*r;
             float z=.173f+.038f*r*r+crease;
@@ -67,6 +71,13 @@ public static class NegativeAutopsyThroatIntegration
             b.Tube(a,c,.006f,.004f);b.Tube(c,d,.004f,.001f);
         }
         return b.Finish("Autopsy / recessed folded throat");
+    }
+    static Mesh BuildWell(Matrix4x4 bind,Vector3 pivot)
+    {
+        var b=new Builder(bind,pivot);
+        b.Grid(12,40,(u,v)=>new Vector3(-.023f+Mathf.Cos(u*Mathf.PI*2)*.028f*v,
+            1.72f+Mathf.Sin(u*Mathf.PI*2)*.062f*v,.183f+.001f*v));
+        return b.Finish("Autopsy / lightless inner well");
     }
     static Mesh BuildTeeth(Matrix4x4 bind,Vector3 pivot)
     {
@@ -114,12 +125,17 @@ public static class NegativeAutopsyThroatIntegration
     {
         var m=AssetDatabase.LoadAssetAtPath<Material>(Folder+name);if(m)return m;
         m=new Material(Shader.Find("Universal Render Pipeline/Lit")){name=name};m.SetColor("_BaseColor",color);m.SetFloat("_Smoothness",smoothness);m.SetFloat("_Cull",0);
+        if(name.Contains("Throat")||name.Contains("Well"))
+        {m.SetFloat("_SpecularHighlights",0);m.EnableKeyword("_SPECULARHIGHLIGHTS_OFF");m.SetFloat("_EnvironmentReflections",0);m.EnableKeyword("_ENVIRONMENTREFLECTIONS_OFF");}
+        if(name.Contains("Throat"))m.SetTexture("_BaseMap",AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/_Game/Art/NegativeUnsealing/WaxedMortuaryCanvas.png"));
         AssetDatabase.CreateAsset(m,Folder+name);return m;
     }
     static void Surface(Transform parent,string name,Mesh mesh,Material mat)
     {
-        var g=new GameObject(name);g.transform.SetParent(parent,false);g.AddComponent<MeshFilter>().sharedMesh=mesh;
-        var r=g.AddComponent<MeshRenderer>();r.sharedMaterial=mat;r.shadowCastingMode=ShadowCastingMode.Off;
+        var found=parent.Cast<Transform>().SingleOrDefault(t=>t.name==name);
+        var g=found?found.gameObject:new GameObject(name);if(!found)g.transform.SetParent(parent,false);
+        var f=g.GetComponent<MeshFilter>();if(!f)f=g.AddComponent<MeshFilter>();f.sharedMesh=mesh;
+        var r=g.GetComponent<MeshRenderer>();if(!r)r=g.AddComponent<MeshRenderer>();r.sharedMaterial=mat;r.shadowCastingMode=ShadowCastingMode.Off;
     }
     static T[] All<T>()where T:Component=>SceneManager.GetActiveScene().GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<T>(true)).ToArray();
 }
