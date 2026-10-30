@@ -64,11 +64,13 @@ public static class NegativeUnsealingIntegration
     {
         if(EditorApplication.isPlayingOrWillChangePlaymode)throw new InvalidOperationException("Apply surface outside Play.");
         const string path="Assets/_Game/Art/NegativeUnsealing/WaxedMortuaryCanvas.png";
-        var texture=AssetDatabase.LoadAssetAtPath<Texture2D>(path);
-        if(!texture)throw new InvalidOperationException("Import the saved generated surface first.");
         var importer=(TextureImporter)AssetImporter.GetAtPath(path);
-        importer.textureType=TextureImporterType.Default; importer.sRGBTexture=true; importer.mipmapEnabled=true;
+        if(!importer)throw new InvalidOperationException("Import the saved generated surface first.");
+        importer.textureType=TextureImporterType.Default; importer.textureShape=TextureImporterShape.Texture2D;
+        importer.sRGBTexture=true; importer.mipmapEnabled=true;
         importer.wrapMode=TextureWrapMode.Repeat; importer.maxTextureSize=1024; importer.anisoLevel=4; importer.SaveAndReimport();
+        var texture=AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+        if(!texture)throw new InvalidOperationException("Expected a two-dimensional diffuse surface.");
         foreach(var folder in new[]{"Assets/_Game/Art/NegativeUnsealing","Assets/_Game/Art/NegativeRitual"})
         foreach(var guid in AssetDatabase.FindAssets("t:Material",new[]{folder}))
         {
