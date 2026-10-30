@@ -177,3 +177,7 @@ __pycache__/
 # Incursion inherits privately licensed Embodiment models.
 /Assets/_Game/Scenes/Production/EchoProtocol_Incursion.unity
 /Assets/_Game/Scenes/Production/EchoProtocol_Incursion.unity.meta
+
+# Negative inherits the same private licensed actor references.
+/Assets/_Game/Scenes/Production/EchoProtocol_Negative.unity
+/Assets/_Game/Scenes/Production/EchoProtocol_Negative.unity.meta
