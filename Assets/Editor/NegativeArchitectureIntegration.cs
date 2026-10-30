@@ -53,7 +53,9 @@ public static class NegativeArchitectureIntegration
         black = Paint("Black", new Color(.018f,.023f,.024f), .2f, .2f);
         brass = Paint("Ochre", new Color(.42f,.29f,.105f), .6f, .4f);
         glow = Paint("Work emission", new Color(.65f,.55f,.35f), .1f, .3f);
-        glow.EnableKeyword("_EMISSION"); glow.SetColor("_EmissionColor", new Color(2.2f,1.05f,.24f));
+        glow.SetColor("_EmissionColor", new Color(2.2f,1.05f,.24f));
+        glow.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
+        glow.EnableKeyword("_EMISSION");
         EditorUtility.SetDirty(glow);
         AddConcreteGrain(graphite);
         root = new GameObject(RootName).transform;
