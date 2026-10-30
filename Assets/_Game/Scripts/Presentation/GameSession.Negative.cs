@@ -205,7 +205,16 @@ namespace EchoProtocol.Presentation
                 else {key="R";action="Volvé al mando y prepará otra toma";}
             }
             else if(cover.Pressure01>.15f){key="ESPERAR";action="La presión debe bajar para cruzar";}
-            else {key="MANTENER E";action="Cruzá y usá la palanca del fondo";progress=cover.WorkFraction;}
+            else
+            {
+                var target=interactor?interactor.FocusedTarget as MachineCoverInteraction:null;
+                var held=cover.HoldingInteraction as MachineCoverInteraction;
+                bool atRelease=(target&&target.Operation==MachineCoverInteraction.Kind.Release&&interactor.HasUsableFocus)
+                    ||(held&&held.Operation==MachineCoverInteraction.Kind.Release);
+                key=atRelease?"MANTENER E":"WASD";
+                action=atRelease?"Liberá la compuerta de salida":"Cruzá hacia la palanca del fondo";
+                progress=atRelease?cover.WorkFraction:-1;
+            }
         }
 
         void DrawNegativeHud()
