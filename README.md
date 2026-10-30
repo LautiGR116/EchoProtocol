@@ -43,7 +43,10 @@ intruder and a full-screen title with **ENTRAR EN LA CÁMARA** as the default
 entry. The room darkens after the learned pump rule; its work lighting follows
 the real pump control. The ritual pass adds sculpted human membranes, suspended
 casts, crank-driven deformation, a first-silence wall strike and eight authored
-physical sounds. **Recorrido completo** remains a secondary entry.
+physical sounds. The unsealing pass reveals a captive behind that membrane,
+lowers a suspended body beside the return and fractures the intruder’s ceramic
+mask on real contact, with four further sound masters and an original waxed
+canvas surface. **Recorrido completo** remains a secondary entry.
 Incursion is preserved. Saved local integration; pump PASS40 in the Editor,
 with an 8/8/20-second suggested plan. Human comprehension, fear and comfort
 remain **EN PRUEBA**.

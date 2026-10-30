@@ -274,3 +274,12 @@ físico tras el primer silencio reproducido y materiales/actuación del intruso.
 La intensidad se trabaja con sustracción, ataque y proximidad; el limitador y
 las opciones de dinámica/altavoces permanecen. La nueva pasada sigue EN PRUEBA
 humana; no se convierte este pedido en aprobación de sus sonidos o actuación.
+
+## 2026-10-30 — segunda aprobación de dirección, pedido de mayor crudeza
+
+Después de la pasada ritual, el usuario vuelve a decir «Me gustaron los
+resultados» y pide ir mucho más lejos con el miedo y lo macabro. Es aprobación
+del resultado percibido y autorización para otra escalada; no se identifica
+qué momento produjo miedo ni una duración de juego. La nueva pasada «Apertura»
+revela un cuerpo detrás de la membrana, baja otro junto al regreso y fractura
+la máscara tras el contacto físico del intruso. Su impacto sigue EN PRUEBA.
