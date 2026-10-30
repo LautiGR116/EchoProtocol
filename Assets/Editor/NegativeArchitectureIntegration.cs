@@ -159,7 +159,7 @@ public static class NegativeArchitectureIntegration
         {
             var l=Lamp("Vault / diffuse work pool",new Vector3(-1.5f,6.6f,-31.8f-i*6),new Color(.76f,.84f,.84f),3.6f,12);
             ambient.Add(l);
-            Box("Vault / luminous practical",l.transform.position+Vector3.up*.15f,new Vector3(1.5f,.08f,.3f),glow);
+            panels.Add(Box("Vault / luminous practical",l.transform.position+Vector3.up*.15f,new Vector3(1.5f,.08f,.3f),glow).GetComponent<Renderer>());
         }
         var task=Lamp("Resonator / working light",new Vector3(4.6f,4.5f,-35.3f),new Color(1,.83f,.56f),3.5f,10);
         work.Add(task);
@@ -189,7 +189,7 @@ public static class NegativeArchitectureIntegration
         var cues=new AudioSource[3];
         for(int i=0;i<3;i++)
         {
-            var g=new GameObject("Shutter / physical cue " + i); g.transform.SetParent(shutters[i==2?2:0],false);
+            var g=new GameObject("Shutter / physical cue " + i); g.transform.SetParent(shutters[i==2?2:i==1?5:0],false);
             cues[i]=g.AddComponent<AudioSource>(); cues[i].clip=AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/_Game/Audio/Clips/"+clips[i]+".wav");
             cues[i].outputAudioMixerGroup=bus; cues[i].playOnAwake=false; cues[i].spatialBlend=1; cues[i].dopplerLevel=0;
             cues[i].volume=i==0?.17f:.23f; cues[i].minDistance=1.8f; cues[i].maxDistance=19; cues[i].rolloffMode=AudioRolloffMode.Linear;
