@@ -38,16 +38,16 @@ namespace EchoProtocol.Presentation
         { if (surface.text != value) surface.text = value; }
         private void LateUpdate()
         {
-            Write(statusA, relay.EchoAAuthorized ? "A / TOMA ACEPTADA\nPASO AUTORIZADO"
-                : readerA.IsPlayerAligned ? "A / LECTURA LOCAL\nPASO DE PRUEBA" : "A / LECTOR DE MIRADA\nCIAN = LECTURA");
+            Write(statusA, relay.EchoAAuthorized ? "A / ECHO RECIBIDO\nCRUZÁ A SERVICIO"
+                : readerA.IsPlayerAligned ? "A / MIRADA DETECTADA\nSEGUÍ HASTA B" : "A / MIRÁ EL ARO\nSE ACTIVA SIN PULSAR E");
             Write(statusB, relay.RequiresSimultaneousPresence
-                ? (relay.EchoBAuthorized ? "B / PRESENCIA RECIBIDA\nCOINCIDIR CON C" : readerB.IsPlayerAligned ? "B / LECTURA LOCAL\nDURA MIENTRAS MIRÁS" : "B / PRESENCIA CONTINUA\nSE APAGA AL RETIRARSE")
+                ? (relay.EchoBAuthorized ? "B / ECHO PRESENTE\nVOS MIRÁ C" : readerB.IsPlayerAligned ? "B / MIRADA DETECTADA\nGRABÁ UNA PAUSA AQUÍ" : "B / MIRÁ Y ESPERÁ\nR / CREAR TU ECHO")
                 : relay.EchoBAuthorized ? "B / TOMA ACEPTADA"
                 : readerB.IsPlayerAligned ? "B / LECTURA LOCAL" : "B / LECTOR DE MIRADA");
             Write(statusC, relay.IsComplete ? "A + B + C\nCOOPERACIÓN ACEPTADA"
                 : relay.RequiresSimultaneousPresence && relay.EchoAAuthorized
-                    ? (relay.EchoBAuthorized ? "B PRESENTE / MIRAR C\nCOINCIDENCIA " + Mathf.RoundToInt(relay.CooperationFraction*100) + "%" : "A ACEPTADA / ESPERANDO B\nC REQUIERE PRESENCIA SIMULTÁNEA")
-                : relay.RequiresSimultaneousPresence ? "C / ACCESO\nPRIMERO A · LUEGO B + C"
+                    ? (relay.EchoBAuthorized ? "B PRESENTE / MIRAR C\nCOINCIDENCIA " + Mathf.RoundToInt(relay.CooperationFraction*100) + "%" : "ESPERÁ A TU ECHO EN B\nDESPUÉS MIRÁ EL ARO C")
+                : relay.RequiresSimultaneousPresence ? "C / TU LADO DEL VIDRIO\nECHO EN B + VOS EN C"
                 : relay.EchoAAuthorized && relay.EchoBAuthorized ? "A + B ACEPTADOS\nC / LECTURA DISPONIBLE"
                 : "C / ACCESO\nREQUIERE A + B EN LA TOMA");
             if (review.UsesArrivalPresentation)

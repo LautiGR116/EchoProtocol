@@ -15,6 +15,7 @@ namespace EchoProtocol.Presentation
         [SerializeField] private Camera view;
         [SerializeField] private CampaignDirector campaign;
         [SerializeField] private PressureIsolation isolation;
+        [SerializeField] private ProtocolGuidance guidance;
         GUIStyle label;
         public IInteractable DisplayedTarget { get; private set; }
         public string DisplayedPrompt { get; private set; } = "";
@@ -36,6 +37,14 @@ namespace EchoProtocol.Presentation
             bool available = interactor.HasUsableFocus;
             GUI.color = available || holding ? new Color(.73f, .9f, .84f, .95f) : new Color(.74f, .8f, .78f, .55f);
             GUI.DrawTexture(new Rect(638.5f, 358.5f, 3, 3), Texture2D.whiteTexture);
+            if (!available && !holding && guidance && !string.IsNullOrEmpty(guidance.OpticalPrompt))
+            {
+                DisplayedPrompt = guidance.OpticalPrompt;
+                GUI.color = new Color(.012f, .021f, .024f, .94f);
+                GUI.DrawTexture(new Rect(320,558,640,58),Texture2D.whiteTexture);
+                GUI.color=Color.white;
+                GUI.Label(new Rect(336,565,608,46),DisplayedPrompt,label);
+            }
             if (available || holding)
             {
                 DisplayedTarget = coverHolding??(holdingReturn ? (IInteractable)returnControl : holding ? isolation : interactor.FocusedTarget);
@@ -88,7 +97,16 @@ namespace EchoProtocol.Presentation
             bool hold=(isolation&&isolation.IsHolding)||holdReturn||coverHolding!=null;
             bool available=interactor.HasUsableFocus;
             ui.Fill(new Rect(638.5f,358.5f,3,3),available||hold?ui.Paper:ui.Muted);
-            if(!available&&!hold)return;
+            if(!available&&!hold)
+            {
+                if(!guidance || string.IsNullOrEmpty(guidance.OpticalPrompt))return;
+                DisplayedPrompt=guidance.OpticalPrompt;
+                ui.Panel(area);
+                ui.Fill(new Rect(area.x+15,area.y+13,32,32),ui.Accent);
+                GUI.Label(new Rect(area.x+15,area.y+15,32,28),"VER",ui.Text(10,true,ui.Ink,TextAnchor.MiddleCenter));
+                GUI.Label(new Rect(area.x+61,area.y+8,area.width-79,area.height-12),DisplayedPrompt,ui.Text(17,false,null,TextAnchor.MiddleLeft));
+                return;
+            }
             DisplayedTarget=coverHolding??(holdReturn?(IInteractable)returning:hold?isolation:interactor.FocusedTarget);
             bool sustained=DisplayedTarget is PressureIsolation||DisplayedTarget is ReturnWitnessControl||DisplayedTarget is RecordedMachineControl||DisplayedTarget is MachineCoverInteraction;
             DisplayedPrompt=(sustained?"MANTENER E  ·  ":"E  ·  ")+Prompt(DisplayedTarget);

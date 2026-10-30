@@ -39,7 +39,7 @@ namespace EchoProtocol.Presentation
         public int ManualLevel => current == null ? 0 : current.manual;
         public string VisibleText { get; private set; } = "";
         public string CurrentNote => guidance ? guidance.Hint(ManualLevel) : "";
-        public bool IsVisible => automaticEnabled && visibleRemaining>0 && session && !session.IsPaused && !session.IsEnding;
+        public bool IsVisible => automaticEnabled && visibleRemaining>0 && session && !session.IsPaused && !session.IsEnding && guidance && guidance.CanOfferHint;
         private void Awake()
         {
             automaticEnabled=PlayerPrefs.GetInt("EP.AutomaticHints",1)==1;
@@ -58,7 +58,12 @@ namespace EchoProtocol.Presentation
             // A repeated retry can reach a state already seen in this session.
             // Its previous instruction is still stale and must leave the HUD.
             string progress=guidance.ProgressStamp;
-            if(progress!=lastProgress) { lastProgress=progress;current.progress.Add(progress);stalled=0;visibleRemaining=0; }
+            if(progress!=lastProgress)
+            {
+                lastProgress=progress;
+                if(current.progress.Add(progress))stalled=0;
+                visibleRemaining=0;
+            }
             float dt=Time.deltaTime;ActiveSeconds+=dt;stalled+=dt;visibleRemaining=Mathf.Max(0,visibleRemaining-dt);
             if(!automaticEnabled || !guidance.IsPuzzleStage || current.automatic>=2) return;
             int attempts=Mathf.Max(0,loop.CompletedLoopCount+guidance.RejectedAttempts-current.attemptsAtEntry);

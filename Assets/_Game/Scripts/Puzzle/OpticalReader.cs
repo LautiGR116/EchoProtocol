@@ -56,6 +56,19 @@ namespace EchoProtocol.Puzzle
 
         public bool IsPlayerAligned => IsKindAligned(LoopActorKind.Player);
 
+        // Read-only presentation query. Unlike HasFacingPresence, this excludes
+        // an older Echo while describing the Player's newly recorded orientation.
+        public bool IsPlayerFacing
+        {
+            get
+            {
+                foreach (LoopActor actor in actorOccupancyCounts.Keys)
+                    if (actor != null && actor.isActiveAndEnabled && actor.Kind == LoopActorKind.Player
+                        && IsFacingRequiredDirection(actor.transform)) return true;
+                return false;
+            }
+        }
+
         public bool IsEchoAligned => IsKindAligned(LoopActorKind.Echo);
 
         public bool IsPlayerPresent => IsKindPresent(LoopActorKind.Player);
