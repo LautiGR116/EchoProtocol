@@ -33,6 +33,10 @@ public static class NegativeArchitectureIntegration
         if (scene.GetRootGameObjects().Any(g => g.name == RootName))
             throw new InvalidOperationException("Architecture already exists; edit it in place instead of stacking another installation.");
         var encounter = All<MachineCoverEncounter>().Single();
+        var pacing = new SerializedObject(encounter);
+        pacing.FindProperty("preparationQuietSeconds").floatValue = 8;
+        pacing.FindProperty("preparationReturnSeconds").floatValue = 20;
+        pacing.ApplyModifiedPropertiesWithoutUndo();
         var session = All<GameSession>().Single();
         var loop = new SerializedObject(encounter).FindProperty("loop").objectReferenceValue as LoopController;
         var output = All<SessionAudio>().Single();

@@ -16,6 +16,10 @@ namespace EchoProtocol.Campaign
         public const float FirstRunSeconds = 8;
         public const float QuietWindowSeconds = 5;
         public const float ReturnRunSeconds = 16;
+        [SerializeField, Min(QuietWindowSeconds)] private float preparationQuietSeconds = QuietWindowSeconds;
+        [SerializeField, Min(ReturnRunSeconds)] private float preparationReturnSeconds = ReturnRunSeconds;
+        public float SuggestedQuietSeconds => Mathf.Max(QuietWindowSeconds, preparationQuietSeconds);
+        public float SuggestedReturnSeconds => Mathf.Max(ReturnRunSeconds, preparationReturnSeconds);
         [SerializeField] private CampaignDirector director;
         [SerializeField] private GameSession session;
         [SerializeField] private FirstPersonController player;
@@ -45,9 +49,9 @@ namespace EchoProtocol.Campaign
         {
             public bool HasEvents, Held, Ready;
             public int Phase, Interruption;
-            public float PhaseStarted, At;
+            public float PhaseStarted, At, QuietTarget, ReturnTarget;
             public float Elapsed => Mathf.Max(0, At - PhaseStarted);
-            public float Target => Phase == 0 ? FirstRunSeconds : Phase == 1 ? QuietWindowSeconds : ReturnRunSeconds;
+            public float Target => Phase == 0 ? FirstRunSeconds : Phase == 1 ? QuietTarget : ReturnTarget;
             public float Fraction => Ready ? 1 : !HasEvents || Phase == 0 && !Held ? 0 : Mathf.Clamp01(Elapsed / Target);
             public int Remaining => Mathf.Max(0, Mathf.CeilToInt(Target - Elapsed));
         }
@@ -262,7 +266,7 @@ namespace EchoProtocol.Campaign
         // this action. Pausing cannot add time: both sources use take timestamps.
         PreparationState ReadPreparation(EchoRecording take)
         {
-            var state = new PreparationState();
+            var state = new PreparationState { QuietTarget = SuggestedQuietSeconds, ReturnTarget = SuggestedReturnSeconds };
             bool live = take == null;
             int count = live ? recorder.CapturedMachineGripCount : take.MachineGripCount;
             state.At = live ? recorder.ElapsedTime : take.Duration;
@@ -276,7 +280,7 @@ namespace EchoProtocol.Campaign
                     float duration = grip.Timestamp - state.PhaseStarted;
                     if (grip.Held)
                     {
-                        if (state.Phase == 1 && duration >= QuietWindowSeconds) state.Phase = 2;
+                        if (state.Phase == 1 && duration >= SuggestedQuietSeconds) state.Phase = 2;
                         else
                         {
                             if (state.Phase == 1) state.Interruption = 1;
@@ -284,7 +288,7 @@ namespace EchoProtocol.Campaign
                         }
                         state.PhaseStarted = grip.Timestamp;
                     }
-                    else if (state.Phase == 2 && duration >= ReturnRunSeconds)
+                    else if (state.Phase == 2 && duration >= SuggestedReturnSeconds)
                     {
                         state.Phase = 3; state.Ready = true; state.Interruption = 0;
                     }

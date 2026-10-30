@@ -30,8 +30,8 @@ public sealed partial class ThresholdCampaignProbe
         yield return Capture("coverage-control");
         step="coverage_record_first_noise";keys=new[]{Key.E};yield return new WaitForSeconds(MachineCoverEncounter.FirstRunSeconds+.12f);keys=Array.Empty<Key>();yield return Wait(.18f);
         Check(cover.RuleObserved&&recorder.CapturedMachineGripCount==2&&!machine.PlayerHeld,"safe first start and release captured as two actual grip events");
-        step="coverage_record_silence";yield return Wait(MachineCoverEncounter.QuietWindowSeconds-.06f);
-        step="coverage_record_return_noise";keys=new[]{Key.E};yield return new WaitForSeconds(MachineCoverEncounter.ReturnRunSeconds+.12f);keys=Array.Empty<Key>();yield return Wait(.2f);
+        step="coverage_record_silence";yield return Wait(cover.SuggestedQuietSeconds-.06f);
+        step="coverage_record_return_noise";keys=new[]{Key.E};yield return new WaitForSeconds(cover.SuggestedReturnSeconds+.12f);keys=Array.Empty<Key>();yield return Wait(.2f);
         Check(recorder.CapturedMachineGripCount==4,"two starts and two releases explicitly captured");
         Check(cover.CurrentTakeReady,"live preparation guide accepts the actual shorter on/off/on/off take");
         yield return Recall();
